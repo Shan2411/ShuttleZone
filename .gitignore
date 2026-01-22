@@ -1,1 +1,39 @@
-.vs/ShuttleZone.slnx
+# Visual Studio temporary files, build results, and cache
+.vs/
+bin/
+obj/
+*.cache
+*.tmp
+*.user
+*.suo
+*.pdb
+
+# Rider IDE files (if ever used)
+.idea/
+
+# Resharper files
+_ReSharper*/
+*.DotSettings.user
+
+# NuGet packages
+*.nupkg
+packages/
+*.snupkg
+
+# Visual Studio Code settings
+.vscode/
+
+# Logs and database files
+*.log
+*.mdf
+*.ldf
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Others
+TestResults/
+*.bak
+*.backup
