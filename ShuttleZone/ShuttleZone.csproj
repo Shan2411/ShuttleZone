@@ -90,6 +90,12 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance_Logs\MaintenanceWindow.resx">
+      <DependentUpon>MaintenanceWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance_Logs\MButton.resx">
+      <DependentUpon>MButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -18,13 +18,20 @@ namespace ShuttleZone.Maintenance_Logs
 
             MButton court1_button = new MButton();
             MButton court2_button = new MButton();
-            MButton court3_button = new MButton();  
+            MButton court3_button = new MButton();
             MButton court4_button = new MButton();
 
-            tableLayoutPanel5.Controls.Add(court1_button, 1, 0);
-            tableLayoutPanel5.Controls.Add(court2_button, 3, 0);
-            tableLayoutPanel5.Controls.Add(court3_button, 5, 0);
-            tableLayoutPanel5.Controls.Add(court4_button, 7, 0);
+            tableLayoutPanel5.Controls.Clear();
+
+            tableLayoutPanel5.Controls.Add(new MButton(), 1, 1);
+            tableLayoutPanel5.Controls.Add(new MButton(), 3, 1);
+            tableLayoutPanel5.Controls.Add(new MButton(), 5, 1);
+            tableLayoutPanel5.Controls.Add(new MButton(), 7, 1);
+
+        }
+
+        private void MaintenanceWindow_Load(object sender, EventArgs e)
+        {
 
         }
 
@@ -34,6 +41,21 @@ namespace ShuttleZone.Maintenance_Logs
         }
 
         private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel5_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel5_Paint_2(object sender, PaintEventArgs e)
         {
 
         }
