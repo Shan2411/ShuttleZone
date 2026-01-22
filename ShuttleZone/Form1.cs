@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-
+using ShuttleZone.Maintenance_Logs;
 namespace ShuttleZone
 {
     public partial class Form1 : Form
@@ -8,6 +8,12 @@ namespace ShuttleZone
         public Form1()
         {
             InitializeComponent();
+
+            
+            Maintenance_Logs.MaintenanceWindow maintenanceWindow = new Maintenance_Logs.MaintenanceWindow();
+            MainContentPanel.Controls.Add(maintenanceWindow);
+            maintenanceWindow.Dock = DockStyle.Fill;
+
             this.Load += Form1_Load;
         }
 
@@ -15,6 +21,8 @@ namespace ShuttleZone
         {
             // Set current date to label
             DateLbl.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy");
+
+
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
