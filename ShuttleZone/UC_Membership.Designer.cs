@@ -31,17 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Membership));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.AddMemberBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SearchbarBGPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.ExitBtn = new Guna.UI2.WinForms.Guna2PictureBox();
             this.Searchbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SearchbarBGPanel.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ExitBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -78,18 +76,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(932, 58);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(10, 16);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(10);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(249, 25);
-            this.guna2HtmlLabel1.TabIndex = 0;
-            this.guna2HtmlLabel1.Text = "Membership Management";
-            // 
             // AddMemberBtn
             // 
             this.AddMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
@@ -103,12 +89,25 @@
             this.AddMemberBtn.FillColor = System.Drawing.Color.Transparent;
             this.AddMemberBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddMemberBtn.ForeColor = System.Drawing.Color.White;
+            this.AddMemberBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddMemberBtn.Image")));
             this.AddMemberBtn.Location = new System.Drawing.Point(764, 20);
             this.AddMemberBtn.Margin = new System.Windows.Forms.Padding(20);
             this.AddMemberBtn.Name = "AddMemberBtn";
             this.AddMemberBtn.Size = new System.Drawing.Size(148, 18);
             this.AddMemberBtn.TabIndex = 29;
             this.AddMemberBtn.Text = "Add Member";
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(10, 16);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(10);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(249, 25);
+            this.guna2HtmlLabel1.TabIndex = 0;
+            this.guna2HtmlLabel1.Text = "Membership Management";
             // 
             // SearchbarBGPanel
             // 
@@ -126,10 +125,9 @@
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95F));
-            this.tableLayoutPanel3.Controls.Add(this.ExitBtn, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.Searchbox, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
@@ -139,19 +137,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(912, 23);
             this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // ExitBtn
-            // 
-            this.ExitBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ExitBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ExitBtn.BackgroundImage")));
-            this.ExitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ExitBtn.FillColor = System.Drawing.Color.Transparent;
-            this.ExitBtn.ImageRotate = 0F;
-            this.ExitBtn.Location = new System.Drawing.Point(12, 3);
-            this.ExitBtn.Name = "ExitBtn";
-            this.ExitBtn.Size = new System.Drawing.Size(20, 17);
-            this.ExitBtn.TabIndex = 1;
-            this.ExitBtn.TabStop = false;
             // 
             // Searchbox
             // 
@@ -165,11 +150,12 @@
             this.Searchbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Searchbox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Searchbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Searchbox.Location = new System.Drawing.Point(48, 3);
+            this.Searchbox.IconLeft = ((System.Drawing.Image)(resources.GetObject("Searchbox.IconLeft")));
+            this.Searchbox.Location = new System.Drawing.Point(3, 3);
             this.Searchbox.Name = "Searchbox";
             this.Searchbox.PlaceholderText = "";
             this.Searchbox.SelectedText = "";
-            this.Searchbox.Size = new System.Drawing.Size(861, 17);
+            this.Searchbox.Size = new System.Drawing.Size(906, 17);
             this.Searchbox.TabIndex = 2;
             // 
             // UC_Membership
@@ -184,7 +170,6 @@
             this.tableLayoutPanel2.PerformLayout();
             this.SearchbarBGPanel.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ExitBtn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -197,7 +182,6 @@
         private Guna.UI2.WinForms.Guna2Button AddMemberBtn;
         private Guna.UI2.WinForms.Guna2GradientPanel SearchbarBGPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private Guna.UI2.WinForms.Guna2PictureBox ExitBtn;
         private Guna.UI2.WinForms.Guna2TextBox Searchbox;
     }
 }
