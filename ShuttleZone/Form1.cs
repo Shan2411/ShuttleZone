@@ -145,10 +145,14 @@ namespace ShuttleZone
             DynamicContentPanel.Controls.Clear();
         }
 
-        private void MaintenanceLogBtn_Click(object sender, EventArgs e)
+        public void MaintenanceLogBtn_Click(object sender, EventArgs e)
         {
             HighlightButton(MaintenanceLogBtn);
             DynamicContentPanel.Controls.Clear();
+
+            Maintenance_Logs.MaintenanceWindow maintenanceWindowUC = new Maintenance_Logs.MaintenanceWindow();
+            DynamicContentPanel.Controls.Add(maintenanceWindowUC);
+            maintenanceWindowUC.Dock = DockStyle.Fill;
         }
 
         private void ReportsBtn_Click(object sender, EventArgs e)
