@@ -17,35 +17,56 @@ namespace ShuttleZone.Maintenance_Logs
         {
             InitializeComponent();
 
+            //click
+            guna2Panel1.Click += Guna2Panel1_Click;
+            AttachClickHandlers(guna2Panel1);
+            //hover
+            guna2Panel1.MouseEnter += Guna2Panel1_MouseEnter;
+            guna2Panel1.MouseLeave += Guna2Panel1_MouseLeave;
         }
 
-        private void guna2Panel1_MouseEnter(object sender, EventArgs e)
+        private void Guna2Panel1_Click(object sender, EventArgs e) // parent
         {
-            guna2Panel1.FillColor = Color.FromArgb(45, 45, 45);
+            MessageBox.Show("Guna2Panel clicked!");
         }
 
-        private void guna2Panel1_MouseLeave(object sender, EventArgs e)
+        private void AttachClickHandlers(Control parent) // Makes the children clickable
         {
-            guna2Panel1.FillColor = Color.Transparent;
+            foreach (Control c in parent.Controls)
+            {
+                c.Click += (s, e) => Guna2Panel1_Click(s, e);
+
+                // Make hover effect work on child controls too
+                c.MouseEnter += (s, e) => Guna2Panel1_MouseEnter(s, e);
+                c.MouseLeave += (s, e) => Guna2Panel1_MouseLeave(s, e);
+
+                if (c.HasChildren)
+                    AttachClickHandlers(c);
+            }
         }
 
-        private void guna2Panel1_MouseDown(object sender, MouseEventArgs e)
+
+        private void Guna2Panel1_MouseEnter(object sender, EventArgs e)
         {
-            guna2Panel1.FillColor = Color.FromArgb(60, 60, 60);
+            guna2Panel1.FillColor = Color.FromArgb(213, 236, 205); 
         }
-
-        private void guna2Panel1_MouseUp(object sender, MouseEventArgs e)
+        private void Guna2Panel1_MouseLeave(object sender, EventArgs e)
         {
-            guna2Panel1.FillColor = Color.FromArgb(45, 45, 45);
+            guna2Panel1.FillColor = Color.FromArgb(202, 231, 192);
         }
 
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
