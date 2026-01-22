@@ -625,6 +625,8 @@
     }
 }
 
+/*
+
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2GradientPanel Sidebar;
         private System.Windows.Forms.TableLayoutPanel SidebarContainer;
@@ -685,3 +687,5 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }
+
+*/

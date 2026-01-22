@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using ShuttleZone.Maintenance_Logs;
+using System.Drawing;
+
 namespace ShuttleZone
 {
     public partial class Form1 : Form
@@ -9,18 +11,13 @@ namespace ShuttleZone
         {
             InitializeComponent();
 
-            
-            Maintenance_Logs.MaintenanceWindow maintenanceWindow = new Maintenance_Logs.MaintenanceWindow();
-            MainContentPanel.Controls.Add(maintenanceWindow);
-            maintenanceWindow.Dock = DockStyle.Fill;
-
             this.Load += Form1_Load;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             // Set current date to label
-            DateLbl.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy");
+            //DateLbl.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy");
 
 
         }
@@ -55,11 +52,6 @@ namespace ShuttleZone
            
         }
 
-
-        private void DashboardBtn_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void guna2HtmlLabel2_Click(object sender, EventArgs e)
         {
@@ -96,11 +88,6 @@ namespace ShuttleZone
             MessageBox.Show("user clicked");
         }
 
-        private void ReportsBtn_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("reports clicked");
-        }
-
         private void MaintenanceBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("maintenance clicked");
@@ -116,11 +103,6 @@ namespace ShuttleZone
             }
         }
 
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void DashboardBtn_Click(object sender, EventArgs e)
         {
