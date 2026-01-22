@@ -38,7 +38,7 @@
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.SidebarLinksGroup = new System.Windows.Forms.TableLayoutPanel();
             this.SystemSettingsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.UserManagementBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ReportsBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -63,7 +63,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
-            this.tableLayoutPanel10.SuspendLayout();
+            this.SidebarLinksGroup.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.Topbar.SuspendLayout();
@@ -104,7 +104,7 @@
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel10, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.SidebarLinksGroup, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel11, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
@@ -211,37 +211,37 @@
             this.guna2HtmlLabel6.Text = "Username";
             this.guna2HtmlLabel6.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tableLayoutPanel10
+            // SidebarLinksGroup
             // 
-            this.tableLayoutPanel10.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel10.ColumnCount = 1;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
-            this.tableLayoutPanel10.Controls.Add(this.SystemSettingsBtn, 1, 8);
-            this.tableLayoutPanel10.Controls.Add(this.UserManagementBtn, 1, 7);
-            this.tableLayoutPanel10.Controls.Add(this.ReportsBtn, 1, 6);
-            this.tableLayoutPanel10.Controls.Add(this.MaintenanceLogBtn, 1, 5);
-            this.tableLayoutPanel10.Controls.Add(this.EquipmentInventoryBtn, 1, 4);
-            this.tableLayoutPanel10.Controls.Add(this.RentalHistoryBtn, 1, 3);
-            this.tableLayoutPanel10.Controls.Add(this.POSBtn, 1, 2);
-            this.tableLayoutPanel10.Controls.Add(this.MembershipBtn, 1, 1);
-            this.tableLayoutPanel10.Controls.Add(this.DashboardBtn, 1, 0);
-            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(0, 102);
-            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(0, 10, 0, 150);
-            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 9;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(158, 241);
-            this.tableLayoutPanel10.TabIndex = 2;
+            this.SidebarLinksGroup.BackColor = System.Drawing.Color.Transparent;
+            this.SidebarLinksGroup.ColumnCount = 1;
+            this.SidebarLinksGroup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
+            this.SidebarLinksGroup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.SidebarLinksGroup.Controls.Add(this.SystemSettingsBtn, 1, 8);
+            this.SidebarLinksGroup.Controls.Add(this.UserManagementBtn, 1, 7);
+            this.SidebarLinksGroup.Controls.Add(this.ReportsBtn, 1, 6);
+            this.SidebarLinksGroup.Controls.Add(this.MaintenanceLogBtn, 1, 5);
+            this.SidebarLinksGroup.Controls.Add(this.EquipmentInventoryBtn, 1, 4);
+            this.SidebarLinksGroup.Controls.Add(this.RentalHistoryBtn, 1, 3);
+            this.SidebarLinksGroup.Controls.Add(this.POSBtn, 1, 2);
+            this.SidebarLinksGroup.Controls.Add(this.MembershipBtn, 1, 1);
+            this.SidebarLinksGroup.Controls.Add(this.DashboardBtn, 1, 0);
+            this.SidebarLinksGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SidebarLinksGroup.Location = new System.Drawing.Point(0, 102);
+            this.SidebarLinksGroup.Margin = new System.Windows.Forms.Padding(0, 10, 0, 150);
+            this.SidebarLinksGroup.Name = "SidebarLinksGroup";
+            this.SidebarLinksGroup.RowCount = 9;
+            this.SidebarLinksGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.SidebarLinksGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.SidebarLinksGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.SidebarLinksGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.SidebarLinksGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.SidebarLinksGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.SidebarLinksGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.SidebarLinksGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.SidebarLinksGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.SidebarLinksGroup.Size = new System.Drawing.Size(158, 241);
+            this.SidebarLinksGroup.TabIndex = 2;
             // 
             // SystemSettingsBtn
             // 
@@ -262,6 +262,7 @@
             this.SystemSettingsBtn.TabIndex = 25;
             this.SystemSettingsBtn.Text = "System Settings";
             this.SystemSettingsBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.SystemSettingsBtn.Click += new System.EventHandler(this.SystemSettingsBtn_Click);
             // 
             // UserManagementBtn
             // 
@@ -282,6 +283,7 @@
             this.UserManagementBtn.TabIndex = 24;
             this.UserManagementBtn.Text = "User Management";
             this.UserManagementBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.UserManagementBtn.Click += new System.EventHandler(this.UserManagementBtn_Click);
             // 
             // ReportsBtn
             // 
@@ -302,6 +304,7 @@
             this.ReportsBtn.TabIndex = 23;
             this.ReportsBtn.Text = "Reports";
             this.ReportsBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ReportsBtn.Click += new System.EventHandler(this.ReportsBtn_Click);
             // 
             // MaintenanceLogBtn
             // 
@@ -322,6 +325,7 @@
             this.MaintenanceLogBtn.TabIndex = 22;
             this.MaintenanceLogBtn.Text = "Maintenance Log";
             this.MaintenanceLogBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.MaintenanceLogBtn.Click += new System.EventHandler(this.MaintenanceLogBtn_Click);
             // 
             // EquipmentInventoryBtn
             // 
@@ -342,6 +346,7 @@
             this.EquipmentInventoryBtn.TabIndex = 21;
             this.EquipmentInventoryBtn.Text = "Equipment and History";
             this.EquipmentInventoryBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.EquipmentInventoryBtn.Click += new System.EventHandler(this.EquipmentInventoryBtn_Click);
             // 
             // RentalHistoryBtn
             // 
@@ -362,6 +367,7 @@
             this.RentalHistoryBtn.TabIndex = 20;
             this.RentalHistoryBtn.Text = "Rental History";
             this.RentalHistoryBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.RentalHistoryBtn.Click += new System.EventHandler(this.RentalHistoryBtn_Click);
             // 
             // POSBtn
             // 
@@ -382,6 +388,7 @@
             this.POSBtn.TabIndex = 19;
             this.POSBtn.Text = "POS and Checkout";
             this.POSBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.POSBtn.Click += new System.EventHandler(this.POSBtn_Click);
             // 
             // MembershipBtn
             // 
@@ -573,7 +580,7 @@
             this.guna2Panel1.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
-            this.tableLayoutPanel10.ResumeLayout(false);
+            this.SidebarLinksGroup.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -596,7 +603,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.TableLayoutPanel SidebarLinksGroup;
         private Guna.UI2.WinForms.Guna2Button UserManagementBtn;
         private Guna.UI2.WinForms.Guna2Button ReportsBtn;
         private Guna.UI2.WinForms.Guna2Button MaintenanceLogBtn;
