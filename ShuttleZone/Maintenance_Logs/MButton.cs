@@ -13,7 +13,7 @@ namespace ShuttleZone.Maintenance_Logs
 {
     public partial class MButton : UserControl
     {
-        public MButton()
+        public MButton(string courtName = "", string status = "")
         {
             InitializeComponent();
 
@@ -23,13 +23,20 @@ namespace ShuttleZone.Maintenance_Logs
             //hover
             guna2Panel1.MouseEnter += Guna2Panel1_MouseEnter;
             guna2Panel1.MouseLeave += Guna2Panel1_MouseLeave;
+            //load ng court may panagalan
+            label1.Text = courtName;
+
+
+            // COLORS PART PER STATUS 
+            label2.Text = status;
+            changeColorforStatus(status);
         }
 
         private void Guna2Panel1_Click(object sender, EventArgs e) // parent
         {
-            MessageBox.Show("Guna2Panel clicked!");
+            ChangeStatus changeStatusForm = new ChangeStatus();
+            changeStatusForm.Show();
         }
-
         private void AttachClickHandlers(Control parent) // Makes the children clickable
         {
             foreach (Control c in parent.Controls)
@@ -42,17 +49,36 @@ namespace ShuttleZone.Maintenance_Logs
 
                 if (c.HasChildren)
                     AttachClickHandlers(c);
+
             }
         }
-
-
         private void Guna2Panel1_MouseEnter(object sender, EventArgs e)
         {
-            guna2Panel1.FillColor = Color.FromArgb(213, 236, 205); 
+            guna2Panel1.Size = new Size(385, 441);
         }
         private void Guna2Panel1_MouseLeave(object sender, EventArgs e)
         {
-            guna2Panel1.FillColor = Color.FromArgb(202, 231, 192);
+            guna2Panel1.Size = new Size(285, 341);
+        }
+
+        public void changeColorforStatus(string statusForColor)
+        {
+            switch (statusForColor.ToLower())
+            {
+                case "operational":
+                    guna2Panel1.FillColor = Color.FromArgb(202, 231, 192); 
+
+                    break;
+                case "under maintenance":
+                    guna2Panel1.FillColor = Color.Orange;
+                    break;
+                case "out of service":
+                    guna2Panel1.FillColor = Color.Red;
+                    break;
+                default:
+                    guna2Panel1.FillColor = Color.Black;
+                    break;
+            }
         }
 
 
@@ -67,6 +93,16 @@ namespace ShuttleZone.Maintenance_Logs
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
         {
 
         }

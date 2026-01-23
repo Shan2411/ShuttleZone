@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,17 +54,6 @@
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label2.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1297, 33);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "     Facility Maintenance Log";
-            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 9;
@@ -86,6 +75,18 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(1297, 610);
             this.tableLayoutPanel5.TabIndex = 2;
+            this.tableLayoutPanel5.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel5_Paint_3);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label2.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(30, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(1297, 33);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "     Facility Maintenance Log";
             // 
             // MaintenanceWindow
             // 

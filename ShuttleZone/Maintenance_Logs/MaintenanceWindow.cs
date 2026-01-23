@@ -23,10 +23,12 @@ namespace ShuttleZone.Maintenance_Logs
 
             tableLayoutPanel5.Controls.Clear();
 
-            tableLayoutPanel5.Controls.Add(new MButton(), 1, 1);
-            tableLayoutPanel5.Controls.Add(new MButton(), 3, 1);
-            tableLayoutPanel5.Controls.Add(new MButton(), 5, 1);
-            tableLayoutPanel5.Controls.Add(new MButton(), 7, 1);
+            // status should come from database l8r
+            string statusFromDB = "operational";
+            tableLayoutPanel5.Controls.Add(new MButton("Court A", statusFromDB), 1, 1);
+            tableLayoutPanel5.Controls.Add(new MButton("Court B", "under maintenance"), 3, 1);
+            tableLayoutPanel5.Controls.Add(new MButton("Court C", statusFromDB), 5, 1);
+            tableLayoutPanel5.Controls.Add(new MButton("Court D", "out of service"), 7, 1);
 
         }
 
@@ -56,6 +58,11 @@ namespace ShuttleZone.Maintenance_Logs
         }
 
         private void tableLayoutPanel5_Paint_2(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel5_Paint_3(object sender, PaintEventArgs e)
         {
 
         }
