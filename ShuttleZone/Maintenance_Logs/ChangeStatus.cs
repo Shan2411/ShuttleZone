@@ -21,5 +21,10 @@ namespace ShuttleZone.Maintenance_Logs
         {
             this.Close();
         }
+
+        private void ChangeStatus_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

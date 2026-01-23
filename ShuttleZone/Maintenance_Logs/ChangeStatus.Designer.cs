@@ -51,22 +51,25 @@
             this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.Location = new System.Drawing.Point(354, 12);
+            this.guna2Button1.Location = new System.Drawing.Point(266, 10);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(45, 42);
+            this.guna2Button1.Size = new System.Drawing.Size(34, 34);
             this.guna2Button1.TabIndex = 0;
             this.guna2Button1.Text = "❌";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // ChangeStatus
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(411, 495);
+            this.ClientSize = new System.Drawing.Size(308, 402);
             this.Controls.Add(this.guna2Button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ChangeStatus";
             this.Text = "ChangeStatus";
+            this.Load += new System.EventHandler(this.ChangeStatus_Load);
             this.ResumeLayout(false);
 
         }

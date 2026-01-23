@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Membership));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.AddMemberBtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SearchbarBGPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.AddMemberBtn = new Guna.UI2.WinForms.Guna2Button();
             this.Searchbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -75,27 +75,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(932, 58);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // AddMemberBtn
-            // 
-            this.AddMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
-            this.AddMemberBtn.BorderColor = System.Drawing.Color.Indigo;
-            this.AddMemberBtn.BorderThickness = 1;
-            this.AddMemberBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.AddMemberBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.AddMemberBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.AddMemberBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.AddMemberBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddMemberBtn.FillColor = System.Drawing.Color.Transparent;
-            this.AddMemberBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddMemberBtn.ForeColor = System.Drawing.Color.White;
-            this.AddMemberBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddMemberBtn.Image")));
-            this.AddMemberBtn.Location = new System.Drawing.Point(764, 20);
-            this.AddMemberBtn.Margin = new System.Windows.Forms.Padding(20);
-            this.AddMemberBtn.Name = "AddMemberBtn";
-            this.AddMemberBtn.Size = new System.Drawing.Size(148, 18);
-            this.AddMemberBtn.TabIndex = 29;
-            this.AddMemberBtn.Text = "Add Member";
             // 
             // guna2HtmlLabel1
             // 
@@ -138,8 +117,32 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(912, 23);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
+            // AddMemberBtn
+            // 
+            this.AddMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
+            this.AddMemberBtn.BorderColor = System.Drawing.Color.Indigo;
+            this.AddMemberBtn.BorderThickness = 1;
+            this.AddMemberBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.AddMemberBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.AddMemberBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.AddMemberBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.AddMemberBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddMemberBtn.FillColor = System.Drawing.Color.Transparent;
+            this.AddMemberBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddMemberBtn.ForeColor = System.Drawing.Color.White;
+            this.AddMemberBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddMemberBtn.Image")));
+            this.AddMemberBtn.Location = new System.Drawing.Point(764, 20);
+            this.AddMemberBtn.Margin = new System.Windows.Forms.Padding(20);
+            this.AddMemberBtn.Name = "AddMemberBtn";
+            this.AddMemberBtn.Size = new System.Drawing.Size(148, 18);
+            this.AddMemberBtn.TabIndex = 29;
+            this.AddMemberBtn.Text = "Add Member";
+            this.AddMemberBtn.Click += new System.EventHandler(this.AddMemberBtn_Click);
+            // 
             // Searchbox
             // 
+            this.Searchbox.BorderColor = System.Drawing.Color.Transparent;
+            this.Searchbox.BorderThickness = 0;
             this.Searchbox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Searchbox.DefaultText = "";
             this.Searchbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));

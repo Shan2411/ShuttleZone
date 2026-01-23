@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShuttleZone.Membership;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace ShuttleZone
         public UC_Membership()
         {
             InitializeComponent();
+        }
+
+        private void AddMemberBtn_Click(object sender, EventArgs e)
+        {
+            AddNewMember addNewMemberForm = new AddNewMember();
+            addNewMemberForm.Show();
         }
     }
 }
