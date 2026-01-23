@@ -30,6 +30,8 @@ namespace ShuttleZone.Maintenance_Logs
             // COLORS PART PER STATUS 
             label2.Text = status;
             changeColorforStatus(status);
+
+
         }
 
         private void Guna2Panel1_Click(object sender, EventArgs e) // parent

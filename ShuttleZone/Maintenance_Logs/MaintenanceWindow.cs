@@ -21,15 +21,16 @@ namespace ShuttleZone.Maintenance_Logs
             MButton court3_button = new MButton();
             MButton court4_button = new MButton();
 
-            tableLayoutPanel5.Controls.Clear();
+            flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.HorizontalScroll.Enabled = false;           
+            flowLayoutPanel1.HorizontalScroll.Visible = false;          
 
             // status should come from database l8r
             string statusFromDB = "operational";
-            tableLayoutPanel5.Controls.Add(new MButton("Court A", statusFromDB), 1, 1);
-            tableLayoutPanel5.Controls.Add(new MButton("Court B", "under maintenance"), 3, 1);
-            tableLayoutPanel5.Controls.Add(new MButton("Court C", statusFromDB), 5, 1);
-            tableLayoutPanel5.Controls.Add(new MButton("Court D", "out of service"), 7, 1);
-
+            flowLayoutPanel1.Controls.Add(new MButton("Court A", statusFromDB)); 
+            flowLayoutPanel1.Controls.Add(new MButton("Court B", "under maintenance")); 
+            flowLayoutPanel1.Controls.Add(new MButton("Court C", statusFromDB)); 
+            flowLayoutPanel1.Controls.Add(new MButton("Court D", "out of service"));
         }
 
         private void MaintenanceWindow_Load(object sender, EventArgs e)
