@@ -67,6 +67,12 @@
     <Compile Include="Maintenance_Logs\ChangeStatus.Designer.cs">
       <DependentUpon>ChangeStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maintenance_Logs\C_StatusButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance_Logs\C_StatusButton.Designer.cs">
+      <DependentUpon>C_StatusButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maintenance_Logs\MButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Maintenance_Logs\ChangeStatus.resx">
       <DependentUpon>ChangeStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance_Logs\C_StatusButton.resx">
+      <DependentUpon>C_StatusButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintenance_Logs\MaintenanceWindow.resx">
       <DependentUpon>MaintenanceWindow.cs</DependentUpon>

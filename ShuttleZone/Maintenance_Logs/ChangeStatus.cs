@@ -15,6 +15,15 @@ namespace ShuttleZone.Maintenance_Logs
         public ChangeStatus()
         {
             InitializeComponent();
+            flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.HorizontalScroll.Enabled = false;
+            flowLayoutPanel1.HorizontalScroll.Visible = false;
+
+            // status should come from database l8r
+            string statusFromDB = "operational";
+            flowLayoutPanel1.Controls.Add(new C_StatusButton(statusFromDB));
+            flowLayoutPanel1.Controls.Add(new C_StatusButton("under maintenance"));
+            flowLayoutPanel1.Controls.Add(new C_StatusButton("Out of Service"));
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
