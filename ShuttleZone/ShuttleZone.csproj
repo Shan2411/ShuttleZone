@@ -138,5 +138,17 @@
   <ItemGroup>
     <None Include="Resources\st_small_507x507-pad_600x600_f8f8f8.u1-removebg-preview.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Operational.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Not.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintenance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintenance1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

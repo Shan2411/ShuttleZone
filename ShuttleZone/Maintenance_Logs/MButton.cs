@@ -68,14 +68,16 @@ namespace ShuttleZone.Maintenance_Logs
             switch (statusForColor.ToLower())
             {
                 case "operational":
-                    guna2Panel1.FillColor = Color.FromArgb(202, 231, 192); 
-
+                    guna2Panel1.FillColor = Color.FromArgb(202, 231, 192);
+                    guna2CirclePictureBox1.Image = Properties.Resources.Operational;
                     break;
                 case "under maintenance":
                     guna2Panel1.FillColor = Color.Orange;
+                    guna2CirclePictureBox1.Image = Properties.Resources.Maintenance1;
                     break;
                 case "out of service":
                     guna2Panel1.FillColor = Color.Red;
+                    guna2CirclePictureBox1.Image = Properties.Resources.Not;
                     break;
                 default:
                     guna2Panel1.FillColor = Color.Black;
