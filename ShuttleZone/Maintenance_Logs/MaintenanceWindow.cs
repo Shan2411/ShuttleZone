@@ -29,7 +29,7 @@ namespace ShuttleZone.Maintenance_Logs
             string statusFromDB = "operational";
             flowLayoutPanel1.Controls.Add(new MButton("Court A", statusFromDB)); 
             flowLayoutPanel1.Controls.Add(new MButton("Court B", "under maintenance")); 
-            flowLayoutPanel1.Controls.Add(new MButton("Court C", statusFromDB)); 
+            flowLayoutPanel1.Controls.Add(new MButton("Court C", statusFromDB));
             flowLayoutPanel1.Controls.Add(new MButton("Court D", "out of service"));
         }
 
@@ -64,6 +64,11 @@ namespace ShuttleZone.Maintenance_Logs
         }
 
         private void tableLayoutPanel5_Paint_3(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
