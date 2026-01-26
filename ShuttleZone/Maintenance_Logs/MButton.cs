@@ -20,6 +20,7 @@ namespace ShuttleZone.Maintenance_Logs
             //click
             guna2Panel1.Click += Guna2Panel1_Click;
             AttachClickHandlers(guna2Panel1);
+
             //hover
             guna2Panel1.MouseEnter += Guna2Panel1_MouseEnter;
             guna2Panel1.MouseLeave += Guna2Panel1_MouseLeave;
@@ -28,7 +29,7 @@ namespace ShuttleZone.Maintenance_Logs
 
 
             // COLORS PART PER STATUS 
-            label2.Text = status;
+            guna2Button2.Text = status;
             changeColorforStatus(status);
 
 
