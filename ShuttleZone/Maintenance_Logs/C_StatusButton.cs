@@ -38,6 +38,7 @@ namespace ShuttleZone.Maintenance_Logs
             } else { 
                 guna2Panel1.FillColor = Color.Transparent; 
                 ItIsClicked = false;
+                guna2CirclePictureBox1.Image = Properties.Resources.empty;
             }
         }
         private void AttachClickHandlers(Control parent) // Makes the children clickable

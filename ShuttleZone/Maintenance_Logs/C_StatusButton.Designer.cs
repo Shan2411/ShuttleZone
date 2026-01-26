@@ -65,9 +65,9 @@
             this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2CirclePictureBox1.ErrorImage = global::ShuttleZone.Properties.Resources._8721424;
             this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Maintenance1;
+            this.guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.empty;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(21, 18);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(21, 17);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.Size = new System.Drawing.Size(32, 37);
