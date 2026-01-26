@@ -79,6 +79,12 @@
     <Compile Include="Maintenance_Logs\MButton.Designer.cs">
       <DependentUpon>MButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Reports_Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\Reports_Dashboard.Designer.cs">
+      <DependentUpon>Reports_Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\Reports_Dashboard.resx">
+      <DependentUpon>Reports_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_Membership.resx">
       <DependentUpon>UC_Membership.cs</DependentUpon>
     </EmbeddedResource>

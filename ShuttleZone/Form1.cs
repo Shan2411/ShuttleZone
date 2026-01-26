@@ -159,6 +159,10 @@ namespace ShuttleZone
         {
             HighlightButton(ReportsBtn);
             DynamicContentPanel.Controls.Clear();
+
+            Reports.Reports_Dashboard reportsDashboardUC = new Reports.Reports_Dashboard();
+            DynamicContentPanel.Controls.Add(reportsDashboardUC);
+            reportsDashboardUC.Dock = DockStyle.Fill;
         }
 
         private void UserManagementBtn_Click(object sender, EventArgs e)
@@ -171,6 +175,11 @@ namespace ShuttleZone
         {
             HighlightButton(SystemSettingsBtn);
             DynamicContentPanel.Controls.Clear();
+        }
+
+        private void DynamicContentPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
