@@ -129,10 +129,5 @@ namespace ShuttleZone.Maintenance_Logs
             catch (Exception error) { MessageBox.Show(error.Message); }
             
         }
-
-        private void ChangeStatus_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
