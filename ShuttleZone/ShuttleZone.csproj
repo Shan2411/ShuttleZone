@@ -80,11 +80,19 @@
     <Compile Include="Maintenance_Logs\MButton.Designer.cs">
       <DependentUpon>MButton.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Membership\AddNewMember.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Membership\AddNewMember.Designer.cs">
       <DependentUpon>AddNewMember.cs</DependentUpon>
+=======
+    <Compile Include="Reports\Reports_Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\Reports_Dashboard.Designer.cs">
+      <DependentUpon>Reports_Dashboard.cs</DependentUpon>
+>>>>>>> origin/miranda-reports
     </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
@@ -140,7 +148,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+<<<<<<< HEAD
     <EmbeddedResource Include="Membership\UC_Membership.resx">
+=======
+    <EmbeddedResource Include="Reports\Reports_Dashboard.resx">
+      <DependentUpon>Reports_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Membership.resx">
+>>>>>>> origin/miranda-reports
       <DependentUpon>UC_Membership.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Pos.resx">
