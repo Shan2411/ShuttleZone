@@ -80,6 +80,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -149,10 +150,10 @@
             this.guna2Button11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button11.ForeColor = System.Drawing.Color.White;
             this.guna2Button11.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button11.Image")));
-            this.guna2Button11.Location = new System.Drawing.Point(10, 67);
-            this.guna2Button11.Margin = new System.Windows.Forms.Padding(10, 5, 10, 10);
+            this.guna2Button11.Location = new System.Drawing.Point(13, 82);
+            this.guna2Button11.Margin = new System.Windows.Forms.Padding(13, 6, 13, 12);
             this.guna2Button11.Name = "guna2Button11";
-            this.guna2Button11.Size = new System.Drawing.Size(136, 47);
+            this.guna2Button11.Size = new System.Drawing.Size(185, 59);
             this.guna2Button11.TabIndex = 27;
             this.guna2Button11.Text = "Log out";
             // 
@@ -176,6 +177,7 @@
             this.tableLayoutPanel9.Controls.Add(this.guna2HtmlLabel6, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -446,33 +448,33 @@
             this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(156, 92);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(211, 113);
             this.tableLayoutPanel11.TabIndex = 3;
             // 
             // guna2HtmlLabel7
             // 
+            this.guna2HtmlLabel7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(10, 56);
-            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(10, 10, 0, 30);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(13, 68);
+            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(13, 12, 0, 37);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(146, 6);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(136, 8);
             this.guna2HtmlLabel7.TabIndex = 1;
             this.guna2HtmlLabel7.Text = "Facility Management";
             this.guna2HtmlLabel7.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2HtmlLabel8
             // 
+            this.guna2HtmlLabel8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(10, 20);
-            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(10, 20, 0, 0);
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(13, 25);
+            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(13, 25, 0, 0);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(146, 26);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(155, 31);
             this.guna2HtmlLabel8.TabIndex = 0;
             this.guna2HtmlLabel8.Text = "Shuttle Zone";
             this.guna2HtmlLabel8.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -484,13 +486,13 @@
             this.tableLayoutPanel2.Controls.Add(this.Topbar, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.DynamicContentPanel, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(156, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(211, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(939, 617);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1268, 759);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
             // Topbar
@@ -510,7 +512,7 @@
             this.Topbar.Name = "Topbar";
             this.Topbar.RowCount = 1;
             this.Topbar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.Topbar.Size = new System.Drawing.Size(939, 30);
+            this.Topbar.Size = new System.Drawing.Size(1268, 37);
             this.Topbar.TabIndex = 0;
             // 
             // guna2HtmlLabel3
@@ -519,10 +521,10 @@
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(750, 6);
-            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(1027, 8);
+            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(11, 4, 4, 4);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(137, 18);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(172, 21);
             this.guna2HtmlLabel3.TabIndex = 5;
             this.guna2HtmlLabel3.Text = "Thursday, Jan 22, 2026";
             this.guna2HtmlLabel3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -556,10 +558,10 @@
             // 
             this.DynamicContentPanel.BackColor = System.Drawing.Color.Lavender;
             this.DynamicContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DynamicContentPanel.Location = new System.Drawing.Point(0, 30);
+            this.DynamicContentPanel.Location = new System.Drawing.Point(0, 37);
             this.DynamicContentPanel.Margin = new System.Windows.Forms.Padding(0);
             this.DynamicContentPanel.Name = "DynamicContentPanel";
-            this.DynamicContentPanel.Size = new System.Drawing.Size(939, 587);
+            this.DynamicContentPanel.Size = new System.Drawing.Size(1268, 722);
             this.DynamicContentPanel.TabIndex = 1;
             // 
             // Form1
@@ -569,6 +571,7 @@
             this.ClientSize = new System.Drawing.Size(1095, 617);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

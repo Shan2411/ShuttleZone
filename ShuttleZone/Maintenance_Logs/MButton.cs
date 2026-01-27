@@ -13,13 +13,17 @@ namespace ShuttleZone.Maintenance_Logs
 {
     public partial class MButton : UserControl
     {
+        public string courtName; 
         public MButton(string courtName = "", string status = "")
         {
             InitializeComponent();
 
+            this.courtName = courtName;
+
             //click
             guna2Panel1.Click += Guna2Panel1_Click;
             AttachClickHandlers(guna2Panel1);
+
             //hover
             guna2Panel1.MouseEnter += Guna2Panel1_MouseEnter;
             guna2Panel1.MouseLeave += Guna2Panel1_MouseLeave;
@@ -28,17 +32,33 @@ namespace ShuttleZone.Maintenance_Logs
 
 
             // COLORS PART PER STATUS 
-            label2.Text = status;
+            guna2Button2.Text = status;
             changeColorforStatus(status);
 
 
         }
 
-        private void Guna2Panel1_Click(object sender, EventArgs e) // parent
+        private void Guna2Panel1_Click(object sender, EventArgs e)
         {
-            ChangeStatus changeStatusForm = new ChangeStatus();
-            changeStatusForm.Show();
+            // Get the parent form
+            var mainForm = this.FindForm();
+
+            // Recursively search for MaintenanceWindow
+            var maintenanceUC = FindControlRecursive<MaintenanceWindow>(mainForm);
+
+            if (maintenanceUC != null)
+            {
+                ChangeStatus changeStatusForm = new ChangeStatus(courtName, maintenanceUC);
+                changeStatusForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Maintenance panel not found!");
+            }
         }
+
+
+
         private void AttachClickHandlers(Control parent) // Makes the children clickable
         {
             foreach (Control c in parent.Controls)
@@ -68,14 +88,16 @@ namespace ShuttleZone.Maintenance_Logs
             switch (statusForColor.ToLower())
             {
                 case "operational":
-                    guna2Panel1.FillColor = Color.FromArgb(202, 231, 192); 
-
+                    guna2Panel1.FillColor = Color.FromArgb(202, 231, 192);
+                    guna2CirclePictureBox1.Image = Properties.Resources.Operational;
                     break;
                 case "under maintenance":
                     guna2Panel1.FillColor = Color.Orange;
+                    guna2CirclePictureBox1.Image = Properties.Resources.Maintenance1;
                     break;
                 case "out of service":
                     guna2Panel1.FillColor = Color.Red;
+                    guna2CirclePictureBox1.Image = Properties.Resources.Not;
                     break;
                 default:
                     guna2Panel1.FillColor = Color.Black;
@@ -83,6 +105,16 @@ namespace ShuttleZone.Maintenance_Logs
             }
         }
 
+        private T FindControlRecursive<T>(Control parent) where T : Control
+        {
+            foreach (Control c in parent.Controls)
+            {
+                if (c is T t) return t;               // Found the control
+                var child = FindControlRecursive<T>(c); // Search children
+                if (child != null) return child;
+            }
+            return null; // Not found
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {

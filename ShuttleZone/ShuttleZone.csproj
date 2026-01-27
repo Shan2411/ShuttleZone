@@ -67,6 +67,13 @@
     <Compile Include="Maintenance_Logs\ChangeStatus.Designer.cs">
       <DependentUpon>ChangeStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maintenance_Logs\C_StatusButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance_Logs\C_StatusButton.Designer.cs">
+      <DependentUpon>C_StatusButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance_Logs\Globals.cs" />
     <Compile Include="Maintenance_Logs\MButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -104,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Maintenance_Logs\ChangeStatus.resx">
       <DependentUpon>ChangeStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance_Logs\C_StatusButton.resx">
+      <DependentUpon>C_StatusButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintenance_Logs\MaintenanceWindow.resx">
       <DependentUpon>MaintenanceWindow.cs</DependentUpon>
@@ -146,6 +156,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\st_small_507x507-pad_600x600_f8f8f8.u1-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Operational.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Not.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintenance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintenance1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empty.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
