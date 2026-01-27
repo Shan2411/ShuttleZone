@@ -12,7 +12,7 @@ namespace ShuttleZone.Maintenance_Logs
 {
     public partial class C_StatusButton : UserControl
     {
-        private string statusType; // so it will be accessible file wide
+        public string statusType; // so it will be accessible file wide
         private bool ItIsClicked;
         public C_StatusButton(string statusType)
         {
@@ -32,15 +32,22 @@ namespace ShuttleZone.Maintenance_Logs
         }
         public void Guna2Panel1_Click(object sender, EventArgs e) // parent
         {
-            if (ItIsClicked == false) { 
-                changeColorforStatus(statusType); 
-                ItIsClicked = true;
-            } else { 
-                guna2Panel1.FillColor = Color.Transparent; 
-                ItIsClicked = false;
-                guna2CirclePictureBox1.Image = Properties.Resources.empty;
-            }
+            this.OnClick(e); 
         }
+
+        public void SelectButton()
+        {
+            ItIsClicked = true;
+            changeColorforStatus(statusType);
+        }
+
+        public void DeselectButton()
+        {
+            ItIsClicked = false;
+            guna2Panel1.FillColor = Color.Transparent;
+            guna2CirclePictureBox1.Image = Properties.Resources.empty;
+        }
+
         private void AttachClickHandlers(Control parent) // Makes the children clickable
         {
             foreach (Control c in parent.Controls)

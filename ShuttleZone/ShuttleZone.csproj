@@ -73,6 +73,7 @@
     <Compile Include="Maintenance_Logs\C_StatusButton.Designer.cs">
       <DependentUpon>C_StatusButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maintenance_Logs\Globals.cs" />
     <Compile Include="Maintenance_Logs\MButton.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -13,9 +13,12 @@ namespace ShuttleZone.Maintenance_Logs
 {
     public partial class MButton : UserControl
     {
+        public string courtName; 
         public MButton(string courtName = "", string status = "")
         {
             InitializeComponent();
+
+            this.courtName = courtName;
 
             //click
             guna2Panel1.Click += Guna2Panel1_Click;
@@ -35,11 +38,27 @@ namespace ShuttleZone.Maintenance_Logs
 
         }
 
-        private void Guna2Panel1_Click(object sender, EventArgs e) // parent
+        private void Guna2Panel1_Click(object sender, EventArgs e)
         {
-            ChangeStatus changeStatusForm = new ChangeStatus();
-            changeStatusForm.Show();
+            // Get the parent form
+            var mainForm = this.FindForm();
+
+            // Recursively search for MaintenanceWindow
+            var maintenanceUC = FindControlRecursive<MaintenanceWindow>(mainForm);
+
+            if (maintenanceUC != null)
+            {
+                ChangeStatus changeStatusForm = new ChangeStatus(courtName, maintenanceUC);
+                changeStatusForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Maintenance panel not found!");
+            }
         }
+
+
+
         private void AttachClickHandlers(Control parent) // Makes the children clickable
         {
             foreach (Control c in parent.Controls)
@@ -86,6 +105,16 @@ namespace ShuttleZone.Maintenance_Logs
             }
         }
 
+        private T FindControlRecursive<T>(Control parent) where T : Control
+        {
+            foreach (Control c in parent.Controls)
+            {
+                if (c is T t) return t;               // Found the control
+                var child = FindControlRecursive<T>(c); // Search children
+                if (child != null) return child;
+            }
+            return null; // Not found
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {

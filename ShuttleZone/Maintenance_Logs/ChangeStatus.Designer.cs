@@ -82,6 +82,7 @@
             this.label1.Size = new System.Drawing.Size(325, 29);
             this.label1.TabIndex = 1;
             this.label1.Text = "Change Court-name Status";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // guna2Button2
             // 
@@ -100,12 +101,15 @@
             this.guna2Button2.Size = new System.Drawing.Size(497, 43);
             this.guna2Button2.TabIndex = 11;
             this.guna2Button2.Text = "apply";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 123);
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(27, 123);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(525, 415);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(510, 415);
             this.flowLayoutPanel1.TabIndex = 12;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 

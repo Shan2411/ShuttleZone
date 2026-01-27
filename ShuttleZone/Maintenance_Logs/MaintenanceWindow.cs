@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ShuttleZone.Maintenance_Logs
 {
+
     public partial class MaintenanceWindow : UserControl
     {
+        // Form1
+
         public MaintenanceWindow()
         {
             InitializeComponent();
+
 
             MButton court1_button = new MButton();
             MButton court2_button = new MButton();
@@ -25,12 +30,22 @@ namespace ShuttleZone.Maintenance_Logs
             flowLayoutPanel1.HorizontalScroll.Enabled = false;           
             flowLayoutPanel1.HorizontalScroll.Visible = false;          
 
-            // status should come from database l8r
-            string statusFromDB = "operational";
-            flowLayoutPanel1.Controls.Add(new MButton("Court A", statusFromDB)); 
+            
+            flowLayoutPanel1.Controls.Add(new MButton("Court A", Globals.statusFromDB)); 
             flowLayoutPanel1.Controls.Add(new MButton("Court B", "under maintenance")); 
-            flowLayoutPanel1.Controls.Add(new MButton("Court C", statusFromDB));
+            flowLayoutPanel1.Controls.Add(new MButton("Court C", Globals.statusFromDB));
             flowLayoutPanel1.Controls.Add(new MButton("Court D", "out of service"));
+        }
+
+        public void RefreshPanel()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            // Add new controls as needed
+            flowLayoutPanel1.Controls.Add(new MButton("Court A", Globals.statusFromDB));
+            flowLayoutPanel1.Controls.Add(new MButton("Court B", "under maintenance"));
+            flowLayoutPanel1.Controls.Add(new MButton("Court C", Globals.statusFromDB));
+            flowLayoutPanel1.Controls.Add(new MButton("Court D", "out of service"));
+            flowLayoutPanel1.Refresh();
         }
 
         private void MaintenanceWindow_Load(object sender, EventArgs e)
