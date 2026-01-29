@@ -86,6 +86,12 @@
     <Compile Include="Membership\AddNewMember.Designer.cs">
       <DependentUpon>AddNewMember.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\Reports_Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="reports\Reports_Dashboard.Designer.cs">
+      <DependentUpon>Reports_Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </Compile>
     <EmbeddedResource Include="Membership\UC_Membership.resx">
       <DependentUpon>UC_Membership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\Reports_Dashboard.resx">
+      <DependentUpon>Reports_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Pos.resx">
       <DependentUpon>UC_Pos.cs</DependentUpon>
