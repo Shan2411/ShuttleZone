@@ -92,6 +92,24 @@
     <Compile Include="reports\Reports_Dashboard.Designer.cs">
       <DependentUpon>Reports_Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="sidebars\AdminSidebar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sidebars\AdminSidebar.Designer.cs">
+      <DependentUpon>AdminSidebar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sidebars\FrontDeskSidebar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sidebars\FrontDeskSidebar.Designer.cs">
+      <DependentUpon>FrontDeskSidebar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sidebars\ManagerSidebar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sidebars\ManagerSidebar.Designer.cs">
+      <DependentUpon>ManagerSidebar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +170,15 @@
     <EmbeddedResource Include="reports\Reports_Dashboard.resx">
       <DependentUpon>Reports_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="sidebars\AdminSidebar.resx">
+      <DependentUpon>AdminSidebar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sidebars\FrontDeskSidebar.resx">
+      <DependentUpon>FrontDeskSidebar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sidebars\ManagerSidebar.resx">
+      <DependentUpon>ManagerSidebar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_Pos.resx">
       <DependentUpon>UC_Pos.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,5 +218,6 @@
   <ItemGroup>
     <None Include="Resources\empty.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
