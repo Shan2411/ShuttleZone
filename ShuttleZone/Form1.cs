@@ -1,8 +1,10 @@
-﻿    using System;
-    using System.Windows.Forms;
+﻿    using ShuttleZone.Dashboard1;
     using ShuttleZone.Maintenance_Logs;
-    using System.Drawing;
     using ShuttleZone.sidebars;
+    using System;
+    using System.Drawing;
+using System.Web.Security;
+    using System.Windows.Forms;
 
     namespace ShuttleZone
     {
@@ -83,6 +85,9 @@
                 HighlightButton(DashboardBtn);
                 DynamicContentPanel.Controls.Clear();
             
+                Dashboard1.Dashboard_UC ucDashboard = new Dashboard1.Dashboard_UC();
+                DynamicContentPanel.Controls.Add(ucDashboard);
+                ucDashboard.Dock = DockStyle.Fill;
             }
 
             private void MembershipBtn_Click(object sender, EventArgs e)
