@@ -110,6 +110,12 @@
     <Compile Include="sidebars\ManagerSidebar.Designer.cs">
       <DependentUpon>ManagerSidebar.cs</DependentUpon>
     </Compile>
+    <Compile Include="SystemSettings\SystemSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemSettings\SystemSettings.Designer.cs">
+      <DependentUpon>SystemSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sidebars\ManagerSidebar.resx">
       <DependentUpon>ManagerSidebar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemSettings\SystemSettings.resx">
+      <DependentUpon>SystemSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Pos.resx">
       <DependentUpon>UC_Pos.cs</DependentUpon>
