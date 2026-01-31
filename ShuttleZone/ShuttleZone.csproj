@@ -239,5 +239,14 @@
   <ItemGroup>
     <None Include="Resources\Dashboard_Money.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Time.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Grid.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Box.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
