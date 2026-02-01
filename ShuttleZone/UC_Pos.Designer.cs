@@ -830,6 +830,7 @@
             // 
             // btnApply
             // 
+            this.btnApply.AutoRoundedCorners = true;
             this.btnApply.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnApply.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnApply.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -862,6 +863,7 @@
             // 
             // btnCashPayment
             // 
+            this.btnCashPayment.AutoRoundedCorners = true;
             this.btnCashPayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCashPayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCashPayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -1003,6 +1005,7 @@
             // 
             // btnEcashPayment
             // 
+            this.btnEcashPayment.AutoRoundedCorners = true;
             this.btnEcashPayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEcashPayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEcashPayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
