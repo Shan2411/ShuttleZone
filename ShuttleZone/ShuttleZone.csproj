@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dashboard1\Alerts_Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\Alerts_Dashboard.Designer.cs">
+      <DependentUpon>Alerts_Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard1\Card_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     <Compile Include="UC_Pos.Designer.cs">
       <DependentUpon>UC_Pos.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Dashboard1\Alerts_Dashboard.resx">
+      <DependentUpon>Alerts_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\Card_Dashboard.resx">
       <DependentUpon>Card_Dashboard.cs</DependentUpon>
     </EmbeddedResource>

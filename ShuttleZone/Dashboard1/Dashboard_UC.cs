@@ -17,22 +17,41 @@ namespace ShuttleZone.Dashboard1
         public Dashboard_UC()
         {
             InitializeComponent();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            this.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
 
             flowLayoutPanel1.VerticalScroll.Enabled = false;
             flowLayoutPanel1.VerticalScroll.Visible = false;
 
-            Card_Dashboard card1 = new Card_Dashboard("Daily Sales");
-            Card_Dashboard card2 = new Card_Dashboard("Active Rentals");
-            Card_Dashboard card3 = new Card_Dashboard("Available Equipments");
-            Card_Dashboard card4 = new Card_Dashboard("Available Courts");
+            flowLayoutPanel1.Controls.Add(new Card_Dashboard("Daily Sales"));
+            flowLayoutPanel1.Controls.Add(new Card_Dashboard("Active Rentals"));
+            flowLayoutPanel1.Controls.Add(new Card_Dashboard("Available Equipments"));
+            flowLayoutPanel1.Controls.Add(new Card_Dashboard("Available Courts"));
 
-            flowLayoutPanel1.Controls.Add(card1);
-            flowLayoutPanel1.Controls.Add(card2);
-            flowLayoutPanel1.Controls.Add(card3);
-            flowLayoutPanel1.Controls.Add(card4);
+            flowLayoutPanel1.HorizontalScroll.Enabled = false;
+            flowLayoutPanel1.HorizontalScroll.Visible = false;
+
+            flowLayoutPanel2.Controls.Add(new Alerts_Dashboard());
+            flowLayoutPanel2.Controls.Add(new Alerts_Dashboard());
+
+            flowLayoutPanel1.ResumeLayout();
+            flowLayoutPanel2.ResumeLayout();
+            this.ResumeLayout();
         }
 
- 
 
+
+
+        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
