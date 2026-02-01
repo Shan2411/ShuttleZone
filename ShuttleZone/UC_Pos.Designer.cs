@@ -35,19 +35,49 @@
             this.gbCourtRental = new Guna.UI2.WinForms.Guna2GroupBox();
             this.tlpCourts = new System.Windows.Forms.TableLayoutPanel();
             this.pnlCourtA = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblCourtAAvailability = new System.Windows.Forms.Label();
+            this.lblCourtAPrice = new System.Windows.Forms.Label();
+            this.lblCourtA = new System.Windows.Forms.Label();
             this.pnlCourtB = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblCourtBAvailability = new System.Windows.Forms.Label();
+            this.lblCourtBPrice = new System.Windows.Forms.Label();
+            this.lblCourtB = new System.Windows.Forms.Label();
             this.pnlCourtC = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblCourtCAvailability = new System.Windows.Forms.Label();
+            this.lblCourtCPrice = new System.Windows.Forms.Label();
+            this.lblCourtC = new System.Windows.Forms.Label();
             this.pnlCourtD = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblCourtDAvailability = new System.Windows.Forms.Label();
+            this.lblCourtD = new System.Windows.Forms.Label();
+            this.lblCourtDPrice = new System.Windows.Forms.Label();
             this.gbEquipmentRental = new Guna.UI2.WinForms.Guna2GroupBox();
             this.tlpEquipment = new System.Windows.Forms.TableLayoutPanel();
             this.pnlEquipment1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblEquipment1Availability = new System.Windows.Forms.Label();
+            this.lblEquipment1Price = new System.Windows.Forms.Label();
+            this.lblEquipment1 = new System.Windows.Forms.Label();
             this.pnlEquipment3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblEquipment3Availability = new System.Windows.Forms.Label();
+            this.lblEquipment3Price = new System.Windows.Forms.Label();
+            this.lblEquipment3 = new System.Windows.Forms.Label();
             this.pnlEquipment2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblEquipment2Availability = new System.Windows.Forms.Label();
+            this.lblEquipment2Price = new System.Windows.Forms.Label();
+            this.lblEquipment2 = new System.Windows.Forms.Label();
             this.pnlEquipment4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblEquipment4Availability = new System.Windows.Forms.Label();
+            this.lblEquipment4Price = new System.Windows.Forms.Label();
+            this.lblEquipment4 = new System.Windows.Forms.Label();
             this.gbMembership = new Guna.UI2.WinForms.Guna2GroupBox();
             this.tlpMembership = new System.Windows.Forms.TableLayoutPanel();
             this.pnlMembership1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblMembership1Description = new System.Windows.Forms.Label();
+            this.lblMembership1Price = new System.Windows.Forms.Label();
+            this.lblMembership1 = new System.Windows.Forms.Label();
             this.pnlMembership2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblMembership2Description = new System.Windows.Forms.Label();
+            this.lblMembership2Price = new System.Windows.Forms.Label();
+            this.lblMembership2 = new System.Windows.Forms.Label();
             this.pnlCart = new Guna.UI2.WinForms.Guna2Panel();
             this.lblDiscount = new System.Windows.Forms.Label();
             this.lblMemberDiscount = new System.Windows.Forms.Label();
@@ -71,10 +101,20 @@
             this.pnlHeader.SuspendLayout();
             this.gbCourtRental.SuspendLayout();
             this.tlpCourts.SuspendLayout();
+            this.pnlCourtA.SuspendLayout();
+            this.pnlCourtB.SuspendLayout();
+            this.pnlCourtC.SuspendLayout();
+            this.pnlCourtD.SuspendLayout();
             this.gbEquipmentRental.SuspendLayout();
             this.tlpEquipment.SuspendLayout();
+            this.pnlEquipment1.SuspendLayout();
+            this.pnlEquipment3.SuspendLayout();
+            this.pnlEquipment2.SuspendLayout();
+            this.pnlEquipment4.SuspendLayout();
             this.gbMembership.SuspendLayout();
             this.tlpMembership.SuspendLayout();
+            this.pnlMembership1.SuspendLayout();
+            this.pnlMembership2.SuspendLayout();
             this.pnlCart.SuspendLayout();
             this.flowCart.SuspendLayout();
             this.pnlCartItem.SuspendLayout();
@@ -164,6 +204,8 @@
             this.tlpCourts.RowCount = 2;
             this.tlpCourts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpCourts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpCourts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpCourts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpCourts.Size = new System.Drawing.Size(640, 159);
             this.tlpCourts.TabIndex = 0;
             // 
@@ -172,6 +214,9 @@
             this.pnlCourtA.BorderColor = System.Drawing.Color.MediumSeaGreen;
             this.pnlCourtA.BorderRadius = 8;
             this.pnlCourtA.BorderThickness = 1;
+            this.pnlCourtA.Controls.Add(this.lblCourtAAvailability);
+            this.pnlCourtA.Controls.Add(this.lblCourtAPrice);
+            this.pnlCourtA.Controls.Add(this.lblCourtA);
             this.pnlCourtA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlCourtA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCourtA.FillColor = System.Drawing.Color.Honeydew;
@@ -179,12 +224,49 @@
             this.pnlCourtA.Name = "pnlCourtA";
             this.pnlCourtA.Size = new System.Drawing.Size(306, 65);
             this.pnlCourtA.TabIndex = 0;
+            this.pnlCourtA.Click += new System.EventHandler(this.btnCourtA_Click);
+            // 
+            // lblCourtAAvailability
+            // 
+            this.lblCourtAAvailability.AutoSize = true;
+            this.lblCourtAAvailability.BackColor = System.Drawing.Color.Transparent;
+            this.lblCourtAAvailability.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourtAAvailability.Location = new System.Drawing.Point(206, 34);
+            this.lblCourtAAvailability.Name = "lblCourtAAvailability";
+            this.lblCourtAAvailability.Size = new System.Drawing.Size(55, 15);
+            this.lblCourtAAvailability.TabIndex = 2;
+            this.lblCourtAAvailability.Text = "Available";
+            // 
+            // lblCourtAPrice
+            // 
+            this.lblCourtAPrice.AutoSize = true;
+            this.lblCourtAPrice.BackColor = System.Drawing.Color.Transparent;
+            this.lblCourtAPrice.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourtAPrice.Location = new System.Drawing.Point(40, 34);
+            this.lblCourtAPrice.Name = "lblCourtAPrice";
+            this.lblCourtAPrice.Size = new System.Drawing.Size(62, 15);
+            this.lblCourtAPrice.TabIndex = 1;
+            this.lblCourtAPrice.Text = "₱250/hour";
+            // 
+            // lblCourtA
+            // 
+            this.lblCourtA.AutoSize = true;
+            this.lblCourtA.BackColor = System.Drawing.Color.Transparent;
+            this.lblCourtA.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourtA.Location = new System.Drawing.Point(40, 17);
+            this.lblCourtA.Name = "lblCourtA";
+            this.lblCourtA.Size = new System.Drawing.Size(55, 17);
+            this.lblCourtA.TabIndex = 0;
+            this.lblCourtA.Text = "Court A";
             // 
             // pnlCourtB
             // 
             this.pnlCourtB.BorderColor = System.Drawing.Color.MediumSeaGreen;
             this.pnlCourtB.BorderRadius = 8;
             this.pnlCourtB.BorderThickness = 1;
+            this.pnlCourtB.Controls.Add(this.lblCourtBAvailability);
+            this.pnlCourtB.Controls.Add(this.lblCourtBPrice);
+            this.pnlCourtB.Controls.Add(this.lblCourtB);
             this.pnlCourtB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlCourtB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCourtB.FillColor = System.Drawing.Color.Honeydew;
@@ -192,12 +274,49 @@
             this.pnlCourtB.Name = "pnlCourtB";
             this.pnlCourtB.Size = new System.Drawing.Size(306, 65);
             this.pnlCourtB.TabIndex = 1;
+            this.pnlCourtB.Click += new System.EventHandler(this.btnCourtB_Click);
+            // 
+            // lblCourtBAvailability
+            // 
+            this.lblCourtBAvailability.AutoSize = true;
+            this.lblCourtBAvailability.BackColor = System.Drawing.Color.Transparent;
+            this.lblCourtBAvailability.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourtBAvailability.Location = new System.Drawing.Point(210, 34);
+            this.lblCourtBAvailability.Name = "lblCourtBAvailability";
+            this.lblCourtBAvailability.Size = new System.Drawing.Size(55, 15);
+            this.lblCourtBAvailability.TabIndex = 8;
+            this.lblCourtBAvailability.Text = "Available";
+            // 
+            // lblCourtBPrice
+            // 
+            this.lblCourtBPrice.AutoSize = true;
+            this.lblCourtBPrice.BackColor = System.Drawing.Color.Transparent;
+            this.lblCourtBPrice.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourtBPrice.Location = new System.Drawing.Point(44, 34);
+            this.lblCourtBPrice.Name = "lblCourtBPrice";
+            this.lblCourtBPrice.Size = new System.Drawing.Size(62, 15);
+            this.lblCourtBPrice.TabIndex = 7;
+            this.lblCourtBPrice.Text = "₱250/hour";
+            // 
+            // lblCourtB
+            // 
+            this.lblCourtB.AutoSize = true;
+            this.lblCourtB.BackColor = System.Drawing.Color.Transparent;
+            this.lblCourtB.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourtB.Location = new System.Drawing.Point(44, 17);
+            this.lblCourtB.Name = "lblCourtB";
+            this.lblCourtB.Size = new System.Drawing.Size(54, 17);
+            this.lblCourtB.TabIndex = 6;
+            this.lblCourtB.Text = "Court B";
             // 
             // pnlCourtC
             // 
             this.pnlCourtC.BorderColor = System.Drawing.Color.MediumSeaGreen;
             this.pnlCourtC.BorderRadius = 8;
             this.pnlCourtC.BorderThickness = 1;
+            this.pnlCourtC.Controls.Add(this.lblCourtCAvailability);
+            this.pnlCourtC.Controls.Add(this.lblCourtCPrice);
+            this.pnlCourtC.Controls.Add(this.lblCourtC);
             this.pnlCourtC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlCourtC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCourtC.FillColor = System.Drawing.Color.Honeydew;
@@ -205,12 +324,49 @@
             this.pnlCourtC.Name = "pnlCourtC";
             this.pnlCourtC.Size = new System.Drawing.Size(306, 66);
             this.pnlCourtC.TabIndex = 2;
+            this.pnlCourtC.Click += new System.EventHandler(this.btnCourtC_Click);
+            // 
+            // lblCourtCAvailability
+            // 
+            this.lblCourtCAvailability.AutoSize = true;
+            this.lblCourtCAvailability.BackColor = System.Drawing.Color.Transparent;
+            this.lblCourtCAvailability.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourtCAvailability.Location = new System.Drawing.Point(206, 33);
+            this.lblCourtCAvailability.Name = "lblCourtCAvailability";
+            this.lblCourtCAvailability.Size = new System.Drawing.Size(55, 15);
+            this.lblCourtCAvailability.TabIndex = 5;
+            this.lblCourtCAvailability.Text = "Available";
+            // 
+            // lblCourtCPrice
+            // 
+            this.lblCourtCPrice.AutoSize = true;
+            this.lblCourtCPrice.BackColor = System.Drawing.Color.Transparent;
+            this.lblCourtCPrice.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourtCPrice.Location = new System.Drawing.Point(40, 33);
+            this.lblCourtCPrice.Name = "lblCourtCPrice";
+            this.lblCourtCPrice.Size = new System.Drawing.Size(62, 15);
+            this.lblCourtCPrice.TabIndex = 4;
+            this.lblCourtCPrice.Text = "₱250/hour";
+            // 
+            // lblCourtC
+            // 
+            this.lblCourtC.AutoSize = true;
+            this.lblCourtC.BackColor = System.Drawing.Color.Transparent;
+            this.lblCourtC.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourtC.Location = new System.Drawing.Point(40, 16);
+            this.lblCourtC.Name = "lblCourtC";
+            this.lblCourtC.Size = new System.Drawing.Size(54, 17);
+            this.lblCourtC.TabIndex = 3;
+            this.lblCourtC.Text = "Court C";
             // 
             // pnlCourtD
             // 
             this.pnlCourtD.BorderColor = System.Drawing.Color.MediumSeaGreen;
             this.pnlCourtD.BorderRadius = 8;
             this.pnlCourtD.BorderThickness = 1;
+            this.pnlCourtD.Controls.Add(this.lblCourtDAvailability);
+            this.pnlCourtD.Controls.Add(this.lblCourtD);
+            this.pnlCourtD.Controls.Add(this.lblCourtDPrice);
             this.pnlCourtD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlCourtD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCourtD.FillColor = System.Drawing.Color.Honeydew;
@@ -218,6 +374,40 @@
             this.pnlCourtD.Name = "pnlCourtD";
             this.pnlCourtD.Size = new System.Drawing.Size(306, 66);
             this.pnlCourtD.TabIndex = 3;
+            this.pnlCourtD.Click += new System.EventHandler(this.btnCourtD_Click);
+            // 
+            // lblCourtDAvailability
+            // 
+            this.lblCourtDAvailability.AutoSize = true;
+            this.lblCourtDAvailability.BackColor = System.Drawing.Color.Transparent;
+            this.lblCourtDAvailability.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourtDAvailability.Location = new System.Drawing.Point(210, 33);
+            this.lblCourtDAvailability.Name = "lblCourtDAvailability";
+            this.lblCourtDAvailability.Size = new System.Drawing.Size(55, 15);
+            this.lblCourtDAvailability.TabIndex = 11;
+            this.lblCourtDAvailability.Text = "Available";
+            // 
+            // lblCourtD
+            // 
+            this.lblCourtD.AutoSize = true;
+            this.lblCourtD.BackColor = System.Drawing.Color.Transparent;
+            this.lblCourtD.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourtD.Location = new System.Drawing.Point(44, 16);
+            this.lblCourtD.Name = "lblCourtD";
+            this.lblCourtD.Size = new System.Drawing.Size(55, 17);
+            this.lblCourtD.TabIndex = 9;
+            this.lblCourtD.Text = "Court D";
+            // 
+            // lblCourtDPrice
+            // 
+            this.lblCourtDPrice.AutoSize = true;
+            this.lblCourtDPrice.BackColor = System.Drawing.Color.Transparent;
+            this.lblCourtDPrice.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourtDPrice.Location = new System.Drawing.Point(44, 33);
+            this.lblCourtDPrice.Name = "lblCourtDPrice";
+            this.lblCourtDPrice.Size = new System.Drawing.Size(62, 15);
+            this.lblCourtDPrice.TabIndex = 10;
+            this.lblCourtDPrice.Text = "₱250/hour";
             // 
             // gbEquipmentRental
             // 
@@ -256,6 +446,9 @@
             // 
             this.pnlEquipment1.BorderColor = System.Drawing.Color.MediumPurple;
             this.pnlEquipment1.BorderRadius = 8;
+            this.pnlEquipment1.Controls.Add(this.lblEquipment1Availability);
+            this.pnlEquipment1.Controls.Add(this.lblEquipment1Price);
+            this.pnlEquipment1.Controls.Add(this.lblEquipment1);
             this.pnlEquipment1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlEquipment1.CustomBorderColor = System.Drawing.Color.Transparent;
             this.pnlEquipment1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -265,10 +458,46 @@
             this.pnlEquipment1.Size = new System.Drawing.Size(306, 54);
             this.pnlEquipment1.TabIndex = 0;
             // 
+            // lblEquipment1Availability
+            // 
+            this.lblEquipment1Availability.AutoSize = true;
+            this.lblEquipment1Availability.BackColor = System.Drawing.Color.Transparent;
+            this.lblEquipment1Availability.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquipment1Availability.Location = new System.Drawing.Point(206, 29);
+            this.lblEquipment1Availability.Name = "lblEquipment1Availability";
+            this.lblEquipment1Availability.Size = new System.Drawing.Size(55, 15);
+            this.lblEquipment1Availability.TabIndex = 5;
+            this.lblEquipment1Availability.Text = "Available";
+            // 
+            // lblEquipment1Price
+            // 
+            this.lblEquipment1Price.AutoSize = true;
+            this.lblEquipment1Price.BackColor = System.Drawing.Color.Transparent;
+            this.lblEquipment1Price.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquipment1Price.Location = new System.Drawing.Point(40, 29);
+            this.lblEquipment1Price.Name = "lblEquipment1Price";
+            this.lblEquipment1Price.Size = new System.Drawing.Size(62, 15);
+            this.lblEquipment1Price.TabIndex = 4;
+            this.lblEquipment1Price.Text = "₱250/hour";
+            // 
+            // lblEquipment1
+            // 
+            this.lblEquipment1.AutoSize = true;
+            this.lblEquipment1.BackColor = System.Drawing.Color.Transparent;
+            this.lblEquipment1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquipment1.Location = new System.Drawing.Point(40, 12);
+            this.lblEquipment1.Name = "lblEquipment1";
+            this.lblEquipment1.Size = new System.Drawing.Size(119, 17);
+            this.lblEquipment1.TabIndex = 3;
+            this.lblEquipment1.Text = "Badminton Racket";
+            // 
             // pnlEquipment3
             // 
             this.pnlEquipment3.BorderColor = System.Drawing.Color.MediumPurple;
             this.pnlEquipment3.BorderRadius = 8;
+            this.pnlEquipment3.Controls.Add(this.lblEquipment3Availability);
+            this.pnlEquipment3.Controls.Add(this.lblEquipment3Price);
+            this.pnlEquipment3.Controls.Add(this.lblEquipment3);
             this.pnlEquipment3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlEquipment3.CustomBorderColor = System.Drawing.Color.Transparent;
             this.pnlEquipment3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -278,10 +507,46 @@
             this.pnlEquipment3.Size = new System.Drawing.Size(306, 55);
             this.pnlEquipment3.TabIndex = 1;
             // 
+            // lblEquipment3Availability
+            // 
+            this.lblEquipment3Availability.AutoSize = true;
+            this.lblEquipment3Availability.BackColor = System.Drawing.Color.Transparent;
+            this.lblEquipment3Availability.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquipment3Availability.Location = new System.Drawing.Point(209, 28);
+            this.lblEquipment3Availability.Name = "lblEquipment3Availability";
+            this.lblEquipment3Availability.Size = new System.Drawing.Size(55, 15);
+            this.lblEquipment3Availability.TabIndex = 11;
+            this.lblEquipment3Availability.Text = "Available";
+            // 
+            // lblEquipment3Price
+            // 
+            this.lblEquipment3Price.AutoSize = true;
+            this.lblEquipment3Price.BackColor = System.Drawing.Color.Transparent;
+            this.lblEquipment3Price.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquipment3Price.Location = new System.Drawing.Point(43, 28);
+            this.lblEquipment3Price.Name = "lblEquipment3Price";
+            this.lblEquipment3Price.Size = new System.Drawing.Size(32, 15);
+            this.lblEquipment3Price.TabIndex = 10;
+            this.lblEquipment3Price.Text = "₱250";
+            // 
+            // lblEquipment3
+            // 
+            this.lblEquipment3.AutoSize = true;
+            this.lblEquipment3.BackColor = System.Drawing.Color.Transparent;
+            this.lblEquipment3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquipment3.Location = new System.Drawing.Point(43, 11);
+            this.lblEquipment3.Name = "lblEquipment3";
+            this.lblEquipment3.Size = new System.Drawing.Size(65, 17);
+            this.lblEquipment3.TabIndex = 9;
+            this.lblEquipment3.Text = "Grip Tape";
+            // 
             // pnlEquipment2
             // 
             this.pnlEquipment2.BorderColor = System.Drawing.Color.MediumPurple;
             this.pnlEquipment2.BorderRadius = 8;
+            this.pnlEquipment2.Controls.Add(this.lblEquipment2Availability);
+            this.pnlEquipment2.Controls.Add(this.lblEquipment2Price);
+            this.pnlEquipment2.Controls.Add(this.lblEquipment2);
             this.pnlEquipment2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlEquipment2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlEquipment2.FillColor = System.Drawing.Color.Lavender;
@@ -290,10 +555,46 @@
             this.pnlEquipment2.Size = new System.Drawing.Size(306, 54);
             this.pnlEquipment2.TabIndex = 2;
             // 
+            // lblEquipment2Availability
+            // 
+            this.lblEquipment2Availability.AutoSize = true;
+            this.lblEquipment2Availability.BackColor = System.Drawing.Color.Transparent;
+            this.lblEquipment2Availability.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquipment2Availability.Location = new System.Drawing.Point(210, 29);
+            this.lblEquipment2Availability.Name = "lblEquipment2Availability";
+            this.lblEquipment2Availability.Size = new System.Drawing.Size(55, 15);
+            this.lblEquipment2Availability.TabIndex = 8;
+            this.lblEquipment2Availability.Text = "Available";
+            // 
+            // lblEquipment2Price
+            // 
+            this.lblEquipment2Price.AutoSize = true;
+            this.lblEquipment2Price.BackColor = System.Drawing.Color.Transparent;
+            this.lblEquipment2Price.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquipment2Price.Location = new System.Drawing.Point(44, 29);
+            this.lblEquipment2Price.Name = "lblEquipment2Price";
+            this.lblEquipment2Price.Size = new System.Drawing.Size(32, 15);
+            this.lblEquipment2Price.TabIndex = 7;
+            this.lblEquipment2Price.Text = "₱250";
+            // 
+            // lblEquipment2
+            // 
+            this.lblEquipment2.AutoSize = true;
+            this.lblEquipment2.BackColor = System.Drawing.Color.Transparent;
+            this.lblEquipment2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquipment2.Location = new System.Drawing.Point(44, 12);
+            this.lblEquipment2.Name = "lblEquipment2";
+            this.lblEquipment2.Size = new System.Drawing.Size(78, 17);
+            this.lblEquipment2.TabIndex = 6;
+            this.lblEquipment2.Text = "Shuttlecock";
+            // 
             // pnlEquipment4
             // 
             this.pnlEquipment4.BorderColor = System.Drawing.Color.MediumPurple;
             this.pnlEquipment4.BorderRadius = 8;
+            this.pnlEquipment4.Controls.Add(this.lblEquipment4Availability);
+            this.pnlEquipment4.Controls.Add(this.lblEquipment4Price);
+            this.pnlEquipment4.Controls.Add(this.lblEquipment4);
             this.pnlEquipment4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlEquipment4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlEquipment4.FillColor = System.Drawing.Color.Lavender;
@@ -301,6 +602,39 @@
             this.pnlEquipment4.Name = "pnlEquipment4";
             this.pnlEquipment4.Size = new System.Drawing.Size(306, 55);
             this.pnlEquipment4.TabIndex = 3;
+            // 
+            // lblEquipment4Availability
+            // 
+            this.lblEquipment4Availability.AutoSize = true;
+            this.lblEquipment4Availability.BackColor = System.Drawing.Color.Transparent;
+            this.lblEquipment4Availability.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquipment4Availability.Location = new System.Drawing.Point(209, 28);
+            this.lblEquipment4Availability.Name = "lblEquipment4Availability";
+            this.lblEquipment4Availability.Size = new System.Drawing.Size(55, 15);
+            this.lblEquipment4Availability.TabIndex = 11;
+            this.lblEquipment4Availability.Text = "Available";
+            // 
+            // lblEquipment4Price
+            // 
+            this.lblEquipment4Price.AutoSize = true;
+            this.lblEquipment4Price.BackColor = System.Drawing.Color.Transparent;
+            this.lblEquipment4Price.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquipment4Price.Location = new System.Drawing.Point(43, 28);
+            this.lblEquipment4Price.Name = "lblEquipment4Price";
+            this.lblEquipment4Price.Size = new System.Drawing.Size(32, 15);
+            this.lblEquipment4Price.TabIndex = 10;
+            this.lblEquipment4Price.Text = "₱250";
+            // 
+            // lblEquipment4
+            // 
+            this.lblEquipment4.AutoSize = true;
+            this.lblEquipment4.BackColor = System.Drawing.Color.Transparent;
+            this.lblEquipment4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquipment4.Location = new System.Drawing.Point(43, 11);
+            this.lblEquipment4.Name = "lblEquipment4";
+            this.lblEquipment4.Size = new System.Drawing.Size(42, 17);
+            this.lblEquipment4.TabIndex = 9;
+            this.lblEquipment4.Text = "Towel";
             // 
             // gbMembership
             // 
@@ -337,6 +671,9 @@
             // 
             this.pnlMembership1.BorderColor = System.Drawing.Color.DodgerBlue;
             this.pnlMembership1.BorderRadius = 8;
+            this.pnlMembership1.Controls.Add(this.lblMembership1Description);
+            this.pnlMembership1.Controls.Add(this.lblMembership1Price);
+            this.pnlMembership1.Controls.Add(this.lblMembership1);
             this.pnlMembership1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlMembership1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMembership1.FillColor = System.Drawing.Color.AliceBlue;
@@ -345,10 +682,46 @@
             this.pnlMembership1.Size = new System.Drawing.Size(304, 81);
             this.pnlMembership1.TabIndex = 0;
             // 
+            // lblMembership1Description
+            // 
+            this.lblMembership1Description.AutoSize = true;
+            this.lblMembership1Description.BackColor = System.Drawing.Color.Transparent;
+            this.lblMembership1Description.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMembership1Description.Location = new System.Drawing.Point(42, 56);
+            this.lblMembership1Description.Name = "lblMembership1Description";
+            this.lblMembership1Description.Size = new System.Drawing.Size(179, 12);
+            this.lblMembership1Description.TabIndex = 8;
+            this.lblMembership1Description.Text = "Avail Membership and Get Rental Discounts!";
+            // 
+            // lblMembership1Price
+            // 
+            this.lblMembership1Price.AutoSize = true;
+            this.lblMembership1Price.BackColor = System.Drawing.Color.Transparent;
+            this.lblMembership1Price.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMembership1Price.Location = new System.Drawing.Point(42, 33);
+            this.lblMembership1Price.Name = "lblMembership1Price";
+            this.lblMembership1Price.Size = new System.Drawing.Size(46, 20);
+            this.lblMembership1Price.TabIndex = 7;
+            this.lblMembership1Price.Text = "₱600";
+            // 
+            // lblMembership1
+            // 
+            this.lblMembership1.AutoSize = true;
+            this.lblMembership1.BackColor = System.Drawing.Color.Transparent;
+            this.lblMembership1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMembership1.Location = new System.Drawing.Point(42, 16);
+            this.lblMembership1.Name = "lblMembership1";
+            this.lblMembership1.Size = new System.Drawing.Size(58, 17);
+            this.lblMembership1.TabIndex = 6;
+            this.lblMembership1.Text = "1 Month";
+            // 
             // pnlMembership2
             // 
             this.pnlMembership2.BorderColor = System.Drawing.Color.DodgerBlue;
             this.pnlMembership2.BorderRadius = 8;
+            this.pnlMembership2.Controls.Add(this.lblMembership2Description);
+            this.pnlMembership2.Controls.Add(this.lblMembership2Price);
+            this.pnlMembership2.Controls.Add(this.lblMembership2);
             this.pnlMembership2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlMembership2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMembership2.FillColor = System.Drawing.Color.AliceBlue;
@@ -356,6 +729,39 @@
             this.pnlMembership2.Name = "pnlMembership2";
             this.pnlMembership2.Size = new System.Drawing.Size(304, 81);
             this.pnlMembership2.TabIndex = 1;
+            // 
+            // lblMembership2Description
+            // 
+            this.lblMembership2Description.AutoSize = true;
+            this.lblMembership2Description.BackColor = System.Drawing.Color.Transparent;
+            this.lblMembership2Description.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMembership2Description.Location = new System.Drawing.Point(63, 54);
+            this.lblMembership2Description.Name = "lblMembership2Description";
+            this.lblMembership2Description.Size = new System.Drawing.Size(158, 12);
+            this.lblMembership2Description.TabIndex = 11;
+            this.lblMembership2Description.Text = "Get up to 20% Discount Per Transaction";
+            // 
+            // lblMembership2Price
+            // 
+            this.lblMembership2Price.AutoSize = true;
+            this.lblMembership2Price.BackColor = System.Drawing.Color.Transparent;
+            this.lblMembership2Price.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMembership2Price.Location = new System.Drawing.Point(63, 31);
+            this.lblMembership2Price.Name = "lblMembership2Price";
+            this.lblMembership2Price.Size = new System.Drawing.Size(59, 20);
+            this.lblMembership2Price.TabIndex = 10;
+            this.lblMembership2Price.Text = "₱4,500";
+            // 
+            // lblMembership2
+            // 
+            this.lblMembership2.AutoSize = true;
+            this.lblMembership2.BackColor = System.Drawing.Color.Transparent;
+            this.lblMembership2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMembership2.Location = new System.Drawing.Point(63, 14);
+            this.lblMembership2.Name = "lblMembership2";
+            this.lblMembership2.Size = new System.Drawing.Size(65, 17);
+            this.lblMembership2.TabIndex = 9;
+            this.lblMembership2.Text = "12 Month";
             // 
             // pnlCart
             // 
@@ -607,10 +1013,30 @@
             this.pnlHeader.PerformLayout();
             this.gbCourtRental.ResumeLayout(false);
             this.tlpCourts.ResumeLayout(false);
+            this.pnlCourtA.ResumeLayout(false);
+            this.pnlCourtA.PerformLayout();
+            this.pnlCourtB.ResumeLayout(false);
+            this.pnlCourtB.PerformLayout();
+            this.pnlCourtC.ResumeLayout(false);
+            this.pnlCourtC.PerformLayout();
+            this.pnlCourtD.ResumeLayout(false);
+            this.pnlCourtD.PerformLayout();
             this.gbEquipmentRental.ResumeLayout(false);
             this.tlpEquipment.ResumeLayout(false);
+            this.pnlEquipment1.ResumeLayout(false);
+            this.pnlEquipment1.PerformLayout();
+            this.pnlEquipment3.ResumeLayout(false);
+            this.pnlEquipment3.PerformLayout();
+            this.pnlEquipment2.ResumeLayout(false);
+            this.pnlEquipment2.PerformLayout();
+            this.pnlEquipment4.ResumeLayout(false);
+            this.pnlEquipment4.PerformLayout();
             this.gbMembership.ResumeLayout(false);
             this.tlpMembership.ResumeLayout(false);
+            this.pnlMembership1.ResumeLayout(false);
+            this.pnlMembership1.PerformLayout();
+            this.pnlMembership2.ResumeLayout(false);
+            this.pnlMembership2.PerformLayout();
             this.pnlCart.ResumeLayout(false);
             this.pnlCart.PerformLayout();
             this.flowCart.ResumeLayout(false);
@@ -630,7 +1056,6 @@
         private System.Windows.Forms.TableLayoutPanel tlpCourts;
         private Guna.UI2.WinForms.Guna2Panel pnlCourtA;
         private Guna.UI2.WinForms.Guna2Panel pnlCourtB;
-        private Guna.UI2.WinForms.Guna2Panel pnlCourtC;
         private Guna.UI2.WinForms.Guna2Panel pnlCourtD;
         private Guna.UI2.WinForms.Guna2GroupBox gbEquipmentRental;
         private System.Windows.Forms.TableLayoutPanel tlpEquipment;
@@ -660,5 +1085,36 @@
         private System.Windows.Forms.Label lblQty;
         private Guna.UI2.WinForms.Guna2Button btnPlus;
         private Guna.UI2.WinForms.Guna2Button btnRemove;
+        private System.Windows.Forms.Label lblCourtA;
+        private System.Windows.Forms.Label lblCourtAPrice;
+        private System.Windows.Forms.Label lblCourtAAvailability;
+        private System.Windows.Forms.Label lblCourtBAvailability;
+        private System.Windows.Forms.Label lblCourtBPrice;
+        private System.Windows.Forms.Label lblCourtB;
+        private System.Windows.Forms.Label lblCourtDAvailability;
+        private System.Windows.Forms.Label lblCourtD;
+        private System.Windows.Forms.Label lblCourtDPrice;
+        private Guna.UI2.WinForms.Guna2Panel pnlCourtC;
+        private System.Windows.Forms.Label lblCourtCAvailability;
+        private System.Windows.Forms.Label lblCourtCPrice;
+        private System.Windows.Forms.Label lblCourtC;
+        private System.Windows.Forms.Label lblEquipment1Availability;
+        private System.Windows.Forms.Label lblEquipment1Price;
+        private System.Windows.Forms.Label lblEquipment1;
+        private System.Windows.Forms.Label lblEquipment3Availability;
+        private System.Windows.Forms.Label lblEquipment3Price;
+        private System.Windows.Forms.Label lblEquipment3;
+        private System.Windows.Forms.Label lblEquipment2Availability;
+        private System.Windows.Forms.Label lblEquipment2Price;
+        private System.Windows.Forms.Label lblEquipment2;
+        private System.Windows.Forms.Label lblEquipment4Availability;
+        private System.Windows.Forms.Label lblEquipment4Price;
+        private System.Windows.Forms.Label lblEquipment4;
+        private System.Windows.Forms.Label lblMembership1Description;
+        private System.Windows.Forms.Label lblMembership1Price;
+        private System.Windows.Forms.Label lblMembership1;
+        private System.Windows.Forms.Label lblMembership2Description;
+        private System.Windows.Forms.Label lblMembership2Price;
+        private System.Windows.Forms.Label lblMembership2;
     }
 }
