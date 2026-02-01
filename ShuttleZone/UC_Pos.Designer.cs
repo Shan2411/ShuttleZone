@@ -85,7 +85,7 @@
             this.lblSubtotal = new System.Windows.Forms.Label();
             this.btnApply = new Guna.UI2.WinForms.Guna2Button();
             this.txtMemberCode = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnProceedPayment = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCashPayment = new Guna.UI2.WinForms.Guna2Button();
             this.lblTotalText = new System.Windows.Forms.Label();
             this.lblSubtotalText = new System.Windows.Forms.Label();
             this.flowCart = new System.Windows.Forms.FlowLayoutPanel();
@@ -96,6 +96,7 @@
             this.btnMinus = new Guna.UI2.WinForms.Guna2Button();
             this.lblItemName = new System.Windows.Forms.Label();
             this.lblCart = new System.Windows.Forms.Label();
+            this.btnEcashPayment = new Guna.UI2.WinForms.Guna2Button();
             this.tlpMain.SuspendLayout();
             this.tlpLeft.SuspendLayout();
             this.pnlHeader.SuspendLayout();
@@ -767,13 +768,14 @@
             // 
             this.pnlCart.BackColor = System.Drawing.Color.Transparent;
             this.pnlCart.BorderRadius = 12;
+            this.pnlCart.Controls.Add(this.btnEcashPayment);
             this.pnlCart.Controls.Add(this.lblDiscount);
             this.pnlCart.Controls.Add(this.lblMemberDiscount);
             this.pnlCart.Controls.Add(this.lblTotal);
             this.pnlCart.Controls.Add(this.lblSubtotal);
             this.pnlCart.Controls.Add(this.btnApply);
             this.pnlCart.Controls.Add(this.txtMemberCode);
-            this.pnlCart.Controls.Add(this.btnProceedPayment);
+            this.pnlCart.Controls.Add(this.btnCashPayment);
             this.pnlCart.Controls.Add(this.lblTotalText);
             this.pnlCart.Controls.Add(this.lblSubtotalText);
             this.pnlCart.Controls.Add(this.flowCart);
@@ -858,19 +860,19 @@
             this.txtMemberCode.Size = new System.Drawing.Size(141, 37);
             this.txtMemberCode.TabIndex = 5;
             // 
-            // btnProceedPayment
+            // btnCashPayment
             // 
-            this.btnProceedPayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnProceedPayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnProceedPayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnProceedPayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnProceedPayment.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProceedPayment.ForeColor = System.Drawing.Color.White;
-            this.btnProceedPayment.Location = new System.Drawing.Point(29, 480);
-            this.btnProceedPayment.Name = "btnProceedPayment";
-            this.btnProceedPayment.Size = new System.Drawing.Size(218, 35);
-            this.btnProceedPayment.TabIndex = 4;
-            this.btnProceedPayment.Text = "Proceed to Payment";
+            this.btnCashPayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCashPayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCashPayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCashPayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCashPayment.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCashPayment.ForeColor = System.Drawing.Color.White;
+            this.btnCashPayment.Location = new System.Drawing.Point(29, 480);
+            this.btnCashPayment.Name = "btnCashPayment";
+            this.btnCashPayment.Size = new System.Drawing.Size(105, 35);
+            this.btnCashPayment.TabIndex = 4;
+            this.btnCashPayment.Text = "Cash";
             // 
             // lblTotalText
             // 
@@ -999,6 +1001,20 @@
             this.lblCart.TabIndex = 0;
             this.lblCart.Text = "Cart";
             // 
+            // btnEcashPayment
+            // 
+            this.btnEcashPayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEcashPayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEcashPayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEcashPayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEcashPayment.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEcashPayment.ForeColor = System.Drawing.Color.White;
+            this.btnEcashPayment.Location = new System.Drawing.Point(140, 480);
+            this.btnEcashPayment.Name = "btnEcashPayment";
+            this.btnEcashPayment.Size = new System.Drawing.Size(105, 35);
+            this.btnEcashPayment.TabIndex = 11;
+            this.btnEcashPayment.Text = "E-Cash";
+            // 
             // UC_Pos
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1073,7 +1089,7 @@
         private System.Windows.Forms.Label lblSubtotalText;
         private Guna.UI2.WinForms.Guna2Button btnApply;
         private Guna.UI2.WinForms.Guna2TextBox txtMemberCode;
-        private Guna.UI2.WinForms.Guna2Button btnProceedPayment;
+        private Guna.UI2.WinForms.Guna2Button btnCashPayment;
         private System.Windows.Forms.Label lblTotalText;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblSubtotal;
@@ -1116,5 +1132,6 @@
         private System.Windows.Forms.Label lblMembership2Description;
         private System.Windows.Forms.Label lblMembership2Price;
         private System.Windows.Forms.Label lblMembership2;
+        private Guna.UI2.WinForms.Guna2Button btnEcashPayment;
     }
 }
