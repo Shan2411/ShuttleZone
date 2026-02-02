@@ -79,6 +79,7 @@
             this.lblMembership2Price = new System.Windows.Forms.Label();
             this.lblMembership2 = new System.Windows.Forms.Label();
             this.pnlCart = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnEcashPayment = new Guna.UI2.WinForms.Guna2Button();
             this.lblDiscount = new System.Windows.Forms.Label();
             this.lblMemberDiscount = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -96,7 +97,6 @@
             this.btnMinus = new Guna.UI2.WinForms.Guna2Button();
             this.lblItemName = new System.Windows.Forms.Label();
             this.lblCart = new System.Windows.Forms.Label();
-            this.btnEcashPayment = new Guna.UI2.WinForms.Guna2Button();
             this.tlpMain.SuspendLayout();
             this.tlpLeft.SuspendLayout();
             this.pnlHeader.SuspendLayout();
@@ -788,6 +788,21 @@
             this.pnlCart.Size = new System.Drawing.Size(274, 581);
             this.pnlCart.TabIndex = 1;
             // 
+            // btnEcashPayment
+            // 
+            this.btnEcashPayment.AutoRoundedCorners = true;
+            this.btnEcashPayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEcashPayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEcashPayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEcashPayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEcashPayment.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEcashPayment.ForeColor = System.Drawing.Color.White;
+            this.btnEcashPayment.Location = new System.Drawing.Point(140, 480);
+            this.btnEcashPayment.Name = "btnEcashPayment";
+            this.btnEcashPayment.Size = new System.Drawing.Size(105, 35);
+            this.btnEcashPayment.TabIndex = 11;
+            this.btnEcashPayment.Text = "E-Cash";
+            // 
             // lblDiscount
             // 
             this.lblDiscount.AutoSize = true;
@@ -940,6 +955,7 @@
             this.btnRemove.Size = new System.Drawing.Size(28, 28);
             this.btnRemove.TabIndex = 14;
             this.btnRemove.Text = "X";
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnPlus
             // 
@@ -1002,21 +1018,6 @@
             this.lblCart.Size = new System.Drawing.Size(40, 21);
             this.lblCart.TabIndex = 0;
             this.lblCart.Text = "Cart";
-            // 
-            // btnEcashPayment
-            // 
-            this.btnEcashPayment.AutoRoundedCorners = true;
-            this.btnEcashPayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEcashPayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEcashPayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEcashPayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEcashPayment.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEcashPayment.ForeColor = System.Drawing.Color.White;
-            this.btnEcashPayment.Location = new System.Drawing.Point(140, 480);
-            this.btnEcashPayment.Name = "btnEcashPayment";
-            this.btnEcashPayment.Size = new System.Drawing.Size(105, 35);
-            this.btnEcashPayment.TabIndex = 11;
-            this.btnEcashPayment.Text = "E-Cash";
             // 
             // UC_Pos
             // 

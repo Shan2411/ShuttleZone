@@ -134,5 +134,10 @@ namespace ShuttleZone
         {
             flowCart.Controls.Add(CloneCartItemPanel("Court D"));
         }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
