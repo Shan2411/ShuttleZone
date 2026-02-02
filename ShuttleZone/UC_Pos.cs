@@ -119,14 +119,34 @@ namespace ShuttleZone
             lblTotal.Text = $"₱{total}";
         }
 
+        private bool EquipmentAlreadyInCart(string itemName)
+        {
+            return flowCart.Controls
+                .OfType<Guna2Panel>()
+                .Any(p => p.Controls["lblItemName"].Text == itemName);
+        }
+
+
         private void Equipment_Click(object sender, EventArgs e)
         {
             var panel = sender as Guna2Panel;
             if (panel != null && panel.Tag != null)
             {
                 string itemName = panel.Tag.ToString();
-                decimal price = 0;
 
+                // ❌ Block duplicate equipment
+                if (EquipmentAlreadyInCart(itemName))
+                {
+                    MessageBox.Show(
+                        "This item is already in your cart.\nUse the + button to increase the quantity instead.",
+                        "Item Already Added",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                    return;
+                }
+
+                decimal price = 0;
                 if (itemName == "Racket") price = 50;
                 else if (itemName == "Shuttlecock Pack") price = 80;
                 else if (itemName == "Grip Tape") price = 30;
@@ -137,38 +157,72 @@ namespace ShuttleZone
             }
         }
 
+
         private void Membership_Click(object sender, EventArgs e)
         {
             var panel = sender as Guna2Panel;
             string itemName = panel.Tag.ToString();
 
+            RemoveExistingMembership();   // 👈 single-select logic
+
             decimal price = itemName == "1 Month Membership" ? 500 : 4500;
 
             flowCart.Controls.Add(CloneCartItemPanel(itemName, price));
-            UpdateCartTotals(); // 👉 after add
+            UpdateCartTotals();
+        }
+
+
+        private void RemoveExistingCourt()
+        {
+            var courts = flowCart.Controls.OfType<Guna2Panel>()
+                .Where(p => p.Controls["lblItemName"].Text.StartsWith("Court"))
+                .ToList();
+
+            foreach (var p in courts)
+            {
+                flowCart.Controls.Remove(p);
+                p.Dispose();
+            }
+        }
+
+        private void RemoveExistingMembership()
+        {
+            var memberships = flowCart.Controls.OfType<Guna2Panel>()
+                .Where(p => p.Controls["lblItemName"].Text.Contains("Membership"))
+                .ToList();
+
+            foreach (var p in memberships)
+            {
+                flowCart.Controls.Remove(p);
+                p.Dispose();
+            }
         }
 
 
         private void btnCourtA_Click(object sender, EventArgs e)
         {
+            RemoveExistingCourt();
             flowCart.Controls.Add(CloneCartItemPanel("Court A", 250));
             UpdateCartTotals();
         }
 
         private void btnCourtB_Click(object sender, EventArgs e)
         {
+            RemoveExistingCourt();
             flowCart.Controls.Add(CloneCartItemPanel("Court B", 250));
             UpdateCartTotals();
         }
 
         private void btnCourtC_Click(object sender, EventArgs e)
         {
+            RemoveExistingCourt();
             flowCart.Controls.Add(CloneCartItemPanel("Court C", 250));
             UpdateCartTotals();
         }
 
         private void btnCourtD_Click(object sender, EventArgs e)
         {
+            RemoveExistingCourt();
             flowCart.Controls.Add(CloneCartItemPanel("Court D", 250));
             UpdateCartTotals();
         }
