@@ -139,5 +139,20 @@ namespace ShuttleZone
         {
 
         }
+
+        private void flowCart_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tlpPayment_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnCashPayment_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
