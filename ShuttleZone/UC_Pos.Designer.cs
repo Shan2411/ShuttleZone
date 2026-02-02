@@ -106,6 +106,7 @@
             this.btnMinus = new Guna.UI2.WinForms.Guna2Button();
             this.lblItemName = new System.Windows.Forms.Label();
             this.lblCart = new System.Windows.Forms.Label();
+            this.lblRowTotal = new System.Windows.Forms.Label();
             this.tlpMain.SuspendLayout();
             this.tlpLeft.SuspendLayout();
             this.pnlHeader.SuspendLayout();
@@ -830,7 +831,6 @@
             this.tlpPayment.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tlpPayment.Size = new System.Drawing.Size(268, 169);
             this.tlpPayment.TabIndex = 12;
-            this.tlpPayment.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpPayment_Paint);
             // 
             // tableLayoutPanel6
             // 
@@ -915,7 +915,6 @@
             this.btnCashPayment.Size = new System.Drawing.Size(128, 27);
             this.btnCashPayment.TabIndex = 4;
             this.btnCashPayment.Text = "Cash";
-            this.btnCashPayment.Click += new System.EventHandler(this.btnCashPayment_Click);
             // 
             // btnEcashPayment
             // 
@@ -1078,12 +1077,12 @@
             this.flowCart.Size = new System.Drawing.Size(262, 354);
             this.flowCart.TabIndex = 1;
             this.flowCart.WrapContents = false;
-            this.flowCart.Paint += new System.Windows.Forms.PaintEventHandler(this.flowCart_Paint);
             // 
             // pnlCartItem
             // 
             this.pnlCartItem.BackColor = System.Drawing.Color.Transparent;
             this.pnlCartItem.BorderRadius = 10;
+            this.pnlCartItem.Controls.Add(this.lblRowTotal);
             this.pnlCartItem.Controls.Add(this.btnRemove);
             this.pnlCartItem.Controls.Add(this.lblPrice);
             this.pnlCartItem.Controls.Add(this.btnPlus);
@@ -1122,9 +1121,9 @@
             this.lblPrice.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrice.Location = new System.Drawing.Point(6, 26);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(19, 13);
+            this.lblPrice.Size = new System.Drawing.Size(37, 13);
             this.lblPrice.TabIndex = 1;
-            this.lblPrice.Text = "₱0";
+            this.lblPrice.Text = "₱0000";
             // 
             // btnPlus
             // 
@@ -1135,7 +1134,7 @@
             this.btnPlus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnPlus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlus.ForeColor = System.Drawing.Color.White;
-            this.btnPlus.Location = new System.Drawing.Point(182, 11);
+            this.btnPlus.Location = new System.Drawing.Point(183, 11);
             this.btnPlus.Name = "btnPlus";
             this.btnPlus.Size = new System.Drawing.Size(28, 28);
             this.btnPlus.TabIndex = 13;
@@ -1145,7 +1144,7 @@
             // 
             this.lblQty.AutoSize = true;
             this.lblQty.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQty.Location = new System.Drawing.Point(159, 18);
+            this.lblQty.Location = new System.Drawing.Point(163, 18);
             this.lblQty.Name = "lblQty";
             this.lblQty.Size = new System.Drawing.Size(13, 15);
             this.lblQty.TabIndex = 11;
@@ -1161,7 +1160,7 @@
             this.btnMinus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnMinus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinus.ForeColor = System.Drawing.Color.White;
-            this.btnMinus.Location = new System.Drawing.Point(122, 11);
+            this.btnMinus.Location = new System.Drawing.Point(129, 11);
             this.btnMinus.Name = "btnMinus";
             this.btnMinus.Size = new System.Drawing.Size(28, 28);
             this.btnMinus.TabIndex = 12;
@@ -1180,13 +1179,24 @@
             // 
             // lblCart
             // 
+            this.lblCart.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblCart.AutoSize = true;
             this.lblCart.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCart.Location = new System.Drawing.Point(3, 0);
+            this.lblCart.Location = new System.Drawing.Point(3, 9);
             this.lblCart.Name = "lblCart";
             this.lblCart.Size = new System.Drawing.Size(40, 21);
             this.lblCart.TabIndex = 0;
             this.lblCart.Text = "Cart";
+            // 
+            // lblRowTotal
+            // 
+            this.lblRowTotal.AutoSize = true;
+            this.lblRowTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRowTotal.Location = new System.Drawing.Point(84, 19);
+            this.lblRowTotal.Name = "lblRowTotal";
+            this.lblRowTotal.Size = new System.Drawing.Size(38, 15);
+            this.lblRowTotal.TabIndex = 15;
+            this.lblRowTotal.Text = "₱0000";
             // 
             // UC_Pos
             // 
@@ -1326,5 +1336,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label lblRowTotal;
     }
 }
