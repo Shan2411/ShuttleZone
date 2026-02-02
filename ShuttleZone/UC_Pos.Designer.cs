@@ -99,6 +99,7 @@
             this.tlpCart = new System.Windows.Forms.TableLayoutPanel();
             this.flowCart = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlCartItem = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblRowTotal = new System.Windows.Forms.Label();
             this.btnRemove = new Guna.UI2.WinForms.Guna2Button();
             this.lblPrice = new System.Windows.Forms.Label();
             this.btnPlus = new Guna.UI2.WinForms.Guna2Button();
@@ -106,7 +107,9 @@
             this.btnMinus = new Guna.UI2.WinForms.Guna2Button();
             this.lblItemName = new System.Windows.Forms.Label();
             this.lblCart = new System.Windows.Forms.Label();
-            this.lblRowTotal = new System.Windows.Forms.Label();
+            this.pnlDiscountApplied = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblDiscountApplied = new System.Windows.Forms.Label();
+            this.btnRemoveDiscount = new Guna.UI2.WinForms.Guna2Button();
             this.tlpMain.SuspendLayout();
             this.tlpLeft.SuspendLayout();
             this.pnlHeader.SuspendLayout();
@@ -137,6 +140,7 @@
             this.tlpCart.SuspendLayout();
             this.flowCart.SuspendLayout();
             this.pnlCartItem.SuspendLayout();
+            this.pnlDiscountApplied.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpMain
@@ -882,6 +886,7 @@
             this.btnApply.Size = new System.Drawing.Size(75, 31);
             this.btnApply.TabIndex = 6;
             this.btnApply.Text = "Apply";
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -1053,16 +1058,16 @@
             // 
             this.tlpCart.ColumnCount = 1;
             this.tlpCart.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpCart.Controls.Add(this.flowCart, 0, 1);
             this.tlpCart.Controls.Add(this.lblCart, 0, 0);
+            this.tlpCart.Controls.Add(this.flowCart, 0, 2);
+            this.tlpCart.Controls.Add(this.pnlDiscountApplied, 0, 1);
             this.tlpCart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpCart.Location = new System.Drawing.Point(3, 3);
             this.tlpCart.Name = "tlpCart";
-            this.tlpCart.RowCount = 2;
-            this.tlpCart.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tlpCart.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tlpCart.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpCart.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpCart.RowCount = 3;
+            this.tlpCart.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpCart.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpCart.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpCart.Size = new System.Drawing.Size(268, 400);
             this.tlpCart.TabIndex = 1;
             // 
@@ -1070,11 +1075,10 @@
             // 
             this.flowCart.AutoScroll = true;
             this.flowCart.Controls.Add(this.pnlCartItem);
-            this.flowCart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowCart.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowCart.Location = new System.Drawing.Point(3, 43);
+            this.flowCart.Location = new System.Drawing.Point(3, 63);
             this.flowCart.Name = "flowCart";
-            this.flowCart.Size = new System.Drawing.Size(262, 354);
+            this.flowCart.Size = new System.Drawing.Size(262, 334);
             this.flowCart.TabIndex = 1;
             this.flowCart.WrapContents = false;
             // 
@@ -1097,6 +1101,16 @@
             this.pnlCartItem.Size = new System.Drawing.Size(251, 50);
             this.pnlCartItem.TabIndex = 0;
             this.pnlCartItem.Visible = false;
+            // 
+            // lblRowTotal
+            // 
+            this.lblRowTotal.AutoSize = true;
+            this.lblRowTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRowTotal.Location = new System.Drawing.Point(84, 19);
+            this.lblRowTotal.Name = "lblRowTotal";
+            this.lblRowTotal.Size = new System.Drawing.Size(38, 15);
+            this.lblRowTotal.TabIndex = 15;
+            this.lblRowTotal.Text = "₱0000";
             // 
             // btnRemove
             // 
@@ -1182,21 +1196,51 @@
             this.lblCart.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblCart.AutoSize = true;
             this.lblCart.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCart.Location = new System.Drawing.Point(3, 9);
+            this.lblCart.Location = new System.Drawing.Point(3, 4);
             this.lblCart.Name = "lblCart";
             this.lblCart.Size = new System.Drawing.Size(40, 21);
             this.lblCart.TabIndex = 0;
             this.lblCart.Text = "Cart";
             // 
-            // lblRowTotal
+            // pnlDiscountApplied
             // 
-            this.lblRowTotal.AutoSize = true;
-            this.lblRowTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRowTotal.Location = new System.Drawing.Point(84, 19);
-            this.lblRowTotal.Name = "lblRowTotal";
-            this.lblRowTotal.Size = new System.Drawing.Size(38, 15);
-            this.lblRowTotal.TabIndex = 15;
-            this.lblRowTotal.Text = "₱0000";
+            this.pnlDiscountApplied.BorderRadius = 10;
+            this.pnlDiscountApplied.Controls.Add(this.btnRemoveDiscount);
+            this.pnlDiscountApplied.Controls.Add(this.lblDiscountApplied);
+            this.pnlDiscountApplied.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlDiscountApplied.Location = new System.Drawing.Point(3, 33);
+            this.pnlDiscountApplied.Name = "pnlDiscountApplied";
+            this.pnlDiscountApplied.Size = new System.Drawing.Size(262, 24);
+            this.pnlDiscountApplied.TabIndex = 2;
+            this.pnlDiscountApplied.Visible = false;
+            // 
+            // lblDiscountApplied
+            // 
+            this.lblDiscountApplied.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiscountApplied.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lblDiscountApplied.Location = new System.Drawing.Point(9, 6);
+            this.lblDiscountApplied.Name = "lblDiscountApplied";
+            this.lblDiscountApplied.Size = new System.Drawing.Size(131, 13);
+            this.lblDiscountApplied.TabIndex = 0;
+            this.lblDiscountApplied.Text = "Discount Applied";
+            // 
+            // btnRemoveDiscount
+            // 
+            this.btnRemoveDiscount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRemoveDiscount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemoveDiscount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemoveDiscount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRemoveDiscount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRemoveDiscount.FillColor = System.Drawing.Color.Transparent;
+            this.btnRemoveDiscount.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveDiscount.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnRemoveDiscount.Location = new System.Drawing.Point(216, 3);
+            this.btnRemoveDiscount.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRemoveDiscount.Name = "btnRemoveDiscount";
+            this.btnRemoveDiscount.Size = new System.Drawing.Size(35, 18);
+            this.btnRemoveDiscount.TabIndex = 1;
+            this.btnRemoveDiscount.Text = "X";
+            this.btnRemoveDiscount.Click += new System.EventHandler(this.btnRemoveDiscount_Click);
             // 
             // UC_Pos
             // 
@@ -1252,6 +1296,7 @@
             this.flowCart.ResumeLayout(false);
             this.pnlCartItem.ResumeLayout(false);
             this.pnlCartItem.PerformLayout();
+            this.pnlDiscountApplied.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1337,5 +1382,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblRowTotal;
+        private Guna.UI2.WinForms.Guna2Panel pnlDiscountApplied;
+        private System.Windows.Forms.Label lblDiscountApplied;
+        private Guna.UI2.WinForms.Guna2Button btnRemoveDiscount;
     }
 }

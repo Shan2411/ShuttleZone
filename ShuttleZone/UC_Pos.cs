@@ -14,6 +14,8 @@ namespace ShuttleZone
 {
     public partial class UC_Pos : UserControl
     {
+        private decimal appliedDiscountPercent = 0;
+
         public UC_Pos()
         {
             InitializeComponent();
@@ -107,6 +109,22 @@ namespace ShuttleZone
 
         private void UpdateCartTotals()
         {
+            GetSubtotalValue();
+            ApplyDiscount();
+        }
+
+
+        private void ApplyDiscount()
+        {
+            decimal subtotal = GetSubtotalValue();
+            decimal discountAmount = subtotal * (appliedDiscountPercent / 100m);
+
+            lblDiscount.Text = $"₱{discountAmount}";
+            lblTotal.Text = $"₱{subtotal - discountAmount}";
+        }
+
+        private decimal GetSubtotalValue()
+        {
             decimal total = 0;
 
             foreach (Guna2Panel p in flowCart.Controls.OfType<Guna2Panel>())
@@ -116,8 +134,9 @@ namespace ShuttleZone
             }
 
             lblSubtotal.Text = $"₱{total}";
-            lblTotal.Text = $"₱{total}";
+            return total;
         }
+
 
         private bool EquipmentAlreadyInCart(string itemName)
         {
@@ -196,6 +215,48 @@ namespace ShuttleZone
                 flowCart.Controls.Remove(p);
                 p.Dispose();
             }
+        }
+
+        private void btnApply_Click(object sender, EventArgs e)
+        {
+            appliedDiscountPercent = 0;
+
+            string code = txtMemberCode.Text.Trim().ToUpper();
+
+            if (string.IsNullOrWhiteSpace(code))
+            {
+                MessageBox.Show("Please enter a member code.");
+                return;
+            }
+
+            // 🎯 Your Member Codes
+            if (code == "M#0001") appliedDiscountPercent = 10;
+            else if (code == "M#0002") appliedDiscountPercent = 15;
+            else if (code == "M#0003") appliedDiscountPercent = 20;
+            else
+            {
+                MessageBox.Show("Invalid member code.");
+                return;
+            }
+
+            // ✅ SUCCESS
+            ApplyDiscount();
+
+            lblDiscountApplied.Text = $"Member Code {code} Applied ({appliedDiscountPercent}% OFF)";
+            pnlDiscountApplied.Visible = true;
+
+            txtMemberCode.Text = "";
+        }
+
+        private void btnRemoveDiscount_Click(object sender, EventArgs e)
+        {
+            appliedDiscountPercent = 0;
+
+            pnlDiscountApplied.Visible = false;
+            lblDiscount.Text = "₱0";
+            txtMemberCode.Text = "";
+
+            UpdateCartTotals();
         }
 
 
