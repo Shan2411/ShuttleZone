@@ -55,6 +55,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dashboard1\Alerts_Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\Alerts_Dashboard.Designer.cs">
+      <DependentUpon>Alerts_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard1\Card_Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\Card_Dashboard.Designer.cs">
+      <DependentUpon>Card_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard1\Dashboard_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\Dashboard_UC.Designer.cs">
+      <DependentUpon>Dashboard_UC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +104,30 @@
     <Compile Include="Membership\AddNewMember.Designer.cs">
       <DependentUpon>AddNewMember.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\Reports_Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="reports\Reports_Dashboard.Designer.cs">
+      <DependentUpon>Reports_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sidebars\AdminSidebar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sidebars\AdminSidebar.Designer.cs">
+      <DependentUpon>AdminSidebar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sidebars\FrontDeskSidebar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sidebars\FrontDeskSidebar.Designer.cs">
+      <DependentUpon>FrontDeskSidebar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sidebars\ManagerSidebar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sidebars\ManagerSidebar.Designer.cs">
+      <DependentUpon>ManagerSidebar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +154,15 @@
     <Compile Include="UC_Pos.Designer.cs">
       <DependentUpon>UC_Pos.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Dashboard1\Alerts_Dashboard.resx">
+      <DependentUpon>Alerts_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\Card_Dashboard.resx">
+      <DependentUpon>Card_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\Dashboard_UC.resx">
+      <DependentUpon>Dashboard_UC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,9 +194,22 @@
     <EmbeddedResource Include="Membership\UC_Membership.resx">
       <DependentUpon>UC_Membership.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reports\Reports_Dashboard.resx">
+      <DependentUpon>Reports_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sidebars\AdminSidebar.resx">
+      <DependentUpon>AdminSidebar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sidebars\FrontDeskSidebar.resx">
+      <DependentUpon>FrontDeskSidebar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sidebars\ManagerSidebar.resx">
+      <DependentUpon>ManagerSidebar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_Pos.resx">
       <DependentUpon>UC_Pos.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="database\schema.md" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -180,6 +244,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Money.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Time.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Grid.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Box.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
