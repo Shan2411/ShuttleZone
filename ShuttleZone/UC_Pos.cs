@@ -292,5 +292,18 @@ namespace ShuttleZone
         {
 
         }
+
+        private void btnCashPayment_Click(object sender, EventArgs e)
+        {
+
+            // Get total from POS label
+            decimal total = decimal.Parse(lblTotal.Text.Replace("₱", "").Trim());
+
+            // Open CashPayment and pass total
+            CashPayment cp = new CashPayment(total);
+            cp.ShowDialog();
+        }
+
     }
 }
+

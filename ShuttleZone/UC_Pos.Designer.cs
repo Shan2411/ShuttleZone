@@ -97,6 +97,7 @@
             this.lblSubtotalText = new System.Windows.Forms.Label();
             this.lblSubtotal = new System.Windows.Forms.Label();
             this.tlpCart = new System.Windows.Forms.TableLayoutPanel();
+            this.lblCart = new System.Windows.Forms.Label();
             this.flowCart = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlCartItem = new Guna.UI2.WinForms.Guna2Panel();
             this.lblRowTotal = new System.Windows.Forms.Label();
@@ -106,10 +107,9 @@
             this.lblQty = new System.Windows.Forms.Label();
             this.btnMinus = new Guna.UI2.WinForms.Guna2Button();
             this.lblItemName = new System.Windows.Forms.Label();
-            this.lblCart = new System.Windows.Forms.Label();
             this.pnlDiscountApplied = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblDiscountApplied = new System.Windows.Forms.Label();
             this.btnRemoveDiscount = new Guna.UI2.WinForms.Guna2Button();
+            this.lblDiscountApplied = new System.Windows.Forms.Label();
             this.tlpMain.SuspendLayout();
             this.tlpLeft.SuspendLayout();
             this.pnlHeader.SuspendLayout();
@@ -920,6 +920,7 @@
             this.btnCashPayment.Size = new System.Drawing.Size(128, 27);
             this.btnCashPayment.TabIndex = 4;
             this.btnCashPayment.Text = "Cash";
+            this.btnCashPayment.Click += new System.EventHandler(this.btnCashPayment_Click);
             // 
             // btnEcashPayment
             // 
@@ -1071,6 +1072,17 @@
             this.tlpCart.Size = new System.Drawing.Size(268, 400);
             this.tlpCart.TabIndex = 1;
             // 
+            // lblCart
+            // 
+            this.lblCart.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCart.AutoSize = true;
+            this.lblCart.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCart.Location = new System.Drawing.Point(3, 4);
+            this.lblCart.Name = "lblCart";
+            this.lblCart.Size = new System.Drawing.Size(40, 21);
+            this.lblCart.TabIndex = 0;
+            this.lblCart.Text = "Cart";
+            // 
             // flowCart
             // 
             this.flowCart.AutoScroll = true;
@@ -1191,17 +1203,6 @@
             this.lblItemName.Text = "Item Name";
             this.lblItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblCart
-            // 
-            this.lblCart.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblCart.AutoSize = true;
-            this.lblCart.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCart.Location = new System.Drawing.Point(3, 4);
-            this.lblCart.Name = "lblCart";
-            this.lblCart.Size = new System.Drawing.Size(40, 21);
-            this.lblCart.TabIndex = 0;
-            this.lblCart.Text = "Cart";
-            // 
             // pnlDiscountApplied
             // 
             this.pnlDiscountApplied.BorderRadius = 10;
@@ -1213,16 +1214,6 @@
             this.pnlDiscountApplied.Size = new System.Drawing.Size(262, 24);
             this.pnlDiscountApplied.TabIndex = 2;
             this.pnlDiscountApplied.Visible = false;
-            // 
-            // lblDiscountApplied
-            // 
-            this.lblDiscountApplied.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiscountApplied.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblDiscountApplied.Location = new System.Drawing.Point(9, 6);
-            this.lblDiscountApplied.Name = "lblDiscountApplied";
-            this.lblDiscountApplied.Size = new System.Drawing.Size(131, 13);
-            this.lblDiscountApplied.TabIndex = 0;
-            this.lblDiscountApplied.Text = "Discount Applied";
             // 
             // btnRemoveDiscount
             // 
@@ -1241,6 +1232,16 @@
             this.btnRemoveDiscount.TabIndex = 1;
             this.btnRemoveDiscount.Text = "X";
             this.btnRemoveDiscount.Click += new System.EventHandler(this.btnRemoveDiscount_Click);
+            // 
+            // lblDiscountApplied
+            // 
+            this.lblDiscountApplied.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiscountApplied.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lblDiscountApplied.Location = new System.Drawing.Point(9, 6);
+            this.lblDiscountApplied.Name = "lblDiscountApplied";
+            this.lblDiscountApplied.Size = new System.Drawing.Size(131, 13);
+            this.lblDiscountApplied.TabIndex = 0;
+            this.lblDiscountApplied.Text = "Discount Applied";
             // 
             // UC_Pos
             // 
