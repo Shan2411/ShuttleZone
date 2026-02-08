@@ -67,6 +67,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kiosk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kiosk.Designer.cs">
+      <DependentUpon>Kiosk.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maintenance_Logs\ChangeStatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Kiosk.resx">
+      <DependentUpon>Kiosk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Maintenance_Logs\ChangeStatus.resx">
       <DependentUpon>ChangeStatus.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,14 +180,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Membership\UC_Membership.resx">
       <DependentUpon>UC_Membership.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,6 +239,11 @@
   <ItemGroup>
     <None Include="Resources\empty.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="POS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Court Rental Icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

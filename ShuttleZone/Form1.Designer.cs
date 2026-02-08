@@ -643,7 +643,7 @@
             this.guna2HtmlLabel8.Location = new System.Drawing.Point(13, 25);
             this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(13, 25, 0, 0);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(125, 21);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(125, 25);
             this.guna2HtmlLabel8.TabIndex = 0;
             this.guna2HtmlLabel8.Text = "Shuttle Zone";
             this.guna2HtmlLabel8.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
