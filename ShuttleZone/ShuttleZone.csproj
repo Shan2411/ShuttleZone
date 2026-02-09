@@ -67,11 +67,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Kiosk.cs">
+    <Compile Include="Kiosk\Kiosk.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Kiosk.Designer.cs">
+    <Compile Include="Kiosk\Kiosk.Designer.cs">
       <DependentUpon>Kiosk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kiosk\UC_CourtRental.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Kiosk\UC_CourtRental.Designer.cs">
+      <DependentUpon>UC_CourtRental.cs</DependentUpon>
     </Compile>
     <Compile Include="Maintenance_Logs\ChangeStatus.cs">
       <SubType>Form</SubType>
@@ -160,8 +166,11 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Kiosk.resx">
+    <EmbeddedResource Include="Kiosk\Kiosk.resx">
       <DependentUpon>Kiosk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kiosk\UC_CourtRental.resx">
+      <DependentUpon>UC_CourtRental.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintenance_Logs\ChangeStatus.resx">
       <DependentUpon>ChangeStatus.cs</DependentUpon>

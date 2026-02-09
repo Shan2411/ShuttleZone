@@ -303,7 +303,6 @@ namespace ShuttleZone
             CashPayment cp = new CashPayment(total);
             cp.ShowDialog();
         }
-
     }
 }
 
