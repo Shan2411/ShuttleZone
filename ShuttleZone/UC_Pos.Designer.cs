@@ -1109,6 +1109,8 @@
             this.pnlCartItem.Location = new System.Drawing.Point(5, 5);
             this.pnlCartItem.Margin = new System.Windows.Forms.Padding(5);
             this.pnlCartItem.Name = "pnlCartItem";
+            this.pnlCartItem.ShadowDecoration.BorderRadius = 10;
+            this.pnlCartItem.ShadowDecoration.Color = System.Drawing.Color.DimGray;
             this.pnlCartItem.ShadowDecoration.Enabled = true;
             this.pnlCartItem.Size = new System.Drawing.Size(251, 50);
             this.pnlCartItem.TabIndex = 0;
