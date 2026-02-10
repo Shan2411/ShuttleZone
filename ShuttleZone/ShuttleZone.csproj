@@ -67,16 +67,16 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Kiosk\Kiosk.cs">
+    <Compile Include="Kio_sk\Kiosk.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Kiosk\Kiosk.Designer.cs">
+    <Compile Include="Kio_sk\Kiosk.Designer.cs">
       <DependentUpon>Kiosk.cs</DependentUpon>
     </Compile>
-    <Compile Include="Kiosk\UC_CourtRental.cs">
+    <Compile Include="Kio_sk\UC_CourtRental.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Kiosk\UC_CourtRental.Designer.cs">
+    <Compile Include="Kio_sk\UC_CourtRental.Designer.cs">
       <DependentUpon>UC_CourtRental.cs</DependentUpon>
     </Compile>
     <Compile Include="Maintenance_Logs\ChangeStatus.cs">
@@ -103,6 +103,11 @@
     </Compile>
     <Compile Include="Membership\AddNewMember.Designer.cs">
       <DependentUpon>AddNewMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ReceiptForm.cs">
       <SubType>Form</SubType>
@@ -166,10 +171,10 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Kiosk\Kiosk.resx">
+    <EmbeddedResource Include="Kio_sk\Kiosk.resx">
       <DependentUpon>Kiosk.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Kiosk\UC_CourtRental.resx">
+    <EmbeddedResource Include="Kio_sk\UC_CourtRental.resx">
       <DependentUpon>UC_CourtRental.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintenance_Logs\ChangeStatus.resx">
@@ -190,6 +195,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Membership\UC_Membership.resx">
       <DependentUpon>UC_Membership.cs</DependentUpon>

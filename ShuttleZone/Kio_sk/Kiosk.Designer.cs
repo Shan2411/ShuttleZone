@@ -92,7 +92,6 @@
             this.btnCourtRental.Name = "btnCourtRental";
             this.btnCourtRental.Size = new System.Drawing.Size(63, 54);
             this.btnCourtRental.TabIndex = 0;
-            this.btnCourtRental.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // btnEquipment
             // 

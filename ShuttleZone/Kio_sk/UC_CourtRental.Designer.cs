@@ -1,4 +1,4 @@
-﻿namespace ShuttleZone.Kiosk
+﻿namespace ShuttleZone
 {
     partial class UC_CourtRental
     {
