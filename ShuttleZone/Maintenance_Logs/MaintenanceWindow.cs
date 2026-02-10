@@ -32,9 +32,9 @@ namespace ShuttleZone.Maintenance_Logs
 
             
             flowLayoutPanel1.Controls.Add(new MButton("Court A", Globals.statusFromDB)); 
-            flowLayoutPanel1.Controls.Add(new MButton("Court B", "under maintenance")); 
-            flowLayoutPanel1.Controls.Add(new MButton("Court C", Globals.statusFromDB));
-            flowLayoutPanel1.Controls.Add(new MButton("Court D", "out of service"));
+            flowLayoutPanel1.Controls.Add(new MButton("Court B", Globals.statusFromDB1)); 
+            flowLayoutPanel1.Controls.Add(new MButton("Court C", Globals.statusFromDB2));
+            flowLayoutPanel1.Controls.Add(new MButton("Court D", Globals.statusFromDB3));
         }
 
         public void RefreshPanel()
@@ -42,9 +42,9 @@ namespace ShuttleZone.Maintenance_Logs
             flowLayoutPanel1.Controls.Clear();
             // Add new controls as needed
             flowLayoutPanel1.Controls.Add(new MButton("Court A", Globals.statusFromDB));
-            flowLayoutPanel1.Controls.Add(new MButton("Court B", "under maintenance"));
-            flowLayoutPanel1.Controls.Add(new MButton("Court C", Globals.statusFromDB));
-            flowLayoutPanel1.Controls.Add(new MButton("Court D", "out of service"));
+            flowLayoutPanel1.Controls.Add(new MButton("Court B", Globals.statusFromDB1));
+            flowLayoutPanel1.Controls.Add(new MButton("Court C", Globals.statusFromDB2));
+            flowLayoutPanel1.Controls.Add(new MButton("Court D",  Globals.statusFromDB3));
             flowLayoutPanel1.Refresh();
         }
 
