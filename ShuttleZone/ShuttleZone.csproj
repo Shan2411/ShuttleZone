@@ -165,6 +165,12 @@
     <Compile Include="Kio_sk\UC_Equipment.Designer.cs">
       <DependentUpon>UC_Equipment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kio_sk\UC_KioskMembership.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Kio_sk\UC_KioskMembership.Designer.cs">
+      <DependentUpon>UC_KioskMembership.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Pos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Kio_sk\UC_Equipment.resx">
       <DependentUpon>UC_Equipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kio_sk\UC_KioskMembership.resx">
+      <DependentUpon>UC_KioskMembership.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintenance_Logs\ChangeStatus.resx">
       <DependentUpon>ChangeStatus.cs</DependentUpon>
