@@ -201,7 +201,7 @@
             // 
             this.gbCourtRental.BorderRadius = 10;
             this.gbCourtRental.Controls.Add(this.tlpCourts);
-            this.gbCourtRental.CustomBorderColor = System.Drawing.Color.MediumSeaGreen;
+            this.gbCourtRental.CustomBorderColor = System.Drawing.Color.Green;
             this.gbCourtRental.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbCourtRental.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCourtRental.ForeColor = System.Drawing.Color.Black;
@@ -436,7 +436,7 @@
             // 
             this.gbEquipmentRental.BorderRadius = 10;
             this.gbEquipmentRental.Controls.Add(this.tlpEquipment);
-            this.gbEquipmentRental.CustomBorderColor = System.Drawing.Color.MediumPurple;
+            this.gbEquipmentRental.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(35)))), ((int)(((byte)(191)))));
             this.gbEquipmentRental.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbEquipmentRental.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbEquipmentRental.ForeColor = System.Drawing.Color.Black;
@@ -475,7 +475,7 @@
             this.pnlEquipment1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlEquipment1.CustomBorderColor = System.Drawing.Color.Transparent;
             this.pnlEquipment1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlEquipment1.FillColor = System.Drawing.Color.Lavender;
+            this.pnlEquipment1.FillColor = System.Drawing.Color.Thistle;
             this.pnlEquipment1.Location = new System.Drawing.Point(11, 11);
             this.pnlEquipment1.Name = "pnlEquipment1";
             this.pnlEquipment1.Size = new System.Drawing.Size(306, 54);
@@ -524,7 +524,7 @@
             this.pnlEquipment3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlEquipment3.CustomBorderColor = System.Drawing.Color.Transparent;
             this.pnlEquipment3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlEquipment3.FillColor = System.Drawing.Color.Lavender;
+            this.pnlEquipment3.FillColor = System.Drawing.Color.Thistle;
             this.pnlEquipment3.Location = new System.Drawing.Point(11, 71);
             this.pnlEquipment3.Name = "pnlEquipment3";
             this.pnlEquipment3.Size = new System.Drawing.Size(306, 55);
@@ -572,7 +572,7 @@
             this.pnlEquipment2.Controls.Add(this.lblEquipment2);
             this.pnlEquipment2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlEquipment2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlEquipment2.FillColor = System.Drawing.Color.Lavender;
+            this.pnlEquipment2.FillColor = System.Drawing.Color.Thistle;
             this.pnlEquipment2.Location = new System.Drawing.Point(323, 11);
             this.pnlEquipment2.Name = "pnlEquipment2";
             this.pnlEquipment2.Size = new System.Drawing.Size(306, 54);
@@ -620,7 +620,7 @@
             this.pnlEquipment4.Controls.Add(this.lblEquipment4);
             this.pnlEquipment4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlEquipment4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlEquipment4.FillColor = System.Drawing.Color.Lavender;
+            this.pnlEquipment4.FillColor = System.Drawing.Color.Thistle;
             this.pnlEquipment4.Location = new System.Drawing.Point(323, 71);
             this.pnlEquipment4.Name = "pnlEquipment4";
             this.pnlEquipment4.Size = new System.Drawing.Size(306, 55);

@@ -31,25 +31,25 @@
             this.pnlCard = new Guna.UI2.WinForms.Guna2Panel();
             this.tlpRoot = new System.Windows.Forms.TableLayoutPanel();
             this.pnlHeader = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.lblSub = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlAmount = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblDueText = new System.Windows.Forms.Label();
             this.lblAmountDue = new System.Windows.Forms.Label();
+            this.lblDueText = new System.Windows.Forms.Label();
             this.tlpMid = new System.Windows.Forms.TableLayoutPanel();
             this.pnlCash = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblCashText = new System.Windows.Forms.Label();
-            this.txtCash = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtPesoSign = new System.Windows.Forms.Label();
+            this.txtCash = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblCashText = new System.Windows.Forms.Label();
             this.pnlChange = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblChangeText = new System.Windows.Forms.Label();
             this.lblChange = new System.Windows.Forms.Label();
+            this.lblChangeText = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowQuick = new System.Windows.Forms.FlowLayoutPanel();
             this.btn100 = new Guna.UI2.WinForms.Guna2Button();
             this.btn200 = new Guna.UI2.WinForms.Guna2Button();
             this.btn500 = new Guna.UI2.WinForms.Guna2Button();
             this.btn1000 = new Guna.UI2.WinForms.Guna2Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblQuickSelect = new System.Windows.Forms.Label();
             this.tlpFooter = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
@@ -61,8 +61,8 @@
             this.tlpMid.SuspendLayout();
             this.pnlCash.SuspendLayout();
             this.pnlChange.SuspendLayout();
-            this.flowQuick.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.flowQuick.SuspendLayout();
             this.tlpFooter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,18 +117,6 @@
             this.pnlHeader.Size = new System.Drawing.Size(474, 74);
             this.pnlHeader.TabIndex = 0;
             // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(62, 16);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(136, 25);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Cash Payment";
-            // 
             // lblSub
             // 
             this.lblSub.AutoSize = true;
@@ -141,9 +129,21 @@
             this.lblSub.TabIndex = 1;
             this.lblSub.Text = "Process cash transaction";
             // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(62, 16);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(136, 25);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Cash Payment";
+            // 
             // pnlAmount
             // 
-            this.pnlAmount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(83)))));
+            this.pnlAmount.BorderColor = System.Drawing.Color.Green;
             this.pnlAmount.BorderRadius = 16;
             this.pnlAmount.BorderThickness = 4;
             this.pnlAmount.Controls.Add(this.lblAmountDue);
@@ -156,6 +156,18 @@
             this.pnlAmount.Size = new System.Drawing.Size(474, 124);
             this.pnlAmount.TabIndex = 1;
             // 
+            // lblAmountDue
+            // 
+            this.lblAmountDue.AutoSize = true;
+            this.lblAmountDue.BackColor = System.Drawing.Color.Transparent;
+            this.lblAmountDue.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmountDue.ForeColor = System.Drawing.Color.Green;
+            this.lblAmountDue.Location = new System.Drawing.Point(58, 40);
+            this.lblAmountDue.Name = "lblAmountDue";
+            this.lblAmountDue.Size = new System.Drawing.Size(140, 50);
+            this.lblAmountDue.TabIndex = 1;
+            this.lblAmountDue.Text = "₱00.00";
+            // 
             // lblDueText
             // 
             this.lblDueText.AutoSize = true;
@@ -167,18 +179,6 @@
             this.lblDueText.Size = new System.Drawing.Size(85, 15);
             this.lblDueText.TabIndex = 0;
             this.lblDueText.Text = "AMOUNT DUE";
-            // 
-            // lblAmountDue
-            // 
-            this.lblAmountDue.AutoSize = true;
-            this.lblAmountDue.BackColor = System.Drawing.Color.Transparent;
-            this.lblAmountDue.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmountDue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(83)))));
-            this.lblAmountDue.Location = new System.Drawing.Point(58, 40);
-            this.lblAmountDue.Name = "lblAmountDue";
-            this.lblAmountDue.Size = new System.Drawing.Size(140, 50);
-            this.lblAmountDue.TabIndex = 1;
-            this.lblAmountDue.Text = "₱00.00";
             // 
             // tlpMid
             // 
@@ -198,7 +198,7 @@
             // 
             // pnlCash
             // 
-            this.pnlCash.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(83)))));
+            this.pnlCash.BorderColor = System.Drawing.Color.Green;
             this.pnlCash.BorderRadius = 16;
             this.pnlCash.BorderThickness = 4;
             this.pnlCash.Controls.Add(this.txtPesoSign);
@@ -210,17 +210,16 @@
             this.pnlCash.Size = new System.Drawing.Size(231, 148);
             this.pnlCash.TabIndex = 0;
             // 
-            // lblCashText
+            // txtPesoSign
             // 
-            this.lblCashText.AutoSize = true;
-            this.lblCashText.BackColor = System.Drawing.Color.Transparent;
-            this.lblCashText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCashText.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblCashText.Location = new System.Drawing.Point(25, 22);
-            this.lblCashText.Name = "lblCashText";
-            this.lblCashText.Size = new System.Drawing.Size(95, 15);
-            this.lblCashText.TabIndex = 0;
-            this.lblCashText.Text = "CASH RECEIVED";
+            this.txtPesoSign.AutoSize = true;
+            this.txtPesoSign.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPesoSign.ForeColor = System.Drawing.Color.DarkGreen;
+            this.txtPesoSign.Location = new System.Drawing.Point(23, 63);
+            this.txtPesoSign.Name = "txtPesoSign";
+            this.txtPesoSign.Size = new System.Drawing.Size(26, 30);
+            this.txtPesoSign.TabIndex = 2;
+            this.txtPesoSign.Text = "₱";
             // 
             // txtCash
             // 
@@ -234,7 +233,7 @@
             this.txtCash.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCash.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCash.Location = new System.Drawing.Point(64, 57);
-            this.txtCash.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtCash.Margin = new System.Windows.Forms.Padding(5);
             this.txtCash.Name = "txtCash";
             this.txtCash.PlaceholderText = "";
             this.txtCash.SelectedText = "";
@@ -242,16 +241,17 @@
             this.txtCash.TabIndex = 1;
             this.txtCash.TextChanged += new System.EventHandler(this.txtCash_TextChanged);
             // 
-            // txtPesoSign
+            // lblCashText
             // 
-            this.txtPesoSign.AutoSize = true;
-            this.txtPesoSign.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesoSign.ForeColor = System.Drawing.Color.DarkGreen;
-            this.txtPesoSign.Location = new System.Drawing.Point(23, 63);
-            this.txtPesoSign.Name = "txtPesoSign";
-            this.txtPesoSign.Size = new System.Drawing.Size(26, 30);
-            this.txtPesoSign.TabIndex = 2;
-            this.txtPesoSign.Text = "₱";
+            this.lblCashText.AutoSize = true;
+            this.lblCashText.BackColor = System.Drawing.Color.Transparent;
+            this.lblCashText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCashText.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblCashText.Location = new System.Drawing.Point(25, 22);
+            this.lblCashText.Name = "lblCashText";
+            this.lblCashText.Size = new System.Drawing.Size(95, 15);
+            this.lblCashText.TabIndex = 0;
+            this.lblCashText.Text = "CASH RECEIVED";
             // 
             // pnlChange
             // 
@@ -266,6 +266,17 @@
             this.pnlChange.Size = new System.Drawing.Size(231, 148);
             this.pnlChange.TabIndex = 1;
             // 
+            // lblChange
+            // 
+            this.lblChange.AutoSize = true;
+            this.lblChange.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(35)))), ((int)(((byte)(191)))));
+            this.lblChange.Location = new System.Drawing.Point(14, 61);
+            this.lblChange.Name = "lblChange";
+            this.lblChange.Size = new System.Drawing.Size(21, 32);
+            this.lblChange.TabIndex = 1;
+            this.lblChange.Text = ".";
+            // 
             // lblChangeText
             // 
             this.lblChangeText.AutoSize = true;
@@ -277,16 +288,20 @@
             this.lblChangeText.TabIndex = 0;
             this.lblChangeText.Text = "INSUFFICIENT";
             // 
-            // lblChange
+            // tableLayoutPanel2
             // 
-            this.lblChange.AutoSize = true;
-            this.lblChange.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(35)))), ((int)(((byte)(191)))));
-            this.lblChange.Location = new System.Drawing.Point(14, 61);
-            this.lblChange.Name = "lblChange";
-            this.lblChange.Size = new System.Drawing.Size(21, 32);
-            this.lblChange.TabIndex = 1;
-            this.lblChange.Text = ".";
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.flowQuick, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblQuickSelect, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 373);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(474, 114);
+            this.tableLayoutPanel2.TabIndex = 4;
             // 
             // flowQuick
             // 
@@ -372,21 +387,6 @@
             this.btn1000.Text = "₱1000";
             this.btn1000.Click += new System.EventHandler(this.btn1000_Click);
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.flowQuick, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.lblQuickSelect, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 373);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(474, 114);
-            this.tableLayoutPanel2.TabIndex = 4;
-            // 
             // lblQuickSelect
             // 
             this.lblQuickSelect.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -441,7 +441,7 @@
             this.btnComplete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnComplete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnComplete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnComplete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(83)))));
+            this.btnComplete.FillColor = System.Drawing.Color.Green;
             this.btnComplete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnComplete.ForeColor = System.Drawing.Color.White;
             this.btnComplete.Location = new System.Drawing.Point(240, 3);
@@ -471,9 +471,9 @@
             this.pnlCash.PerformLayout();
             this.pnlChange.ResumeLayout(false);
             this.pnlChange.PerformLayout();
-            this.flowQuick.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.flowQuick.ResumeLayout(false);
             this.tlpFooter.ResumeLayout(false);
             this.ResumeLayout(false);
 
