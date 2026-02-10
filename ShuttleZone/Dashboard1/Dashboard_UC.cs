@@ -25,27 +25,37 @@ namespace ShuttleZone.Dashboard1
 
             this.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
-            flowLayoutPanel2.SuspendLayout();
+            flowLayoutPanel3.SuspendLayout();
 
-            flowLayoutPanel1.VerticalScroll.Enabled = false;
-            flowLayoutPanel1.VerticalScroll.Visible = false;
+            flowLayoutPanel3.Resize -= flowLayoutPanel3_Resize;
+
 
             flowLayoutPanel1.Controls.Add(new Card_Dashboard("Daily Sales"));
             flowLayoutPanel1.Controls.Add(new Card_Dashboard("Active Rentals"));
             flowLayoutPanel1.Controls.Add(new Card_Dashboard("Available Equipments"));
             flowLayoutPanel1.Controls.Add(new Card_Dashboard("Available Courts"));
 
-            flowLayoutPanel1.HorizontalScroll.Enabled = false;
-            flowLayoutPanel1.HorizontalScroll.Visible = false;
+            flowLayoutPanel3.Controls.Add(new RentalTable());
+            flowLayoutPanel3.Controls.Add(new EquipmentAlerts());
 
-            flowLayoutPanel2.Controls.Add(new Alerts_Dashboard());
-            flowLayoutPanel2.Controls.Add(new Alerts_Dashboard());
+            flowLayoutPanel3.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
+            this.ResumeLayout(false);
 
-            flowLayoutPanel1.ResumeLayout();
-            flowLayoutPanel2.ResumeLayout();
-            this.ResumeLayout();
+            // final sizing occurs once
+            BeginInvoke(new Action(() =>
+            {
+                flowLayoutPanel3_Resize(null, null);
+                flowLayoutPanel3.Resize += flowLayoutPanel3_Resize;
+            }));
         }
 
+        private void flowLayoutPanel3_Resize(object sender, EventArgs e)
+        {
+            int available = flowLayoutPanel3.ClientSize.Width;
+            flowLayoutPanel3.Controls[0].Width = available * 60 / 100;  // 60%
+            flowLayoutPanel3.Controls[1].Width = available * 35 / 100;  // 35%
+        }
 
 
 

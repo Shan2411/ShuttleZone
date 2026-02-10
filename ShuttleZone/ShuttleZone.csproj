@@ -73,6 +73,18 @@
     <Compile Include="Dashboard1\Dashboard_UC.Designer.cs">
       <DependentUpon>Dashboard_UC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard1\EquipmentAlerts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\EquipmentAlerts.Designer.cs">
+      <DependentUpon>EquipmentAlerts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard1\RentalTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\RentalTable.Designer.cs">
+      <DependentUpon>RentalTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +180,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\Dashboard_UC.resx">
       <DependentUpon>Dashboard_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\EquipmentAlerts.resx">
+      <DependentUpon>EquipmentAlerts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\RentalTable.resx">
+      <DependentUpon>RentalTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
