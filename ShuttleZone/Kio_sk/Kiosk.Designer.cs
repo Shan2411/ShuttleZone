@@ -40,7 +40,7 @@
             this.btnKioskCashPayment = new Guna.UI2.WinForms.Guna2Button();
             this.tlpMainContent = new System.Windows.Forms.TableLayoutPanel();
             this.pnlBannerContainer = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblCourtRental = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblKioskTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pnlDynamic = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlPromoCard = new Guna.UI2.WinForms.Guna2Panel();
             this.flowKioskCart = new System.Windows.Forms.FlowLayoutPanel();
@@ -223,7 +223,7 @@
             this.tlpMainContent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMainContent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMainContent.Controls.Add(this.pnlBannerContainer, 0, 1);
-            this.tlpMainContent.Controls.Add(this.lblCourtRental, 0, 2);
+            this.tlpMainContent.Controls.Add(this.lblKioskTitle, 0, 2);
             this.tlpMainContent.Controls.Add(this.pnlDynamic, 0, 3);
             this.tlpMainContent.Controls.Add(this.pnlPromoCard, 0, 4);
             this.tlpMainContent.Controls.Add(this.flowKioskCart, 0, 6);
@@ -256,21 +256,21 @@
             this.pnlBannerContainer.Size = new System.Drawing.Size(377, 79);
             this.pnlBannerContainer.TabIndex = 0;
             // 
-            // lblCourtRental
+            // lblKioskTitle
             // 
-            this.lblCourtRental.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblCourtRental.BackColor = System.Drawing.Color.Transparent;
-            this.lblCourtRental.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCourtRental.Location = new System.Drawing.Point(3, 108);
-            this.lblCourtRental.Name = "lblCourtRental";
-            this.lblCourtRental.Size = new System.Drawing.Size(80, 19);
-            this.lblCourtRental.TabIndex = 1;
-            this.lblCourtRental.Text = "Court Rental";
+            this.lblKioskTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblKioskTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblKioskTitle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKioskTitle.Location = new System.Drawing.Point(3, 108);
+            this.lblKioskTitle.Name = "lblKioskTitle";
+            this.lblKioskTitle.Size = new System.Drawing.Size(80, 19);
+            this.lblKioskTitle.TabIndex = 1;
+            this.lblKioskTitle.Text = "Court Rental";
             // 
             // pnlDynamic
             // 
             this.pnlDynamic.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDynamic.FillColor = System.Drawing.Color.Purple;
+            this.pnlDynamic.FillColor = System.Drawing.Color.Transparent;
             this.pnlDynamic.Location = new System.Drawing.Point(3, 133);
             this.pnlDynamic.Name = "pnlDynamic";
             this.pnlDynamic.Size = new System.Drawing.Size(377, 221);
@@ -278,6 +278,7 @@
             // 
             // pnlPromoCard
             // 
+            this.pnlPromoCard.BorderRadius = 20;
             this.pnlPromoCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPromoCard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.pnlPromoCard.Location = new System.Drawing.Point(3, 360);
@@ -560,7 +561,7 @@
         private Guna.UI2.WinForms.Guna2Panel pnlMainContent;
         private System.Windows.Forms.TableLayoutPanel tlpMainContent;
         private Guna.UI2.WinForms.Guna2Panel pnlBannerContainer;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblCourtRental;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblKioskTitle;
         private Guna.UI2.WinForms.Guna2Panel pnlDynamic;
         private Guna.UI2.WinForms.Guna2Panel pnlPromoCard;
         private System.Windows.Forms.FlowLayoutPanel flowKioskCart;
