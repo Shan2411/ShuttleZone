@@ -153,17 +153,6 @@
     <Compile Include="Membership\AddNewMember.Designer.cs">
       <DependentUpon>AddNewMember.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ReceiptForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReceiptForm.Designer.cs">
-      <DependentUpon>ReceiptForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Membership\UC_MemberRow.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -295,6 +284,9 @@
     <EmbeddedResource Include="Membership\AddNewMember.resx">
       <DependentUpon>AddNewMember.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Membership\EditMember.resx">
+      <DependentUpon>EditMember.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Membership\UC_MemberRow.resx">
       <DependentUpon>UC_MemberRow.cs</DependentUpon>
     </EmbeddedResource>
@@ -363,17 +355,6 @@
   <ItemGroup>
     <None Include="Resources\empty.png" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Dashboard_Money.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Dashboard_Time.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Dashboard_Grid.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Dashboard_Box.jpg" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
