@@ -35,6 +35,16 @@ namespace ShuttleZone.Maintenance_Logs
             flowLayoutPanel1.Controls.Add(new MButton("Court B", Globals.statusFromDB1)); 
             flowLayoutPanel1.Controls.Add(new MButton("Court C", Globals.statusFromDB2));
             flowLayoutPanel1.Controls.Add(new MButton("Court D", Globals.statusFromDB3));
+
+
+            // Bottom Half
+
+            textBox1.Text = Globals.courtPrice;
+            textBox2.Text = Globals.vat;
+            textBox3.Text = Globals.membershipPrice1Month;
+            textBox4.Text = Globals.membershipPrice1Year;
+            textBox6.Text = Globals.mambershipDiscount;
+
         }
 
         public void RefreshPanel()
@@ -87,5 +97,15 @@ namespace ShuttleZone.Maintenance_Logs
         {
 
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Changes Saved!");
+            Globals.courtPrice = textBox1.Text;
+            Globals.vat = textBox2.Text;
+            Globals.membershipPrice1Month = textBox3.Text;
+            Globals.membershipPrice1Year = textBox4.Text;
+            Globals.mambershipDiscount = textBox6.Text;
+    }
     }
 }
