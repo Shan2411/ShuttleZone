@@ -25,41 +25,47 @@ namespace ShuttleZone.Dashboard1
 
             this.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
-            flowLayoutPanel3.SuspendLayout();
 
-            flowLayoutPanel3.Resize -= flowLayoutPanel3_Resize;
+            int cardCount = 4;
 
+            // Add cards 
+            string[] titles = { "Daily Sales", "Active Rentals", "Available Equipments", "Available Courts" };
 
-            flowLayoutPanel1.Controls.Add(new Card_Dashboard("Daily Sales"));
-            flowLayoutPanel1.Controls.Add(new Card_Dashboard("Active Rentals"));
-            flowLayoutPanel1.Controls.Add(new Card_Dashboard("Available Equipments"));
-            flowLayoutPanel1.Controls.Add(new Card_Dashboard("Available Courts"));
+            foreach (var title in titles)
+            {
+                var card = new Card_Dashboard(title);
+                card.Height = flowLayoutPanel1.ClientSize.Height;             
+                card.Width = flowLayoutPanel1.ClientSize.Width / cardCount;  // divide width equally
+                card.Margin = new Padding(0);                                 // no margin to prevent overflow
+                flowLayoutPanel1.Controls.Add(card);
+            }
 
-            flowLayoutPanel3.Controls.Add(new RentalTable());
-            flowLayoutPanel3.Controls.Add(new EquipmentAlerts());
+            // so cards stay equal width
+            flowLayoutPanel1.Resize += (s, ev) =>
+            {
+                int count = flowLayoutPanel1.Controls.Count;
+                if (count == 0) return;
+                int width = flowLayoutPanel1.ClientSize.Width / count;
+                foreach (Control ctrl in flowLayoutPanel1.Controls)
+                {
+                    ctrl.Width = width;
+                    ctrl.Height = 160; 
+                }
+            };
 
-            flowLayoutPanel3.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-
-            // final sizing occurs once
-            BeginInvoke(new Action(() =>
-            {
-                flowLayoutPanel3_Resize(null, null);
-                flowLayoutPanel3.Resize += flowLayoutPanel3_Resize;
-            }));
         }
 
-        private void flowLayoutPanel3_Resize(object sender, EventArgs e)
-        {
-            int available = flowLayoutPanel3.ClientSize.Width;
-            flowLayoutPanel3.Controls[0].Width = available * 60 / 100;  // 60%
-            flowLayoutPanel3.Controls[1].Width = available * 35 / 100;  // 35%
-        }
 
 
 
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void equipmentAlerts1_Load(object sender, EventArgs e)
         {
 
         }
