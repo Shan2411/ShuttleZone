@@ -14,6 +14,8 @@ namespace ShuttleZone
 {
     public partial class UC_Pos : UserControl
     {
+        private decimal appliedDiscountPercent = 0;
+
         public UC_Pos()
         {
             InitializeComponent();
@@ -26,7 +28,7 @@ namespace ShuttleZone
             pnlEquipment3.Click += Equipment_Click;
             pnlEquipment4.Click += Equipment_Click;
 
-            pnlEquipment1.Tag = "Badminton Racket";
+            pnlEquipment1.Tag = "Racket";
             pnlEquipment2.Tag = "Shuttlecock Pack";
             pnlEquipment3.Tag = "Grip Tape";
             pnlEquipment4.Tag = "Towel";
@@ -41,9 +43,9 @@ namespace ShuttleZone
 
         }
 
-        private Guna.UI2.WinForms.Guna2Panel CloneCartItemPanel(string itemName)
+        private Guna2Panel CloneCartItemPanel(string itemName, decimal price)
         {
-            var clone = new Guna.UI2.WinForms.Guna2Panel
+            var clone = new Guna2Panel
             {
                 Size = pnlCartItem.Size,
                 BorderRadius = pnlCartItem.BorderRadius,
@@ -61,78 +63,246 @@ namespace ShuttleZone
                 newCtrl.Font = c.Font;
                 newCtrl.Text = c.Text;
                 newCtrl.Name = c.Name;
-
                 clone.Controls.Add(newCtrl);
             }
 
             clone.Controls["lblItemName"].Text = itemName;
             clone.Controls["lblQty"].Text = "1";
+            clone.Controls["lblPrice"].Text = $"₱{price}";
+            clone.Controls["lblRowTotal"].Text = $"₱{price}";
 
-            // Wire buttons
+            // 👉 Wire buttons
             var btnPlus = clone.Controls["btnPlus"] as Guna2Button;
             var btnMinus = clone.Controls["btnMinus"] as Guna2Button;
             var btnRemove = clone.Controls["btnRemove"] as Guna2Button;
 
-            btnPlus.Click += (s, e) =>
-            {
-                var lblQty = clone.Controls["lblQty"] as Label;
-                int qty = int.Parse(lblQty.Text);
-                lblQty.Text = (qty + 1).ToString();
-            };
-
-            btnMinus.Click += (s, e) =>
-            {
-                var lblQty = clone.Controls["lblQty"] as Label;
-                int qty = int.Parse(lblQty.Text);
-
-                if (qty > 1)
-                    lblQty.Text = (qty - 1).ToString();
-            };
-
+            btnPlus.Click += (s, e) => UpdateQty(clone, +1);
+            btnMinus.Click += (s, e) => UpdateQty(clone, -1);
             btnRemove.Click += (s, e) =>
             {
                 flowCart.Controls.Remove(clone);
                 clone.Dispose();
+                UpdateCartTotals();   // 👉 update subtotal after remove
             };
+
             return clone;
         }
 
+        // 👉 ADD HERE (below CloneCartItemPanel)
+        private void UpdateQty(Guna2Panel panel, int change)
+        {
+            var lblQty = panel.Controls["lblQty"] as Label;
+            var lblPrice = panel.Controls["lblPrice"] as Label;
+            var lblRowTotal = panel.Controls["lblRowTotal"] as Label;
+
+            int qty = int.Parse(lblQty.Text);
+            qty += change;
+            if (qty < 1) qty = 1;
+
+            lblQty.Text = qty.ToString();
+
+            decimal price = decimal.Parse(lblPrice.Text.Replace("₱", ""));
+            lblRowTotal.Text = $"₱{qty * price}";
+
+            UpdateCartTotals();  // 👉 recalc subtotal
+        }
+
+        private void UpdateCartTotals()
+        {
+            GetSubtotalValue();
+            ApplyDiscount();
+        }
+
+
+        private void ApplyDiscount()
+        {
+            decimal subtotal = GetSubtotalValue();
+            decimal discountAmount = subtotal * (appliedDiscountPercent / 100m);
+
+            lblDiscount.Text = $"₱{discountAmount}";
+            lblTotal.Text = $"₱{subtotal - discountAmount}";
+        }
+
+        private decimal GetSubtotalValue()
+        {
+            decimal total = 0;
+
+            foreach (Guna2Panel p in flowCart.Controls.OfType<Guna2Panel>())
+            {
+                var lblRowTotal = p.Controls["lblRowTotal"] as Label;
+                total += decimal.Parse(lblRowTotal.Text.Replace("₱", ""));
+            }
+
+            lblSubtotal.Text = $"₱{total}";
+            return total;
+        }
+
+
+        private bool EquipmentAlreadyInCart(string itemName)
+        {
+            return flowCart.Controls
+                .OfType<Guna2Panel>()
+                .Any(p => p.Controls["lblItemName"].Text == itemName);
+        }
+
+
         private void Equipment_Click(object sender, EventArgs e)
         {
-            var panel = sender as Guna.UI2.WinForms.Guna2Panel;
+            var panel = sender as Guna2Panel;
             if (panel != null && panel.Tag != null)
             {
                 string itemName = panel.Tag.ToString();
-                flowCart.Controls.Add(CloneCartItemPanel(itemName));
+
+                // ❌ Block duplicate equipment
+                if (EquipmentAlreadyInCart(itemName))
+                {
+                    MessageBox.Show(
+                        "This item is already in your cart.\nUse the + button to increase the quantity instead.",
+                        "Item Already Added",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                    return;
+                }
+
+                decimal price = 0;
+                if (itemName == "Racket") price = 50;
+                else if (itemName == "Shuttlecock Pack") price = 80;
+                else if (itemName == "Grip Tape") price = 30;
+                else if (itemName == "Towel") price = 20;
+
+                flowCart.Controls.Add(CloneCartItemPanel(itemName, price));
+                UpdateCartTotals(); // 👉 after add
             }
         }
+
+
         private void Membership_Click(object sender, EventArgs e)
         {
             var panel = sender as Guna2Panel;
             string itemName = panel.Tag.ToString();
 
-            flowCart.Controls.Add(CloneCartItemPanel(itemName));
+            RemoveExistingMembership();   // 👈 single-select logic
+
+            decimal price = itemName == "1 Month Membership" ? 500 : 4500;
+
+            flowCart.Controls.Add(CloneCartItemPanel(itemName, price));
+            UpdateCartTotals();
+        }
+
+
+        private void RemoveExistingCourt()
+        {
+            var courts = flowCart.Controls.OfType<Guna2Panel>()
+                .Where(p => p.Controls["lblItemName"].Text.StartsWith("Court"))
+                .ToList();
+
+            foreach (var p in courts)
+            {
+                flowCart.Controls.Remove(p);
+                p.Dispose();
+            }
+        }
+
+        private void RemoveExistingMembership()
+        {
+            var memberships = flowCart.Controls.OfType<Guna2Panel>()
+                .Where(p => p.Controls["lblItemName"].Text.Contains("Membership"))
+                .ToList();
+
+            foreach (var p in memberships)
+            {
+                flowCart.Controls.Remove(p);
+                p.Dispose();
+            }
+        }
+
+        private void btnApply_Click(object sender, EventArgs e)
+        {
+            appliedDiscountPercent = 0;
+
+            string code = txtMemberCode.Text.Trim().ToUpper();
+
+            if (string.IsNullOrWhiteSpace(code))
+            {
+                MessageBox.Show("Please enter a member code.");
+                return;
+            }
+
+            // 🎯 Your Member Codes
+            if (code == "M#0001") appliedDiscountPercent = 10;
+            else if (code == "M#0002") appliedDiscountPercent = 15;
+            else if (code == "M#0003") appliedDiscountPercent = 20;
+            else
+            {
+                MessageBox.Show("Invalid member code.");
+                return;
+            }
+
+            // ✅ SUCCESS
+            ApplyDiscount();
+
+            lblDiscountApplied.Text = $"Member Code {code} Applied ({appliedDiscountPercent}% OFF)";
+            pnlDiscountApplied.Visible = true;
+
+            txtMemberCode.Text = "";
+        }
+
+        private void btnRemoveDiscount_Click(object sender, EventArgs e)
+        {
+            appliedDiscountPercent = 0;
+
+            pnlDiscountApplied.Visible = false;
+            lblDiscount.Text = "₱0";
+            txtMemberCode.Text = "";
+
+            UpdateCartTotals();
         }
 
 
         private void btnCourtA_Click(object sender, EventArgs e)
         {
-            flowCart.Controls.Add(CloneCartItemPanel("Court A"));
+            RemoveExistingCourt();
+            flowCart.Controls.Add(CloneCartItemPanel("Court A", 250));
+            UpdateCartTotals();
         }
 
         private void btnCourtB_Click(object sender, EventArgs e)
         {
-            flowCart.Controls.Add(CloneCartItemPanel("Court B"));
+            RemoveExistingCourt();
+            flowCart.Controls.Add(CloneCartItemPanel("Court B", 250));
+            UpdateCartTotals();
         }
 
         private void btnCourtC_Click(object sender, EventArgs e)
         {
-            flowCart.Controls.Add(CloneCartItemPanel("Court C"));
+            RemoveExistingCourt();
+            flowCart.Controls.Add(CloneCartItemPanel("Court C", 250));
+            UpdateCartTotals();
         }
 
         private void btnCourtD_Click(object sender, EventArgs e)
         {
-            flowCart.Controls.Add(CloneCartItemPanel("Court D"));
+            RemoveExistingCourt();
+            flowCart.Controls.Add(CloneCartItemPanel("Court D", 250));
+            UpdateCartTotals();
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCashPayment_Click(object sender, EventArgs e)
+        {
+
+            // Get total from POS label
+            decimal total = decimal.Parse(lblTotal.Text.Replace("₱", "").Trim());
+
+            // Open CashPayment and pass total
+            CashPayment cp = new CashPayment(total);
+            cp.ShowDialog();
         }
     }
 }
+

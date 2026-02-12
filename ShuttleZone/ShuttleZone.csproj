@@ -91,6 +91,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kio_sk\Kiosk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kio_sk\Kiosk.Designer.cs">
+      <DependentUpon>Kiosk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kio_sk\UC_CourtRental.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Kio_sk\UC_CourtRental.Designer.cs">
+      <DependentUpon>UC_CourtRental.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maintenance_Logs\ChangeStatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +127,11 @@
     </Compile>
     <Compile Include="Membership\AddNewMember.Designer.cs">
       <DependentUpon>AddNewMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ReceiptForm.cs">
       <SubType>Form</SubType>
@@ -166,6 +183,18 @@
     <Compile Include="Membership\UC_Membership.Designer.cs">
       <DependentUpon>UC_Membership.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kio_sk\UC_Equipment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Kio_sk\UC_Equipment.Designer.cs">
+      <DependentUpon>UC_Equipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kio_sk\UC_KioskMembership.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Kio_sk\UC_KioskMembership.Designer.cs">
+      <DependentUpon>UC_KioskMembership.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Pos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -190,6 +219,18 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Kio_sk\Kiosk.resx">
+      <DependentUpon>Kiosk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kio_sk\UC_CourtRental.resx">
+      <DependentUpon>UC_CourtRental.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kio_sk\UC_Equipment.resx">
+      <DependentUpon>UC_Equipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kio_sk\UC_KioskMembership.resx">
+      <DependentUpon>UC_KioskMembership.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Maintenance_Logs\ChangeStatus.resx">
       <DependentUpon>ChangeStatus.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,14 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Membership\UC_Membership.resx">
       <DependentUpon>UC_Membership.cs</DependentUpon>
     </EmbeddedResource>
