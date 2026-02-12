@@ -143,6 +143,7 @@
             this.SearchbarBGPanel.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.SearchbarBGPanel.Name = "SearchbarBGPanel";
             this.SearchbarBGPanel.Padding = new System.Windows.Forms.Padding(8);
+            this.SearchbarBGPanel.ShadowDecoration.Depth = 60;
             this.SearchbarBGPanel.Size = new System.Drawing.Size(912, 35);
             this.SearchbarBGPanel.TabIndex = 1;
             // 
@@ -168,6 +169,7 @@
             this.Searchbox.SelectedText = "";
             this.Searchbox.Size = new System.Drawing.Size(896, 19);
             this.Searchbox.TabIndex = 6;
+            this.Searchbox.TextChanged += new System.EventHandler(this.Searchbox_TextChanged);
             // 
             // tableLayoutPanel4
             // 
@@ -229,16 +231,17 @@
             // 
             // guna2HtmlLabel9
             // 
-            this.guna2HtmlLabel9.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.guna2HtmlLabel9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.guna2HtmlLabel9.Location = new System.Drawing.Point(829, 10);
+            this.guna2HtmlLabel9.Location = new System.Drawing.Point(839, 10);
             this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            this.guna2HtmlLabel9.Size = new System.Drawing.Size(52, 13);
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(52, 15);
             this.guna2HtmlLabel9.TabIndex = 8;
             this.guna2HtmlLabel9.Text = "ACTIONS";
+            this.guna2HtmlLabel9.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2HtmlLabel8
             // 

@@ -86,6 +86,12 @@
     <Compile Include="Membership\AddNewMember.Designer.cs">
       <DependentUpon>AddNewMember.cs</DependentUpon>
     </Compile>
+    <Compile Include="Membership\EditMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Membership\EditMember.Designer.cs">
+      <DependentUpon>EditMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="Membership\UC_MemberRow.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     <EmbeddedResource Include="Membership\AddNewMember.resx">
       <DependentUpon>AddNewMember.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Membership\EditMember.resx">
+      <DependentUpon>EditMember.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Membership\UC_MemberRow.resx">
       <DependentUpon>UC_MemberRow.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +236,14 @@
   <ItemGroup>
     <None Include="Resources\empty.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActiveStatus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExpiredStatus.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,11 +8,10 @@ namespace ShuttleZone.Membership
         public UC_MemberRow()
         {
             InitializeComponent();
-            //this.AutoSize = false;
-            //this.Dock = DockStyle.Top;
+            this.AutoSize = false;
+            this.Dock = DockStyle.Top;
         }
 
-        // Properties for binding values
         public string MemberIDText { get => MemberID.Text; set => MemberID.Text = value; }
         public string MemberNameText { get => MemberName.Text; set => MemberName.Text = value; }
         public string MemberEmailText { get => MemberEmail.Text; set => MemberEmail.Text = value; }
@@ -20,30 +19,33 @@ namespace ShuttleZone.Membership
         public string MemberTypeText { get => MemberType.Text; set => MemberType.Text = value; }
         public string MemberExpiryDateText { get => MemberExpiryDate.Text; set => MemberExpiryDate.Text = value; }
 
-        // Event to notify parent when delete is clicked
+        // ✅ Store the join date
+        public DateTime MemberJoinDate { get; set; }
+
         public event EventHandler DeleteClicked;
+        public event EventHandler EditClicked;
 
         public void UpdateStatus()
         {
-            //if (DateTime.TryParse(MemberExpiryDate.Text, out DateTime expiry))
-            //{
-            //    if (expiry < DateTime.Now)
-            //    {
-            //        // expired icon
-            //        MemberStatus.Image = Properties.Resources.expired_icon;
-            //    }
-            //    else
-            //    {
-            //        // active icon
-            //        MemberStatus.Image = Properties.Resources.active_icon;
-            //    }
-            //}
+            MemberStatus.SizeMode = PictureBoxSizeMode.StretchImage; // or Zoom if you want aspect ratio preserved
+
+            if (DateTime.TryParse(MemberExpiryDate.Text, out DateTime expiry))
+            {
+                if (expiry < DateTime.Now)
+                    MemberStatus.Image = Properties.Resources.ExpiredStatus;
+                else
+                    MemberStatus.Image = Properties.Resources.ActiveStatus;
+            }
         }
 
         private void MemberDelete_Click(object sender, EventArgs e)
         {
-            // Raise event so parent can handle deletion
             DeleteClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void MemberEdit_Click(object sender, EventArgs e)
+        {
+            EditClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

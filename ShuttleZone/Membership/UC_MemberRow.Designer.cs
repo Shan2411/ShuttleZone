@@ -70,13 +70,13 @@
             this.tableLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel3.ColumnCount = 9;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.92308F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.27472F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.571428F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.89011F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.054945F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel3.Controls.Add(this.MemberStatus, 5, 0);
             this.tableLayoutPanel3.Controls.Add(this.MemberDelete, 8, 0);
@@ -102,7 +102,7 @@
             this.MemberStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MemberStatus.FillColor = System.Drawing.Color.Transparent;
             this.MemberStatus.ImageRotate = 0F;
-            this.MemberStatus.Location = new System.Drawing.Point(663, 7);
+            this.MemberStatus.Location = new System.Drawing.Point(661, 7);
             this.MemberStatus.Name = "MemberStatus";
             this.MemberStatus.Size = new System.Drawing.Size(47, 20);
             this.MemberStatus.TabIndex = 10;
@@ -129,11 +129,12 @@
             this.MemberEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MemberEdit.FillColor = System.Drawing.Color.Transparent;
             this.MemberEdit.ImageRotate = 0F;
-            this.MemberEdit.Location = new System.Drawing.Point(829, 7);
+            this.MemberEdit.Location = new System.Drawing.Point(828, 7);
             this.MemberEdit.Name = "MemberEdit";
             this.MemberEdit.Size = new System.Drawing.Size(20, 20);
             this.MemberEdit.TabIndex = 8;
             this.MemberEdit.TabStop = false;
+            this.MemberEdit.Click += new System.EventHandler(this.MemberEdit_Click);
             // 
             // MemberExpiryDate
             // 
@@ -141,10 +142,10 @@
             this.MemberExpiryDate.BackColor = System.Drawing.Color.Transparent;
             this.MemberExpiryDate.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberExpiryDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.MemberExpiryDate.Location = new System.Drawing.Point(736, 10);
+            this.MemberExpiryDate.Location = new System.Drawing.Point(735, 10);
             this.MemberExpiryDate.Margin = new System.Windows.Forms.Padding(10);
             this.MemberExpiryDate.Name = "MemberExpiryDate";
-            this.MemberExpiryDate.Size = new System.Drawing.Size(70, 14);
+            this.MemberExpiryDate.Size = new System.Drawing.Size(75, 15);
             this.MemberExpiryDate.TabIndex = 7;
             this.MemberExpiryDate.Text = "EXPIRY DATE";
             // 
@@ -154,10 +155,10 @@
             this.MemberType.BackColor = System.Drawing.Color.Transparent;
             this.MemberType.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.MemberType.Location = new System.Drawing.Point(519, 10);
+            this.MemberType.Location = new System.Drawing.Point(518, 10);
             this.MemberType.Margin = new System.Windows.Forms.Padding(10);
             this.MemberType.Name = "MemberType";
-            this.MemberType.Size = new System.Drawing.Size(30, 14);
+            this.MemberType.Size = new System.Drawing.Size(30, 15);
             this.MemberType.TabIndex = 5;
             this.MemberType.Text = "TYPE";
             // 
@@ -167,10 +168,10 @@
             this.MemberPhone.BackColor = System.Drawing.Color.Transparent;
             this.MemberPhone.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.MemberPhone.Location = new System.Drawing.Point(410, 10);
+            this.MemberPhone.Location = new System.Drawing.Point(409, 10);
             this.MemberPhone.Margin = new System.Windows.Forms.Padding(10);
             this.MemberPhone.Name = "MemberPhone";
-            this.MemberPhone.Size = new System.Drawing.Size(39, 14);
+            this.MemberPhone.Size = new System.Drawing.Size(39, 15);
             this.MemberPhone.TabIndex = 4;
             this.MemberPhone.Text = "PHONE";
             // 

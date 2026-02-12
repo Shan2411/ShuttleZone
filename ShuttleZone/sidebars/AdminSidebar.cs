@@ -80,5 +80,10 @@ namespace ShuttleZone.sidebars
             HighlightButton(SystemSettingsBtn);
             SettingsBtnClicked?.Invoke(this, EventArgs.Empty);
         }
+
+        private void KioskBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace ShuttleZone.Membership
 {
-    partial class AddNewMember
+    partial class EditMember
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewMember));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditMember));
             this.Background = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.CancelBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.CreateBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.SaveBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -57,8 +57,8 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.CloseBtn = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.Background.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
@@ -90,7 +90,7 @@
             this.Background.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.Background.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.Background.Size = new System.Drawing.Size(667, 441);
-            this.Background.TabIndex = 1;
+            this.Background.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
@@ -132,7 +132,7 @@
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53F));
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47F));
             this.tableLayoutPanel13.Controls.Add(this.CancelBtn, 0, 0);
-            this.tableLayoutPanel13.Controls.Add(this.CreateBtn, 1, 0);
+            this.tableLayoutPanel13.Controls.Add(this.SaveBtn, 1, 0);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel13.Location = new System.Drawing.Point(331, 0);
             this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(0);
@@ -165,28 +165,28 @@
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
-            // CreateBtn
+            // SaveBtn
             // 
-            this.CreateBtn.BackColor = System.Drawing.Color.Transparent;
-            this.CreateBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
-            this.CreateBtn.BorderRadius = 8;
-            this.CreateBtn.BorderThickness = 1;
-            this.CreateBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.CreateBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.CreateBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.CreateBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.CreateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CreateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
-            this.CreateBtn.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
-            this.CreateBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.CreateBtn.ForeColor = System.Drawing.Color.White;
-            this.CreateBtn.Location = new System.Drawing.Point(165, 10);
-            this.CreateBtn.Margin = new System.Windows.Forms.Padding(10);
-            this.CreateBtn.Name = "CreateBtn";
-            this.CreateBtn.Size = new System.Drawing.Size(119, 41);
-            this.CreateBtn.TabIndex = 6;
-            this.CreateBtn.Text = "Create";
-            this.CreateBtn.Click += new System.EventHandler(this.CreateBtn_Click);
+            this.SaveBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SaveBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
+            this.SaveBtn.BorderRadius = 8;
+            this.SaveBtn.BorderThickness = 1;
+            this.SaveBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SaveBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SaveBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SaveBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SaveBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SaveBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
+            this.SaveBtn.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
+            this.SaveBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.SaveBtn.ForeColor = System.Drawing.Color.White;
+            this.SaveBtn.Location = new System.Drawing.Point(165, 10);
+            this.SaveBtn.Margin = new System.Windows.Forms.Padding(10);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(119, 41);
+            this.SaveBtn.TabIndex = 6;
+            this.SaveBtn.Text = "Save";
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -212,10 +212,10 @@
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(0, 5);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(172, 25);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(170, 25);
             this.guna2HtmlLabel1.TabIndex = 1;
             this.guna2HtmlLabel1.TabStop = false;
-            this.guna2HtmlLabel1.Text = "Add New Member";
+            this.guna2HtmlLabel1.Text = "Edit Member Info";
             // 
             // tableLayoutPanel3
             // 
@@ -277,7 +277,6 @@
             this.cbJoinDate.Size = new System.Drawing.Size(325, 36);
             this.cbJoinDate.TabIndex = 4;
             this.cbJoinDate.Value = new System.DateTime(2026, 2, 10, 0, 0, 0, 0);
-            this.cbJoinDate.ValueChanged += new System.EventHandler(this.cbJoinDate_ValueChanged);
             // 
             // ExpiryDateLbl
             // 
@@ -353,7 +352,7 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(625, 52);
             this.tableLayoutPanel7.TabIndex = 3;
             // 
@@ -373,7 +372,6 @@
             this.cbMembershipType.Name = "cbMembershipType";
             this.cbMembershipType.Size = new System.Drawing.Size(288, 36);
             this.cbMembershipType.TabIndex = 3;
-            this.cbMembershipType.SelectedIndexChanged += new System.EventHandler(this.cbMembershipType_SelectedIndexChanged);
             // 
             // tbMemberPhone
             // 
@@ -549,13 +547,6 @@
             this.guna2HtmlLabel7.Text = "Name";
             this.guna2HtmlLabel7.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // guna2BorderlessForm1
-            // 
-            this.guna2BorderlessForm1.BorderRadius = 8;
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
             // CloseBtn
             // 
             this.CloseBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -569,17 +560,21 @@
             this.CloseBtn.TabStop = false;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
-            // AddNewMember
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
+            // EditMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(667, 441);
             this.Controls.Add(this.Background);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AddNewMember";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddNewMember";
+            this.Name = "EditMember";
+            this.Text = "EditMember";
             this.Background.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
@@ -609,14 +604,19 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private Guna.UI2.WinForms.Guna2Button CancelBtn;
-        private Guna.UI2.WinForms.Guna2Button CreateBtn;
+        private Guna.UI2.WinForms.Guna2Button SaveBtn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2PictureBox CloseBtn;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private Guna.UI2.WinForms.Guna2DateTimePicker cbJoinDate;
+        private Guna.UI2.WinForms.Guna2HtmlLabel ExpiryDateLbl;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private Guna.UI2.WinForms.Guna2ComboBox cbMembershipType;
         private Guna.UI2.WinForms.Guna2TextBox tbMemberPhone;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
@@ -628,10 +628,5 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
-        private Guna.UI2.WinForms.Guna2ComboBox cbMembershipType;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
-        private Guna.UI2.WinForms.Guna2HtmlLabel ExpiryDateLbl;
-        private Guna.UI2.WinForms.Guna2DateTimePicker cbJoinDate;
     }
 }
