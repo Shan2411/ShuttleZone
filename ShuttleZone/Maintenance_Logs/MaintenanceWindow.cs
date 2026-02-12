@@ -18,34 +18,49 @@ namespace ShuttleZone.Maintenance_Logs
 
         public MaintenanceWindow()
         {
+            // Enable double buffering BEFORE InitializeComponent
+            this.DoubleBuffered = true;
+
             InitializeComponent();
 
+            // SUSPEND LAYOUT - CRITICAL for performance
+            this.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
 
-            MButton court1_button = new MButton();
-            MButton court2_button = new MButton();
-            MButton court3_button = new MButton();
-            MButton court4_button = new MButton();
+            // Configure panel once
+            flowLayoutPanel1.HorizontalScroll.Enabled = false;
+            flowLayoutPanel1.HorizontalScroll.Visible = false;
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.WrapContents = false; // If horizontal layout
 
+            // Clear once
             flowLayoutPanel1.Controls.Clear();
-            flowLayoutPanel1.HorizontalScroll.Enabled = false;           
-            flowLayoutPanel1.HorizontalScroll.Visible = false;          
 
-            
-            flowLayoutPanel1.Controls.Add(new MButton("Court A", Globals.statusFromDB)); 
-            flowLayoutPanel1.Controls.Add(new MButton("Court B", Globals.statusFromDB1)); 
-            flowLayoutPanel1.Controls.Add(new MButton("Court C", Globals.statusFromDB2));
-            flowLayoutPanel1.Controls.Add(new MButton("Court D", Globals.statusFromDB3));
+            // Add all controls at once
+            var buttons = new[]
+            {
+                new MButton("Court A", Globals.statusFromDB),
+                new MButton("Court B", Globals.statusFromDB1),
+                new MButton("Court C", Globals.statusFromDB2),
+                new MButton("Court D", Globals.statusFromDB3)
+            };
 
+            flowLayoutPanel1.Controls.AddRange(buttons);
 
-            // Bottom Half
-
+            // Set textboxes
             textBox1.Text = Globals.courtPrice;
             textBox2.Text = Globals.vat;
             textBox3.Text = Globals.membershipPrice1Month;
             textBox4.Text = Globals.membershipPrice1Year;
             textBox6.Text = Globals.mambershipDiscount;
 
+            // RESUME LAYOUT
+            flowLayoutPanel1.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout(); // Force final layout
+
         }
+
 
         public void RefreshPanel()
         {
