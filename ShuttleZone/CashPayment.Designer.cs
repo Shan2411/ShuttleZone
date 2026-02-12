@@ -449,6 +449,7 @@
             this.btnComplete.Size = new System.Drawing.Size(231, 58);
             this.btnComplete.TabIndex = 1;
             this.btnComplete.Text = "Complete";
+            this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
             // CashPayment
             // 

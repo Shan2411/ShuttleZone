@@ -13,14 +13,20 @@ namespace ShuttleZone
     public partial class CashPayment : Form
     {
         private decimal _amountDue;
+        private List<CartItem> _cartItems;
 
-        public CashPayment(decimal amountDue)
+
+        public CashPayment(decimal amountDue, List<CartItem> cartItems)
         {
             InitializeComponent();
             _amountDue = amountDue;
 
+            // Make a copy of the list to avoid reference issues
+            _cartItems = new List<CartItem>(cartItems);
+
             lblAmountDue.Text = "₱" + _amountDue.ToString("N2");
         }
+
 
         private void txtCash_TextChanged(object sender, EventArgs e)
         {
@@ -93,7 +99,34 @@ namespace ShuttleZone
             this.Close();   // closes CashPayment form
         }
 
+        private void btnComplete_Click(object sender, EventArgs e)
+        {
+            if (!decimal.TryParse(txtCash.Text, out decimal cash))
+            {
+                MessageBox.Show("Please enter valid cash amount.");
+                return;
+            }
 
+            if (cash < _amountDue)
+            {
+                MessageBox.Show("Insufficient cash.");
+                return;
+            }
+
+            DateTime timeIssued = DateTime.Now;
+            int courtHours = _cartItems.FirstOrDefault(c => c.Name.StartsWith("Court"))?.Qty ?? 0;
+
+            Receipt receiptForm = new Receipt(
+                _cartItems,
+                cash,
+                "Cash",
+                timeIssued,
+                courtHours
+            );
+            receiptForm.Show();
+
+            this.Close();
+        }
     }
 }
 
