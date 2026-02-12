@@ -251,6 +251,7 @@
             this.DynamicContentPanel.Name = "DynamicContentPanel";
             this.DynamicContentPanel.Size = new System.Drawing.Size(1252, 722);
             this.DynamicContentPanel.TabIndex = 1;
+            this.DynamicContentPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.DynamicContentPanel_Paint);
             // 
             // SidebarDynamicPanel
             // 
@@ -514,7 +515,7 @@
             this.SystemSettingsBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.SystemSettingsBtn.Click += new System.EventHandler(this.SystemSettingsBtn_Click);
             // 
-            // UserManagementBtn
+            // guna2Button11
             // 
             this.UserManagementBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.UserManagementBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -699,7 +700,7 @@
             this.tableLayoutPanel11.Size = new System.Drawing.Size(156, 92);
             this.tableLayoutPanel11.TabIndex = 3;
             // 
-            // guna2HtmlLabel7
+            // POSBtn
             // 
             this.guna2HtmlLabel7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
