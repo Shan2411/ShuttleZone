@@ -62,6 +62,54 @@
     <Compile Include="CashPayment.Designer.cs">
       <DependentUpon>CashPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard1\Alerts_Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\Alerts_Dashboard.Designer.cs">
+      <DependentUpon>Alerts_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard1\Card_Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\Card_Dashboard.Designer.cs">
+      <DependentUpon>Card_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard1\Dashboard_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\Dashboard_UC.Designer.cs">
+      <DependentUpon>Dashboard_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard1\EquipmentAlerts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\EquipmentAlerts.Designer.cs">
+      <DependentUpon>EquipmentAlerts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard1\RentalTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\RentalTable.Designer.cs">
+      <DependentUpon>RentalTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Equipment and Inventory\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Equipment and Inventory\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Equipment and Inventory\Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Equipment and Inventory\Edit.Designer.cs">
+      <DependentUpon>Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Equipment and Inventory\Equipment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Equipment and Inventory\Equipment.Designer.cs">
+      <DependentUpon>Equipment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +163,18 @@
     </Compile>
     <Compile Include="ReceiptForm.Designer.cs">
       <DependentUpon>ReceiptForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\UC_MemberRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Membership\UC_MemberRow.Designer.cs">
+      <DependentUpon>UC_MemberRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rent History\Rent History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rent History\Rent History.Designer.cs">
+      <DependentUpon>Rent History.cs</DependentUpon>
     </Compile>
     <Compile Include="reports\Reports_Dashboard.cs">
       <SubType>UserControl</SubType>
@@ -181,6 +241,30 @@
     <EmbeddedResource Include="CashPayment.resx">
       <DependentUpon>CashPayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\Alerts_Dashboard.resx">
+      <DependentUpon>Alerts_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\Card_Dashboard.resx">
+      <DependentUpon>Card_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\Dashboard_UC.resx">
+      <DependentUpon>Dashboard_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\EquipmentAlerts.resx">
+      <DependentUpon>EquipmentAlerts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\RentalTable.resx">
+      <DependentUpon>RentalTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Equipment and Inventory\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Equipment and Inventory\Edit.resx">
+      <DependentUpon>Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Equipment and Inventory\Equipment.resx">
+      <DependentUpon>Equipment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,6 +295,9 @@
     <EmbeddedResource Include="Membership\AddNewMember.resx">
       <DependentUpon>AddNewMember.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Membership\UC_MemberRow.resx">
+      <DependentUpon>UC_MemberRow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -221,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReceiptForm.resx">
       <DependentUpon>ReceiptForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rent History\Rent History.resx">
+      <DependentUpon>Rent History.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\Reports_Dashboard.resx">
       <DependentUpon>Reports_Dashboard.cs</DependentUpon>
@@ -274,10 +364,16 @@
     <None Include="Resources\empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="POS\" />
+    <None Include="Resources\Dashboard_Money.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Court Rental Icon.png" />
+    <None Include="Resources\Dashboard_Time.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Grid.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Box.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

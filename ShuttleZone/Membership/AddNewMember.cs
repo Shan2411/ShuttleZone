@@ -1,40 +1,50 @@
 ﻿using System;
 using System.Drawing;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace ShuttleZone.Membership
 {
     public partial class AddNewMember : Form
     {
-        // --- Dragging fields ---
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
-
-        // --- Shadow constant ---
-        private const int CS_DROPSHADOW = 0x00020000;
 
         public AddNewMember()
         {
             InitializeComponent();
 
-            // --- Make borderless ---
             this.FormBorderStyle = FormBorderStyle.None;
-
-            // --- Optional: Set background color (if using Guna controls) ---
             this.BackColor = Color.White;
 
-            // --- Make draggable anywhere on the form ---
             this.MouseDown += Form_MouseDown;
             this.MouseMove += Form_MouseMove;
             this.MouseUp += Form_MouseUp;
-
-            // --- Attach drag events to all child controls so drag works even if mouse is on them ---
             AddDragEventsToControls(this.Controls);
+
+            cbMembershipType.Items.AddRange(new object[] {
+                "1 month (Php 500)",
+                "2 months (Php 955)",
+                "3 months (Php 1,410)",
+                "4 months (Php 1,865)",
+                "5 months (Php 2,320)",
+                "6 months (Php 2,775)",
+                "7 months (Php 3,230)",
+                "8 months (Php 3,685)",
+                "9 months (Php 4,140)",
+                "10 months (Php 4,350)",
+                "11 months (Php 4,425)",
+                "12 months (Php 4,500)"
+            });
+
+            cbJoinDate.BackColor = Color.White;
+            cbJoinDate.Value = DateTime.Now;
+
+            tbMemberPhone.MaxLength = 11;
+            tbMemberPhone.KeyPress += TbMemberPhone_KeyPress;
+            tbMemberPhone.Leave += TbMemberPhone_Leave;
         }
 
-        // --- Recursively add drag events to all controls ---
         private void AddDragEventsToControls(Control.ControlCollection controls)
         {
             foreach (Control control in controls)
@@ -43,24 +53,11 @@ namespace ShuttleZone.Membership
                 control.MouseMove += Form_MouseMove;
                 control.MouseUp += Form_MouseUp;
 
-                // If control has children, apply recursively
                 if (control.HasChildren)
                     AddDragEventsToControls(control.Controls);
             }
         }
 
-        // --- Shadow ---
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
-            }
-        }
-
-        // --- Dragging methods ---
         private void Form_MouseDown(object sender, MouseEventArgs e)
         {
             dragging = true;
@@ -82,16 +79,106 @@ namespace ShuttleZone.Membership
             dragging = false;
         }
 
-        // --- Close button (Guna picture box) ---
-        private void guna2PictureBox1_Click_1(object sender, EventArgs e)
+        private void CancelBtn_Click(object sender, EventArgs e) => this.Close();
+        private void CloseBtn_Click(object sender, EventArgs e) => this.Close();
+
+        private void CreateBtn_Click(object sender, EventArgs e)
         {
+            string MemberName = tbMemberName.Text;
+            string MemberEmail = tbMemberEmail.Text;
+            string MemberContactString = tbMemberPhone.Text;
+            string MembershipType = cbMembershipType.SelectedItem?.ToString() ?? "";
+            DateTime JoinDate = cbJoinDate.Value;
+
+            if (string.IsNullOrWhiteSpace(MemberName) ||
+                string.IsNullOrWhiteSpace(MemberEmail) ||
+                string.IsNullOrWhiteSpace(MemberContactString) ||
+                string.IsNullOrWhiteSpace(MembershipType))
+            {
+                MessageBox.Show("Please fill in all fields.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!(MemberContactString.Length == 11 && MemberContactString.StartsWith("09")))
+            {
+                MessageBox.Show("Contact number must be 11 digits and start with '09'.",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!MemberEmail.EndsWith("@gmail.com", StringComparison.OrdinalIgnoreCase))
+            {
+                MessageBox.Show("Email must end with '@gmail.com'.",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int months = 0;
+            string[] parts = MembershipType.Split(' ');
+            if (int.TryParse(parts[0], out int parsedMonths))
+                months = parsedMonths;
+
+            DateTime expiryDate = JoinDate.AddMonths(months);
+            ExpiryDateLbl.Text = expiryDate.ToString("yyyy-MM-dd");
+
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
-        // --- Optional: TableLayoutPanel Paint event ---
-        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        private void UpdateExpiryDate()
         {
-            // You can customize painting here if needed
+            DateTime joinDate = cbJoinDate.Value;
+            string membershipType = cbMembershipType.SelectedItem?.ToString() ?? "";
+
+            int months = 0;
+            if (!string.IsNullOrEmpty(membershipType))
+            {
+                string[] parts = membershipType.Split(' ');
+                if (int.TryParse(parts[0], out int parsedMonths))
+                    months = parsedMonths;
+            }
+
+            DateTime expiryDate = joinDate.AddMonths(months);
+            ExpiryDateLbl.Text = expiryDate.ToString("MM/dd/yyyy");
         }
+
+        private void cbMembershipType_SelectedIndexChanged(object sender, EventArgs e) => UpdateExpiryDate();
+        private void cbJoinDate_ValueChanged(object sender, EventArgs e) => UpdateExpiryDate();
+
+        private void TbMemberPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb == null) return; // safety guard
+
+            // Allow control keys (like Backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // block non-digit input
+            }
+
+            // Prevent typing beyond 11 digits
+            if (tb.Text.Length >= 11 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TbMemberPhone_Leave(object sender, EventArgs e)
+        {
+            if (!(tbMemberPhone.Text.StartsWith("09") && tbMemberPhone.Text.Length == 11))
+            {
+                MessageBox.Show("Contact number must be 11 digits and start with '09'.",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tbMemberPhone.Focus();
+            }
+        }
+
+        // Expose values for UC_Membership
+        public string MemberNameValue => tbMemberName.Text;
+        public string MemberEmailValue => tbMemberEmail.Text;
+        public string MemberPhoneValue => tbMemberPhone.Text;
+        public string MembershipTypeValue => cbMembershipType.SelectedItem?.ToString() ?? "";
+        public string ExpiryDateValue => ExpiryDateLbl.Text;
     }
 }

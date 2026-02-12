@@ -1,8 +1,10 @@
-﻿    using System;
-    using System.Windows.Forms;
+﻿    using ShuttleZone.Dashboard1;
     using ShuttleZone.Maintenance_Logs;
-    using System.Drawing;
     using ShuttleZone.sidebars;
+    using System;
+    using System.Drawing;
+using System.Web.Security;
+    using System.Windows.Forms;
 
     namespace ShuttleZone
     {
@@ -56,7 +58,12 @@
 
             private void EquipmentBtn_Click(object sender, EventArgs e)
             {
-                HighlightButton(EquipmentInventoryBtn);
+          
+            HighlightButton(EquipmentInventoryBtn);
+            DynamicContentPanel.Controls.Clear();
+            Equipment_and_Inventory.Equipment equipmentWindowUC = new Equipment_and_Inventory.Equipment();
+            DynamicContentPanel.Controls.Add(equipmentWindowUC);
+            equipmentWindowUC.Dock = DockStyle.Fill;
         }
 
             private void SysSettingsBtn_Click(object sender, EventArgs e)
@@ -90,6 +97,9 @@
                 HighlightButton(DashboardBtn);
                 DynamicContentPanel.Controls.Clear();
             
+                Dashboard1.Dashboard_UC ucDashboard = new Dashboard1.Dashboard_UC();
+                DynamicContentPanel.Controls.Add(ucDashboard);
+                ucDashboard.Dock = DockStyle.Fill;
             }
 
             private void MembershipBtn_Click(object sender, EventArgs e)
@@ -124,6 +134,9 @@
             {
                 HighlightButton(EquipmentInventoryBtn);
                 DynamicContentPanel.Controls.Clear();
+
+
+
             }
 
             public void MaintenanceLogBtn_Click(object sender, EventArgs e)
@@ -209,6 +222,11 @@
             frontDeskSidebarUC.POSBtnClicked += POSBtn_Click;
             frontDeskSidebarUC.RentalHistoryBtnClicked += RentalHistoryBtn_Click;
             SidebarDynamicPanel.Controls.Add(frontDeskSidebarUC);
+        }
+
+        private void DynamicContentPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
     }

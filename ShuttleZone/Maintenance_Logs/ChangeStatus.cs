@@ -16,10 +16,13 @@ namespace ShuttleZone.Maintenance_Logs
         private C_StatusButton _selectedButton;
         public static string tempStatuschange;
         private MaintenanceWindow _maintenanceWindow;
+        private string courtName;
 
         public ChangeStatus(string courtName, MaintenanceWindow maintenanceWindow)
         {
             InitializeComponent();
+
+            this.courtName = courtName;
             _maintenanceWindow = maintenanceWindow;
 
             flowLayoutPanel1.Controls.Clear();
@@ -119,15 +122,58 @@ namespace ShuttleZone.Maintenance_Logs
 
         public void guna2Button2_Click(object sender, EventArgs e)
         {
-            //if (tempStatuschange == null) {MessageBox.Show("Please Select a Proper Input"); return; }
-            Globals.statusFromDB = _selectedButton?.statusType;
-            try {
-                MessageBox.Show("Status changed to " + Globals.statusFromDB);
-                this.Close();
-                _maintenanceWindow?.RefreshPanel();
+
+            switch (courtName)
+            {
+                case "Court A":
+                    Globals.statusFromDB = _selectedButton?.statusType;
+                    try
+                    {
+                        MessageBox.Show("Status changed to " + Globals.statusFromDB);
+                        this.Close();
+                        _maintenanceWindow?.RefreshPanel();
+                    }
+                    catch (Exception error) { MessageBox.Show(error.Message); }
+                    break;
+                case "Court B":
+                    Globals.statusFromDB1 = _selectedButton?.statusType;
+                    try
+                    {
+                        MessageBox.Show("Status changed to " + Globals.statusFromDB);
+                        this.Close();
+                        _maintenanceWindow?.RefreshPanel();
+                    }
+                    catch (Exception error) { MessageBox.Show(error.Message); }
+                    break;
+                case "Court C":
+                    Globals.statusFromDB2 = _selectedButton?.statusType;
+                    try
+                    {
+                        MessageBox.Show("Status changed to " + Globals.statusFromDB);
+                        this.Close();
+                        _maintenanceWindow?.RefreshPanel();
+                    }
+                    catch (Exception error) { MessageBox.Show(error.Message); }
+                    break;
+                case "Court D":
+                    Globals.statusFromDB3 = _selectedButton?.statusType;
+                    try
+                    {
+                        MessageBox.Show("Status changed to " + Globals.statusFromDB);
+                        this.Close();
+                        _maintenanceWindow?.RefreshPanel();
+                    }
+                    catch (Exception error) { MessageBox.Show(error.Message); }
+                    break;
+                default: break;
+
             }
-            catch (Exception error) { MessageBox.Show(error.Message); }
             
+        }
+
+        private void guna2CircleButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
