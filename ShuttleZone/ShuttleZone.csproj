@@ -55,6 +55,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Equipment and Inventory\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Equipment and Inventory\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Equipment and Inventory\Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Equipment and Inventory\Edit.Designer.cs">
+      <DependentUpon>Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Equipment and Inventory\Equipment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Equipment and Inventory\Equipment.Designer.cs">
+      <DependentUpon>Equipment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +103,12 @@
     </Compile>
     <Compile Include="Membership\AddNewMember.Designer.cs">
       <DependentUpon>AddNewMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rent History\Rent History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rent History\Rent History.Designer.cs">
+      <DependentUpon>Rent History.cs</DependentUpon>
     </Compile>
     <Compile Include="reports\Reports_Dashboard.cs">
       <SubType>UserControl</SubType>
@@ -136,6 +160,15 @@
     <Compile Include="UC_Pos.Designer.cs">
       <DependentUpon>UC_Pos.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Equipment and Inventory\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Equipment and Inventory\Edit.resx">
+      <DependentUpon>Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Equipment and Inventory\Equipment.resx">
+      <DependentUpon>Equipment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +199,9 @@
     </Compile>
     <EmbeddedResource Include="Membership\UC_Membership.resx">
       <DependentUpon>UC_Membership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rent History\Rent History.resx">
+      <DependentUpon>Rent History.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\Reports_Dashboard.resx">
       <DependentUpon>Reports_Dashboard.cs</DependentUpon>
