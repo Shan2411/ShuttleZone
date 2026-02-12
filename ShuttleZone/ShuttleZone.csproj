@@ -145,6 +145,12 @@
     <Compile Include="ReceiptForm.Designer.cs">
       <DependentUpon>ReceiptForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Membership\UC_MemberRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Membership\UC_MemberRow.Designer.cs">
+      <DependentUpon>UC_MemberRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\Reports_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Membership\AddNewMember.resx">
       <DependentUpon>AddNewMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Membership\UC_MemberRow.resx">
+      <DependentUpon>UC_MemberRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

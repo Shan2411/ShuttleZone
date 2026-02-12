@@ -33,6 +33,8 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Topbar = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.ToggleModeBtn = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.ExitBtn = new Guna.UI2.WinForms.Guna2PictureBox();
             this.DevTestMode = new System.Windows.Forms.TableLayoutPanel();
             this.FrontDeskBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ManagerBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -42,6 +44,7 @@
             this.SidebarBackground = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.SidebarTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -144,6 +147,31 @@
             this.guna2HtmlLabel3.TabIndex = 5;
             this.guna2HtmlLabel3.Text = "Thursday, Jan 22, 2026";
             this.guna2HtmlLabel3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ToggleModeBtn
+            // 
+            this.ToggleModeBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ToggleModeBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToggleModeBtn.BackgroundImage")));
+            this.ToggleModeBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ToggleModeBtn.ImageRotate = 0F;
+            this.ToggleModeBtn.Location = new System.Drawing.Point(904, 5);
+            this.ToggleModeBtn.Name = "ToggleModeBtn";
+            this.ToggleModeBtn.Size = new System.Drawing.Size(20, 20);
+            this.ToggleModeBtn.TabIndex = 3;
+            this.ToggleModeBtn.TabStop = false;
+            // 
+            // ExitBtn
+            // 
+            this.ExitBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ExitBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ExitBtn.BackgroundImage")));
+            this.ExitBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ExitBtn.ImageRotate = 0F;
+            this.ExitBtn.Location = new System.Drawing.Point(13, 5);
+            this.ExitBtn.Name = "ExitBtn";
+            this.ExitBtn.Size = new System.Drawing.Size(20, 20);
+            this.ExitBtn.TabIndex = 0;
+            this.ExitBtn.TabStop = false;
+            this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
             // DevTestMode
             // 
@@ -715,6 +743,8 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.Topbar.ResumeLayout(false);
             this.Topbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ToggleModeBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExitBtn)).EndInit();
             this.DevTestMode.ResumeLayout(false);
             this.SidebarDynamicPanel.ResumeLayout(false);
             this.SidebarBackground.ResumeLayout(false);
