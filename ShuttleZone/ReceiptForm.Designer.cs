@@ -30,11 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Receipt));
             this.pnlContainer = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlItemsContainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.flowItemsContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlItemRowTemplate = new Guna.UI2.WinForms.Guna2Panel();
             this.lblItemQty = new System.Windows.Forms.Label();
             this.lblItemPrice = new System.Windows.Forms.Label();
             this.lblItemName = new System.Windows.Forms.Label();
+            this.lblReceiptNo = new System.Windows.Forms.Label();
+            this.lblReceiptNoTitle = new System.Windows.Forms.Label();
             this.lblFooterMessage2 = new System.Windows.Forms.Label();
             this.lblFooterMessage1 = new System.Windows.Forms.Label();
             this.lblTerm1 = new System.Windows.Forms.Label();
@@ -60,18 +63,17 @@
             this.sepHeader = new Guna.UI2.WinForms.Guna2Separator();
             this.lblSZInfo = new System.Windows.Forms.Label();
             this.lblSZ = new System.Windows.Forms.Label();
-            this.lblReceiptNoTitle = new System.Windows.Forms.Label();
-            this.lblReceiptNo = new System.Windows.Forms.Label();
             this.pnlContainer.SuspendLayout();
-            this.pnlItemsContainer.SuspendLayout();
+            this.flowItemsContainer.SuspendLayout();
             this.pnlItemRowTemplate.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlContainer
             // 
+            this.pnlContainer.Controls.Add(this.btnClose);
+            this.pnlContainer.Controls.Add(this.flowItemsContainer);
             this.pnlContainer.Controls.Add(this.lblReceiptNo);
             this.pnlContainer.Controls.Add(this.lblReceiptNoTitle);
-            this.pnlContainer.Controls.Add(this.pnlItemsContainer);
             this.pnlContainer.Controls.Add(this.lblFooterMessage2);
             this.pnlContainer.Controls.Add(this.lblFooterMessage1);
             this.pnlContainer.Controls.Add(this.lblTerm1);
@@ -104,22 +106,36 @@
             this.pnlContainer.Size = new System.Drawing.Size(350, 788);
             this.pnlContainer.TabIndex = 0;
             // 
-            // pnlItemsContainer
+            // btnClose
             // 
-            this.pnlItemsContainer.AutoScroll = true;
-            this.pnlItemsContainer.Controls.Add(this.pnlItemRowTemplate);
-            this.pnlItemsContainer.Location = new System.Drawing.Point(23, 271);
-            this.pnlItemsContainer.Name = "pnlItemsContainer";
-            this.pnlItemsContainer.Size = new System.Drawing.Size(304, 166);
-            this.pnlItemsContainer.TabIndex = 31;
+            this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClose.FillColor = System.Drawing.Color.Transparent;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.Black;
+            this.btnClose.Location = new System.Drawing.Point(308, 12);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(30, 30);
+            this.btnClose.TabIndex = 35;
+            this.btnClose.Text = "X";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // flowItemsContainer
+            // 
+            this.flowItemsContainer.Controls.Add(this.pnlItemRowTemplate);
+            this.flowItemsContainer.Location = new System.Drawing.Point(19, 271);
+            this.flowItemsContainer.Name = "flowItemsContainer";
+            this.flowItemsContainer.Size = new System.Drawing.Size(310, 166);
+            this.flowItemsContainer.TabIndex = 34;
             // 
             // pnlItemRowTemplate
             // 
             this.pnlItemRowTemplate.Controls.Add(this.lblItemQty);
             this.pnlItemRowTemplate.Controls.Add(this.lblItemPrice);
             this.pnlItemRowTemplate.Controls.Add(this.lblItemName);
-            this.pnlItemRowTemplate.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlItemRowTemplate.Location = new System.Drawing.Point(0, 0);
+            this.pnlItemRowTemplate.Location = new System.Drawing.Point(3, 3);
             this.pnlItemRowTemplate.Name = "pnlItemRowTemplate";
             this.pnlItemRowTemplate.Size = new System.Drawing.Size(304, 37);
             this.pnlItemRowTemplate.TabIndex = 14;
@@ -140,7 +156,7 @@
             this.lblItemPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblItemPrice.AutoSize = true;
             this.lblItemPrice.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemPrice.Location = new System.Drawing.Point(252, 4);
+            this.lblItemPrice.Location = new System.Drawing.Point(247, 4);
             this.lblItemPrice.Name = "lblItemPrice";
             this.lblItemPrice.Size = new System.Drawing.Size(35, 15);
             this.lblItemPrice.TabIndex = 12;
@@ -155,6 +171,26 @@
             this.lblItemName.Size = new System.Drawing.Size(47, 15);
             this.lblItemName.TabIndex = 11;
             this.lblItemName.Text = "Court A";
+            // 
+            // lblReceiptNo
+            // 
+            this.lblReceiptNo.AutoSize = true;
+            this.lblReceiptNo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReceiptNo.Location = new System.Drawing.Point(262, 152);
+            this.lblReceiptNo.Name = "lblReceiptNo";
+            this.lblReceiptNo.Size = new System.Drawing.Size(45, 15);
+            this.lblReceiptNo.TabIndex = 33;
+            this.lblReceiptNo.Text = "R#0001";
+            // 
+            // lblReceiptNoTitle
+            // 
+            this.lblReceiptNoTitle.AutoSize = true;
+            this.lblReceiptNoTitle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReceiptNoTitle.Location = new System.Drawing.Point(42, 152);
+            this.lblReceiptNoTitle.Name = "lblReceiptNoTitle";
+            this.lblReceiptNoTitle.Size = new System.Drawing.Size(68, 15);
+            this.lblReceiptNoTitle.TabIndex = 32;
+            this.lblReceiptNoTitle.Text = "Receipt No:";
             // 
             // lblFooterMessage2
             // 
@@ -402,26 +438,6 @@
             this.lblSZ.Text = "Shuttle Zone";
             this.lblSZ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblReceiptNoTitle
-            // 
-            this.lblReceiptNoTitle.AutoSize = true;
-            this.lblReceiptNoTitle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReceiptNoTitle.Location = new System.Drawing.Point(42, 152);
-            this.lblReceiptNoTitle.Name = "lblReceiptNoTitle";
-            this.lblReceiptNoTitle.Size = new System.Drawing.Size(68, 15);
-            this.lblReceiptNoTitle.TabIndex = 32;
-            this.lblReceiptNoTitle.Text = "Receipt No:";
-            // 
-            // lblReceiptNo
-            // 
-            this.lblReceiptNo.AutoSize = true;
-            this.lblReceiptNo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReceiptNo.Location = new System.Drawing.Point(262, 152);
-            this.lblReceiptNo.Name = "lblReceiptNo";
-            this.lblReceiptNo.Size = new System.Drawing.Size(45, 15);
-            this.lblReceiptNo.TabIndex = 33;
-            this.lblReceiptNo.Text = "R#0001";
-            // 
             // Receipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -435,7 +451,7 @@
             this.Text = "Receipt";
             this.pnlContainer.ResumeLayout(false);
             this.pnlContainer.PerformLayout();
-            this.pnlItemsContainer.ResumeLayout(false);
+            this.flowItemsContainer.ResumeLayout(false);
             this.pnlItemRowTemplate.ResumeLayout(false);
             this.pnlItemRowTemplate.PerformLayout();
             this.ResumeLayout(false);
@@ -474,9 +490,10 @@
         private System.Windows.Forms.Label lblTerm1;
         private System.Windows.Forms.Label lblFooterMessage2;
         private System.Windows.Forms.Label lblFooterMessage1;
-        private Guna.UI2.WinForms.Guna2Panel pnlItemsContainer;
         private Guna.UI2.WinForms.Guna2Panel pnlItemRowTemplate;
         private System.Windows.Forms.Label lblReceiptNo;
         private System.Windows.Forms.Label lblReceiptNoTitle;
+        private System.Windows.Forms.FlowLayoutPanel flowItemsContainer;
+        private Guna.UI2.WinForms.Guna2Button btnClose;
     }
 }

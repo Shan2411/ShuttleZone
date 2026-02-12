@@ -16,6 +16,9 @@ namespace ShuttleZone
     {
         private decimal appliedDiscountPercent = 0;
 
+        private List<CartItem> CartItems = new List<CartItem>();
+
+
         public UC_Pos()
         {
             InitializeComponent();
@@ -45,6 +48,14 @@ namespace ShuttleZone
 
         private Guna2Panel CloneCartItemPanel(string itemName, decimal price)
         {
+            CartItems.Add(new CartItem
+            {
+                Name = itemName,
+                Qty = 1,
+                Price = price
+            });
+
+
             var clone = new Guna2Panel
             {
                 Size = pnlCartItem.Size,
@@ -80,10 +91,18 @@ namespace ShuttleZone
             btnMinus.Click += (s, e) => UpdateQty(clone, -1);
             btnRemove.Click += (s, e) =>
             {
+                string itemToRemove = clone.Controls["lblItemName"].Text;
+
+                // ✅ Remove from data model
+                CartItems.RemoveAll(c => c.Name == itemName);
+
+                // ✅ Remove from UI
                 flowCart.Controls.Remove(clone);
                 clone.Dispose();
-                UpdateCartTotals();   // 👉 update subtotal after remove
+
+                UpdateCartTotals();
             };
+
 
             return clone;
         }
@@ -94,6 +113,7 @@ namespace ShuttleZone
             var lblQty = panel.Controls["lblQty"] as Label;
             var lblPrice = panel.Controls["lblPrice"] as Label;
             var lblRowTotal = panel.Controls["lblRowTotal"] as Label;
+            var lblName = panel.Controls["lblItemName"] as Label;
 
             int qty = int.Parse(lblQty.Text);
             qty += change;
@@ -104,8 +124,16 @@ namespace ShuttleZone
             decimal price = decimal.Parse(lblPrice.Text.Replace("₱", ""));
             lblRowTotal.Text = $"₱{qty * price}";
 
+            // 👉 SYNC WITH DATA MODEL
+            var item = CartItems.FirstOrDefault(c => c.Name == lblName.Text);
+            if (item != null)
+            {
+                item.Qty = qty;
+            }
+
             UpdateCartTotals();  // 👉 recalc subtotal
         }
+
 
         private void UpdateCartTotals()
         {
@@ -199,9 +227,15 @@ namespace ShuttleZone
 
             foreach (var p in courts)
             {
+                string itemName = p.Controls["lblItemName"].Text;
+
+                // Remove from data list
+                CartItems.RemoveAll(c => c.Name == itemName);
+
                 flowCart.Controls.Remove(p);
                 p.Dispose();
             }
+
         }
 
         private void RemoveExistingMembership()
@@ -212,9 +246,15 @@ namespace ShuttleZone
 
             foreach (var p in memberships)
             {
+                string itemName = p.Controls["lblItemName"].Text;
+
+                // Remove from data list
+                CartItems.RemoveAll(c => c.Name == itemName);
+
                 flowCart.Controls.Remove(p);
                 p.Dispose();
             }
+
         }
 
         private void btnApply_Click(object sender, EventArgs e)
@@ -300,8 +340,9 @@ namespace ShuttleZone
             decimal total = decimal.Parse(lblTotal.Text.Replace("₱", "").Trim());
 
             // Open CashPayment and pass total
-            CashPayment cp = new CashPayment(total);
+            CashPayment cp = new CashPayment(total, CartItems);
             cp.ShowDialog();
+
         }
     }
 }
