@@ -59,6 +59,10 @@
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.ToggleModeBtn = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.ExitBtn = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
+            this.TopbarBG = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.Topbar.SuspendLayout();
@@ -71,6 +75,9 @@
             this.tableLayoutPanel9.SuspendLayout();
             this.SidebarLinksGroup.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ToggleModeBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExitBtn)).BeginInit();
+            this.TopbarBG.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -623,6 +630,65 @@
             this.guna2HtmlLabel8.Text = "Shuttle Zone";
             this.guna2HtmlLabel8.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // ToggleModeBtn
+            // 
+            this.ToggleModeBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ToggleModeBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToggleModeBtn.BackgroundImage")));
+            this.ToggleModeBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ToggleModeBtn.ImageRotate = 0F;
+            this.ToggleModeBtn.Location = new System.Drawing.Point(904, 5);
+            this.ToggleModeBtn.Name = "ToggleModeBtn";
+            this.ToggleModeBtn.Size = new System.Drawing.Size(20, 20);
+            this.ToggleModeBtn.TabIndex = 3;
+            this.ToggleModeBtn.TabStop = false;
+            // 
+            // ExitBtn
+            // 
+            this.ExitBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ExitBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ExitBtn.BackgroundImage")));
+            this.ExitBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ExitBtn.ImageRotate = 0F;
+            this.ExitBtn.Location = new System.Drawing.Point(13, 5);
+            this.ExitBtn.Name = "ExitBtn";
+            this.ExitBtn.Size = new System.Drawing.Size(20, 20);
+            this.ExitBtn.TabIndex = 0;
+            this.ExitBtn.TabStop = false;
+            this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
+            // 
+            // guna2Button11
+            // 
+            this.guna2Button11.BackColor = System.Drawing.Color.Firebrick;
+            this.guna2Button11.BorderColor = System.Drawing.Color.Maroon;
+            this.guna2Button11.BorderThickness = 1;
+            this.guna2Button11.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button11.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button11.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button11.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Button11.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button11.ForeColor = System.Drawing.Color.White;
+            this.guna2Button11.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button11.Image")));
+            this.guna2Button11.Location = new System.Drawing.Point(13, 68);
+            this.guna2Button11.Margin = new System.Windows.Forms.Padding(13, 6, 13, 12);
+            this.guna2Button11.Name = "guna2Button11";
+            this.guna2Button11.Size = new System.Drawing.Size(130, 44);
+            this.guna2Button11.TabIndex = 27;
+            this.guna2Button11.Text = "Log out";
+            // 
+            // TopbarBG
+            // 
+            this.TopbarBG.BackColor = System.Drawing.Color.Transparent;
+            this.TopbarBG.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
+            this.TopbarBG.BorderThickness = 1;
+            this.TopbarBG.Controls.Add(this.Topbar);
+            this.TopbarBG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TopbarBG.Location = new System.Drawing.Point(0, 0);
+            this.TopbarBG.Margin = new System.Windows.Forms.Padding(0);
+            this.TopbarBG.Name = "TopbarBG";
+            this.TopbarBG.Size = new System.Drawing.Size(1252, 37);
+            this.TopbarBG.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -692,7 +758,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
-        private Guna.UI2.WinForms.Guna2Button KioskBtn;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel TopbarBG;
     }
 }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ShuttleZone
 {
-    public partial class Receipt : Form
+    public partial class ReceiptForm : Form
     {
         private List<CartItem> _cartItems;
         private decimal _amountReceived;
@@ -19,7 +19,7 @@ namespace ShuttleZone
 
         private int _courtRentalHours = 0; // optional, set if any court rental
 
-        public Receipt(List<CartItem> cartItems, decimal amountReceived, string paymentMethod, DateTime timeIssued, int courtRentalHours = 0)
+        public ReceiptForm(List<CartItem> cartItems, decimal amountReceived, string paymentMethod, DateTime timeIssued, int courtRentalHours = 0)
         {
             InitializeComponent();
 

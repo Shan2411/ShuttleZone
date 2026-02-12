@@ -32,9 +32,9 @@ namespace ShuttleZone.Membership
             if (DateTime.TryParse(MemberExpiryDate.Text, out DateTime expiry))
             {
                 if (expiry < DateTime.Now)
-                    MemberStatus.Image = Properties.Resources.ExpiredStatus;
+                    MemberStatus.Image = global::ShuttleZone.Properties.Resources.ExpiredStatus;
                 else
-                    MemberStatus.Image = Properties.Resources.ActiveStatus;
+                    MemberStatus.Image = global::ShuttleZone.Properties.Resources.ActiveStatus;
             }
         }
 

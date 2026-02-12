@@ -116,7 +116,7 @@ namespace ShuttleZone
             DateTime timeIssued = DateTime.Now;
             int courtHours = _cartItems.FirstOrDefault(c => c.Name.StartsWith("Court"))?.Qty ?? 0;
 
-            Receipt receiptForm = new Receipt(
+            ReceiptForm receiptForm = new ReceiptForm(
                 _cartItems,
                 cash,
                 "Cash",
