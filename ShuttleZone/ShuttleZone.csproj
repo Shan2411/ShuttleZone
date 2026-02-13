@@ -238,6 +238,12 @@
     <Compile Include="Kio_sk\UC_KioskMembership.Designer.cs">
       <DependentUpon>UC_KioskMembership.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_Kiosk.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Kiosk.Designer.cs">
+      <DependentUpon>UC_Kiosk.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Pos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -332,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sidebars\ManagerSidebar.resx">
       <DependentUpon>ManagerSidebar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Kiosk.resx">
+      <DependentUpon>UC_Kiosk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Pos.resx">
       <DependentUpon>UC_Pos.cs</DependentUpon>

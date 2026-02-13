@@ -35,9 +35,6 @@
             this.btnEquipment = new Guna.UI2.WinForms.Guna2Button();
             this.btnMembership = new Guna.UI2.WinForms.Guna2Button();
             this.pnlMainContent = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnKioskEcashPayment = new Guna.UI2.WinForms.Guna2Button();
-            this.tlpKioskPaymentMethod = new System.Windows.Forms.TableLayoutPanel();
-            this.btnKioskCashPayment = new Guna.UI2.WinForms.Guna2Button();
             this.tlpMainContent = new System.Windows.Forms.TableLayoutPanel();
             this.pnlBannerContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.lblKioskTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -55,6 +52,9 @@
             this.tlpKioskMemberCode = new System.Windows.Forms.TableLayoutPanel();
             this.btnKioskApply = new Guna.UI2.WinForms.Guna2Button();
             this.txtKioskMemberCode = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tlpKioskPaymentMethod = new System.Windows.Forms.TableLayoutPanel();
+            this.btnKioskCashPayment = new Guna.UI2.WinForms.Guna2Button();
+            this.btnKioskEcashPayment = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblKioskCart = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pnlKioskDiscountApplied = new Guna.UI2.WinForms.Guna2Panel();
@@ -63,11 +63,11 @@
             this.tlpRoot.SuspendLayout();
             this.tlpSidebar.SuspendLayout();
             this.pnlMainContent.SuspendLayout();
-            this.tlpKioskPaymentMethod.SuspendLayout();
             this.tlpMainContent.SuspendLayout();
             this.flowKioskCart.SuspendLayout();
             this.pnlKioskCartItem.SuspendLayout();
             this.tlpKioskMemberCode.SuspendLayout();
+            this.tlpKioskPaymentMethod.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlKioskDiscountApplied.SuspendLayout();
             this.SuspendLayout();
@@ -168,54 +168,6 @@
             this.pnlMainContent.Name = "pnlMainContent";
             this.pnlMainContent.Size = new System.Drawing.Size(383, 743);
             this.pnlMainContent.TabIndex = 1;
-            // 
-            // btnKioskEcashPayment
-            // 
-            this.btnKioskEcashPayment.BorderRadius = 15;
-            this.btnKioskEcashPayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnKioskEcashPayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnKioskEcashPayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnKioskEcashPayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnKioskEcashPayment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnKioskEcashPayment.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKioskEcashPayment.ForeColor = System.Drawing.Color.White;
-            this.btnKioskEcashPayment.Location = new System.Drawing.Point(191, 3);
-            this.btnKioskEcashPayment.Name = "btnKioskEcashPayment";
-            this.btnKioskEcashPayment.Size = new System.Drawing.Size(183, 39);
-            this.btnKioskEcashPayment.TabIndex = 1;
-            this.btnKioskEcashPayment.Text = "E-Cash";
-            // 
-            // tlpKioskPaymentMethod
-            // 
-            this.tlpKioskPaymentMethod.ColumnCount = 2;
-            this.tlpKioskPaymentMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpKioskPaymentMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpKioskPaymentMethod.Controls.Add(this.btnKioskCashPayment, 0, 0);
-            this.tlpKioskPaymentMethod.Controls.Add(this.btnKioskEcashPayment, 1, 0);
-            this.tlpKioskPaymentMethod.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpKioskPaymentMethod.Location = new System.Drawing.Point(3, 695);
-            this.tlpKioskPaymentMethod.Name = "tlpKioskPaymentMethod";
-            this.tlpKioskPaymentMethod.RowCount = 1;
-            this.tlpKioskPaymentMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpKioskPaymentMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpKioskPaymentMethod.Size = new System.Drawing.Size(377, 45);
-            this.tlpKioskPaymentMethod.TabIndex = 6;
-            // 
-            // btnKioskCashPayment
-            // 
-            this.btnKioskCashPayment.BorderRadius = 15;
-            this.btnKioskCashPayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnKioskCashPayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnKioskCashPayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnKioskCashPayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnKioskCashPayment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnKioskCashPayment.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKioskCashPayment.ForeColor = System.Drawing.Color.White;
-            this.btnKioskCashPayment.Location = new System.Drawing.Point(3, 3);
-            this.btnKioskCashPayment.Name = "btnKioskCashPayment";
-            this.btnKioskCashPayment.Size = new System.Drawing.Size(182, 39);
-            this.btnKioskCashPayment.TabIndex = 0;
-            this.btnKioskCashPayment.Text = "Cash";
             // 
             // tlpMainContent
             // 
@@ -456,6 +408,54 @@
             this.txtKioskMemberCode.Size = new System.Drawing.Size(257, 38);
             this.txtKioskMemberCode.TabIndex = 1;
             // 
+            // tlpKioskPaymentMethod
+            // 
+            this.tlpKioskPaymentMethod.ColumnCount = 2;
+            this.tlpKioskPaymentMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpKioskPaymentMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpKioskPaymentMethod.Controls.Add(this.btnKioskCashPayment, 0, 0);
+            this.tlpKioskPaymentMethod.Controls.Add(this.btnKioskEcashPayment, 1, 0);
+            this.tlpKioskPaymentMethod.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpKioskPaymentMethod.Location = new System.Drawing.Point(3, 695);
+            this.tlpKioskPaymentMethod.Name = "tlpKioskPaymentMethod";
+            this.tlpKioskPaymentMethod.RowCount = 1;
+            this.tlpKioskPaymentMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpKioskPaymentMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpKioskPaymentMethod.Size = new System.Drawing.Size(377, 45);
+            this.tlpKioskPaymentMethod.TabIndex = 6;
+            // 
+            // btnKioskCashPayment
+            // 
+            this.btnKioskCashPayment.BorderRadius = 15;
+            this.btnKioskCashPayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnKioskCashPayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnKioskCashPayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnKioskCashPayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnKioskCashPayment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnKioskCashPayment.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKioskCashPayment.ForeColor = System.Drawing.Color.White;
+            this.btnKioskCashPayment.Location = new System.Drawing.Point(3, 3);
+            this.btnKioskCashPayment.Name = "btnKioskCashPayment";
+            this.btnKioskCashPayment.Size = new System.Drawing.Size(182, 39);
+            this.btnKioskCashPayment.TabIndex = 0;
+            this.btnKioskCashPayment.Text = "Cash";
+            // 
+            // btnKioskEcashPayment
+            // 
+            this.btnKioskEcashPayment.BorderRadius = 15;
+            this.btnKioskEcashPayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnKioskEcashPayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnKioskEcashPayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnKioskEcashPayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnKioskEcashPayment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnKioskEcashPayment.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKioskEcashPayment.ForeColor = System.Drawing.Color.White;
+            this.btnKioskEcashPayment.Location = new System.Drawing.Point(191, 3);
+            this.btnKioskEcashPayment.Name = "btnKioskEcashPayment";
+            this.btnKioskEcashPayment.Size = new System.Drawing.Size(183, 39);
+            this.btnKioskEcashPayment.TabIndex = 1;
+            this.btnKioskEcashPayment.Text = "E-Cash";
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -478,7 +478,7 @@
             this.lblKioskCart.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKioskCart.Location = new System.Drawing.Point(3, 3);
             this.lblKioskCart.Name = "lblKioskCart";
-            this.lblKioskCart.Size = new System.Drawing.Size(28, 19);
+            this.lblKioskCart.Size = new System.Drawing.Size(28, 18);
             this.lblKioskCart.TabIndex = 0;
             this.lblKioskCart.Text = "Cart";
             // 
@@ -536,13 +536,13 @@
             this.tlpRoot.ResumeLayout(false);
             this.tlpSidebar.ResumeLayout(false);
             this.pnlMainContent.ResumeLayout(false);
-            this.tlpKioskPaymentMethod.ResumeLayout(false);
             this.tlpMainContent.ResumeLayout(false);
             this.tlpMainContent.PerformLayout();
             this.flowKioskCart.ResumeLayout(false);
             this.pnlKioskCartItem.ResumeLayout(false);
             this.pnlKioskCartItem.PerformLayout();
             this.tlpKioskMemberCode.ResumeLayout(false);
+            this.tlpKioskPaymentMethod.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.pnlKioskDiscountApplied.ResumeLayout(false);
