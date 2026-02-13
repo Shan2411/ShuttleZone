@@ -234,7 +234,7 @@
             // 
             // pnlCourtA
             // 
-            this.pnlCourtA.BorderColor = System.Drawing.Color.MediumSeaGreen;
+            this.pnlCourtA.BorderColor = System.Drawing.Color.Green;
             this.pnlCourtA.BorderRadius = 8;
             this.pnlCourtA.BorderThickness = 1;
             this.pnlCourtA.Controls.Add(this.lblCourtAAvailability);
@@ -284,7 +284,7 @@
             // 
             // pnlCourtB
             // 
-            this.pnlCourtB.BorderColor = System.Drawing.Color.MediumSeaGreen;
+            this.pnlCourtB.BorderColor = System.Drawing.Color.Green;
             this.pnlCourtB.BorderRadius = 8;
             this.pnlCourtB.BorderThickness = 1;
             this.pnlCourtB.Controls.Add(this.lblCourtBAvailability);
@@ -334,7 +334,7 @@
             // 
             // pnlCourtC
             // 
-            this.pnlCourtC.BorderColor = System.Drawing.Color.MediumSeaGreen;
+            this.pnlCourtC.BorderColor = System.Drawing.Color.Green;
             this.pnlCourtC.BorderRadius = 8;
             this.pnlCourtC.BorderThickness = 1;
             this.pnlCourtC.Controls.Add(this.lblCourtCAvailability);
@@ -384,7 +384,7 @@
             // 
             // pnlCourtD
             // 
-            this.pnlCourtD.BorderColor = System.Drawing.Color.MediumSeaGreen;
+            this.pnlCourtD.BorderColor = System.Drawing.Color.Green;
             this.pnlCourtD.BorderRadius = 8;
             this.pnlCourtD.BorderThickness = 1;
             this.pnlCourtD.Controls.Add(this.lblCourtDAvailability);
@@ -467,8 +467,9 @@
             // 
             // pnlEquipment1
             // 
-            this.pnlEquipment1.BorderColor = System.Drawing.Color.MediumPurple;
+            this.pnlEquipment1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(35)))), ((int)(((byte)(191)))));
             this.pnlEquipment1.BorderRadius = 8;
+            this.pnlEquipment1.BorderThickness = 1;
             this.pnlEquipment1.Controls.Add(this.lblEquipment1Availability);
             this.pnlEquipment1.Controls.Add(this.lblEquipment1Price);
             this.pnlEquipment1.Controls.Add(this.lblEquipment1);
@@ -516,8 +517,9 @@
             // 
             // pnlEquipment3
             // 
-            this.pnlEquipment3.BorderColor = System.Drawing.Color.MediumPurple;
+            this.pnlEquipment3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(35)))), ((int)(((byte)(191)))));
             this.pnlEquipment3.BorderRadius = 8;
+            this.pnlEquipment3.BorderThickness = 1;
             this.pnlEquipment3.Controls.Add(this.lblEquipment3Availability);
             this.pnlEquipment3.Controls.Add(this.lblEquipment3Price);
             this.pnlEquipment3.Controls.Add(this.lblEquipment3);
@@ -565,8 +567,9 @@
             // 
             // pnlEquipment2
             // 
-            this.pnlEquipment2.BorderColor = System.Drawing.Color.MediumPurple;
+            this.pnlEquipment2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(35)))), ((int)(((byte)(191)))));
             this.pnlEquipment2.BorderRadius = 8;
+            this.pnlEquipment2.BorderThickness = 1;
             this.pnlEquipment2.Controls.Add(this.lblEquipment2Availability);
             this.pnlEquipment2.Controls.Add(this.lblEquipment2Price);
             this.pnlEquipment2.Controls.Add(this.lblEquipment2);
@@ -613,8 +616,9 @@
             // 
             // pnlEquipment4
             // 
-            this.pnlEquipment4.BorderColor = System.Drawing.Color.MediumPurple;
+            this.pnlEquipment4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(35)))), ((int)(((byte)(191)))));
             this.pnlEquipment4.BorderRadius = 8;
+            this.pnlEquipment4.BorderThickness = 1;
             this.pnlEquipment4.Controls.Add(this.lblEquipment4Availability);
             this.pnlEquipment4.Controls.Add(this.lblEquipment4Price);
             this.pnlEquipment4.Controls.Add(this.lblEquipment4);
@@ -694,6 +698,7 @@
             // 
             this.pnlMembership1.BorderColor = System.Drawing.Color.DodgerBlue;
             this.pnlMembership1.BorderRadius = 8;
+            this.pnlMembership1.BorderThickness = 1;
             this.pnlMembership1.Controls.Add(this.lblMembership1Description);
             this.pnlMembership1.Controls.Add(this.lblMembership1Price);
             this.pnlMembership1.Controls.Add(this.lblMembership1);
@@ -742,6 +747,7 @@
             // 
             this.pnlMembership2.BorderColor = System.Drawing.Color.DodgerBlue;
             this.pnlMembership2.BorderRadius = 8;
+            this.pnlMembership2.BorderThickness = 1;
             this.pnlMembership2.Controls.Add(this.lblMembership2Description);
             this.pnlMembership2.Controls.Add(this.lblMembership2Price);
             this.pnlMembership2.Controls.Add(this.lblMembership2);
@@ -962,9 +968,9 @@
             this.lblTotalText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalText.Location = new System.Drawing.Point(3, 9);
             this.lblTotalText.Name = "lblTotalText";
-            this.lblTotalText.Size = new System.Drawing.Size(32, 15);
+            this.lblTotalText.Size = new System.Drawing.Size(35, 15);
             this.lblTotalText.TabIndex = 3;
-            this.lblTotalText.Text = "Total";
+            this.lblTotalText.Text = "Total:";
             // 
             // lblTotal
             // 
@@ -1001,9 +1007,9 @@
             this.lblMemberDiscount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMemberDiscount.Location = new System.Drawing.Point(3, 9);
             this.lblMemberDiscount.Name = "lblMemberDiscount";
-            this.lblMemberDiscount.Size = new System.Drawing.Size(102, 15);
+            this.lblMemberDiscount.Size = new System.Drawing.Size(105, 15);
             this.lblMemberDiscount.TabIndex = 9;
-            this.lblMemberDiscount.Text = "Member Discount";
+            this.lblMemberDiscount.Text = "Member Discount:";
             // 
             // lblDiscount
             // 
@@ -1040,9 +1046,9 @@
             this.lblSubtotalText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubtotalText.Location = new System.Drawing.Point(3, 9);
             this.lblSubtotalText.Name = "lblSubtotalText";
-            this.lblSubtotalText.Size = new System.Drawing.Size(51, 15);
+            this.lblSubtotalText.Size = new System.Drawing.Size(54, 15);
             this.lblSubtotalText.TabIndex = 2;
-            this.lblSubtotalText.Text = "Subtotal";
+            this.lblSubtotalText.Text = "Subtotal:";
             // 
             // lblSubtotal
             // 

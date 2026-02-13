@@ -272,6 +272,7 @@ namespace ShuttleZone
             decimal discountAmount = subtotal * appliedDiscountPercent;
             decimal total = subtotal - discountAmount;
 
+            lblKioskSubtotal.Text = $"₱{subtotal}";
             lblKioskDiscount.Text = $"₱{discountAmount}";
             lblKioskTotal.Text = $"₱{total}";
         }
