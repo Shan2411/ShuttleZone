@@ -21,9 +21,11 @@ namespace ShuttleZone.sidebars
         public event EventHandler ReportsBtnClicked;
         public event EventHandler UserManagementBtnClicked;
         public event EventHandler SettingsBtnClicked;
+        public event EventHandler KioskBtnClicked;
         public AdminSidebar()
         {
             InitializeComponent();
+            KioskBtn.Click += KioskBtn_Click;
         }
         private void HighlightButton(Guna.UI2.WinForms.Guna2Button activeButton)
         {
@@ -79,6 +81,12 @@ namespace ShuttleZone.sidebars
         {
             HighlightButton(SystemSettingsBtn);
             SettingsBtnClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void KioskBtn_Click(object sender, EventArgs e)
+        {
+            HighlightButton(KioskBtn);
+            KioskBtnClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

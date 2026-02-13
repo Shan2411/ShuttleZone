@@ -28,19 +28,19 @@ namespace ShuttleZone.Dashboard1
             switch (categorySwitchCase.ToLower()) // label1 texts should come from db 
             {
                 case "daily sales":
-                    guna2PictureBox1.Image = Properties.Resources.Dashboard_Money;
+                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Money;
                     label1.Text = "PHP 100,000.00"; 
                     break;
                 case "active rentals":
-                    guna2PictureBox1.Image = Properties.Resources.Dashboard_Time;
+                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Time;
                     label1.Text = "9";
                     break;
                 case "available equipments":
-                    guna2PictureBox1.Image = Properties.Resources.Dashboard_Box;
+                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Box;
                     label1.Text = "42";
                     break;
                 case "available courts":
-                    guna2PictureBox1.Image = Properties.Resources.Dashboard_Grid;
+                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Grid;
                     label1.Text = "2/4";
                     break;
                 default:

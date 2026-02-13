@@ -73,6 +73,16 @@ namespace ShuttleZone.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ActiveStatus {
+            get {
+                object obj = ResourceManager.GetObject("ActiveStatus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dashboard_Box {
             get {
                 object obj = ResourceManager.GetObject("Dashboard_Box", resourceCulture);
@@ -116,6 +126,16 @@ namespace ShuttleZone.Properties {
         internal static System.Drawing.Bitmap empty {
             get {
                 object obj = ResourceManager.GetObject("empty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExpiredStatus {
+            get {
+                object obj = ResourceManager.GetObject("ExpiredStatus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

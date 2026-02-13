@@ -116,12 +116,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kio_sk\KioskStub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kio_sk\KioskStub.Designer.cs">
+      <DependentUpon>KioskStub.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kio_sk\Kiosk.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Kio_sk\Kiosk.Designer.cs">
       <DependentUpon>Kiosk.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kio_sk\KioskItemSelectedEventArgs.cs" />
     <Compile Include="Kio_sk\UC_CourtRental.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -152,6 +159,12 @@
     </Compile>
     <Compile Include="Membership\AddNewMember.Designer.cs">
       <DependentUpon>AddNewMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\EditMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Membership\EditMember.Designer.cs">
+      <DependentUpon>EditMember.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -232,6 +245,12 @@
     <Compile Include="Kio_sk\UC_KioskMembership.Designer.cs">
       <DependentUpon>UC_KioskMembership.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_Kiosk.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Kiosk.Designer.cs">
+      <DependentUpon>UC_Kiosk.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Pos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -295,6 +314,9 @@
     <EmbeddedResource Include="Membership\AddNewMember.resx">
       <DependentUpon>AddNewMember.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Membership\EditMember.resx">
+      <DependentUpon>EditMember.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Membership\UC_MemberRow.resx">
       <DependentUpon>UC_MemberRow.cs</DependentUpon>
     </EmbeddedResource>
@@ -323,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sidebars\ManagerSidebar.resx">
       <DependentUpon>ManagerSidebar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Kiosk.resx">
+      <DependentUpon>UC_Kiosk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Pos.resx">
       <DependentUpon>UC_Pos.cs</DependentUpon>
@@ -364,16 +389,28 @@
     <None Include="Resources\empty.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActiveStatus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExpiredStatus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Box.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Grid.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\Dashboard_Money.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Dashboard_Time.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Dashboard_Grid.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Dashboard_Box.jpg" />
+    <None Include="Resources\Court Rental Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,6 @@
 ﻿namespace ShuttleZone
 {
-    partial class Receipt
+    partial class ReceiptForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Receipt));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReceiptForm));
             this.pnlContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.flowItemsContainer = new System.Windows.Forms.FlowLayoutPanel();
