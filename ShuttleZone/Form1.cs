@@ -122,6 +122,10 @@ using System.Web.Security;
             {
                 HighlightButton(POSBtn);
                 DynamicContentPanel.Controls.Clear();
+                UC_Pos ucPos = new UC_Pos();
+                ucPos.Dock = DockStyle.Fill;
+
+                DynamicContentPanel.Controls.Add(ucPos);
             }
 
             private void RentalHistoryBtn_Click(object sender, EventArgs e)
