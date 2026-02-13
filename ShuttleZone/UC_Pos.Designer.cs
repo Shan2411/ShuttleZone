@@ -499,9 +499,9 @@
             this.lblEquipment1Price.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEquipment1Price.Location = new System.Drawing.Point(40, 29);
             this.lblEquipment1Price.Name = "lblEquipment1Price";
-            this.lblEquipment1Price.Size = new System.Drawing.Size(62, 15);
+            this.lblEquipment1Price.Size = new System.Drawing.Size(56, 15);
             this.lblEquipment1Price.TabIndex = 4;
-            this.lblEquipment1Price.Text = "₱250/hour";
+            this.lblEquipment1Price.Text = "₱50/hour";
             // 
             // lblEquipment1
             // 
@@ -548,9 +548,9 @@
             this.lblEquipment3Price.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEquipment3Price.Location = new System.Drawing.Point(43, 28);
             this.lblEquipment3Price.Name = "lblEquipment3Price";
-            this.lblEquipment3Price.Size = new System.Drawing.Size(32, 15);
+            this.lblEquipment3Price.Size = new System.Drawing.Size(26, 15);
             this.lblEquipment3Price.TabIndex = 10;
-            this.lblEquipment3Price.Text = "₱250";
+            this.lblEquipment3Price.Text = "₱30";
             // 
             // lblEquipment3
             // 
@@ -596,9 +596,9 @@
             this.lblEquipment2Price.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEquipment2Price.Location = new System.Drawing.Point(44, 29);
             this.lblEquipment2Price.Name = "lblEquipment2Price";
-            this.lblEquipment2Price.Size = new System.Drawing.Size(32, 15);
+            this.lblEquipment2Price.Size = new System.Drawing.Size(26, 15);
             this.lblEquipment2Price.TabIndex = 7;
-            this.lblEquipment2Price.Text = "₱250";
+            this.lblEquipment2Price.Text = "₱80";
             // 
             // lblEquipment2
             // 
@@ -644,9 +644,9 @@
             this.lblEquipment4Price.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEquipment4Price.Location = new System.Drawing.Point(43, 28);
             this.lblEquipment4Price.Name = "lblEquipment4Price";
-            this.lblEquipment4Price.Size = new System.Drawing.Size(32, 15);
+            this.lblEquipment4Price.Size = new System.Drawing.Size(26, 15);
             this.lblEquipment4Price.TabIndex = 10;
-            this.lblEquipment4Price.Text = "₱250";
+            this.lblEquipment4Price.Text = "₱20";
             // 
             // lblEquipment4
             // 
@@ -725,7 +725,7 @@
             this.lblMembership1Price.Name = "lblMembership1Price";
             this.lblMembership1Price.Size = new System.Drawing.Size(46, 20);
             this.lblMembership1Price.TabIndex = 7;
-            this.lblMembership1Price.Text = "₱600";
+            this.lblMembership1Price.Text = "₱500";
             // 
             // lblMembership1
             // 

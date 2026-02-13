@@ -98,9 +98,9 @@
             this.lblKioskCourtPrice.ForeColor = System.Drawing.Color.Green;
             this.lblKioskCourtPrice.Location = new System.Drawing.Point(134, 110);
             this.lblKioskCourtPrice.Name = "lblKioskCourtPrice";
-            this.lblKioskCourtPrice.Size = new System.Drawing.Size(59, 27);
+            this.lblKioskCourtPrice.Size = new System.Drawing.Size(44, 27);
             this.lblKioskCourtPrice.TabIndex = 3;
-            this.lblKioskCourtPrice.Text = "₱0000";
+            this.lblKioskCourtPrice.Text = "₱250";
             // 
             // lblPerHour
             // 

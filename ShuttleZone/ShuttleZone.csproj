@@ -122,6 +122,7 @@
     <Compile Include="Kio_sk\Kiosk.Designer.cs">
       <DependentUpon>Kiosk.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kio_sk\KioskItemSelectedEventArgs.cs" />
     <Compile Include="Kio_sk\UC_CourtRental.cs">
       <SubType>UserControl</SubType>
     </Compile>
