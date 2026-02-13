@@ -116,6 +116,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kio_sk\KioskStub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kio_sk\KioskStub.Designer.cs">
+      <DependentUpon>KioskStub.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kio_sk\Kiosk.cs">
       <SubType>Form</SubType>
     </Compile>
