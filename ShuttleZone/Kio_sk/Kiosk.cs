@@ -19,6 +19,7 @@ namespace ShuttleZone
             btnCourtRental.Click += BtnCourtRental_Click;
             btnEquipment.Click += BtnEquipment_Click;
             btnMembership.Click += BtnMembership_Click;
+            btnCloseKiosk.Click += BtnCloseKiosk_Click;
         }
 
         private void Kiosk_Load(object sender, EventArgs e)
@@ -50,6 +51,11 @@ namespace ShuttleZone
             pnlDynamic.Controls.Clear();
             content.Dock = DockStyle.Fill;
             pnlDynamic.Controls.Add(content);
+        }
+
+        private void BtnCloseKiosk_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

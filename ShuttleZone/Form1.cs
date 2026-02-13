@@ -143,6 +143,14 @@ using System.Web.Security;
 
             }
 
+            private void KioskBtn_Click(object sender, EventArgs e)
+            {
+                DynamicContentPanel.Controls.Clear();
+                UC_Kiosk kioskUC = new UC_Kiosk();
+                kioskUC.Dock = DockStyle.Fill;
+                DynamicContentPanel.Controls.Add(kioskUC);
+            }
+
             public void MaintenanceLogBtn_Click(object sender, EventArgs e)
             {
                 HighlightButton(MaintenanceLogBtn);
@@ -207,6 +215,7 @@ using System.Web.Security;
             adminSidebarUC.ReportsBtnClicked += ReportsBtn_Click;
             adminSidebarUC.UserManagementBtnClicked += UserManagementBtn_Click;
             adminSidebarUC.SettingsBtnClicked += SystemSettingsBtn_Click;
+            adminSidebarUC.KioskBtnClicked += KioskBtn_Click;
             SidebarDynamicPanel.Controls.Add(adminSidebarUC);
         }
 

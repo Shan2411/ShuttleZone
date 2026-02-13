@@ -15,6 +15,13 @@ namespace ShuttleZone
         public UC_Kiosk()
         {
             InitializeComponent();
+            btnRunKiosk.Click += BtnRunKiosk_Click;
+        }
+
+        private void BtnRunKiosk_Click(object sender, EventArgs e)
+        {
+            var kiosk = new Kiosk();
+            kiosk.Show();
         }
     }
 }
