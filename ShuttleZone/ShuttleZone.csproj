@@ -128,6 +128,12 @@
     <Compile Include="Kio_sk\UC_CourtRental.Designer.cs">
       <DependentUpon>UC_CourtRental.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginForm\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maintenance_Logs\ChangeStatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +292,9 @@
     <EmbeddedResource Include="Kio_sk\UC_KioskMembership.resx">
       <DependentUpon>UC_KioskMembership.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Maintenance_Logs\ChangeStatus.resx">
       <DependentUpon>ChangeStatus.cs</DependentUpon>
     </EmbeddedResource>
@@ -396,5 +405,6 @@
   <ItemGroup>
     <None Include="Resources\Court Rental Icon.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
