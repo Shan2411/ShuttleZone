@@ -52,6 +52,12 @@
             private void RentalBtn_Click(object sender, EventArgs e)
             {
                HighlightButton(RentalHistoryBtn);
+       
+            DynamicContentPanel.Controls.Clear();
+            Rent_History.RentH rentalHistoryUC = new Rent_History.RentH();
+            DynamicContentPanel.Controls.Add(rentalHistoryUC);
+            rentalHistoryUC.Dock = DockStyle.Fill;
+
         }
 
             private void EquipmentBtn_Click(object sender, EventArgs e)
@@ -121,9 +127,13 @@
 
             private void RentalHistoryBtn_Click(object sender, EventArgs e)
             {
-                HighlightButton(RentalHistoryBtn);
-                DynamicContentPanel.Controls.Clear();
-            }
+                 HighlightButton(RentalHistoryBtn);
+                 HighlightButton(RentalHistoryBtn);
+                 DynamicContentPanel.Controls.Clear();
+                 Rent_History.RentH rentalHistoryUC = new Rent_History.RentH();
+                 DynamicContentPanel.Controls.Add(rentalHistoryUC);
+                 rentalHistoryUC.Dock = DockStyle.Fill;
+              }
 
             private void EquipmentInventoryBtn_Click(object sender, EventArgs e)
             {

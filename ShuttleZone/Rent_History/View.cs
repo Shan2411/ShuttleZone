@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace ShuttleZone.Rent_History
 {
-    public partial class Rent_History : Form
+    public partial class View : Form
     {
-        public Rent_History()
+        public View()
         {
             InitializeComponent();
         }
 
-        private void pnlRevenue_Paint(object sender, PaintEventArgs e)
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
         {
 
         }

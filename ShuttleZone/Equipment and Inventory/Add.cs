@@ -5,56 +5,52 @@ namespace ShuttleZone.Equipment_and_Inventory
 {
     public partial class Add : Form
     {
-        // This will be read by Equipment.cs
-        public EquipmentItem AddedItem { get; private set; }
+        private string generatedId;
 
-        public Add()
+        public EquipmentItem NewEquipment { get; private set; }
+
+        public Add(string id)
         {
             InitializeComponent();
-            LoadCategories();
-            HookEvents();
+            generatedId = id;
+            InitializeCategory();
         }
 
-        private void LoadCategories()
+        private void InitializeCategory()
         {
-            cmbCategory.Items.Clear();
-            cmbCategory.Items.AddRange(new object[]
+            if (cmbCategory.Items.Count == 0)
             {
-                "Rackets",
-                "Shuttlecocks",
-                "Shoes",
-                "Accessories",
-                "Consumables"
-            });
+                cmbCategory.Items.AddRange(new object[]
+                {
+            "Rackets",
+            "Shuttlecocks",
+            "Shoes",
+            "Accessories",
+            "Consumables"
+                });
 
-            cmbCategory.SelectedIndex = 0;
-        }
-
-        private void HookEvents()
-        {
-            btnAdd.Click += btnAdd_Click;
-            btnCancel.Click += (s, e) => this.Close();
+                cmbCategory.SelectedIndex = 0;
+            }
+        
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtName.Text) ||
-                cmbCategory.SelectedIndex < 0 ||
-                !int.TryParse(txtQuantity.Text, out int quantity) ||
-                !decimal.TryParse(txtPrice.Text, out decimal price))
+                string.IsNullOrWhiteSpace(txtQuantity.Text) ||
+                string.IsNullOrWhiteSpace(txtPrice.Text))
             {
-                MessageBox.Show(
-                    "Please enter valid values for all fields.",
-                    "Validation Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("Please fill in all required fields.");
                 return;
             }
 
-            AddedItem = new EquipmentItem
+            int quantity = int.Parse(txtQuantity.Text);
+            decimal price = decimal.Parse(txtPrice.Text);
+
+            NewEquipment = new EquipmentItem
             {
-                Id = Guid.NewGuid().ToString().Substring(0, 8),
-                Name = txtName.Text.Trim(),
+                Id = generatedId,
+                Name = txtName.Text,
                 Category = cmbCategory.SelectedItem.ToString(),
                 Total = quantity,
                 Available = quantity,
@@ -66,18 +62,10 @@ namespace ShuttleZone.Equipment_and_Inventory
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
-    }
 
-    // Shared model
-    public class EquipmentItem
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Category { get; set; }
-        public int Total { get; set; }
-        public int Available { get; set; }
-        public int Rented { get; set; }
-        public decimal Price { get; set; }
-        public string Status { get; set; }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -16,76 +16,147 @@ namespace ShuttleZone.Equipment_and_Inventory
             HookEvents();
         }
 
+        // ===============================
+        // INITIALIZE UI
+        // ===============================
         private void InitializeUI()
         {
-            // Availability filter
-            cmbFilter.Items.Clear();
-            cmbFilter.Items.AddRange(new object[]
+            dgvTable.AutoGenerateColumns = false;
+            dgvTable.AllowUserToResizeRows = false;
+            dgvTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvTable.MultiSelect = false;
+
+            dgvTable.Columns.Clear();
+
+            dgvTable.Columns.Add(new DataGridViewTextBoxColumn
             {
-                "All",
-                "Available",
-                "Rented"
+                Name = "colId",
+                HeaderText = "ID",
+                DataPropertyName = "Id"
             });
+
+            dgvTable.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "colName",
+                HeaderText = "Name",
+                DataPropertyName = "Name",
+                Width = 180
+            });
+
+            dgvTable.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "colCategory",
+                HeaderText = "Category",
+                DataPropertyName = "Category"
+            });
+
+            dgvTable.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "colTotal",
+                HeaderText = "Total",
+                DataPropertyName = "Total"
+            });
+
+            dgvTable.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "colAvailable",
+                HeaderText = "Available",
+                DataPropertyName = "Available"
+            });
+
+            dgvTable.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "colRented",
+                HeaderText = "Rented",
+                DataPropertyName = "Rented"
+            });
+
+            dgvTable.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "colPrice",
+                HeaderText = "Price",
+                DataPropertyName = "Price"
+            });
+
+            dgvTable.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "colStatus",
+                HeaderText = "Status",
+                DataPropertyName = "Status"
+            });
+
+            // Availability filter
+            cmbFilter.Items.AddRange(new object[] { "All", "Available", "Rented" });
             cmbFilter.SelectedIndex = 0;
 
             // Category filter
-            cmbCategory.Items.Clear();
-            cmbCategory.Items.Add("All");
-            cmbCategory.Items.AddRange(new object[]
+            if (cmbCategory.Items.Count == 0)
             {
-                "Rackets",
-                "Shuttlecocks",
-                "Shoes",
-                "Accessories",
-                "Consumables"
-            });
-            cmbCategory.SelectedIndex = 0;
+                cmbCategory.Items.AddRange(new object[]
+                {
+        "All",
+        "Rackets",
+        "Shuttlecocks",
+        "Shoes",
+        "Accessories",
+        "Consumables"
+                });
+
+                cmbCategory.SelectedIndex = 0;
+            }
         }
 
         private void HookEvents()
         {
-            btnAdd.Click += btnAdd_Click;
+            txtSearch.TextChanged += (s, e) => ApplyFilters();
             cmbFilter.SelectedIndexChanged += (s, e) => ApplyFilters();
             cmbCategory.SelectedIndexChanged += (s, e) => ApplyFilters();
-            txtSearch.TextChanged += (s, e) => ApplyFilters();
-            dgvTable.CellContentClick += dgvTable_CellContentClick;
         }
 
+        // ===============================
+        // AUTO ID GENERATOR
+        // ===============================
+        private string GenerateNextId()
+        {
+            if (equipmentList.Count == 0)
+                return "EQ001";
+
+            int maxNumber = equipmentList
+                .Select(x => int.Parse(x.Id.Substring(2)))
+                .Max();
+
+            return "EQ" + (maxNumber + 1).ToString("D3");
+        }
+
+        // ===============================
+        // ADD BUTTON
+        // ===============================
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            using (Add addForm = new Add())
+            string newId = GenerateNextId();
+
+            Add addForm = new Add(newId);
+
+            if (addForm.ShowDialog() == DialogResult.OK)
             {
-                if (addForm.ShowDialog() == DialogResult.OK)
-                {
-                    equipmentList.Add(addForm.AddedItem);
-                    RefreshGrid();
-                }
+                equipmentList.Add(addForm.NewEquipment);
+                RefreshGrid();
             }
         }
 
+
+        // ===============================
+        // GRID REFRESH
+        // ===============================
         private void RefreshGrid()
         {
-            dgvTable.Rows.Clear();
-
-            foreach (var item in equipmentList)
-            {
-                dgvTable.Rows.Add(
-                    item.Id,
-                    item.Name,
-                    item.Category,
-                    item.Total,
-                    item.Available,
-                    item.Rented,
-                    item.Price.ToString("₱0.00"),
-                    item.Status,
-                    "Edit",
-                    "Delete"
-                );
-            }
-
-            ApplyFilters();
+            dgvTable.DataSource = null;
+            dgvTable.DataSource = equipmentList;
         }
 
+        // ===============================
+        // FILTER LOGIC
+        // ===============================
         private void ApplyFilters()
         {
             foreach (DataGridViewRow row in dgvTable.Rows)
@@ -98,20 +169,19 @@ namespace ShuttleZone.Equipment_and_Inventory
 
                 // Search
                 if (!string.IsNullOrWhiteSpace(txtSearch.Text) &&
-     name.IndexOf(txtSearch.Text, StringComparison.OrdinalIgnoreCase) < 0)
+                    !name.ToLower().Contains(txtSearch.Text.ToLower()))
                 {
                     visible = false;
                 }
 
-
-                // Availability filter
+                // Availability
                 if (cmbFilter.SelectedItem.ToString() != "All" &&
                     status != cmbFilter.SelectedItem.ToString())
                 {
                     visible = false;
                 }
 
-                // Category filter
+                // Category
                 if (cmbCategory.SelectedItem.ToString() != "All" &&
                     category != cmbCategory.SelectedItem.ToString())
                 {
@@ -122,29 +192,9 @@ namespace ShuttleZone.Equipment_and_Inventory
             }
         }
 
-        private void dgvTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            if (e.RowIndex < 0) return;
 
-            if (dgvTable.Columns[e.ColumnIndex].Name == "colDelete")
-            {
-                var confirm = MessageBox.Show(
-                    "Are you sure you want to delete this item?",
-                    "Confirm Delete",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning);
-
-                if (confirm == DialogResult.Yes)
-                {
-                    equipmentList.RemoveAt(e.RowIndex);
-                    RefreshGrid();
-                }
-            }
-
-            if (dgvTable.Columns[e.ColumnIndex].Name == "colEdit")
-            {
-                MessageBox.Show("Edit functionality coming next 👀");
-            }
         }
     }
 }
