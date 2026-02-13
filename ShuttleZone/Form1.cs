@@ -3,8 +3,12 @@
     using ShuttleZone.Maintenance_Logs;
     using System.Drawing;
     using ShuttleZone.sidebars;
+using ShuttleZone.UserManagement;
+using ShuttleZone.SystemSettings;
 
-    namespace ShuttleZone
+
+
+namespace ShuttleZone
     {
         public partial class Form1 : Form
         {
@@ -52,15 +56,8 @@
                 HighlightButton(EquipmentInventoryBtn);
         }
 
-            private void SysSettingsBtn_Click(object sender, EventArgs e)
-            {
-               HighlightButton(SystemSettingsBtn);
-        }
-
-            private void UserBtn_Click(object sender, EventArgs e)
-            {
-                HighlightButton(UserManagementBtn);
-        }
+            
+            
 
             private void MaintenanceBtn_Click(object sender, EventArgs e)
             {
@@ -139,19 +136,33 @@
                 reportsDashboardUC.Dock = DockStyle.Fill;
             }
 
-            private void UserManagementBtn_Click(object sender, EventArgs e)
-            {
-                HighlightButton(UserManagementBtn);
-                DynamicContentPanel.Controls.Clear();
-            }
+        private void UserManagementBtn_Click(object sender, EventArgs e)
+        {
+            HighlightButton(UserManagementBtn);
+            DynamicContentPanel.Controls.Clear();
 
-            private void SystemSettingsBtn_Click(object sender, EventArgs e)
-            {
-                HighlightButton(SystemSettingsBtn);
-                DynamicContentPanel.Controls.Clear();
-            }
+            ucUserManagement userUC = new ucUserManagement();
+            userUC.Dock = DockStyle.Fill;
 
-            private void ManagerBtn_Click(object sender, EventArgs e)
+            DynamicContentPanel.Controls.Add(userUC);
+        }
+
+
+        private void SystemSettingsBtn_Click(object sender, EventArgs e)
+        {
+            HighlightButton(SystemSettingsBtn);
+            DynamicContentPanel.Controls.Clear();
+
+            ShuttleZone.SystemSettings.UC_SystemSettings systemSettingsUC
+     = new ShuttleZone.SystemSettings.UC_SystemSettings();
+
+            systemSettingsUC.Dock = DockStyle.Fill;
+
+            DynamicContentPanel.Controls.Add(systemSettingsUC);
+        }
+
+
+        private void ManagerBtn_Click(object sender, EventArgs e)
             {
             SidebarDynamicPanel.Controls.Clear();
             ManagerSidebar managerSidebarUC = new ManagerSidebar();

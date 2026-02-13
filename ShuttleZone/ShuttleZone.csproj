@@ -110,11 +110,30 @@
     <Compile Include="sidebars\ManagerSidebar.Designer.cs">
       <DependentUpon>ManagerSidebar.cs</DependentUpon>
     </Compile>
-    <Compile Include="SystemSettings\SystemSettings.cs">
+    <Compile Include="SystemSettings\ISaveable.cs" />
+    <Compile Include="SystemSettings\SystemPreferences.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SystemSettings\SystemSettings.Designer.cs">
-      <DependentUpon>SystemSettings.cs</DependentUpon>
+    <Compile Include="SystemSettings\SystemPreferences.Designer.cs">
+      <DependentUpon>SystemPreferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSettings\UC_SystemSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemSettings\UC_SystemSettings.Designer.cs">
+      <DependentUpon>UC_SystemSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSettings\UC_AlertMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemSettings\UC_AlertMain.Designer.cs">
+      <DependentUpon>UC_AlertMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSettings\UC_FacilityInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemSettings\UC_FacilityInfo.Designer.cs">
+      <DependentUpon>UC_FacilityInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
@@ -142,11 +161,11 @@
     <Compile Include="UC_Pos.Designer.cs">
       <DependentUpon>UC_Pos.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserManagement\AddUser.cs">
+    <Compile Include="UserManagement\UC_AddUserMain.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserManagement\AddUser.Designer.cs">
-      <DependentUpon>AddUser.cs</DependentUpon>
+    <Compile Include="UserManagement\UC_AddUserMain.Designer.cs">
+      <DependentUpon>UC_AddUserMain.cs</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\UserManagement.cs">
       <SubType>UserControl</SubType>
@@ -154,6 +173,7 @@
     <Compile Include="UserManagement\UserManagement.Designer.cs">
       <DependentUpon>UserManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserManagement\UserModel.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,14 +217,23 @@
     <EmbeddedResource Include="sidebars\ManagerSidebar.resx">
       <DependentUpon>ManagerSidebar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SystemSettings\SystemSettings.resx">
-      <DependentUpon>SystemSettings.cs</DependentUpon>
+    <EmbeddedResource Include="SystemSettings\SystemPreferences.resx">
+      <DependentUpon>SystemPreferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemSettings\UC_SystemSettings.resx">
+      <DependentUpon>UC_SystemSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemSettings\UC_AlertMain.resx">
+      <DependentUpon>UC_AlertMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemSettings\UC_FacilityInfo.resx">
+      <DependentUpon>UC_FacilityInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Pos.resx">
       <DependentUpon>UC_Pos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserManagement\AddUser.resx">
-      <DependentUpon>AddUser.cs</DependentUpon>
+    <EmbeddedResource Include="UserManagement\UC_AddUserMain.resx">
+      <DependentUpon>UC_AddUserMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManagement\UserManagement.resx">
       <DependentUpon>UserManagement.cs</DependentUpon>
