@@ -124,6 +124,7 @@
             this.txtQuantity.SelectedText = "";
             this.txtQuantity.Size = new System.Drawing.Size(502, 54);
             this.txtQuantity.TabIndex = 5;
+            this.txtQuantity.TextChanged += new System.EventHandler(this.txtQuantity_TextChanged);
             // 
             // label3
             // 

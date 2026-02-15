@@ -16,5 +16,10 @@ namespace ShuttleZone.Equipment_and_Inventory
         {
             InitializeComponent();
         }
+
+        private void Edit_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
