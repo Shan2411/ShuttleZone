@@ -5,55 +5,72 @@ namespace ShuttleZone.Equipment_and_Inventory
 {
     public partial class Add : Form
     {
-        // This will be read by Equipment.cs
-        public EquipmentItem AddedItem { get; private set; }
+        private string generatedId;
 
-        public Add()
+        public EquipmentItem NewEquipment { get; private set; }
+
+        public Add(string id)
         {
             InitializeComponent();
-            LoadCategories();
-            HookEvents();
+            generatedId = id;
+            InitializeCategory();
+
+          
+            txtQuantity.KeyPress += txtQuantity_KeyPress;
+            txtPrice.KeyPress += txtPrice_KeyPress;
+        }
+        public void LoadExistingData(EquipmentItem item)
+        {
+            txtName.Text = item.Name;
+            cmbCategory.SelectedItem = item.Category;
+            txtQuantity.Text = item.Total.ToString();
+            txtPrice.Text = item.Price.ToString();
         }
 
-        private void LoadCategories()
+
+        private void InitializeCategory()
         {
-            cmbCategory.Items.Clear();
-            cmbCategory.Items.AddRange(new object[]
+            if (cmbCategory.Items.Count == 0)
             {
-                "Rackets",
-                "Shuttlecocks",
-                "Shoes",
-                "Accessories",
-                "Consumables"
-            });
+                cmbCategory.Items.AddRange(new object[]
+                {
+                    "Rackets",
+                    "Shuttlecocks",
+                    "Shoes",
+                    "Accessories",
+                    "Consumables"
+                });
 
-            cmbCategory.SelectedIndex = 0;
-        }
-
-        private void HookEvents()
-        {
-            btnAdd.Click += btnAdd_Click;
-            btnCancel.Click += (s, e) => this.Close();
+                cmbCategory.SelectedIndex = 0;
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtName.Text) ||
-                cmbCategory.SelectedIndex < 0 ||
-                !int.TryParse(txtQuantity.Text, out int quantity) ||
-                !decimal.TryParse(txtPrice.Text, out decimal price))
+                string.IsNullOrWhiteSpace(txtQuantity.Text) ||
+                string.IsNullOrWhiteSpace(txtPrice.Text))
             {
-                MessageBox.Show(
-                    "Please enter valid values for all fields.",
-                    "Validation Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("Please fill in all required fields.");
                 return;
             }
 
-            AddedItem = new EquipmentItem
+            
+            if (!int.TryParse(txtQuantity.Text, out int quantity))
             {
-                Id = Guid.NewGuid().ToString().Substring(0, 8),
+                MessageBox.Show("Please enter a valid quantity (numbers only).");
+                return;
+            }
+
+            if (!decimal.TryParse(txtPrice.Text, out decimal price))
+            {
+                MessageBox.Show("Please enter a valid price (numbers only).");
+                return;
+            }
+
+            NewEquipment = new EquipmentItem
+            {
+                Id = generatedId,
                 Name = txtName.Text.Trim(),
                 Category = cmbCategory.SelectedItem.ToString(),
                 Total = quantity,
@@ -66,18 +83,40 @@ namespace ShuttleZone.Equipment_and_Inventory
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
-    }
 
-    // Shared model
-    public class EquipmentItem
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Category { get; set; }
-        public int Total { get; set; }
-        public int Available { get; set; }
-        public int Rented { get; set; }
-        public decimal Price { get; set; }
-        public string Status { get; set; }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtQuantity_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            if (e.KeyChar == '.' && !txt.Text.Contains("."))
+                return;
+
+            e.Handled = true;
+        }
     }
 }
+
