@@ -3,10 +3,12 @@
     using ShuttleZone.sidebars;
     using System;
     using System.Drawing;
-using System.Web.Security;
+    using System.Web.Security;
     using System.Windows.Forms;
+    using ShuttleZone.UserManagement;
 
-    namespace ShuttleZone
+
+namespace ShuttleZone
     {
         public partial class Form1 : Form
         {
@@ -74,6 +76,7 @@ using System.Web.Security;
             private void UserBtn_Click(object sender, EventArgs e)
             {
                 HighlightButton(UserManagementBtn);
+
         }
 
             private void MaintenanceBtn_Click(object sender, EventArgs e)
@@ -171,17 +174,30 @@ using System.Web.Security;
                 reportsDashboardUC.Dock = DockStyle.Fill;
             }
 
-            private void UserManagementBtn_Click(object sender, EventArgs e)
-            {
-                HighlightButton(UserManagementBtn);
-                DynamicContentPanel.Controls.Clear();
-            }
+        private void UserManagementBtn_Click(object sender, EventArgs e)
+        {
+            HighlightButton(UserManagementBtn);
+            DynamicContentPanel.Controls.Clear();
 
-            private void SystemSettingsBtn_Click(object sender, EventArgs e)
+            ucUserManagement userUC = new ucUserManagement();
+            userUC.Dock = DockStyle.Fill;
+
+            DynamicContentPanel.Controls.Add(userUC);
+        }
+
+
+        private void SystemSettingsBtn_Click(object sender, EventArgs e)
             {
                 HighlightButton(SystemSettingsBtn);
-                DynamicContentPanel.Controls.Clear();
-            }
+            DynamicContentPanel.Controls.Clear();
+
+            ShuttleZone.SystemSettings.UC_SystemSettings systemSettingsUC
+     = new ShuttleZone.SystemSettings.UC_SystemSettings();
+
+            systemSettingsUC.Dock = DockStyle.Fill;
+
+            DynamicContentPanel.Controls.Add(systemSettingsUC);
+        }
 
             private void ManagerBtn_Click(object sender, EventArgs e)
             {
@@ -239,7 +255,7 @@ using System.Web.Security;
 
         private void DynamicContentPanel_Paint(object sender, PaintEventArgs e)
         {
-
+                
         }
     }
     }
