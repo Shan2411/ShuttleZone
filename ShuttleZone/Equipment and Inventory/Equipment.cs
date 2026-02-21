@@ -12,57 +12,37 @@ namespace ShuttleZone.Equipment_and_Inventory
         public Equipment()
         {
             InitializeComponent();
-            InitializeUI();
             HookEvents();
         }
 
-        private void InitializeUI()
-        {
-            // Availability filter
-            cmbFilter.Items.Clear();
-            cmbFilter.Items.AddRange(new object[]
-            {
-                "All",
-                "Available",
-                "Rented"
-            });
-            cmbFilter.SelectedIndex = 0;
-
-            // Category filter
-            cmbCategory.Items.Clear();
-            cmbCategory.Items.Add("All");
-            cmbCategory.Items.AddRange(new object[]
-            {
-                "Rackets",
-                "Shuttlecocks",
-                "Shoes",
-                "Accessories",
-                "Consumables"
-            });
-            cmbCategory.SelectedIndex = 0;
-        }
-
+        // =========================
+        // EVENT HOOKING
+        // =========================
         private void HookEvents()
         {
             btnAdd.Click += btnAdd_Click;
-            cmbFilter.SelectedIndexChanged += (s, e) => ApplyFilters();
-            cmbCategory.SelectedIndexChanged += (s, e) => ApplyFilters();
-            txtSearch.TextChanged += (s, e) => ApplyFilters();
+            txtSearch.TextChanged += (s, e) => ApplySearch();
             dgvTable.CellContentClick += dgvTable_CellContentClick;
         }
 
+        // =========================
+        // ADD BUTTON
+        // =========================
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            using (Add addForm = new Add())
+            using (Add addForm = new Add())   // No parameter constructor
             {
                 if (addForm.ShowDialog() == DialogResult.OK)
                 {
-                    equipmentList.Add(addForm.AddedItem);
+                    equipmentList.Add(addForm.NewEquipment);
                     RefreshGrid();
                 }
             }
         }
 
+        // =========================
+        // REFRESH GRID
+        // =========================
         private void RefreshGrid()
         {
             dgvTable.Rows.Clear();
@@ -83,50 +63,50 @@ namespace ShuttleZone.Equipment_and_Inventory
                 );
             }
 
-            ApplyFilters();
+            ApplySearch();
         }
 
-        private void ApplyFilters()
+        // =========================
+        // SMART SEARCH (ONLY FILTER)
+        // =========================
+        private void ApplySearch()
         {
+            string searchText = txtSearch.Text.Trim().ToLower();
+
             foreach (DataGridViewRow row in dgvTable.Rows)
             {
+                if (row.IsNewRow) continue;
+
                 bool visible = true;
 
-                string name = row.Cells["colName"].Value.ToString();
-                string category = row.Cells["colCategory"].Value.ToString();
-                string status = row.Cells["colStatus"].Value.ToString();
+                string id = row.Cells["colId"].Value?.ToString().ToLower() ?? "";
+                string name = row.Cells["colName"].Value?.ToString().ToLower() ?? "";
+                string category = row.Cells["colCategory"].Value?.ToString().ToLower() ?? "";
 
-                // Search
-                if (!string.IsNullOrWhiteSpace(txtSearch.Text) &&
-     name.IndexOf(txtSearch.Text, StringComparison.OrdinalIgnoreCase) < 0)
+                if (!string.IsNullOrEmpty(searchText))
                 {
-                    visible = false;
-                }
-
-
-                // Availability filter
-                if (cmbFilter.SelectedItem.ToString() != "All" &&
-                    status != cmbFilter.SelectedItem.ToString())
-                {
-                    visible = false;
-                }
-
-                // Category filter
-                if (cmbCategory.SelectedItem.ToString() != "All" &&
-                    category != cmbCategory.SelectedItem.ToString())
-                {
-                    visible = false;
+                    if (!id.Contains(searchText) &&
+                        !name.Contains(searchText) &&
+                        !category.Contains(searchText))
+                    {
+                        visible = false;
+                    }
                 }
 
                 row.Visible = visible;
             }
         }
 
+        // =========================
+        // EDIT / DELETE
+        // =========================
         private void dgvTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            if (dgvTable.Columns[e.ColumnIndex].Name == "colDelete")
+            string columnName = dgvTable.Columns[e.ColumnIndex].Name;
+
+            if (columnName == "colDelete")
             {
                 var confirm = MessageBox.Show(
                     "Are you sure you want to delete this item?",
@@ -140,11 +120,14 @@ namespace ShuttleZone.Equipment_and_Inventory
                     RefreshGrid();
                 }
             }
-
-            if (dgvTable.Columns[e.ColumnIndex].Name == "colEdit")
+            else if (columnName == "colEdit")
             {
                 MessageBox.Show("Edit functionality coming next 👀");
-            }
+            } 
+        }
+            private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            // Leave empty
         }
     }
-}
+    }

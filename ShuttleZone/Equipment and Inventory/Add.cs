@@ -6,56 +6,61 @@ namespace ShuttleZone.Equipment_and_Inventory
     public partial class Add : Form
     {
         // This will be read by Equipment.cs
-        public EquipmentItem AddedItem { get; private set; }
+        public EquipmentItem NewEquipment { get; private set; }
 
         public Add()
         {
             InitializeComponent();
             LoadCategories();
-            HookEvents();
         }
 
         private void LoadCategories()
         {
             cmbCategory.Items.Clear();
-            cmbCategory.Items.AddRange(new object[]
-            {
-                "Rackets",
-                "Shuttlecocks",
-                "Shoes",
-                "Accessories",
-                "Consumables"
-            });
+            cmbCategory.Items.Add("Rackets");
+            cmbCategory.Items.Add("Shuttlecocks");
+            cmbCategory.Items.Add("Shoes");
+            cmbCategory.Items.Add("Accessories");
 
             cmbCategory.SelectedIndex = 0;
-        }
-
-        private void HookEvents()
-        {
-            btnAdd.Click += btnAdd_Click;
-            btnCancel.Click += (s, e) => this.Close();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtName.Text) ||
-                cmbCategory.SelectedIndex < 0 ||
-                !int.TryParse(txtQuantity.Text, out int quantity) ||
-                !decimal.TryParse(txtPrice.Text, out decimal price))
+                string.IsNullOrWhiteSpace(txtPrice.Text) ||
+                string.IsNullOrWhiteSpace(txtQuantity.Text))
             {
-                MessageBox.Show(
-                    "Please enter valid values for all fields.",
-                    "Validation Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("Please fill in all fields.",
+                                "Invalid Input",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                 return;
             }
 
-            AddedItem = new EquipmentItem
+            if (!int.TryParse(txtQuantity.Text, out int quantity))
             {
-                Id = Guid.NewGuid().ToString().Substring(0, 8),
-                Name = txtName.Text.Trim(),
-                Category = cmbCategory.SelectedItem.ToString(),
+                MessageBox.Show("Quantity must be a number.",
+                                "Invalid Input",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!decimal.TryParse(txtPrice.Text, out decimal price))
+            {
+                MessageBox.Show("Price must be a number.",
+                                "Invalid Input",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            NewEquipment = new EquipmentItem
+            {
+                Id = "EQ" + DateTime.Now.Ticks.ToString().Substring(10),
+                Name = txtName.Text,
+                Category = cmbCategory.Text,
                 Total = quantity,
                 Available = quantity,
                 Rented = 0,
@@ -66,18 +71,15 @@ namespace ShuttleZone.Equipment_and_Inventory
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
-    }
 
-    // Shared model
-    public class EquipmentItem
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Category { get; set; }
-        public int Total { get; set; }
-        public int Available { get; set; }
-        public int Rented { get; set; }
-        public decimal Price { get; set; }
-        public string Status { get; set; }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Add_Load(object sender, EventArgs e)
+        {
+            // Leave empty if not used
+        }
     }
 }
