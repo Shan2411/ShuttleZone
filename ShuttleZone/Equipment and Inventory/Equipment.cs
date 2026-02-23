@@ -21,10 +21,6 @@ namespace ShuttleZone.Equipment_and_Inventory
             LoadSampleData();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
         private void LoadSampleData()
         {
             equipmentList.Add(new EquipmentItem
@@ -132,27 +128,11 @@ namespace ShuttleZone.Equipment_and_Inventory
                 Text = "Delete",
                 UseColumnTextForButtonValue = true
             });
-
-            cmbFilter.Items.AddRange(new object[] { "All", "Available", "Rented" });
-            cmbFilter.SelectedIndex = 0;
-
-            cmbCategory.Items.AddRange(new object[]
-            {
-                "All",
-                "Rackets",
-                "Shuttlecocks",
-                "Shoes",
-                "Accessories",
-                "Consumables"
-            });
-            cmbCategory.SelectedIndex = 0;
         }
 
         private void HookEvents()
         {
-            txtSearch.TextChanged += (s, e) => ApplyFilters();
-            cmbFilter.SelectedIndexChanged += (s, e) => ApplyFilters();
-            cmbCategory.SelectedIndexChanged += (s, e) => ApplyFilters();
+            txtSearch.TextChanged += (s, e) => ApplySearch();
             dgvTable.CellContentClick += dgvTable_CellContentClick;
         }
 
@@ -220,29 +200,23 @@ namespace ShuttleZone.Equipment_and_Inventory
             return "EQ" + (maxNumber + 1).ToString("D3");
         }
 
-        private void ApplyFilters()
+        // ✅ SMART SEARCH ONLY
+        private void ApplySearch()
         {
+            string search = txtSearch.Text.ToLower();
+
             foreach (DataGridViewRow row in dgvTable.Rows)
             {
-                bool visible = true;
+                if (row.DataBoundItem is EquipmentItem item)
+                {
+                    bool match =
+                        item.Id.ToLower().Contains(search) ||
+                        item.Name.ToLower().Contains(search) ||
+                        item.Category.ToLower().Contains(search) ||
+                        item.Status.ToLower().Contains(search);
 
-                string name = row.Cells["colName"].Value.ToString();
-                string category = row.Cells["colCategory"].Value.ToString();
-                string status = row.Cells["colStatus"].Value.ToString();
-
-                if (!string.IsNullOrWhiteSpace(txtSearch.Text) &&
-                    !name.ToLower().Contains(txtSearch.Text.ToLower()))
-                    visible = false;
-
-                if (cmbFilter.SelectedItem.ToString() != "All" &&
-                    status != cmbFilter.SelectedItem.ToString())
-                    visible = false;
-
-                if (cmbCategory.SelectedItem.ToString() != "All" &&
-                    category != cmbCategory.SelectedItem.ToString())
-                    visible = false;
-
-                row.Visible = visible;
+                    row.Visible = match;
+                }
             }
         }
     }

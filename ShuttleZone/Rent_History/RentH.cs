@@ -199,5 +199,10 @@ namespace ShuttleZone.Rent_History
                 }
             }
         }
+
+        private void pnlRevenue_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

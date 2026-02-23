@@ -41,16 +41,8 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlFilter = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cmbStatus = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.cmbPayment = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cmbType = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
@@ -128,6 +120,7 @@
             this.pnlRevenue.Name = "pnlRevenue";
             this.pnlRevenue.Size = new System.Drawing.Size(580, 100);
             this.pnlRevenue.TabIndex = 0;
+            this.pnlRevenue.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlRevenue_Paint);
             // 
             // guna2Panel2
             // 
@@ -176,22 +169,14 @@
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.ColumnCount = 5;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.Controls.Add(this.guna2TextBox2, 4, 1);
-            this.tableLayoutPanel5.Controls.Add(this.cmbStatus, 3, 1);
-            this.tableLayoutPanel5.Controls.Add(this.cmbPayment, 2, 1);
-            this.tableLayoutPanel5.Controls.Add(this.label3, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label4, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label5, 3, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label6, 4, 0);
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.txtSearch, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.cmbType, 1, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -200,107 +185,6 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.32184F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(1189, 67);
             this.tableLayoutPanel5.TabIndex = 0;
-            // 
-            // guna2TextBox2
-            // 
-            this.guna2TextBox2.BorderRadius = 5;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Location = new System.Drawing.Point(951, 36);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(3, 7, 25, 10);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PlaceholderText = "Search";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.Size = new System.Drawing.Size(213, 21);
-            this.guna2TextBox2.TabIndex = 9;
-            // 
-            // cmbStatus
-            // 
-            this.cmbStatus.BackColor = System.Drawing.Color.Transparent;
-            this.cmbStatus.BorderRadius = 5;
-            this.cmbStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStatus.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbStatus.ItemHeight = 27;
-            this.cmbStatus.Location = new System.Drawing.Point(714, 37);
-            this.cmbStatus.Margin = new System.Windows.Forms.Padding(3, 8, 10, 70);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(224, 33);
-            this.cmbStatus.TabIndex = 8;
-            // 
-            // cmbPayment
-            // 
-            this.cmbPayment.BackColor = System.Drawing.Color.Transparent;
-            this.cmbPayment.BorderRadius = 5;
-            this.cmbPayment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbPayment.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbPayment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPayment.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbPayment.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbPayment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPayment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbPayment.ItemHeight = 27;
-            this.cmbPayment.Location = new System.Drawing.Point(477, 37);
-            this.cmbPayment.Margin = new System.Windows.Forms.Padding(3, 8, 10, 70);
-            this.cmbPayment.Name = "cmbPayment";
-            this.cmbPayment.Size = new System.Drawing.Size(224, 33);
-            this.cmbPayment.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(240, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 23);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Type";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(477, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 23);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Payment Method";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(714, 6);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 23);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Status";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(951, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 23);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Date";
             // 
             // label2
             // 
@@ -333,26 +217,8 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceholderText = "Search";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(202, 21);
+            this.txtSearch.Size = new System.Drawing.Size(1154, 21);
             this.txtSearch.TabIndex = 5;
-            // 
-            // cmbType
-            // 
-            this.cmbType.BackColor = System.Drawing.Color.Transparent;
-            this.cmbType.BorderRadius = 5;
-            this.cmbType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbType.ItemHeight = 27;
-            this.cmbType.Location = new System.Drawing.Point(240, 37);
-            this.cmbType.Margin = new System.Windows.Forms.Padding(3, 8, 10, 70);
-            this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(224, 33);
-            this.cmbType.TabIndex = 6;
             // 
             // guna2Panel4
             // 
@@ -579,7 +445,7 @@
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(179, 50);
             this.btnExport.TabIndex = 4;
-            this.btnExport.Text = "Export Excel";
+            this.btnExport.Text = "Export";
             // 
             // RentH
             // 
@@ -618,16 +484,8 @@
         private Guna.UI2.WinForms.Guna2Panel pnlRevenue;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbType;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbStatus;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbPayment;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2DataGridView dgvTable;
         private Guna.UI2.WinForms.Guna2Button btnExport;
