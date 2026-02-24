@@ -32,21 +32,21 @@
             this.SidebarBackground = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.SidebarTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SidebarLinksGroup = new System.Windows.Forms.TableLayoutPanel();
-            this.FacilityBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.InventoryBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.MembershipBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.DashboardBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
+            this.InventoryBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.FacilityBtn = new Guna.UI2.WinForms.Guna2Button();
             this.UsersBtn = new Guna.UI2.WinForms.Guna2Button();
             this.KioskBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.MembershipBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.DashboardBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SidebarBackground.SuspendLayout();
             this.SidebarTableLayout.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -105,27 +105,6 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(156, 124);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
-            // guna2Button11
-            // 
-            this.guna2Button11.BackColor = System.Drawing.Color.Firebrick;
-            this.guna2Button11.BorderColor = System.Drawing.Color.Maroon;
-            this.guna2Button11.BorderThickness = 1;
-            this.guna2Button11.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button11.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button11.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button11.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Button11.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button11.ForeColor = System.Drawing.Color.White;
-            this.guna2Button11.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button11.Image")));
-            this.guna2Button11.Location = new System.Drawing.Point(13, 68);
-            this.guna2Button11.Margin = new System.Windows.Forms.Padding(13, 6, 13, 12);
-            this.guna2Button11.Name = "guna2Button11";
-            this.guna2Button11.Size = new System.Drawing.Size(130, 44);
-            this.guna2Button11.TabIndex = 27;
-            this.guna2Button11.Text = "Log out";
-            // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(65)))), ((int)(((byte)(83)))));
@@ -177,7 +156,7 @@
             this.guna2HtmlLabel6.Location = new System.Drawing.Point(8, 3);
             this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(67, 17);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(67, 18);
             this.guna2HtmlLabel6.TabIndex = 1;
             this.guna2HtmlLabel6.Text = "Username";
             this.guna2HtmlLabel6.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -211,90 +190,6 @@
             this.SidebarLinksGroup.Size = new System.Drawing.Size(156, 241);
             this.SidebarLinksGroup.TabIndex = 2;
             // 
-            // FacilityBtn
-            // 
-            this.FacilityBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.FacilityBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.FacilityBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.FacilityBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.FacilityBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FacilityBtn.FillColor = System.Drawing.Color.Transparent;
-            this.FacilityBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FacilityBtn.ForeColor = System.Drawing.Color.White;
-            this.FacilityBtn.Image = ((System.Drawing.Image)(resources.GetObject("FacilityBtn.Image")));
-            this.FacilityBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.FacilityBtn.Location = new System.Drawing.Point(0, 78);
-            this.FacilityBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.FacilityBtn.Name = "FacilityBtn";
-            this.FacilityBtn.Size = new System.Drawing.Size(177, 26);
-            this.FacilityBtn.TabIndex = 22;
-            this.FacilityBtn.Text = "Facility";
-            this.FacilityBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.FacilityBtn.Click += new System.EventHandler(this.FacilityBtn_Click);
-            // 
-            // InventoryBtn
-            // 
-            this.InventoryBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.InventoryBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.InventoryBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.InventoryBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.InventoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InventoryBtn.FillColor = System.Drawing.Color.Transparent;
-            this.InventoryBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InventoryBtn.ForeColor = System.Drawing.Color.White;
-            this.InventoryBtn.Image = ((System.Drawing.Image)(resources.GetObject("InventoryBtn.Image")));
-            this.InventoryBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.InventoryBtn.Location = new System.Drawing.Point(0, 52);
-            this.InventoryBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.InventoryBtn.Name = "InventoryBtn";
-            this.InventoryBtn.Size = new System.Drawing.Size(177, 26);
-            this.InventoryBtn.TabIndex = 21;
-            this.InventoryBtn.Text = "Inventory";
-            this.InventoryBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.InventoryBtn.Click += new System.EventHandler(this.InventoryBtn_Click);
-            // 
-            // MembershipBtn
-            // 
-            this.MembershipBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.MembershipBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.MembershipBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.MembershipBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.MembershipBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MembershipBtn.FillColor = System.Drawing.Color.Transparent;
-            this.MembershipBtn.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.MembershipBtn.ForeColor = System.Drawing.Color.White;
-            this.MembershipBtn.Image = ((System.Drawing.Image)(resources.GetObject("MembershipBtn.Image")));
-            this.MembershipBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.MembershipBtn.Location = new System.Drawing.Point(0, 26);
-            this.MembershipBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.MembershipBtn.Name = "MembershipBtn";
-            this.MembershipBtn.Size = new System.Drawing.Size(177, 26);
-            this.MembershipBtn.TabIndex = 18;
-            this.MembershipBtn.Text = "Membership";
-            this.MembershipBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.MembershipBtn.Click += new System.EventHandler(this.MembershipBtn_Click);
-            // 
-            // DashboardBtn
-            // 
-            this.DashboardBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.DashboardBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.DashboardBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.DashboardBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.DashboardBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DashboardBtn.FillColor = System.Drawing.Color.Transparent;
-            this.DashboardBtn.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.DashboardBtn.ForeColor = System.Drawing.Color.White;
-            this.DashboardBtn.Image = ((System.Drawing.Image)(resources.GetObject("DashboardBtn.Image")));
-            this.DashboardBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.DashboardBtn.Location = new System.Drawing.Point(0, 0);
-            this.DashboardBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.DashboardBtn.Name = "DashboardBtn";
-            this.DashboardBtn.Size = new System.Drawing.Size(177, 26);
-            this.DashboardBtn.TabIndex = 17;
-            this.DashboardBtn.Text = "Dashboard";
-            this.DashboardBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.DashboardBtn.Click += new System.EventHandler(this.DashboardBtn_Click);
-            // 
             // tableLayoutPanel11
             // 
             this.tableLayoutPanel11.ColumnCount = 1;
@@ -321,7 +216,7 @@
             this.guna2HtmlLabel7.Location = new System.Drawing.Point(13, 58);
             this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(13, 12, 0, 37);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(113, 1);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(113, 16);
             this.guna2HtmlLabel7.TabIndex = 1;
             this.guna2HtmlLabel7.Text = "Facility Management";
             this.guna2HtmlLabel7.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -335,10 +230,74 @@
             this.guna2HtmlLabel8.Location = new System.Drawing.Point(13, 25);
             this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(13, 25, 0, 0);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(125, 21);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(125, 25);
             this.guna2HtmlLabel8.TabIndex = 0;
             this.guna2HtmlLabel8.Text = "Shuttle Zone";
             this.guna2HtmlLabel8.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // guna2Button11
+            // 
+            this.guna2Button11.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button11.BorderColor = System.Drawing.Color.Maroon;
+            this.guna2Button11.BorderRadius = 5;
+            this.guna2Button11.BorderThickness = 1;
+            this.guna2Button11.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button11.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button11.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button11.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Button11.FillColor = System.Drawing.Color.Firebrick;
+            this.guna2Button11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button11.ForeColor = System.Drawing.Color.White;
+            this.guna2Button11.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button11.Image")));
+            this.guna2Button11.Location = new System.Drawing.Point(13, 68);
+            this.guna2Button11.Margin = new System.Windows.Forms.Padding(13, 6, 13, 12);
+            this.guna2Button11.Name = "guna2Button11";
+            this.guna2Button11.Size = new System.Drawing.Size(130, 44);
+            this.guna2Button11.TabIndex = 27;
+            this.guna2Button11.Text = "Log out";
+            // 
+            // InventoryBtn
+            // 
+            this.InventoryBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.InventoryBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.InventoryBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.InventoryBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.InventoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InventoryBtn.FillColor = System.Drawing.Color.Transparent;
+            this.InventoryBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InventoryBtn.ForeColor = System.Drawing.Color.White;
+            this.InventoryBtn.Image = ((System.Drawing.Image)(resources.GetObject("InventoryBtn.Image")));
+            this.InventoryBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.InventoryBtn.Location = new System.Drawing.Point(0, 52);
+            this.InventoryBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.InventoryBtn.Name = "InventoryBtn";
+            this.InventoryBtn.Size = new System.Drawing.Size(177, 26);
+            this.InventoryBtn.TabIndex = 21;
+            this.InventoryBtn.Text = "Inventory";
+            this.InventoryBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.InventoryBtn.Click += new System.EventHandler(this.InventoryBtn_Click);
+            // 
+            // FacilityBtn
+            // 
+            this.FacilityBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.FacilityBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.FacilityBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.FacilityBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.FacilityBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FacilityBtn.FillColor = System.Drawing.Color.Transparent;
+            this.FacilityBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FacilityBtn.ForeColor = System.Drawing.Color.White;
+            this.FacilityBtn.Image = ((System.Drawing.Image)(resources.GetObject("FacilityBtn.Image")));
+            this.FacilityBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.FacilityBtn.Location = new System.Drawing.Point(0, 78);
+            this.FacilityBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.FacilityBtn.Name = "FacilityBtn";
+            this.FacilityBtn.Size = new System.Drawing.Size(177, 26);
+            this.FacilityBtn.TabIndex = 22;
+            this.FacilityBtn.Text = "Facility";
+            this.FacilityBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.FacilityBtn.Click += new System.EventHandler(this.FacilityBtn_Click);
             // 
             // UsersBtn
             // 
@@ -381,6 +340,48 @@
             this.KioskBtn.Text = "Kiosk";
             this.KioskBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.KioskBtn.Click += new System.EventHandler(this.KioskBtn_Click);
+            // 
+            // MembershipBtn
+            // 
+            this.MembershipBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.MembershipBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.MembershipBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.MembershipBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.MembershipBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MembershipBtn.FillColor = System.Drawing.Color.Transparent;
+            this.MembershipBtn.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.MembershipBtn.ForeColor = System.Drawing.Color.White;
+            this.MembershipBtn.Image = ((System.Drawing.Image)(resources.GetObject("MembershipBtn.Image")));
+            this.MembershipBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.MembershipBtn.Location = new System.Drawing.Point(0, 26);
+            this.MembershipBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.MembershipBtn.Name = "MembershipBtn";
+            this.MembershipBtn.Size = new System.Drawing.Size(177, 26);
+            this.MembershipBtn.TabIndex = 18;
+            this.MembershipBtn.Text = "Membership";
+            this.MembershipBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.MembershipBtn.Click += new System.EventHandler(this.MembershipBtn_Click);
+            // 
+            // DashboardBtn
+            // 
+            this.DashboardBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.DashboardBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.DashboardBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.DashboardBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.DashboardBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DashboardBtn.FillColor = System.Drawing.Color.Transparent;
+            this.DashboardBtn.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.DashboardBtn.ForeColor = System.Drawing.Color.White;
+            this.DashboardBtn.Image = ((System.Drawing.Image)(resources.GetObject("DashboardBtn.Image")));
+            this.DashboardBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.DashboardBtn.Location = new System.Drawing.Point(0, 0);
+            this.DashboardBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.DashboardBtn.Name = "DashboardBtn";
+            this.DashboardBtn.Size = new System.Drawing.Size(177, 26);
+            this.DashboardBtn.TabIndex = 17;
+            this.DashboardBtn.Text = "Dashboard";
+            this.DashboardBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.DashboardBtn.Click += new System.EventHandler(this.DashboardBtn_Click);
             // 
             // ManagerSidebar
             // 

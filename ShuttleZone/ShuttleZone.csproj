@@ -270,6 +270,18 @@
     <Compile Include="Kio_sk\UC_KioskMembership.Designer.cs">
       <DependentUpon>UC_KioskMembership.cs</DependentUpon>
     </Compile>
+    <Compile Include="topbar\AdminTopbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="topbar\AdminTopbar.Designer.cs">
+      <DependentUpon>AdminTopbar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="topbar\MFTopbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="topbar\MFTopbar.Designer.cs">
+      <DependentUpon>MFTopbar.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Kiosk.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -395,6 +407,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="systemsettings\UC_SystemSettings.resx">
       <DependentUpon>UC_SystemSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="topbar\AdminTopbar.resx">
+      <DependentUpon>AdminTopbar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="topbar\MFTopbar.resx">
+      <DependentUpon>MFTopbar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Kiosk.resx">
       <DependentUpon>UC_Kiosk.cs</DependentUpon>

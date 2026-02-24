@@ -6,6 +6,7 @@
     using System.Web.Security;
     using System.Windows.Forms;
     using ShuttleZone.UserManagement;
+using ShuttleZone.topbar;
 
 
 namespace ShuttleZone
@@ -130,8 +131,13 @@ namespace ShuttleZone
                 reportsDashboardUC.Dock = DockStyle.Fill;
             }
 
-            private void ManagerBtn_Click(object sender, EventArgs e)
-            {
+        private void ManagerBtn_Click(object sender, EventArgs e)
+        {
+            DynamicTopbarPanel.Controls.Clear();
+            MFTopbar mfTopbarUC = new MFTopbar();
+            DynamicTopbarPanel.Controls.Add(mfTopbarUC);
+            mfTopbarUC.Dock = DockStyle.Fill;
+
             SidebarDynamicPanel.Controls.Clear();
             DynamicContentPanel.Controls.Clear();
             ManagerSidebar managerSidebarUC = new ManagerSidebar();
@@ -145,10 +151,19 @@ namespace ShuttleZone
             managerSidebarUC.UsersBtnClicked += UsersBtn_Click;
             managerSidebarUC.KioskBtnClicked += KioskBtn_Click;
             SidebarDynamicPanel.Controls.Add(managerSidebarUC);
-            }
+
+            mfTopbarUC.AdminBtnClicked += AdminBtn_Click;
+            mfTopbarUC.ManagerBtnClicked += ManagerBtn_Click;
+            mfTopbarUC.FrontDeskBtnClicked += FrontDeskBtn_Click;
+        }
 
         private void AdminBtn_Click(object sender, EventArgs e)
         {
+            DynamicTopbarPanel.Controls.Clear();
+            AdminTopbar adminTopbarUC = new AdminTopbar();
+            DynamicTopbarPanel.Controls.Add(adminTopbarUC);
+            adminTopbarUC.Dock = DockStyle.Fill;
+
             SidebarDynamicPanel.Controls.Clear();
             DynamicContentPanel.Controls.Clear();
             AdminSidebar adminSidebarUC = new AdminSidebar();
@@ -158,15 +173,19 @@ namespace ShuttleZone
             adminSidebarUC.ReportsBtnClicked += ReportsBtn_Click;
             adminSidebarUC.UsersBtnClicked += UsersBtn_Click;
             SidebarDynamicPanel.Controls.Add(adminSidebarUC);
-        }
 
-        private void SidebarTableLayout_Paint(object sender, PaintEventArgs e)
-        {
-
+            adminTopbarUC.AdminBtnClicked += AdminBtn_Click;
+            adminTopbarUC.ManagerBtnClicked += ManagerBtn_Click;
+            adminTopbarUC.FrontDeskBtnClicked += FrontDeskBtn_Click;
         }
 
         private void FrontDeskBtn_Click(object sender, EventArgs e)
         {
+            DynamicTopbarPanel.Controls.Clear();
+            MFTopbar mfTopbarUC = new MFTopbar();
+            DynamicTopbarPanel.Controls.Add(mfTopbarUC);
+            mfTopbarUC.Dock = DockStyle.Fill;
+
             SidebarDynamicPanel.Controls.Clear();
             DynamicContentPanel.Controls.Clear();
             FrontDeskSidebar frontDeskSidebarUC = new FrontDeskSidebar();
@@ -177,11 +196,20 @@ namespace ShuttleZone
             frontDeskSidebarUC.MembershipBtnClicked += MembershipBtn_Click;
             frontDeskSidebarUC.HistoryBtnClicked += HistoryBtn_Click;
             SidebarDynamicPanel.Controls.Add(frontDeskSidebarUC);
+
+            mfTopbarUC.AdminBtnClicked += AdminBtn_Click;
+            mfTopbarUC.ManagerBtnClicked += ManagerBtn_Click;
+            mfTopbarUC.FrontDeskBtnClicked += FrontDeskBtn_Click;
         }
 
         private void DynamicContentPanel_Paint(object sender, PaintEventArgs e)
         {
                 
+        }
+
+        private void Topbar_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
     }
