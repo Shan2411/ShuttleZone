@@ -14,11 +14,11 @@ namespace ShuttleZone.sidebars
     {
         public event EventHandler DashboardBtnClicked;
         public event EventHandler MembershipBtnClicked;
-        public event EventHandler POSBtnClicked;
-        public event EventHandler RentalHistoryBtnClicked;
-        public event EventHandler EquipmentInventoryBtnClicked;
-        public event EventHandler MaintenanceLogBtnClicked;
-        public event EventHandler ReportsBtnClicked;    
+        public event EventHandler InventoryBtnClicked;
+        public event EventHandler FacilityBtnClicked;
+        public event EventHandler UsersBtnClicked;
+        public event EventHandler KioskBtnClicked;
+
         public ManagerSidebar()
         {
             InitializeComponent();
@@ -43,30 +43,25 @@ namespace ShuttleZone.sidebars
             HighlightButton(MembershipBtn);
             MembershipBtnClicked?.Invoke(this, EventArgs.Empty);
         }
-        private void POSBtn_Click(object sender, EventArgs e)
+        private void InventoryBtn_Click(object sender, EventArgs e)
         {
-            HighlightButton(POSBtn);
-            POSBtnClicked?.Invoke(this, EventArgs.Empty);
-        } 
-        private void RentalHistoryBtn_Click(object sender, EventArgs e)
-        {
-            HighlightButton(RentalHistoryBtn);
-            RentalHistoryBtnClicked?.Invoke(this, EventArgs.Empty);
+            HighlightButton(InventoryBtn);
+            InventoryBtnClicked?.Invoke(this, EventArgs.Empty);
         }
-        private void EquipmentInventoryBtn_Click(object sender, EventArgs e)
+        private void FacilityBtn_Click(object sender, EventArgs e)
         {
-            HighlightButton(EquipmentInventoryBtn);
-            EquipmentInventoryBtnClicked?.Invoke(this, EventArgs.Empty);
+            HighlightButton(FacilityBtn);
+            FacilityBtnClicked?.Invoke(this, EventArgs.Empty);
         }
-        private void MaintenanceBtn_Click(object sender, EventArgs e)
+        private void UsersBtn_Click(object sender, EventArgs e)
         {
-            HighlightButton(MaintenanceLogBtn);
-            MaintenanceLogBtnClicked?.Invoke(this, EventArgs.Empty);
+            HighlightButton(UsersBtn);
+            UsersBtnClicked?.Invoke(this, EventArgs.Empty);
         }
-        private void ReportsBtn_Click(object sender, EventArgs e)
+        private void KioskBtn_Click(object sender, EventArgs e)
         {
-            HighlightButton(ReportsBtn);
-            ReportsBtnClicked?.Invoke(this, EventArgs.Empty);
+            HighlightButton(KioskBtn);
+            KioskBtnClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

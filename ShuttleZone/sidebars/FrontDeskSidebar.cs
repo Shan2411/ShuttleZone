@@ -13,9 +13,9 @@ namespace ShuttleZone.sidebars
     public partial class FrontDeskSidebar : UserControl
     {
         public event EventHandler DashboardBtnClicked;
-        public event EventHandler POSBtnClicked;
-        public event EventHandler RentalHistoryBtnClicked;
+        public event EventHandler POSBtnClicked;  
         public event EventHandler MembershipBtnClicked;
+        public event EventHandler HistoryBtnClicked;
         public FrontDeskSidebar()
         {
             InitializeComponent();
@@ -40,16 +40,17 @@ namespace ShuttleZone.sidebars
         {
             HighlightButton(POSBtn);
             POSBtnClicked?.Invoke(this, EventArgs.Empty);
-        } 
-        private void RentalHistoryBtn_Click(object sender, EventArgs e)
-        {
-            HighlightButton(RentalHistoryBtn);
-            RentalHistoryBtnClicked?.Invoke(this, EventArgs.Empty);
         }
         private void MembershipBtn_Click(object sender, EventArgs e)
         {
             HighlightButton(MembershipBtn);
             MembershipBtnClicked?.Invoke(this, EventArgs.Empty);
         }
+       private void HistoryBtn_Click(object sender, EventArgs e)
+        {
+            HighlightButton(HistoryBtn);
+            HistoryBtnClicked?.Invoke(this, EventArgs.Empty);
+        }
+
     }
 }

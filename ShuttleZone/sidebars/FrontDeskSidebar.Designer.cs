@@ -32,19 +32,19 @@
             this.SidebarBackground = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.SidebarTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SidebarLinksGroup = new System.Windows.Forms.TableLayoutPanel();
+            this.MembershipBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.HistoryBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.POSBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.DashboardBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
-            this.MembershipBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.RentalHistoryBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.POSBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.DashboardBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SidebarBackground.SuspendLayout();
             this.SidebarTableLayout.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -103,6 +103,27 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(156, 124);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
+            // guna2Button11
+            // 
+            this.guna2Button11.BackColor = System.Drawing.Color.Firebrick;
+            this.guna2Button11.BorderColor = System.Drawing.Color.Maroon;
+            this.guna2Button11.BorderThickness = 1;
+            this.guna2Button11.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button11.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button11.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button11.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Button11.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button11.ForeColor = System.Drawing.Color.White;
+            this.guna2Button11.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button11.Image")));
+            this.guna2Button11.Location = new System.Drawing.Point(13, 68);
+            this.guna2Button11.Margin = new System.Windows.Forms.Padding(13, 6, 13, 12);
+            this.guna2Button11.Name = "guna2Button11";
+            this.guna2Button11.Size = new System.Drawing.Size(130, 44);
+            this.guna2Button11.TabIndex = 27;
+            this.guna2Button11.Text = "Log out";
+            // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(65)))), ((int)(((byte)(83)))));
@@ -154,7 +175,7 @@
             this.guna2HtmlLabel6.Location = new System.Drawing.Point(8, 3);
             this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(67, 18);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(67, 17);
             this.guna2HtmlLabel6.TabIndex = 1;
             this.guna2HtmlLabel6.Text = "Username";
             this.guna2HtmlLabel6.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -165,10 +186,10 @@
             this.SidebarLinksGroup.ColumnCount = 1;
             this.SidebarLinksGroup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
             this.SidebarLinksGroup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
-            this.SidebarLinksGroup.Controls.Add(this.MembershipBtn, 0, 3);
-            this.SidebarLinksGroup.Controls.Add(this.RentalHistoryBtn, 0, 2);
             this.SidebarLinksGroup.Controls.Add(this.POSBtn, 0, 1);
             this.SidebarLinksGroup.Controls.Add(this.DashboardBtn, 0, 0);
+            this.SidebarLinksGroup.Controls.Add(this.MembershipBtn, 0, 2);
+            this.SidebarLinksGroup.Controls.Add(this.HistoryBtn, 0, 3);
             this.SidebarLinksGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SidebarLinksGroup.Location = new System.Drawing.Point(0, 102);
             this.SidebarLinksGroup.Margin = new System.Windows.Forms.Padding(0, 10, 0, 150);
@@ -185,6 +206,90 @@
             this.SidebarLinksGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.SidebarLinksGroup.Size = new System.Drawing.Size(156, 241);
             this.SidebarLinksGroup.TabIndex = 2;
+            // 
+            // MembershipBtn
+            // 
+            this.MembershipBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.MembershipBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.MembershipBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.MembershipBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.MembershipBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MembershipBtn.FillColor = System.Drawing.Color.Transparent;
+            this.MembershipBtn.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.MembershipBtn.ForeColor = System.Drawing.Color.White;
+            this.MembershipBtn.Image = ((System.Drawing.Image)(resources.GetObject("MembershipBtn.Image")));
+            this.MembershipBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.MembershipBtn.Location = new System.Drawing.Point(0, 52);
+            this.MembershipBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.MembershipBtn.Name = "MembershipBtn";
+            this.MembershipBtn.Size = new System.Drawing.Size(177, 26);
+            this.MembershipBtn.TabIndex = 22;
+            this.MembershipBtn.Text = "Membership";
+            this.MembershipBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.MembershipBtn.Click += new System.EventHandler(this.MembershipBtn_Click);
+            // 
+            // HistoryBtn
+            // 
+            this.HistoryBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.HistoryBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.HistoryBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.HistoryBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.HistoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HistoryBtn.FillColor = System.Drawing.Color.Transparent;
+            this.HistoryBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HistoryBtn.ForeColor = System.Drawing.Color.White;
+            this.HistoryBtn.Image = ((System.Drawing.Image)(resources.GetObject("HistoryBtn.Image")));
+            this.HistoryBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.HistoryBtn.Location = new System.Drawing.Point(0, 78);
+            this.HistoryBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.HistoryBtn.Name = "HistoryBtn";
+            this.HistoryBtn.Size = new System.Drawing.Size(177, 26);
+            this.HistoryBtn.TabIndex = 21;
+            this.HistoryBtn.Text = "History";
+            this.HistoryBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.HistoryBtn.Click += new System.EventHandler(this.HistoryBtn_Click);
+            // 
+            // POSBtn
+            // 
+            this.POSBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.POSBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.POSBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.POSBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.POSBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.POSBtn.FillColor = System.Drawing.Color.Transparent;
+            this.POSBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.POSBtn.ForeColor = System.Drawing.Color.White;
+            this.POSBtn.Image = ((System.Drawing.Image)(resources.GetObject("POSBtn.Image")));
+            this.POSBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.POSBtn.Location = new System.Drawing.Point(0, 26);
+            this.POSBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.POSBtn.Name = "POSBtn";
+            this.POSBtn.Size = new System.Drawing.Size(177, 26);
+            this.POSBtn.TabIndex = 20;
+            this.POSBtn.Text = "POS";
+            this.POSBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.POSBtn.Click += new System.EventHandler(this.POSBtn_Click);
+            // 
+            // DashboardBtn
+            // 
+            this.DashboardBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.DashboardBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.DashboardBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.DashboardBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.DashboardBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DashboardBtn.FillColor = System.Drawing.Color.Transparent;
+            this.DashboardBtn.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.DashboardBtn.ForeColor = System.Drawing.Color.White;
+            this.DashboardBtn.Image = ((System.Drawing.Image)(resources.GetObject("DashboardBtn.Image")));
+            this.DashboardBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.DashboardBtn.Location = new System.Drawing.Point(0, 0);
+            this.DashboardBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.DashboardBtn.Name = "DashboardBtn";
+            this.DashboardBtn.Size = new System.Drawing.Size(177, 26);
+            this.DashboardBtn.TabIndex = 18;
+            this.DashboardBtn.Text = "Dashboard";
+            this.DashboardBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.DashboardBtn.Click += new System.EventHandler(this.DashboardBtn_Click);
             // 
             // tableLayoutPanel11
             // 
@@ -212,7 +317,7 @@
             this.guna2HtmlLabel7.Location = new System.Drawing.Point(13, 58);
             this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(13, 12, 0, 37);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(113, 16);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(113, 1);
             this.guna2HtmlLabel7.TabIndex = 1;
             this.guna2HtmlLabel7.Text = "Facility Management";
             this.guna2HtmlLabel7.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -226,115 +331,10 @@
             this.guna2HtmlLabel8.Location = new System.Drawing.Point(13, 25);
             this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(13, 25, 0, 0);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(125, 25);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(125, 21);
             this.guna2HtmlLabel8.TabIndex = 0;
             this.guna2HtmlLabel8.Text = "Shuttle Zone";
             this.guna2HtmlLabel8.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // guna2Button11
-            // 
-            this.guna2Button11.BackColor = System.Drawing.Color.Firebrick;
-            this.guna2Button11.BorderColor = System.Drawing.Color.Maroon;
-            this.guna2Button11.BorderThickness = 1;
-            this.guna2Button11.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button11.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button11.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button11.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Button11.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button11.ForeColor = System.Drawing.Color.White;
-            this.guna2Button11.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button11.Image")));
-            this.guna2Button11.Location = new System.Drawing.Point(13, 68);
-            this.guna2Button11.Margin = new System.Windows.Forms.Padding(13, 6, 13, 12);
-            this.guna2Button11.Name = "guna2Button11";
-            this.guna2Button11.Size = new System.Drawing.Size(130, 44);
-            this.guna2Button11.TabIndex = 27;
-            this.guna2Button11.Text = "Log out";
-            // 
-            // MembershipBtn
-            // 
-            this.MembershipBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.MembershipBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.MembershipBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.MembershipBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.MembershipBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MembershipBtn.FillColor = System.Drawing.Color.Transparent;
-            this.MembershipBtn.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.MembershipBtn.ForeColor = System.Drawing.Color.White;
-            this.MembershipBtn.Image = ((System.Drawing.Image)(resources.GetObject("MembershipBtn.Image")));
-            this.MembershipBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.MembershipBtn.Location = new System.Drawing.Point(0, 78);
-            this.MembershipBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.MembershipBtn.Name = "MembershipBtn";
-            this.MembershipBtn.Size = new System.Drawing.Size(177, 26);
-            this.MembershipBtn.TabIndex = 22;
-            this.MembershipBtn.Text = "Membership";
-            this.MembershipBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.MembershipBtn.Click += new System.EventHandler(this.MembershipBtn_Click);
-            // 
-            // RentalHistoryBtn
-            // 
-            this.RentalHistoryBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.RentalHistoryBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.RentalHistoryBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.RentalHistoryBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.RentalHistoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RentalHistoryBtn.FillColor = System.Drawing.Color.Transparent;
-            this.RentalHistoryBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RentalHistoryBtn.ForeColor = System.Drawing.Color.White;
-            this.RentalHistoryBtn.Image = ((System.Drawing.Image)(resources.GetObject("RentalHistoryBtn.Image")));
-            this.RentalHistoryBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.RentalHistoryBtn.Location = new System.Drawing.Point(0, 52);
-            this.RentalHistoryBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.RentalHistoryBtn.Name = "RentalHistoryBtn";
-            this.RentalHistoryBtn.Size = new System.Drawing.Size(177, 26);
-            this.RentalHistoryBtn.TabIndex = 21;
-            this.RentalHistoryBtn.Text = "Rental History";
-            this.RentalHistoryBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.RentalHistoryBtn.Click += new System.EventHandler(this.RentalHistoryBtn_Click);
-            // 
-            // POSBtn
-            // 
-            this.POSBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.POSBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.POSBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.POSBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.POSBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.POSBtn.FillColor = System.Drawing.Color.Transparent;
-            this.POSBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.POSBtn.ForeColor = System.Drawing.Color.White;
-            this.POSBtn.Image = ((System.Drawing.Image)(resources.GetObject("POSBtn.Image")));
-            this.POSBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.POSBtn.Location = new System.Drawing.Point(0, 26);
-            this.POSBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.POSBtn.Name = "POSBtn";
-            this.POSBtn.Size = new System.Drawing.Size(177, 26);
-            this.POSBtn.TabIndex = 20;
-            this.POSBtn.Text = "POS and Checkout";
-            this.POSBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.POSBtn.Click += new System.EventHandler(this.POSBtn_Click);
-            // 
-            // DashboardBtn
-            // 
-            this.DashboardBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.DashboardBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.DashboardBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.DashboardBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.DashboardBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DashboardBtn.FillColor = System.Drawing.Color.Transparent;
-            this.DashboardBtn.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.DashboardBtn.ForeColor = System.Drawing.Color.White;
-            this.DashboardBtn.Image = ((System.Drawing.Image)(resources.GetObject("DashboardBtn.Image")));
-            this.DashboardBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.DashboardBtn.Location = new System.Drawing.Point(0, 0);
-            this.DashboardBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.DashboardBtn.Name = "DashboardBtn";
-            this.DashboardBtn.Size = new System.Drawing.Size(177, 26);
-            this.DashboardBtn.TabIndex = 18;
-            this.DashboardBtn.Text = "Dashboard";
-            this.DashboardBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.DashboardBtn.Click += new System.EventHandler(this.DashboardBtn_Click);
             // 
             // FrontDeskSidebar
             // 
@@ -372,7 +372,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2Button DashboardBtn;
         private Guna.UI2.WinForms.Guna2Button POSBtn;
-        private Guna.UI2.WinForms.Guna2Button RentalHistoryBtn;
+        private Guna.UI2.WinForms.Guna2Button HistoryBtn;
         private Guna.UI2.WinForms.Guna2Button MembershipBtn;
     }
 }
