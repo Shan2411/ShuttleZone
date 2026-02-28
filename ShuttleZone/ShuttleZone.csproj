@@ -74,6 +74,12 @@
     <Compile Include="Dashboard1\Card_Dashboard.Designer.cs">
       <DependentUpon>Card_Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard1\CourtCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\CourtCard.Designer.cs">
+      <DependentUpon>CourtCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard1\Dashboard_UC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -85,6 +91,12 @@
     </Compile>
     <Compile Include="Dashboard1\EquipmentAlerts.Designer.cs">
       <DependentUpon>EquipmentAlerts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard1\FrontDeskDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\FrontDeskDashboard.Designer.cs">
+      <DependentUpon>FrontDeskDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Dashboard1\RentalTable.cs">
       <SubType>UserControl</SubType>
@@ -266,11 +278,17 @@
     <EmbeddedResource Include="Dashboard1\Card_Dashboard.resx">
       <DependentUpon>Card_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\CourtCard.resx">
+      <DependentUpon>CourtCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\Dashboard_UC.resx">
       <DependentUpon>Dashboard_UC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\EquipmentAlerts.resx">
       <DependentUpon>EquipmentAlerts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\FrontDeskDashboard.resx">
+      <DependentUpon>FrontDeskDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\RentalTable.resx">
       <DependentUpon>RentalTable.cs</DependentUpon>
