@@ -49,6 +49,7 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.flpMemberRowContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.ArchivedBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SearchbarBGPanel.SuspendLayout();
@@ -77,12 +78,14 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.AddMemberBtn, 2, 0);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel2.Controls.Add(this.guna2HtmlLabel1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.AddMemberBtn, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ArchivedBtn, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -108,10 +111,10 @@
             this.AddMemberBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddMemberBtn.ForeColor = System.Drawing.Color.White;
             this.AddMemberBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddMemberBtn.Image")));
-            this.AddMemberBtn.Location = new System.Drawing.Point(764, 20);
-            this.AddMemberBtn.Margin = new System.Windows.Forms.Padding(20);
+            this.AddMemberBtn.Location = new System.Drawing.Point(795, 20);
+            this.AddMemberBtn.Margin = new System.Windows.Forms.Padding(5, 20, 20, 20);
             this.AddMemberBtn.Name = "AddMemberBtn";
-            this.AddMemberBtn.Size = new System.Drawing.Size(148, 18);
+            this.AddMemberBtn.Size = new System.Drawing.Size(117, 18);
             this.AddMemberBtn.TabIndex = 29;
             this.AddMemberBtn.Text = "Add Member";
             this.AddMemberBtn.Click += new System.EventHandler(this.AddMemberBtn_Click);
@@ -238,7 +241,7 @@
             this.guna2HtmlLabel9.Location = new System.Drawing.Point(839, 10);
             this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            this.guna2HtmlLabel9.Size = new System.Drawing.Size(52, 15);
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(52, 13);
             this.guna2HtmlLabel9.TabIndex = 8;
             this.guna2HtmlLabel9.Text = "ACTIONS";
             this.guna2HtmlLabel9.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -351,6 +354,29 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
+            // ArchivedBtn
+            // 
+            this.ArchivedBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ArchivedBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(213)))), ((int)(((byte)(220)))));
+            this.ArchivedBtn.BorderRadius = 8;
+            this.ArchivedBtn.BorderThickness = 1;
+            this.ArchivedBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ArchivedBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ArchivedBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ArchivedBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ArchivedBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ArchivedBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
+            this.ArchivedBtn.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
+            this.ArchivedBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ArchivedBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(65)))), ((int)(((byte)(83)))));
+            this.ArchivedBtn.Image = ((System.Drawing.Image)(resources.GetObject("ArchivedBtn.Image")));
+            this.ArchivedBtn.Location = new System.Drawing.Point(671, 20);
+            this.ArchivedBtn.Margin = new System.Windows.Forms.Padding(20, 20, 5, 20);
+            this.ArchivedBtn.Name = "ArchivedBtn";
+            this.ArchivedBtn.Size = new System.Drawing.Size(114, 18);
+            this.ArchivedBtn.TabIndex = 30;
+            this.ArchivedBtn.Text = "Show Archived";
+            // 
             // UC_Membership
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,5 +418,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private System.Windows.Forms.FlowLayoutPanel flpMemberRowContainer;
+        private Guna.UI2.WinForms.Guna2Button ArchivedBtn;
     }
 }
