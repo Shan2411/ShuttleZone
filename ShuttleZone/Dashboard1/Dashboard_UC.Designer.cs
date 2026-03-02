@@ -30,10 +30,10 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.rentalTable1 = new ShuttleZone.Dashboard1.RentalTable();
             this.equipmentAlerts1 = new ShuttleZone.Dashboard1.EquipmentAlerts();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -67,10 +67,19 @@
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(30, 43);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(13, 20, 13, 12);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(1165, 33);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(131, 31);
             this.guna2HtmlLabel1.TabIndex = 1;
             this.guna2HtmlLabel1.Text = "     Dashboard";
             this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 91);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1185, 177);
+            this.flowLayoutPanel1.TabIndex = 2;
+            this.flowLayoutPanel1.WrapContents = false;
             // 
             // tableLayoutPanel2
             // 
@@ -102,15 +111,6 @@
             this.equipmentAlerts1.Name = "equipmentAlerts1";
             this.equipmentAlerts1.Size = new System.Drawing.Size(514, 387);
             this.equipmentAlerts1.TabIndex = 2;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 91);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1185, 177);
-            this.flowLayoutPanel1.TabIndex = 2;
-            this.flowLayoutPanel1.WrapContents = false;
             // 
             // Dashboard_UC
             // 
