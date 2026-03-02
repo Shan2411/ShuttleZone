@@ -16,21 +16,28 @@ namespace ShuttleZone.Dashboard1
         private System.Windows.Forms.Timer _countdownTimer;
         private TimeSpan _remainingTime;
 
+        // NEW: store total duration so progress bar can calculate percentage
+        private TimeSpan _totalDuration;
+
         private void EnsureTimer()
         {
             if (_countdownTimer != null) return;
             _countdownTimer = new System.Windows.Forms.Timer();
             _countdownTimer.Interval = 1000; // 1 second
             _countdownTimer.Tick += CountdownTimer_Tick;
-            // add to components container so it gets disposed with the control (components is in designer partial)
             try { components?.Add(_countdownTimer); } catch { }
         }
 
         private void StartCountdown(TimeSpan duration)
         {
             EnsureTimer();
+
+            _totalDuration = duration;
             _remainingTime = duration;
+
             UpdateCountdownLabel();
+            UpdateProgressBar();  // NEW
+
             _countdownTimer.Start();
         }
 
@@ -45,47 +52,58 @@ namespace ShuttleZone.Dashboard1
             if (_remainingTime <= TimeSpan.Zero)
             {
                 StopCountdown();
-                // When time is up, switch to operational UI
                 countDownStarter("operational");
                 return;
             }
 
             _remainingTime = _remainingTime.Subtract(TimeSpan.FromSeconds(1));
+
             UpdateCountdownLabel();
+            UpdateProgressBar();  // NEW
         }
 
         private void UpdateCountdownLabel()
         {
-            // show hh:mm:ss
             guna2HtmlLabel1.Text = _remainingTime.ToString("hh\\:mm\\:ss");
+        }
+
+        // NEW: updates the vertical progress bar (0–100%)
+        private void UpdateProgressBar()
+        {
+            if (_totalDuration.TotalSeconds == 0) return;
+
+            double percent = (_remainingTime.TotalSeconds / _totalDuration.TotalSeconds) * 100.0;
+
+            guna2VProgressBar1.Value = (int)Math.Max(0, Math.Min(100, percent));
         }
 
         public CourtCard(string courtname, string status)
         {
             InitializeComponent();
 
-            // apply passed values to the UI
             if (!string.IsNullOrEmpty(courtname))
                 label1.Text = courtname;
 
             if (!string.IsNullOrEmpty(status))
             {
-                // show the raw status on the small button
                 guna2Button2.Text = status;
-                // adjust colors / text according to status
                 countDownStarter(status);
             }
         }
 
         private void guna2HtmlLabel1_Click(object sender, EventArgs e)
         {
-
         }
 
         public void countDownStarter(string statusForColor)
         {
+            // Fix label layout first
+            guna2HtmlLabel2.AutoSize = false;
+            guna2HtmlLabel2.Height = 20;  // fixed height
+
             switch (statusForColor.ToLower())
             {
+
                 case "operational":
                     guna2HtmlLabel2.Text = "Ready For Booking";
 
@@ -99,16 +117,18 @@ namespace ShuttleZone.Dashboard1
                     break;
 
                 case "in use":
-                    // start 1 hour countdown and update label every second
                     guna2HtmlLabel2.Text = "In Use";
+
+                    // PROGRESS BAR ENABLED HERE
+                    guna2VProgressBar1.Visible = true;
+                    guna2VProgressBar1.Maximum = 100;
+                    guna2VProgressBar1.Value = 100;
+
+                    // START COUNTDOWN
                     StartCountdown(TimeSpan.FromHours(1));
 
-                    // set button and colors
                     guna2Button2.Text = "In Use";
-
                     guna2HtmlLabel2.AutoSize = false;
-                    //guna2HtmlLabel2.Height = 54;
-
 
                     guna2Button2.FillColor = Color.DarkBlue;
                     guna2Panel1.FillColor = Color.LightBlue;
@@ -128,9 +148,9 @@ namespace ShuttleZone.Dashboard1
                     break;
 
                 case "out of service":
-                    // stop any countdown when not in use
                     StopCountdown();
                     guna2HtmlLabel2.Text = "Out of Service";
+
 
                     guna2HtmlLabel1.Text = "";
                     guna2Button2.Text = "Out of Service";
@@ -140,17 +160,18 @@ namespace ShuttleZone.Dashboard1
 
                     guna2VProgressBar1.Visible = false;
                     break;
+
                 default:
                     StopCountdown();
                     guna2HtmlLabel1.Text = statusForColor;
                     guna2Panel1.FillColor = Color.Black;
                     break;
             }
+
         }
 
         private void guna2VProgressBar1_ValueChanged(object sender, EventArgs e)
         {
-
         }
     }
 }
