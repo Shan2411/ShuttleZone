@@ -524,11 +524,11 @@
             // 
             // guna2HtmlLabel7
             // 
-            this.guna2HtmlLabel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.guna2HtmlLabel7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Dubai", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(5, 12);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(5, 8);
             this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(5);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             this.guna2HtmlLabel7.Size = new System.Drawing.Size(34, 24);
@@ -607,7 +607,7 @@
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(5, 5);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(5);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(197, 25);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(197, 18);
             this.guna2HtmlLabel1.TabIndex = 3;
             this.guna2HtmlLabel1.TabStop = false;
             this.guna2HtmlLabel1.Text = "Create New Member";
