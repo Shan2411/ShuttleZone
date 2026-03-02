@@ -181,6 +181,5 @@ namespace ShuttleZone.Membership
         public string MembershipTypeValue => cbMembershipType.SelectedItem?.ToString() ?? "";
         public string ExpiryDateValue => ExpiryDateLbl.Text;
         public DateTime JoinDateValue => cbJoinDate.Value;
-
     }
 }

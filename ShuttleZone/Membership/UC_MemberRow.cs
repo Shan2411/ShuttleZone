@@ -24,6 +24,7 @@ namespace ShuttleZone.Membership
 
         public event EventHandler DeleteClicked;
         public event EventHandler EditClicked;
+        public bool IsArchived { get; set; } = false;
 
         public void UpdateStatus()
         {
