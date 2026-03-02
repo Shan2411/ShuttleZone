@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -86,42 +87,58 @@ namespace ShuttleZone.Dashboard1
             switch (statusForColor.ToLower())
             {
                 case "operational":
-                    guna2HtmlLabel1.Text = "Ready For Booking";
+                    guna2HtmlLabel2.Text = "Ready For Booking";
 
+                    guna2HtmlLabel1.Text = "";
                     guna2Button2.Text = "Operational";
                     guna2Button2.FillColor = Color.MediumSeaGreen;
                     guna2Panel1.FillColor = Color.FromArgb(202, 231, 192);
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Operational;
+
+                    guna2VProgressBar1.Visible = false;
                     break;
 
                 case "in use":
                     // start 1 hour countdown and update label every second
+                    guna2HtmlLabel2.Text = "In Use";
                     StartCountdown(TimeSpan.FromHours(1));
 
                     // set button and colors
                     guna2Button2.Text = "In Use";
+
+                    guna2HtmlLabel2.AutoSize = false;
+                    //guna2HtmlLabel2.Height = 54;
+
+
                     guna2Button2.FillColor = Color.DarkBlue;
                     guna2Panel1.FillColor = Color.LightBlue;
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Operational;
                     break;
 
                 case "under maintenance":
-                    guna2HtmlLabel1.Text = "Under Maintenance";
+                    guna2HtmlLabel2.Text = "Under Maintenance";
 
+                    guna2HtmlLabel1.Text = "";
                     guna2Button2.Text = "Under Maintenance";
                     guna2Button2.FillColor = Color.DarkOrange;
                     guna2Panel1.FillColor = Color.Orange;
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Maintenance1;
+
+                    guna2VProgressBar1.Visible = false;
                     break;
 
                 case "out of service":
                     // stop any countdown when not in use
                     StopCountdown();
-                    guna2HtmlLabel1.Text = "Out of Service";
+                    guna2HtmlLabel2.Text = "Out of Service";
+
+                    guna2HtmlLabel1.Text = "";
                     guna2Button2.Text = "Out of Service";
                     guna2Button2.FillColor = Color.DarkRed;
                     guna2Panel1.FillColor = Color.Red;
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Not;
+
+                    guna2VProgressBar1.Visible = false;
                     break;
                 default:
                     StopCountdown();
@@ -129,6 +146,11 @@ namespace ShuttleZone.Dashboard1
                     guna2Panel1.FillColor = Color.Black;
                     break;
             }
+        }
+
+        private void guna2VProgressBar1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
