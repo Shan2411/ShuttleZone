@@ -104,6 +104,18 @@
     <Compile Include="Dashboard1\FrontDeskDashboard.Designer.cs">
       <DependentUpon>FrontDeskDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard1\PieGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\PieGraph.Designer.cs">
+      <DependentUpon>PieGraph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard1\ProgressBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\ProgressBar.Designer.cs">
+      <DependentUpon>ProgressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard1\RentalTable.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -298,6 +310,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\FrontDeskDashboard.resx">
       <DependentUpon>FrontDeskDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\PieGraph.resx">
+      <DependentUpon>PieGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\ProgressBar.resx">
+      <DependentUpon>ProgressBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\RentalTable.resx">
       <DependentUpon>RentalTable.cs</DependentUpon>
