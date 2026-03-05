@@ -30,138 +30,291 @@ namespace ShuttleZone.Dashboard1
 
             flowLayoutPanel1.Controls.Clear();
 
-            // Revenue Overview Header
-            Label headerLabel = new Label
-            {
-                Text = "Revenue Overview",
-                Font = new Font("Segoe UI", 16, FontStyle.Bold),
-                ForeColor = Color.Black,
-                AutoSize = true,
-                Margin = new Padding(0, 0, 0, 15)
-            };
-            flowLayoutPanel1.Controls.Add(headerLabel);
 
-            // Court Rentals
-            Label courtRentalsLabel = new Label
+
+
+            // Revenue data
+            decimal courtRentals = 12400;
+            decimal equipmentRentals = 2567;
+            decimal memberships = 6436;
+
+            Globals.thisMonthsRevenue = courtRentals + equipmentRentals + memberships;
+
+            // Calculate percentages
+            int courtPercent = (int)((courtRentals / Globals.thisMonthsRevenue) * 100);
+            int equipmentPercent = (int)((equipmentRentals / Globals.thisMonthsRevenue) * 100);
+            int membershipPercent = (int)((memberships / Globals.thisMonthsRevenue) * 100);
+
+            // Common width for the full bar
+            int fullBarWidth = flowLayoutPanel1.ClientSize.Width - 2;
+            int barHeight = 23;
+
+            Label header = new Label
             {
-                Text = "Court Rentals",
+                Text = "This Month's Revenue",
+                Font = new Font("Segoe UI", 13, FontStyle.Bold),
+                AutoSize = true,
+                Margin = new Padding(0, 5, 0, 15)
+            };
+            flowLayoutPanel1.Controls.Add(header);
+
+            // ---------------- COURT RENTALS ----------------
+            Label courtLabel = new Label
+            {
+                Text = $"Court Rentals ({courtPercent}%)",
                 Font = new Font("Segoe UI", 11, FontStyle.Regular),
-                ForeColor = Color.Black,
                 AutoSize = true,
                 Margin = new Padding(0, 0, 0, 5)
             };
-            flowLayoutPanel1.Controls.Add(courtRentalsLabel);
+            flowLayoutPanel1.Controls.Add(courtLabel);
 
-            Label courtRentalsAmount = new Label
+            Label courtAmount = new Label
             {
-                Text = "₱128,400",
+                Text = $"₱{courtRentals:N0}",
                 Font = new Font("Segoe UI", 11, FontStyle.Regular),
-                ForeColor = Color.Black,
                 AutoSize = true,
                 Margin = new Padding(20, 0, 0, 5)
             };
-            flowLayoutPanel1.Controls.Add(courtRentalsAmount);
+            flowLayoutPanel1.Controls.Add(courtAmount);
 
-            // Progress bar for Court Rentals
-            Panel barContainer = new Panel
+            Panel courtBarContainer = new Panel
             {
-                Width = flowLayoutPanel1.ClientSize.Width - 60,
-                Height = 30,
+                Width = fullBarWidth,
+                Height = barHeight,
+                BackColor = Color.LightGray,
                 Margin = new Padding(20, 0, 0, 15)
             };
 
-            ProgressBar progress1 = new ProgressBar("x")
+            Panel courtFill = new Panel
             {
-                Dock = DockStyle.Fill,
-                AutoSize = false
+                Width = (int)(fullBarWidth * courtPercent / 100.0),
+                Height = barHeight,
+                BackColor = Color.FromArgb(0, 120, 215) // blue
             };
 
-            barContainer.Controls.Add(progress1);
-            flowLayoutPanel1.Controls.Add(barContainer);
+            courtBarContainer.Controls.Add(courtFill);
+            flowLayoutPanel1.Controls.Add(courtBarContainer);
 
-            // Equipment Rentals
-            Label equipmentRentalsLabel = new Label
+            // ---------------- EQUIPMENT RENTALS ----------------
+            Label equipmentLabel = new Label
             {
-                Text = "Equipment Rentals",
+                Text = $"Equipment Rentals ({equipmentPercent}%)",
                 Font = new Font("Segoe UI", 11, FontStyle.Regular),
-                ForeColor = Color.Black,
                 AutoSize = true,
                 Margin = new Padding(0, 0, 0, 5)
             };
-            flowLayoutPanel1.Controls.Add(equipmentRentalsLabel);
+            flowLayoutPanel1.Controls.Add(equipmentLabel);
 
-            Label equipmentRentalsAmount = new Label
+            Label equipmentAmount = new Label
             {
-                Text = "₱84,200",
+                Text = $"₱{equipmentRentals:N0}",
                 Font = new Font("Segoe UI", 11, FontStyle.Regular),
-                ForeColor = Color.Black,
                 AutoSize = true,
                 Margin = new Padding(20, 0, 0, 5)
             };
-            flowLayoutPanel1.Controls.Add(equipmentRentalsAmount);
+            flowLayoutPanel1.Controls.Add(equipmentAmount);
 
-            // Progress bar for Equipment Rentals
-            Panel barContainer2 = new Panel
+            Panel equipmentBarContainer = new Panel
             {
-                Width = flowLayoutPanel1.ClientSize.Width - 60,
-                Height = 30,
+                Width = fullBarWidth,
+                Height = barHeight,
+                BackColor = Color.LightGray,
                 Margin = new Padding(20, 0, 0, 15)
             };
 
-            ProgressBar progress2 = new ProgressBar("x")
+            Panel equipmentFill = new Panel
             {
-                Dock = DockStyle.Fill,
-                AutoSize = false
+                Width = (int)(fullBarWidth * equipmentPercent / 100.0),
+                Height = barHeight,
+                BackColor = Color.Orange
             };
 
-            barContainer2.Controls.Add(progress2);
-            flowLayoutPanel1.Controls.Add(barContainer2);
+            // Add the fill **before** adding the container to flowLayoutPanel
+            equipmentBarContainer.Controls.Add(equipmentFill);
+            flowLayoutPanel1.Controls.Add(equipmentBarContainer);
 
-            // Memberships
-            Label membershipsLabel = new Label
+            // ---------------- MEMBERSHIPS ----------------
+            Label membershipLabel = new Label
             {
-                Text = "Memberships",
+                Text = $"Memberships ({membershipPercent}%)",
                 Font = new Font("Segoe UI", 11, FontStyle.Regular),
-                ForeColor = Color.Black,
                 AutoSize = true,
                 Margin = new Padding(0, 0, 0, 5)
             };
-            flowLayoutPanel1.Controls.Add(membershipsLabel);
+            flowLayoutPanel1.Controls.Add(membershipLabel);
 
-            Label membershipsAmount = new Label
+            Label membershipAmount = new Label
             {
-                Text = "₱130,200",
+                Text = $"₱{memberships:N0}",
                 Font = new Font("Segoe UI", 11, FontStyle.Regular),
-                ForeColor = Color.Black,
                 AutoSize = true,
                 Margin = new Padding(20, 0, 0, 5)
             };
-            flowLayoutPanel1.Controls.Add(membershipsAmount);
+            flowLayoutPanel1.Controls.Add(membershipAmount);
 
-            // Progress bar for Memberships
-            Panel barContainer3 = new Panel
+            Panel membershipBarContainer = new Panel
             {
-                Width = flowLayoutPanel1.ClientSize.Width - 60,
-                Height = 30,
+                Width = fullBarWidth,
+                Height = barHeight,
+                BackColor = Color.LightGray,
                 Margin = new Padding(20, 0, 0, 15)
             };
 
-            ProgressBar progress3 = new ProgressBar("x")
+            Panel membershipFill = new Panel
             {
-                Dock = DockStyle.Fill,
-                AutoSize = false
+                Width = (int)(fullBarWidth * membershipPercent / 100.0),
+                Height = barHeight,
+                BackColor = Color.Green
             };
 
-            barContainer3.Controls.Add(progress3);
-            flowLayoutPanel1.Controls.Add(barContainer3);
+            membershipBarContainer.Controls.Add(membershipFill);
+            flowLayoutPanel1.Controls.Add(membershipBarContainer);
+
+            // ---------- STACKED HORIZONTAL "PIE" BAR ----------
+            Label stackedLabel = new Label
+            {
+                Text = $"Revenue Distribution: Rentals {courtPercent}%, Equipment {equipmentPercent}%, Membership {membershipPercent}%",
+                Font = new Font("Segoe UI", 11, FontStyle.Regular),
+                AutoSize = true,
+                Margin = new Padding(0, 20, 0, 5)
+            };
+            flowLayoutPanel1.Controls.Add(stackedLabel);
+
+            Panel stackedContainer = new Panel
+            {
+                Width = fullBarWidth,
+                Height = barHeight,
+                BackColor = Color.LightGray,
+                Margin = new Padding(20, 0, 0, 15)
+            };
+
+            // Add rectangles in order (court → equipment → membership)
+            Panel stackedCourt = new Panel
+            {
+                Width = (int)(fullBarWidth * courtPercent / 100.0),
+                Height = barHeight,
+                BackColor = Color.FromArgb(0, 120, 215),
+                Dock = DockStyle.Left
+            };
+            stackedContainer.Controls.Add(stackedCourt);
+
+            Panel stackedEquipment = new Panel
+            {
+                Width = (int)(fullBarWidth * equipmentPercent / 100.0),
+                Height = barHeight,
+                BackColor = Color.Orange,
+                Dock = DockStyle.Left
+            };
+            stackedContainer.Controls.Add(stackedEquipment);
+
+            Panel stackedMembership = new Panel
+            {
+                Width = (int)(fullBarWidth * membershipPercent / 100.0),
+                Height = barHeight,
+                BackColor = Color.Green,
+                Dock = DockStyle.Left
+            };
+            stackedContainer.Controls.Add(stackedMembership);
+
+            flowLayoutPanel1.Controls.Add(stackedContainer);
+
+            // ---------- TOTAL REVENUE BAR ----------
+            Label totalLabel = new Label
+            {
+                Text = $"Total Revenue: ₱{Globals.thisMonthsRevenue:N0}",
+                Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                AutoSize = true,
+                Margin = new Padding(0, 10, 0, 5)
+            };
+            flowLayoutPanel1.Controls.Add(totalLabel);
+
+            Panel totalContainer = new Panel
+            {
+                Width = fullBarWidth,
+                Height = barHeight,
+                BackColor = Color.DarkGray,
+                Margin = new Padding(20, 0, 0, 20)
+            };
+            flowLayoutPanel1.Controls.Add(totalContainer);
+
+
+
+
+            //LEFT SIDE :)
+
+            flowLayoutPanel2.SuspendLayout();
+
+            flowLayoutPanel2.HorizontalScroll.Enabled = false;
+            flowLayoutPanel2.HorizontalScroll.Visible = false;
+            flowLayoutPanel2.AutoScroll = true;
+            flowLayoutPanel2.WrapContents = false;
+            flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel2.Padding = new Padding(20);  
+
+            flowLayoutPanel2.Controls.Clear();
+
+            Label header2 = new Label
+            {
+                Text = "System Activity",
+                Font = new Font("Segoe UI", 13, FontStyle.Bold),
+                AutoSize = true,
+                Margin = new Padding(10, 6, 0, 15)  
+            };
+            flowLayoutPanel2.Controls.Add(header2);
+
+            // ---------------- Peak Hours ----------------
+            Label peakLabel = new Label
+            {
+                Text = "Peak Hours:",
+                Font = new Font("Segoe UI", 11, FontStyle.Regular),
+                AutoSize = true,
+                Margin = new Padding(0, 0, 0, 5)
+            };
+
+            flowLayoutPanel2.Controls.Add(peakLabel);
+
+            PeakHours peakHoursControl = new PeakHours
+            {
+                Margin = new Padding(0, 5, 0, 10)
+            };
+
+            flowLayoutPanel2.Controls.Add(peakHoursControl);
+
+            // Insight Title
+            Label avgTitle = new Label
+            {
+                Text = "Average Revenue per Transaction",
+                Font = new Font("Segoe UI", 9, FontStyle.Regular),
+                ForeColor = Color.Gray,
+                AutoSize = true,
+                Margin = new Padding(0, 5, 0, 0)
+            };
+
+            flowLayoutPanel2.Controls.Add(avgTitle);
+
+            // Insight Value
+            Label avgValue = new Label
+            {
+                Text = "₱508.32",
+                Font = new Font("Segoe UI", 13, FontStyle.Bold),
+                AutoSize = true,
+                Margin = new Padding(0, 0, 0, 20)
+            };
+
+            flowLayoutPanel2.Controls.Add(avgValue);
+
+
+
+
 
             flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel2.ResumeLayout(false);
 
             // Row 1 / Columns 1,3,5,7 with Dock = Fill
-            var c1 = new Card_Dashboard("Today's Transactions") { Dock = DockStyle.Fill };
-            var c3 = new Card_Dashboard("Active Rentals") { Dock = DockStyle.Fill };
-            var c5 = new Card_Dashboard("New Memberships") { Dock = DockStyle.Fill };
-            var c7 = new Card_Dashboard("Pending Payments") { Dock = DockStyle.Fill };
+            var c1 = new Card_Dashboard("Today's Revenue") { Dock = DockStyle.Fill };
+            var c3 = new Card_Dashboard("Average Monthly Revenue") { Dock = DockStyle.Fill };
+            var c5 = new Card_Dashboard("Total Transactions") { Dock = DockStyle.Fill };
+            var c7 = new Card_Dashboard("Active Members") { Dock = DockStyle.Fill };
 
             tableLayoutPanel2.Controls.Add(c1, 0, 1);
             tableLayoutPanel2.Controls.Add(c3, 2, 1);

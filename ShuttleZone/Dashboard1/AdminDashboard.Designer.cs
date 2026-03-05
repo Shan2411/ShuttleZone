@@ -79,8 +79,8 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.234043F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.14894F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.35751F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.90674F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1185, 193);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
@@ -88,20 +88,20 @@
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(17, 7);
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(17, 3);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(197, 31);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(1191, 35);
             this.guna2HtmlLabel1.TabIndex = 1;
-            this.guna2HtmlLabel1.Text = "Welcome Admin";
+            this.guna2HtmlLabel1.Text = "Welcome, Admin";
             this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.49789F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.50211F));
             this.tableLayoutPanel3.Controls.Add(this.guna2ShadowPanel1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.guna2ShadowPanel2, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -122,7 +122,7 @@
             this.guna2ShadowPanel1.Location = new System.Drawing.Point(3, 3);
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(586, 401);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(545, 401);
             this.guna2ShadowPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -131,7 +131,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(586, 401);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(545, 401);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // guna2ShadowPanel2
@@ -140,10 +140,10 @@
             this.guna2ShadowPanel2.Controls.Add(this.flowLayoutPanel2);
             this.guna2ShadowPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2ShadowPanel2.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel2.Location = new System.Drawing.Point(595, 3);
+            this.guna2ShadowPanel2.Location = new System.Drawing.Point(554, 3);
             this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
             this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel2.Size = new System.Drawing.Size(587, 401);
+            this.guna2ShadowPanel2.Size = new System.Drawing.Size(628, 401);
             this.guna2ShadowPanel2.TabIndex = 1;
             // 
             // flowLayoutPanel2
@@ -152,7 +152,7 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(587, 401);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(628, 401);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // AdminDashboard

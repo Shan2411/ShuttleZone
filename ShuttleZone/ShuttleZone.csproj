@@ -44,6 +44,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -103,6 +104,12 @@
     </Compile>
     <Compile Include="Dashboard1\FrontDeskDashboard.Designer.cs">
       <DependentUpon>FrontDeskDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard1\PeakHours.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\PeakHours.Designer.cs">
+      <DependentUpon>PeakHours.cs</DependentUpon>
     </Compile>
     <Compile Include="Dashboard1\PieGraph.cs">
       <SubType>UserControl</SubType>
@@ -311,6 +318,9 @@
     <EmbeddedResource Include="Dashboard1\FrontDeskDashboard.resx">
       <DependentUpon>FrontDeskDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\PeakHours.resx">
+      <DependentUpon>PeakHours.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\PieGraph.resx">
       <DependentUpon>PieGraph.cs</DependentUpon>
     </EmbeddedResource>
@@ -456,6 +466,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Court Rental Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Arrow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Receipt.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Person.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

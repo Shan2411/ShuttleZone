@@ -21,5 +21,8 @@ namespace ShuttleZone.Maintenance_Logs
         public static string membershipPrice1Month = "600";
         public static string membershipPrice1Year = "4500";
         public static string mambershipDiscount = "20";
+
+        //dashbord
+        public static decimal thisMonthsRevenue = 0;
     }
 }

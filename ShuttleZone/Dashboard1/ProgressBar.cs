@@ -12,7 +12,7 @@ namespace ShuttleZone.Dashboard1
 {
     public partial class ProgressBar : UserControl
     {
-        public ProgressBar(string detail)
+        public ProgressBar(string detail, string max, string x)
         {
             InitializeComponent();
         }
