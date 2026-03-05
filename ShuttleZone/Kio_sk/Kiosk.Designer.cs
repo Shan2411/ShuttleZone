@@ -70,8 +70,8 @@
             this.lblKioskSubtotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pnlBannerContainer = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.pnlPromo = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.txtBannerHeader = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblBannerHeaderText = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblPromoText = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tlpRoot.SuspendLayout();
             this.tlpSidebar.SuspendLayout();
             this.pnlMainContent.SuspendLayout();
@@ -652,7 +652,7 @@
             // pnlBannerContainer
             // 
             this.pnlBannerContainer.BorderRadius = 15;
-            this.pnlBannerContainer.Controls.Add(this.txtBannerHeader);
+            this.pnlBannerContainer.Controls.Add(this.lblBannerHeaderText);
             this.pnlBannerContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBannerContainer.FillColor = System.Drawing.Color.Green;
             this.pnlBannerContainer.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -664,7 +664,7 @@
             // pnlPromo
             // 
             this.pnlPromo.BorderRadius = 15;
-            this.pnlPromo.Controls.Add(this.guna2HtmlLabel1);
+            this.pnlPromo.Controls.Add(this.lblPromoText);
             this.pnlPromo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPromo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.pnlPromo.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -673,27 +673,27 @@
             this.pnlPromo.Size = new System.Drawing.Size(377, 51);
             this.pnlPromo.TabIndex = 0;
             // 
-            // txtBannerHeader
+            // lblBannerHeaderText
             // 
-            this.txtBannerHeader.BackColor = System.Drawing.Color.Transparent;
-            this.txtBannerHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBannerHeader.ForeColor = System.Drawing.Color.White;
-            this.txtBannerHeader.Location = new System.Drawing.Point(18, 16);
-            this.txtBannerHeader.Name = "txtBannerHeader";
-            this.txtBannerHeader.Size = new System.Drawing.Size(129, 19);
-            this.txtBannerHeader.TabIndex = 0;
-            this.txtBannerHeader.Text = "Book a Court Today!";
+            this.lblBannerHeaderText.BackColor = System.Drawing.Color.Transparent;
+            this.lblBannerHeaderText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBannerHeaderText.ForeColor = System.Drawing.Color.White;
+            this.lblBannerHeaderText.Location = new System.Drawing.Point(18, 16);
+            this.lblBannerHeaderText.Name = "lblBannerHeaderText";
+            this.lblBannerHeaderText.Size = new System.Drawing.Size(129, 19);
+            this.lblBannerHeaderText.TabIndex = 0;
+            this.lblBannerHeaderText.Text = "Book a Court Today!";
             // 
-            // guna2HtmlLabel1
+            // lblPromoText
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(18, 19);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(268, 17);
-            this.guna2HtmlLabel1.TabIndex = 0;
-            this.guna2HtmlLabel1.Text = "Avail Membership and get Discounts up to 20%!";
+            this.lblPromoText.BackColor = System.Drawing.Color.Transparent;
+            this.lblPromoText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPromoText.ForeColor = System.Drawing.Color.White;
+            this.lblPromoText.Location = new System.Drawing.Point(18, 19);
+            this.lblPromoText.Name = "lblPromoText";
+            this.lblPromoText.Size = new System.Drawing.Size(268, 17);
+            this.lblPromoText.TabIndex = 0;
+            this.lblPromoText.Text = "Avail Membership and get Discounts up to 20%!";
             // 
             // Kiosk
             // 
@@ -779,7 +779,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lblKioskSubtotal;
         private Guna.UI2.WinForms.Guna2GradientPanel pnlBannerContainer;
         private Guna.UI2.WinForms.Guna2GradientPanel pnlPromo;
-        private Guna.UI2.WinForms.Guna2HtmlLabel txtBannerHeader;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblBannerHeaderText;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblPromoText;
     }
 }
