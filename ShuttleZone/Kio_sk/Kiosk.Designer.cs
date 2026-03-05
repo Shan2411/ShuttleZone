@@ -36,10 +36,8 @@
             this.btnMembership = new Guna.UI2.WinForms.Guna2Button();
             this.pnlMainContent = new Guna.UI2.WinForms.Guna2Panel();
             this.tlpMainContent = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlBannerContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.lblKioskTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pnlDynamic = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlPromoCard = new Guna.UI2.WinForms.Guna2Panel();
             this.flowKioskCart = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlKioskCartItem = new Guna.UI2.WinForms.Guna2Panel();
             this.btnKioskRemove = new Guna.UI2.WinForms.Guna2Button();
@@ -70,6 +68,10 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.lblKioskSubtotalText = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblKioskSubtotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.pnlBannerContainer = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.pnlPromo = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.txtBannerHeader = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tlpRoot.SuspendLayout();
             this.tlpSidebar.SuspendLayout();
             this.pnlMainContent.SuspendLayout();
@@ -83,6 +85,8 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.pnlBannerContainer.SuspendLayout();
+            this.pnlPromo.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpRoot
@@ -186,10 +190,9 @@
             // 
             this.tlpMainContent.ColumnCount = 1;
             this.tlpMainContent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMainContent.Controls.Add(this.pnlBannerContainer, 0, 1);
+            this.tlpMainContent.Controls.Add(this.pnlPromo, 0, 4);
             this.tlpMainContent.Controls.Add(this.lblKioskTitle, 0, 2);
             this.tlpMainContent.Controls.Add(this.pnlDynamic, 0, 3);
-            this.tlpMainContent.Controls.Add(this.pnlPromoCard, 0, 4);
             this.tlpMainContent.Controls.Add(this.flowKioskCart, 0, 6);
             this.tlpMainContent.Controls.Add(this.tableLayoutPanel1, 0, 5);
             this.tlpMainContent.Controls.Add(this.btnCloseKiosk, 0, 0);
@@ -198,6 +201,7 @@
             this.tlpMainContent.Controls.Add(this.tableLayoutPanel3, 0, 9);
             this.tlpMainContent.Controls.Add(this.tableLayoutPanel2, 0, 8);
             this.tlpMainContent.Controls.Add(this.tableLayoutPanel4, 0, 7);
+            this.tlpMainContent.Controls.Add(this.pnlBannerContainer, 0, 1);
             this.tlpMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMainContent.Location = new System.Drawing.Point(0, 0);
             this.tlpMainContent.Name = "tlpMainContent";
@@ -216,16 +220,6 @@
             this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tlpMainContent.Size = new System.Drawing.Size(383, 743);
             this.tlpMainContent.TabIndex = 1;
-            // 
-            // pnlBannerContainer
-            // 
-            this.pnlBannerContainer.BorderRadius = 20;
-            this.pnlBannerContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlBannerContainer.FillColor = System.Drawing.Color.DarkGreen;
-            this.pnlBannerContainer.Location = new System.Drawing.Point(3, 23);
-            this.pnlBannerContainer.Name = "pnlBannerContainer";
-            this.pnlBannerContainer.Size = new System.Drawing.Size(377, 51);
-            this.pnlBannerContainer.TabIndex = 0;
             // 
             // lblKioskTitle
             // 
@@ -246,16 +240,6 @@
             this.pnlDynamic.Name = "pnlDynamic";
             this.pnlDynamic.Size = new System.Drawing.Size(377, 222);
             this.pnlDynamic.TabIndex = 2;
-            // 
-            // pnlPromoCard
-            // 
-            this.pnlPromoCard.BorderRadius = 20;
-            this.pnlPromoCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPromoCard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.pnlPromoCard.Location = new System.Drawing.Point(3, 333);
-            this.pnlPromoCard.Name = "pnlPromoCard";
-            this.pnlPromoCard.Size = new System.Drawing.Size(377, 51);
-            this.pnlPromoCard.TabIndex = 3;
             // 
             // flowKioskCart
             // 
@@ -665,6 +649,52 @@
             this.lblKioskSubtotal.TabIndex = 1;
             this.lblKioskSubtotal.Text = "Subtotal";
             // 
+            // pnlBannerContainer
+            // 
+            this.pnlBannerContainer.BorderRadius = 15;
+            this.pnlBannerContainer.Controls.Add(this.txtBannerHeader);
+            this.pnlBannerContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlBannerContainer.FillColor = System.Drawing.Color.Green;
+            this.pnlBannerContainer.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.pnlBannerContainer.Location = new System.Drawing.Point(3, 23);
+            this.pnlBannerContainer.Name = "pnlBannerContainer";
+            this.pnlBannerContainer.Size = new System.Drawing.Size(377, 51);
+            this.pnlBannerContainer.TabIndex = 12;
+            // 
+            // pnlPromo
+            // 
+            this.pnlPromo.BorderRadius = 15;
+            this.pnlPromo.Controls.Add(this.guna2HtmlLabel1);
+            this.pnlPromo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPromo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.pnlPromo.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.pnlPromo.Location = new System.Drawing.Point(3, 333);
+            this.pnlPromo.Name = "pnlPromo";
+            this.pnlPromo.Size = new System.Drawing.Size(377, 51);
+            this.pnlPromo.TabIndex = 0;
+            // 
+            // txtBannerHeader
+            // 
+            this.txtBannerHeader.BackColor = System.Drawing.Color.Transparent;
+            this.txtBannerHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBannerHeader.ForeColor = System.Drawing.Color.White;
+            this.txtBannerHeader.Location = new System.Drawing.Point(18, 16);
+            this.txtBannerHeader.Name = "txtBannerHeader";
+            this.txtBannerHeader.Size = new System.Drawing.Size(129, 19);
+            this.txtBannerHeader.TabIndex = 0;
+            this.txtBannerHeader.Text = "Book a Court Today!";
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(18, 19);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(268, 17);
+            this.guna2HtmlLabel1.TabIndex = 0;
+            this.guna2HtmlLabel1.Text = "Avail Membership and get Discounts up to 20%!";
+            // 
             // Kiosk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -698,6 +728,10 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.pnlBannerContainer.ResumeLayout(false);
+            this.pnlBannerContainer.PerformLayout();
+            this.pnlPromo.ResumeLayout(false);
+            this.pnlPromo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -711,10 +745,8 @@
         private Guna.UI2.WinForms.Guna2Button btnCourtRental;
         private Guna.UI2.WinForms.Guna2Panel pnlMainContent;
         private System.Windows.Forms.TableLayoutPanel tlpMainContent;
-        private Guna.UI2.WinForms.Guna2Panel pnlBannerContainer;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblKioskTitle;
         private Guna.UI2.WinForms.Guna2Panel pnlDynamic;
-        private Guna.UI2.WinForms.Guna2Panel pnlPromoCard;
         private System.Windows.Forms.FlowLayoutPanel flowKioskCart;
         private Guna.UI2.WinForms.Guna2Panel pnlKioskCartItem;
         private Guna.UI2.WinForms.Guna2Button btnKioskRemove;
@@ -745,5 +777,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblKioskSubtotalText;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblKioskSubtotal;
+        private Guna.UI2.WinForms.Guna2GradientPanel pnlBannerContainer;
+        private Guna.UI2.WinForms.Guna2GradientPanel pnlPromo;
+        private Guna.UI2.WinForms.Guna2HtmlLabel txtBannerHeader;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }
