@@ -66,7 +66,8 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(450, 43);
             this.label2.TabIndex = 1;
-            this.label2.Text = "     Facility Maintenance Log";
+            this.label2.Text = "     Court Maintenance Window";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // tableLayoutPanel1
             // 

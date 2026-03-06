@@ -83,6 +83,16 @@ namespace ShuttleZone.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dashboard_Arrow {
+            get {
+                object obj = ResourceManager.GetObject("Dashboard_Arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dashboard_Box {
             get {
                 object obj = ResourceManager.GetObject("Dashboard_Box", resourceCulture);
@@ -106,6 +116,26 @@ namespace ShuttleZone.Properties {
         internal static System.Drawing.Bitmap Dashboard_Money {
             get {
                 object obj = ResourceManager.GetObject("Dashboard_Money", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dashboard_Person {
+            get {
+                object obj = ResourceManager.GetObject("Dashboard_Person", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dashboard_Receipt {
+            get {
+                object obj = ResourceManager.GetObject("Dashboard_Receipt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

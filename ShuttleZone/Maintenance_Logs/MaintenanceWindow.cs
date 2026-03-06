@@ -122,5 +122,10 @@ namespace ShuttleZone.Maintenance_Logs
             Globals.membershipPrice1Year = textBox4.Text;
             Globals.mambershipDiscount = textBox6.Text;
     }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

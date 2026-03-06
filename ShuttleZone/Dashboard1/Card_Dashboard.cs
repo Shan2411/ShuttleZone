@@ -27,22 +27,46 @@ namespace ShuttleZone.Dashboard1
 
             switch (categorySwitchCase.ToLower()) // label1 texts should come from db 
             {
-                case "daily sales":
+                case "today's transactions":
                     guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Money;
-                    label1.Text = "PHP 100,000.00"; 
+                    label1.Text = "6"; 
                     break;
                 case "active rentals":
                     guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Time;
+                    label1.Text = "1/4";
+                    break;
+                case "new memberships":
+                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Person;
+                    label1.Text = "2";
+                    break;
+                case "pending payments":
+                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Grid;
                     label1.Text = "9";
                     break;
-                case "available equipments":
-                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Box;
-                    label1.Text = "42";
+
+                //admin cases
+
+                case "today's revenue":
+                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Money;
+                    label1.Text = "15,920";
                     break;
-                case "available courts":
-                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Grid;
-                    label1.Text = "2/4";
+
+                case "average monthly revenue":
+                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Arrow;
+                    label1.Text = "25,920";
                     break;
+
+                case "total transactions":
+                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Receipt;
+                    label1.Text = "247";
+                    break;
+
+                case "active members":
+                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Person;
+                    label1.Text = "67";
+                    break;
+
+
                 default:
 
                     break;

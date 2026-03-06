@@ -63,7 +63,7 @@ namespace ShuttleZone
               
                 DynamicContentPanel.Controls.Clear();
             
-                Dashboard1.FrontDeskDashboard ucDashboard = new Dashboard1.FrontDeskDashboard();
+                Dashboard1.AdminDashboard ucDashboard = new Dashboard1.AdminDashboard();
                 DynamicContentPanel.Controls.Add(ucDashboard);
                 ucDashboard.Dock = DockStyle.Fill;
             }
