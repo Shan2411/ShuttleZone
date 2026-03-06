@@ -75,13 +75,13 @@ namespace ShuttleZone
             }
         }
 
-        // 🔎 SEARCH (respects archive mode)
+      
         private void Searchbox_TextChanged(object sender, EventArgs e)
         {
             RefreshView();
         }
 
-        // 🔁 ARCHIVE TOGGLE BUTTON
+    
         private void ArchivedBtn_Click(object sender, EventArgs e)
         {
             showingArchived = !showingArchived;
@@ -95,7 +95,7 @@ namespace ShuttleZone
             RefreshView();
         }
 
-        // 🔥 CENTRAL VIEW LOGIC (VERY IMPORTANT)
+
         private void RefreshView()
         {
             string searchText = Searchbox.Text.Trim().ToLower();
