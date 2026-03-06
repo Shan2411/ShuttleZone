@@ -697,6 +697,7 @@
             this.Controls.Add(this.tableLayoutPanel10);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditMember";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditMember";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);

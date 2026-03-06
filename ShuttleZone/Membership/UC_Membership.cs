@@ -102,9 +102,15 @@ namespace ShuttleZone
 
             foreach (UC_MemberRow row in flpMemberRowContainer.Controls)
             {
-                bool matchesSearch = row.MemberNameText
-                    .ToLower()
-                    .StartsWith(searchText);
+                // Check across multiple fields
+                bool matchesSearch =
+                    row.MemberIDText.ToLower().Contains(searchText) ||
+                    row.MemberNameText.ToLower().Contains(searchText) ||
+                    row.MemberEmailText.ToLower().Contains(searchText) ||
+                    row.MemberPhoneText.ToLower().Contains(searchText) ||
+                    row.MemberTypeText.ToLower().Contains(searchText) ||
+                    row.MemberExpiryDateText.ToLower().Contains(searchText) ||
+                    row.MemberJoinDate.ToString("yyyy-MM-dd").ToLower().Contains(searchText);
 
                 bool matchesArchiveState = showingArchived
                     ? row.IsArchived
