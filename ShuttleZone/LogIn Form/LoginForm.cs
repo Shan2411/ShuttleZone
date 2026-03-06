@@ -7,41 +7,73 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms; 
 
 namespace ShuttleZone.LogIn_Form
 {
     public partial class LoginForm : Form
     {
+   
+        Color placeholderColor = Color.FromArgb(180, 180, 180);
+        Color textColor = Color.FromArgb(50, 50, 50);
+
         public LoginForm()
         {
             InitializeComponent();
 
-            // ❌ Tanggalin ang X button at title bar
             this.ControlBox = false;
 
-            // 🖥️ Full screen
+
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            // 🌑 Shadow effect sa pnlLogin
+
             ApplyShadowToPanel(pnlLogin);
 
-            // 🔒 I-hide ang error label sa simula
+
+            SetupTextBoxWithIcon(
+                txtUsername,
+                "Enter your username",
+                "👤"
+            );
+            SetupTextBoxWithIcon(
+                txtPassword,
+                "Enter your password",
+                "🔒"
+            );
+
+
             lblError.Visible = false;
         }
 
-        // =============================================
-        // ✅ LOGIN LOGIC
-        // =============================================
+        private void SetupTextBoxWithIcon(Guna2TextBox txt, string placeholder, string icon)
+        {
+      
+            txt.PlaceholderText = placeholder;
+            txt.PlaceholderForeColor = placeholderColor;
+            txt.ForeColor = textColor;
+
+            if (icon == "👤")
+            {
+              
+                txt.PlaceholderText = "  👤  " + placeholder;
+            }
+            else if (icon == "🔒")
+            {
+                txt.PlaceholderText = "  🔒  " + placeholder;
+                txt.PasswordChar = '●'; 
+            }
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            // ⚠️ Check kung blank ang fields
+
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 lblError.Text = "⚠️ Please enter your username and password.";
@@ -49,8 +81,6 @@ namespace ShuttleZone.LogIn_Form
                 return;
             }
 
-            // ✅ Check credentials
-            // TODO: Palitan ng database logic (SQL) pag ready na
             if (username == "admin" && password == "1234")
             {
                 lblError.Visible = false;
@@ -62,14 +92,9 @@ namespace ShuttleZone.LogIn_Form
                     MessageBoxIcon.Information
                 );
 
-                // 👉 TODO: Buksan ang Dashboard form
-                // DashboardForm dashboard = new DashboardForm();
-                // dashboard.Show();
-                // this.Hide();
             }
             else
             {
-                // ❌ Wrong credentials
                 lblError.Text = "❌ Error: Incorrect Username or Password.";
                 lblError.Visible = true;
                 txtPassword.Clear();
@@ -77,20 +102,14 @@ namespace ShuttleZone.LogIn_Form
             }
         }
 
-        // =============================================
-        // ⌨️ ENTER KEY = trigger login
-        // =============================================
+
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
-            {
                 btnLogin_Click(sender, e);
-            }
         }
 
-        // =============================================
-        // 🧹 I-clear ang error kapag nag-type ulit
-        // =============================================
+
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
             lblError.Visible = false;
@@ -101,9 +120,7 @@ namespace ShuttleZone.LogIn_Form
             lblError.Visible = false;
         }
 
-        // =============================================
-        // 🌑 SHADOW METHOD
-        // =============================================
+  
         private void ApplyShadowToPanel(Panel panel)
         {
             int shadowSize = 6;
