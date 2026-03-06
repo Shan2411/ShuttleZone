@@ -152,5 +152,10 @@ namespace ShuttleZone.Membership
                 tbMemberPhone.Focus();
             }
         }
+
+        private void tableLayoutPanel10_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
