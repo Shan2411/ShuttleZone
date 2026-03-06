@@ -172,7 +172,7 @@
             this.btnSignIn.ForeColor = System.Drawing.Color.White;
             this.btnSignIn.Location = new System.Drawing.Point(27, 349);
             this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.Size = new System.Drawing.Size(391, 45);
+            this.btnSignIn.Size = new System.Drawing.Size(391, 49);
             this.btnSignIn.TabIndex = 6;
             this.btnSignIn.Text = "Sign In";
             // 
