@@ -83,6 +83,16 @@ namespace ShuttleZone.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap available {
+            get {
+                object obj = ResourceManager.GetObject("available", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dashboard_Arrow {
             get {
                 object obj = ResourceManager.GetObject("Dashboard_Arrow", resourceCulture);
@@ -193,6 +203,16 @@ namespace ShuttleZone.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mechanic {
+            get {
+                object obj = ResourceManager.GetObject("mechanic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Not {
             get {
                 object obj = ResourceManager.GetObject("Not", resourceCulture);
@@ -216,6 +236,16 @@ namespace ShuttleZone.Properties {
         internal static System.Drawing.Bitmap st_small_507x507_pad_600x600_f8f8f8_u1_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("st_small_507x507-pad_600x600_f8f8f8.u1-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unavailable {
+            get {
+                object obj = ResourceManager.GetObject("unavailable", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
