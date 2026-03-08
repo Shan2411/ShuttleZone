@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Kiosk));
             this.btnRunKiosk = new Guna.UI2.WinForms.Guna2Button();
             this.tlpRootKiosk = new System.Windows.Forms.TableLayoutPanel();
             this.tlpHeaderKiosk = new System.Windows.Forms.TableLayoutPanel();
@@ -64,6 +65,7 @@
             this.lblPromoCardText = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tlpRootKiosk.SuspendLayout();
             this.tlpHeaderKiosk.SuspendLayout();
             this.pnlRunKiosk.SuspendLayout();
@@ -83,6 +85,7 @@
             this.pnlPromoText.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRunKiosk
@@ -182,6 +185,7 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel10, 1, 0);
+            this.tableLayoutPanel9.Controls.Add(this.guna2PictureBox1, 2, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
@@ -596,6 +600,20 @@
             this.guna2TextBox3.Size = new System.Drawing.Size(126, 27);
             this.guna2TextBox3.TabIndex = 4;
             // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2PictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.BackgroundImage")));
+            this.guna2PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.guna2PictureBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(791, 18);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(10);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(97, 88);
+            this.guna2PictureBox1.TabIndex = 1;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // UC_Kiosk
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -628,6 +646,7 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -670,5 +689,6 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }
