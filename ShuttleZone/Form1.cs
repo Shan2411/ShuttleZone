@@ -62,18 +62,39 @@ namespace ShuttleZone
             DynamicContentPanel.Controls.Clear();
         }
 
-
-            private void DashboardBtn_Click(object sender, EventArgs e)
-            {
+        //DASHBOARD BUTTON CLICKS
+        private void AdminDashboardBtn_Click(object sender, EventArgs e)
+        {
               
-                DynamicContentPanel.Controls.Clear();
+            DynamicContentPanel.Controls.Clear();
             
-                Dashboard1.AdminDashboard ucDashboard = new Dashboard1.AdminDashboard();
-                DynamicContentPanel.Controls.Add(ucDashboard);
-                ucDashboard.Dock = DockStyle.Fill;
-            }
+            Dashboard1.AdminDashboard ucDashboard = new Dashboard1.AdminDashboard();
+            DynamicContentPanel.Controls.Add(ucDashboard);
+            ucDashboard.Dock = DockStyle.Fill;
+        }
+        private void FrontDeskDashboardBtn_Click(object sender, EventArgs e)
+        {
 
-            private void MembershipBtn_Click(object sender, EventArgs e)
+            DynamicContentPanel.Controls.Clear();
+
+            Dashboard1.FrontDeskDashboard ucDashboard = new Dashboard1.FrontDeskDashboard();
+            DynamicContentPanel.Controls.Add(ucDashboard);
+            ucDashboard.Dock = DockStyle.Fill;
+        }
+        private void ManagerDashboardBtn_Click(object sender, EventArgs e)
+        {
+
+            DynamicContentPanel.Controls.Clear();
+            //will change to manager dashboard once created  
+            Dashboard1.FrontDeskDashboard ucDashboard = new Dashboard1.FrontDeskDashboard();
+            DynamicContentPanel.Controls.Add(ucDashboard);
+            ucDashboard.Dock = DockStyle.Fill;
+        }
+
+        //
+
+
+        private void MembershipBtn_Click(object sender, EventArgs e)
             {
            
                 //logic for changing pages on dynamic panel
@@ -149,7 +170,7 @@ namespace ShuttleZone
             managerSidebarUC.Dock = DockStyle.Fill;
 
             
-            managerSidebarUC.DashboardBtnClicked += DashboardBtn_Click;
+            managerSidebarUC.ManagerDashboardBtnClicked += ManagerDashboardBtn_Click;
             managerSidebarUC.MembershipBtnClicked += MembershipBtn_Click;
             managerSidebarUC.InventoryBtnClicked += InventoryBtn_Click;
             managerSidebarUC.FacilityBtnClicked += FacilityBtn_Click;
@@ -174,7 +195,7 @@ namespace ShuttleZone
             AdminSidebar adminSidebarUC = new AdminSidebar();
             adminSidebarUC.Dock = DockStyle.Fill;
 
-            adminSidebarUC.DashboardBtnClicked += DashboardBtn_Click;
+            adminSidebarUC.AdminDashboardBtnClicked += AdminDashboardBtn_Click;
             adminSidebarUC.ReportsBtnClicked += ReportsBtn_Click;
             adminSidebarUC.UsersBtnClicked += UsersBtn_Click;
             SidebarDynamicPanel.Controls.Add(adminSidebarUC);
@@ -196,7 +217,7 @@ namespace ShuttleZone
             FrontDeskSidebar frontDeskSidebarUC = new FrontDeskSidebar();
             frontDeskSidebarUC.Dock = DockStyle.Fill;
 
-            frontDeskSidebarUC.DashboardBtnClicked += DashboardBtn_Click;
+            frontDeskSidebarUC.FrontDeskDashboardBtnClicked += FrontDeskDashboardBtn_Click;
             frontDeskSidebarUC.POSBtnClicked += POSBtn_Click;
             frontDeskSidebarUC.MembershipBtnClicked += MembershipBtn_Click;
             frontDeskSidebarUC.HistoryBtnClicked += HistoryBtn_Click;

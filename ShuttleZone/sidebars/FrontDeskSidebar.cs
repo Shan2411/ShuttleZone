@@ -12,7 +12,7 @@ namespace ShuttleZone.sidebars
 {
     public partial class FrontDeskSidebar : UserControl
     {
-        public event EventHandler DashboardBtnClicked;
+        public event EventHandler FrontDeskDashboardBtnClicked;
         public event EventHandler POSBtnClicked;  
         public event EventHandler MembershipBtnClicked;
         public event EventHandler HistoryBtnClicked;
@@ -34,7 +34,7 @@ namespace ShuttleZone.sidebars
         private void DashboardBtn_Click(object sender, EventArgs e)
         {
             HighlightButton(DashboardBtn);
-            DashboardBtnClicked?.Invoke(this, EventArgs.Empty);
+            FrontDeskDashboardBtnClicked?.Invoke(this, EventArgs.Empty);
         }
         private void POSBtn_Click(object sender, EventArgs e)
         {
