@@ -105,6 +105,12 @@
     <Compile Include="Dashboard1\FrontDeskDashboard.Designer.cs">
       <DependentUpon>FrontDeskDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard1\ManagerDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\ManagerDashboard.Designer.cs">
+      <DependentUpon>ManagerDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard1\PeakHours.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,6 +134,12 @@
     </Compile>
     <Compile Include="Dashboard1\RentalTable.Designer.cs">
       <DependentUpon>RentalTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard1\Utilization.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\Utilization.Designer.cs">
+      <DependentUpon>Utilization.cs</DependentUpon>
     </Compile>
     <Compile Include="Equipment and Inventory\Add.cs">
       <SubType>Form</SubType>
@@ -368,6 +380,9 @@
     <EmbeddedResource Include="Dashboard1\FrontDeskDashboard.resx">
       <DependentUpon>FrontDeskDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\ManagerDashboard.resx">
+      <DependentUpon>ManagerDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\PeakHours.resx">
       <DependentUpon>PeakHours.cs</DependentUpon>
     </EmbeddedResource>
@@ -379,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\RentalTable.resx">
       <DependentUpon>RentalTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\Utilization.resx">
+      <DependentUpon>Utilization.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Equipment and Inventory\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
