@@ -331,6 +331,12 @@
     <Compile Include="UC_Pos.Designer.cs">
       <DependentUpon>UC_Pos.cs</DependentUpon>
     </Compile>
+    <Compile Include="usermanagement\UC_NewAddUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usermanagement\UC_NewAddUser.Designer.cs">
+      <DependentUpon>UC_NewAddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="usermanagement\UC_AddUserMain.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -474,6 +480,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Pos.resx">
       <DependentUpon>UC_Pos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usermanagement\UC_NewAddUser.resx">
+      <DependentUpon>UC_NewAddUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usermanagement\UC_AddUserMain.resx">
       <DependentUpon>UC_AddUserMain.cs</DependentUpon>

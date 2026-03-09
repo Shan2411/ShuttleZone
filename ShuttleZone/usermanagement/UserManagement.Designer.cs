@@ -264,6 +264,7 @@
             this.guna2Panel3.Padding = new System.Windows.Forms.Padding(12);
             this.guna2Panel3.Size = new System.Drawing.Size(387, 130);
             this.guna2Panel3.TabIndex = 5;
+            this.guna2Panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel3_Paint);
             // 
             // label24
             // 

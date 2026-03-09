@@ -13,22 +13,22 @@ namespace ShuttleZone.UserManagement
         {
             InitializeComponent();
 
-            
+
             dgvUsers.AutoGenerateColumns = false;
 
-     
+
             dgvUsers.DataSource = users;
 
-        
+
             StyleDataGridView();
 
-        
+
             dgvUsers.CellFormatting += dgvUsers_CellFormatting;
         }
 
-        
+
         // SAFE STYLING 
-      
+
         private void StyleDataGridView()
         {
             dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -63,7 +63,7 @@ namespace ShuttleZone.UserManagement
         }
 
         //  ROLE & STATUS BADGE COLORING
-  
+
         private void dgvUsers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -74,11 +74,11 @@ namespace ShuttleZone.UserManagement
                 string role = e.Value.ToString().ToLower();
 
                 if (role == "admin")
-                    e.CellStyle.BackColor = Color.FromArgb(254, 226, 226);  
+                    e.CellStyle.BackColor = Color.FromArgb(254, 226, 226);
                 else if (role == "manager")
-                    e.CellStyle.BackColor = Color.FromArgb(254, 243, 199); 
+                    e.CellStyle.BackColor = Color.FromArgb(254, 243, 199);
                 else if (role == "front desk")
-                    e.CellStyle.BackColor = Color.FromArgb(220, 252, 231);  
+                    e.CellStyle.BackColor = Color.FromArgb(220, 252, 231);
 
                 e.CellStyle.SelectionBackColor = e.CellStyle.BackColor;
             }
@@ -89,43 +89,28 @@ namespace ShuttleZone.UserManagement
                 string status = e.Value.ToString().ToLower();
 
                 if (status == "active")
-                    e.CellStyle.BackColor = Color.FromArgb(220, 252, 231);  
+                    e.CellStyle.BackColor = Color.FromArgb(220, 252, 231);
                 else
-                    e.CellStyle.BackColor = Color.FromArgb(229, 231, 235);  
+                    e.CellStyle.BackColor = Color.FromArgb(229, 231, 235);
 
                 e.CellStyle.SelectionBackColor = e.CellStyle.BackColor;
             }
         }
+
         //  ADD USER BUTTON (UNCHANGED FUNCTIONALITY)
-     
+
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            using (Form popup = new Form())
+            using (UC_NewAddUser addUserForm = new UC_NewAddUser())
             {
-                popup.FormBorderStyle = FormBorderStyle.None;
-                popup.StartPosition = FormStartPosition.CenterParent;
-                popup.BackColor = Color.White;
+                addUserForm.StartPosition = FormStartPosition.CenterParent;
+                // set the logged in role for hierarchy restriction
+                addUserForm.LoggedInRole = "Manager"; // assume current user is manager when clicking manager side
 
-                UC_AddUserMain addUserUC = new UC_AddUserMain();
-                addUserUC.Location = new Point(0, 0);
-
-                popup.ClientSize = addUserUC.Size;
-
-                addUserUC.UserCreated += (s, newUser) =>
+                if (addUserForm.ShowDialog() == DialogResult.OK)
                 {
-                    users.Add(newUser);
-                    popup.Close();
-                };
-
-               
-
-                addUserUC.CloseRequested += (s, args) =>
-                {
-                    popup.Close();
-                };
-
-                popup.Controls.Add(addUserUC);
-                popup.ShowDialog();
+                    users.Add(addUserForm.CreatedUser);
+                }
             }
         }
 
@@ -133,29 +118,34 @@ namespace ShuttleZone.UserManagement
 
         private void tblRoot_Paint(object sender, PaintEventArgs e)
         {
-        
+
         }
 
         private void lblTitle_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void label13_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label21_Click(object sender, EventArgs e)
         {
-            
+
         }
 
+        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 }
+

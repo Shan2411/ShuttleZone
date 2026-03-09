@@ -47,12 +47,17 @@ namespace ShuttleZone
             equipmentWindowUC.Dock = DockStyle.Fill;
         }
 
-            private void UsersBtn_Click(object sender, EventArgs e)
-            {
+        private void UsersBtn_Click(object sender, EventArgs e)
+        {
             DynamicContentPanel.Controls.Clear();
+
+            ShuttleZone.UserManagement.ucUserManagement userManagement = new ShuttleZone.UserManagement.ucUserManagement();
+            userManagement.Dock = DockStyle.Fill;
+
+            DynamicContentPanel.Controls.Add(userManagement);
         }
 
-            private void FacilityBtn_Click(object sender, EventArgs e)
+        private void FacilityBtn_Click(object sender, EventArgs e)
             {
             DynamicContentPanel.Controls.Clear();
         }

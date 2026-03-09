@@ -548,36 +548,36 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel12;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private Guna.UI2.WinForms.Guna2Button CancelButton;
         private Guna.UI2.WinForms.Guna2Button CreateButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel11;
+        private Guna.UI2.WinForms.Guna2ComboBox StatusComboBox;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
+        private System.Windows.Forms.Label Statuslabel;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
+        private Guna.UI2.WinForms.Guna2ComboBox RoleComboBox;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private System.Windows.Forms.Label Rolelabel;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
+        private Guna.UI2.WinForms.Guna2TextBox EmailTextBox;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private System.Windows.Forms.Label Emaillabel;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
+        private Guna.UI2.WinForms.Guna2TextBox FullNameTextBox;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private System.Windows.Forms.Label FullNamelabel;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2Button CloseButton;
+        private Guna.UI2.WinForms.Guna2TextBox UsernameTextBox;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private System.Windows.Forms.Label Usernamelabel;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private Guna.UI2.WinForms.Guna2TextBox EmailTextBox;
-        private Guna.UI2.WinForms.Guna2TextBox FullNameTextBox;
-        private Guna.UI2.WinForms.Guna2TextBox UsernameTextBox;
+        private Guna.UI2.WinForms.Guna2Button CloseButton;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel13;
         private System.Windows.Forms.Label AddNewUserlabel;
-        private System.Windows.Forms.Label Usernamelabel;
-        private System.Windows.Forms.Label FullNamelabel;
-        private System.Windows.Forms.Label Emaillabel;
-        private System.Windows.Forms.Label Rolelabel;
-        private System.Windows.Forms.Label Statuslabel;
-        private Guna.UI2.WinForms.Guna2ComboBox StatusComboBox;
-        private Guna.UI2.WinForms.Guna2ComboBox RoleComboBox;
     }
 }
