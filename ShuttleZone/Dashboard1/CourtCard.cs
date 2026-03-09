@@ -112,7 +112,9 @@ namespace ShuttleZone.Dashboard1
                     guna2Button2.FillColor = Color.MediumSeaGreen;
                     guna2Panel1.FillColor = Color.FromArgb(202, 231, 192);
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Operational;
+                    guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.available;
 
+                    guna2Panel2.Visible = false;
                     guna2VProgressBar1.Visible = false;
                     break;
 
@@ -130,6 +132,8 @@ namespace ShuttleZone.Dashboard1
                     guna2Button2.Text = "In Use";
                     guna2HtmlLabel2.AutoSize = false;
 
+                    guna2CirclePictureBox2.Visible = false;
+
                     guna2Button2.FillColor = Color.DarkBlue;
                     guna2Panel1.FillColor = Color.LightBlue;
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Operational;
@@ -143,7 +147,9 @@ namespace ShuttleZone.Dashboard1
                     guna2Button2.FillColor = Color.DarkOrange;
                     guna2Panel1.FillColor = Color.Orange;
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Maintenance1;
+                    guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.mechanic;
 
+                    guna2Panel2.Visible = false;
                     guna2VProgressBar1.Visible = false;
                     break;
 
@@ -157,7 +163,9 @@ namespace ShuttleZone.Dashboard1
                     guna2Button2.FillColor = Color.DarkRed;
                     guna2Panel1.FillColor = Color.Red;
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Not;
+                    guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.unavailable;
 
+                    guna2Panel2.Visible = false;
                     guna2VProgressBar1.Visible = false;
                     break;
 
@@ -172,6 +180,16 @@ namespace ShuttleZone.Dashboard1
 
         private void guna2VProgressBar1_ValueChanged(object sender, EventArgs e)
         {
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
