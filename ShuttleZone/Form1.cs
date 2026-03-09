@@ -3,10 +3,13 @@
     using ShuttleZone.sidebars;
     using System;
     using System.Drawing;
-using System.Web.Security;
+    using System.Web.Security;
     using System.Windows.Forms;
+    using ShuttleZone.UserManagement;
+using ShuttleZone.topbar;
 
-    namespace ShuttleZone
+
+namespace ShuttleZone
     {
         public partial class Form1 : Form
         {
@@ -29,72 +32,35 @@ using System.Web.Security;
 
             }
 
-            private void CloseBtn_Click(object sender, EventArgs e)
+            private void HistoryBtn_Click(object sender, EventArgs e)
             {
-                Application.Exit();
-            }
-
-            private void LogoutBtn_Click(object sender, EventArgs e)
-            {
-                Application.Exit();
-            }
-
-            private void PosBtn_Click(object sender, EventArgs e)
-            {
-                HighlightButton(POSBtn);
-
-                DynamicContentPanel.Controls.Clear();
-                UC_Pos ucPos = new UC_Pos();
-                ucPos.Dock = DockStyle.Fill;
-
-                DynamicContentPanel.Controls.Add(ucPos);
-
-        }
-
-            private void RentalBtn_Click(object sender, EventArgs e)
-            {
-               HighlightButton(RentalHistoryBtn);
+            DynamicContentPanel.Controls.Clear();
         }
 
             private void EquipmentBtn_Click(object sender, EventArgs e)
             {
           
-            HighlightButton(EquipmentInventoryBtn);
+        
             DynamicContentPanel.Controls.Clear();
             Equipment_and_Inventory.Equipment equipmentWindowUC = new Equipment_and_Inventory.Equipment();
             DynamicContentPanel.Controls.Add(equipmentWindowUC);
             equipmentWindowUC.Dock = DockStyle.Fill;
         }
 
-            private void SysSettingsBtn_Click(object sender, EventArgs e)
+            private void UsersBtn_Click(object sender, EventArgs e)
             {
-               HighlightButton(SystemSettingsBtn);
+            DynamicContentPanel.Controls.Clear();
         }
 
-            private void UserBtn_Click(object sender, EventArgs e)
+            private void FacilityBtn_Click(object sender, EventArgs e)
             {
-                HighlightButton(UserManagementBtn);
+            DynamicContentPanel.Controls.Clear();
         }
-
-            private void MaintenanceBtn_Click(object sender, EventArgs e)
-            {
-               HighlightButton(MaintenanceLogBtn);
-        }
-            private void HighlightButton(Guna.UI2.WinForms.Guna2Button activeButton)
-            {
-                foreach (Control ctrl in SidebarLinksGroup.Controls)
-                {
-                    if (ctrl is Guna.UI2.WinForms.Guna2Button btn)
-                    {
-                        btn.FillColor = btn == activeButton ? Color.Indigo : Color.Transparent;
-                    }
-                }
-            }
 
 
             private void DashboardBtn_Click(object sender, EventArgs e)
             {
-                HighlightButton(DashboardBtn);
+              
                 DynamicContentPanel.Controls.Clear();
             
                 Dashboard1.AdminDashboard ucDashboard = new Dashboard1.AdminDashboard();
@@ -104,7 +70,7 @@ using System.Web.Security;
 
             private void MembershipBtn_Click(object sender, EventArgs e)
             {
-                HighlightButton(MembershipBtn);
+           
                 //logic for changing pages on dynamic panel
                 DynamicContentPanel.Controls.Clear();
                 UC_Membership ucMembership = new UC_Membership();
@@ -120,7 +86,7 @@ using System.Web.Security;
 
             private void POSBtn_Click(object sender, EventArgs e)
             {
-                HighlightButton(POSBtn);
+         
                 DynamicContentPanel.Controls.Clear();
                 UC_Pos ucPos = new UC_Pos();
                 ucPos.Dock = DockStyle.Fill;
@@ -128,15 +94,9 @@ using System.Web.Security;
                 DynamicContentPanel.Controls.Add(ucPos);
             }
 
-            private void RentalHistoryBtn_Click(object sender, EventArgs e)
+            private void InventoryBtn_Click(object sender, EventArgs e)
             {
-                HighlightButton(RentalHistoryBtn);
-                DynamicContentPanel.Controls.Clear();
-            }
-
-            private void EquipmentInventoryBtn_Click(object sender, EventArgs e)
-            {
-                HighlightButton(EquipmentInventoryBtn);
+     
                 DynamicContentPanel.Controls.Clear();
 
 
@@ -153,7 +113,7 @@ using System.Web.Security;
 
             public void MaintenanceLogBtn_Click(object sender, EventArgs e)
             {
-                HighlightButton(MaintenanceLogBtn);
+              
                 DynamicContentPanel.Controls.Clear();
 
                 Maintenance_Logs.MaintenanceWindow maintenanceWindowUC = new Maintenance_Logs.MaintenanceWindow();
@@ -163,7 +123,7 @@ using System.Web.Security;
 
             private void ReportsBtn_Click(object sender, EventArgs e)
             {
-                HighlightButton(ReportsBtn);
+            
                 DynamicContentPanel.Controls.Clear();
 
                 Reports.Reports_Dashboard reportsDashboardUC = new Reports.Reports_Dashboard();
@@ -171,73 +131,83 @@ using System.Web.Security;
                 reportsDashboardUC.Dock = DockStyle.Fill;
             }
 
-            private void UserManagementBtn_Click(object sender, EventArgs e)
-            {
-                HighlightButton(UserManagementBtn);
-                DynamicContentPanel.Controls.Clear();
-            }
+        private void ManagerBtn_Click(object sender, EventArgs e)
+        {
+            DynamicTopbarPanel.Controls.Clear();
+            MFTopbar mfTopbarUC = new MFTopbar();
+            DynamicTopbarPanel.Controls.Add(mfTopbarUC);
+            mfTopbarUC.Dock = DockStyle.Fill;
 
-            private void SystemSettingsBtn_Click(object sender, EventArgs e)
-            {
-                HighlightButton(SystemSettingsBtn);
-                DynamicContentPanel.Controls.Clear();
-            }
-
-            private void ManagerBtn_Click(object sender, EventArgs e)
-            {
             SidebarDynamicPanel.Controls.Clear();
+            DynamicContentPanel.Controls.Clear();
             ManagerSidebar managerSidebarUC = new ManagerSidebar();
             managerSidebarUC.Dock = DockStyle.Fill;
 
             
             managerSidebarUC.DashboardBtnClicked += DashboardBtn_Click;
             managerSidebarUC.MembershipBtnClicked += MembershipBtn_Click;
-            managerSidebarUC.POSBtnClicked += POSBtn_Click;
-            managerSidebarUC.RentalHistoryBtnClicked += RentalHistoryBtn_Click;
-            managerSidebarUC.EquipmentInventoryBtnClicked += EquipmentInventoryBtn_Click;
-            managerSidebarUC.MaintenanceLogBtnClicked += MaintenanceLogBtn_Click;
-            managerSidebarUC.ReportsBtnClicked += ReportsBtn_Click;
+            managerSidebarUC.InventoryBtnClicked += InventoryBtn_Click;
+            managerSidebarUC.FacilityBtnClicked += FacilityBtn_Click;
+            managerSidebarUC.UsersBtnClicked += UsersBtn_Click;
+            managerSidebarUC.KioskBtnClicked += KioskBtn_Click;
             SidebarDynamicPanel.Controls.Add(managerSidebarUC);
-            }
+
+            mfTopbarUC.AdminBtnClicked += AdminBtn_Click;
+            mfTopbarUC.ManagerBtnClicked += ManagerBtn_Click;
+            mfTopbarUC.FrontDeskBtnClicked += FrontDeskBtn_Click;
+        }
 
         private void AdminBtn_Click(object sender, EventArgs e)
         {
+            DynamicTopbarPanel.Controls.Clear();
+            AdminTopbar adminTopbarUC = new AdminTopbar();
+            DynamicTopbarPanel.Controls.Add(adminTopbarUC);
+            adminTopbarUC.Dock = DockStyle.Fill;
+
             SidebarDynamicPanel.Controls.Clear();
+            DynamicContentPanel.Controls.Clear();
             AdminSidebar adminSidebarUC = new AdminSidebar();
             adminSidebarUC.Dock = DockStyle.Fill;
 
             adminSidebarUC.DashboardBtnClicked += DashboardBtn_Click;
-            adminSidebarUC.MembershipBtnClicked += MembershipBtn_Click;
-            adminSidebarUC.POSBtnClicked += POSBtn_Click;
-            adminSidebarUC.RentalHistoryBtnClicked += RentalHistoryBtn_Click;
-            adminSidebarUC.EquipmentInventoryBtnClicked += EquipmentInventoryBtn_Click;
-            adminSidebarUC.MaintenanceLogBtnClicked += MaintenanceLogBtn_Click;
             adminSidebarUC.ReportsBtnClicked += ReportsBtn_Click;
-            adminSidebarUC.UserManagementBtnClicked += UserManagementBtn_Click;
-            adminSidebarUC.SettingsBtnClicked += SystemSettingsBtn_Click;
-            adminSidebarUC.KioskBtnClicked += KioskBtn_Click;
+            adminSidebarUC.UsersBtnClicked += UsersBtn_Click;
             SidebarDynamicPanel.Controls.Add(adminSidebarUC);
-        }
 
-        private void SidebarTableLayout_Paint(object sender, PaintEventArgs e)
-        {
-
+            adminTopbarUC.AdminBtnClicked += AdminBtn_Click;
+            adminTopbarUC.ManagerBtnClicked += ManagerBtn_Click;
+            adminTopbarUC.FrontDeskBtnClicked += FrontDeskBtn_Click;
         }
 
         private void FrontDeskBtn_Click(object sender, EventArgs e)
         {
+            DynamicTopbarPanel.Controls.Clear();
+            MFTopbar mfTopbarUC = new MFTopbar();
+            DynamicTopbarPanel.Controls.Add(mfTopbarUC);
+            mfTopbarUC.Dock = DockStyle.Fill;
+
             SidebarDynamicPanel.Controls.Clear();
+            DynamicContentPanel.Controls.Clear();
             FrontDeskSidebar frontDeskSidebarUC = new FrontDeskSidebar();
             frontDeskSidebarUC.Dock = DockStyle.Fill;
 
             frontDeskSidebarUC.DashboardBtnClicked += DashboardBtn_Click;
-            frontDeskSidebarUC.MembershipBtnClicked += MembershipBtn_Click;
             frontDeskSidebarUC.POSBtnClicked += POSBtn_Click;
-            frontDeskSidebarUC.RentalHistoryBtnClicked += RentalHistoryBtn_Click;
+            frontDeskSidebarUC.MembershipBtnClicked += MembershipBtn_Click;
+            frontDeskSidebarUC.HistoryBtnClicked += HistoryBtn_Click;
             SidebarDynamicPanel.Controls.Add(frontDeskSidebarUC);
+
+            mfTopbarUC.AdminBtnClicked += AdminBtn_Click;
+            mfTopbarUC.ManagerBtnClicked += ManagerBtn_Click;
+            mfTopbarUC.FrontDeskBtnClicked += FrontDeskBtn_Click;
         }
 
         private void DynamicContentPanel_Paint(object sender, PaintEventArgs e)
+        {
+                
+        }
+
+        private void Topbar_Paint(object sender, PaintEventArgs e)
         {
 
         }

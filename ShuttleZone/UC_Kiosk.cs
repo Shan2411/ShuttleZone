@@ -23,5 +23,15 @@ namespace ShuttleZone
             var kiosk = new Kiosk();
             kiosk.Show();
         }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlAutoReturn_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

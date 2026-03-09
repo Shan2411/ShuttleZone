@@ -41,11 +41,10 @@
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
-            this.ReportsBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.MaintenanceLogBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.EquipmentInventoryBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.RentalHistoryBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.POSBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.InventoryBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.FacilityBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.UsersBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.KioskBtn = new Guna.UI2.WinForms.Guna2Button();
             this.MembershipBtn = new Guna.UI2.WinForms.Guna2Button();
             this.DashboardBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SidebarBackground.SuspendLayout();
@@ -168,13 +167,12 @@
             this.SidebarLinksGroup.ColumnCount = 1;
             this.SidebarLinksGroup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
             this.SidebarLinksGroup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
-            this.SidebarLinksGroup.Controls.Add(this.ReportsBtn, 1, 6);
-            this.SidebarLinksGroup.Controls.Add(this.MaintenanceLogBtn, 1, 5);
-            this.SidebarLinksGroup.Controls.Add(this.EquipmentInventoryBtn, 1, 4);
-            this.SidebarLinksGroup.Controls.Add(this.RentalHistoryBtn, 1, 3);
-            this.SidebarLinksGroup.Controls.Add(this.POSBtn, 1, 2);
-            this.SidebarLinksGroup.Controls.Add(this.MembershipBtn, 1, 1);
-            this.SidebarLinksGroup.Controls.Add(this.DashboardBtn, 1, 0);
+            this.SidebarLinksGroup.Controls.Add(this.InventoryBtn, 0, 2);
+            this.SidebarLinksGroup.Controls.Add(this.FacilityBtn, 0, 3);
+            this.SidebarLinksGroup.Controls.Add(this.UsersBtn, 0, 4);
+            this.SidebarLinksGroup.Controls.Add(this.KioskBtn, 0, 5);
+            this.SidebarLinksGroup.Controls.Add(this.MembershipBtn, 0, 1);
+            this.SidebarLinksGroup.Controls.Add(this.DashboardBtn, 0, 0);
             this.SidebarLinksGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SidebarLinksGroup.Location = new System.Drawing.Point(0, 102);
             this.SidebarLinksGroup.Margin = new System.Windows.Forms.Padding(0, 10, 0, 150);
@@ -239,15 +237,16 @@
             // 
             // guna2Button11
             // 
-            this.guna2Button11.BackColor = System.Drawing.Color.Firebrick;
+            this.guna2Button11.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button11.BorderColor = System.Drawing.Color.Maroon;
+            this.guna2Button11.BorderRadius = 5;
             this.guna2Button11.BorderThickness = 1;
             this.guna2Button11.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button11.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button11.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button11.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Button11.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button11.FillColor = System.Drawing.Color.Firebrick;
             this.guna2Button11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button11.ForeColor = System.Drawing.Color.White;
             this.guna2Button11.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button11.Image")));
@@ -258,110 +257,89 @@
             this.guna2Button11.TabIndex = 27;
             this.guna2Button11.Text = "Log out";
             // 
-            // ReportsBtn
+            // InventoryBtn
             // 
-            this.ReportsBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ReportsBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ReportsBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ReportsBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ReportsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ReportsBtn.FillColor = System.Drawing.Color.Transparent;
-            this.ReportsBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReportsBtn.ForeColor = System.Drawing.Color.White;
-            this.ReportsBtn.Image = ((System.Drawing.Image)(resources.GetObject("ReportsBtn.Image")));
-            this.ReportsBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ReportsBtn.Location = new System.Drawing.Point(0, 156);
-            this.ReportsBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.ReportsBtn.Name = "ReportsBtn";
-            this.ReportsBtn.Size = new System.Drawing.Size(177, 26);
-            this.ReportsBtn.TabIndex = 23;
-            this.ReportsBtn.Text = "Reports";
-            this.ReportsBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ReportsBtn.Click += new System.EventHandler(this.ReportsBtn_Click);
+            this.InventoryBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.InventoryBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.InventoryBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.InventoryBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.InventoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InventoryBtn.FillColor = System.Drawing.Color.Transparent;
+            this.InventoryBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InventoryBtn.ForeColor = System.Drawing.Color.White;
+            this.InventoryBtn.Image = ((System.Drawing.Image)(resources.GetObject("InventoryBtn.Image")));
+            this.InventoryBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.InventoryBtn.Location = new System.Drawing.Point(0, 52);
+            this.InventoryBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.InventoryBtn.Name = "InventoryBtn";
+            this.InventoryBtn.Size = new System.Drawing.Size(177, 26);
+            this.InventoryBtn.TabIndex = 21;
+            this.InventoryBtn.Text = "Inventory";
+            this.InventoryBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.InventoryBtn.Click += new System.EventHandler(this.InventoryBtn_Click);
             // 
-            // MaintenanceLogBtn
+            // FacilityBtn
             // 
-            this.MaintenanceLogBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.MaintenanceLogBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.MaintenanceLogBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.MaintenanceLogBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.MaintenanceLogBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MaintenanceLogBtn.FillColor = System.Drawing.Color.Transparent;
-            this.MaintenanceLogBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaintenanceLogBtn.ForeColor = System.Drawing.Color.White;
-            this.MaintenanceLogBtn.Image = ((System.Drawing.Image)(resources.GetObject("MaintenanceLogBtn.Image")));
-            this.MaintenanceLogBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.MaintenanceLogBtn.Location = new System.Drawing.Point(0, 130);
-            this.MaintenanceLogBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.MaintenanceLogBtn.Name = "MaintenanceLogBtn";
-            this.MaintenanceLogBtn.Size = new System.Drawing.Size(177, 26);
-            this.MaintenanceLogBtn.TabIndex = 22;
-            this.MaintenanceLogBtn.Text = "Maintenance Log";
-            this.MaintenanceLogBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.MaintenanceLogBtn.Click += new System.EventHandler(this.MaintenanceBtn_Click);
+            this.FacilityBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.FacilityBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.FacilityBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.FacilityBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.FacilityBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FacilityBtn.FillColor = System.Drawing.Color.Transparent;
+            this.FacilityBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FacilityBtn.ForeColor = System.Drawing.Color.White;
+            this.FacilityBtn.Image = ((System.Drawing.Image)(resources.GetObject("FacilityBtn.Image")));
+            this.FacilityBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.FacilityBtn.Location = new System.Drawing.Point(0, 78);
+            this.FacilityBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.FacilityBtn.Name = "FacilityBtn";
+            this.FacilityBtn.Size = new System.Drawing.Size(177, 26);
+            this.FacilityBtn.TabIndex = 22;
+            this.FacilityBtn.Text = "Facility";
+            this.FacilityBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.FacilityBtn.Click += new System.EventHandler(this.FacilityBtn_Click);
             // 
-            // EquipmentInventoryBtn
+            // UsersBtn
             // 
-            this.EquipmentInventoryBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.EquipmentInventoryBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.EquipmentInventoryBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.EquipmentInventoryBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.EquipmentInventoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EquipmentInventoryBtn.FillColor = System.Drawing.Color.Transparent;
-            this.EquipmentInventoryBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EquipmentInventoryBtn.ForeColor = System.Drawing.Color.White;
-            this.EquipmentInventoryBtn.Image = ((System.Drawing.Image)(resources.GetObject("EquipmentInventoryBtn.Image")));
-            this.EquipmentInventoryBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.EquipmentInventoryBtn.Location = new System.Drawing.Point(0, 104);
-            this.EquipmentInventoryBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.EquipmentInventoryBtn.Name = "EquipmentInventoryBtn";
-            this.EquipmentInventoryBtn.Size = new System.Drawing.Size(177, 26);
-            this.EquipmentInventoryBtn.TabIndex = 21;
-            this.EquipmentInventoryBtn.Text = "Equipment and History";
-            this.EquipmentInventoryBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.EquipmentInventoryBtn.Click += new System.EventHandler(this.EquipmentInventoryBtn_Click);
+            this.UsersBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.UsersBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.UsersBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.UsersBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.UsersBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UsersBtn.FillColor = System.Drawing.Color.Transparent;
+            this.UsersBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsersBtn.ForeColor = System.Drawing.Color.White;
+            this.UsersBtn.Image = ((System.Drawing.Image)(resources.GetObject("UsersBtn.Image")));
+            this.UsersBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.UsersBtn.Location = new System.Drawing.Point(0, 104);
+            this.UsersBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.UsersBtn.Name = "UsersBtn";
+            this.UsersBtn.Size = new System.Drawing.Size(177, 26);
+            this.UsersBtn.TabIndex = 24;
+            this.UsersBtn.Text = "Users";
+            this.UsersBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.UsersBtn.Click += new System.EventHandler(this.UsersBtn_Click);
             // 
-            // RentalHistoryBtn
+            // KioskBtn
             // 
-            this.RentalHistoryBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.RentalHistoryBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.RentalHistoryBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.RentalHistoryBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.RentalHistoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RentalHistoryBtn.FillColor = System.Drawing.Color.Transparent;
-            this.RentalHistoryBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RentalHistoryBtn.ForeColor = System.Drawing.Color.White;
-            this.RentalHistoryBtn.Image = ((System.Drawing.Image)(resources.GetObject("RentalHistoryBtn.Image")));
-            this.RentalHistoryBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.RentalHistoryBtn.Location = new System.Drawing.Point(0, 78);
-            this.RentalHistoryBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.RentalHistoryBtn.Name = "RentalHistoryBtn";
-            this.RentalHistoryBtn.Size = new System.Drawing.Size(177, 26);
-            this.RentalHistoryBtn.TabIndex = 20;
-            this.RentalHistoryBtn.Text = "Rental History";
-            this.RentalHistoryBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.RentalHistoryBtn.Click += new System.EventHandler(this.RentalHistoryBtn_Click);
-            // 
-            // POSBtn
-            // 
-            this.POSBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.POSBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.POSBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.POSBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.POSBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.POSBtn.FillColor = System.Drawing.Color.Transparent;
-            this.POSBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.POSBtn.ForeColor = System.Drawing.Color.White;
-            this.POSBtn.Image = ((System.Drawing.Image)(resources.GetObject("POSBtn.Image")));
-            this.POSBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.POSBtn.Location = new System.Drawing.Point(0, 52);
-            this.POSBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.POSBtn.Name = "POSBtn";
-            this.POSBtn.Size = new System.Drawing.Size(177, 26);
-            this.POSBtn.TabIndex = 19;
-            this.POSBtn.Text = "POS and Checkout";
-            this.POSBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.POSBtn.Click += new System.EventHandler(this.POSBtn_Click);
+            this.KioskBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.KioskBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.KioskBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.KioskBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.KioskBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.KioskBtn.FillColor = System.Drawing.Color.Transparent;
+            this.KioskBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KioskBtn.ForeColor = System.Drawing.Color.White;
+            this.KioskBtn.Image = ((System.Drawing.Image)(resources.GetObject("KioskBtn.Image")));
+            this.KioskBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.KioskBtn.Location = new System.Drawing.Point(0, 130);
+            this.KioskBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.KioskBtn.Name = "KioskBtn";
+            this.KioskBtn.Size = new System.Drawing.Size(177, 26);
+            this.KioskBtn.TabIndex = 25;
+            this.KioskBtn.Text = "Kiosk";
+            this.KioskBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.KioskBtn.Click += new System.EventHandler(this.KioskBtn_Click);
             // 
             // MembershipBtn
             // 
@@ -436,15 +414,14 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private System.Windows.Forms.TableLayoutPanel SidebarLinksGroup;
-        private Guna.UI2.WinForms.Guna2Button ReportsBtn;
-        private Guna.UI2.WinForms.Guna2Button MaintenanceLogBtn;
-        private Guna.UI2.WinForms.Guna2Button EquipmentInventoryBtn;
-        private Guna.UI2.WinForms.Guna2Button RentalHistoryBtn;
-        private Guna.UI2.WinForms.Guna2Button POSBtn;
+        private Guna.UI2.WinForms.Guna2Button FacilityBtn;
+        private Guna.UI2.WinForms.Guna2Button InventoryBtn;
         private Guna.UI2.WinForms.Guna2Button MembershipBtn;
         private Guna.UI2.WinForms.Guna2Button DashboardBtn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
+        private Guna.UI2.WinForms.Guna2Button UsersBtn;
+        private Guna.UI2.WinForms.Guna2Button KioskBtn;
     }
 }

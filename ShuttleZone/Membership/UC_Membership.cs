@@ -7,6 +7,7 @@ namespace ShuttleZone
     public partial class UC_Membership : UserControl
     {
         private int memberCounter = 1;
+        private bool showingArchived = false; // toggle state
 
         public UC_Membership()
         {
@@ -27,17 +28,18 @@ namespace ShuttleZone
                     MemberPhoneText = addNewMemberForm.MemberPhoneValue,
                     MemberTypeText = addNewMemberForm.MembershipTypeValue,
                     MemberExpiryDateText = addNewMemberForm.ExpiryDateValue,
-                    MemberJoinDate = addNewMemberForm.JoinDateValue, // ✅ store join date
-                    Width = flpMemberRowContainer.ClientSize.Width
+                    MemberJoinDate = addNewMemberForm.JoinDateValue,
+                    Width = flpMemberRowContainer.ClientSize.Width,
+                    IsArchived = false
                 };
 
                 row.UpdateStatus();
 
-                // Delete
+                // ARCHIVE instead of delete
                 row.DeleteClicked += (s, args) =>
                 {
-                    flpMemberRowContainer.Controls.Remove(row);
-                    row.Dispose();
+                    row.IsArchived = true;
+                    RefreshView();
                 };
 
                 // Edit
@@ -51,7 +53,7 @@ namespace ShuttleZone
                         MemberPhoneValue = row.MemberPhoneText,
                         MembershipTypeValue = row.MemberTypeText,
                         ExpiryDateValue = row.MemberExpiryDateText,
-                        JoinDateValue = row.MemberJoinDate // ✅ use stored join date
+                        JoinDateValue = row.MemberJoinDate
                     };
 
                     if (editForm.ShowDialog() == DialogResult.OK)
@@ -61,8 +63,10 @@ namespace ShuttleZone
                         row.MemberPhoneText = editForm.MemberPhoneValue;
                         row.MemberTypeText = editForm.MembershipTypeValue;
                         row.MemberExpiryDateText = editForm.ExpiryDateValue;
-                        row.MemberJoinDate = editForm.JoinDateValue; // ✅ update join date if changed
+                        row.MemberJoinDate = editForm.JoinDateValue;
+
                         row.UpdateStatus();
+                        RefreshView();
                     }
                 };
 
@@ -71,21 +75,48 @@ namespace ShuttleZone
             }
         }
 
+      
         private void Searchbox_TextChanged(object sender, EventArgs e)
+        {
+            RefreshView();
+        }
+
+    
+        private void ArchivedBtn_Click(object sender, EventArgs e)
+        {
+            showingArchived = !showingArchived;
+
+            ArchivedBtn.Text = showingArchived ? "Hide Archived" : "Show Archived";
+            AddMemberBtn.Enabled = !showingArchived; // disable adding new members when viewing archived
+            AddMemberBtn.FillColor = showingArchived ? System.Drawing.Color.Gray : System.Drawing.Color.FromArgb(152, 16, 250); // gray out when disabled
+            AddMemberBtn.ForeColor = showingArchived ? System.Drawing.Color.LightGray : System.Drawing.Color.White; // adjust text color for contrast
+            AddMemberBtn.Text = showingArchived ? "Archived Mode" : "Add New Member"; // update button text to reflect state
+
+            RefreshView();
+        }
+
+
+        private void RefreshView()
         {
             string searchText = Searchbox.Text.Trim().ToLower();
 
             foreach (UC_MemberRow row in flpMemberRowContainer.Controls)
             {
-                // Compare the start of the member's name with the search text
-                if (row.MemberNameText.ToLower().StartsWith(searchText))
-                {
-                    row.Visible = true;  // show matching rows
-                }
-                else
-                {
-                    row.Visible = false; // hide non-matching rows
-                }
+                // Check across multiple fields
+                bool matchesSearch =
+                    row.MemberIDText.ToLower().Contains(searchText) ||
+                    row.MemberNameText.ToLower().Contains(searchText) ||
+                    row.MemberEmailText.ToLower().Contains(searchText) ||
+                    row.MemberPhoneText.ToLower().Contains(searchText) ||
+                    row.MemberTypeText.ToLower().Contains(searchText) ||
+                    row.MemberExpiryDateText.ToLower().Contains(searchText) ||
+                    row.MemberJoinDate.ToString("yyyy-MM-dd").ToLower().Contains(searchText);
+
+                bool matchesArchiveState = showingArchived
+                    ? row.IsArchived
+                    : !row.IsArchived;
+
+                row.Visible = matchesSearch && matchesArchiveState;
             }
         }
     }
