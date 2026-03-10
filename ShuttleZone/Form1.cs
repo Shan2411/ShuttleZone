@@ -84,9 +84,8 @@ namespace ShuttleZone
         private void ManagerDashboardBtn_Click(object sender, EventArgs e)
         {
 
-            DynamicContentPanel.Controls.Clear();
-            //will change to manager dashboard once created  
-            Dashboard1.FrontDeskDashboard ucDashboard = new Dashboard1.FrontDeskDashboard();
+            DynamicContentPanel.Controls.Clear();  
+            Dashboard1.ManagerDashboard ucDashboard = new Dashboard1.ManagerDashboard();
             DynamicContentPanel.Controls.Add(ucDashboard);
             ucDashboard.Dock = DockStyle.Fill;
         }

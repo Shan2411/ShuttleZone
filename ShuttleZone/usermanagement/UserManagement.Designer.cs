@@ -100,7 +100,7 @@
             this.tblRoot.Controls.Add(this.pnlGrid, 0, 3);
             this.tblRoot.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblRoot.Location = new System.Drawing.Point(0, 0);
-            this.tblRoot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tblRoot.Margin = new System.Windows.Forms.Padding(2);
             this.tblRoot.Name = "tblRoot";
             this.tblRoot.RowCount = 4;
             this.tblRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
@@ -119,7 +119,7 @@
             this.flpRoles.Controls.Add(this.guna2Panel2);
             this.flpRoles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpRoles.Location = new System.Drawing.Point(2, 54);
-            this.flpRoles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flpRoles.Margin = new System.Windows.Forms.Padding(2);
             this.flpRoles.Name = "flpRoles";
             this.flpRoles.Padding = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.flpRoles.Size = new System.Drawing.Size(935, 126);
@@ -139,7 +139,7 @@
             this.guna2Panel1.Controls.Add(this.label5);
             this.guna2Panel1.Controls.Add(this.Managerlabel);
             this.guna2Panel1.Location = new System.Drawing.Point(17, 18);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(8);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Padding = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.guna2Panel1.Size = new System.Drawing.Size(290, 106);
@@ -270,7 +270,7 @@
             this.guna2Panel3.Controls.Add(this.label9);
             this.guna2Panel3.Controls.Add(this.FrontDesklabel);
             this.guna2Panel3.Location = new System.Drawing.Point(323, 18);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(8);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Padding = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.guna2Panel3.Size = new System.Drawing.Size(290, 106);
@@ -403,7 +403,7 @@
             this.guna2Panel2.Controls.Add(this.label1);
             this.guna2Panel2.Controls.Add(this.Adminlabel);
             this.guna2Panel2.Location = new System.Drawing.Point(629, 18);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(8);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Padding = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.guna2Panel2.Size = new System.Drawing.Size(290, 106);
@@ -529,7 +529,7 @@
             this.pnlHeader.Controls.Add(this.btnAddUser);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHeader.Location = new System.Drawing.Point(2, 2);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Padding = new System.Windows.Forms.Padding(12, 10, 12, 10);
             this.pnlHeader.Size = new System.Drawing.Size(935, 48);
@@ -574,7 +574,7 @@
             this.pnlSearch.Controls.Add(this.txtSearch);
             this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSearch.Location = new System.Drawing.Point(2, 184);
-            this.pnlSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlSearch.Margin = new System.Windows.Forms.Padding(2);
             this.pnlSearch.Name = "pnlSearch";
             this.pnlSearch.Padding = new System.Windows.Forms.Padding(12, 8, 12, 8);
             this.pnlSearch.Size = new System.Drawing.Size(935, 42);
@@ -605,7 +605,7 @@
             this.pnlGrid.Controls.Add(this.dgvUsers);
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(2, 230);
-            this.pnlGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlGrid.Margin = new System.Windows.Forms.Padding(2);
             this.pnlGrid.Name = "pnlGrid";
             this.pnlGrid.Padding = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.pnlGrid.Size = new System.Drawing.Size(935, 355);
@@ -647,7 +647,7 @@
             this.dgvUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUsers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvUsers.Location = new System.Drawing.Point(9, 10);
-            this.dgvUsers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvUsers.Margin = new System.Windows.Forms.Padding(2);
             this.dgvUsers.MultiSelect = false;
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
@@ -756,7 +756,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.tblRoot);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ucUserManagement";
             this.Size = new System.Drawing.Size(939, 587);
             this.tblRoot.ResumeLayout(false);
