@@ -6,6 +6,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,63 +16,90 @@ namespace ShuttleZone.Dashboard1
 {
     public partial class ManagerDashboard : UserControl
     {
+        // Win32 constants to freeze drawing
+        [DllImport("user32.dll")]
+        private static extern int SendMessage(IntPtr hWnd, Int32 wMsg, bool wParam, Int32 lParam);
+        private const int WM_SETREDRAW = 11;
+
         public ManagerDashboard()
         {
-
-            // Enable double buffering BEFORE InitializeComponent
+            // 1. Fundamental Double Buffering
             this.DoubleBuffered = true;
 
             InitializeComponent();
-            Utilization utilizationUC = new Utilization();
-            utilizationUC.Dock = DockStyle.Fill;
 
+            // 2. Enable deep double buffering on problematic containers
+            EnableDoubleBuffer(flowLayoutPanel1);
+            EnableDoubleBuffer(flowLayoutPanel2);
+            EnableDoubleBuffer(guna2ShadowPanel1);
+            EnableDoubleBuffer(guna2ShadowPanel2);
+
+            // 3. Freeze the control visually while we build the UI
+            SendMessage(this.Handle, WM_SETREDRAW, false, 0);
+
+            try
+            {
+                this.SuspendLayout();
+
+                // Load Heavy Guna Panels
+                LoadAnalytics();
+
+                // Load Dashboard Cards
+                LoadCards();
+            }
+            finally
+            {
+                // 4. Unfreeze and force a single clean paint
+                this.ResumeLayout(true);
+                SendMessage(this.Handle, WM_SETREDRAW, true, 0);
+                this.Refresh();
+            }
+        }
+
+        private void LoadAnalytics()
+        {
+            // Utilization
+            Utilization utilizationUC = new Utilization { Dock = DockStyle.Fill };
             guna2ShadowPanel1.Controls.Add(utilizationUC);
 
-            CourtInUse courtInUseUC = new CourtInUse();
-            courtInUseUC.Dock = DockStyle.Fill;
-
+            // Court In Use
+            CourtInUse courtInUseUC = new CourtInUse { Dock = DockStyle.Fill };
             guna2ShadowPanel2.Controls.Add(courtInUseUC);
+        }
 
-
-            // SUSPEND LAYOUT - CRITICAL for performance
-            this.SuspendLayout();
+        private void LoadCards()
+        {
             flowLayoutPanel1.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
 
-            // Configure panel once
-            flowLayoutPanel1.HorizontalScroll.Enabled = false;
-            flowLayoutPanel1.HorizontalScroll.Visible = false;
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.WrapContents = false; // If horizontal layout
-
-            // Clear once
+            // Clear existing if any
             flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel2.Controls.Clear();
 
-            // Add all controls at once
-            var boxes1 = new[]
-            {
+            // Bulk Add flowLayoutPanel1
+            flowLayoutPanel1.Controls.AddRange(new Control[] {
                 new Card_Dashboard("Today's Revenue"),
                 new Card_Dashboard("Average Monthly Revenue"),
                 new Card_Dashboard("Active Membership"),
-                new Card_Dashboard("Equipment Availabl")
-            };
+                new Card_Dashboard("Equipment Available")
+            });
 
-            flowLayoutPanel1.Controls.AddRange(boxes1);
-
-            var boxes2 = new[]
-{
+            // Bulk Add flowLayoutPanel2
+            flowLayoutPanel2.Controls.AddRange(new Control[] {
                 new Card_Dashboard("Kiosk Sessions"),
-                new Card_Dashboard("Peak Hour Today"),
-                //new Card_Dashboard("Active Membership"),
-                //new Card_Dashboard("Kiosk Sessions")
-            };
+                new Card_Dashboard("Peak Hour Today")
+            });
 
-            flowLayoutPanel2.Controls.AddRange(boxes2);
-
-            // RESUME LAYOUT
             flowLayoutPanel1.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout(); // Force final layout
+            flowLayoutPanel2.ResumeLayout(false);
+        }
 
+        // Helper to unlock the protected DoubleBuffered property
+        private static void EnableDoubleBuffer(Control c)
+        {
+            PropertyInfo pi = typeof(Control).GetProperty("DoubleBuffered",
+                BindingFlags.NonPublic | BindingFlags.Instance);
+            pi?.SetValue(c, true, null);
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)

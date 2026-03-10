@@ -30,7 +30,7 @@ namespace ShuttleZone.Dashboard1
                     
                     break;
                 case "notinuse":
-                    guna2Panel1.FillColor = Color.Gray;
+                    guna2Panel1.FillColor = Color.FromArgb(161, 161, 170);
                     
                     break;
                 default:

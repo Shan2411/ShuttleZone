@@ -38,13 +38,14 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.PaleGreen;
+            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderColor = System.Drawing.Color.DarkOliveGreen;
             this.guna2Panel1.BorderRadius = 7;
             this.guna2Panel1.BorderThickness = 2;
             this.guna2Panel1.Controls.Add(this.guna2Panel3);
             this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Location = new System.Drawing.Point(3, 3);
+            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(170)))));
+            this.guna2Panel1.Location = new System.Drawing.Point(17, 3);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(177, 241);
             this.guna2Panel1.TabIndex = 2;
@@ -55,7 +56,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.BorderColor = System.Drawing.Color.Green;
+            this.guna2Panel3.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.guna2Panel3.BorderThickness = 1;
             this.guna2Panel3.Controls.Add(this.guna2Panel4);
             this.guna2Panel3.Location = new System.Drawing.Point(39, 31);
@@ -69,7 +70,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel4.BorderColor = System.Drawing.Color.Green;
+            this.guna2Panel4.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.guna2Panel4.BorderRadius = 2;
             this.guna2Panel4.BorderThickness = 1;
             this.guna2Panel4.Location = new System.Drawing.Point(0, 68);
@@ -94,7 +95,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.guna2Panel1);
             this.Name = "CourtCardInUse";
-            this.Size = new System.Drawing.Size(212, 247);
+            this.Size = new System.Drawing.Size(216, 247);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
