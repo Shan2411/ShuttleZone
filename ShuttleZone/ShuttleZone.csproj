@@ -87,6 +87,12 @@
     <Compile Include="Dashboard1\CourtCard.Designer.cs">
       <DependentUpon>CourtCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard1\CourtCardInUse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\CourtCardInUse.Designer.cs">
+      <DependentUpon>CourtCardInUse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard1\CourtInUse.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -376,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\CourtCard.resx">
       <DependentUpon>CourtCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\CourtCardInUse.resx">
+      <DependentUpon>CourtCardInUse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\CourtInUse.resx">
       <DependentUpon>CourtInUse.cs</DependentUpon>

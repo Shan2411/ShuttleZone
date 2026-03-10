@@ -46,20 +46,35 @@ namespace ShuttleZone.Dashboard1
             flowLayoutPanel1.Controls.Clear();
 
             // Add all controls at once
-            var buttons = new[]
+            var boxes1 = new[]
             {
                 new Card_Dashboard("Today's Revenue"),
-                new Card_Dashboard("Equipment Available"),
+                new Card_Dashboard("Average Monthly Revenue"),
                 new Card_Dashboard("Active Membership"),
-                new Card_Dashboard("Kiosk Sessions")
+                new Card_Dashboard("Equipment Availabl")
             };
 
-            flowLayoutPanel1.Controls.AddRange(buttons);
+            flowLayoutPanel1.Controls.AddRange(boxes1);
+
+            var boxes2 = new[]
+{
+                new Card_Dashboard("Kiosk Sessions"),
+                new Card_Dashboard("Peak Hour Today"),
+                //new Card_Dashboard("Active Membership"),
+                //new Card_Dashboard("Kiosk Sessions")
+            };
+
+            flowLayoutPanel2.Controls.AddRange(boxes2);
 
             // RESUME LAYOUT
             flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout(); // Force final layout
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
