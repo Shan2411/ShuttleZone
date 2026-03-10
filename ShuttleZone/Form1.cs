@@ -1,12 +1,13 @@
 ﻿    using ShuttleZone.Dashboard1;
     using ShuttleZone.Maintenance_Logs;
     using ShuttleZone.sidebars;
+using ShuttleZone.SystemSettings;
+using ShuttleZone.topbar;
+    using ShuttleZone.UserManagement;
     using System;
     using System.Drawing;
     using System.Web.Security;
     using System.Windows.Forms;
-    using ShuttleZone.UserManagement;
-using ShuttleZone.topbar;
 
 
 namespace ShuttleZone
@@ -18,10 +19,12 @@ namespace ShuttleZone
                 InitializeComponent();
 
                 this.Load += Form1_Load;
-            
+
             //AdminSidebar adminSidebarUC = new AdminSidebar();
             //SidebarDynamicPanel.Controls.Clear();
             //SidebarDynamicPanel.Controls.Add(adminSidebarUC);
+            var date = DateTime.Now;
+            DateLbl.Text = date.ToString("dddd, MMMM dd, yyyy");
         }
 
             private void Form1_Load(object sender, EventArgs e)
@@ -128,7 +131,16 @@ namespace ShuttleZone
 
             }
 
-            private void KioskBtn_Click(object sender, EventArgs e)
+            private void SettingsBtn_Click(object sender, EventArgs e)
+            {
+                DynamicContentPanel.Controls.Clear();
+                UC_SystemsSettings ucSettings = new UC_SystemsSettings();
+                ucSettings.Dock = DockStyle.Fill;
+
+                DynamicContentPanel.Controls.Add(ucSettings);
+        }
+
+        private void KioskBtn_Click(object sender, EventArgs e)
             {
                 DynamicContentPanel.Controls.Clear();
                 UC_Kiosk kioskUC = new UC_Kiosk();
@@ -202,6 +214,7 @@ namespace ShuttleZone
             adminTopbarUC.AdminBtnClicked += AdminBtn_Click;
             adminTopbarUC.ManagerBtnClicked += ManagerBtn_Click;
             adminTopbarUC.FrontDeskBtnClicked += FrontDeskBtn_Click;
+            adminTopbarUC.SettingsBtnClicked += SettingsBtn_Click;
         }
 
         private void FrontDeskBtn_Click(object sender, EventArgs e)
@@ -235,6 +248,11 @@ namespace ShuttleZone
         private void Topbar_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void DateLbl_Click(object sender, EventArgs e)
+        {
+           
         }
     }
     }

@@ -293,11 +293,11 @@
     <Compile Include="systemsettings\UC_FacilityInfo.Designer.cs">
       <DependentUpon>UC_FacilityInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="systemsettings\UC_SystemSettings.cs">
+    <Compile Include="systemsettings\UC_SystemsSettings.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="systemsettings\UC_SystemSettings.Designer.cs">
-      <DependentUpon>UC_SystemSettings.cs</DependentUpon>
+    <Compile Include="systemsettings\UC_SystemsSettings.Designer.cs">
+      <DependentUpon>UC_SystemsSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
@@ -502,8 +502,8 @@
     <EmbeddedResource Include="systemsettings\UC_FacilityInfo.resx">
       <DependentUpon>UC_FacilityInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="systemsettings\UC_SystemSettings.resx">
-      <DependentUpon>UC_SystemSettings.cs</DependentUpon>
+    <EmbeddedResource Include="systemsettings\UC_SystemsSettings.resx">
+      <DependentUpon>UC_SystemsSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="topbar\AdminTopbar.resx">
       <DependentUpon>AdminTopbar.cs</DependentUpon>

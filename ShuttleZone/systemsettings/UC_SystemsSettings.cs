@@ -5,7 +5,7 @@ using Guna.UI2.WinForms;
 
 namespace ShuttleZone.SystemSettings
 {
-    public partial class UC_SystemSettings : UserControl
+    public partial class UC_SystemsSettings : UserControl
     {
         private UserControl _currentControl;
 
@@ -13,7 +13,7 @@ namespace ShuttleZone.SystemSettings
         private readonly Color ActivePurple = Color.FromArgb(139, 92, 246);
         private readonly Color InactiveGray = Color.FromArgb(107, 114, 128);
 
-        public UC_SystemSettings()
+        public UC_SystemsSettings()
         {
             InitializeComponent();
         }

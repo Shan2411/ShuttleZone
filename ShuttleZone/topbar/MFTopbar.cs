@@ -18,6 +18,8 @@ namespace ShuttleZone.topbar
         public MFTopbar()
         {
             InitializeComponent();
+            var date = DateTime.Now;
+            DateLbl.Text = date.ToString("dddd, MMMM dd, yyyy");
         }
 
         private void ExitBtn_Click(object sender, EventArgs e)

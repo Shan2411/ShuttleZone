@@ -1,6 +1,6 @@
 ﻿namespace ShuttleZone.SystemSettings
 {
-    partial class UC_SystemSettings
+    partial class UC_SystemsSettings
     {
         /// <summary> 
         /// Required designer variable.
