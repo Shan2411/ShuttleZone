@@ -373,7 +373,7 @@
         private System.Windows.Forms.Label lblStubSZInfo;
         private System.Windows.Forms.Label lblStubSZ;
         private System.Windows.Forms.Label lblStubNoText;
-        private System.Windows.Forms.Label lblStubNoText;
+        private System.Windows.Forms.Label lblStubNo;
         private Guna.UI2.WinForms.Guna2Separator sepStub1;
         private System.Windows.Forms.Label lblStubTimeIssued;
         private System.Windows.Forms.Label lblStubTimeText;
