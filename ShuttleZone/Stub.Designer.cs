@@ -55,6 +55,7 @@
             this.pnlStubInstructions = new Guna.UI2.WinForms.Guna2Panel();
             this.lblStubInstructions = new System.Windows.Forms.Label();
             this.lblInstructionsText = new System.Windows.Forms.Label();
+            this.btnStubClose = new Guna.UI2.WinForms.Guna2Button();
             this.pnlStubItemRowTemplate.SuspendLayout();
             this.flowStubItemsContainer.SuspendLayout();
             this.pnlPaymentStub.SuspendLayout();
@@ -327,12 +328,28 @@
             this.lblInstructionsText.TabIndex = 29;
             this.lblInstructionsText.Text = "INSTRUCTIONS";
             // 
+            // btnStubClose
+            // 
+            this.btnStubClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnStubClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnStubClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnStubClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnStubClose.FillColor = System.Drawing.Color.Transparent;
+            this.btnStubClose.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStubClose.ForeColor = System.Drawing.Color.Black;
+            this.btnStubClose.Location = new System.Drawing.Point(308, 12);
+            this.btnStubClose.Name = "btnStubClose";
+            this.btnStubClose.Size = new System.Drawing.Size(30, 30);
+            this.btnStubClose.TabIndex = 53;
+            this.btnStubClose.Text = "X";
+            // 
             // Stub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(350, 675);
+            this.Controls.Add(this.btnStubClose);
             this.Controls.Add(this.pnlStubInstructions);
             this.Controls.Add(this.lblStubTotalAmount);
             this.Controls.Add(this.lblStubTotalText);
@@ -397,5 +414,6 @@
         private Guna.UI2.WinForms.Guna2Panel pnlStubInstructions;
         private System.Windows.Forms.Label lblStubInstructions;
         private System.Windows.Forms.Label lblInstructionsText;
+        private Guna.UI2.WinForms.Guna2Button btnStubClose;
     }
 }
