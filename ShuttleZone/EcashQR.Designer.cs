@@ -34,6 +34,7 @@
             this.lblTotalAmount = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnPaymentComplete = new Guna.UI2.WinForms.Guna2Button();
             this.pnlAmountToPay = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnCancelEcashPayment = new Guna.UI2.WinForms.Guna2Button();
             this.pnlAmountToPay.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,9 +92,9 @@
             this.btnPaymentComplete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(35)))), ((int)(((byte)(191)))));
             this.btnPaymentComplete.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPaymentComplete.ForeColor = System.Drawing.Color.White;
-            this.btnPaymentComplete.Location = new System.Drawing.Point(111, 420);
+            this.btnPaymentComplete.Location = new System.Drawing.Point(203, 421);
             this.btnPaymentComplete.Name = "btnPaymentComplete";
-            this.btnPaymentComplete.Size = new System.Drawing.Size(180, 45);
+            this.btnPaymentComplete.Size = new System.Drawing.Size(148, 45);
             this.btnPaymentComplete.TabIndex = 5;
             this.btnPaymentComplete.Text = "Payment Complete";
             // 
@@ -108,12 +109,29 @@
             this.pnlAmountToPay.Size = new System.Drawing.Size(304, 67);
             this.pnlAmountToPay.TabIndex = 6;
             // 
+            // btnCancelEcashPayment
+            // 
+            this.btnCancelEcashPayment.BorderRadius = 10;
+            this.btnCancelEcashPayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancelEcashPayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancelEcashPayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCancelEcashPayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCancelEcashPayment.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(35)))), ((int)(((byte)(191)))));
+            this.btnCancelEcashPayment.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelEcashPayment.ForeColor = System.Drawing.Color.White;
+            this.btnCancelEcashPayment.Location = new System.Drawing.Point(47, 421);
+            this.btnCancelEcashPayment.Name = "btnCancelEcashPayment";
+            this.btnCancelEcashPayment.Size = new System.Drawing.Size(148, 45);
+            this.btnCancelEcashPayment.TabIndex = 7;
+            this.btnCancelEcashPayment.Text = "Cancel";
+            // 
             // EcashQR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(400, 500);
+            this.Controls.Add(this.btnCancelEcashPayment);
             this.Controls.Add(this.pnlAmountToPay);
             this.Controls.Add(this.btnPaymentComplete);
             this.Controls.Add(this.lblScanYap);
@@ -138,5 +156,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTotalAmount;
         private Guna.UI2.WinForms.Guna2Button btnPaymentComplete;
         private Guna.UI2.WinForms.Guna2Panel pnlAmountToPay;
+        private Guna.UI2.WinForms.Guna2Button btnCancelEcashPayment;
     }
 }
