@@ -40,16 +40,6 @@ namespace ShuttleZone
             DynamicContentPanel.Controls.Clear();
         }
 
-            private void EquipmentBtn_Click(object sender, EventArgs e)
-            {
-          
-        
-            DynamicContentPanel.Controls.Clear();
-            Equipment_and_Inventory.Equipment equipmentWindowUC = new Equipment_and_Inventory.Equipment();
-            DynamicContentPanel.Controls.Add(equipmentWindowUC);
-            equipmentWindowUC.Dock = DockStyle.Fill;
-        }
-
         private void UsersBtn_Click(object sender, EventArgs e)
         {
             DynamicContentPanel.Controls.Clear();
@@ -124,12 +114,11 @@ namespace ShuttleZone
 
             private void InventoryBtn_Click(object sender, EventArgs e)
             {
-     
                 DynamicContentPanel.Controls.Clear();
-
-
-
-            }
+                Equipment_and_Inventory.Equipment equipmentWindowUC = new Equipment_and_Inventory.Equipment();
+                DynamicContentPanel.Controls.Add(equipmentWindowUC);
+                equipmentWindowUC.Dock = DockStyle.Fill;
+        }
 
             private void SettingsBtn_Click(object sender, EventArgs e)
             {
