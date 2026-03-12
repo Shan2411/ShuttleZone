@@ -274,6 +274,12 @@
     <Compile Include="sidebars\ManagerSidebar.Designer.cs">
       <DependentUpon>ManagerSidebar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Stub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stub.Designer.cs">
+      <DependentUpon>Stub.cs</DependentUpon>
+    </Compile>
     <Compile Include="systemsettings\ISaveable.cs" />
     <Compile Include="systemsettings\SystemPreferences.cs">
       <SubType>UserControl</SubType>
@@ -492,6 +498,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sidebars\ManagerSidebar.resx">
       <DependentUpon>ManagerSidebar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stub.resx">
+      <DependentUpon>Stub.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="systemsettings\SystemPreferences.resx">
       <DependentUpon>SystemPreferences.cs</DependentUpon>
