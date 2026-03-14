@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_MemberRow));
             this.PanelBG = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -41,7 +40,6 @@
             this.MemberEmail = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.MemberName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.MemberID = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.PanelBG.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MemberStatus)).BeginInit();
@@ -62,7 +60,7 @@
             this.PanelBG.Location = new System.Drawing.Point(0, 0);
             this.PanelBG.Margin = new System.Windows.Forms.Padding(0);
             this.PanelBG.Name = "PanelBG";
-            this.PanelBG.Size = new System.Drawing.Size(911, 34);
+            this.PanelBG.Size = new System.Drawing.Size(1215, 42);
             this.PanelBG.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -89,11 +87,13 @@
             this.tableLayoutPanel3.Controls.Add(this.MemberID, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(911, 34);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1215, 42);
             this.tableLayoutPanel3.TabIndex = 2;
+            this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
             // 
             // MemberStatus
             // 
@@ -102,9 +102,10 @@
             this.MemberStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MemberStatus.FillColor = System.Drawing.Color.Transparent;
             this.MemberStatus.ImageRotate = 0F;
-            this.MemberStatus.Location = new System.Drawing.Point(661, 7);
+            this.MemberStatus.Location = new System.Drawing.Point(883, 8);
+            this.MemberStatus.Margin = new System.Windows.Forms.Padding(4);
             this.MemberStatus.Name = "MemberStatus";
-            this.MemberStatus.Size = new System.Drawing.Size(47, 20);
+            this.MemberStatus.Size = new System.Drawing.Size(63, 25);
             this.MemberStatus.TabIndex = 10;
             this.MemberStatus.TabStop = false;
             // 
@@ -115,9 +116,10 @@
             this.MemberDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MemberDelete.FillColor = System.Drawing.Color.Transparent;
             this.MemberDelete.ImageRotate = 0F;
-            this.MemberDelete.Location = new System.Drawing.Point(876, 7);
+            this.MemberDelete.Location = new System.Drawing.Point(1169, 8);
+            this.MemberDelete.Margin = new System.Windows.Forms.Padding(4);
             this.MemberDelete.Name = "MemberDelete";
-            this.MemberDelete.Size = new System.Drawing.Size(20, 20);
+            this.MemberDelete.Size = new System.Drawing.Size(27, 25);
             this.MemberDelete.TabIndex = 9;
             this.MemberDelete.TabStop = false;
             this.MemberDelete.Click += new System.EventHandler(this.MemberDelete_Click);
@@ -129,9 +131,10 @@
             this.MemberEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MemberEdit.FillColor = System.Drawing.Color.Transparent;
             this.MemberEdit.ImageRotate = 0F;
-            this.MemberEdit.Location = new System.Drawing.Point(828, 7);
+            this.MemberEdit.Location = new System.Drawing.Point(1106, 8);
+            this.MemberEdit.Margin = new System.Windows.Forms.Padding(4);
             this.MemberEdit.Name = "MemberEdit";
-            this.MemberEdit.Size = new System.Drawing.Size(20, 20);
+            this.MemberEdit.Size = new System.Drawing.Size(27, 25);
             this.MemberEdit.TabIndex = 8;
             this.MemberEdit.TabStop = false;
             this.MemberEdit.Click += new System.EventHandler(this.MemberEdit_Click);
@@ -142,10 +145,10 @@
             this.MemberExpiryDate.BackColor = System.Drawing.Color.Transparent;
             this.MemberExpiryDate.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberExpiryDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.MemberExpiryDate.Location = new System.Drawing.Point(735, 10);
-            this.MemberExpiryDate.Margin = new System.Windows.Forms.Padding(10);
+            this.MemberExpiryDate.Location = new System.Drawing.Point(982, 12);
+            this.MemberExpiryDate.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.MemberExpiryDate.Name = "MemberExpiryDate";
-            this.MemberExpiryDate.Size = new System.Drawing.Size(75, 15);
+            this.MemberExpiryDate.Size = new System.Drawing.Size(95, 18);
             this.MemberExpiryDate.TabIndex = 7;
             this.MemberExpiryDate.Text = "EXPIRY DATE";
             // 
@@ -155,10 +158,10 @@
             this.MemberType.BackColor = System.Drawing.Color.Transparent;
             this.MemberType.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.MemberType.Location = new System.Drawing.Point(518, 10);
-            this.MemberType.Margin = new System.Windows.Forms.Padding(10);
+            this.MemberType.Location = new System.Drawing.Point(691, 12);
+            this.MemberType.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.MemberType.Name = "MemberType";
-            this.MemberType.Size = new System.Drawing.Size(30, 15);
+            this.MemberType.Size = new System.Drawing.Size(39, 18);
             this.MemberType.TabIndex = 5;
             this.MemberType.Text = "TYPE";
             // 
@@ -168,10 +171,10 @@
             this.MemberPhone.BackColor = System.Drawing.Color.Transparent;
             this.MemberPhone.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.MemberPhone.Location = new System.Drawing.Point(409, 10);
-            this.MemberPhone.Margin = new System.Windows.Forms.Padding(10);
+            this.MemberPhone.Location = new System.Drawing.Point(546, 12);
+            this.MemberPhone.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.MemberPhone.Name = "MemberPhone";
-            this.MemberPhone.Size = new System.Drawing.Size(39, 15);
+            this.MemberPhone.Size = new System.Drawing.Size(54, 18);
             this.MemberPhone.TabIndex = 4;
             this.MemberPhone.Text = "PHONE";
             // 
@@ -181,10 +184,10 @@
             this.MemberEmail.BackColor = System.Drawing.Color.Transparent;
             this.MemberEmail.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.MemberEmail.Location = new System.Drawing.Point(255, 10);
-            this.MemberEmail.Margin = new System.Windows.Forms.Padding(10);
+            this.MemberEmail.Location = new System.Drawing.Point(340, 12);
+            this.MemberEmail.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.MemberEmail.Name = "MemberEmail";
-            this.MemberEmail.Size = new System.Drawing.Size(38, 14);
+            this.MemberEmail.Size = new System.Drawing.Size(49, 18);
             this.MemberEmail.TabIndex = 3;
             this.MemberEmail.Text = "EMAIL";
             // 
@@ -194,10 +197,10 @@
             this.MemberName.BackColor = System.Drawing.Color.Transparent;
             this.MemberName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.MemberName.Location = new System.Drawing.Point(101, 10);
-            this.MemberName.Margin = new System.Windows.Forms.Padding(10);
+            this.MemberName.Location = new System.Drawing.Point(134, 12);
+            this.MemberName.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.MemberName.Name = "MemberName";
-            this.MemberName.Size = new System.Drawing.Size(34, 14);
+            this.MemberName.Size = new System.Drawing.Size(45, 18);
             this.MemberName.TabIndex = 2;
             this.MemberName.Text = "NAME";
             // 
@@ -207,27 +210,21 @@
             this.MemberID.BackColor = System.Drawing.Color.Transparent;
             this.MemberID.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.MemberID.Location = new System.Drawing.Point(10, 10);
-            this.MemberID.Margin = new System.Windows.Forms.Padding(10);
+            this.MemberID.Location = new System.Drawing.Point(13, 12);
+            this.MemberID.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.MemberID.Name = "MemberID";
-            this.MemberID.Size = new System.Drawing.Size(16, 14);
+            this.MemberID.Size = new System.Drawing.Size(20, 18);
             this.MemberID.TabIndex = 1;
             this.MemberID.Text = "ID";
             // 
-            // guna2BorderlessForm1
-            // 
-            this.guna2BorderlessForm1.BorderRadius = 8;
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
             // UC_MemberRow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.PanelBG);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UC_MemberRow";
-            this.Size = new System.Drawing.Size(911, 34);
+            this.Size = new System.Drawing.Size(1215, 42);
             this.PanelBG.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -251,6 +248,5 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel MemberEmail;
         private Guna.UI2.WinForms.Guna2HtmlLabel MemberName;
         private Guna.UI2.WinForms.Guna2HtmlLabel MemberID;
-        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
     }
 }

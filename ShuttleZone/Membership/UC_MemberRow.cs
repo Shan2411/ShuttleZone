@@ -48,5 +48,10 @@ namespace ShuttleZone.Membership
         {
             EditClicked?.Invoke(this, EventArgs.Empty);
         }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

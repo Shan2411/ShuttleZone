@@ -1,11 +1,11 @@
-﻿    using ShuttleZone.Dashboard1;
-    using ShuttleZone.Maintenance_Logs;
-    using ShuttleZone.sidebars;
-    using System;
-    using System.Drawing;
-    using System.Web.Security;
-    using System.Windows.Forms;
-    using ShuttleZone.UserManagement;
+﻿using ShuttleZone.Dashboard1;
+using ShuttleZone.Maintenance_Logs;
+using ShuttleZone.sidebars;
+using System;
+using System.Drawing;
+using System.Web.Security;
+using System.Windows.Forms;
+using ShuttleZone.UserManagement;
 using ShuttleZone.topbar;
 
 
@@ -51,10 +51,10 @@ namespace ShuttleZone
         {
             DynamicContentPanel.Controls.Clear();
 
-            ShuttleZone.UserManagement.ucUserManagement userManagement = new ShuttleZone.UserManagement.ucUserManagement();
-            userManagement.Dock = DockStyle.Fill;
+            ShuttleZone.UserManagement.UC_UserManagement UserManagement = new UC_UserManagement();
+            UserManagement.Dock = DockStyle.Fill;
 
-            DynamicContentPanel.Controls.Add(userManagement);
+            DynamicContentPanel.Controls.Add(UserManagement);
         }
 
         private void FacilityBtn_Click(object sender, EventArgs e)

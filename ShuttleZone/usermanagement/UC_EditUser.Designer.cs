@@ -1,9 +1,6 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace ShuttleZone.UserManagement
+﻿namespace ShuttleZone.UserManagement
 {
-    partial class UC_NewAddUser
+    partial class UC_EditUser
     {
         /// <summary> 
         /// Required designer variable.
@@ -35,15 +32,14 @@ namespace ShuttleZone.UserManagement
             this.BottomPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.BottomtableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.CreateButton = new Guna.UI2.WinForms.Guna2Button();
+            this.ConfirmEdit = new Guna.UI2.WinForms.Guna2Button();
             this.CancelButton = new Guna.UI2.WinForms.Guna2Button();
             this.PanelHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.HeadertableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.CloseButton = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.Usernamelabel = new System.Windows.Forms.Label();
-            this.AddNewUserlabel = new System.Windows.Forms.Label();
+            this.EditUser = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.BodytableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
@@ -128,8 +124,7 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(722, 692);
-            this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // BottomPanel
             // 
@@ -165,7 +160,7 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.12374F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.87626F));
-            this.tableLayoutPanel2.Controls.Add(this.CreateButton, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ConfirmEdit, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.CancelButton, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(447, 13);
@@ -175,23 +170,22 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel2.Size = new System.Drawing.Size(262, 34);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // CreateButton
+            // ConfirmEdit
             // 
-            this.CreateButton.BorderRadius = 8;
-            this.CreateButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.CreateButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.CreateButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.CreateButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.CreateButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CreateButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(58)))), ((int)(((byte)(237)))));
-            this.CreateButton.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CreateButton.ForeColor = System.Drawing.Color.White;
-            this.CreateButton.Location = new System.Drawing.Point(100, 3);
-            this.CreateButton.Name = "CreateButton";
-            this.CreateButton.Size = new System.Drawing.Size(159, 28);
-            this.CreateButton.TabIndex = 2;
-            this.CreateButton.Text = "+ Create User";
-            this.CreateButton.Click += new System.EventHandler(this.CreateButton_Click);
+            this.ConfirmEdit.BorderRadius = 8;
+            this.ConfirmEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ConfirmEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ConfirmEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ConfirmEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ConfirmEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ConfirmEdit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(58)))), ((int)(((byte)(237)))));
+            this.ConfirmEdit.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmEdit.ForeColor = System.Drawing.Color.White;
+            this.ConfirmEdit.Location = new System.Drawing.Point(100, 3);
+            this.ConfirmEdit.Name = "ConfirmEdit";
+            this.ConfirmEdit.Size = new System.Drawing.Size(159, 28);
+            this.ConfirmEdit.TabIndex = 2;
+            this.ConfirmEdit.Text = "Confirm Edit";
             // 
             // CancelButton
             // 
@@ -211,7 +205,6 @@ namespace ShuttleZone.UserManagement
             this.CancelButton.Size = new System.Drawing.Size(84, 28);
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Clear";
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // PanelHeader
             // 
@@ -278,8 +271,7 @@ namespace ShuttleZone.UserManagement
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Controls.Add(this.Usernamelabel, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.AddNewUserlabel, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.EditUser, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(54, 0);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
@@ -290,29 +282,18 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel7.Size = new System.Drawing.Size(604, 56);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
-            // Usernamelabel
+            // EditUser
             // 
-            this.Usernamelabel.AutoSize = true;
-            this.Usernamelabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Usernamelabel.ForeColor = System.Drawing.Color.White;
-            this.Usernamelabel.Location = new System.Drawing.Point(5, 37);
-            this.Usernamelabel.Margin = new System.Windows.Forms.Padding(5);
-            this.Usernamelabel.Name = "Usernamelabel";
-            this.Usernamelabel.Size = new System.Drawing.Size(594, 14);
-            this.Usernamelabel.TabIndex = 5;
-            this.Usernamelabel.Text = "Add a new user to the system";
-            // 
-            // AddNewUserlabel
-            // 
-            this.AddNewUserlabel.AutoSize = true;
-            this.AddNewUserlabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddNewUserlabel.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNewUserlabel.ForeColor = System.Drawing.Color.White;
-            this.AddNewUserlabel.Location = new System.Drawing.Point(3, 0);
-            this.AddNewUserlabel.Name = "AddNewUserlabel";
-            this.AddNewUserlabel.Size = new System.Drawing.Size(598, 32);
-            this.AddNewUserlabel.TabIndex = 4;
-            this.AddNewUserlabel.Text = "Create New User";
+            this.EditUser.AutoSize = true;
+            this.EditUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EditUser.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditUser.ForeColor = System.Drawing.Color.White;
+            this.EditUser.Location = new System.Drawing.Point(3, 0);
+            this.EditUser.Name = "EditUser";
+            this.EditUser.Size = new System.Drawing.Size(598, 32);
+            this.EditUser.TabIndex = 4;
+            this.EditUser.Text = "Edit User";
+            this.EditUser.Click += new System.EventHandler(this.EditUser_Click);
             // 
             // guna2Panel4
             // 
@@ -441,7 +422,6 @@ namespace ShuttleZone.UserManagement
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(327, 36);
             this.cmbRole.TabIndex = 1;
-            this.cmbRole.SelectedIndexChanged += new System.EventHandler(this.cmbRole_SelectedIndexChanged);
             // 
             // tableLayoutPanel15
             // 
@@ -478,7 +458,6 @@ namespace ShuttleZone.UserManagement
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(329, 36);
             this.cmbStatus.TabIndex = 2;
-            this.cmbStatus.SelectedIndexChanged += new System.EventHandler(this.cmbStatus_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -576,8 +555,6 @@ namespace ShuttleZone.UserManagement
             this.txtConfirmPassword.SelectedText = "";
             this.txtConfirmPassword.Size = new System.Drawing.Size(329, 42);
             this.txtConfirmPassword.TabIndex = 3;
-            this.txtConfirmPassword.IconRightClick += new System.EventHandler(this.txtConfirmPassword_IconRightClick);
-            this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtConfirmPassword_TextChanged);
             // 
             // label11
             // 
@@ -604,7 +581,6 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel13.Size = new System.Drawing.Size(338, 70);
             this.tableLayoutPanel13.TabIndex = 8;
-            this.tableLayoutPanel13.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel13_Paint);
             // 
             // txtPassword
             // 
@@ -628,8 +604,6 @@ namespace ShuttleZone.UserManagement
             this.txtPassword.SelectedText = "";
             this.txtPassword.Size = new System.Drawing.Size(327, 42);
             this.txtPassword.TabIndex = 3;
-            this.txtPassword.IconRightClick += new System.EventHandler(this.txtPassword_IconRightClick);
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // guna2Panel5
             // 
@@ -649,9 +623,9 @@ namespace ShuttleZone.UserManagement
             this.label6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 17);
+            this.label6.Size = new System.Drawing.Size(116, 17);
             this.label6.TabIndex = 1;
-            this.label6.Text = "Password";
+            this.label6.Text = "Set New Password";
             // 
             // btnShowPassword
             // 
@@ -662,13 +636,12 @@ namespace ShuttleZone.UserManagement
             this.btnShowPassword.FillColor = System.Drawing.SystemColors.Control;
             this.btnShowPassword.Font = new System.Drawing.Font("Segoe UI", 4.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowPassword.ForeColor = System.Drawing.Color.Black;
-            this.btnShowPassword.Location = new System.Drawing.Point(288, 0);
+            this.btnShowPassword.Location = new System.Drawing.Point(257, 0);
             this.btnShowPassword.Margin = new System.Windows.Forms.Padding(0);
             this.btnShowPassword.Name = "btnShowPassword";
-            this.btnShowPassword.Size = new System.Drawing.Size(44, 14);
+            this.btnShowPassword.Size = new System.Drawing.Size(75, 14);
             this.btnShowPassword.TabIndex = 4;
             this.btnShowPassword.Text = "Show Password";
-            this.btnShowPassword.Click += new System.EventHandler(this.btnShowPassword_Click);
             // 
             // guna2Panel1
             // 
@@ -741,7 +714,6 @@ namespace ShuttleZone.UserManagement
             this.txtPhone.SelectedText = "";
             this.txtPhone.Size = new System.Drawing.Size(329, 42);
             this.txtPhone.TabIndex = 3;
-            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged_1);
             // 
             // label10
             // 
@@ -803,7 +775,6 @@ namespace ShuttleZone.UserManagement
             this.txtEmail.SelectedText = "";
             this.txtEmail.Size = new System.Drawing.Size(327, 42);
             this.txtEmail.TabIndex = 3;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // label7
             // 
@@ -862,7 +833,6 @@ namespace ShuttleZone.UserManagement
             this.label1.Size = new System.Drawing.Size(332, 23);
             this.label1.TabIndex = 5;
             this.label1.Text = "👤 Account Information";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tableLayoutPanel8
             // 
@@ -948,7 +918,6 @@ namespace ShuttleZone.UserManagement
             this.txtFullName.SelectedText = "";
             this.txtFullName.Size = new System.Drawing.Size(329, 42);
             this.txtFullName.TabIndex = 3;
-            this.txtFullName.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // label9
             // 
@@ -961,14 +930,14 @@ namespace ShuttleZone.UserManagement
             this.label9.TabIndex = 1;
             this.label9.Text = "Full Name";
             // 
-            // UC_NewAddUser
+            // UC_EditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "UC_NewAddUser";
+            this.Name = "UC_EditUser";
             this.Size = new System.Drawing.Size(722, 692);
+            this.Load += new System.EventHandler(this.UC_EditUser_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.BottomPanel.ResumeLayout(false);
             this.BottomtableLayoutPanel.ResumeLayout(false);
@@ -1012,90 +981,59 @@ namespace ShuttleZone.UserManagement
 
         }
 
-        private void txtEmail_TextChanged(object sender, EventArgs e) { }
-
-        private void label1_Click(object sender, EventArgs e) { }
-
-        private void txtUsername_TextChanged(object sender, EventArgs e) { }
-
-        private void txtFullName_TextChanged(object sender, EventArgs e) { }
-
-        private void txtPhone_TextChanged_1(object sender, EventArgs e) { }
-
-        private void btnShowPassword_Click(object sender, EventArgs e) { }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e) { }
-
-        private void txtPassword_IconRightClick(object sender, EventArgs e) { }
-
-        private void txtConfirmPassword_TextChanged(object sender, EventArgs e) { }
-
-        private void txtConfirmPassword_IconRightClick(object sender, EventArgs e) { }
-
-        private void tableLayoutPanel13_Paint(object sender, PaintEventArgs e) { }
-
-        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e) { }
-
-        private void cmbRole_SelectedIndexChanged(object sender, EventArgs e) { }
-
-        private void CloseButton_Click(object sender, EventArgs e) { this.ParentForm?.Close(); }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) { }
-
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Guna.UI2.WinForms.Guna2Panel PanelHeader;
         private Guna.UI2.WinForms.Guna2Panel BottomPanel;
         private System.Windows.Forms.TableLayoutPanel BottomtableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private Guna.UI2.WinForms.Guna2Button ConfirmEdit;
         private Guna.UI2.WinForms.Guna2Button CancelButton;
-        private Guna.UI2.WinForms.Guna2Button CreateButton;
-        private System.Windows.Forms.TableLayoutPanel BodytableLayoutPanel;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private Guna.UI2.WinForms.Guna2Panel AccountInfoPanel;
-        private System.Windows.Forms.TableLayoutPanel AccountInfotableLayoutPanel;
+        private Guna.UI2.WinForms.Guna2Panel PanelHeader;
         private System.Windows.Forms.TableLayoutPanel HeadertableLayoutPanel;
         private Guna.UI2.WinForms.Guna2Button CloseButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.Label AddNewUserlabel;
-        private System.Windows.Forms.Label Usernamelabel;
+        private System.Windows.Forms.Label EditUser;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private System.Windows.Forms.TableLayoutPanel BodytableLayoutPanel;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2ComboBox cmbRole;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
         private Guna.UI2.WinForms.Guna2ComboBox cmbStatus;
+        private System.Windows.Forms.Label label12;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private Guna.UI2.WinForms.Guna2TextBox txtConfirmPassword;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
-        private Guna.UI2.WinForms.Guna2TextBox txtPhone;
-        private Guna.UI2.WinForms.Guna2TextBox txtEmail;
-        private Guna.UI2.WinForms.Guna2TextBox txtUsername;
-        private Guna.UI2.WinForms.Guna2TextBox txtFullName;
-        private Guna.UI2.WinForms.Guna2Button btnShowPassword;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
+        private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2Button btnShowPassword;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private Guna.UI2.WinForms.Guna2TextBox txtPhone;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private Guna.UI2.WinForms.Guna2TextBox txtEmail;
+        private System.Windows.Forms.Label label7;
+        private Guna.UI2.WinForms.Guna2Panel AccountInfoPanel;
+        private System.Windows.Forms.TableLayoutPanel AccountInfotableLayoutPanel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.Label label8;
+        private Guna.UI2.WinForms.Guna2TextBox txtUsername;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private Guna.UI2.WinForms.Guna2TextBox txtFullName;
+        private System.Windows.Forms.Label label9;
     }
 }

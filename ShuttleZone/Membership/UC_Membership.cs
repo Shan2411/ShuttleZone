@@ -119,5 +119,10 @@ namespace ShuttleZone
                 row.Visible = matchesSearch && matchesArchiveState;
             }
         }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
