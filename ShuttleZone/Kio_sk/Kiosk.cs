@@ -33,6 +33,8 @@ namespace ShuttleZone
             btnCloseKiosk.Click += BtnCloseKiosk_Click;
             btnKioskApply.Click += BtnKioskApply_Click;
             btnKioskRemoveDiscount.Click += BtnKioskRemoveDiscount_Click;
+            btnKioskCashPayment.Click += BtnKioskCashPayment_Click;
+            btnKioskEcashPayment.Click += BtnKioskEcashPayment_Click;
         }
 
         private void Kiosk_Load(object sender, EventArgs e)
@@ -268,13 +270,54 @@ namespace ShuttleZone
 
         private void UpdateTotals()
         {
-            decimal subtotal = cartItems.Sum(item => item.Price * item.Qty);
-            decimal discountAmount = subtotal * appliedDiscountPercent;
+            decimal subtotal = GetSubtotal();
+            decimal discountAmount = GetDiscountAmount(subtotal);
             decimal total = subtotal - discountAmount;
 
             lblKioskSubtotal.Text = $"₱{subtotal}";
             lblKioskDiscount.Text = $"₱{discountAmount}";
             lblKioskTotal.Text = $"₱{total}";
+        }
+
+        private decimal GetSubtotal()
+        {
+            return cartItems.Sum(item => item.Price * item.Qty);
+        }
+
+        private decimal GetDiscountAmount(decimal subtotal)
+        {
+            return subtotal * appliedDiscountPercent;
+        }
+
+        private void BtnKioskCashPayment_Click(object sender, EventArgs e)
+        {
+            decimal subtotal = GetSubtotal();
+            decimal total = subtotal - GetDiscountAmount(subtotal);
+
+            var stub = new Stub(new List<CartItem>(cartItems), subtotal, total, DateTime.Now);
+            stub.ShowDialog(this);
+        }
+
+        private void BtnKioskEcashPayment_Click(object sender, EventArgs e)
+        {
+            decimal subtotal = GetSubtotal();
+            decimal total = subtotal - GetDiscountAmount(subtotal);
+
+            var ecash = new EcashQR(total);
+            ecash.PaymentCompleted += (s, args) => ShowReceipt(total);
+            ecash.ShowDialog(this);
+        }
+
+        private void ShowReceipt(decimal amountReceived)
+        {
+            int courtHours = cartItems.FirstOrDefault(c => c.Name.Contains("Court"))?.Qty ?? 0;
+            var receiptForm = new ReceiptForm(
+                new List<CartItem>(cartItems),
+                amountReceived,
+                "E-Cash",
+                DateTime.Now,
+                courtHours);
+            receiptForm.Show();
         }
 
         private decimal ParsePrice(string value)

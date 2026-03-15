@@ -1,12 +1,14 @@
-﻿using ShuttleZone.Dashboard1;
-using ShuttleZone.Maintenance_Logs;
-using ShuttleZone.sidebars;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Web.Security;
 using System.Windows.Forms;
-using ShuttleZone.UserManagement;
-using ShuttleZone.topbar;
+
+    using ShuttleZone.Dashboard1;
+    using ShuttleZone.Maintenance_Logs;
+    using ShuttleZone.sidebars;
+    using ShuttleZone.SystemSettings;
+    using ShuttleZone.topbar;
+    using ShuttleZone.UserManagement;
 
 
 namespace ShuttleZone
@@ -18,10 +20,12 @@ namespace ShuttleZone
                 InitializeComponent();
 
                 this.Load += Form1_Load;
-            
+
             //AdminSidebar adminSidebarUC = new AdminSidebar();
             //SidebarDynamicPanel.Controls.Clear();
             //SidebarDynamicPanel.Controls.Add(adminSidebarUC);
+            var date = DateTime.Now;
+            DateLbl.Text = date.ToString("dddd, MMMM dd, yyyy");
         }
 
             private void Form1_Load(object sender, EventArgs e)
@@ -35,16 +39,6 @@ namespace ShuttleZone
             private void HistoryBtn_Click(object sender, EventArgs e)
             {
             DynamicContentPanel.Controls.Clear();
-        }
-
-            private void EquipmentBtn_Click(object sender, EventArgs e)
-            {
-          
-        
-            DynamicContentPanel.Controls.Clear();
-            Equipment_and_Inventory.Equipment equipmentWindowUC = new Equipment_and_Inventory.Equipment();
-            DynamicContentPanel.Controls.Add(equipmentWindowUC);
-            equipmentWindowUC.Dock = DockStyle.Fill;
         }
 
         private void UsersBtn_Click(object sender, EventArgs e)
@@ -62,18 +56,38 @@ namespace ShuttleZone
             DynamicContentPanel.Controls.Clear();
         }
 
-
-            private void DashboardBtn_Click(object sender, EventArgs e)
-            {
+        //DASHBOARD BUTTON CLICKS
+        private void AdminDashboardBtn_Click(object sender, EventArgs e)
+        {
               
-                DynamicContentPanel.Controls.Clear();
+            DynamicContentPanel.Controls.Clear();
             
-                Dashboard1.AdminDashboard ucDashboard = new Dashboard1.AdminDashboard();
-                DynamicContentPanel.Controls.Add(ucDashboard);
-                ucDashboard.Dock = DockStyle.Fill;
-            }
+            Dashboard1.AdminDashboard ucDashboard = new Dashboard1.AdminDashboard();
+            DynamicContentPanel.Controls.Add(ucDashboard);
+            ucDashboard.Dock = DockStyle.Fill;
+        }
+        private void FrontDeskDashboardBtn_Click(object sender, EventArgs e)
+        {
 
-            private void MembershipBtn_Click(object sender, EventArgs e)
+            DynamicContentPanel.Controls.Clear();
+
+            Dashboard1.FrontDeskDashboard ucDashboard = new Dashboard1.FrontDeskDashboard();
+            DynamicContentPanel.Controls.Add(ucDashboard);
+            ucDashboard.Dock = DockStyle.Fill;
+        }
+        private void ManagerDashboardBtn_Click(object sender, EventArgs e)
+        {
+
+            DynamicContentPanel.Controls.Clear();  
+            Dashboard1.ManagerDashboard ucDashboard = new Dashboard1.ManagerDashboard();
+            DynamicContentPanel.Controls.Add(ucDashboard);
+            ucDashboard.Dock = DockStyle.Fill;
+        }
+
+        //
+
+
+        private void MembershipBtn_Click(object sender, EventArgs e)
             {
            
                 //logic for changing pages on dynamic panel
@@ -101,14 +115,22 @@ namespace ShuttleZone
 
             private void InventoryBtn_Click(object sender, EventArgs e)
             {
-     
                 DynamicContentPanel.Controls.Clear();
+                Equipment_and_Inventory.Equipment equipmentWindowUC = new Equipment_and_Inventory.Equipment();
+                DynamicContentPanel.Controls.Add(equipmentWindowUC);
+                equipmentWindowUC.Dock = DockStyle.Fill;
+        }
 
+            private void SettingsBtn_Click(object sender, EventArgs e)
+            {
+                DynamicContentPanel.Controls.Clear();
+                UC_SystemsSettings ucSettings = new UC_SystemsSettings();
+                ucSettings.Dock = DockStyle.Fill;
 
+                DynamicContentPanel.Controls.Add(ucSettings);
+        }
 
-            }
-
-            private void KioskBtn_Click(object sender, EventArgs e)
+        private void KioskBtn_Click(object sender, EventArgs e)
             {
                 DynamicContentPanel.Controls.Clear();
                 UC_Kiosk kioskUC = new UC_Kiosk();
@@ -149,7 +171,7 @@ namespace ShuttleZone
             managerSidebarUC.Dock = DockStyle.Fill;
 
             
-            managerSidebarUC.DashboardBtnClicked += DashboardBtn_Click;
+            managerSidebarUC.ManagerDashboardBtnClicked += ManagerDashboardBtn_Click;
             managerSidebarUC.MembershipBtnClicked += MembershipBtn_Click;
             managerSidebarUC.InventoryBtnClicked += InventoryBtn_Click;
             managerSidebarUC.FacilityBtnClicked += FacilityBtn_Click;
@@ -174,7 +196,7 @@ namespace ShuttleZone
             AdminSidebar adminSidebarUC = new AdminSidebar();
             adminSidebarUC.Dock = DockStyle.Fill;
 
-            adminSidebarUC.DashboardBtnClicked += DashboardBtn_Click;
+            adminSidebarUC.AdminDashboardBtnClicked += AdminDashboardBtn_Click;
             adminSidebarUC.ReportsBtnClicked += ReportsBtn_Click;
             adminSidebarUC.UsersBtnClicked += UsersBtn_Click;
             SidebarDynamicPanel.Controls.Add(adminSidebarUC);
@@ -182,6 +204,7 @@ namespace ShuttleZone
             adminTopbarUC.AdminBtnClicked += AdminBtn_Click;
             adminTopbarUC.ManagerBtnClicked += ManagerBtn_Click;
             adminTopbarUC.FrontDeskBtnClicked += FrontDeskBtn_Click;
+            adminTopbarUC.SettingsBtnClicked += SettingsBtn_Click;
         }
 
         private void FrontDeskBtn_Click(object sender, EventArgs e)
@@ -196,7 +219,7 @@ namespace ShuttleZone
             FrontDeskSidebar frontDeskSidebarUC = new FrontDeskSidebar();
             frontDeskSidebarUC.Dock = DockStyle.Fill;
 
-            frontDeskSidebarUC.DashboardBtnClicked += DashboardBtn_Click;
+            frontDeskSidebarUC.FrontDeskDashboardBtnClicked += FrontDeskDashboardBtn_Click;
             frontDeskSidebarUC.POSBtnClicked += POSBtn_Click;
             frontDeskSidebarUC.MembershipBtnClicked += MembershipBtn_Click;
             frontDeskSidebarUC.HistoryBtnClicked += HistoryBtn_Click;
@@ -215,6 +238,11 @@ namespace ShuttleZone
         private void Topbar_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void DateLbl_Click(object sender, EventArgs e)
+        {
+           
         }
     }
     }

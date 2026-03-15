@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MFTopbar));
             this.Topbar = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.DateLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.ExitBtn = new Guna.UI2.WinForms.Guna2PictureBox();
             this.DevTestMode = new System.Windows.Forms.TableLayoutPanel();
             this.FrontDeskBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ManagerBtn = new Guna.UI2.WinForms.Guna2Button();
             this.AdminBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ToggleModeBtn = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.ExitBtn = new Guna.UI2.WinForms.Guna2PictureBox();
             this.Topbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ExitBtn)).BeginInit();
             this.DevTestMode.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ToggleModeBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ExitBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // Topbar
@@ -53,7 +53,7 @@
             this.Topbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
             this.Topbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.Topbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.Topbar.Controls.Add(this.guna2HtmlLabel3, 2, 0);
+            this.Topbar.Controls.Add(this.DateLbl, 2, 0);
             this.Topbar.Controls.Add(this.ExitBtn, 0, 0);
             this.Topbar.Controls.Add(this.DevTestMode, 1, 0);
             this.Topbar.Controls.Add(this.ToggleModeBtn, 5, 0);
@@ -66,19 +66,34 @@
             this.Topbar.Size = new System.Drawing.Size(939, 30);
             this.Topbar.TabIndex = 1;
             // 
-            // guna2HtmlLabel3
+            // DateLbl
             // 
-            this.guna2HtmlLabel3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(693, 6);
-            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(11, 4, 4, 4);
-            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(137, 18);
-            this.guna2HtmlLabel3.TabIndex = 5;
-            this.guna2HtmlLabel3.Text = "Thursday, Jan 22, 2026";
-            this.guna2HtmlLabel3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DateLbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.DateLbl.BackColor = System.Drawing.Color.Transparent;
+            this.DateLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateLbl.ForeColor = System.Drawing.Color.Black;
+            this.DateLbl.Location = new System.Drawing.Point(693, 6);
+            this.DateLbl.Margin = new System.Windows.Forms.Padding(11, 4, 4, 4);
+            this.DateLbl.Name = "DateLbl";
+            this.DateLbl.Size = new System.Drawing.Size(137, 18);
+            this.DateLbl.TabIndex = 5;
+            this.DateLbl.Text = "Thursday, Jan 22, 2026";
+            this.DateLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ExitBtn
+            // 
+            this.ExitBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ExitBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ExitBtn.BackgroundImage")));
+            this.ExitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ExitBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ExitBtn.ImageRotate = 0F;
+            this.ExitBtn.Location = new System.Drawing.Point(15, 7);
+            this.ExitBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ExitBtn.Name = "ExitBtn";
+            this.ExitBtn.Size = new System.Drawing.Size(15, 16);
+            this.ExitBtn.TabIndex = 0;
+            this.ExitBtn.TabStop = false;
+            this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
             // DevTestMode
             // 
@@ -159,21 +174,6 @@
             this.ToggleModeBtn.TabIndex = 3;
             this.ToggleModeBtn.TabStop = false;
             // 
-            // ExitBtn
-            // 
-            this.ExitBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ExitBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ExitBtn.BackgroundImage")));
-            this.ExitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ExitBtn.FillColor = System.Drawing.Color.Transparent;
-            this.ExitBtn.ImageRotate = 0F;
-            this.ExitBtn.Location = new System.Drawing.Point(15, 7);
-            this.ExitBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ExitBtn.Name = "ExitBtn";
-            this.ExitBtn.Size = new System.Drawing.Size(15, 16);
-            this.ExitBtn.TabIndex = 0;
-            this.ExitBtn.TabStop = false;
-            this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
-            // 
             // MFTopbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,9 +184,9 @@
             this.Size = new System.Drawing.Size(939, 30);
             this.Topbar.ResumeLayout(false);
             this.Topbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ExitBtn)).EndInit();
             this.DevTestMode.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ToggleModeBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ExitBtn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -194,7 +194,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel Topbar;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel DateLbl;
         private Guna.UI2.WinForms.Guna2PictureBox ToggleModeBtn;
         private Guna.UI2.WinForms.Guna2PictureBox ExitBtn;
         private System.Windows.Forms.TableLayoutPanel DevTestMode;

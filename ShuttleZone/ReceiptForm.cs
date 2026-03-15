@@ -23,6 +23,8 @@ namespace ShuttleZone
         {
             InitializeComponent();
 
+            TopMost = true;
+
             _cartItems = cartItems;
             _amountReceived = amountReceived;
             _paymentMethod = paymentMethod;

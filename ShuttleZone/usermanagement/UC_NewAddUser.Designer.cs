@@ -121,13 +121,13 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel1.Controls.Add(this.BodytableLayoutPanel, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(8);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(722, 692);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(723, 692);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -141,7 +141,7 @@ namespace ShuttleZone.UserManagement
             this.BottomPanel.Location = new System.Drawing.Point(0, 632);
             this.BottomPanel.Margin = new System.Windows.Forms.Padding(0);
             this.BottomPanel.Name = "BottomPanel";
-            this.BottomPanel.Size = new System.Drawing.Size(722, 60);
+            this.BottomPanel.Size = new System.Drawing.Size(723, 60);
             this.BottomPanel.TabIndex = 2;
             // 
             // BottomtableLayoutPanel
@@ -153,11 +153,12 @@ namespace ShuttleZone.UserManagement
             this.BottomtableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.BottomtableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BottomtableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.BottomtableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BottomtableLayoutPanel.Name = "BottomtableLayoutPanel";
-            this.BottomtableLayoutPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.BottomtableLayoutPanel.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
             this.BottomtableLayoutPanel.RowCount = 1;
             this.BottomtableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.BottomtableLayoutPanel.Size = new System.Drawing.Size(722, 60);
+            this.BottomtableLayoutPanel.Size = new System.Drawing.Size(723, 60);
             this.BottomtableLayoutPanel.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -168,11 +169,12 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel2.Controls.Add(this.CreateButton, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.CancelButton, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(447, 13);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(447, 12);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(262, 34);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(262, 36);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // CreateButton
@@ -186,9 +188,10 @@ namespace ShuttleZone.UserManagement
             this.CreateButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(58)))), ((int)(((byte)(237)))));
             this.CreateButton.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateButton.ForeColor = System.Drawing.Color.White;
-            this.CreateButton.Location = new System.Drawing.Point(100, 3);
+            this.CreateButton.Location = new System.Drawing.Point(100, 2);
+            this.CreateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CreateButton.Name = "CreateButton";
-            this.CreateButton.Size = new System.Drawing.Size(159, 28);
+            this.CreateButton.Size = new System.Drawing.Size(159, 32);
             this.CreateButton.TabIndex = 2;
             this.CreateButton.Text = "+ Create User";
             this.CreateButton.Click += new System.EventHandler(this.CreateButton_Click);
@@ -205,10 +208,10 @@ namespace ShuttleZone.UserManagement
             this.CancelButton.FillColor = System.Drawing.Color.White;
             this.CancelButton.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelButton.ForeColor = System.Drawing.Color.Black;
-            this.CancelButton.Location = new System.Drawing.Point(3, 3);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.CancelButton.Location = new System.Drawing.Point(3, 2);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 11, 2);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(84, 28);
+            this.CancelButton.Size = new System.Drawing.Size(83, 32);
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Clear";
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
@@ -221,7 +224,7 @@ namespace ShuttleZone.UserManagement
             this.PanelHeader.Location = new System.Drawing.Point(0, 0);
             this.PanelHeader.Margin = new System.Windows.Forms.Padding(0);
             this.PanelHeader.Name = "PanelHeader";
-            this.PanelHeader.Size = new System.Drawing.Size(722, 60);
+            this.PanelHeader.Size = new System.Drawing.Size(723, 60);
             this.PanelHeader.TabIndex = 0;
             // 
             // HeadertableLayoutPanel
@@ -233,11 +236,12 @@ namespace ShuttleZone.UserManagement
             this.HeadertableLayoutPanel.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.HeadertableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HeadertableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.HeadertableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.HeadertableLayoutPanel.Name = "HeadertableLayoutPanel";
-            this.HeadertableLayoutPanel.Padding = new System.Windows.Forms.Padding(2);
+            this.HeadertableLayoutPanel.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.HeadertableLayoutPanel.RowCount = 1;
             this.HeadertableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.HeadertableLayoutPanel.Size = new System.Drawing.Size(722, 60);
+            this.HeadertableLayoutPanel.Size = new System.Drawing.Size(723, 60);
             this.HeadertableLayoutPanel.TabIndex = 0;
             // 
             // CloseButton
@@ -250,10 +254,10 @@ namespace ShuttleZone.UserManagement
             this.CloseButton.FillColor = System.Drawing.Color.Transparent;
             this.CloseButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CloseButton.ForeColor = System.Drawing.Color.White;
-            this.CloseButton.Location = new System.Drawing.Point(666, 8);
-            this.CloseButton.Margin = new System.Windows.Forms.Padding(6);
+            this.CloseButton.Location = new System.Drawing.Point(665, 8);
+            this.CloseButton.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(48, 44);
+            this.CloseButton.Size = new System.Drawing.Size(50, 44);
             this.CloseButton.TabIndex = 3;
             this.CloseButton.Text = "✕";
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
@@ -266,12 +270,12 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.guna2Panel4, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(658, 56);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(657, 56);
             this.tableLayoutPanel6.TabIndex = 4;
             // 
             // tableLayoutPanel7
@@ -287,7 +291,7 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(604, 56);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(603, 56);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // Usernamelabel
@@ -296,9 +300,9 @@ namespace ShuttleZone.UserManagement
             this.Usernamelabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Usernamelabel.ForeColor = System.Drawing.Color.White;
             this.Usernamelabel.Location = new System.Drawing.Point(5, 37);
-            this.Usernamelabel.Margin = new System.Windows.Forms.Padding(5);
+            this.Usernamelabel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Usernamelabel.Name = "Usernamelabel";
-            this.Usernamelabel.Size = new System.Drawing.Size(594, 14);
+            this.Usernamelabel.Size = new System.Drawing.Size(593, 14);
             this.Usernamelabel.TabIndex = 5;
             this.Usernamelabel.Text = "Add a new user to the system";
             // 
@@ -310,7 +314,7 @@ namespace ShuttleZone.UserManagement
             this.AddNewUserlabel.ForeColor = System.Drawing.Color.White;
             this.AddNewUserlabel.Location = new System.Drawing.Point(3, 0);
             this.AddNewUserlabel.Name = "AddNewUserlabel";
-            this.AddNewUserlabel.Size = new System.Drawing.Size(598, 32);
+            this.AddNewUserlabel.Size = new System.Drawing.Size(597, 32);
             this.AddNewUserlabel.TabIndex = 4;
             this.AddNewUserlabel.Text = "Create New User";
             // 
@@ -323,7 +327,7 @@ namespace ShuttleZone.UserManagement
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
             this.guna2Panel4.Location = new System.Drawing.Point(7, 7);
-            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(7);
+            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(58)))), ((int)(((byte)(237)))));
             this.guna2Panel4.ShadowDecoration.Enabled = true;
@@ -348,7 +352,7 @@ namespace ShuttleZone.UserManagement
             this.BodytableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.BodytableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.BodytableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.BodytableLayoutPanel.Size = new System.Drawing.Size(716, 558);
+            this.BodytableLayoutPanel.Size = new System.Drawing.Size(717, 558);
             this.BodytableLayoutPanel.TabIndex = 3;
             // 
             // guna2Panel3
@@ -361,12 +365,12 @@ namespace ShuttleZone.UserManagement
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel3.Location = new System.Drawing.Point(7, 424);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(7);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Padding = new System.Windows.Forms.Padding(7);
+            this.guna2Panel3.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.guna2Panel3.ShadowDecoration.Color = System.Drawing.Color.Transparent;
             this.guna2Panel3.ShadowDecoration.Enabled = true;
-            this.guna2Panel3.Size = new System.Drawing.Size(702, 127);
+            this.guna2Panel3.Size = new System.Drawing.Size(703, 127);
             this.guna2Panel3.TabIndex = 5;
             // 
             // tableLayoutPanel5
@@ -379,11 +383,12 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel15, 1, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(7, 7);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(688, 113);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(689, 113);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // label4
@@ -392,10 +397,10 @@ namespace ShuttleZone.UserManagement
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(6, 6);
-            this.label4.Margin = new System.Windows.Forms.Padding(6);
+            this.label4.Location = new System.Drawing.Point(5, 6);
+            this.label4.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(332, 23);
+            this.label4.Size = new System.Drawing.Size(334, 22);
             this.label4.TabIndex = 5;
             this.label4.Text = "🛡 Role && Permissions";
             // 
@@ -406,12 +411,13 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel14.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel14.Controls.Add(this.cmbRole, 0, 1);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 38);
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 36);
+            this.tableLayoutPanel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
             this.tableLayoutPanel14.RowCount = 2;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(338, 72);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(338, 75);
             this.tableLayoutPanel14.TabIndex = 7;
             // 
             // label5
@@ -436,8 +442,8 @@ namespace ShuttleZone.UserManagement
             this.cmbRole.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbRole.ItemHeight = 30;
-            this.cmbRole.Location = new System.Drawing.Point(3, 23);
-            this.cmbRole.Margin = new System.Windows.Forms.Padding(3, 3, 8, 3);
+            this.cmbRole.Location = new System.Drawing.Point(3, 22);
+            this.cmbRole.Margin = new System.Windows.Forms.Padding(3, 2, 8, 2);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(327, 36);
             this.cmbRole.TabIndex = 1;
@@ -450,12 +456,13 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel15.Controls.Add(this.cmbStatus, 0, 1);
             this.tableLayoutPanel15.Controls.Add(this.label12, 0, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(347, 38);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(347, 36);
+            this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 2;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(338, 72);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(339, 75);
             this.tableLayoutPanel15.TabIndex = 8;
             // 
             // cmbStatus
@@ -473,10 +480,10 @@ namespace ShuttleZone.UserManagement
             this.cmbStatus.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
-            this.cmbStatus.Location = new System.Drawing.Point(6, 23);
-            this.cmbStatus.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+            this.cmbStatus.Location = new System.Drawing.Point(5, 22);
+            this.cmbStatus.Margin = new System.Windows.Forms.Padding(5, 2, 3, 2);
             this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(329, 36);
+            this.cmbStatus.Size = new System.Drawing.Size(331, 36);
             this.cmbStatus.TabIndex = 2;
             this.cmbStatus.SelectedIndexChanged += new System.EventHandler(this.cmbStatus_SelectedIndexChanged);
             // 
@@ -484,8 +491,8 @@ namespace ShuttleZone.UserManagement
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(6, 0);
-            this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
+            this.label12.Location = new System.Drawing.Point(5, 0);
+            this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(93, 17);
             this.label12.TabIndex = 1;
@@ -501,12 +508,12 @@ namespace ShuttleZone.UserManagement
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel2.Location = new System.Drawing.Point(7, 285);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(7);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Padding = new System.Windows.Forms.Padding(7);
+            this.guna2Panel2.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.guna2Panel2.ShadowDecoration.Color = System.Drawing.Color.Transparent;
             this.guna2Panel2.ShadowDecoration.Enabled = true;
-            this.guna2Panel2.Size = new System.Drawing.Size(702, 125);
+            this.guna2Panel2.Size = new System.Drawing.Size(703, 125);
             this.guna2Panel2.TabIndex = 4;
             // 
             // tableLayoutPanel4
@@ -519,11 +526,12 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel13, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(7, 7);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(688, 111);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(689, 111);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // label3
@@ -532,10 +540,10 @@ namespace ShuttleZone.UserManagement
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(6, 6);
-            this.label3.Margin = new System.Windows.Forms.Padding(6);
+            this.label3.Location = new System.Drawing.Point(5, 6);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(332, 23);
+            this.label3.Size = new System.Drawing.Size(334, 22);
             this.label3.TabIndex = 5;
             this.label3.Text = "🔒Security";
             // 
@@ -546,12 +554,13 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel12.Controls.Add(this.txtConfirmPassword, 0, 1);
             this.tableLayoutPanel12.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(347, 38);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(347, 36);
+            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(338, 70);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(339, 73);
             this.tableLayoutPanel12.TabIndex = 7;
             // 
             // txtConfirmPassword
@@ -568,13 +577,13 @@ namespace ShuttleZone.UserManagement
             this.txtConfirmPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtConfirmPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtConfirmPassword.Location = new System.Drawing.Point(6, 24);
-            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(6, 4, 3, 4);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(5, 24);
+            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(5, 4, 3, 4);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.PasswordChar = '●';
             this.txtConfirmPassword.PlaceholderText = "Confirm Password";
             this.txtConfirmPassword.SelectedText = "";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(329, 42);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(331, 45);
             this.txtConfirmPassword.TabIndex = 3;
             this.txtConfirmPassword.IconRightClick += new System.EventHandler(this.txtConfirmPassword_IconRightClick);
             this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtConfirmPassword_TextChanged);
@@ -583,8 +592,8 @@ namespace ShuttleZone.UserManagement
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(6, 0);
-            this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
+            this.label11.Location = new System.Drawing.Point(5, 0);
+            this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(114, 17);
             this.label11.TabIndex = 1;
@@ -597,12 +606,13 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel13.Controls.Add(this.txtPassword, 0, 1);
             this.tableLayoutPanel13.Controls.Add(this.guna2Panel5, 0, 0);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 38);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 36);
+            this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 2;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(338, 70);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(338, 73);
             this.tableLayoutPanel13.TabIndex = 8;
             this.tableLayoutPanel13.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel13_Paint);
             // 
@@ -626,7 +636,7 @@ namespace ShuttleZone.UserManagement
             this.txtPassword.PasswordChar = '●';
             this.txtPassword.PlaceholderText = "Enter Password";
             this.txtPassword.SelectedText = "";
-            this.txtPassword.Size = new System.Drawing.Size(327, 42);
+            this.txtPassword.Size = new System.Drawing.Size(327, 45);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.IconRightClick += new System.EventHandler(this.txtPassword_IconRightClick);
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
@@ -637,9 +647,10 @@ namespace ShuttleZone.UserManagement
             this.guna2Panel5.Controls.Add(this.btnShowPassword);
             this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Panel5.Location = new System.Drawing.Point(3, 3);
+            this.guna2Panel5.Location = new System.Drawing.Point(3, 2);
+            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.Size = new System.Drawing.Size(332, 14);
+            this.guna2Panel5.Size = new System.Drawing.Size(332, 16);
             this.guna2Panel5.TabIndex = 5;
             // 
             // label6
@@ -665,7 +676,7 @@ namespace ShuttleZone.UserManagement
             this.btnShowPassword.Location = new System.Drawing.Point(288, 0);
             this.btnShowPassword.Margin = new System.Windows.Forms.Padding(0);
             this.btnShowPassword.Name = "btnShowPassword";
-            this.btnShowPassword.Size = new System.Drawing.Size(44, 14);
+            this.btnShowPassword.Size = new System.Drawing.Size(44, 16);
             this.btnShowPassword.TabIndex = 4;
             this.btnShowPassword.Text = "Show Password";
             this.btnShowPassword.Click += new System.EventHandler(this.btnShowPassword_Click);
@@ -680,12 +691,12 @@ namespace ShuttleZone.UserManagement
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel1.Location = new System.Drawing.Point(7, 146);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(7);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Padding = new System.Windows.Forms.Padding(7);
+            this.guna2Panel1.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.Transparent;
             this.guna2Panel1.ShadowDecoration.Enabled = true;
-            this.guna2Panel1.Size = new System.Drawing.Size(702, 125);
+            this.guna2Panel1.Size = new System.Drawing.Size(703, 125);
             this.guna2Panel1.TabIndex = 3;
             // 
             // tableLayoutPanel3
@@ -698,11 +709,12 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel10, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(7, 7);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(688, 111);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(689, 111);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tableLayoutPanel11
@@ -712,12 +724,13 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel11.Controls.Add(this.txtPhone, 0, 1);
             this.tableLayoutPanel11.Controls.Add(this.label10, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(347, 38);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(347, 36);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(338, 70);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(339, 73);
             this.tableLayoutPanel11.TabIndex = 7;
             // 
             // txtPhone
@@ -734,12 +747,12 @@ namespace ShuttleZone.UserManagement
             this.txtPhone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPhone.Location = new System.Drawing.Point(6, 24);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(6, 4, 3, 4);
+            this.txtPhone.Location = new System.Drawing.Point(5, 24);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(5, 4, 3, 4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.PlaceholderText = "+63 XXX XXX XXXX";
             this.txtPhone.SelectedText = "";
-            this.txtPhone.Size = new System.Drawing.Size(329, 42);
+            this.txtPhone.Size = new System.Drawing.Size(331, 45);
             this.txtPhone.TabIndex = 3;
             this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged_1);
             // 
@@ -747,8 +760,8 @@ namespace ShuttleZone.UserManagement
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(6, 0);
-            this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
+            this.label10.Location = new System.Drawing.Point(5, 0);
+            this.label10.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(96, 17);
             this.label10.TabIndex = 1;
@@ -760,10 +773,10 @@ namespace ShuttleZone.UserManagement
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 6);
-            this.label2.Margin = new System.Windows.Forms.Padding(6);
+            this.label2.Location = new System.Drawing.Point(5, 6);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(332, 23);
+            this.label2.Size = new System.Drawing.Size(334, 22);
             this.label2.TabIndex = 5;
             this.label2.Text = "✉️ Contact Information";
             // 
@@ -774,12 +787,13 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel10.Controls.Add(this.txtEmail, 0, 1);
             this.tableLayoutPanel10.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 38);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 36);
+            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(338, 70);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(338, 73);
             this.tableLayoutPanel10.TabIndex = 7;
             // 
             // txtEmail
@@ -801,7 +815,7 @@ namespace ShuttleZone.UserManagement
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PlaceholderText = "email@example.com";
             this.txtEmail.SelectedText = "";
-            this.txtEmail.Size = new System.Drawing.Size(327, 42);
+            this.txtEmail.Size = new System.Drawing.Size(327, 45);
             this.txtEmail.TabIndex = 3;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
@@ -825,12 +839,12 @@ namespace ShuttleZone.UserManagement
             this.AccountInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AccountInfoPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.AccountInfoPanel.Location = new System.Drawing.Point(7, 7);
-            this.AccountInfoPanel.Margin = new System.Windows.Forms.Padding(7);
+            this.AccountInfoPanel.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.AccountInfoPanel.Name = "AccountInfoPanel";
-            this.AccountInfoPanel.Padding = new System.Windows.Forms.Padding(7);
+            this.AccountInfoPanel.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.AccountInfoPanel.ShadowDecoration.Color = System.Drawing.Color.Transparent;
             this.AccountInfoPanel.ShadowDecoration.Enabled = true;
-            this.AccountInfoPanel.Size = new System.Drawing.Size(702, 125);
+            this.AccountInfoPanel.Size = new System.Drawing.Size(703, 125);
             this.AccountInfoPanel.TabIndex = 2;
             // 
             // AccountInfotableLayoutPanel
@@ -843,11 +857,12 @@ namespace ShuttleZone.UserManagement
             this.AccountInfotableLayoutPanel.Controls.Add(this.tableLayoutPanel9, 1, 1);
             this.AccountInfotableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AccountInfotableLayoutPanel.Location = new System.Drawing.Point(7, 7);
+            this.AccountInfotableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AccountInfotableLayoutPanel.Name = "AccountInfotableLayoutPanel";
             this.AccountInfotableLayoutPanel.RowCount = 2;
-            this.AccountInfotableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.AccountInfotableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.AccountInfotableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.AccountInfotableLayoutPanel.Size = new System.Drawing.Size(688, 111);
+            this.AccountInfotableLayoutPanel.Size = new System.Drawing.Size(689, 111);
             this.AccountInfotableLayoutPanel.TabIndex = 0;
             // 
             // label1
@@ -856,10 +871,10 @@ namespace ShuttleZone.UserManagement
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(6, 6);
-            this.label1.Margin = new System.Windows.Forms.Padding(6);
+            this.label1.Location = new System.Drawing.Point(5, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(332, 23);
+            this.label1.Size = new System.Drawing.Size(334, 22);
             this.label1.TabIndex = 5;
             this.label1.Text = "👤 Account Information";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -871,12 +886,13 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel8.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.txtUsername, 0, 1);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 38);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 36);
+            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(338, 70);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(338, 73);
             this.tableLayoutPanel8.TabIndex = 6;
             // 
             // label8
@@ -908,7 +924,7 @@ namespace ShuttleZone.UserManagement
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PlaceholderText = "Enter username";
             this.txtUsername.SelectedText = "";
-            this.txtUsername.Size = new System.Drawing.Size(327, 42);
+            this.txtUsername.Size = new System.Drawing.Size(327, 45);
             this.txtUsername.TabIndex = 2;
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
@@ -919,12 +935,13 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel9.Controls.Add(this.txtFullName, 0, 1);
             this.tableLayoutPanel9.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(347, 38);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(347, 36);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(338, 70);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(339, 73);
             this.tableLayoutPanel9.TabIndex = 7;
             // 
             // txtFullName
@@ -941,12 +958,12 @@ namespace ShuttleZone.UserManagement
             this.txtFullName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtFullName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFullName.Location = new System.Drawing.Point(6, 24);
-            this.txtFullName.Margin = new System.Windows.Forms.Padding(6, 4, 3, 4);
+            this.txtFullName.Location = new System.Drawing.Point(5, 24);
+            this.txtFullName.Margin = new System.Windows.Forms.Padding(5, 4, 3, 4);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.PlaceholderText = "Enter full name";
             this.txtFullName.SelectedText = "";
-            this.txtFullName.Size = new System.Drawing.Size(329, 42);
+            this.txtFullName.Size = new System.Drawing.Size(331, 45);
             this.txtFullName.TabIndex = 3;
             this.txtFullName.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
@@ -954,8 +971,8 @@ namespace ShuttleZone.UserManagement
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 0);
-            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
+            this.label9.Location = new System.Drawing.Point(5, 0);
+            this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(66, 17);
             this.label9.TabIndex = 1;
@@ -967,8 +984,9 @@ namespace ShuttleZone.UserManagement
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UC_NewAddUser";
-            this.Size = new System.Drawing.Size(722, 692);
+            this.Size = new System.Drawing.Size(723, 692);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.BottomPanel.ResumeLayout(false);
             this.BottomtableLayoutPanel.ResumeLayout(false);

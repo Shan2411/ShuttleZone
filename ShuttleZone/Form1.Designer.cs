@@ -33,40 +33,40 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.DynamicContentPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.TopbarBG = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.SidebarDynamicPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.SidebarBackground = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.DynamicTopbarPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.Topbar = new System.Windows.Forms.TableLayoutPanel();
+            this.ExitBtn = new Guna.UI2.WinForms.Guna2PictureBox();
             this.DevTestMode = new System.Windows.Forms.TableLayoutPanel();
             this.FrontDeskBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ManagerBtn = new Guna.UI2.WinForms.Guna2Button();
             this.AdminBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.ExitBtn = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.DateLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.ToggleModeBtn = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.SidebarDynamicPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.SidebarBackground = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.TopbarBG.SuspendLayout();
-            this.SidebarDynamicPanel.SuspendLayout();
             this.DynamicTopbarPanel.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.Topbar.SuspendLayout();
-            this.DevTestMode.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ExitBtn)).BeginInit();
+            this.DevTestMode.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ToggleModeBtn)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.SidebarDynamicPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -129,27 +129,6 @@
             this.TopbarBG.Size = new System.Drawing.Size(939, 30);
             this.TopbarBG.TabIndex = 0;
             // 
-            // SidebarDynamicPanel
-            // 
-            this.SidebarDynamicPanel.Controls.Add(this.SidebarBackground);
-            this.SidebarDynamicPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SidebarDynamicPanel.Location = new System.Drawing.Point(0, 0);
-            this.SidebarDynamicPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.SidebarDynamicPanel.Name = "SidebarDynamicPanel";
-            this.SidebarDynamicPanel.Size = new System.Drawing.Size(156, 617);
-            this.SidebarDynamicPanel.TabIndex = 5;
-            // 
-            // SidebarBackground
-            // 
-            this.SidebarBackground.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SidebarBackground.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(57)))));
-            this.SidebarBackground.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(24)))), ((int)(((byte)(40)))));
-            this.SidebarBackground.Location = new System.Drawing.Point(0, 0);
-            this.SidebarBackground.Margin = new System.Windows.Forms.Padding(0);
-            this.SidebarBackground.Name = "SidebarBackground";
-            this.SidebarBackground.Size = new System.Drawing.Size(156, 617);
-            this.SidebarBackground.TabIndex = 5;
-            // 
             // DynamicTopbarPanel
             // 
             this.DynamicTopbarPanel.BackColor = System.Drawing.Color.White;
@@ -166,102 +145,6 @@
             this.DynamicTopbarPanel.Size = new System.Drawing.Size(939, 30);
             this.DynamicTopbarPanel.TabIndex = 2;
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel3.ColumnCount = 4;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel3.Controls.Add(this.guna2HtmlLabel1, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.guna2PictureBox1, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.guna2PictureBox2, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(31, 85);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(939, 30);
-            this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(749, 6);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(11, 4, 4, 4);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(137, 18);
-            this.guna2HtmlLabel1.TabIndex = 5;
-            this.guna2HtmlLabel1.Text = "Thursday, Jan 22, 2026";
-            this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.Controls.Add(this.guna2Button1, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.guna2Button2, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.guna2Button3, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(49, 3);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(651, 24);
-            this.tableLayoutPanel4.TabIndex = 6;
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(437, 3);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(211, 18);
-            this.guna2Button1.TabIndex = 2;
-            this.guna2Button1.Text = "Front-Desk";
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(220, 3);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(211, 18);
-            this.guna2Button2.TabIndex = 1;
-            this.guna2Button2.Text = "Manager";
-            // 
-            // guna2Button3
-            // 
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(3, 3);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(211, 18);
-            this.guna2Button3.TabIndex = 0;
-            this.guna2Button3.Text = "Admin";
-            // 
             // Topbar
             // 
             this.Topbar.BackColor = System.Drawing.Color.Transparent;
@@ -274,7 +157,7 @@
             this.Topbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.Topbar.Controls.Add(this.ExitBtn, 0, 0);
             this.Topbar.Controls.Add(this.DevTestMode, 1, 0);
-            this.Topbar.Controls.Add(this.guna2HtmlLabel3, 2, 0);
+            this.Topbar.Controls.Add(this.DateLbl, 2, 0);
             this.Topbar.Controls.Add(this.guna2PictureBox3, 5, 0);
             this.Topbar.Controls.Add(this.ToggleModeBtn, 4, 0);
             this.Topbar.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -285,6 +168,21 @@
             this.Topbar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.Topbar.Size = new System.Drawing.Size(939, 30);
             this.Topbar.TabIndex = 2;
+            // 
+            // ExitBtn
+            // 
+            this.ExitBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ExitBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ExitBtn.BackgroundImage")));
+            this.ExitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ExitBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ExitBtn.ImageRotate = 0F;
+            this.ExitBtn.Location = new System.Drawing.Point(15, 7);
+            this.ExitBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ExitBtn.Name = "ExitBtn";
+            this.ExitBtn.Size = new System.Drawing.Size(15, 16);
+            this.ExitBtn.TabIndex = 0;
+            this.ExitBtn.TabStop = false;
+            this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
             // DevTestMode
             // 
@@ -351,34 +249,21 @@
             this.AdminBtn.Text = "Admin";
             this.AdminBtn.Click += new System.EventHandler(this.AdminBtn_Click);
             // 
-            // guna2HtmlLabel3
+            // DateLbl
             // 
-            this.guna2HtmlLabel3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(693, 6);
-            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(11, 4, 4, 4);
-            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(137, 18);
-            this.guna2HtmlLabel3.TabIndex = 5;
-            this.guna2HtmlLabel3.Text = "Thursday, Jan 22, 2026";
-            this.guna2HtmlLabel3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ExitBtn
-            // 
-            this.ExitBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ExitBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ExitBtn.BackgroundImage")));
-            this.ExitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ExitBtn.FillColor = System.Drawing.Color.Transparent;
-            this.ExitBtn.ImageRotate = 0F;
-            this.ExitBtn.Location = new System.Drawing.Point(15, 7);
-            this.ExitBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ExitBtn.Name = "ExitBtn";
-            this.ExitBtn.Size = new System.Drawing.Size(15, 16);
-            this.ExitBtn.TabIndex = 0;
-            this.ExitBtn.TabStop = false;
-            this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
+            this.DateLbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.DateLbl.BackColor = System.Drawing.Color.Transparent;
+            this.DateLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateLbl.ForeColor = System.Drawing.Color.Black;
+            this.DateLbl.Location = new System.Drawing.Point(767, 6);
+            this.DateLbl.Margin = new System.Windows.Forms.Padding(11, 4, 4, 4);
+            this.DateLbl.Name = "DateLbl";
+            this.DateLbl.Size = new System.Drawing.Size(63, 18);
+            this.DateLbl.TabIndex = 5;
+            this.DateLbl.Text = "Date Label";
+            this.DateLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DateLbl.Visible = false;
+            this.DateLbl.Click += new System.EventHandler(this.DateLbl_Click);
             // 
             // guna2PictureBox3
             // 
@@ -393,6 +278,7 @@
             this.guna2PictureBox3.Size = new System.Drawing.Size(15, 16);
             this.guna2PictureBox3.TabIndex = 7;
             this.guna2PictureBox3.TabStop = false;
+            this.guna2PictureBox3.Visible = false;
             // 
             // ToggleModeBtn
             // 
@@ -407,6 +293,41 @@
             this.ToggleModeBtn.Size = new System.Drawing.Size(15, 16);
             this.ToggleModeBtn.TabIndex = 3;
             this.ToggleModeBtn.TabStop = false;
+            this.ToggleModeBtn.Visible = false;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel3.ColumnCount = 4;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel3.Controls.Add(this.guna2HtmlLabel1, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.guna2PictureBox1, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.guna2PictureBox2, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(31, 85);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(939, 30);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(749, 6);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(11, 4, 4, 4);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(137, 18);
+            this.guna2HtmlLabel1.TabIndex = 5;
+            this.guna2HtmlLabel1.Text = "Thursday, Jan 22, 2026";
+            this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2PictureBox1
             // 
@@ -434,6 +355,89 @@
             this.guna2PictureBox2.TabIndex = 0;
             this.guna2PictureBox2.TabStop = false;
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.Controls.Add(this.guna2Button1, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.guna2Button2, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.guna2Button3, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(49, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(651, 24);
+            this.tableLayoutPanel4.TabIndex = 6;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(437, 3);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(211, 18);
+            this.guna2Button1.TabIndex = 2;
+            this.guna2Button1.Text = "Front-Desk";
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Location = new System.Drawing.Point(220, 3);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(211, 18);
+            this.guna2Button2.TabIndex = 1;
+            this.guna2Button2.Text = "Manager";
+            // 
+            // guna2Button3
+            // 
+            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button3.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.Location = new System.Drawing.Point(3, 3);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.Size = new System.Drawing.Size(211, 18);
+            this.guna2Button3.TabIndex = 0;
+            this.guna2Button3.Text = "Admin";
+            // 
+            // SidebarDynamicPanel
+            // 
+            this.SidebarDynamicPanel.Controls.Add(this.SidebarBackground);
+            this.SidebarDynamicPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SidebarDynamicPanel.Location = new System.Drawing.Point(0, 0);
+            this.SidebarDynamicPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.SidebarDynamicPanel.Name = "SidebarDynamicPanel";
+            this.SidebarDynamicPanel.Size = new System.Drawing.Size(156, 617);
+            this.SidebarDynamicPanel.TabIndex = 5;
+            // 
+            // SidebarBackground
+            // 
+            this.SidebarBackground.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SidebarBackground.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(57)))));
+            this.SidebarBackground.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(24)))), ((int)(((byte)(40)))));
+            this.SidebarBackground.Location = new System.Drawing.Point(0, 0);
+            this.SidebarBackground.Margin = new System.Windows.Forms.Padding(0);
+            this.SidebarBackground.Name = "SidebarBackground";
+            this.SidebarBackground.Size = new System.Drawing.Size(156, 617);
+            this.SidebarBackground.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,19 +453,19 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.TopbarBG.ResumeLayout(false);
-            this.SidebarDynamicPanel.ResumeLayout(false);
             this.DynamicTopbarPanel.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
             this.Topbar.ResumeLayout(false);
             this.Topbar.PerformLayout();
-            this.DevTestMode.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ExitBtn)).EndInit();
+            this.DevTestMode.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ToggleModeBtn)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.SidebarDynamicPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -489,7 +493,7 @@
         private Guna.UI2.WinForms.Guna2Button FrontDeskBtn;
         private Guna.UI2.WinForms.Guna2Button ManagerBtn;
         private Guna.UI2.WinForms.Guna2Button AdminBtn;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel DateLbl;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
         private Guna.UI2.WinForms.Guna2PictureBox ToggleModeBtn;
     }

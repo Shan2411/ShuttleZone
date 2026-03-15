@@ -50,7 +50,7 @@
             this.guna2ShadowPanel1.Radius = 5;
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel1.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.ForwardDiagonal;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(384, 191);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(384, 198);
             this.guna2ShadowPanel1.TabIndex = 0;
             // 
             // label1
@@ -94,7 +94,7 @@
             this.Controls.Add(this.guna2ShadowPanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 0, 7, 0);
             this.Name = "Card_Dashboard";
-            this.Size = new System.Drawing.Size(384, 191);
+            this.Size = new System.Drawing.Size(384, 198);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();

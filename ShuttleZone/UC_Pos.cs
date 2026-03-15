@@ -44,6 +44,8 @@ namespace ShuttleZone
             pnlMembership1.Tag = "1 Month Membership";
             pnlMembership2.Tag = "12 Months Membership";
 
+            btnEcashPayment.Click += BtnEcashPayment_Click;
+
         }
 
         private Guna2Panel CloneCartItemPanel(string itemName, decimal price)
@@ -343,6 +345,27 @@ namespace ShuttleZone
             CashPayment cp = new CashPayment(total, CartItems);
             cp.ShowDialog();
 
+        }
+
+        private void BtnEcashPayment_Click(object sender, EventArgs e)
+        {
+            decimal total = decimal.Parse(lblTotal.Text.Replace("₱", "").Trim());
+
+            var ecash = new EcashQR(total);
+            ecash.PaymentCompleted += (s, args) => ShowReceipt(total);
+            ecash.ShowDialog();
+        }
+
+        private void ShowReceipt(decimal amountReceived)
+        {
+            int courtHours = CartItems.FirstOrDefault(c => c.Name.StartsWith("Court"))?.Qty ?? 0;
+            var receiptForm = new ReceiptForm(
+                new List<CartItem>(CartItems),
+                amountReceived,
+                "E-Cash",
+                DateTime.Now,
+                courtHours);
+            receiptForm.Show();
         }
     }
 }

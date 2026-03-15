@@ -12,7 +12,7 @@ namespace ShuttleZone.sidebars
 {
     public partial class AdminSidebar : UserControl
     {
-        public event EventHandler DashboardBtnClicked;
+        public event EventHandler AdminDashboardBtnClicked;
         public event EventHandler ReportsBtnClicked;
         public event EventHandler UsersBtnClicked;
         public AdminSidebar()
@@ -32,7 +32,7 @@ namespace ShuttleZone.sidebars
         private void DashboardBtn_Click(object sender, EventArgs e)
         {
             HighlightButton(DashboardBtn);
-            DashboardBtnClicked?.Invoke(this, EventArgs.Empty);
+            AdminDashboardBtnClicked?.Invoke(this, EventArgs.Empty);
         }
         private void ReportsBtn_Click(object sender, EventArgs e)
         {

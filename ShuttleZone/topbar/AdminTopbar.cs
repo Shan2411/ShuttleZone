@@ -15,9 +15,12 @@ namespace ShuttleZone.topbar
         public event EventHandler AdminBtnClicked;
         public event EventHandler ManagerBtnClicked;
         public event EventHandler FrontDeskBtnClicked;
+        public event EventHandler SettingsBtnClicked;
         public AdminTopbar()
         {
             InitializeComponent();
+            var date = DateTime.Now;
+            DateLbl.Text = date.ToString("dddd, MMMM dd, yyyy");
         }
 
         private void AdminBtn_Click(object sender, EventArgs e)
@@ -38,6 +41,11 @@ namespace ShuttleZone.topbar
         private void ExitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void SettingsBtn_Click(object sender, EventArgs e)
+        {
+            SettingsBtnClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

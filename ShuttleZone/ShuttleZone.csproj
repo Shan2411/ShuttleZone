@@ -87,6 +87,18 @@
     <Compile Include="Dashboard1\CourtCard.Designer.cs">
       <DependentUpon>CourtCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard1\CourtCardInUse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\CourtCardInUse.Designer.cs">
+      <DependentUpon>CourtCardInUse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard1\CourtInUse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\CourtInUse.Designer.cs">
+      <DependentUpon>CourtInUse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard1\Dashboard_UC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -104,6 +116,12 @@
     </Compile>
     <Compile Include="Dashboard1\FrontDeskDashboard.Designer.cs">
       <DependentUpon>FrontDeskDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard1\ManagerDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\ManagerDashboard.Designer.cs">
+      <DependentUpon>ManagerDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Dashboard1\PeakHours.cs">
       <SubType>UserControl</SubType>
@@ -128,6 +146,18 @@
     </Compile>
     <Compile Include="Dashboard1\RentalTable.Designer.cs">
       <DependentUpon>RentalTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard1\Utilization.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\Utilization.Designer.cs">
+      <DependentUpon>Utilization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EcashQR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EcashQR.Designer.cs">
+      <DependentUpon>EcashQR.cs</DependentUpon>
     </Compile>
     <Compile Include="Equipment and Inventory\Add.cs">
       <SubType>Form</SubType>
@@ -250,6 +280,12 @@
     <Compile Include="sidebars\ManagerSidebar.Designer.cs">
       <DependentUpon>ManagerSidebar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Stub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stub.Designer.cs">
+      <DependentUpon>Stub.cs</DependentUpon>
+    </Compile>
     <Compile Include="systemsettings\ISaveable.cs" />
     <Compile Include="systemsettings\SystemPreferences.cs">
       <SubType>UserControl</SubType>
@@ -269,11 +305,11 @@
     <Compile Include="systemsettings\UC_FacilityInfo.Designer.cs">
       <DependentUpon>UC_FacilityInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="systemsettings\UC_SystemSettings.cs">
+    <Compile Include="systemsettings\UC_SystemsSettings.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="systemsettings\UC_SystemSettings.Designer.cs">
-      <DependentUpon>UC_SystemSettings.cs</DependentUpon>
+    <Compile Include="systemsettings\UC_SystemsSettings.Designer.cs">
+      <DependentUpon>UC_SystemsSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
@@ -371,6 +407,12 @@
     <EmbeddedResource Include="Dashboard1\CourtCard.resx">
       <DependentUpon>CourtCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\CourtCardInUse.resx">
+      <DependentUpon>CourtCardInUse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\CourtInUse.resx">
+      <DependentUpon>CourtInUse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\Dashboard_UC.resx">
       <DependentUpon>Dashboard_UC.cs</DependentUpon>
     </EmbeddedResource>
@@ -379,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\FrontDeskDashboard.resx">
       <DependentUpon>FrontDeskDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\ManagerDashboard.resx">
+      <DependentUpon>ManagerDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\PeakHours.resx">
       <DependentUpon>PeakHours.cs</DependentUpon>
@@ -391,6 +436,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\RentalTable.resx">
       <DependentUpon>RentalTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\Utilization.resx">
+      <DependentUpon>Utilization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EcashQR.resx">
+      <DependentUpon>EcashQR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Equipment and Inventory\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
@@ -463,6 +514,9 @@
     <EmbeddedResource Include="sidebars\ManagerSidebar.resx">
       <DependentUpon>ManagerSidebar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Stub.resx">
+      <DependentUpon>Stub.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="systemsettings\SystemPreferences.resx">
       <DependentUpon>SystemPreferences.cs</DependentUpon>
     </EmbeddedResource>
@@ -472,8 +526,8 @@
     <EmbeddedResource Include="systemsettings\UC_FacilityInfo.resx">
       <DependentUpon>UC_FacilityInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="systemsettings\UC_SystemSettings.resx">
-      <DependentUpon>UC_SystemSettings.cs</DependentUpon>
+    <EmbeddedResource Include="systemsettings\UC_SystemsSettings.resx">
+      <DependentUpon>UC_SystemsSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="topbar\AdminTopbar.resx">
       <DependentUpon>AdminTopbar.cs</DependentUpon>
@@ -567,6 +621,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Dashboard_Person.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\available.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unavailable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mechanic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
