@@ -53,5 +53,10 @@ namespace ShuttleZone.Membership
         {
 
         }
+
+        private void MemberStatus_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

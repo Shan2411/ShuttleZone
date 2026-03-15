@@ -13,12 +13,10 @@ namespace ShuttleZone.UserManagement
         public UC_UserRow()
         {
             InitializeComponent();
-            //this.Dock = DockStyle.Top;
 
             btnEdit.Click += (s, e) => EditClicked?.Invoke(this, EventArgs.Empty);
             btnDelete.Click += (s, e) => DeleteClicked?.Invoke(this, EventArgs.Empty);
         }
-
 
         public void UpdateDisplay()
         {
@@ -30,21 +28,6 @@ namespace ShuttleZone.UserManagement
             lblEmail.Text = User.Email ?? "";
             lblRole.Text = User.Role ?? "";
             lblStatus.Text = User.Status ?? "";
-        }
-
-        private void lblFullName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblRole_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

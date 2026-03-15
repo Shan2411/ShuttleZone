@@ -300,7 +300,7 @@ namespace ShuttleZone.UserManagement
             this.Usernamelabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Usernamelabel.ForeColor = System.Drawing.Color.White;
             this.Usernamelabel.Location = new System.Drawing.Point(5, 37);
-            this.Usernamelabel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Usernamelabel.Margin = new System.Windows.Forms.Padding(5);
             this.Usernamelabel.Name = "Usernamelabel";
             this.Usernamelabel.Size = new System.Drawing.Size(593, 14);
             this.Usernamelabel.TabIndex = 5;
@@ -327,7 +327,7 @@ namespace ShuttleZone.UserManagement
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
             this.guna2Panel4.Location = new System.Drawing.Point(7, 7);
-            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(7);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(58)))), ((int)(((byte)(237)))));
             this.guna2Panel4.ShadowDecoration.Enabled = true;
@@ -365,9 +365,9 @@ namespace ShuttleZone.UserManagement
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel3.Location = new System.Drawing.Point(7, 424);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(7);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.guna2Panel3.Padding = new System.Windows.Forms.Padding(7);
             this.guna2Panel3.ShadowDecoration.Color = System.Drawing.Color.Transparent;
             this.guna2Panel3.ShadowDecoration.Enabled = true;
             this.guna2Panel3.Size = new System.Drawing.Size(703, 127);
@@ -508,9 +508,9 @@ namespace ShuttleZone.UserManagement
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel2.Location = new System.Drawing.Point(7, 285);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(7);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.guna2Panel2.Padding = new System.Windows.Forms.Padding(7);
             this.guna2Panel2.ShadowDecoration.Color = System.Drawing.Color.Transparent;
             this.guna2Panel2.ShadowDecoration.Enabled = true;
             this.guna2Panel2.Size = new System.Drawing.Size(703, 125);
@@ -580,11 +580,11 @@ namespace ShuttleZone.UserManagement
             this.txtConfirmPassword.Location = new System.Drawing.Point(5, 24);
             this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(5, 4, 3, 4);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.PasswordChar = '●';
             this.txtConfirmPassword.PlaceholderText = "Confirm Password";
             this.txtConfirmPassword.SelectedText = "";
             this.txtConfirmPassword.Size = new System.Drawing.Size(331, 45);
             this.txtConfirmPassword.TabIndex = 3;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
             this.txtConfirmPassword.IconRightClick += new System.EventHandler(this.txtConfirmPassword_IconRightClick);
             this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtConfirmPassword_TextChanged);
             // 
@@ -633,11 +633,11 @@ namespace ShuttleZone.UserManagement
             this.txtPassword.Location = new System.Drawing.Point(3, 24);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 8, 4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '●';
             this.txtPassword.PlaceholderText = "Enter Password";
             this.txtPassword.SelectedText = "";
             this.txtPassword.Size = new System.Drawing.Size(327, 45);
             this.txtPassword.TabIndex = 3;
+            this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.IconRightClick += new System.EventHandler(this.txtPassword_IconRightClick);
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
@@ -673,10 +673,10 @@ namespace ShuttleZone.UserManagement
             this.btnShowPassword.FillColor = System.Drawing.SystemColors.Control;
             this.btnShowPassword.Font = new System.Drawing.Font("Segoe UI", 4.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowPassword.ForeColor = System.Drawing.Color.Black;
-            this.btnShowPassword.Location = new System.Drawing.Point(288, 0);
+            this.btnShowPassword.Location = new System.Drawing.Point(274, 0);
             this.btnShowPassword.Margin = new System.Windows.Forms.Padding(0);
             this.btnShowPassword.Name = "btnShowPassword";
-            this.btnShowPassword.Size = new System.Drawing.Size(44, 16);
+            this.btnShowPassword.Size = new System.Drawing.Size(58, 16);
             this.btnShowPassword.TabIndex = 4;
             this.btnShowPassword.Text = "Show Password";
             this.btnShowPassword.Click += new System.EventHandler(this.btnShowPassword_Click);
@@ -691,9 +691,9 @@ namespace ShuttleZone.UserManagement
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel1.Location = new System.Drawing.Point(7, 146);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(7);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.guna2Panel1.Padding = new System.Windows.Forms.Padding(7);
             this.guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.Transparent;
             this.guna2Panel1.ShadowDecoration.Enabled = true;
             this.guna2Panel1.Size = new System.Drawing.Size(703, 125);
@@ -839,9 +839,9 @@ namespace ShuttleZone.UserManagement
             this.AccountInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AccountInfoPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.AccountInfoPanel.Location = new System.Drawing.Point(7, 7);
-            this.AccountInfoPanel.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.AccountInfoPanel.Margin = new System.Windows.Forms.Padding(7);
             this.AccountInfoPanel.Name = "AccountInfoPanel";
-            this.AccountInfoPanel.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.AccountInfoPanel.Padding = new System.Windows.Forms.Padding(7);
             this.AccountInfoPanel.ShadowDecoration.Color = System.Drawing.Color.Transparent;
             this.AccountInfoPanel.ShadowDecoration.Enabled = true;
             this.AccountInfoPanel.Size = new System.Drawing.Size(703, 125);
@@ -1040,7 +1040,7 @@ namespace ShuttleZone.UserManagement
 
         private void txtPhone_TextChanged_1(object sender, EventArgs e) { }
 
-        private void btnShowPassword_Click(object sender, EventArgs e) { }
+        //private void btnShowPassword_Click(object sender, EventArgs e) { }
 
         private void txtPassword_TextChanged(object sender, EventArgs e) { }
 

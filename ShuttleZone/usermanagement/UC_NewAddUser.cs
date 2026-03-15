@@ -16,8 +16,12 @@ namespace ShuttleZone.UserManagement
         {
             InitializeComponent();
 
-            CreateButton.Click += CreateButton_Click;
-            CancelButton.Click += CancelButton_Click;
+            txtPhone.KeyPress += TxtPhone_KeyPress;
+
+            // Hide password by default
+            txtPassword.UseSystemPasswordChar = true;
+            txtConfirmPassword.UseSystemPasswordChar = true;
+            btnShowPassword.Text = "Show";
         }
 
         private void CreateButton_Click(object sender, EventArgs e)
@@ -42,11 +46,19 @@ namespace ShuttleZone.UserManagement
                 Status = cmbStatus.Text
             };
 
-            // Fire event to parent control
             UserCreated?.Invoke(this, user);
+
+            MessageBox.Show("User created successfully!");
+
+            ClearFields();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+
+        private void ClearFields()
         {
             txtUsername.Clear();
             txtFullName.Clear();
@@ -54,6 +66,7 @@ namespace ShuttleZone.UserManagement
             txtPhone.Clear();
             txtPassword.Clear();
             txtConfirmPassword.Clear();
+
             cmbRole.SelectedIndex = -1;
             cmbStatus.SelectedIndex = -1;
         }
@@ -70,9 +83,16 @@ namespace ShuttleZone.UserManagement
             }
 
             string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
             if (!Regex.IsMatch(txtEmail.Text, pattern))
             {
                 MessageBox.Show("Invalid email format.");
+                return false;
+            }
+
+            if (txtPhone.Text.Length != 11)
+            {
+                MessageBox.Show("Phone must be 11 digits.");
                 return false;
             }
 
@@ -82,7 +102,48 @@ namespace ShuttleZone.UserManagement
                 return false;
             }
 
+            if (txtPassword.Text != txtConfirmPassword.Text)
+            {
+                MessageBox.Show("Passwords do not match.");
+                return false;
+            }
+
             return true;
         }
+
+        private void TxtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+                e.Handled = true;
+
+            if (txtPhone.Text.Length >= 11 && e.KeyChar != (char)Keys.Back)
+                e.Handled = true;
+        }
+
+        private void btnShowPassword_Click(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = !txtPassword.UseSystemPasswordChar;
+            txtConfirmPassword.UseSystemPasswordChar = !txtConfirmPassword.UseSystemPasswordChar;
+
+            btnShowPassword.Text =
+                txtPassword.UseSystemPasswordChar ? "Show" : "Hide";
+        }
+        /* // Optional empty handlers (safe if designer created them)
+         private void cmbRole_SelectedIndexChanged(object sender, EventArgs e) { }
+
+         private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e) { }
+
+         private void txtPassword_TextChanged(object sender, EventArgs e) { }
+
+         private void txtConfirmPassword_TextChanged(object sender, EventArgs e) { }
+
+         private void txtPassword_IconRightClick(object sender, EventArgs e) { }
+
+         private void txtConfirmPassword_IconRightClick(object sender, EventArgs e) { }
+
+         private void CloseButton_Click(object sender, EventArgs e)
+         {
+             this.FindForm()?.Close();
+         }*/
     }
 }

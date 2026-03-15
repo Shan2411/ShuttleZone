@@ -550,11 +550,11 @@
             this.txtConfirmPassword.Location = new System.Drawing.Point(6, 24);
             this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(6, 4, 3, 4);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.PasswordChar = '●';
             this.txtConfirmPassword.PlaceholderText = "Confirm Password";
             this.txtConfirmPassword.SelectedText = "";
             this.txtConfirmPassword.Size = new System.Drawing.Size(329, 42);
             this.txtConfirmPassword.TabIndex = 3;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
             // 
             // label11
             // 
@@ -599,11 +599,11 @@
             this.txtPassword.Location = new System.Drawing.Point(3, 24);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 8, 4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '●';
             this.txtPassword.PlaceholderText = "Enter Password";
             this.txtPassword.SelectedText = "";
             this.txtPassword.Size = new System.Drawing.Size(327, 42);
             this.txtPassword.TabIndex = 3;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // guna2Panel5
             // 
@@ -642,6 +642,7 @@
             this.btnShowPassword.Size = new System.Drawing.Size(75, 14);
             this.btnShowPassword.TabIndex = 4;
             this.btnShowPassword.Text = "Show Password";
+            this.btnShowPassword.Click += new System.EventHandler(this.btnShowPassword_Click_1);
             // 
             // guna2Panel1
             // 
@@ -918,6 +919,7 @@
             this.txtFullName.SelectedText = "";
             this.txtFullName.Size = new System.Drawing.Size(329, 42);
             this.txtFullName.TabIndex = 3;
+            this.txtFullName.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // label9
             // 

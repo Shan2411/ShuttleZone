@@ -108,6 +108,7 @@
             this.MemberStatus.Size = new System.Drawing.Size(63, 25);
             this.MemberStatus.TabIndex = 10;
             this.MemberStatus.TabStop = false;
+            this.MemberStatus.Click += new System.EventHandler(this.MemberStatus_Click);
             // 
             // MemberDelete
             // 

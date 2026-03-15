@@ -120,6 +120,7 @@ namespace ShuttleZone.UserManagement
             // 
             // lblUsername
             // 
+            this.lblUsername.AutoSize = false;
             this.lblUsername.BackColor = System.Drawing.Color.Transparent;
             this.lblUsername.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblUsername.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -133,6 +134,7 @@ namespace ShuttleZone.UserManagement
             // 
             // lblID
             // 
+            this.lblID.AutoSize = false;
             this.lblID.BackColor = System.Drawing.Color.Transparent;
             this.lblID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblID.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -146,6 +148,7 @@ namespace ShuttleZone.UserManagement
             // 
             // lblRole
             // 
+            this.lblRole.AutoSize = false;
             this.lblRole.BackColor = System.Drawing.Color.Transparent;
             this.lblRole.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblRole.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -172,6 +175,7 @@ namespace ShuttleZone.UserManagement
             // 
             // lblFullName
             // 
+            this.lblFullName.AutoSize = false;
             this.lblFullName.BackColor = System.Drawing.Color.Transparent;
             this.lblFullName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblFullName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -185,6 +189,7 @@ namespace ShuttleZone.UserManagement
             // 
             // lblEmail
             // 
+            this.lblEmail.AutoSize = false;
             this.lblEmail.BackColor = System.Drawing.Color.Transparent;
             this.lblEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblEmail.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -200,12 +205,13 @@ namespace ShuttleZone.UserManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.guna2Panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "UC_UserRow";
             this.Size = new System.Drawing.Size(1217, 42);
             this.guna2Panel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblStatus)).EndInit();
