@@ -43,11 +43,9 @@ namespace ShuttleZone
         private void UsersBtn_Click(object sender, EventArgs e)
         {
             DynamicContentPanel.Controls.Clear();
-
-            ShuttleZone.UserManagement.ucUserManagement userManagement = new ShuttleZone.UserManagement.ucUserManagement();
-            userManagement.Dock = DockStyle.Fill;
-
-            DynamicContentPanel.Controls.Add(userManagement);
+            UC_UserManagement ucUserManagement = new UC_UserManagement();
+            ucUserManagement.Dock = DockStyle.Fill;
+            DynamicContentPanel.Controls.Add(ucUserManagement);
         }
 
         private void FacilityBtn_Click(object sender, EventArgs e)
