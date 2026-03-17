@@ -367,12 +367,31 @@
     <Compile Include="UC_Pos.Designer.cs">
       <DependentUpon>UC_Pos.cs</DependentUpon>
     </Compile>
-    <Compile Include="usermanagement\UC_NewAddUser.cs">
+    <Compile Include="UserManagementNew\UC_EditUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usermanagement\UC_NewAddUser.Designer.cs">
+    <Compile Include="UserManagementNew\UC_EditUser.Designer.cs">
+      <DependentUpon>UC_EditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagementNew\UC_NewAddUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserManagementNew\UC_NewAddUser.Designer.cs">
       <DependentUpon>UC_NewAddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserManagementNew\UC_UserManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserManagementNew\UC_UserManagement.Designer.cs">
+      <DependentUpon>UC_UserManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagementNew\UC_UserRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserManagementNew\UC_UserRow.Designer.cs">
+      <DependentUpon>UC_UserRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagementNew\UserModel.cs" />
     <Compile Include="usermanagement\UC_AddUserMain.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -535,8 +554,17 @@
     <EmbeddedResource Include="UC_Pos.resx">
       <DependentUpon>UC_Pos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usermanagement\UC_NewAddUser.resx">
+    <EmbeddedResource Include="UserManagementNew\UC_EditUser.resx">
+      <DependentUpon>UC_EditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagementNew\UC_NewAddUser.resx">
       <DependentUpon>UC_NewAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagementNew\UC_UserManagement.resx">
+      <DependentUpon>UC_UserManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagementNew\UC_UserRow.resx">
+      <DependentUpon>UC_UserRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usermanagement\UC_AddUserMain.resx">
       <DependentUpon>UC_AddUserMain.cs</DependentUpon>
