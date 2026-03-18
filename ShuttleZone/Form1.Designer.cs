@@ -110,7 +110,6 @@
             this.DynamicContentPanel.Name = "DynamicContentPanel";
             this.DynamicContentPanel.Size = new System.Drawing.Size(939, 587);
             this.DynamicContentPanel.TabIndex = 1;
-            this.DynamicContentPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.DynamicContentPanel_Paint);
             // 
             // TopbarBG
             // 
@@ -263,7 +262,6 @@
             this.DateLbl.Text = "Date Label";
             this.DateLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.DateLbl.Visible = false;
-            this.DateLbl.Click += new System.EventHandler(this.DateLbl_Click);
             // 
             // guna2PictureBox3
             // 
