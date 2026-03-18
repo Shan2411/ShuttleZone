@@ -5,79 +5,67 @@ namespace ShuttleZone.Equipment_and_Inventory
 {
     public partial class Add : Form
     {
-        // This will be read by Equipment.cs
-        public EquipmentItem AddedItem { get; private set; }
+        public string EquipmentId;
+        public EquipmentItem NewEquipment { get; private set; }
 
-        public Add()
+        public Add(string id)
         {
             InitializeComponent();
-            LoadCategories();
-            HookEvents();
+            EquipmentId = id;
+            txtId.Text = id;
         }
 
-        private void LoadCategories()
+        public void LoadExistingData(EquipmentItem item)
         {
-            cmbCategory.Items.Clear();
-            cmbCategory.Items.AddRange(new object[]
-            {
-                "Rackets",
-                "Shuttlecocks",
-                "Shoes",
-                "Accessories",
-                "Consumables"
-            });
-
-            cmbCategory.SelectedIndex = 0;
-        }
-
-        private void HookEvents()
-        {
-            btnAdd.Click += btnAdd_Click;
-            btnCancel.Click += (s, e) => this.Close();
+            txtId.Text = item.Id;
+            txtName.Text = item.Name;
+            cmbCategory.Text = item.Category;
+            txtTotal.Text = item.Total.ToString();
+            txtAvailable.Text = item.Available.ToString();
+            txtRented.Text = item.Rented.ToString();
+            txtPrice.Text = item.Price.ToString();
+            cmbStatus.Text = item.Status;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtName.Text) ||
-                cmbCategory.SelectedIndex < 0 ||
-                !int.TryParse(txtQuantity.Text, out int quantity) ||
-                !decimal.TryParse(txtPrice.Text, out decimal price))
+                string.IsNullOrWhiteSpace(txtTotal.Text) ||
+                string.IsNullOrWhiteSpace(txtPrice.Text))
             {
-                MessageBox.Show(
-                    "Please enter valid values for all fields.",
-                    "Validation Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("Please fill all required fields.");
                 return;
             }
 
-            AddedItem = new EquipmentItem
+            if (!int.TryParse(txtTotal.Text, out int total) ||
+                !int.TryParse(txtAvailable.Text, out int available) ||
+                !int.TryParse(txtRented.Text, out int rented) ||
+                !decimal.TryParse(txtPrice.Text, out decimal price))
             {
-                Id = Guid.NewGuid().ToString().Substring(0, 8),
-                Name = txtName.Text.Trim(),
-                Category = cmbCategory.SelectedItem.ToString(),
-                Total = quantity,
-                Available = quantity,
-                Rented = 0,
+                MessageBox.Show("Invalid number input.");
+                return;
+            }
+
+            NewEquipment = new EquipmentItem
+            {
+                Id = txtId.Text,
+                Name = txtName.Text,
+                Category = cmbCategory.Text,
+                Total = total,
+                Available = available,
+                Rented = rented,
                 Price = price,
-                Status = "Available"
+                Status = cmbStatus.Text
             };
 
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
-    }
 
-    // Shared model
-    public class EquipmentItem
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Category { get; set; }
-        public int Total { get; set; }
-        public int Available { get; set; }
-        public int Rented { get; set; }
-        public decimal Price { get; set; }
-        public string Status { get; set; }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
     }
 }
