@@ -51,6 +51,9 @@ namespace ShuttleZone
         private void FacilityBtn_Click(object sender, EventArgs e)
             {
             DynamicContentPanel.Controls.Clear();
+            MaintenanceWindow maintenanceWindowUC = new MaintenanceWindow();
+            maintenanceWindowUC.Dock = DockStyle.Fill;
+            DynamicContentPanel.Controls.Add(maintenanceWindowUC);
         }
 
         //DASHBOARD BUTTON CLICKS
