@@ -35,10 +35,10 @@ namespace ShuttleZone.Dashboard1
             // Add all controls at once
             var buttons = new[]
             {
-                new CourtCardInUse("Court A", "inUse"),
-                new CourtCardInUse("Court B", "inUse"),
-                new CourtCardInUse("Court C", "notInUse"),
-                new CourtCardInUse("Court D", "inUse")
+                new CourtCardInUse("Court A", "Operational"),
+                new CourtCardInUse("Court B", "in use"),
+                new CourtCardInUse("Court C", "out of service"),
+                new CourtCardInUse("Court D", "Maintenance")
             };
 
             flowLayoutPanel1.Controls.AddRange(buttons);

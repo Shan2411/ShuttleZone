@@ -67,7 +67,7 @@
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(30, 43);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(13, 20, 13, 12);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(131, 31);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(1165, 33);
             this.guna2HtmlLabel1.TabIndex = 1;
             this.guna2HtmlLabel1.Text = "     Dashboard";
             this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.BottomLeft;

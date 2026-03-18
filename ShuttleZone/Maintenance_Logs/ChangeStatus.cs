@@ -123,6 +123,13 @@ namespace ShuttleZone.Maintenance_Logs
         public void guna2Button2_Click(object sender, EventArgs e)
         {
 
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            { 
+                label4.Text = "Please enter a valid reason before proceeding.";
+                label4.ForeColor = Color.Red;
+                return;
+            }
+
             switch (courtName)
             {
                 case "Court A":
