@@ -185,6 +185,10 @@ namespace ShuttleZone.Equipment_and_Inventory
             }
         }
 
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
         private string GenerateNextId()
         {
             if (equipmentList.Count == 0)
@@ -213,7 +217,10 @@ namespace ShuttleZone.Equipment_and_Inventory
 
                     row.Visible = visible;
                 }
+
+
             }
+
         }
     }
 }
