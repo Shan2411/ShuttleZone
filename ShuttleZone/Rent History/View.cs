@@ -13,7 +13,7 @@ string id, date, time, customer, total, payment, status;
 
         public View(string id, string date, string time, string customer, string total, string payment, string status)
         {
-            InitializeComponent();
+            InitializeComponent();  
 
             this.id = id;
             this.date = date;

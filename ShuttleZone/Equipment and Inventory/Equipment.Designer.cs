@@ -156,6 +156,7 @@
             this.pnlAvailable.Name = "pnlAvailable";
             this.pnlAvailable.Size = new System.Drawing.Size(377, 104);
             this.pnlAvailable.TabIndex = 1;
+            this.pnlAvailable.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlAvailable_Paint);
             // 
             // pnlRented
             // 

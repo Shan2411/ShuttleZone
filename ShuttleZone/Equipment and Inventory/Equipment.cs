@@ -225,5 +225,10 @@ namespace ShuttleZone.Equipment_and_Inventory
                 filteredList.Add(item);
             }
         }
+
+        private void pnlAvailable_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
