@@ -47,7 +47,7 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblAutoReturnHome = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2ToggleSwitch1 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.switchAutoReturnHome = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnlSessionTimeout = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -307,7 +307,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.guna2ToggleSwitch1, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.switchAutoReturnHome, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.guna2PictureBox2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -354,21 +354,21 @@
             this.lblAutoReturnHome.TabIndex = 0;
             this.lblAutoReturnHome.Text = "Auto Return to Home";
             // 
-            // guna2ToggleSwitch1
+            // switchAutoReturnHome
             // 
-            this.guna2ToggleSwitch1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.guna2ToggleSwitch1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ToggleSwitch1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ToggleSwitch1.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch1.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch1.Location = new System.Drawing.Point(745, 29);
-            this.guna2ToggleSwitch1.Name = "guna2ToggleSwitch1";
-            this.guna2ToggleSwitch1.Size = new System.Drawing.Size(59, 20);
-            this.guna2ToggleSwitch1.TabIndex = 3;
-            this.guna2ToggleSwitch1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2ToggleSwitch1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2ToggleSwitch1.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch1.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.switchAutoReturnHome.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.switchAutoReturnHome.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.switchAutoReturnHome.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.switchAutoReturnHome.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.switchAutoReturnHome.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.switchAutoReturnHome.Location = new System.Drawing.Point(745, 29);
+            this.switchAutoReturnHome.Name = "switchAutoReturnHome";
+            this.switchAutoReturnHome.Size = new System.Drawing.Size(59, 20);
+            this.switchAutoReturnHome.TabIndex = 3;
+            this.switchAutoReturnHome.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.switchAutoReturnHome.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.switchAutoReturnHome.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.switchAutoReturnHome.UncheckedState.InnerColor = System.Drawing.Color.White;
             // 
             // guna2PictureBox2
             // 
@@ -750,7 +750,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch1;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch switchAutoReturnHome;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
