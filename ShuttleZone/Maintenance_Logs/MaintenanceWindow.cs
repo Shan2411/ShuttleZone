@@ -18,6 +18,12 @@ namespace ShuttleZone.Maintenance_Logs
 
         public MaintenanceWindow()
         {
+            //Get the databse status court from globals
+            Globals.statusFromDB = Globals.GetCourtStatusFromDB("Court A");
+            Globals.statusFromDB1 = Globals.GetCourtStatusFromDB("Court B");
+            Globals.statusFromDB2 = Globals.GetCourtStatusFromDB("Court C");
+            Globals.statusFromDB3 = Globals.GetCourtStatusFromDB("Court D");
+
             // Enable double buffering BEFORE InitializeComponent
             this.DoubleBuffered = true;
 

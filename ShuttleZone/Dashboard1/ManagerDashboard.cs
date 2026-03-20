@@ -16,6 +16,7 @@ namespace ShuttleZone.Dashboard1
 {
     public partial class ManagerDashboard : UserControl
     {
+
         // Win32 constants to freeze drawing
         [DllImport("user32.dll")]
         private static extern int SendMessage(IntPtr hWnd, Int32 wMsg, bool wParam, Int32 lParam);
@@ -23,6 +24,12 @@ namespace ShuttleZone.Dashboard1
 
         public ManagerDashboard()
         {
+            //Get the databse status court from globals
+            Globals.statusFromDB = Globals.GetCourtStatusFromDB("Court A");
+            Globals.statusFromDB1 = Globals.GetCourtStatusFromDB("Court B");
+            Globals.statusFromDB2 = Globals.GetCourtStatusFromDB("Court C");
+            Globals.statusFromDB3 = Globals.GetCourtStatusFromDB("Court D");
+
             // 1. Fundamental Double Buffering
             this.DoubleBuffered = true;
 
