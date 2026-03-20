@@ -8,6 +8,7 @@ namespace ShuttleZone.Equipment_and_Inventory
     public partial class Equipment : UserControl
     {
         private BindingList<EquipmentItem> equipmentList = new BindingList<EquipmentItem>();
+        private BindingList<EquipmentItem> filteredList = new BindingList<EquipmentItem>();
 
         public Equipment()
         {
@@ -15,7 +16,7 @@ namespace ShuttleZone.Equipment_and_Inventory
             InitializeUI();
             HookEvents();
 
-            dgvTable.DataSource = equipmentList;
+            dgvTable.DataSource = filteredList;
 
             LoadSampleData();
         }
@@ -45,6 +46,8 @@ namespace ShuttleZone.Equipment_and_Inventory
                 Price = 25,
                 Status = "Available"
             });
+
+            ApplySearch(); // show all initially
         }
 
         private void InitializeUI()
@@ -142,6 +145,7 @@ namespace ShuttleZone.Equipment_and_Inventory
             if (addForm.ShowDialog() == DialogResult.OK)
             {
                 equipmentList.Add(addForm.NewEquipment);
+                ApplySearch();
             }
         }
 
@@ -149,7 +153,7 @@ namespace ShuttleZone.Equipment_and_Inventory
         {
             if (e.RowIndex < 0) return;
 
-            EquipmentItem selectedItem = equipmentList[e.RowIndex];
+            EquipmentItem selectedItem = (EquipmentItem)dgvTable.Rows[e.RowIndex].DataBoundItem;
 
             if (dgvTable.Columns[e.ColumnIndex].Name == "colEdit")
             {
@@ -181,12 +185,9 @@ namespace ShuttleZone.Equipment_and_Inventory
                 if (result == DialogResult.Yes)
                 {
                     equipmentList.Remove(selectedItem);
+                    ApplySearch();
                 }
             }
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
         }
 
         private string GenerateNextId()
@@ -201,26 +202,28 @@ namespace ShuttleZone.Equipment_and_Inventory
             return "EQ" + (max + 1).ToString("D3");
         }
 
-        // ✅ SMART SEARCH ONLY
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            // do nothing
+        }
+
         private void ApplySearch()
         {
             string search = txtSearch.Text.ToLower();
 
-            foreach (DataGridViewRow row in dgvTable.Rows)
+            var results = equipmentList.Where(item =>
+                item.Name.ToLower().Contains(search) ||
+                item.Category.ToLower().Contains(search) ||
+                item.Id.ToLower().Contains(search) ||
+                item.Status.ToLower().Contains(search)
+            ).ToList();
+
+            filteredList.Clear();
+
+            foreach (var item in results)
             {
-                if (row.DataBoundItem is EquipmentItem item)
-                {
-                    bool visible =
-                        item.Name.ToLower().Contains(search) ||
-                        item.Category.ToLower().Contains(search) ||
-                        item.Id.ToLower().Contains(search);
-
-                    row.Visible = visible;
-                }
-
-
+                filteredList.Add(item);
             }
-
         }
     }
 }
