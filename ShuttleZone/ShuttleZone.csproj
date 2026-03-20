@@ -252,7 +252,7 @@
       <DependentUpon>UC_MemberRow.cs</DependentUpon>
     </Compile>
     <Compile Include="Rent History\Rent History.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Rent History\Rent History.Designer.cs">
       <DependentUpon>Rent History.cs</DependentUpon>

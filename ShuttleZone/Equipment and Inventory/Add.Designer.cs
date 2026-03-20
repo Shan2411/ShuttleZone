@@ -171,7 +171,7 @@
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(7, 6);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(246, 31);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(246, 22);
             this.guna2HtmlLabel1.TabIndex = 3;
             this.guna2HtmlLabel1.TabStop = false;
             this.guna2HtmlLabel1.Text = "Add New Equipment";

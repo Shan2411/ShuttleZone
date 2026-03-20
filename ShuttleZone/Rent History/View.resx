@@ -120,4 +120,17 @@
   <metadata name="guna2BorderlessForm1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="CloseBtn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
+        JQAAFiUBSVIk8AAAAA50RVh0U29mdHdhcmUARmlnbWGesZZjAAABP0lEQVR4Xu3YbWrCUBSE4SzBpbuz
+        LinNxDlllBg0Edqe+z5wIblfMCP+yQQAAAAAAAAAAADgvHmeL8u4elw8fdin7/t1DlK+lnE4lM76jnL1
+        0v+lELcsPw6VpDM+m1oUtBXsrZK012fSoaL/JAVxoPRSQO3x3tSnnKJADpZ2g2rNe1K/coqCOWDaDKw5
+        r6W+5RQFdNB0F1zPnkv9yykK6sBpLcBj3HKKAjt40jvlFAV3Ac+MW05RAS7iEeWISnAZjyhIBbiIZ8Yt
+        ScFdQNL71txYJSmwg6e1CI9xS1JQB053BejZc6l/SQrooGkzuOa8lvqWpGAOmHYDa817Ur+SFMjB0ktB
+        tcd7U5+SFMSB0lsBtddnUo+SlhB8ct2jELcsq1O/us76jtLmm7RK0jj9l/j0fQAAAAAAAAAAAACm6Ruf
+        yyBZKyfvEQAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

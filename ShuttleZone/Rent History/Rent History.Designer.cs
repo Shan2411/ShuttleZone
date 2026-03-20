@@ -1,6 +1,6 @@
 ﻿namespace ShuttleZone.Rent_History
 {
-    partial class Rent_History
+    partial class View
     {
         private System.ComponentModel.IContainer components = null;
 
