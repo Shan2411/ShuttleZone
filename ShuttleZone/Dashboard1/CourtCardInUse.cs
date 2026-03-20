@@ -32,15 +32,15 @@ namespace ShuttleZone.Dashboard1
                     break;
                 case "in use":
                     guna2Panel1.FillColor = Color.FromArgb(100, 160, 255);       // slightly stronger blue
-                    guna2Panel1.BorderColor = Color.FromArgb(40, 90, 175);       // much darker blue border
+                    guna2Panel1.BorderColor = Color.FromArgb(9, 32, 71);       // much darker blue border
                     break;
-                case "maintenance":
+                case "under maintenance":
                     guna2Panel1.FillColor = Color.FromArgb(255, 210, 80);        // slightly stronger yellow
-                    guna2Panel1.BorderColor = Color.FromArgb(175, 130, 20);      // much darker yellow border
+                    guna2Panel1.BorderColor = Color.FromArgb(87, 64, 8);      // much darker yellow border
                     break;
                 case "out of service":
                     guna2Panel1.FillColor = Color.FromArgb(255, 120, 120);       // slightly stronger red
-                    guna2Panel1.BorderColor = Color.FromArgb(175, 50, 50);       // much darker red border
+                    guna2Panel1.BorderColor = Color.FromArgb(110, 14, 14);       // much darker red border
                     break;
                 default:
                     guna2Panel1.FillColor = Color.Black;
