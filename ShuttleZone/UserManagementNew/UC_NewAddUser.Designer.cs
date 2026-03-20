@@ -1054,7 +1054,7 @@ namespace ShuttleZone.UserManagement
 
         private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e) { }
 
-        private void cmbRole_SelectedIndexChanged(object sender, EventArgs e) { }
+        //private void cmbRole_SelectedIndexChanged(object sender, EventArgs e) { }
 
         private void CloseButton_Click(object sender, EventArgs e) { this.ParentForm?.Close(); }
 

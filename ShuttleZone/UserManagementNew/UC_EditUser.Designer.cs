@@ -1,4 +1,6 @@
-﻿namespace ShuttleZone.UserManagement
+﻿using System;
+
+namespace ShuttleZone.UserManagement
 {
     partial class UC_EditUser
     {
@@ -206,6 +208,7 @@
             this.CancelButton.Size = new System.Drawing.Size(84, 28);
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Clear";
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // PanelHeader
             // 
@@ -556,6 +559,7 @@
             this.txtConfirmPassword.Size = new System.Drawing.Size(329, 42);
             this.txtConfirmPassword.TabIndex = 3;
             this.txtConfirmPassword.UseSystemPasswordChar = true;
+            this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtConfirmPassword_TextChanged);
             // 
             // label11
             // 
@@ -605,6 +609,7 @@
             this.txtPassword.Size = new System.Drawing.Size(327, 42);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // guna2Panel5
             // 
@@ -982,6 +987,11 @@
             this.tableLayoutPanel9.PerformLayout();
             this.ResumeLayout(false);
 
+        }
+
+        private void EditUser_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

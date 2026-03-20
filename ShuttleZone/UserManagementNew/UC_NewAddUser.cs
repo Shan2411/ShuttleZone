@@ -21,10 +21,21 @@ namespace ShuttleZone.UserManagement
 
             txtPhone.KeyPress += TxtPhone_KeyPress;
 
-            // Hide password by default
             txtPassword.UseSystemPasswordChar = true;
             txtConfirmPassword.UseSystemPasswordChar = true;
             btnShowPassword.Text = "Show";
+
+            LoadRoles(); // ✅ ADD THIS HERE
+        }
+
+        private void LoadRoles()
+        {
+            cmbRole.Items.Clear();
+            cmbRole.Items.Add("Admin");
+            cmbRole.Items.Add("Manager");
+            cmbRole.Items.Add("FrontDesk");
+
+            cmbRole.SelectedIndex = -1;
         }
 
         private void CreateButton_Click(object sender, EventArgs e)
@@ -136,6 +147,7 @@ namespace ShuttleZone.UserManagement
         {
             throw new NotImplementedException();
         }
+        private void cmbRole_SelectedIndexChanged(object sender, EventArgs e) { }
         /* // Optional empty handlers (safe if designer created them)
 private void cmbRole_SelectedIndexChanged(object sender, EventArgs e) { }
 
