@@ -2,7 +2,7 @@
 
 namespace ShuttleZone.UserManagement
 {
-    public class UserModels
+    public class UserModel
     {
         public string ID { get; set; }
         public string Username { get; set; }

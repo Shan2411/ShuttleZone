@@ -1,4 +1,6 @@
 ﻿using Guna.UI2.WinForms;
+using MySql.Data.MySqlClient;
+using ShuttleZone.database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -123,10 +125,23 @@ namespace ShuttleZone.Maintenance_Logs
         public void guna2Button2_Click(object sender, EventArgs e)
         {
 
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            { 
+                label4.Text = "Please enter a valid reason before proceeding.";
+                label4.ForeColor = Color.Red;
+                return;
+            }
+
+            string tempStatus = _selectedButton?.statusType;
+
             switch (courtName)
             {
                 case "Court A":
-                    Globals.statusFromDB = _selectedButton?.statusType;
+                    // Update on the database function
+                    //Globals.statusFromDB = _selectedButton?.statusType;
+
+                    updateToDatabase(courtName, tempStatus);
+
                     try
                     {
                         MessageBox.Show("Status changed to " + Globals.statusFromDB);
@@ -136,7 +151,7 @@ namespace ShuttleZone.Maintenance_Logs
                     catch (Exception error) { MessageBox.Show(error.Message); }
                     break;
                 case "Court B":
-                    Globals.statusFromDB1 = _selectedButton?.statusType;
+                    updateToDatabase(courtName, tempStatus);
                     try
                     {
                         MessageBox.Show("Status changed to " + Globals.statusFromDB);
@@ -146,7 +161,7 @@ namespace ShuttleZone.Maintenance_Logs
                     catch (Exception error) { MessageBox.Show(error.Message); }
                     break;
                 case "Court C":
-                    Globals.statusFromDB2 = _selectedButton?.statusType;
+                    updateToDatabase(courtName, tempStatus);
                     try
                     {
                         MessageBox.Show("Status changed to " + Globals.statusFromDB);
@@ -156,7 +171,7 @@ namespace ShuttleZone.Maintenance_Logs
                     catch (Exception error) { MessageBox.Show(error.Message); }
                     break;
                 case "Court D":
-                    Globals.statusFromDB3 = _selectedButton?.statusType;
+                    updateToDatabase(courtName, tempStatus);
                     try
                     {
                         MessageBox.Show("Status changed to " + Globals.statusFromDB);
@@ -169,6 +184,55 @@ namespace ShuttleZone.Maintenance_Logs
 
             }
             
+        }
+
+        private void updateToDatabase(string court, string status)
+        {
+
+            try
+            {
+
+                using (MySqlConnection connection = DBconnection.GetConnection())
+                {
+                    string query = "UPDATE courts SET status = @status, status_reason = @reason WHERE court_name = @courtName";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+
+                        cmd.Parameters.AddWithValue("@status", status);
+                        cmd.Parameters.AddWithValue("@reason", textBox1.Text);
+                        cmd.Parameters.AddWithValue("@courtName", court);
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Database updated successfully.");
+                    }
+                }
+
+                //This part changes the global varaible we have
+
+                switch (court)
+                {
+                    case "Court A":
+                        Globals.statusFromDB = status;
+                        break;
+                    case "Court B":
+                        Globals.statusFromDB1 = status;
+                        break;
+                    case "Court C":
+                        Globals.statusFromDB2 = status;
+                        break;
+                    case "Court D":
+                        Globals.statusFromDB3 = status;
+                        break;
+                    default: break;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating database: " + ex.Message);
+
+            }
         }
 
         private void guna2CircleButton1_Click(object sender, EventArgs e)

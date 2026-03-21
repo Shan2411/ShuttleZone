@@ -91,6 +91,10 @@ namespace ShuttleZone.Maintenance_Logs
                     guna2Panel1.FillColor = Color.FromArgb(202, 231, 192);
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Operational;
                     break;
+                case "in use":
+                    guna2Panel1.FillColor = Color.FromArgb(202, 231, 192);
+                    guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Operational;
+                    break;
                 case "under maintenance":
                     guna2Panel1.FillColor = Color.Orange;
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Maintenance1;
@@ -100,7 +104,7 @@ namespace ShuttleZone.Maintenance_Logs
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Not;
                     break;
                 default:
-                    guna2Panel1.FillColor = Color.Black;
+                    guna2Panel1.FillColor = Color.FromArgb(202, 231, 192);
                     break;
             }
         }

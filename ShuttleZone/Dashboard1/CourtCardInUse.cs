@@ -19,22 +19,32 @@ namespace ShuttleZone.Dashboard1
 
             label1.Text = courtname;
             changeColorforStatus(color);
+            guna2Button2.Text = color;
         }
 
         public void changeColorforStatus(string statusForColor)
         {
             switch (statusForColor.ToLower())
             {
-                case "inuse":
-                    guna2Panel1.FillColor = Color.FromArgb(202, 231, 192);
-                    
+                case "operational":
+                    guna2Panel1.FillColor = Color.FromArgb(150, 205, 135);       // slightly stronger green
+                    guna2Panel1.BorderColor = Color.FromArgb(75, 120, 60);       // much darker green border
                     break;
-                case "notinuse":
-                    guna2Panel1.FillColor = Color.FromArgb(161, 161, 170);
-                    
+                case "in use":
+                    guna2Panel1.FillColor = Color.FromArgb(100, 160, 255);       // slightly stronger blue
+                    guna2Panel1.BorderColor = Color.FromArgb(9, 32, 71);       // much darker blue border
+                    break;
+                case "under maintenance":
+                    guna2Panel1.FillColor = Color.FromArgb(255, 210, 80);        // slightly stronger yellow
+                    guna2Panel1.BorderColor = Color.FromArgb(87, 64, 8);      // much darker yellow border
+                    break;
+                case "out of service":
+                    guna2Panel1.FillColor = Color.FromArgb(255, 120, 120);       // slightly stronger red
+                    guna2Panel1.BorderColor = Color.FromArgb(110, 14, 14);       // much darker red border
                     break;
                 default:
                     guna2Panel1.FillColor = Color.Black;
+                    guna2Panel1.BorderColor = Color.FromArgb(20, 20, 20);
                     break;
             }
         }

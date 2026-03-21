@@ -97,58 +97,57 @@ namespace ShuttleZone.Dashboard1
 
         public void countDownStarter(string statusForColor)
         {
-            // Fix label layout first
             guna2HtmlLabel2.AutoSize = false;
-            guna2HtmlLabel2.Height = 20;  // fixed height
+            guna2HtmlLabel2.Height = 20;
 
             switch (statusForColor.ToLower())
             {
-
                 case "operational":
                     guna2HtmlLabel2.Text = "Ready For Booking";
-
                     guna2HtmlLabel1.Text = "";
                     guna2Button2.Text = "Operational";
-                    guna2Button2.FillColor = Color.MediumSeaGreen;
-                    guna2Panel1.FillColor = Color.FromArgb(202, 231, 192);
+
+                    guna2Button2.FillColor = Color.FromArgb(75, 120, 60);      // dark green button
+                    guna2Button2.BorderColor = Color.FromArgb(45, 80, 35);       // even darker border
+                    guna2Panel1.FillColor = Color.FromArgb(150, 205, 135);    // light green panel
+                    guna2Panel1.BorderColor = Color.FromArgb(75, 120, 60);
+
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Operational;
                     guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.available;
-
                     guna2Panel2.Visible = false;
                     guna2VProgressBar1.Visible = false;
                     break;
 
                 case "in use":
-                    guna2HtmlLabel2.Text = "In Use";
-
-                    // PROGRESS BAR ENABLED HERE
+                    guna2HtmlLabel2.Text = "Time Remaining:";
+                    guna2HtmlLabel2.AutoSize = false;
                     guna2VProgressBar1.Visible = true;
                     guna2VProgressBar1.Maximum = 100;
                     guna2VProgressBar1.Value = 100;
-
-                    // START COUNTDOWN
                     StartCountdown(TimeSpan.FromHours(1));
 
                     guna2Button2.Text = "In Use";
-                    guna2HtmlLabel2.AutoSize = false;
+                    guna2Button2.FillColor = Color.FromArgb(40, 90, 175);      // dark blue button
+                    guna2Button2.BorderColor = Color.FromArgb(20, 55, 130);      // even darker border
+                    guna2Panel1.FillColor = Color.FromArgb(100, 160, 255);    // light blue panel
+                    guna2Panel1.BorderColor = Color.FromArgb(40, 90, 175);
 
                     guna2CirclePictureBox2.Visible = false;
-
-                    guna2Button2.FillColor = Color.DarkBlue;
-                    guna2Panel1.FillColor = Color.LightBlue;
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Operational;
                     break;
 
                 case "under maintenance":
                     guna2HtmlLabel2.Text = "Under Maintenance";
-
                     guna2HtmlLabel1.Text = "";
                     guna2Button2.Text = "Under Maintenance";
-                    guna2Button2.FillColor = Color.DarkOrange;
-                    guna2Panel1.FillColor = Color.Orange;
+
+                    guna2Button2.FillColor = Color.FromArgb(175, 130, 20);     // dark yellow button
+                    guna2Button2.BorderColor = Color.FromArgb(130, 90, 10);      // even darker border
+                    guna2Panel1.FillColor = Color.FromArgb(255, 210, 80);     // light yellow panel
+                    guna2Panel1.BorderColor = Color.FromArgb(175, 130, 20);
+
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Maintenance1;
                     guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.mechanic;
-
                     guna2Panel2.Visible = false;
                     guna2VProgressBar1.Visible = false;
                     break;
@@ -156,15 +155,16 @@ namespace ShuttleZone.Dashboard1
                 case "out of service":
                     StopCountdown();
                     guna2HtmlLabel2.Text = "Out of Service";
-
-
                     guna2HtmlLabel1.Text = "";
                     guna2Button2.Text = "Out of Service";
-                    guna2Button2.FillColor = Color.DarkRed;
-                    guna2Panel1.FillColor = Color.Red;
+
+                    guna2Button2.FillColor = Color.FromArgb(175, 50, 50);      // dark red button
+                    guna2Button2.BorderColor = Color.FromArgb(130, 25, 25);      // even darker border
+                    guna2Panel1.FillColor = Color.FromArgb(255, 120, 120);    // light red panel
+                    guna2Panel1.BorderColor = Color.FromArgb(175, 50, 50);
+
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Not;
                     guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.unavailable;
-
                     guna2Panel2.Visible = false;
                     guna2VProgressBar1.Visible = false;
                     break;
@@ -172,11 +172,12 @@ namespace ShuttleZone.Dashboard1
                 default:
                     StopCountdown();
                     guna2HtmlLabel1.Text = statusForColor;
-                    guna2Panel1.FillColor = Color.Black;
+                    guna2Panel1.FillColor = Color.FromArgb(40, 40, 40);
+                    guna2Panel1.BorderColor = Color.FromArgb(20, 20, 20);
                     break;
             }
-
         }
+
 
         private void guna2VProgressBar1_ValueChanged(object sender, EventArgs e)
         {

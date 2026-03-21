@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,8 +15,23 @@ namespace ShuttleZone
 {
     public partial class Kiosk : Form
     {
+        [StructLayout(LayoutKind.Sequential)]
+        private struct LASTINPUTINFO
+        {
+            public uint cbSize;
+            public uint dwTime;
+        }
+
+        [DllImport("user32.dll")]
+        private static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
+
         private readonly List<CartItem> cartItems = new List<CartItem>();
+        private readonly Timer inactivityTimer = new Timer();
         private decimal appliedDiscountPercent;
+        public static string BannerHeaderText { get; private set; } = "Book a Court Today!";
+        public static string PromoText { get; private set; } = "Avail Membership and get Discounts up to 20%!";
+        public static bool AutoReturnHomeEnabled { get; private set; }
+        public static int SessionTimeoutMinutes { get; private set; } = 1;
         private static readonly HashSet<string> ValidMemberCodes = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {
             "M#0001",
@@ -26,6 +42,9 @@ namespace ShuttleZone
         public Kiosk()
         {
             InitializeComponent();
+            ApplyHeaderAndPromoTexts();
+            ConfigureInactivityTimer();
+            ApplyAutoReturnSettings();
             Load += Kiosk_Load;
             btnCourtRental.Click += BtnCourtRental_Click;
             btnEquipment.Click += BtnEquipment_Click;
@@ -35,6 +54,111 @@ namespace ShuttleZone
             btnKioskRemoveDiscount.Click += BtnKioskRemoveDiscount_Click;
             btnKioskCashPayment.Click += BtnKioskCashPayment_Click;
             btnKioskEcashPayment.Click += BtnKioskEcashPayment_Click;
+        }
+
+        public static void UpdateTexts(string bannerHeaderText, string promoText)
+        {
+            BannerHeaderText = bannerHeaderText;
+            PromoText = promoText;
+
+            foreach (var kiosk in Application.OpenForms.OfType<Kiosk>())
+            {
+                kiosk.ApplyHeaderAndPromoTexts();
+            }
+        }
+
+        public static void UpdateAutoReturnSettings(bool enabled, int sessionTimeoutMinutes)
+        {
+            AutoReturnHomeEnabled = enabled;
+            SessionTimeoutMinutes = sessionTimeoutMinutes < 1 ? 1 : sessionTimeoutMinutes;
+
+            foreach (var kiosk in Application.OpenForms.OfType<Kiosk>())
+            {
+                kiosk.ApplyAutoReturnSettings();
+            }
+        }
+
+        private void ApplyHeaderAndPromoTexts()
+        {
+            lblBannerHeaderText.Text = BannerHeaderText;
+            lblPromoText.Text = PromoText;
+        }
+
+        private void ConfigureInactivityTimer()
+        {
+            inactivityTimer.Interval = 1000;
+            inactivityTimer.Tick += InactivityTimer_Tick;
+        }
+
+        private void ApplyAutoReturnSettings()
+        {
+            if (AutoReturnHomeEnabled)
+            {
+                inactivityTimer.Start();
+                return;
+            }
+
+            inactivityTimer.Stop();
+        }
+
+        private void InactivityTimer_Tick(object sender, EventArgs e)
+        {
+            if (!AutoReturnHomeEnabled)
+            {
+                return;
+            }
+
+            if (GetIdleTime() < TimeSpan.FromMinutes(SessionTimeoutMinutes))
+            {
+                return;
+            }
+
+            ReturnToHome();
+        }
+
+        private void ReturnToHome()
+        {
+            if (lblKioskTitle.Text != "Court Rental")
+            {
+                ShowDynamicPanel(new UC_CourtRental());
+                lblKioskTitle.Text = "Court Rental";
+            }
+
+            ResetCartAfterInactivity();
+        }
+
+        private void ResetCartAfterInactivity()
+        {
+            var panelsToRemove = flowKioskCart.Controls
+                .OfType<Guna2Panel>()
+                .Where(panel => panel != pnlKioskCartItem)
+                .ToList();
+
+            foreach (var panel in panelsToRemove)
+            {
+                flowKioskCart.Controls.Remove(panel);
+                panel.Dispose();
+            }
+
+            cartItems.Clear();
+            appliedDiscountPercent = 0m;
+            pnlKioskDiscountApplied.Visible = false;
+            txtKioskMemberCode.Text = string.Empty;
+            UpdateTotals();
+        }
+
+        private static TimeSpan GetIdleTime()
+        {
+            var info = new LASTINPUTINFO();
+            info.cbSize = (uint)Marshal.SizeOf(info);
+
+            if (!GetLastInputInfo(ref info))
+            {
+                return TimeSpan.Zero;
+            }
+
+            uint elapsedMilliseconds = unchecked((uint)Environment.TickCount) - info.dwTime;
+            return TimeSpan.FromMilliseconds(elapsedMilliseconds);
         }
 
         private void Kiosk_Load(object sender, EventArgs e)
