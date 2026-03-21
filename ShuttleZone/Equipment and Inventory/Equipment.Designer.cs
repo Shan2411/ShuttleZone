@@ -213,7 +213,7 @@
             this.tableLayoutPanel5.ColumnCount = 3;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.42373F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.57627F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 306F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 307F));
             this.tableLayoutPanel5.Controls.Add(this.cmbCategory, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.txtSearch, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.cmbFilter, 2, 0);
@@ -247,7 +247,7 @@
             this.cmbCategory.Location = new System.Drawing.Point(588, 14);
             this.cmbCategory.Margin = new System.Windows.Forms.Padding(11, 14, 13, 14);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(281, 36);
+            this.cmbCategory.Size = new System.Drawing.Size(280, 36);
             this.cmbCategory.TabIndex = 2;
             // 
             // txtSearch
@@ -283,10 +283,10 @@
             this.cmbFilter.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbFilter.ItemHeight = 30;
-            this.cmbFilter.Location = new System.Drawing.Point(893, 14);
+            this.cmbFilter.Location = new System.Drawing.Point(892, 14);
             this.cmbFilter.Margin = new System.Windows.Forms.Padding(11, 14, 13, 14);
             this.cmbFilter.Name = "cmbFilter";
-            this.cmbFilter.Size = new System.Drawing.Size(283, 36);
+            this.cmbFilter.Size = new System.Drawing.Size(284, 36);
             this.cmbFilter.TabIndex = 1;
             // 
             // dgvTable
