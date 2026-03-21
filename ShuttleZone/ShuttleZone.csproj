@@ -662,5 +662,29 @@
   <ItemGroup>
     <None Include="Resources\shuttlezone.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dl1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %286%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

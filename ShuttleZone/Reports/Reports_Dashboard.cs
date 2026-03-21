@@ -43,5 +43,20 @@ namespace ShuttleZone.Reports
         {
 
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
