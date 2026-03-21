@@ -14,7 +14,7 @@ namespace ShuttleZone.Maintenance_Logs
     {
         public static string CurrentCourtStatus;
         public static string CurrentCourtName;
-        public static string statusFromDB = "stoopidl";
+        public static string statusFromDB = " YOU NEED DATABASE OPENED";
         public static string statusFromDB1 = "Operational";
         public static string statusFromDB2 = "out of service";
         public static string statusFromDB3 = "under maintenance";
