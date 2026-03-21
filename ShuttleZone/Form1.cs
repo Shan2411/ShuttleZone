@@ -1,5 +1,6 @@
 ﻿using ShuttleZone.Dashboard1;
 using ShuttleZone.Maintenance_Logs;
+using ShuttleZone.Rent_History;
 using ShuttleZone.sidebars;
 using ShuttleZone.SystemSettings;
 using ShuttleZone.topbar;
@@ -110,7 +111,7 @@ namespace ShuttleZone
 
         private void HistoryBtn_Click(object sender, EventArgs e)
         {
-            DynamicContentPanel.Controls.Clear();
+            LoadView<RentHistory>();
         }
 
         // ================= DASHBOARDS =================
