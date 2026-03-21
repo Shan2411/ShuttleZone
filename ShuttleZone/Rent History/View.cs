@@ -6,14 +6,17 @@ namespace ShuttleZone.Rent_History
 {
     public partial class View : Form
     {
-        
-    
+        string id, date, time, customer, total, payment, status;
 
-string id, date, time, customer, total, payment, status;
+        // ✅ REQUIRED for Designer
+        public View()
+        {
+            InitializeComponent();
+        }
 
         public View(string id, string date, string time, string customer, string total, string payment, string status)
         {
-            InitializeComponent();  
+            InitializeComponent();
 
             this.id = id;
             this.date = date;
@@ -24,21 +27,16 @@ string id, date, time, customer, total, payment, status;
             this.status = status;
         }
 
-       
-
-        // CLOSE BUTTON (BOTTOM)
-        private void btnClose_Click(object sender, EventArgs e)
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // CLOSE (X PICTUREBOX)
         private void pictureBoxClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // HOVER EFFECT (OPTIONAL)
         private void pictureBoxClose_MouseEnter(object sender, EventArgs e)
         {
             CloseBtn.BackColor = Color.Red;
@@ -49,7 +47,6 @@ string id, date, time, customer, total, payment, status;
             CloseBtn.BackColor = Color.Transparent;
         }
 
-        // ESC KEY CLOSE
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Escape)
@@ -58,6 +55,16 @@ string id, date, time, customer, total, payment, status;
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
+        {
+            // optional
+        }
+
+        private void guna2HtmlLabel38_Click(object sender, EventArgs e)
+        {
+            // optional
         }
     }
 }

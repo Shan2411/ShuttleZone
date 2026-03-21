@@ -2,10 +2,11 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+using System.Data;
 
 namespace ShuttleZone.Rent_History
 {
-    public partial class View : Form
+    public partial class RentHistory : UserControl
     {
         
 DataTable dt = new DataTable();
