@@ -60,6 +60,10 @@
     <Reference Include="MySql.Data, Version=9.6.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.9.6.0\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.16.0.18925.20022\lib\net40\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -226,6 +230,7 @@
     <Compile Include="Equipment and Inventory\Equipment.Designer.cs">
       <DependentUpon>Equipment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Equipment and Inventory\EquipmentItem.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,10 +311,16 @@
       <DependentUpon>UC_MemberRow.cs</DependentUpon>
     </Compile>
     <Compile Include="Rent History\Rent History.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Rent History\Rent History.Designer.cs">
       <DependentUpon>Rent History.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rent History\View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rent History\View.Designer.cs">
+      <DependentUpon>View.cs</DependentUpon>
     </Compile>
     <Compile Include="reports\Reports_Dashboard.cs">
       <SubType>UserControl</SubType>
@@ -572,6 +583,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rent History\Rent History.resx">
       <DependentUpon>Rent History.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rent History\View.resx">
+      <DependentUpon>View.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\Reports_Dashboard.resx">
       <DependentUpon>Reports_Dashboard.cs</DependentUpon>

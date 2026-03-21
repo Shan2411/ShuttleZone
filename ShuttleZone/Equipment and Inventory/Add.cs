@@ -5,59 +5,67 @@ namespace ShuttleZone.Equipment_and_Inventory
 {
     public partial class Add : Form
     {
-        // This will be read by Equipment.cs
-        public EquipmentItem AddedItem { get; private set; }
+        public EquipmentItem NewEquipment { get; private set; }
 
+        private string equipmentId; // ✅ store ID
+        private bool isEditMode = false; // ✅ track edit mode
+
+        // ✅ DEFAULT constructor (still needed)
         public Add()
         {
             InitializeComponent();
-            LoadCategories();
-            HookEvents();
         }
 
-        private void LoadCategories()
+        // ✅ FIX 1: Constructor with ID (solves CS1729)
+        public Add(string id)
         {
-            cmbCategory.Items.Clear();
-            cmbCategory.Items.AddRange(new object[]
-            {
-                "Rackets",
-                "Shuttlecocks",
-                "Shoes",
-                "Accessories",
-                "Consumables"
-            });
-
-            cmbCategory.SelectedIndex = 0;
+            InitializeComponent();
+            equipmentId = id;
         }
 
-        private void HookEvents()
+        // ✅ FIX 2: LoadExistingData method (solves CS1061)
+        public void LoadExistingData(EquipmentItem item)
         {
-            btnAdd.Click += btnAdd_Click;
-            btnCancel.Click += (s, e) => this.Close();
+            if (item == null) return;
+
+            isEditMode = true;
+            equipmentId = item.Id;
+
+            txtEquipmentName.Text = item.Name;
+            txtCategory.Text = item.Category;
+            txtStock.Text = item.Total.ToString();
+            txtRentalPrice.Text = item.Price.ToString();
+        }
+
+        private void tableLayoutPanel10_Paint(object sender, PaintEventArgs e)
+        {
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtName.Text) ||
-                cmbCategory.SelectedIndex < 0 ||
-                !int.TryParse(txtQuantity.Text, out int quantity) ||
-                !decimal.TryParse(txtPrice.Text, out decimal price))
+            if (string.IsNullOrWhiteSpace(txtEquipmentName.Text) ||
+                string.IsNullOrWhiteSpace(txtStock.Text) ||
+                string.IsNullOrWhiteSpace(txtRentalPrice.Text))
             {
-                MessageBox.Show(
-                    "Please enter valid values for all fields.",
-                    "Validation Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("Please fill all required fields.");
                 return;
             }
 
-            AddedItem = new EquipmentItem
+            if (!int.TryParse(txtStock.Text, out int stock) ||
+                !decimal.TryParse(txtRentalPrice.Text, out decimal price))
             {
-                Id = Guid.NewGuid().ToString().Substring(0, 8),
-                Name = txtName.Text.Trim(),
-                Category = cmbCategory.SelectedItem.ToString(),
-                Total = quantity,
-                Available = quantity,
+                MessageBox.Show("Invalid number input.");
+                return;
+            }
+
+            // ✅ FIX 3: Preserve ID + handle edit properly
+            NewEquipment = new EquipmentItem
+            {
+                Id = equipmentId, // IMPORTANT
+                Name = txtEquipmentName.Text,
+                Category = txtCategory.Text,
+                Total = stock,
+                Available = isEditMode ? stock : stock, // you can improve later
                 Rented = 0,
                 Price = price,
                 Status = "Available"
@@ -66,18 +74,11 @@ namespace ShuttleZone.Equipment_and_Inventory
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
-    }
 
-    // Shared model
-    public class EquipmentItem
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Category { get; set; }
-        public int Total { get; set; }
-        public int Available { get; set; }
-        public int Rented { get; set; }
-        public decimal Price { get; set; }
-        public string Status { get; set; }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
     }
 }
