@@ -1,7 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -13,6 +12,7 @@ namespace ShuttleZone.reports
     {
         private static string ConnStr => DatabaseConfig.ConnStr;
 
+        // ── Bar Chart Data ────────────────────────────────────────────────────
         private string[] courtLabels = new string[0];
         private int[] courtValues = new int[0];
         private readonly Color courtBarColor = Color.FromArgb(130, 60, 220);
@@ -21,6 +21,7 @@ namespace ShuttleZone.reports
         private int[] equipValues = new int[0];
         private readonly Color equipBarColor = Color.FromArgb(30, 120, 255);
 
+        // ── Detailed Report Data ──────────────────────────────────────────────
         private class ReportRow
         {
             public string Date { get; set; }
@@ -31,6 +32,8 @@ namespace ShuttleZone.reports
         }
         private List<ReportRow> reportData = new List<ReportRow>();
 
+        // ── Constructor ───────────────────────────────────────────────────────
+
         public Reports_Dashboard_Page2()
         {
             InitializeComponent();
@@ -38,10 +41,14 @@ namespace ShuttleZone.reports
             SetPanelDoubleBuffered(guna2PanelEquipmentIncomeBreakdown);
             guna2PanelCourtIncomeBreakdown.Resize += (s, e) => guna2PanelCourtIncomeBreakdown.Invalidate();
             guna2PanelEquipmentIncomeBreakdown.Resize += (s, e) => guna2PanelEquipmentIncomeBreakdown.Invalidate();
-            flpDetailedReportRow.Font = new Font("Microsoft Sans Serif", 9.75f);
+
+            flpDetailedReportRow.Font = new Font("Segoe UI", 9.5f);
             flpDetailedReportRow.AutoScroll = true;
             flpDetailedReportRow.FlowDirection = FlowDirection.TopDown;
             flpDetailedReportRow.WrapContents = false;
+            flpDetailedReportRow.Padding = new Padding(0);
+            flpDetailedReportRow.BackColor = Color.White;
+
             this.Load += OnLoad;
         }
 
@@ -50,7 +57,7 @@ namespace ShuttleZone.reports
             LoadData(DateTime.Today.AddDays(-6), DateTime.Today);
         }
 
-        // ── Wire to your filter button ────────────────────────────────────────
+        // ── Public — wire to filter button ───────────────────────────────────
         //
         //  private void btnFilter_Click(object sender, EventArgs e)
         //  {
@@ -67,21 +74,39 @@ namespace ShuttleZone.reports
             PopulateDetailedReportRows();
         }
 
+        // ── Database ──────────────────────────────────────────────────────────
+
         private void LoadFromDatabase(DateTime from, DateTime to)
         {
             using (MySqlConnection conn = new MySqlConnection(ConnStr))
             {
                 conn.Open();
 
-                // Court breakdown
+                // ── Court breakdown — group all variations into Court A/B/C/D ──
                 string sqlCourt = @"
-                    SELECT item_name, SUM(total_amount) AS total
+                    SELECT
+                        CASE
+                            WHEN item_name LIKE '%Court A%' THEN 'Court A'
+                            WHEN item_name LIKE '%Court B%' THEN 'Court B'
+                            WHEN item_name LIKE '%Court C%' THEN 'Court C'
+                            WHEN item_name LIKE '%Court D%' THEN 'Court D'
+                        END AS grouped_name,
+                        SUM(total_amount) AS total
                     FROM transactions
                     WHERE income_type = 'Court'
                       AND transaction_date BETWEEN @From AND @To
-                    GROUP BY item_name ORDER BY total DESC";
+                    GROUP BY
+                        CASE
+                            WHEN item_name LIKE '%Court A%' THEN 'Court A'
+                            WHEN item_name LIKE '%Court B%' THEN 'Court B'
+                            WHEN item_name LIKE '%Court C%' THEN 'Court C'
+                            WHEN item_name LIKE '%Court D%' THEN 'Court D'
+                        END
+                    HAVING grouped_name IS NOT NULL
+                    ORDER BY total DESC";
 
-                List<string> cL = new List<string>(); List<int> cV = new List<int>();
+                List<string> cL = new List<string>();
+                List<int> cV = new List<int>();
                 using (MySqlCommand cmd = new MySqlCommand(sqlCourt, conn))
                 {
                     cmd.Parameters.AddWithValue("@From", from.ToString("yyyy-MM-dd"));
@@ -89,21 +114,40 @@ namespace ShuttleZone.reports
                     using (MySqlDataReader r = cmd.ExecuteReader())
                         while (r.Read())
                         {
-                            cL.Add(r["item_name"].ToString());
+                            cL.Add(r["grouped_name"].ToString());
                             cV.Add((int)Math.Round(Convert.ToDecimal(r["total"])));
                         }
                 }
-                courtLabels = cL.ToArray(); courtValues = cV.ToArray();
+                courtLabels = cL.ToArray();
+                courtValues = cV.ToArray();
 
-                // Equipment breakdown
+                // ── Equipment breakdown — group all variations into standard names ──
                 string sqlEquip = @"
-                    SELECT item_name, SUM(total_amount) AS total
+                    SELECT
+                        CASE
+                            WHEN item_name LIKE '%Badminton Racket%'
+                              OR item_name LIKE '%Racket%'           THEN 'Badminton Rackets'
+                            WHEN item_name LIKE '%Shuttlecock%'      THEN 'Shuttlecocks'
+                            WHEN item_name LIKE '%Grip Tape%'        THEN 'Grip Tape'
+                            WHEN item_name LIKE '%Towel%'            THEN 'Towel'
+                        END AS grouped_name,
+                        SUM(total_amount) AS total
                     FROM transactions
                     WHERE income_type = 'Equipment'
                       AND transaction_date BETWEEN @From AND @To
-                    GROUP BY item_name ORDER BY total DESC";
+                    GROUP BY
+                        CASE
+                            WHEN item_name LIKE '%Badminton Racket%'
+                              OR item_name LIKE '%Racket%'           THEN 'Badminton Rackets'
+                            WHEN item_name LIKE '%Shuttlecock%'      THEN 'Shuttlecocks'
+                            WHEN item_name LIKE '%Grip Tape%'        THEN 'Grip Tape'
+                            WHEN item_name LIKE '%Towel%'            THEN 'Towel'
+                        END
+                    HAVING grouped_name IS NOT NULL
+                    ORDER BY total DESC";
 
-                List<string> eL = new List<string>(); List<int> eV = new List<int>();
+                List<string> eL = new List<string>();
+                List<int> eV = new List<int>();
                 using (MySqlCommand cmd = new MySqlCommand(sqlEquip, conn))
                 {
                     cmd.Parameters.AddWithValue("@From", from.ToString("yyyy-MM-dd"));
@@ -111,13 +155,14 @@ namespace ShuttleZone.reports
                     using (MySqlDataReader r = cmd.ExecuteReader())
                         while (r.Read())
                         {
-                            eL.Add(r["item_name"].ToString());
+                            eL.Add(r["grouped_name"].ToString());
                             eV.Add((int)Math.Round(Convert.ToDecimal(r["total"])));
                         }
                 }
-                equipLabels = eL.ToArray(); equipValues = eV.ToArray();
+                equipLabels = eL.ToArray();
+                equipValues = eV.ToArray();
 
-                // Detailed report — one row per day
+                // ── Detailed report — one row per day ─────────────────────────
                 string sqlReport = @"
                     SELECT
                         transaction_date,
@@ -127,7 +172,8 @@ namespace ShuttleZone.reports
                         COUNT(DISTINCT receipt_no) AS transactions
                     FROM transactions
                     WHERE transaction_date BETWEEN @From AND @To
-                    GROUP BY transaction_date ORDER BY transaction_date";
+                    GROUP BY transaction_date
+                    ORDER BY transaction_date";
 
                 reportData = new List<ReportRow>();
                 using (MySqlCommand cmd = new MySqlCommand(sqlReport, conn))
@@ -152,7 +198,7 @@ namespace ShuttleZone.reports
         {
             courtLabels = new[] { "Court A", "Court B", "Court C", "Court D" };
             courtValues = new[] { 28400, 26200, 24800, 22600 };
-            equipLabels = new[] { "Rackets", "Shuttlecocks", "Court Shoes", "Accessories" };
+            equipLabels = new[] { "Badminton Rackets", "Shuttlecocks", "Grip Tape", "Towel" };
             equipValues = new[] { 18200, 10800, 6400, 2700 };
             reportData = new List<ReportRow>
             {
@@ -166,32 +212,58 @@ namespace ShuttleZone.reports
             };
         }
 
+        // ── FLP Population ────────────────────────────────────────────────────
+
         private void PopulateDetailedReportRows()
         {
             flpDetailedReportRow.Controls.Clear();
+
             int rowWidth = flpDetailedReportRow.ClientSize.Width - 2;
             if (rowWidth <= 0) rowWidth = 890;
 
-            foreach (ReportRow data in reportData)
+            for (int i = 0; i < reportData.Count; i++)
             {
+                ReportRow data = reportData[i];
+
                 DetailedReportRows row = new DetailedReportRows();
                 row.Width = rowWidth;
-                row.Height = 45;
+                row.Height = 50;
                 row.Margin = new Padding(0);
+
+                row.SetAlternateColor(i % 2 == 0);
                 row.SetData(data.Date, data.CourtIncome, data.EquipIncome,
                             data.TotalIncome, data.Transactions);
+
                 flpDetailedReportRow.Controls.Add(row);
 
                 Panel sep = new Panel
                 {
                     Width = rowWidth,
                     Height = 1,
-                    BackColor = Color.FromArgb(220, 220, 228),
+                    BackColor = Color.FromArgb(235, 235, 240),
                     Margin = new Padding(0)
                 };
                 flpDetailedReportRow.Controls.Add(sep);
             }
+
+            if (reportData.Count == 0)
+            {
+                Label noData = new Label
+                {
+                    Text = "No data available for the selected period.",
+                    Font = new Font("Segoe UI", 9f),
+                    ForeColor = Color.FromArgb(150, 150, 160),
+                    AutoSize = false,
+                    Width = rowWidth,
+                    Height = 50,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Margin = new Padding(0)
+                };
+                flpDetailedReportRow.Controls.Add(noData);
+            }
         }
+
+        // ── Bar Chart Paint Handlers ──────────────────────────────────────────
 
         private void guna2PanelCourtIncomeBreakdown_Paint(object sender, PaintEventArgs e)
         {
@@ -206,6 +278,8 @@ namespace ShuttleZone.reports
         }
 
         private void flpDetailedReportRow_Paint(object sender, PaintEventArgs e) { }
+
+        // ── Shared Bar Chart Renderer ─────────────────────────────────────────
 
         private void DrawBreakdownChart(Graphics g, Control panel,
             string title, string[] labels, int[] values, Color barColor)
@@ -223,7 +297,8 @@ namespace ShuttleZone.reports
 
             int padL = 16, padR = 16, padTop = 48;
             int rowH = (H - padTop - 8) / labels.Length;
-            int barH = 6, barTrackW = W - padL - padR - 90;
+            int barH = 6;
+            int barTrackW = W - padL - padR - 90;
             int maxVal = Math.Max(1, values.Max());
 
             using (Font tf = new Font("Segoe UI", 10f, FontStyle.Bold))
@@ -240,9 +315,11 @@ namespace ShuttleZone.reports
                 {
                     int rowY = padTop + i * rowH;
                     g.DrawString(labels[i], lf, lb, padL, rowY + 2);
+
                     string amount = "₱" + values[i].ToString("N0");
                     SizeF sz = g.MeasureString(amount, af);
                     g.DrawString(amount, af, ab, W - padR - sz.Width, rowY + 2);
+
                     int trackY = rowY + 22;
                     float fillW = (float)values[i] / maxVal * barTrackW;
                     DrawRoundedBar(g, tb, padL, trackY, barTrackW, barH, barH / 2);
@@ -250,6 +327,8 @@ namespace ShuttleZone.reports
                 }
             }
         }
+
+        // ── Utility ───────────────────────────────────────────────────────────
 
         private static void DrawRoundedBar(Graphics g, Brush brush,
             int x, int y, int width, int height, int radius)

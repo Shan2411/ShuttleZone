@@ -252,22 +252,35 @@ namespace ShuttleZone.Reports
                 using (MySqlConnection conn = new MySqlConnection(ConnStr))
                 {
                     conn.Open();
-                    string sql = @"
-                SELECT COUNT(DISTINCT receipt_no)
-                FROM transactions
-                WHERE transaction_date BETWEEN @From AND @To";
+                    // PALITAN NG — kasama na ang court/equipment filter:
+                    string courtWhere = _filterCourt == "All Courts"
+                        ? "" : " AND (income_type != 'Court' OR item_name LIKE @CourtFilter)";
+                    string equipWhere = _filterEquip == "All Equipments"
+                        ? "" : " AND (income_type != 'Equipment' OR item_name LIKE @EquipFilter)";
+
+                    string sql = string.Format(@"
+                     SELECT COUNT(DISTINCT receipt_no)
+                        FROM transactions
+                    WHERE transaction_date BETWEEN @From AND @To
+                    {0}{1}", courtWhere, equipWhere);
+
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@From", _filterFrom.ToString("yyyy-MM-dd"));
                         cmd.Parameters.AddWithValue("@To", _filterTo.ToString("yyyy-MM-dd"));
+                        if (_filterCourt != "All Courts")
+                            cmd.Parameters.AddWithValue("@CourtFilter", "%" + _filterCourt + "%");
+                        if (_filterEquip != "All Equipments")
+                            cmd.Parameters.AddWithValue("@EquipFilter", "%" + _filterEquip + "%");
+
                         object result = cmd.ExecuteScalar();
                         if (result != null && result != DBNull.Value)
                             txCount = Convert.ToInt32(result);
                     }
                 }
 
-                // Summary totals
-                lblTotalIncome.Text = "₱" + grandTotal.ToString("N0");
+                    // Summary totals
+                    lblTotalIncome.Text = "₱" + grandTotal.ToString("N0");
                 lblCourtSales.Text = "₱" + totalCourt.ToString("N0");
                 lblEquipmentSales.Text = "₱" + totalEquip.ToString("N0");
                 lblMembershipSales.Text = "₱" + totalMember.ToString("N0");
@@ -296,7 +309,7 @@ namespace ShuttleZone.Reports
         private void guna2Panel2_Paint(object sender, PaintEventArgs e) { }
         private void lblPercentage_Click(object sender, EventArgs e) { }
         private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e) { }
-        private void label4_Click(object sender, EventArgs e) { }
+
         private void guna2Button1_Click(object sender, EventArgs e) { }
         private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e) { }
         private void btnExcel_Click(object sender, EventArgs e) { }
@@ -471,6 +484,11 @@ namespace ShuttleZone.Reports
         }
 
         private void lblAverageTransactions_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblStatusUpdate_Click(object sender, EventArgs e)
         {
 
         }
