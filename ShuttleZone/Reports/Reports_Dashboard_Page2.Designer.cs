@@ -274,7 +274,7 @@ namespace ShuttleZone.reports
             // 
             this.flpDetailedReportRow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpDetailedReportRow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpDetailedReportRow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flpDetailedReportRow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flpDetailedReportRow.Location = new System.Drawing.Point(3, 69);
             this.flpDetailedReportRow.Name = "flpDetailedReportRow";
             this.flpDetailedReportRow.Size = new System.Drawing.Size(895, 260);

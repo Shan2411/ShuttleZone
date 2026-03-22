@@ -1868,7 +1868,7 @@
             this.btnDetailedReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDetailedReport.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDetailedReport.FillColor = System.Drawing.Color.Transparent;
-            this.btnDetailedReport.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetailedReport.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDetailedReport.ForeColor = System.Drawing.Color.Black;
             this.btnDetailedReport.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.btnDetailedReport.HoverState.ForeColor = System.Drawing.Color.Cyan;
