@@ -262,11 +262,23 @@
     <Compile Include="Rent History\Rent History.Designer.cs">
       <DependentUpon>Rent History.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\DetailedReportRows.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="reports\DetailedReportRows.Designer.cs">
+      <DependentUpon>DetailedReportRows.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\Reports_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="reports\Reports_Dashboard.Designer.cs">
       <DependentUpon>Reports_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\Reports_Dashboard_Page2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="reports\Reports_Dashboard_Page2.Designer.cs">
+      <DependentUpon>Reports_Dashboard_Page2.cs</DependentUpon>
     </Compile>
     <Compile Include="sidebars\AdminSidebar.cs">
       <SubType>UserControl</SubType>
@@ -524,8 +536,14 @@
     <EmbeddedResource Include="Rent History\Rent History.resx">
       <DependentUpon>Rent History.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reports\DetailedReportRows.resx">
+      <DependentUpon>DetailedReportRows.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reports\Reports_Dashboard.resx">
       <DependentUpon>Reports_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\Reports_Dashboard_Page2.resx">
+      <DependentUpon>Reports_Dashboard_Page2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sidebars\AdminSidebar.resx">
       <DependentUpon>AdminSidebar.cs</DependentUpon>
@@ -685,6 +703,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\download %286%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %287%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
