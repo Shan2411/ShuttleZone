@@ -204,7 +204,7 @@
             // 
             this.lblStatusUpdate.AutoSize = true;
             this.lblStatusUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatusUpdate.Location = new System.Drawing.Point(3, 38);
+            this.lblStatusUpdate.Location = new System.Drawing.Point(3, 37);
             this.lblStatusUpdate.Name = "lblStatusUpdate";
             this.lblStatusUpdate.Size = new System.Drawing.Size(291, 24);
             this.lblStatusUpdate.TabIndex = 3;
@@ -426,7 +426,7 @@
             this.pnlFilterBar.Controls.Add(this.tableLayoutPanel4);
             this.pnlFilterBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlFilterBar.FillColor = System.Drawing.Color.White;
-            this.pnlFilterBar.Location = new System.Drawing.Point(3, 85);
+            this.pnlFilterBar.Location = new System.Drawing.Point(3, 84);
             this.pnlFilterBar.Name = "pnlFilterBar";
             this.pnlFilterBar.ShadowDecoration.Depth = 20;
             this.pnlFilterBar.ShadowDecoration.Enabled = true;
@@ -630,8 +630,8 @@
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.96934F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.07325F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.97615F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.98126F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.65758F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.64054F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(932, 587);
             this.tableLayoutPanel1.TabIndex = 52;
@@ -651,7 +651,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(926, 76);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(926, 75);
             this.tableLayoutPanel2.TabIndex = 54;
             // 
             // guna2Panel1
@@ -661,7 +661,7 @@
             this.guna2Panel1.Location = new System.Drawing.Point(466, 3);
             this.guna2Panel1.Name = "guna2Panel1";
             this.tableLayoutPanel2.SetRowSpan(this.guna2Panel1, 2);
-            this.guna2Panel1.Size = new System.Drawing.Size(457, 70);
+            this.guna2Panel1.Size = new System.Drawing.Size(457, 69);
             this.guna2Panel1.TabIndex = 4;
             // 
             // tableLayoutPanel3
@@ -681,7 +681,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(457, 70);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(457, 69);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tableLayoutPanel6
@@ -698,11 +698,11 @@
             this.tableLayoutPanel6.Controls.Add(this.guna2CustomGradientPanel2, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.guna2CustomGradientPanel3, 3, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 149);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 148);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(926, 123);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(926, 126);
             this.tableLayoutPanel6.TabIndex = 55;
             // 
             // guna2CustomGradientPanel5
@@ -716,7 +716,7 @@
             this.guna2CustomGradientPanel5.ShadowDecoration.BorderRadius = 10;
             this.guna2CustomGradientPanel5.ShadowDecoration.Color = System.Drawing.Color.Gray;
             this.guna2CustomGradientPanel5.ShadowDecoration.Enabled = true;
-            this.guna2CustomGradientPanel5.Size = new System.Drawing.Size(180, 117);
+            this.guna2CustomGradientPanel5.Size = new System.Drawing.Size(180, 120);
             this.guna2CustomGradientPanel5.TabIndex = 6;
             // 
             // tableLayoutPanel18
@@ -734,7 +734,7 @@
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.227848F));
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.77215F));
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(180, 117);
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(180, 120);
             this.tableLayoutPanel18.TabIndex = 2;
             // 
             // tableLayoutPanel19
@@ -744,13 +744,13 @@
             this.tableLayoutPanel19.Controls.Add(this.label17, 0, 1);
             this.tableLayoutPanel19.Controls.Add(this.tableLayoutPanel20, 0, 2);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(12, 11);
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 3;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.02128F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.08511F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.82979F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(148, 94);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(148, 96);
             this.tableLayoutPanel19.TabIndex = 0;
             // 
             // label17
@@ -778,7 +778,7 @@
             this.tableLayoutPanel20.RowCount = 2;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.45454F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.54545F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(142, 55);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(142, 57);
             this.tableLayoutPanel20.TabIndex = 1;
             // 
             // lblAverageTransactions
@@ -787,9 +787,9 @@
             this.lblAverageTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblAverageTransactions.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAverageTransactions.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblAverageTransactions.Location = new System.Drawing.Point(3, 47);
+            this.lblAverageTransactions.Location = new System.Drawing.Point(3, 48);
             this.lblAverageTransactions.Name = "lblAverageTransactions";
-            this.lblAverageTransactions.Size = new System.Drawing.Size(136, 8);
+            this.lblAverageTransactions.Size = new System.Drawing.Size(136, 9);
             this.lblAverageTransactions.TabIndex = 2;
             this.lblAverageTransactions.Text = "Avg: ₱678";
             // 
@@ -800,7 +800,7 @@
             this.lblTotalTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalTransaction.Location = new System.Drawing.Point(3, 0);
             this.lblTotalTransaction.Name = "lblTotalTransaction";
-            this.lblTotalTransaction.Size = new System.Drawing.Size(136, 47);
+            this.lblTotalTransaction.Size = new System.Drawing.Size(136, 48);
             this.lblTotalTransaction.TabIndex = 1;
             this.lblTotalTransaction.Text = "₱ 500,000";
             this.lblTotalTransaction.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -816,7 +816,7 @@
             this.guna2CustomGradientPanel4.ShadowDecoration.BorderRadius = 10;
             this.guna2CustomGradientPanel4.ShadowDecoration.Color = System.Drawing.Color.Gray;
             this.guna2CustomGradientPanel4.ShadowDecoration.Enabled = true;
-            this.guna2CustomGradientPanel4.Size = new System.Drawing.Size(179, 117);
+            this.guna2CustomGradientPanel4.Size = new System.Drawing.Size(179, 120);
             this.guna2CustomGradientPanel4.TabIndex = 5;
             // 
             // tableLayoutPanel12
@@ -834,7 +834,7 @@
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.227848F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.77215F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(179, 117);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(179, 120);
             this.tableLayoutPanel12.TabIndex = 2;
             // 
             // tableLayoutPanel13
@@ -844,13 +844,13 @@
             this.tableLayoutPanel13.Controls.Add(this.label11, 0, 1);
             this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel14, 0, 2);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(12, 11);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 3;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.02128F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.08511F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.82979F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(147, 94);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(147, 96);
             this.tableLayoutPanel13.TabIndex = 0;
             // 
             // label11
@@ -878,7 +878,7 @@
             this.tableLayoutPanel14.RowCount = 2;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.45454F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.54545F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(141, 55);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(141, 57);
             this.tableLayoutPanel14.TabIndex = 1;
             // 
             // lblEquipmentPercentage
@@ -887,9 +887,9 @@
             this.lblEquipmentPercentage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblEquipmentPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEquipmentPercentage.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblEquipmentPercentage.Location = new System.Drawing.Point(3, 47);
+            this.lblEquipmentPercentage.Location = new System.Drawing.Point(3, 48);
             this.lblEquipmentPercentage.Name = "lblEquipmentPercentage";
-            this.lblEquipmentPercentage.Size = new System.Drawing.Size(135, 8);
+            this.lblEquipmentPercentage.Size = new System.Drawing.Size(135, 9);
             this.lblEquipmentPercentage.TabIndex = 2;
             this.lblEquipmentPercentage.Text = "63% of Total";
             // 
@@ -900,7 +900,7 @@
             this.lblEquipmentSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEquipmentSales.Location = new System.Drawing.Point(3, 0);
             this.lblEquipmentSales.Name = "lblEquipmentSales";
-            this.lblEquipmentSales.Size = new System.Drawing.Size(135, 47);
+            this.lblEquipmentSales.Size = new System.Drawing.Size(135, 48);
             this.lblEquipmentSales.TabIndex = 1;
             this.lblEquipmentSales.Text = "₱ 500,000";
             this.lblEquipmentSales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -916,7 +916,7 @@
             this.guna2CustomGradientPanel1.ShadowDecoration.BorderRadius = 10;
             this.guna2CustomGradientPanel1.ShadowDecoration.Color = System.Drawing.Color.Gray;
             this.guna2CustomGradientPanel1.ShadowDecoration.Enabled = true;
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(179, 117);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(179, 120);
             this.guna2CustomGradientPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel7
@@ -934,7 +934,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.227848F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.77215F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(179, 117);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(179, 120);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -950,7 +950,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.55556F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.33333F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(147, 90);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(147, 93);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // lblTotal
@@ -958,9 +958,9 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(3, 19);
+            this.lblTotal.Location = new System.Drawing.Point(3, 20);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(141, 13);
+            this.lblTotal.Size = new System.Drawing.Size(141, 14);
             this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "Total Income";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -970,9 +970,9 @@
             this.lblTotalIncome.AutoSize = true;
             this.lblTotalIncome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTotalIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalIncome.Location = new System.Drawing.Point(3, 32);
+            this.lblTotalIncome.Location = new System.Drawing.Point(3, 34);
             this.lblTotalIncome.Name = "lblTotalIncome";
-            this.lblTotalIncome.Size = new System.Drawing.Size(141, 58);
+            this.lblTotalIncome.Size = new System.Drawing.Size(141, 59);
             this.lblTotalIncome.TabIndex = 1;
             this.lblTotalIncome.Text = "₱ 500,000";
             this.lblTotalIncome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -988,7 +988,7 @@
             this.guna2CustomGradientPanel2.ShadowDecoration.BorderRadius = 10;
             this.guna2CustomGradientPanel2.ShadowDecoration.Color = System.Drawing.Color.Gray;
             this.guna2CustomGradientPanel2.ShadowDecoration.Enabled = true;
-            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(179, 117);
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(179, 120);
             this.guna2CustomGradientPanel2.TabIndex = 2;
             // 
             // tableLayoutPanel9
@@ -1006,7 +1006,7 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.227848F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.77215F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(179, 117);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(179, 120);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // tableLayoutPanel10
@@ -1016,13 +1016,13 @@
             this.tableLayoutPanel10.Controls.Add(this.label9, 0, 1);
             this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel11, 0, 2);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(12, 11);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 3;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.02128F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.08511F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.82979F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(147, 94);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(147, 96);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // label9
@@ -1050,7 +1050,7 @@
             this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.45454F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.54545F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(141, 55);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(141, 57);
             this.tableLayoutPanel11.TabIndex = 1;
             // 
             // lblCourtPercentage
@@ -1059,9 +1059,9 @@
             this.lblCourtPercentage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCourtPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCourtPercentage.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblCourtPercentage.Location = new System.Drawing.Point(3, 47);
+            this.lblCourtPercentage.Location = new System.Drawing.Point(3, 48);
             this.lblCourtPercentage.Name = "lblCourtPercentage";
-            this.lblCourtPercentage.Size = new System.Drawing.Size(135, 8);
+            this.lblCourtPercentage.Size = new System.Drawing.Size(135, 9);
             this.lblCourtPercentage.TabIndex = 2;
             this.lblCourtPercentage.Text = "63% of Total";
             // 
@@ -1072,7 +1072,7 @@
             this.lblCourtSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCourtSales.Location = new System.Drawing.Point(3, 0);
             this.lblCourtSales.Name = "lblCourtSales";
-            this.lblCourtSales.Size = new System.Drawing.Size(135, 47);
+            this.lblCourtSales.Size = new System.Drawing.Size(135, 48);
             this.lblCourtSales.TabIndex = 1;
             this.lblCourtSales.Text = "₱ 500,000";
             this.lblCourtSales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1088,7 +1088,7 @@
             this.guna2CustomGradientPanel3.ShadowDecoration.BorderRadius = 10;
             this.guna2CustomGradientPanel3.ShadowDecoration.Color = System.Drawing.Color.Gray;
             this.guna2CustomGradientPanel3.ShadowDecoration.Enabled = true;
-            this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(179, 117);
+            this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(179, 120);
             this.guna2CustomGradientPanel3.TabIndex = 4;
             // 
             // tableLayoutPanel15
@@ -1106,7 +1106,7 @@
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.227848F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.77215F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(179, 117);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(179, 120);
             this.tableLayoutPanel15.TabIndex = 2;
             // 
             // tableLayoutPanel16
@@ -1116,13 +1116,13 @@
             this.tableLayoutPanel16.Controls.Add(this.label14, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 0, 2);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(12, 11);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 3;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.02128F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.08511F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.82979F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(147, 94);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(147, 96);
             this.tableLayoutPanel16.TabIndex = 0;
             // 
             // label14
@@ -1150,7 +1150,7 @@
             this.tableLayoutPanel17.RowCount = 2;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.45454F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.54545F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(141, 55);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(141, 57);
             this.tableLayoutPanel17.TabIndex = 1;
             // 
             // lblMembershipPercentage
@@ -1159,9 +1159,9 @@
             this.lblMembershipPercentage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMembershipPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMembershipPercentage.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblMembershipPercentage.Location = new System.Drawing.Point(3, 47);
+            this.lblMembershipPercentage.Location = new System.Drawing.Point(3, 48);
             this.lblMembershipPercentage.Name = "lblMembershipPercentage";
-            this.lblMembershipPercentage.Size = new System.Drawing.Size(135, 8);
+            this.lblMembershipPercentage.Size = new System.Drawing.Size(135, 9);
             this.lblMembershipPercentage.TabIndex = 2;
             this.lblMembershipPercentage.Text = "63% of Total";
             // 
@@ -1172,7 +1172,7 @@
             this.lblMembershipSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMembershipSales.Location = new System.Drawing.Point(3, 0);
             this.lblMembershipSales.Name = "lblMembershipSales";
-            this.lblMembershipSales.Size = new System.Drawing.Size(135, 47);
+            this.lblMembershipSales.Size = new System.Drawing.Size(135, 48);
             this.lblMembershipSales.TabIndex = 1;
             this.lblMembershipSales.Text = "₱ 500,000";
             this.lblMembershipSales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1185,11 +1185,11 @@
             this.tableLayoutPanel21.Controls.Add(this.tableLayoutPanel23, 0, 0);
             this.tableLayoutPanel21.Controls.Add(this.tableLayoutPanel22, 1, 0);
             this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 278);
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 280);
             this.tableLayoutPanel21.Name = "tableLayoutPanel21";
             this.tableLayoutPanel21.RowCount = 1;
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel21.Size = new System.Drawing.Size(926, 306);
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(926, 304);
             this.tableLayoutPanel21.TabIndex = 56;
             // 
             // tableLayoutPanel22
@@ -1207,7 +1207,7 @@
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.780069F));
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 96.21993F));
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel22.Size = new System.Drawing.Size(457, 300);
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(457, 298);
             this.tableLayoutPanel22.TabIndex = 0;
             // 
             // tableLayoutPanel23
@@ -1224,7 +1224,7 @@
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.780069F));
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 96.21993F));
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(457, 300);
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(457, 298);
             this.tableLayoutPanel23.TabIndex = 1;
             // 
             // guna2PanelPieChart
@@ -1237,7 +1237,7 @@
             this.guna2PanelPieChart.ShadowDecoration.BorderRadius = 7;
             this.guna2PanelPieChart.ShadowDecoration.Color = System.Drawing.Color.Gray;
             this.guna2PanelPieChart.ShadowDecoration.Enabled = true;
-            this.guna2PanelPieChart.Size = new System.Drawing.Size(408, 258);
+            this.guna2PanelPieChart.Size = new System.Drawing.Size(408, 256);
             this.guna2PanelPieChart.TabIndex = 0;
             this.guna2PanelPieChart.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2PanelPieChart_Paint);
             // 
@@ -1251,7 +1251,7 @@
             this.guna2PanelLineGraph.ShadowDecoration.BorderRadius = 7;
             this.guna2PanelLineGraph.ShadowDecoration.Color = System.Drawing.Color.Gray;
             this.guna2PanelLineGraph.ShadowDecoration.Enabled = true;
-            this.guna2PanelLineGraph.Size = new System.Drawing.Size(430, 259);
+            this.guna2PanelLineGraph.Size = new System.Drawing.Size(430, 257);
             this.guna2PanelLineGraph.TabIndex = 2;
             this.guna2PanelLineGraph.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2PanelLineGraph_Paint);
             // 
@@ -1269,7 +1269,7 @@
             this.btnPDF.ForeColor = System.Drawing.Color.White;
             this.btnPDF.Image = global::ShuttleZone.Properties.Resources.download__3_;
             this.btnPDF.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnPDF.Location = new System.Drawing.Point(128, 17);
+            this.btnPDF.Location = new System.Drawing.Point(128, 16);
             this.btnPDF.Name = "btnPDF";
             this.btnPDF.Size = new System.Drawing.Size(86, 36);
             this.btnPDF.TabIndex = 18;
@@ -1288,7 +1288,7 @@
             this.btnExcel.ForeColor = System.Drawing.Color.White;
             this.btnExcel.Image = global::ShuttleZone.Properties.Resources.download__2_1;
             this.btnExcel.ImageSize = new System.Drawing.Size(30, 20);
-            this.btnExcel.Location = new System.Drawing.Point(242, 17);
+            this.btnExcel.Location = new System.Drawing.Point(242, 16);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(86, 36);
             this.btnExcel.TabIndex = 46;
@@ -1309,7 +1309,7 @@
             this.btnFilters.ForeColor = System.Drawing.Color.White;
             this.btnFilters.Image = global::ShuttleZone.Properties.Resources.download__5_;
             this.btnFilters.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnFilters.Location = new System.Drawing.Point(349, 17);
+            this.btnFilters.Location = new System.Drawing.Point(349, 16);
             this.btnFilters.Name = "btnFilters";
             this.btnFilters.Size = new System.Drawing.Size(100, 36);
             this.btnFilters.TabIndex = 48;
@@ -1329,7 +1329,7 @@
             this.btnCSV.Image = global::ShuttleZone.Properties.Resources.download__2_;
             this.btnCSV.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCSV.ImageSize = new System.Drawing.Size(30, 20);
-            this.btnCSV.Location = new System.Drawing.Point(14, 17);
+            this.btnCSV.Location = new System.Drawing.Point(14, 16);
             this.btnCSV.Name = "btnCSV";
             this.btnCSV.Size = new System.Drawing.Size(86, 36);
             this.btnCSV.TabIndex = 4;
@@ -1854,7 +1854,7 @@
             this.tableLayoutPanel22.SetColumnSpan(this.guna2Panel2, 2);
             this.guna2Panel2.Controls.Add(this.btnDetailedReport);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel2.Location = new System.Drawing.Point(16, 277);
+            this.guna2Panel2.Location = new System.Drawing.Point(16, 275);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(438, 20);
             this.guna2Panel2.TabIndex = 1;
