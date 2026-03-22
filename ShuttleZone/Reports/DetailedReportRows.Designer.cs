@@ -2,6 +2,7 @@
 {
     partial class DetailedReportRows
     {
+
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -70,6 +71,7 @@
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "DATE";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDate.Click += new System.EventHandler(this.lblDate_Click);
             // 
             // lblCourtIncome
             // 
@@ -82,6 +84,7 @@
             this.lblCourtIncome.TabIndex = 1;
             this.lblCourtIncome.Text = "COURT INCOME";
             this.lblCourtIncome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCourtIncome.Click += new System.EventHandler(this.lblCourtIncome_Click);
             // 
             // lblEquipmentIncome
             // 
@@ -94,6 +97,7 @@
             this.lblEquipmentIncome.TabIndex = 2;
             this.lblEquipmentIncome.Text = "EQUIPMENT INCOME";
             this.lblEquipmentIncome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEquipmentIncome.Click += new System.EventHandler(this.lblEquipmentIncome_Click);
             // 
             // lblTotalIncome
             // 
@@ -107,6 +111,7 @@
             this.lblTotalIncome.TabIndex = 3;
             this.lblTotalIncome.Text = "TOTAL INCOME";
             this.lblTotalIncome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTotalIncome.Click += new System.EventHandler(this.lblTotalIncome_Click);
             // 
             // lblTransaction
             // 
@@ -119,6 +124,7 @@
             this.lblTransaction.TabIndex = 4;
             this.lblTransaction.Text = "TRANSACTION";
             this.lblTransaction.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTransaction.Click += new System.EventHandler(this.lblTransaction_Click);
             // 
             // DetailedReportRows
             // 

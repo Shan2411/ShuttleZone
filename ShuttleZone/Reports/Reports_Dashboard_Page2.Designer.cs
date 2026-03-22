@@ -1,4 +1,7 @@
-﻿namespace ShuttleZone.reports
+﻿using System;
+using System.Windows.Forms;
+
+namespace ShuttleZone.reports
 {
     partial class Reports_Dashboard_Page2
     {
@@ -31,25 +34,26 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PanelCourtIncomeBreakdown = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PanelEquipmentIncomeBreakdown = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.flpDetailedReportRow = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -79,8 +83,8 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(11, 17);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.30127F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.69873F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.42653F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.57347F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(907, 558);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -89,43 +93,45 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.guna2Panel2, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.guna2Panel1, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.guna2PanelCourtIncomeBreakdown, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.guna2PanelEquipmentIncomeBreakdown, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(901, 185);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(901, 214);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // guna2Panel1
+            // guna2PanelCourtIncomeBreakdown
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel1.BorderRadius = 7;
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel1.FillColor = System.Drawing.Color.White;
-            this.guna2Panel1.Location = new System.Drawing.Point(453, 3);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.ShadowDecoration.BorderRadius = 7;
-            this.guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2Panel1.ShadowDecoration.Enabled = true;
-            this.guna2Panel1.Size = new System.Drawing.Size(445, 179);
-            this.guna2Panel1.TabIndex = 0;
+            this.guna2PanelCourtIncomeBreakdown.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PanelCourtIncomeBreakdown.BorderRadius = 7;
+            this.guna2PanelCourtIncomeBreakdown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2PanelCourtIncomeBreakdown.FillColor = System.Drawing.Color.White;
+            this.guna2PanelCourtIncomeBreakdown.Location = new System.Drawing.Point(3, 3);
+            this.guna2PanelCourtIncomeBreakdown.Name = "guna2PanelCourtIncomeBreakdown";
+            this.guna2PanelCourtIncomeBreakdown.ShadowDecoration.BorderRadius = 7;
+            this.guna2PanelCourtIncomeBreakdown.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.guna2PanelCourtIncomeBreakdown.ShadowDecoration.Enabled = true;
+            this.guna2PanelCourtIncomeBreakdown.Size = new System.Drawing.Size(444, 208);
+            this.guna2PanelCourtIncomeBreakdown.TabIndex = 1;
+            this.guna2PanelCourtIncomeBreakdown.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2PanelCourtIncomeBreakdown_Paint);
             // 
-            // guna2Panel2
+            // guna2PanelEquipmentIncomeBreakdown
             // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel2.BorderRadius = 7;
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(3, 3);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.ShadowDecoration.BorderRadius = 7;
-            this.guna2Panel2.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2Panel2.ShadowDecoration.Enabled = true;
-            this.guna2Panel2.Size = new System.Drawing.Size(444, 179);
-            this.guna2Panel2.TabIndex = 1;
+            this.guna2PanelEquipmentIncomeBreakdown.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PanelEquipmentIncomeBreakdown.BorderRadius = 7;
+            this.guna2PanelEquipmentIncomeBreakdown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2PanelEquipmentIncomeBreakdown.FillColor = System.Drawing.Color.White;
+            this.guna2PanelEquipmentIncomeBreakdown.Location = new System.Drawing.Point(453, 3);
+            this.guna2PanelEquipmentIncomeBreakdown.Name = "guna2PanelEquipmentIncomeBreakdown";
+            this.guna2PanelEquipmentIncomeBreakdown.ShadowDecoration.BorderRadius = 7;
+            this.guna2PanelEquipmentIncomeBreakdown.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.guna2PanelEquipmentIncomeBreakdown.ShadowDecoration.Enabled = true;
+            this.guna2PanelEquipmentIncomeBreakdown.Size = new System.Drawing.Size(445, 208);
+            this.guna2PanelEquipmentIncomeBreakdown.TabIndex = 0;
+            this.guna2PanelEquipmentIncomeBreakdown.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2PanelEquipmentIncomeBreakdown_Paint);
             // 
             // guna2Panel3
             // 
@@ -134,12 +140,12 @@
             this.guna2Panel3.Controls.Add(this.tableLayoutPanel4);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(3, 194);
+            this.guna2Panel3.Location = new System.Drawing.Point(3, 223);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.BorderRadius = 7;
             this.guna2Panel3.ShadowDecoration.Color = System.Drawing.Color.Gray;
             this.guna2Panel3.ShadowDecoration.Enabled = true;
-            this.guna2Panel3.Size = new System.Drawing.Size(901, 361);
+            this.guna2Panel3.Size = new System.Drawing.Size(901, 332);
             this.guna2Panel3.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -148,6 +154,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.guna2Panel4, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.flpDetailedReportRow, 0, 2);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -155,7 +162,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.39326F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.831461F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.77528F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(901, 361);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(901, 332);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // label1
@@ -165,10 +172,21 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(895, 37);
+            this.label1.Size = new System.Drawing.Size(895, 34);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detailed Report";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // guna2Panel4
+            // 
+            this.guna2Panel4.BorderRadius = 5;
+            this.guna2Panel4.Controls.Add(this.tableLayoutPanel5);
+            this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel4.FillColor = System.Drawing.Color.Gainsboro;
+            this.guna2Panel4.Location = new System.Drawing.Point(3, 37);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.Size = new System.Drawing.Size(895, 26);
+            this.guna2Panel4.TabIndex = 2;
             // 
             // tableLayoutPanel5
             // 
@@ -188,68 +206,9 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(895, 29);
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(895, 26);
             this.tableLayoutPanel5.TabIndex = 1;
-            // 
-            // guna2Panel4
-            // 
-            this.guna2Panel4.BorderRadius = 5;
-            this.guna2Panel4.Controls.Add(this.tableLayoutPanel5);
-            this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel4.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2Panel4.Location = new System.Drawing.Point(3, 40);
-            this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(895, 29);
-            this.guna2Panel4.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 29);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "DATE";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(182, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(173, 29);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "COURT INCOME";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(361, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(173, 29);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "EQUIPMENT INCOME";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(540, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(173, 29);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "TOTAL INCOME";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
             // 
@@ -258,10 +217,69 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(719, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(173, 29);
+            this.label6.Size = new System.Drawing.Size(173, 26);
             this.label6.TabIndex = 4;
             this.label6.Text = "TRANSACTION";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(540, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(173, 26);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "TOTAL INCOME";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(361, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(173, 26);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "EQUIPMENT INCOME";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(182, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(173, 26);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "COURT INCOME";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(173, 26);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "DATE";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flpDetailedReportRow
+            // 
+            this.flpDetailedReportRow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpDetailedReportRow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpDetailedReportRow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flpDetailedReportRow.Location = new System.Drawing.Point(3, 69);
+            this.flpDetailedReportRow.Name = "flpDetailedReportRow";
+            this.flpDetailedReportRow.Size = new System.Drawing.Size(895, 260);
+            this.flpDetailedReportRow.TabIndex = 3;
+            this.flpDetailedReportRow.Paint += new System.Windows.Forms.PaintEventHandler(this.flpDetailedReportRow_Paint);
             // 
             // Reports_Dashboard_Page2
             // 
@@ -276,20 +294,21 @@
             this.guna2Panel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.guna2Panel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
-            this.guna2Panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
+  
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Panel guna2PanelCourtIncomeBreakdown;
+        private Guna.UI2.WinForms.Guna2Panel guna2PanelEquipmentIncomeBreakdown;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label1;
@@ -300,5 +319,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.FlowLayoutPanel flpDetailedReportRow;
     }
 }
