@@ -37,26 +37,26 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.flpPendingRoot = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlPendingPayment = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblPendingStubNo = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lblPendingTime = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.flowItemsContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.pnlItemRowTemplate = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnRemove = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPaymentCleared = new Guna.UI2.WinForms.Guna2Button();
+            this.lblPendingTotalAmount = new System.Windows.Forms.Label();
+            this.lblPendingTotalText = new System.Windows.Forms.Label();
+            this.lblPendingDate = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.flowPendingItemsContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnlPendingItemRowTemplate = new Guna.UI2.WinForms.Guna2Panel();
             this.lblItemQty = new System.Windows.Forms.Label();
             this.lblItemPrice = new System.Windows.Forms.Label();
             this.lblItemName = new System.Windows.Forms.Label();
-            this.lblPendingDate = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lblPendingTotalAmount = new System.Windows.Forms.Label();
-            this.lblPendingTotalText = new System.Windows.Forms.Label();
-            this.btnPaymentCleared = new Guna.UI2.WinForms.Guna2Button();
-            this.btnRemove = new Guna.UI2.WinForms.Guna2Button();
+            this.lblPendingTime = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblPendingStubNo = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tlpRootPending.SuspendLayout();
             this.tlpHeaderPending.SuspendLayout();
             this.tlpHeaderTextPending.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.flpPendingRoot.SuspendLayout();
             this.pnlPendingPayment.SuspendLayout();
-            this.flowItemsContainer.SuspendLayout();
-            this.pnlItemRowTemplate.SuspendLayout();
+            this.flowPendingItemsContainer.SuspendLayout();
+            this.pnlPendingItemRowTemplate.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpRootPending
@@ -168,7 +168,7 @@
             this.pnlPendingPayment.Controls.Add(this.lblPendingTotalAmount);
             this.pnlPendingPayment.Controls.Add(this.lblPendingTotalText);
             this.pnlPendingPayment.Controls.Add(this.lblPendingDate);
-            this.pnlPendingPayment.Controls.Add(this.flowItemsContainer);
+            this.pnlPendingPayment.Controls.Add(this.flowPendingItemsContainer);
             this.pnlPendingPayment.Controls.Add(this.lblPendingTime);
             this.pnlPendingPayment.Controls.Add(this.lblPendingStubNo);
             this.pnlPendingPayment.FillColor = System.Drawing.Color.White;
@@ -177,42 +177,86 @@
             this.pnlPendingPayment.Size = new System.Drawing.Size(334, 334);
             this.pnlPendingPayment.TabIndex = 0;
             // 
-            // lblPendingStubNo
+            // btnRemove
             // 
-            this.lblPendingStubNo.BackColor = System.Drawing.Color.Transparent;
-            this.lblPendingStubNo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendingStubNo.Location = new System.Drawing.Point(127, 15);
-            this.lblPendingStubNo.Name = "lblPendingStubNo";
-            this.lblPendingStubNo.Size = new System.Drawing.Size(77, 22);
-            this.lblPendingStubNo.TabIndex = 0;
-            this.lblPendingStubNo.Text = "STUB0001";
+            this.btnRemove.BorderRadius = 10;
+            this.btnRemove.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemove.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemove.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRemove.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRemove.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.ForeColor = System.Drawing.Color.White;
+            this.btnRemove.Location = new System.Drawing.Point(237, 274);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(77, 46);
+            this.btnRemove.TabIndex = 40;
+            this.btnRemove.Text = "Remove";
             // 
-            // lblPendingTime
+            // btnPaymentCleared
             // 
-            this.lblPendingTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblPendingTime.Location = new System.Drawing.Point(56, 44);
-            this.lblPendingTime.Name = "lblPendingTime";
-            this.lblPendingTime.Size = new System.Drawing.Size(49, 15);
-            this.lblPendingTime.TabIndex = 1;
-            this.lblPendingTime.Text = "08:00 PM";
+            this.btnPaymentCleared.BorderRadius = 10;
+            this.btnPaymentCleared.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPaymentCleared.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPaymentCleared.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPaymentCleared.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPaymentCleared.FillColor = System.Drawing.Color.Green;
+            this.btnPaymentCleared.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPaymentCleared.ForeColor = System.Drawing.Color.White;
+            this.btnPaymentCleared.Location = new System.Drawing.Point(20, 275);
+            this.btnPaymentCleared.Name = "btnPaymentCleared";
+            this.btnPaymentCleared.Size = new System.Drawing.Size(209, 45);
+            this.btnPaymentCleared.TabIndex = 39;
+            this.btnPaymentCleared.Text = "Payment Cleared";
             // 
-            // flowItemsContainer
+            // lblPendingTotalAmount
             // 
-            this.flowItemsContainer.Controls.Add(this.pnlItemRowTemplate);
-            this.flowItemsContainer.Location = new System.Drawing.Point(12, 70);
-            this.flowItemsContainer.Name = "flowItemsContainer";
-            this.flowItemsContainer.Size = new System.Drawing.Size(310, 166);
-            this.flowItemsContainer.TabIndex = 35;
+            this.lblPendingTotalAmount.AutoSize = true;
+            this.lblPendingTotalAmount.BackColor = System.Drawing.Color.Transparent;
+            this.lblPendingTotalAmount.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendingTotalAmount.Location = new System.Drawing.Point(255, 243);
+            this.lblPendingTotalAmount.Name = "lblPendingTotalAmount";
+            this.lblPendingTotalAmount.Size = new System.Drawing.Size(46, 20);
+            this.lblPendingTotalAmount.TabIndex = 38;
+            this.lblPendingTotalAmount.Text = "₱250";
             // 
-            // pnlItemRowTemplate
+            // lblPendingTotalText
             // 
-            this.pnlItemRowTemplate.Controls.Add(this.lblItemQty);
-            this.pnlItemRowTemplate.Controls.Add(this.lblItemPrice);
-            this.pnlItemRowTemplate.Controls.Add(this.lblItemName);
-            this.pnlItemRowTemplate.Location = new System.Drawing.Point(3, 3);
-            this.pnlItemRowTemplate.Name = "pnlItemRowTemplate";
-            this.pnlItemRowTemplate.Size = new System.Drawing.Size(304, 37);
-            this.pnlItemRowTemplate.TabIndex = 14;
+            this.lblPendingTotalText.AutoSize = true;
+            this.lblPendingTotalText.BackColor = System.Drawing.Color.Transparent;
+            this.lblPendingTotalText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendingTotalText.Location = new System.Drawing.Point(33, 243);
+            this.lblPendingTotalText.Name = "lblPendingTotalText";
+            this.lblPendingTotalText.Size = new System.Drawing.Size(48, 20);
+            this.lblPendingTotalText.TabIndex = 37;
+            this.lblPendingTotalText.Text = "Total:";
+            // 
+            // lblPendingDate
+            // 
+            this.lblPendingDate.BackColor = System.Drawing.Color.Transparent;
+            this.lblPendingDate.Location = new System.Drawing.Point(221, 44);
+            this.lblPendingDate.Name = "lblPendingDate";
+            this.lblPendingDate.Size = new System.Drawing.Size(57, 15);
+            this.lblPendingDate.TabIndex = 36;
+            this.lblPendingDate.Text = "03-23-2026";
+            // 
+            // flowPendingItemsContainer
+            // 
+            this.flowPendingItemsContainer.Controls.Add(this.pnlPendingItemRowTemplate);
+            this.flowPendingItemsContainer.Location = new System.Drawing.Point(12, 70);
+            this.flowPendingItemsContainer.Name = "flowPendingItemsContainer";
+            this.flowPendingItemsContainer.Size = new System.Drawing.Size(310, 166);
+            this.flowPendingItemsContainer.TabIndex = 35;
+            // 
+            // pnlPendingItemRowTemplate
+            // 
+            this.pnlPendingItemRowTemplate.Controls.Add(this.lblItemQty);
+            this.pnlPendingItemRowTemplate.Controls.Add(this.lblItemPrice);
+            this.pnlPendingItemRowTemplate.Controls.Add(this.lblItemName);
+            this.pnlPendingItemRowTemplate.Location = new System.Drawing.Point(3, 3);
+            this.pnlPendingItemRowTemplate.Name = "pnlPendingItemRowTemplate";
+            this.pnlPendingItemRowTemplate.Size = new System.Drawing.Size(304, 37);
+            this.pnlPendingItemRowTemplate.TabIndex = 14;
             // 
             // lblItemQty
             // 
@@ -246,68 +290,24 @@
             this.lblItemName.TabIndex = 11;
             this.lblItemName.Text = "Court A";
             // 
-            // lblPendingDate
+            // lblPendingTime
             // 
-            this.lblPendingDate.BackColor = System.Drawing.Color.Transparent;
-            this.lblPendingDate.Location = new System.Drawing.Point(221, 44);
-            this.lblPendingDate.Name = "lblPendingDate";
-            this.lblPendingDate.Size = new System.Drawing.Size(57, 15);
-            this.lblPendingDate.TabIndex = 36;
-            this.lblPendingDate.Text = "03-23-2026";
+            this.lblPendingTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblPendingTime.Location = new System.Drawing.Point(56, 44);
+            this.lblPendingTime.Name = "lblPendingTime";
+            this.lblPendingTime.Size = new System.Drawing.Size(49, 15);
+            this.lblPendingTime.TabIndex = 1;
+            this.lblPendingTime.Text = "08:00 PM";
             // 
-            // lblPendingTotalAmount
+            // lblPendingStubNo
             // 
-            this.lblPendingTotalAmount.AutoSize = true;
-            this.lblPendingTotalAmount.BackColor = System.Drawing.Color.Transparent;
-            this.lblPendingTotalAmount.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendingTotalAmount.Location = new System.Drawing.Point(255, 243);
-            this.lblPendingTotalAmount.Name = "lblPendingTotalAmount";
-            this.lblPendingTotalAmount.Size = new System.Drawing.Size(46, 20);
-            this.lblPendingTotalAmount.TabIndex = 38;
-            this.lblPendingTotalAmount.Text = "₱250";
-            // 
-            // lblPendingTotalText
-            // 
-            this.lblPendingTotalText.AutoSize = true;
-            this.lblPendingTotalText.BackColor = System.Drawing.Color.Transparent;
-            this.lblPendingTotalText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendingTotalText.Location = new System.Drawing.Point(33, 243);
-            this.lblPendingTotalText.Name = "lblPendingTotalText";
-            this.lblPendingTotalText.Size = new System.Drawing.Size(48, 20);
-            this.lblPendingTotalText.TabIndex = 37;
-            this.lblPendingTotalText.Text = "Total:";
-            // 
-            // btnPaymentCleared
-            // 
-            this.btnPaymentCleared.BorderRadius = 10;
-            this.btnPaymentCleared.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPaymentCleared.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPaymentCleared.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPaymentCleared.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPaymentCleared.FillColor = System.Drawing.Color.Green;
-            this.btnPaymentCleared.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPaymentCleared.ForeColor = System.Drawing.Color.White;
-            this.btnPaymentCleared.Location = new System.Drawing.Point(20, 275);
-            this.btnPaymentCleared.Name = "btnPaymentCleared";
-            this.btnPaymentCleared.Size = new System.Drawing.Size(209, 45);
-            this.btnPaymentCleared.TabIndex = 39;
-            this.btnPaymentCleared.Text = "Payment Cleared";
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.BorderRadius = 10;
-            this.btnRemove.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnRemove.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnRemove.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRemove.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRemove.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(237, 274);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(77, 46);
-            this.btnRemove.TabIndex = 40;
-            this.btnRemove.Text = "Remove";
+            this.lblPendingStubNo.BackColor = System.Drawing.Color.Transparent;
+            this.lblPendingStubNo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendingStubNo.Location = new System.Drawing.Point(127, 15);
+            this.lblPendingStubNo.Name = "lblPendingStubNo";
+            this.lblPendingStubNo.Size = new System.Drawing.Size(77, 22);
+            this.lblPendingStubNo.TabIndex = 0;
+            this.lblPendingStubNo.Text = "STUB0001";
             // 
             // UC_Pending
             // 
@@ -325,9 +325,9 @@
             this.flpPendingRoot.ResumeLayout(false);
             this.pnlPendingPayment.ResumeLayout(false);
             this.pnlPendingPayment.PerformLayout();
-            this.flowItemsContainer.ResumeLayout(false);
-            this.pnlItemRowTemplate.ResumeLayout(false);
-            this.pnlItemRowTemplate.PerformLayout();
+            this.flowPendingItemsContainer.ResumeLayout(false);
+            this.pnlPendingItemRowTemplate.ResumeLayout(false);
+            this.pnlPendingItemRowTemplate.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -346,8 +346,8 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lblPendingStubNo;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblPendingTime;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblPendingDate;
-        private System.Windows.Forms.FlowLayoutPanel flowItemsContainer;
-        private Guna.UI2.WinForms.Guna2Panel pnlItemRowTemplate;
+        private System.Windows.Forms.FlowLayoutPanel flowPendingItemsContainer;
+        private Guna.UI2.WinForms.Guna2Panel pnlPendingItemRowTemplate;
         private System.Windows.Forms.Label lblItemQty;
         private System.Windows.Forms.Label lblItemPrice;
         private System.Windows.Forms.Label lblItemName;
