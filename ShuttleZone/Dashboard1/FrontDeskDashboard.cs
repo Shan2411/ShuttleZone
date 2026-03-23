@@ -16,6 +16,9 @@ namespace ShuttleZone.Dashboard1
         public FrontDeskDashboard()
         {
             InitializeComponent();
+
+
+
             this.DoubleBuffered = true;
 
             this.SuspendLayout();
@@ -23,10 +26,24 @@ namespace ShuttleZone.Dashboard1
 
             flowLayoutPanel1.HorizontalScroll.Enabled = false;
             flowLayoutPanel1.HorizontalScroll.Visible = false;
-            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.AutoScroll = false;
             flowLayoutPanel1.WrapContents = false;
 
             flowLayoutPanel1.Controls.Clear();
+
+            var table = new TableLayoutPanel();
+            table.Dock = DockStyle.Fill;
+            table.ColumnCount = 4;
+            table.RowCount = 1;
+            table.AutoScroll = false; // no scrollbars
+
+            // Percent columns = they compress when parent shrinks
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3f));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3f));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3f));
+
+            table.RowStyles.Add(new RowStyle(SizeType.Percent, 50f));
+            table.RowStyles.Add(new RowStyle(SizeType.Percent, 50f));
 
             var buttons = new[]
             {
@@ -44,14 +61,28 @@ namespace ShuttleZone.Dashboard1
             var c5 = new Card_Dashboard("New Memberships") { Dock = DockStyle.Fill };
             var c7 = new Card_Dashboard("Pending Payments") { Dock = DockStyle.Fill };
 
-            tableLayoutPanel2.Controls.Add(c1, 0, 1);
-            tableLayoutPanel2.Controls.Add(c3, 2, 1);
-            tableLayoutPanel2.Controls.Add(c5, 4, 1);
-            tableLayoutPanel2.Controls.Add(c7, 6, 1);
+            tableLayoutPanel2.Controls.Add(c1, 1, 1);
+            tableLayoutPanel2.Controls.Add(c3, 3, 1);
+            tableLayoutPanel2.Controls.Add(c5, 5, 1);
+            tableLayoutPanel2.Controls.Add(c7, 7, 1);
 
             flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
+
+
+            // ADD Recent payments 
+
+            flowLayoutPanel2.Controls.Add(new HeaderColumn());
+
+            flowLayoutPanel2.Resize += (s, e) =>
+            {
+                foreach (Control c in flowLayoutPanel2.Controls)
+                {
+                    c.Width = flowLayoutPanel2.ClientSize.Width - flowLayoutPanel2.Padding.Horizontal;
+                }
+            };
+
         }
 
 
