@@ -96,31 +96,32 @@ DataTable dt = new DataTable();
         // EXPORT TO EXCEL
         private void btnExport_Click(object sender, EventArgs e)
         {
-            var excel = new Microsoft.Office.Interop.Excel.Application();
-            excel.Workbooks.Add();
+            //COMMENT KO MUNA NAG EEERROR E BAT KASE MAY EXCEL    
+            //var excel = new Microsoft.Office.Interop.Excel.Application();
+            //excel.Workbooks.Add();
 
-            int colIndex = 1;
+            //int colIndex = 1;
 
-            foreach (DataGridViewColumn col in dgvTable.Columns)
-            {
-                if (col.Name == "colView") continue;
-                excel.Cells[1, colIndex++] = col.HeaderText;
-            }
+            //foreach (DataGridViewColumn col in dgvTable.Columns)
+            //{
+            //    if (col.Name == "colView") continue;
+            //    excel.Cells[1, colIndex++] = col.HeaderText;
+            //}
 
-            for (int i = 0; i < dgvTable.Rows.Count; i++)
-            {
-                colIndex = 1;
+            //for (int i = 0; i < dgvTable.Rows.Count; i++)
+            //{
+            //    colIndex = 1;
 
-                foreach (DataGridViewColumn col in dgvTable.Columns)
-                {
-                    if (col.Name == "colView") continue;
+            //    foreach (DataGridViewColumn col in dgvTable.Columns)
+            //    {
+            //        if (col.Name == "colView") continue;
 
-                    excel.Cells[i + 2, colIndex++] =
-                        dgvTable.Rows[i].Cells[col.Name].Value;
-                }
-            }
+            //        excel.Cells[i + 2, colIndex++] =
+            //            dgvTable.Rows[i].Cells[col.Name].Value;
+            //    }
+            //}
 
-            excel.Visible = true;
+            //excel.Visible = true;
         }
 
         // ✅ FIX FOR YOUR ORIGINAL ERRORS
