@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ShuttleZone.Maintenance_Logs;
+using ShuttleZone.database;
+using MySql.Data.MySqlClient;
 
 namespace ShuttleZone.Dashboard1
 {
@@ -81,13 +84,15 @@ namespace ShuttleZone.Dashboard1
         {
             InitializeComponent();
 
+            string statusFromDB = Globals.GetCourtStatusFromDB(courtname);
+
             if (!string.IsNullOrEmpty(courtname))
                 label1.Text = courtname;
 
-            if (!string.IsNullOrEmpty(status))
+            if (!string.IsNullOrEmpty(statusFromDB))
             {
-                guna2Button2.Text = status;
-                countDownStarter(status);
+                guna2Button2.Text = statusFromDB;
+                countDownStarter(statusFromDB);
             }
         }
 
@@ -114,7 +119,7 @@ namespace ShuttleZone.Dashboard1
 
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Operational;
                     guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.available;
-                    guna2Panel2.Visible = false;
+                    //guna2Panel2.Visible = false;
                     guna2VProgressBar1.Visible = false;
                     break;
 
@@ -132,14 +137,14 @@ namespace ShuttleZone.Dashboard1
                     guna2Panel1.FillColor = Color.FromArgb(100, 160, 255);    // light blue panel
                     guna2Panel1.BorderColor = Color.FromArgb(40, 90, 175);
 
-                    guna2CirclePictureBox2.Visible = false;
-                    guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Operational;
+                    guna2CirclePictureBox2.Visible = true;
+                    guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.inuse;
                     break;
 
                 case "under maintenance":
-                    guna2HtmlLabel2.Text = "Under Maintenance";
+                    guna2HtmlLabel2.Text = "Reason: Cleaning";
                     guna2HtmlLabel1.Text = "";
-                    guna2Button2.Text = "Under Maintenance";
+                    guna2Button2.Text = "Maintenance";
 
                     guna2Button2.FillColor = Color.FromArgb(175, 130, 20);     // dark yellow button
                     guna2Button2.BorderColor = Color.FromArgb(130, 90, 10);      // even darker border
@@ -148,13 +153,13 @@ namespace ShuttleZone.Dashboard1
 
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Maintenance1;
                     guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.mechanic;
-                    guna2Panel2.Visible = false;
+                    //guna2Panel2.Visible = false;
                     guna2VProgressBar1.Visible = false;
                     break;
 
                 case "out of service":
                     StopCountdown();
-                    guna2HtmlLabel2.Text = "Out of Service";
+                    guna2HtmlLabel2.Text = "Reason: Wrecked Floors";
                     guna2HtmlLabel1.Text = "";
                     guna2Button2.Text = "Out of Service";
 
@@ -165,7 +170,7 @@ namespace ShuttleZone.Dashboard1
 
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Not;
                     guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.unavailable;
-                    guna2Panel2.Visible = false;
+                    //guna2Panel2.Visible = false;
                     guna2VProgressBar1.Visible = false;
                     break;
 
