@@ -202,6 +202,7 @@
       <DependentUpon>Utilization.cs</DependentUpon>
     </Compile>
     <Compile Include="database\DBconnection.cs" />
+    <Compile Include="DatabaseConfig.cs" />
     <Compile Include="EcashQR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +227,7 @@
     <Compile Include="Equipment and Inventory\Equipment.Designer.cs">
       <DependentUpon>Equipment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Equipment and Inventory\EquipmentItem.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,16 +308,34 @@
       <DependentUpon>UC_MemberRow.cs</DependentUpon>
     </Compile>
     <Compile Include="Rent History\Rent History.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Rent History\Rent History.Designer.cs">
       <DependentUpon>Rent History.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rent History\View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rent History\View.Designer.cs">
+      <DependentUpon>View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\DetailedReportRows.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="reports\DetailedReportRows.Designer.cs">
+      <DependentUpon>DetailedReportRows.cs</DependentUpon>
     </Compile>
     <Compile Include="reports\Reports_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="reports\Reports_Dashboard.Designer.cs">
       <DependentUpon>Reports_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\Reports_Dashboard_Page2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="reports\Reports_Dashboard_Page2.Designer.cs">
+      <DependentUpon>Reports_Dashboard_Page2.cs</DependentUpon>
     </Compile>
     <Compile Include="sidebars\AdminSidebar.cs">
       <SubType>UserControl</SubType>
@@ -410,6 +430,7 @@
     <Compile Include="topbar\MFTopbar.Designer.cs">
       <DependentUpon>MFTopbar.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransactionRecorder.cs" />
     <Compile Include="UC_Kiosk.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -579,8 +600,17 @@
     <EmbeddedResource Include="Rent History\Rent History.resx">
       <DependentUpon>Rent History.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reports\DetailedReportRows.resx">
+      <DependentUpon>DetailedReportRows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rent History\View.resx">
+      <DependentUpon>View.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reports\Reports_Dashboard.resx">
       <DependentUpon>Reports_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\Reports_Dashboard_Page2.resx">
+      <DependentUpon>Reports_Dashboard_Page2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sidebars\AdminSidebar.resx">
       <DependentUpon>AdminSidebar.cs</DependentUpon>
@@ -719,6 +749,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\shuttlezone.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dl1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %286%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %287%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

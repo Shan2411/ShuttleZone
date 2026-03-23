@@ -204,7 +204,7 @@ namespace ShuttleZone.Maintenance_Logs
                         cmd.Parameters.AddWithValue("@courtName", court);
                         cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Database updated successfully.");
+                        //MessageBox.Show("Database updated successfully.");
                     }
                 }
 
