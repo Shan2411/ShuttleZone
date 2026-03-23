@@ -284,12 +284,14 @@
     <Compile Include="Membership\AddNewMember.Designer.cs">
       <DependentUpon>AddNewMember.cs</DependentUpon>
     </Compile>
+    <Compile Include="Membership\DataAccess.cs" />
     <Compile Include="Membership\EditMember.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Membership\EditMember.Designer.cs">
       <DependentUpon>EditMember.cs</DependentUpon>
     </Compile>
+    <Compile Include="Membership\MemberModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
