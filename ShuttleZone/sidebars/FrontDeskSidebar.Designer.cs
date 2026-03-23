@@ -45,6 +45,7 @@
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.PendingPaymentsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SidebarBackground.SuspendLayout();
             this.SidebarTableLayout.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -187,10 +188,11 @@
             this.SidebarLinksGroup.ColumnCount = 1;
             this.SidebarLinksGroup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
             this.SidebarLinksGroup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.SidebarLinksGroup.Controls.Add(this.PendingPaymentsBtn, 0, 3);
             this.SidebarLinksGroup.Controls.Add(this.POSBtn, 0, 1);
             this.SidebarLinksGroup.Controls.Add(this.DashboardBtn, 0, 0);
             this.SidebarLinksGroup.Controls.Add(this.MembershipBtn, 0, 2);
-            this.SidebarLinksGroup.Controls.Add(this.HistoryBtn, 0, 3);
+            this.SidebarLinksGroup.Controls.Add(this.HistoryBtn, 0, 4);
             this.SidebarLinksGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SidebarLinksGroup.Location = new System.Drawing.Point(0, 102);
             this.SidebarLinksGroup.Margin = new System.Windows.Forms.Padding(0, 10, 0, 150);
@@ -283,7 +285,7 @@
             this.HistoryBtn.ForeColor = System.Drawing.Color.White;
             this.HistoryBtn.Image = ((System.Drawing.Image)(resources.GetObject("HistoryBtn.Image")));
             this.HistoryBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.HistoryBtn.Location = new System.Drawing.Point(0, 78);
+            this.HistoryBtn.Location = new System.Drawing.Point(0, 104);
             this.HistoryBtn.Margin = new System.Windows.Forms.Padding(0);
             this.HistoryBtn.Name = "HistoryBtn";
             this.HistoryBtn.Size = new System.Drawing.Size(177, 26);
@@ -337,6 +339,27 @@
             this.guna2HtmlLabel8.Text = "Shuttle Zone";
             this.guna2HtmlLabel8.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // PendingPaymentsBtn
+            // 
+            this.PendingPaymentsBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.PendingPaymentsBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.PendingPaymentsBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.PendingPaymentsBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.PendingPaymentsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PendingPaymentsBtn.FillColor = System.Drawing.Color.Transparent;
+            this.PendingPaymentsBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PendingPaymentsBtn.ForeColor = System.Drawing.Color.White;
+            this.PendingPaymentsBtn.Image = ((System.Drawing.Image)(resources.GetObject("PendingPaymentsBtn.Image")));
+            this.PendingPaymentsBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.PendingPaymentsBtn.Location = new System.Drawing.Point(0, 78);
+            this.PendingPaymentsBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.PendingPaymentsBtn.Name = "PendingPaymentsBtn";
+            this.PendingPaymentsBtn.Size = new System.Drawing.Size(177, 26);
+            this.PendingPaymentsBtn.TabIndex = 23;
+            this.PendingPaymentsBtn.Text = "Pending Payments";
+            this.PendingPaymentsBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.PendingPaymentsBtn.Click += new System.EventHandler(this.PendingPaymentsBtn_Click);
+            // 
             // FrontDeskSidebar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,5 +398,6 @@
         private Guna.UI2.WinForms.Guna2Button POSBtn;
         private Guna.UI2.WinForms.Guna2Button HistoryBtn;
         private Guna.UI2.WinForms.Guna2Button MembershipBtn;
+        private Guna.UI2.WinForms.Guna2Button PendingPaymentsBtn;
     }
 }
