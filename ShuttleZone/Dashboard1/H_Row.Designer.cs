@@ -57,6 +57,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(944, 41);
             this.tableLayoutPanel3.TabIndex = 2;
+            this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
             // 
             // guna2HtmlLabel2
             // 
@@ -68,7 +69,7 @@
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(13, 12);
             this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(131, 19);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(304, 17);
             this.guna2HtmlLabel2.TabIndex = 1;
             this.guna2HtmlLabel2.Text = "TRANSACTION ID";
             // 
@@ -82,7 +83,7 @@
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(343, 12);
             this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(72, 19);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(209, 17);
             this.guna2HtmlLabel4.TabIndex = 3;
             this.guna2HtmlLabel4.Text = "PAYMENT";
             // 
@@ -96,7 +97,7 @@
             this.guna2HtmlLabel5.Location = new System.Drawing.Point(578, 12);
             this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(78, 19);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(192, 17);
             this.guna2HtmlLabel5.TabIndex = 4;
             this.guna2HtmlLabel5.Text = "AMMOUNT";
             // 
@@ -110,7 +111,7 @@
             this.guna2HtmlLabel6.Location = new System.Drawing.Point(796, 12);
             this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(39, 19);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(135, 17);
             this.guna2HtmlLabel6.TabIndex = 5;
             this.guna2HtmlLabel6.Text = "TYPE";
             // 

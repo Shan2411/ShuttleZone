@@ -83,6 +83,18 @@ namespace ShuttleZone.Dashboard1
                 }
             };
 
+            Globals.transactions = Globals.GetRecentTransactions();
+
+            foreach (var t in Globals.transactions)
+            {
+                flowLayoutPanel2.Controls.Add(new H_Row(
+                    t.TransactionId.ToString(),
+                    t.PaymentMethod,
+                    t.TotalAmount.ToString(),
+                    t.TransactionTime));  // DateTime ✅
+            }
+
+
         }
 
 

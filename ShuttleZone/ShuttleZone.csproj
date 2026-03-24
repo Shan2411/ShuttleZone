@@ -679,6 +679,7 @@
       <DependentUpon>UserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="database\schema.md" />
+    <None Include="database\transactions_table.md" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
