@@ -6,26 +6,26 @@ namespace ShuttleZone.Membership
 {
     internal static class DataAccess
     {
-        // Update this if your XAMPP MySQL uses a password or different DB name.
-        private static readonly string ConnStr = "Server=127.0.0.1;Uid=root;Pwd=;Database=shuttlezone;SslMode=None;";
+        private static readonly string ConnStr = "Server=127.0.0.1;Uid=root;Pwd=;Database=shuttlezone;SslMode=Disabled;";
 
-        public static List<MemberModel> GetMembers(bool includeArchived = false)
+        public static List<MemberModel> GetMembers(bool showArchived)
         {
             var list = new List<MemberModel>();
 
             using (var conn = new MySqlConnection(ConnStr))
             using (var cmd = conn.CreateCommand())
             {
-                cmd.CommandText = "SELECT id, member_code, name, email, phone, membership_type, expiry_date, join_date, is_archived FROM members " +
-                                  "WHERE (@inc = 1) OR (is_archived = 0) ORDER BY id DESC;";
-                cmd.Parameters.AddWithValue("@inc", includeArchived ? 1 : 0);
+                if (showArchived)
+                    cmd.CommandText = "SELECT * FROM members WHERE is_archived = 1 ORDER BY id DESC;";
+                else
+                    cmd.CommandText = "SELECT * FROM members WHERE is_archived = 0 ORDER BY id DESC;";
 
                 conn.Open();
                 using (var rdr = cmd.ExecuteReader())
                 {
                     while (rdr.Read())
                     {
-                        var m = new MemberModel
+                        list.Add(new MemberModel
                         {
                             Id = rdr.GetInt32("id"),
                             MemberCode = rdr.IsDBNull(rdr.GetOrdinal("member_code")) ? null : rdr.GetString("member_code"),
@@ -36,8 +36,7 @@ namespace ShuttleZone.Membership
                             ExpiryDate = rdr.IsDBNull(rdr.GetOrdinal("expiry_date")) ? (DateTime?)null : rdr.GetDateTime("expiry_date"),
                             JoinDate = rdr.IsDBNull(rdr.GetOrdinal("join_date")) ? (DateTime?)null : rdr.GetDateTime("join_date"),
                             IsArchived = rdr.GetInt32("is_archived") == 1
-                        };
-                        list.Add(m);
+                        });
                     }
                 }
             }
@@ -45,7 +44,6 @@ namespace ShuttleZone.Membership
             return list;
         }
 
-        // Inserts and returns the inserted id (or 0 on failure).
         public static int AddMember(MemberModel model)
         {
             using (var conn = new MySqlConnection(ConnStr))
@@ -66,10 +64,9 @@ namespace ShuttleZone.Membership
 
                 if (id > 0)
                 {
-                    // generate and store member_code as M{Id:D3}
                     using (var cmd2 = conn.CreateCommand())
                     {
-                        cmd2.CommandText = "UPDATE members SET member_code = @code WHERE id = @id;";
+                        cmd2.CommandText = "UPDATE members SET member_code=@code WHERE id=@id;";
                         cmd2.Parameters.AddWithValue("@code", $"M{id:D3}");
                         cmd2.Parameters.AddWithValue("@id", id);
                         cmd2.ExecuteNonQuery();
@@ -85,7 +82,7 @@ namespace ShuttleZone.Membership
             using (var conn = new MySqlConnection(ConnStr))
             using (var cmd = conn.CreateCommand())
             {
-                cmd.CommandText = "UPDATE members SET name=@name, email=@email, phone=@phone, membership_type=@mtype, expiry_date=@expiry, join_date=@join WHERE id=@id;";
+                cmd.CommandText = "UPDATE members SET name=@name,email=@email,phone=@phone,membership_type=@mtype,expiry_date=@expiry,join_date=@join WHERE id=@id;";
                 cmd.Parameters.AddWithValue("@name", model.Name ?? "");
                 cmd.Parameters.AddWithValue("@email", model.Email ?? "");
                 cmd.Parameters.AddWithValue("@phone", model.Phone ?? "");
@@ -104,7 +101,7 @@ namespace ShuttleZone.Membership
             using (var conn = new MySqlConnection(ConnStr))
             using (var cmd = conn.CreateCommand())
             {
-                cmd.CommandText = "UPDATE members SET is_archived = 1 WHERE id = @id;";
+                cmd.CommandText = "UPDATE members SET is_archived = 1 WHERE id=@id;";
                 cmd.Parameters.AddWithValue("@id", id);
                 conn.Open();
                 return cmd.ExecuteNonQuery() > 0;
