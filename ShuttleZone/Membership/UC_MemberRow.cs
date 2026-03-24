@@ -12,6 +12,9 @@ namespace ShuttleZone.Membership
             this.Dock = DockStyle.Top;
         }
 
+        // DB id to associate this row with backend
+        public int MemberDbId { get; set; }
+
         public string MemberIDText { get => MemberID.Text; set => MemberID.Text = value; }
         public string MemberNameText { get => MemberName.Text; set => MemberName.Text = value; }
         public string MemberEmailText { get => MemberEmail.Text; set => MemberEmail.Text = value; }

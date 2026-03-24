@@ -296,12 +296,14 @@
     <Compile Include="Membership\AddNewMember.Designer.cs">
       <DependentUpon>AddNewMember.cs</DependentUpon>
     </Compile>
+    <Compile Include="Membership\DataAccess.cs" />
     <Compile Include="Membership\EditMember.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Membership\EditMember.Designer.cs">
       <DependentUpon>EditMember.cs</DependentUpon>
     </Compile>
+    <Compile Include="Membership\MemberModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -448,6 +450,12 @@
     </Compile>
     <Compile Include="UC_Kiosk.Designer.cs">
       <DependentUpon>UC_Kiosk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Pending.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Pending.Designer.cs">
+      <DependentUpon>UC_Pending.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_Pos.cs">
       <SubType>UserControl</SubType>
@@ -656,6 +664,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Kiosk.resx">
       <DependentUpon>UC_Kiosk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Pending.resx">
+      <DependentUpon>UC_Pending.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Pos.resx">
       <DependentUpon>UC_Pos.cs</DependentUpon>
