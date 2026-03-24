@@ -121,7 +121,7 @@
             this.flpRoles.Location = new System.Drawing.Point(3, 66);
             this.flpRoles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpRoles.Name = "flpRoles";
-            this.flpRoles.Padding = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.flpRoles.Padding = new System.Windows.Forms.Padding(12);
             this.flpRoles.Size = new System.Drawing.Size(1246, 156);
             this.flpRoles.TabIndex = 2;
             this.flpRoles.WrapContents = false;
@@ -141,7 +141,7 @@
             this.guna2Panel1.Location = new System.Drawing.Point(23, 22);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Padding = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.guna2Panel1.Padding = new System.Windows.Forms.Padding(12);
             this.guna2Panel1.Size = new System.Drawing.Size(387, 130);
             this.guna2Panel1.TabIndex = 5;
             // 
@@ -263,7 +263,7 @@
             this.guna2Panel3.Location = new System.Drawing.Point(432, 22);
             this.guna2Panel3.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Padding = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.guna2Panel3.Padding = new System.Windows.Forms.Padding(12);
             this.guna2Panel3.Size = new System.Drawing.Size(387, 130);
             this.guna2Panel3.TabIndex = 5;
             this.guna2Panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel3_Paint);
@@ -387,7 +387,7 @@
             this.guna2Panel2.Location = new System.Drawing.Point(841, 22);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Padding = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.guna2Panel2.Padding = new System.Windows.Forms.Padding(12);
             this.guna2Panel2.Size = new System.Drawing.Size(387, 130);
             this.guna2Panel2.TabIndex = 4;
             // 
@@ -515,7 +515,7 @@
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
             this.lblTitle.Location = new System.Drawing.Point(5, 8);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(20);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(380, 38);
             this.lblTitle.TabIndex = 0;
@@ -535,7 +535,7 @@
             this.btnAddUser.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddUser.ForeColor = System.Drawing.Color.White;
             this.btnAddUser.Location = new System.Drawing.Point(1087, 11);
-            this.btnAddUser.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.btnAddUser.Margin = new System.Windows.Forms.Padding(7);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(147, 34);
             this.btnAddUser.TabIndex = 1;
@@ -580,7 +580,7 @@
             this.pnlGrid.Location = new System.Drawing.Point(3, 283);
             this.pnlGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Padding = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.pnlGrid.Padding = new System.Windows.Forms.Padding(12);
             this.pnlGrid.Size = new System.Drawing.Size(1246, 437);
             this.pnlGrid.TabIndex = 4;
             // 

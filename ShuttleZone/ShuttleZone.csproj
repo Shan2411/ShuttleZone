@@ -165,6 +165,18 @@
     <Compile Include="Dashboard1\FrontDeskDashboard.Designer.cs">
       <DependentUpon>FrontDeskDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard1\HeaderColumn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\HeaderColumn.Designer.cs">
+      <DependentUpon>HeaderColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard1\H_Row.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard1\H_Row.Designer.cs">
+      <DependentUpon>H_Row.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard1\ManagerDashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -519,6 +531,12 @@
     <EmbeddedResource Include="Dashboard1\FrontDeskDashboard.resx">
       <DependentUpon>FrontDeskDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\HeaderColumn.resx">
+      <DependentUpon>HeaderColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard1\H_Row.resx">
+      <DependentUpon>H_Row.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard1\ManagerDashboard.resx">
       <DependentUpon>ManagerDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -778,6 +796,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\download %287%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inuse.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
