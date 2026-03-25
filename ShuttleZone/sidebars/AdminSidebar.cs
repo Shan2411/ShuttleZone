@@ -15,6 +15,7 @@ namespace ShuttleZone.sidebars
         public event EventHandler AdminDashboardBtnClicked;
         public event EventHandler ReportsBtnClicked;
         public event EventHandler UsersBtnClicked;
+        public event EventHandler LogoutClicked;
         public AdminSidebar()
         {
             InitializeComponent();
@@ -53,6 +54,11 @@ namespace ShuttleZone.sidebars
         private void adminUsername_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            LogoutClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

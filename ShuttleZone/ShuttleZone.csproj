@@ -501,6 +501,7 @@
       <DependentUpon>UserManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="usermanagement\UserModel.cs" />
+    <Compile Include="UserSession.cs" />
     <EmbeddedResource Include="CashPayment.resx">
       <DependentUpon>CashPayment.cs</DependentUpon>
     </EmbeddedResource>

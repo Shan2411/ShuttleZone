@@ -18,6 +18,7 @@ namespace ShuttleZone.sidebars
         public event EventHandler FacilityBtnClicked;
         public event EventHandler UsersBtnClicked;
         public event EventHandler KioskBtnClicked;
+        public event EventHandler LogoutClicked;
 
         public ManagerSidebar()
         {
@@ -73,6 +74,11 @@ namespace ShuttleZone.sidebars
         private void managerUsername_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            LogoutClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }
