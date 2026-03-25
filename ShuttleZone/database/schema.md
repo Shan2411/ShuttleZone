@@ -92,3 +92,31 @@ INSERT INTO `users` (`id`, `username`, `full_name`, `email`, `role`, `status`, `
 
 -- Quick check
 -- SELECT id, username, role, status FROM users;
+
+-- EQUIPMENT AND INVENTORY
+--
+
+-- Create equipment table for ShuttleZone (MySQL / XAMPP)
+CREATE TABLE IF NOT EXISTS `equipment` (
+  `Id` VARCHAR(50) NOT NULL,
+  `Name` VARCHAR(255) NOT NULL,
+  `Category` VARCHAR(255) NOT NULL,
+  `Total` INT NOT NULL DEFAULT 0,
+  `Available` INT NOT NULL DEFAULT 0,
+  `Rented` INT NOT NULL DEFAULT 0,
+  `Price` DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+  `Status` VARCHAR(50) NOT NULL DEFAULT 'Available',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Example seed data (a few rows)
+INSERT INTO `equipment` (`Id`, `Name`, `Category`, `Total`, `Available`, `Rented`, `Price`, `Status`) VALUES
+('EQ001', 'Yonex Racket', 'Rackets', 10, 8, 2, 150.00, 'Available'),
+('EQ002', 'Shuttlecock', 'Shuttlecocks', 50, 50, 0, 25.00, 'Available'),
+('EQ003', 'Badminton Net', 'Nets', 5, 5, 0, 300.00, 'Available'),
+('EQ004', 'Grip Tape', 'Accessories', 40, 40, 0, 5.50, 'Available'),
+('EQ005', 'Scoreboard', 'Equipment', 2, 1, 1, 1200.00, 'In Use');
+
+-- Optional: basic index on Category and Status to speed searches
+CREATE INDEX IF NOT EXISTS `idx_equipment_category` ON `equipment`(`Category`);
+CREATE INDEX IF NOT EXISTS `idx_equipment_status` ON `equipment`(`Status`);

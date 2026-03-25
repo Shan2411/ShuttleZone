@@ -31,6 +31,9 @@ namespace ShuttleZone.Equipment_and_Inventory
             isEditMode = true;
             equipmentId = item.Id;
 
+            // 🔥 STORE ORIGINAL DATA (IMPORTANT)
+            NewEquipment = item;
+
             txtEquipmentName.Text = item.Name;
             txtCategory.Text = item.Category;
             txtStock.Text = item.Total.ToString();
@@ -58,17 +61,43 @@ namespace ShuttleZone.Equipment_and_Inventory
                 return;
             }
 
-            // ✅ FIX 3: Preserve ID + handle edit properly
+            int rented = 0;
+            int available = stock;
+
+            // 🔥 PRESERVE VALUES IF EDITING
+            if (isEditMode && NewEquipment != null)
+            {
+                rented = NewEquipment.Rented;
+
+                // Adjust available based on new stock
+                available = stock - rented;
+
+                if (available < 0)
+                {
+                    MessageBox.Show("Stock cannot be less than rented items.");
+                    return;
+                }
+            }
+
+            // 🔥 AUTO STATUS LOGIC
+            string status;
+            if (available == 0)
+                status = "Out of Stock";
+            else if (rented > 0)
+                status = "In Use";
+            else
+                status = "Available";
+
             NewEquipment = new EquipmentItem
             {
-                Id = equipmentId, // IMPORTANT
+                Id = equipmentId,
                 Name = txtEquipmentName.Text,
                 Category = txtCategory.Text,
                 Total = stock,
-                Available = isEditMode ? stock : stock, // you can improve later
-                Rented = 0,
+                Available = available,
+                Rented = rented,
                 Price = price,
-                Status = "Available"
+                Status = status
             };
 
             this.DialogResult = DialogResult.OK;

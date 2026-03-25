@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ShuttleZone.database;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -18,36 +20,57 @@ namespace ShuttleZone.Equipment_and_Inventory
 
             dgvTable.DataSource = filteredList;
 
-            LoadSampleData();
+            LoadFromDatabase();
         }
-
-        private void LoadSampleData()
+        private void LoadFromDatabase()
         {
-            equipmentList.Add(new EquipmentItem
-            {
-                Id = "EQ001",
-                Name = "Yonex Racket",
-                Category = "Rackets",
-                Total = 10,
-                Available = 8,
-                Rented = 2,
-                Price = 150,
-                Status = "Available"
-            });
+            equipmentList.Clear();
 
-            equipmentList.Add(new EquipmentItem
+            try
             {
-                Id = "EQ002",
-                Name = "Shuttlecock",
-                Category = "Shuttlecocks",
-                Total = 50,
-                Available = 50,
-                Rented = 0,
-                Price = 25,
-                Status = "Available"
-            });
+                using (var conn = DBconnection.GetConnection())
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM equipment";
 
-            ApplySearch(); // show all initially
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            equipmentList.Add(new EquipmentItem
+                            {
+                                Id = reader["Id"].ToString(),
+                                Name = reader["Name"].ToString(),
+                                Category = reader["Category"].ToString(),
+                                Total = Convert.ToInt32(reader["Total"]),
+                                Available = Convert.ToInt32(reader["Available"]),
+                                Rented = Convert.ToInt32(reader["Rented"]),
+                                Price = Convert.ToDecimal(reader["Price"]),
+                                Status = reader["Status"].ToString()
+                            });
+                        }
+                    }
+                }
+
+                ApplySearch();
+                UpdateSummary();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
+
+        }
+        //summary updater
+        private void UpdateSummary()
+        {
+            int totalItemsCount = equipmentList.Count;
+            int totalAvailableCount = equipmentList.Sum(x => x.Available);
+            int totalRentedCount = equipmentList.Sum(x => x.Rented);
+
+            totalItems.Text = totalItemsCount.ToString();
+            totalAvailable.Text = totalAvailableCount.ToString();
+            totalRented.Text = totalRentedCount.ToString();
         }
 
         private void InitializeUI()
@@ -144,8 +167,98 @@ namespace ShuttleZone.Equipment_and_Inventory
 
             if (addForm.ShowDialog() == DialogResult.OK)
             {
-                equipmentList.Add(addForm.NewEquipment);
-                ApplySearch();
+                InsertEquipment(addForm.NewEquipment);
+                LoadFromDatabase();
+            }
+        }
+        //insert new equipment to database
+        private void InsertEquipment(EquipmentItem item)
+        {
+            try
+            {
+                using (var conn = DBconnection.GetConnection())
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                INSERT INTO equipment 
+                (Id, Name, Category, Total, Available, Rented, Price, Status)
+                VALUES
+                (@Id, @Name, @Category, @Total, @Available, @Rented, @Price, @Status)
+            ";
+
+                    cmd.Parameters.AddWithValue("@Id", item.Id);
+                    cmd.Parameters.AddWithValue("@Name", item.Name);
+                    cmd.Parameters.AddWithValue("@Category", item.Category);
+                    cmd.Parameters.AddWithValue("@Total", item.Total);
+                    cmd.Parameters.AddWithValue("@Available", item.Available);
+                    cmd.Parameters.AddWithValue("@Rented", item.Rented);
+                    cmd.Parameters.AddWithValue("@Price", item.Price);
+                    cmd.Parameters.AddWithValue("@Status", item.Status);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Insert failed: " + ex.Message);
+            }
+        }
+
+        //update existing equipment in database
+        private void UpdateEquipment(EquipmentItem item)
+        {
+            try
+            {
+                using (var conn = DBconnection.GetConnection())
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                UPDATE equipment SET
+                    Name = @Name,
+                    Category = @Category,
+                    Total = @Total,
+                    Available = @Available,
+                    Rented = @Rented,
+                    Price = @Price,
+                    Status = @Status
+                WHERE Id = @Id
+            ";
+
+                    cmd.Parameters.AddWithValue("@Id", item.Id);
+                    cmd.Parameters.AddWithValue("@Name", item.Name);
+                    cmd.Parameters.AddWithValue("@Category", item.Category);
+                    cmd.Parameters.AddWithValue("@Total", item.Total);
+                    cmd.Parameters.AddWithValue("@Available", item.Available);
+                    cmd.Parameters.AddWithValue("@Rented", item.Rented);
+                    cmd.Parameters.AddWithValue("@Price", item.Price);
+                    cmd.Parameters.AddWithValue("@Status", item.Status);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Update failed: " + ex.Message);
+            }
+        }
+
+        //delete equipment from database
+        private void DeleteEquipment(string id)
+        {
+            try
+            {
+                using (var conn = DBconnection.GetConnection())
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM equipment WHERE Id = @Id";
+                    cmd.Parameters.AddWithValue("@Id", id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Delete failed: " + ex.Message);
             }
         }
 
@@ -170,7 +283,8 @@ namespace ShuttleZone.Equipment_and_Inventory
                     selectedItem.Price = editForm.NewEquipment.Price;
                     selectedItem.Status = editForm.NewEquipment.Status;
 
-                    dgvTable.Refresh();
+                    UpdateEquipment(editForm.NewEquipment);
+                    LoadFromDatabase();
                 }
             }
 
@@ -184,22 +298,40 @@ namespace ShuttleZone.Equipment_and_Inventory
 
                 if (result == DialogResult.Yes)
                 {
-                    equipmentList.Remove(selectedItem);
-                    ApplySearch();
+                    DeleteEquipment(selectedItem.Id);
+                    LoadFromDatabase();
                 }
             }
         }
 
         private string GenerateNextId()
         {
-            if (equipmentList.Count == 0)
+            try
+            {
+                using (var conn = DBconnection.GetConnection())
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT Id FROM equipment";
+
+                    var ids = new List<int>();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string id = reader["Id"].ToString();
+                            ids.Add(int.Parse(id.Substring(2)));
+                        }
+                    }
+
+                    int max = ids.Count > 0 ? ids.Max() : 0;
+                    return "EQ" + (max + 1).ToString("D3");
+                }
+            }
+            catch
+            {
                 return "EQ001";
-
-            int max = equipmentList
-                .Select(x => int.Parse(x.Id.Substring(2)))
-                .Max();
-
-            return "EQ" + (max + 1).ToString("D3");
+            }
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -227,6 +359,21 @@ namespace ShuttleZone.Equipment_and_Inventory
         }
 
         private void pnlAvailable_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void totalItems_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalAvailable_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalRented_Click(object sender, EventArgs e)
         {
 
         }
