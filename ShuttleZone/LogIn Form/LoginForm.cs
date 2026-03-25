@@ -6,11 +6,14 @@ using MySql.Data.MySqlClient;
 using ShuttleZone.database;
 
 namespace ShuttleZone.LogIn_Form
-{   
+{
     public partial class LoginForm : Form
     {
         Color placeholderColor = Color.FromArgb(180, 180, 180);
         Color textColor = Color.FromArgb(50, 50, 50);
+
+        // ✅ FLAG TO PREVENT AUTO-HIDE DURING CODE CHANGES
+        private bool isProgrammaticChange = false;
 
         public LoginForm()
         {
@@ -23,20 +26,24 @@ namespace ShuttleZone.LogIn_Form
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            //ApplyShadowToPanel(pnlLogin);
+            SetupTextBoxWithIcon(txtUsername, "Enter your username", "👤");
+            SetupTextBoxWithIcon(txtPassword, "Enter your password", "🔒");
 
-            SetupTextBoxWithIcon(
-                txtUsername,
-                "Enter your username",
-                "👤"
-            );
-            SetupTextBoxWithIcon(
-                txtPassword,
-                "Enter your password",
-                "🔒"
-            );
+            HideError();
+        }
 
+        // ✅ CENTRALIZED ERROR CONTROL
+        private void ShowError(string message)
+        {
+            lblError.Text = message;
+            lblError.Visible = true;
+            pnlError.Visible = true;
+        }
+
+        private void HideError()
+        {
             lblError.Visible = false;
+            pnlError.Visible = false;
         }
 
         private void SetupTextBoxWithIcon(Guna2TextBox txt, string placeholder, string icon)
@@ -61,36 +68,40 @@ namespace ShuttleZone.LogIn_Form
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
 
+            HideError();
+
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                lblError.Text = "⚠️ Please enter your username and password.";
-                lblError.Visible = true;
+                ShowError("⚠️ Please enter your username and password.");
                 return;
             }
 
             string role;
             string fullName;
+
             if (TryAuthenticate(username, password, out role, out fullName))
             {
-                lblError.Visible = false;
+                HideError();
 
-                // Open main form and apply role-specific UI
                 var main = new Form1();
-                main.SetRole(role); // public method added to Form1 to apply UI for role
+                main.SetRole(role);
                 main.Show();
 
                 this.Hide();
             }
             else
             {
-                lblError.Text = "❌ Error: Incorrect Username or Password.";
-                lblError.Visible = true;
+                ShowError("❌ Error: Incorrect Username or Password.");
+
+                // ✅ PREVENT TEXTCHANGED FROM HIDING ERROR
+                isProgrammaticChange = true;
                 txtPassword.Clear();
+                isProgrammaticChange = false;
+
                 txtPassword.Focus();
             }
         }
 
-        // Authenticates against simple users table (plaintext password)
         private bool TryAuthenticate(string username, string password, out string role, out string fullName)
         {
             role = null;
@@ -107,7 +118,8 @@ namespace ShuttleZone.LogIn_Form
                         WHERE `username` = @username
                           AND `password` = @password
                         LIMIT 1;
-                        ";
+                    ";
+
                     cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@password", password);
 
@@ -126,11 +138,9 @@ namespace ShuttleZone.LogIn_Form
                     }
                 }
             }
-            catch (MySqlException ex)
+            catch (MySqlException)
             {
-                // show minimal error to user and return false; log more details in real app
-                lblError.Text = "❌ Database error. Check connection.";
-                lblError.Visible = true;
+                ShowError("❌ Database error. Check connection.");
                 return false;
             }
         }
@@ -143,12 +153,14 @@ namespace ShuttleZone.LogIn_Form
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
-            lblError.Visible = false;
+            if (!isProgrammaticChange)
+                HideError();
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            lblError.Visible = false;
+            if (!isProgrammaticChange)
+                HideError();
         }
 
         private void ApplyShadowToPanel(Panel panel)
@@ -171,6 +183,11 @@ namespace ShuttleZone.LogIn_Form
             }
 
             panel.BringToFront();
+        }
+
+        private void ExitBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

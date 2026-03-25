@@ -44,12 +44,14 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.ExitBtn = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlError.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ExitBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -201,7 +203,7 @@
             this.lblSignIn.AutoSize = true;
             this.lblSignIn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSignIn.ForeColor = System.Drawing.Color.Gray;
-            this.lblSignIn.Location = new System.Drawing.Point(15, 166);
+            this.lblSignIn.Location = new System.Drawing.Point(15, 164);
             this.lblSignIn.Margin = new System.Windows.Forms.Padding(15, 0, 3, 0);
             this.lblSignIn.Name = "lblSignIn";
             this.lblSignIn.Size = new System.Drawing.Size(126, 17);
@@ -213,7 +215,7 @@
             this.lblWelcome.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(5, 104);
+            this.lblWelcome.Location = new System.Drawing.Point(5, 121);
             this.lblWelcome.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(203, 37);
@@ -237,6 +239,7 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.ExitBtn, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblWelcome, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.btnSignIn, 0, 10);
             this.tableLayoutPanel2.Controls.Add(this.lblSignIn, 0, 2);
@@ -249,10 +252,10 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(28, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 14;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.71429F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.28571F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -296,6 +299,22 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(505, 679);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
+            // ExitBtn
+            // 
+            this.ExitBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ExitBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ExitBtn.BackgroundImage")));
+            this.ExitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ExitBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ExitBtn.ImageRotate = 0F;
+            this.ExitBtn.Location = new System.Drawing.Point(418, 10);
+            this.ExitBtn.Margin = new System.Windows.Forms.Padding(10);
+            this.ExitBtn.Name = "ExitBtn";
+            this.ExitBtn.Size = new System.Drawing.Size(20, 20);
+            this.ExitBtn.TabIndex = 8;
+            this.ExitBtn.TabStop = false;
+            this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,6 +339,7 @@
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ExitBtn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -341,5 +361,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private Guna.UI2.WinForms.Guna2PictureBox ExitBtn;
     }
 }
