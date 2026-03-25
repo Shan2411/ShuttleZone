@@ -29,11 +29,11 @@ namespace ShuttleZone.Dashboard1
             {
                 case "today's transactions":
                     guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Money;
-                    label1.Text = "6"; 
+                    label1.Text = Globals.GetTodaysTransaction().ToString(); 
                     break;
                 case "active rentals":
                     guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Time;
-                    label1.Text = "1/4";
+                    label1.Text = Globals.activeRentals.ToString() + "/4";
                     break;
                 case "new memberships":
                     guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Person;

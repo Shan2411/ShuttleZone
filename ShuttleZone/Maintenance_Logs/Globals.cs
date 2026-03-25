@@ -66,7 +66,67 @@ namespace ShuttleZone.Maintenance_Logs
         }
 
         // Front desk dashboard 
-        // transac id payment amount time
+        // transac id payment amount time   
+
+        public static int todaysTransactions = GetTodaysTransaction();
+        public static int activeRentals;
+        public static string courtsInUse;
+
+        public static int GetTodaysTransaction()
+        {
+            try
+            {
+                using (MySqlConnection connection = DBconnection.GetConnection())
+                {
+                    string query = @"SELECT COUNT(*) FROM transactions 
+                             WHERE DATE(transaction_time) = CURDATE();";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        object result = cmd.ExecuteScalar();
+                        return Convert.ToInt32(result); // Safe conversion
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+                return 0;
+            }
+        }
+
+        //this function also get sthe name of the court in use
+        public static void GetActiveRentals()
+        {
+            try
+            {
+                using (MySqlConnection connection = DBconnection.GetConnection())
+                {
+                    string query = @"SELECT 
+                        COUNT(*) AS total_in_use,
+                        GROUP_CONCAT(court_name SEPARATOR ', ') AS court_names
+                        FROM courts
+                        WHERE status = 'In Use';";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        using (MySqlDataReader reader = cmd.ExecuteReader()) {
+                            if (reader.Read())
+                            {
+                                activeRentals = reader.GetInt32("total_in_use");
+                                courtsInUse = reader.GetString("court_names");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+                //return 0;
+            }
+        }
+
         public class Transaction
         {
             public int TransactionId { get; set; }
