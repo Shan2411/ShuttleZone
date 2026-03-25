@@ -29,11 +29,11 @@ namespace ShuttleZone.Dashboard1
             {
                 case "today's transactions":
                     guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Money;
-                    label1.Text = "6"; 
+                    label1.Text = Globals.GetTodaysTransaction().ToString(); 
                     break;
                 case "active rentals":
                     guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Time;
-                    label1.Text = "1/4";
+                    label1.Text = Globals.activeRentals.ToString() + "/4";
                     break;
                 case "new memberships":
                     guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Person;
@@ -48,22 +48,22 @@ namespace ShuttleZone.Dashboard1
 
                 case "today's revenue":
                     guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Money;
-                    label1.Text = "15,920";
+                    label1.Text = Globals.todaysRevenue.ToString();
                     break;
 
                 case "average monthly revenue":
                     guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Arrow;
-                    label1.Text = "25,920";
+                    label1.Text = Globals.avgRevenue.ToString();
                     break;
 
                 case "total transactions":
                     guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Receipt;
-                    label1.Text = "247";
+                    label1.Text = Globals.totalTransactions.ToString();
                     break;
 
                 case "active members":
                     guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Person;
-                    label1.Text = "67";
+                    label1.Text = Globals.activeMemberships.ToString();
                     break;
 
 
