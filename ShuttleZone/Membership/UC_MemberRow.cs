@@ -12,6 +12,9 @@ namespace ShuttleZone.Membership
             this.Dock = DockStyle.Top;
         }
 
+        // DB id to associate this row with backend
+        public int MemberDbId { get; set; }
+
         public string MemberIDText { get => MemberID.Text; set => MemberID.Text = value; }
         public string MemberNameText { get => MemberName.Text; set => MemberName.Text = value; }
         public string MemberEmailText { get => MemberEmail.Text; set => MemberEmail.Text = value; }
@@ -28,7 +31,20 @@ namespace ShuttleZone.Membership
 
         public void UpdateStatus()
         {
-            MemberStatus.SizeMode = PictureBoxSizeMode.StretchImage; // or Zoom if you want aspect ratio preserved
+            // Always set SizeMode so icons render consistently
+            MemberStatus.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            // Hide edit/delete when the row represents an archived member
+            // (button control names assumed present in designer: MemberDelete, MemberEdit)
+            if (MemberDelete != null) MemberDelete.Visible = !IsArchived;
+            if (MemberEdit != null) MemberEdit.Visible = !IsArchived;
+
+            // Show appropriate status icon when not archived; if archived, clear or set an archived icon if available
+            if (IsArchived)
+            {
+                MemberStatus.Image = null;
+                return;
+            }
 
             if (DateTime.TryParse(MemberExpiryDate.Text, out DateTime expiry))
             {
@@ -37,15 +53,33 @@ namespace ShuttleZone.Membership
                 else
                     MemberStatus.Image = global::ShuttleZone.Properties.Resources.ActiveStatus;
             }
+            else
+            {
+                MemberStatus.Image = global::ShuttleZone.Properties.Resources.ActiveStatus;
+            }
         }
 
         private void MemberDelete_Click(object sender, EventArgs e)
         {
-            DeleteClicked?.Invoke(this, EventArgs.Empty);
+            // Confirm archive action with the user before raising the event
+            var result = MessageBox.Show(
+                "Are you sure you want to archive this member?",
+                "Confirm Archive",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.Yes)
+                DeleteClicked?.Invoke(this, EventArgs.Empty);
         }
 
         private void MemberEdit_Click(object sender, EventArgs e)
         {
+            // Edit should not be reachable if IsArchived is true because the button will be hidden,
+            // but protect defensively.
+            if (IsArchived)
+                return;
+
             EditClicked?.Invoke(this, EventArgs.Empty);
         }
     }

@@ -1,51 +1,64 @@
 ﻿using ShuttleZone.Membership;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ShuttleZone
 {
     public partial class UC_Membership : UserControl
     {
-        private int memberCounter = 1;
-        private bool showingArchived = false; // toggle state
+        private bool showingArchived = false;
 
         public UC_Membership()
         {
+            this.DoubleBuffered = true; // reduce flicker
             InitializeComponent();
+            LoadMembers();
         }
 
-        private void AddMemberBtn_Click(object sender, EventArgs e)
+        private void LoadMembers()
         {
-            AddNewMember addNewMemberForm = new AddNewMember();
+            flpMemberRowContainer.SuspendLayout();
+            flpMemberRowContainer.Controls.Clear();
 
-            if (addNewMemberForm.ShowDialog() == DialogResult.OK)
+            // fetch members based on toggle
+            var members = DataAccess.GetMembers(showingArchived);
+
+            foreach (var model in members)
             {
-                UC_MemberRow row = new UC_MemberRow
+                var row = new UC_MemberRow
                 {
-                    MemberIDText = $"M{memberCounter:D3}",
-                    MemberNameText = addNewMemberForm.MemberNameValue,
-                    MemberEmailText = addNewMemberForm.MemberEmailValue,
-                    MemberPhoneText = addNewMemberForm.MemberPhoneValue,
-                    MemberTypeText = addNewMemberForm.MembershipTypeValue,
-                    MemberExpiryDateText = addNewMemberForm.ExpiryDateValue,
-                    MemberJoinDate = addNewMemberForm.JoinDateValue,
+                    MemberDbId = model.Id,
+                    MemberIDText = string.IsNullOrWhiteSpace(model.MemberCode) ? $"M{model.Id:D3}" : model.MemberCode,
+                    MemberNameText = model.Name ?? "",
+                    MemberEmailText = model.Email ?? "",
+                    MemberPhoneText = model.Phone ?? "",
+                    MemberTypeText = model.MembershipType ?? "",
+                    MemberExpiryDateText = model.ExpiryDate?.ToString("yyyy-MM-dd") ?? "",
+                    MemberJoinDate = model.JoinDate ?? DateTime.Now,
                     Width = flpMemberRowContainer.ClientSize.Width,
-                    IsArchived = false
+                    IsArchived = model.IsArchived
                 };
 
                 row.UpdateStatus();
 
-                // ARCHIVE instead of delete
+                // ARCHIVE
                 row.DeleteClicked += (s, args) =>
                 {
-                    row.IsArchived = true;
-                    RefreshView();
+                    if (row.MemberDbId > 0)
+                    {
+                        bool archived = DataAccess.ArchiveMember(row.MemberDbId);
+                        if (archived)
+                            LoadMembers();
+                        else
+                            MessageBox.Show("Archive failed");
+                    }
                 };
 
-                // Edit
+                // EDIT
                 row.EditClicked += (s, args) =>
                 {
-                    EditMember editForm = new EditMember
+                    var editForm = new EditMember
                     {
                         MemberIDValue = row.MemberIDText,
                         MemberNameValue = row.MemberNameText,
@@ -58,65 +71,92 @@ namespace ShuttleZone
 
                     if (editForm.ShowDialog() == DialogResult.OK)
                     {
-                        row.MemberNameText = editForm.MemberNameValue;
-                        row.MemberEmailText = editForm.MemberEmailValue;
-                        row.MemberPhoneText = editForm.MemberPhoneValue;
-                        row.MemberTypeText = editForm.MembershipTypeValue;
-                        row.MemberExpiryDateText = editForm.ExpiryDateValue;
-                        row.MemberJoinDate = editForm.JoinDateValue;
+                        var updatedModel = new MemberModel
+                        {
+                            Id = row.MemberDbId,
+                            MemberCode = row.MemberIDText,
+                            Name = editForm.MemberNameValue,
+                            Email = editForm.MemberEmailValue,
+                            Phone = editForm.MemberPhoneValue,
+                            MembershipType = editForm.MembershipTypeValue,
+                            ExpiryDate = DateTime.TryParse(editForm.ExpiryDateValue, out DateTime exp) ? exp : (DateTime?)null,
+                            JoinDate = editForm.JoinDateValue
+                        };
 
-                        row.UpdateStatus();
-                        RefreshView();
+                        bool success = DataAccess.UpdateMember(updatedModel);
+                        if (success)
+                            LoadMembers();
+                        else
+                            MessageBox.Show("Update failed");
                     }
                 };
 
                 flpMemberRowContainer.Controls.Add(row);
-                memberCounter++;
+            }
+
+            flpMemberRowContainer.ResumeLayout();
+            ApplySearchFilter();
+        }
+
+        private void AddMemberBtn_Click(object sender, EventArgs e)
+        {
+            var form = new AddNewMember();
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                var model = new MemberModel
+                {
+                    Name = form.MemberNameValue,
+                    Email = form.MemberEmailValue,
+                    Phone = form.MemberPhoneValue,
+                    MembershipType = form.MembershipTypeValue,
+                    ExpiryDate = DateTime.TryParse(form.ExpiryDateValue, out DateTime exp) ? exp : (DateTime?)null,
+                    JoinDate = form.JoinDateValue
+                };
+
+                int newId = DataAccess.AddMember(model);
+                if (newId > 0)
+                    LoadMembers();
+                else
+                    MessageBox.Show("Failed to add member");
             }
         }
 
-      
         private void Searchbox_TextChanged(object sender, EventArgs e)
         {
-            RefreshView();
+            ApplySearchFilter();
         }
 
-    
         private void ArchivedBtn_Click(object sender, EventArgs e)
         {
             showingArchived = !showingArchived;
 
             ArchivedBtn.Text = showingArchived ? "Hide Archived" : "Show Archived";
-            AddMemberBtn.Enabled = !showingArchived; // disable adding new members when viewing archived
-            AddMemberBtn.FillColor = showingArchived ? System.Drawing.Color.Gray : System.Drawing.Color.FromArgb(152, 16, 250); // gray out when disabled
-            AddMemberBtn.ForeColor = showingArchived ? System.Drawing.Color.LightGray : System.Drawing.Color.White; // adjust text color for contrast
-            AddMemberBtn.Text = showingArchived ? "Archived Mode" : "Add New Member"; // update button text to reflect state
+            AddMemberBtn.Enabled = !showingArchived;
+            AddMemberBtn.FillColor = showingArchived ? System.Drawing.Color.Gray : System.Drawing.Color.FromArgb(152, 16, 250);
+            AddMemberBtn.ForeColor = showingArchived ? System.Drawing.Color.LightGray : System.Drawing.Color.White;
+            AddMemberBtn.Text = showingArchived ? "Archived Mode" : "Add New Member";
 
-            RefreshView();
+            LoadMembers();
         }
 
-
-        private void RefreshView()
+        private void ApplySearchFilter()
         {
-            string searchText = Searchbox.Text.Trim().ToLower();
+            string search = Searchbox.Text.Trim().ToLower();
 
-            foreach (UC_MemberRow row in flpMemberRowContainer.Controls)
+            foreach (UC_MemberRow row in flpMemberRowContainer.Controls.OfType<UC_MemberRow>())
             {
-                // Check across multiple fields
-                bool matchesSearch =
-                    row.MemberIDText.ToLower().Contains(searchText) ||
-                    row.MemberNameText.ToLower().Contains(searchText) ||
-                    row.MemberEmailText.ToLower().Contains(searchText) ||
-                    row.MemberPhoneText.ToLower().Contains(searchText) ||
-                    row.MemberTypeText.ToLower().Contains(searchText) ||
-                    row.MemberExpiryDateText.ToLower().Contains(searchText) ||
-                    row.MemberJoinDate.ToString("yyyy-MM-dd").ToLower().Contains(searchText);
+                bool match =
+                    row.MemberIDText.ToLower().Contains(search) ||
+                    row.MemberNameText.ToLower().Contains(search) ||
+                    row.MemberEmailText.ToLower().Contains(search) ||
+                    row.MemberPhoneText.ToLower().Contains(search) ||
+                    row.MemberTypeText.ToLower().Contains(search) ||
+                    row.MemberExpiryDateText.ToLower().Contains(search) ||
+                    row.MemberJoinDate.ToString("yyyy-MM-dd").ToLower().Contains(search);
 
-                bool matchesArchiveState = showingArchived
-                    ? row.IsArchived
-                    : !row.IsArchived;
-
-                row.Visible = matchesSearch && matchesArchiveState;
+                // NEW: hide archived rows in active mode
+                row.Visible = (!row.IsArchived || showingArchived) && match;
             }
         }
     }

@@ -114,6 +114,11 @@ namespace ShuttleZone
             LoadView<RentHistory>();
         }
 
+        private void PendingPaymentsBtn_Click(object sender, EventArgs e)
+        {
+            LoadView<UC_Pending>();
+        }
+
         // ================= DASHBOARDS =================
 
         private void AdminDashboardBtn_Click(object sender, EventArgs e)
@@ -203,6 +208,7 @@ namespace ShuttleZone
             frontDeskSidebarUC.POSBtnClicked += POSBtn_Click;
             frontDeskSidebarUC.MembershipBtnClicked += MembershipBtn_Click;
             frontDeskSidebarUC.HistoryBtnClicked += HistoryBtn_Click;
+            frontDeskSidebarUC.PendingPaymentsBtnClicked += PendingPaymentsBtn_Click;
 
             SidebarDynamicPanel.Controls.Add(frontDeskSidebarUC);
 

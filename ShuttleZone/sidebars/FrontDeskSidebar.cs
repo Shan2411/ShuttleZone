@@ -16,6 +16,7 @@ namespace ShuttleZone.sidebars
         public event EventHandler POSBtnClicked;  
         public event EventHandler MembershipBtnClicked;
         public event EventHandler HistoryBtnClicked;
+        public event EventHandler PendingPaymentsBtnClicked;
         public FrontDeskSidebar()
         {
             InitializeComponent();
@@ -52,5 +53,10 @@ namespace ShuttleZone.sidebars
             HistoryBtnClicked?.Invoke(this, EventArgs.Empty);
         }
 
+        private void PendingPaymentsBtn_Click(object sender, EventArgs e)
+        {
+            HighlightButton(PendingPaymentsBtn);
+            PendingPaymentsBtnClicked?.Invoke(this, EventArgs.Empty);
+        }   
     }
 }

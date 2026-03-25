@@ -173,7 +173,7 @@
             this.label1.Location = new System.Drawing.Point(12, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(326, 37);
+            this.label1.Size = new System.Drawing.Size(401, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Income && Sales Analytics";
             // 
@@ -184,7 +184,7 @@
             this.label2.Location = new System.Drawing.Point(2441, 1398);
             this.label2.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(496, 46);
+            this.label2.Size = new System.Drawing.Size(401, 37);
             this.label2.TabIndex = 1;
             this.label2.Text = "Income && Sales Analytics";
             // 
@@ -195,7 +195,7 @@
             this.label3.Location = new System.Drawing.Point(2449, 1406);
             this.label3.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(496, 46);
+            this.label3.Size = new System.Drawing.Size(401, 37);
             this.label3.TabIndex = 2;
             this.label3.Text = "Income && Sales Analytics";
             // 
@@ -501,7 +501,7 @@
             this.btnDaily.ForeColor = System.Drawing.Color.Black;
             this.btnDaily.Location = new System.Drawing.Point(3, 3);
             this.btnDaily.Name = "btnDaily";
-            this.btnDaily.Size = new System.Drawing.Size(80, 15);
+            this.btnDaily.Size = new System.Drawing.Size(81, 15);
             this.btnDaily.TabIndex = 3;
             this.btnDaily.Text = "Daily";
             this.btnDaily.Click += new System.EventHandler(this.btnDaily_Click);
@@ -517,9 +517,9 @@
             this.btnWeekly.FillColor = System.Drawing.Color.Gainsboro;
             this.btnWeekly.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWeekly.ForeColor = System.Drawing.Color.Black;
-            this.btnWeekly.Location = new System.Drawing.Point(89, 3);
+            this.btnWeekly.Location = new System.Drawing.Point(90, 3);
             this.btnWeekly.Name = "btnWeekly";
-            this.btnWeekly.Size = new System.Drawing.Size(80, 15);
+            this.btnWeekly.Size = new System.Drawing.Size(81, 15);
             this.btnWeekly.TabIndex = 4;
             this.btnWeekly.Text = "Weekly";
             this.btnWeekly.Click += new System.EventHandler(this.btnWeekly_Click);
@@ -535,7 +535,7 @@
             this.btnMonthly.FillColor = System.Drawing.Color.Gainsboro;
             this.btnMonthly.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMonthly.ForeColor = System.Drawing.Color.Black;
-            this.btnMonthly.Location = new System.Drawing.Point(175, 3);
+            this.btnMonthly.Location = new System.Drawing.Point(177, 3);
             this.btnMonthly.Name = "btnMonthly";
             this.btnMonthly.Size = new System.Drawing.Size(81, 15);
             this.btnMonthly.TabIndex = 5;
@@ -1884,7 +1884,7 @@
             // 
             // Reports_Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(32F, 63F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(25F, 51F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.Controls.Add(this.tableLayoutPanel1);
