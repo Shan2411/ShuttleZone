@@ -270,20 +270,9 @@ namespace ShuttleZone.Equipment_and_Inventory
 
             if (dgvTable.Columns[e.ColumnIndex].Name == "colEdit")
             {
-                Add editForm = new Add(selectedItem.Id);
-                editForm.LoadExistingData(selectedItem);
-
+                Edit editForm = new Edit(selectedItem);
                 if (editForm.ShowDialog() == DialogResult.OK)
                 {
-                    selectedItem.Name = editForm.NewEquipment.Name;
-                    selectedItem.Category = editForm.NewEquipment.Category;
-                    selectedItem.Total = editForm.NewEquipment.Total;
-                    selectedItem.Available = editForm.NewEquipment.Available;
-                    selectedItem.Rented = editForm.NewEquipment.Rented;
-                    selectedItem.Price = editForm.NewEquipment.Price;
-                    selectedItem.Status = editForm.NewEquipment.Status;
-
-                    UpdateEquipment(editForm.NewEquipment);
                     LoadFromDatabase();
                 }
             }
