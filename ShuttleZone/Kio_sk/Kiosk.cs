@@ -428,7 +428,19 @@ namespace ShuttleZone
             decimal total = subtotal - GetDiscountAmount(subtotal);
 
             var ecash = new EcashQR(total);
-            ecash.PaymentCompleted += (s, args) => ShowReceipt(total);
+            ecash.PaymentCompleted += (s, args) =>
+            {
+                string receiptNo = $"RCP-{DateTime.Now:yyyyMMdd-HHmmss}";
+
+                TransactionRecorder.SaveFromCart(
+                    receiptNo,
+                    DateTime.Now,
+                    cartItems,
+                    "E-Cash"
+                );
+
+                ShowReceipt(total);
+            };
             ecash.ShowDialog(this);
         }
 

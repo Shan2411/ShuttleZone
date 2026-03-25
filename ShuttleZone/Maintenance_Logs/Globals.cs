@@ -29,8 +29,6 @@ namespace ShuttleZone.Maintenance_Logs
         public static string mambershipDiscount = "20";
 
         //dashbord
-        public static decimal thisMonthsRevenue = 0;
-
         public static string GetCourtStatusFromDB(string court)
         {
             try
@@ -125,35 +123,100 @@ namespace ShuttleZone.Maintenance_Logs
 
         // Front desk dashboard End
 
+
         // Admin Dashboard
 
-        public static void getThisMonthRevenue() {
+        public static decimal courtRentals = 0;
+        public static decimal equipmentRentals = 0;
+        public static decimal memberships = 0;
+        public static decimal thisMonthsRevenue = 0;
 
-            using (MySqlConnection connection = DBconnection.GetConnection()) {
-            
-                string query = @"SELECT total_amount, income_type
-                                FROM transactions
-                                WHERE MONTH(transaction_time) = MONTH(CURRENT_DATE())
-                                AND YEAR(transaction_time) = YEAR(CURRENT_DATE());";
-    
-                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+        public static decimal otherRevenue = 0; // add this too
+
+        public static void getThisMonthRevenue()
+        {
+            using (MySqlConnection connection = DBconnection.GetConnection())
+            {
+                string query = @"SELECT income_type, SUM(total_amount) AS total
+                         FROM transactions
+                         WHERE MONTH(transaction_time) = MONTH(CURRENT_DATE())
+                         AND YEAR(transaction_time) = YEAR(CURRENT_DATE())
+                         GROUP BY income_type;";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
                     {
-                        if (reader.Read())
+                        string incomeType = reader["income_type"].ToString();
+                        decimal amount = reader["total"] != DBNull.Value
+                            ? Convert.ToDecimal(reader["total"])
+                            : 0;
+
+                        switch (incomeType)
                         {
-                            thisMonthsRevenue = reader["MonthlyRevenue"] != DBNull.Value
-                                ? Convert.ToDecimal(reader["MonthlyRevenue"])
-                                : 0;
+                            case "Court": courtRentals = amount; break;
+                            case "Equipment": equipmentRentals = amount; break;
+                            case "Membership": memberships = amount; break;
+                            case "Other": otherRevenue = amount; break;
                         }
+                    }
                 }
             }
-        
+
+            thisMonthsRevenue = courtRentals + equipmentRentals + memberships + otherRevenue;
+        }
+
+        // Admin Cards 
+
+        public static int totalTransactions = 0;
+        public static decimal avgRevenue = 0;
+        public static decimal todaysRevenue = 0;
+        public static int activeMemberships = 0;
+
+        public static void getThisMonthStats()
+        {
+            using (MySqlConnection connection = DBconnection.GetConnection())
+            {
+                string query = @"
+            SELECT
+                (SELECT COUNT(*) 
+                 FROM transactions 
+                 WHERE MONTH(transaction_time) = MONTH(CURRENT_DATE()) 
+                 AND YEAR(transaction_time) = YEAR(CURRENT_DATE())) AS total_transactions,
+
+                (SELECT AVG(total_amount) 
+                 FROM transactions 
+                 WHERE MONTH(transaction_time) = MONTH(CURRENT_DATE()) 
+                 AND YEAR(transaction_time) = YEAR(CURRENT_DATE())) AS avg_revenue,
+
+                (SELECT SUM(total_amount) 
+                 FROM transactions 
+                 WHERE DATE(transaction_time) = CURRENT_DATE()) AS todays_revenue,
+
+                (SELECT COUNT(*) 
+                 FROM members 
+                 WHERE expiry_date >= CURRENT_DATE() 
+                 AND is_archived = 0) AS active_memberships;";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        totalTransactions = Convert.ToInt32(reader["total_transactions"]);
+                        avgRevenue = reader["avg_revenue"] != DBNull.Value
+                            ? Convert.ToDecimal(reader["avg_revenue"])
+                            : 0;
+                        todaysRevenue = reader["todays_revenue"] != DBNull.Value
+                            ? Convert.ToDecimal(reader["todays_revenue"])
+                            : 0;
+                        activeMemberships = Convert.ToInt32(reader["active_memberships"]);
+                    }
+                }
+            }
         }
 
 
     }
-
-
-
-
 }
