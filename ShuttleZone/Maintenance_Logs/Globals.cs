@@ -113,8 +113,13 @@ namespace ShuttleZone.Maintenance_Logs
                         using (MySqlDataReader reader = cmd.ExecuteReader()) {
                             if (reader.Read())
                             {
-                                activeRentals = reader.GetInt32("total_in_use");
-                                courtsInUse = reader.GetString("court_names");
+                                int total = reader.IsDBNull(reader.GetOrdinal("total_in_use"))
+                                            ? 0
+                                            : reader.GetInt32("total_in_use");
+
+                                string names = reader.IsDBNull(reader.GetOrdinal("court_names"))
+                                               ? "None"
+                                               : reader.GetString("court_names");
                             }
                         }
                     }
@@ -129,7 +134,7 @@ namespace ShuttleZone.Maintenance_Logs
 
         public class Transaction
         {
-            public int TransactionId { get; set; }
+            public string ReceiptId { get; set; }
             public string PaymentMethod { get; set; }
             public decimal TotalAmount { get; set; }
             public DateTime TransactionTime { get; set; }
@@ -145,7 +150,7 @@ namespace ShuttleZone.Maintenance_Logs
                 {
                     //connection.Open();
 
-                    string query = @"SELECT transaction_id, payment_method, total_amount, transaction_time 
+                    string query = @"SELECT receipt_no, payment_method, total_amount, transaction_time 
                              FROM transactions
                              ORDER BY transaction_time DESC
                              LIMIT 5;";
@@ -157,7 +162,7 @@ namespace ShuttleZone.Maintenance_Logs
                         {
                             Transaction t = new Transaction
                             {
-                                TransactionId = Convert.ToInt32(reader["transaction_id"]),
+                                ReceiptId = reader["receipt_no"].ToString(),
                                 PaymentMethod = reader["payment_method"].ToString(),
                                 TotalAmount = Convert.ToDecimal(reader["total_amount"]),
                                 TransactionTime = reader["transaction_time"] is TimeSpan ts
@@ -277,6 +282,30 @@ namespace ShuttleZone.Maintenance_Logs
             }
         }
 
+
+        public static int kioskTransactions() {
+
+            try
+            {
+                using (MySqlConnection connection = DBconnection.GetConnection())
+                {
+                    string query = @"SELECT COUNT(*) FROM transactions 
+                             WHERE transaction_source = 'Kiosk';";
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        object result = cmd.ExecuteScalar();
+                        return Convert.ToInt32(result); // Safe conversion
+                    }
+                }
+
+            }
+
+            catch (Exception ex) { 
+                
+                return 0; 
+            
+            }
+        }
 
     }
 }

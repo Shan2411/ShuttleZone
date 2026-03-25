@@ -70,7 +70,7 @@
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(304, 17);
             this.guna2HtmlLabel2.TabIndex = 1;
-            this.guna2HtmlLabel2.Text = "TRANSACTION ID";
+            this.guna2HtmlLabel2.Text = "RECEIPT NO.";
             // 
             // guna2HtmlLabel4
             // 

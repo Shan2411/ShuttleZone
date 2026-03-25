@@ -436,7 +436,7 @@ namespace ShuttleZone
                     receiptNo,
                     DateTime.Now,
                     cartItems,
-                    "E-Cash"
+                    "E-Cash", "Kiosk"
                 );
 
                 ShowReceipt(total);
@@ -465,6 +465,11 @@ namespace ShuttleZone
             }
 
             return 0;
+        }
+
+        private void btnKioskEcashPayment_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

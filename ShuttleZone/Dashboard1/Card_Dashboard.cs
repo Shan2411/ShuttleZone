@@ -66,6 +66,12 @@ namespace ShuttleZone.Dashboard1
                     label1.Text = Globals.activeMemberships.ToString();
                     break;
 
+                // manager cases
+
+                case "kiosk transactions":
+                      guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Money;
+                      label1.Text = Globals.kioskTransactions().ToString();
+                    break; 
 
                 default:
 

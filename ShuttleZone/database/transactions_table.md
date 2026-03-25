@@ -15,18 +15,19 @@ USE shuttlezone;
 
 DROP TABLE IF EXISTS transactions;
 CREATE TABLE transactions (
-    transaction_id   INT           AUTO_INCREMENT PRIMARY KEY,
-    receipt_no       VARCHAR(20)   NOT NULL,
-    transaction_date DATE          NOT NULL,
-    transaction_time TIME          NOT NULL,
-    income_type      ENUM('Court','Equipment','Membership','Other') NOT NULL,
-    item_name        VARCHAR(100)  NOT NULL,
-    quantity         INT           NOT NULL DEFAULT 1,
-    unit_price       DECIMAL(10,2) NOT NULL,
-    total_amount     DECIMAL(10,2) NOT NULL,
-    payment_method   VARCHAR(50)   NOT NULL,
-    created_at       DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    court_id         INT           NULL,
+    transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+    receipt_no VARCHAR(20) NOT NULL,
+    transaction_date DATE NOT NULL,
+    transaction_time TIME NOT NULL,
+    income_type ENUM('Court','Equipment','Membership','Other') NOT NULL,
+    item_name VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL DEFAULT 1 CHECK (quantity > 0),
+    unit_price DECIMAL(10,2) NOT NULL CHECK (unit_price >= 0),
+    total_amount DECIMAL(10,2) AS (quantity * unit_price) STORED,
+    payment_method VARCHAR(50) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    court_id INT NULL,
+    transaction_source ENUM('Kiosk','Frontdesk') NOT NULL DEFAULT 'Frontdesk',
     CONSTRAINT fk_transactions_court
         FOREIGN KEY (court_id) REFERENCES courts(court_id)
         ON DELETE SET NULL ON UPDATE CASCADE

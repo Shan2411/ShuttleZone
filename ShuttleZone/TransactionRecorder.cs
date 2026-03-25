@@ -14,7 +14,8 @@ namespace ShuttleZone
             string receiptNo,
             DateTime date,
             List<CartItem> cartItems,
-            string paymentMethod)
+            string paymentMethod,
+            string transactionSource)
         {
             try
             {
@@ -31,11 +32,11 @@ namespace ShuttleZone
                             INSERT INTO transactions
                                 (receipt_no, transaction_date, transaction_time,
                                  income_type, item_name, quantity,
-                                 unit_price, total_amount, payment_method, court_id)
+                                 unit_price, total_amount, payment_method, court_id, transaction_source)
                             VALUES
                                 (@ReceiptNo, @Date, @Time,
                                  @IncomeType, @ItemName, @Qty,
-                                 @UnitPrice, @Total, @Payment, @CourtId)";
+                                 @UnitPrice, @Total, @Payment, @CourtId, @Source)";
 
                         using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                         {
@@ -49,6 +50,7 @@ namespace ShuttleZone
                             cmd.Parameters.AddWithValue("@Total",      item.Price * item.Qty);
                             cmd.Parameters.AddWithValue("@Payment",    paymentMethod);
                             cmd.Parameters.AddWithValue("@CourtId",    (object)courtId ?? DBNull.Value);
+                            cmd.Parameters.AddWithValue("@Source", transactionSource); // NEW
                             cmd.ExecuteNonQuery();
                         }
                     }

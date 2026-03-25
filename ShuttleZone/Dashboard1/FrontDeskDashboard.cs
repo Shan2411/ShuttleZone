@@ -90,7 +90,7 @@ namespace ShuttleZone.Dashboard1
             foreach (var t in Globals.transactions)
             {
                 flowLayoutPanel2.Controls.Add(new H_Row(
-                    t.TransactionId.ToString(),
+                    t.ReceiptId,
                     t.PaymentMethod,
                     t.TotalAmount.ToString(),
                     t.TransactionTime));  // DateTime ✅

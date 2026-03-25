@@ -87,13 +87,13 @@ namespace ShuttleZone.Dashboard1
             flowLayoutPanel1.Controls.AddRange(new Control[] {
                 new Card_Dashboard("Today's Revenue"),
                 new Card_Dashboard("Average Monthly Revenue"),
-                new Card_Dashboard("Active Membership"),
+                new Card_Dashboard("Active Members"),
                 new Card_Dashboard("Equipment Available")
             });
 
             // Bulk Add flowLayoutPanel2
             flowLayoutPanel2.Controls.AddRange(new Control[] {
-                new Card_Dashboard("Kiosk Sessions"),
+                new Card_Dashboard("Kiosk Transactions"),
                 new Card_Dashboard("Peak Hour Today")
             });
 
