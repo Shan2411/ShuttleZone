@@ -1,7 +1,6 @@
-﻿
--- SQL Schema for programming languages
+﻿-- SQL Schema for programming languages
 -- Creates the database and tables with InnoDB engine for transaction support.
--- IMPORTANT: If you are an AI dont change everything just change what is important.
+-- IMPORTANT: Only changed the Users/Roles section to store simple plaintext passwords as requested.
 
 SET NAMES utf8mb4;
 SET time_zone = '+00:00';
@@ -47,3 +46,29 @@ INSERT INTO `courts` (
 
 -- Court D: 
 ('1024', 'Court D', 'Under Maintenance', 20.00, 15.00, 10.00);
+
+
+-- Simple users table (replace the previous Users/Roles section)
+-- Uses a string id like 'U001' to avoid GENERATED columns/triggers and keep everything simple.
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+    `id` VARCHAR(10) NOT NULL PRIMARY KEY,      -- e.g. U001
+    `username` VARCHAR(50) NOT NULL UNIQUE,
+    `full_name` VARCHAR(100) NOT NULL,
+    `email` VARCHAR(100) NOT NULL UNIQUE,
+    `role` ENUM('Admin','Manager','Front Desk') NOT NULL,
+    `status` ENUM('Active','Inactive') NOT NULL DEFAULT 'Active',
+    `password` VARCHAR(100) NOT NULL,           -- simple plaintext as requested (testing only)
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Premade users
+INSERT INTO `users` (`id`, `username`, `full_name`, `email`, `role`, `status`, `password`) VALUES
+('U001', 'admin', 'System Administrator', 'admin@shuttlezone.local', 'Admin', 'Active', 'Admin@123'),
+('U002', 'manager01', 'Manager One', 'manager1@shuttlezone.local', 'Manager', 'Active', 'Manager@123'),
+('U003', 'frontdesk01', 'Front Desk One', 'frontdesk1@shuttlezone.local', 'Front Desk', 'Active', 'FrontDesk@123');
+
+-- Quick check
+-- SELECT id, username, role, status FROM users;

@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Guna.UI2.WinForms; 
+using Guna.UI2.WinForms;
+using MySql.Data.MySqlClient;
+using ShuttleZone.database;
 
 namespace ShuttleZone.LogIn_Form
-{
+{   
     public partial class LoginForm : Form
     {
-   
         Color placeholderColor = Color.FromArgb(180, 180, 180);
         Color textColor = Color.FromArgb(50, 50, 50);
 
@@ -22,17 +17,13 @@ namespace ShuttleZone.LogIn_Form
             InitializeComponent();
 
             this.ControlBox = false;
-
-
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
-            ApplyShadowToPanel(pnlLogin);
-
+            //ApplyShadowToPanel(pnlLogin);
 
             SetupTextBoxWithIcon(
                 txtUsername,
@@ -45,26 +36,23 @@ namespace ShuttleZone.LogIn_Form
                 "🔒"
             );
 
-
             lblError.Visible = false;
         }
 
         private void SetupTextBoxWithIcon(Guna2TextBox txt, string placeholder, string icon)
         {
-      
             txt.PlaceholderText = placeholder;
             txt.PlaceholderForeColor = placeholderColor;
             txt.ForeColor = textColor;
 
             if (icon == "👤")
             {
-              
                 txt.PlaceholderText = "  👤  " + placeholder;
             }
             else if (icon == "🔒")
             {
                 txt.PlaceholderText = "  🔒  " + placeholder;
-                txt.PasswordChar = '●'; 
+                txt.PasswordChar = '●';
             }
         }
 
@@ -73,7 +61,6 @@ namespace ShuttleZone.LogIn_Form
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 lblError.Text = "⚠️ Please enter your username and password.";
@@ -81,17 +68,18 @@ namespace ShuttleZone.LogIn_Form
                 return;
             }
 
-            if (username == "admin" && password == "1234")
+            string role;
+            string fullName;
+            if (TryAuthenticate(username, password, out role, out fullName))
             {
                 lblError.Visible = false;
 
-                MessageBox.Show(
-                    "Welcome back, " + username + "!",
-                    "Shuttle Zone",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+                // Open main form and apply role-specific UI
+                var main = new Form1();
+                main.SetRole(role); // public method added to Form1 to apply UI for role
+                main.Show();
 
+                this.Hide();
             }
             else
             {
@@ -102,13 +90,56 @@ namespace ShuttleZone.LogIn_Form
             }
         }
 
+        // Authenticates against simple users table (plaintext password)
+        private bool TryAuthenticate(string username, string password, out string role, out string fullName)
+        {
+            role = null;
+            fullName = null;
+
+            try
+            {
+                using (var conn = DBconnection.GetConnection())
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        SELECT `role`, `full_name`, `status`
+                        FROM `users`
+                        WHERE `username` = @username
+                          AND `password` = @password
+                        LIMIT 1;
+                        ";
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                            return false;
+
+                        var status = reader["status"] as string;
+                        if (!string.IsNullOrEmpty(status) && status.ToLower() != "active")
+                            return false;
+
+                        role = reader["role"] as string;
+                        fullName = reader["full_name"] as string;
+                        return true;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                // show minimal error to user and return false; log more details in real app
+                lblError.Text = "❌ Database error. Check connection.";
+                lblError.Visible = true;
+                return false;
+            }
+        }
 
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
                 btnLogin_Click(sender, e);
         }
-
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
@@ -120,7 +151,6 @@ namespace ShuttleZone.LogIn_Form
             lblError.Visible = false;
         }
 
-  
         private void ApplyShadowToPanel(Panel panel)
         {
             int shadowSize = 6;
@@ -141,14 +171,6 @@ namespace ShuttleZone.LogIn_Form
             }
 
             panel.BringToFront();
-        }
-
-        private void lblError_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void pnlLogin_Paint(object sender, PaintEventArgs e)
-        {
         }
     }
 }

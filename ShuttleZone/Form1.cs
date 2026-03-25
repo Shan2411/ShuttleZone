@@ -34,6 +34,34 @@ namespace ShuttleZone
             DateLbl.Text = date.ToString("dddd, MMMM dd, yyyy");
         }
 
+        // Public helper to apply role-specific UI from outside (LoginForm)
+        public void SetRole(string role)
+        {
+            if (string.IsNullOrEmpty(role))
+                return;
+
+            // Normalize role string and call internal handlers
+            var r = role.Trim().ToLower();
+            switch (r)
+            {
+                case "admin":
+                    AdminBtn_Click(this, EventArgs.Empty);
+                    break;
+                case "manager":
+                    ManagerBtn_Click(this, EventArgs.Empty);
+                    break;
+                case "front desk":
+                case "frontdesk":
+                case "front_desk":
+                    FrontDeskBtn_Click(this, EventArgs.Empty);
+                    break;
+                default:
+                    // default fallback (front desk style)
+                    FrontDeskBtn_Click(this, EventArgs.Empty);
+                    break;
+            }
+        }
+
         // 🔥 HARDCORE flicker fix (Windows-level)
         protected override CreateParams CreateParams
         {
