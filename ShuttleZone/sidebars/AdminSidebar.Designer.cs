@@ -36,7 +36,7 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.adminUsername = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SidebarLinksGroup = new System.Windows.Forms.TableLayoutPanel();
             this.DashboardBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ReportsBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -142,7 +142,7 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.Controls.Add(this.guna2HtmlLabel1, 0, 1);
-            this.tableLayoutPanel9.Controls.Add(this.guna2HtmlLabel6, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.adminUsername, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(4);
@@ -167,19 +167,20 @@
             this.guna2HtmlLabel1.Text = "Admin";
             this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // guna2HtmlLabel6
+            // adminUsername
             // 
-            this.guna2HtmlLabel6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(8, 3);
-            this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
-            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(67, 17);
-            this.guna2HtmlLabel6.TabIndex = 1;
-            this.guna2HtmlLabel6.Text = "Username";
-            this.guna2HtmlLabel6.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.adminUsername.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.adminUsername.BackColor = System.Drawing.Color.Transparent;
+            this.adminUsername.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminUsername.ForeColor = System.Drawing.Color.White;
+            this.adminUsername.Location = new System.Drawing.Point(8, 3);
+            this.adminUsername.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
+            this.adminUsername.Name = "adminUsername";
+            this.adminUsername.Size = new System.Drawing.Size(67, 17);
+            this.adminUsername.TabIndex = 1;
+            this.adminUsername.Text = "Username";
+            this.adminUsername.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.adminUsername.Click += new System.EventHandler(this.adminUsername_Click);
             // 
             // SidebarLinksGroup
             // 
@@ -345,7 +346,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private Guna.UI2.WinForms.Guna2HtmlLabel adminUsername;
         private System.Windows.Forms.TableLayoutPanel SidebarLinksGroup;
         private Guna.UI2.WinForms.Guna2Button DashboardBtn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;

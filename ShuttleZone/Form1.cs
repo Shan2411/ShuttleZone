@@ -16,12 +16,13 @@ namespace ShuttleZone
     {
         // 🔥 Store all views here (REUSABLE)
         private Dictionary<Type, UserControl> _views = new Dictionary<Type, UserControl>();
-
-        public Form1()
+        private string _username;
+        public Form1(string username)
         {
             InitializeComponent();
 
-            // 🔥 Enable double buffering (fix flicker)
+            _username = username;
+
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer
                         | ControlStyles.AllPaintingInWmPaint
                         | ControlStyles.UserPaint, true);
@@ -32,6 +33,34 @@ namespace ShuttleZone
 
             var date = DateTime.Now;
             DateLbl.Text = date.ToString("dddd, MMMM dd, yyyy");
+        }
+
+        // Public helper to apply role-specific UI from outside (LoginForm)
+        public void SetRole(string role)
+        {
+            if (string.IsNullOrEmpty(role))
+                return;
+
+            // Normalize role string and call internal handlers
+            var r = role.Trim().ToLower();
+            switch (r)
+            {
+                case "admin":
+                    AdminBtn_Click(this, EventArgs.Empty);
+                    break;
+                case "manager":
+                    ManagerBtn_Click(this, EventArgs.Empty);
+                    break;
+                case "front desk":
+                case "frontdesk":
+                case "front_desk":
+                    FrontDeskBtn_Click(this, EventArgs.Empty);
+                    break;
+                default:
+                    // default fallback (front desk style)
+                    FrontDeskBtn_Click(this, EventArgs.Empty);
+                    break;
+            }
         }
 
         // 🔥 HARDCORE flicker fix (Windows-level)
@@ -149,6 +178,7 @@ namespace ShuttleZone
             DynamicContentPanel.Controls.Clear();
 
             ManagerSidebar managerSidebarUC = new ManagerSidebar();
+            managerSidebarUC.SetUsername(_username);
             managerSidebarUC.Dock = DockStyle.Fill;
 
             // 🔥 Hook events
@@ -177,6 +207,7 @@ namespace ShuttleZone
             DynamicContentPanel.Controls.Clear();
 
             AdminSidebar adminSidebarUC = new AdminSidebar();
+            adminSidebarUC.SetUsername(_username);
             adminSidebarUC.Dock = DockStyle.Fill;
 
             adminSidebarUC.AdminDashboardBtnClicked += AdminDashboardBtn_Click;
@@ -202,6 +233,7 @@ namespace ShuttleZone
             DynamicContentPanel.Controls.Clear();
 
             FrontDeskSidebar frontDeskSidebarUC = new FrontDeskSidebar();
+            frontDeskSidebarUC.SetUsername(_username);
             frontDeskSidebarUC.Dock = DockStyle.Fill;
 
             frontDeskSidebarUC.FrontDeskDashboardBtnClicked += FrontDeskDashboardBtn_Click;
