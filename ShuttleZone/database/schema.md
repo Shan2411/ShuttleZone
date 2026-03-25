@@ -47,9 +47,29 @@ INSERT INTO `courts` (
 -- Court D: 
 ('1024', 'Court D', 'Under Maintenance', 20.00, 15.00, 10.00);
 
+-- MEMBERSHIP
+-- 
+
+CREATE DATABASE IF NOT EXISTS shuttlezone DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE shuttlezone;
+
+CREATE TABLE IF NOT EXISTS members (
+  id INT NOT NULL AUTO_INCREMENT,
+  member_code VARCHAR(16) DEFAULT NULL,
+  name VARCHAR(255) DEFAULT NULL,
+  email VARCHAR(255) DEFAULT NULL,
+  phone VARCHAR(50) DEFAULT NULL,
+  membership_type VARCHAR(100) DEFAULT NULL,
+  expiry_date DATE DEFAULT NULL,
+  join_date DATE DEFAULT NULL,
+  is_archived TINYINT(1) NOT NULL DEFAULT 0,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Simple users table (replace the previous Users/Roles section)
--- Uses a string id like 'U001' to avoid GENERATED columns/triggers and keep everything simple.
+-- USERS   Uses a string id like 'U001' to avoid GENERATED columns/triggers and keep everything simple.
+--
 
 DROP TABLE IF EXISTS `users`;
 
