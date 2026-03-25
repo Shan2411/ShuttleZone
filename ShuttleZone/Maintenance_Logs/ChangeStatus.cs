@@ -64,10 +64,20 @@ namespace ShuttleZone.Maintenance_Logs
                 }
             }
 
+            // Set ComboBox state based on initial selected status
+            if (_selectedButton != null &&
+                _selectedButton.statusType.Equals("Operational", StringComparison.OrdinalIgnoreCase))
+            {
+                comboBox1.Enabled = false;
+            }
+            else
+            {
+                comboBox1.Enabled = true;
+            }
 
 
             // Make the form draggable
-            MakeDraggable(this);
+           // MakeDraggable(this);
 
             label1.Text = "Change " + courtName + " Status";
 
@@ -91,15 +101,28 @@ namespace ShuttleZone.Maintenance_Logs
         {
             C_StatusButton clicked = sender as C_StatusButton;
             if (clicked == null) return;
-            tempStatuschange = _selectedButton?.statusType;
 
+            // Deselect previous button
             if (_selectedButton != null && _selectedButton != clicked)
             {
                 _selectedButton.DeselectButton();
             }
 
+            // Select new button
             clicked.SelectButton();
             _selectedButton = clicked;
+
+            // 🔥 HANDLE COMBOBOX HERE (based on CURRENT selection)
+            if (clicked.statusType.Equals("Operational", StringComparison.OrdinalIgnoreCase))
+            {
+                comboBox1.Enabled = false;
+                comboBox1.SelectedIndex = -1; // clear selection
+                textBox1.Clear();
+            }
+            else
+            {
+                comboBox1.Enabled = true;
+            }
         }
 
         private void AttachClickHandlers(Control parent)
@@ -124,16 +147,18 @@ namespace ShuttleZone.Maintenance_Logs
 
         public void guna2Button2_Click(object sender, EventArgs e)
         {
-
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
-            { 
-                label4.Text = "Please enter a valid reason before proceeding.";
-                label4.ForeColor = Color.Red;
-                return;
-            }
-
             string tempStatus = _selectedButton?.statusType;
 
+            if (tempStatus != "Operational")
+            {
+                if (string.IsNullOrWhiteSpace(comboBox1.Text))
+                {
+                    label4.Text = "Please enter a valid reason before proceeding.";
+                    label4.ForeColor = Color.Red;
+                    return;
+                }
+            }
+            
             switch (courtName)
             {
                 case "Court A":
@@ -154,7 +179,7 @@ namespace ShuttleZone.Maintenance_Logs
                     updateToDatabase(courtName, tempStatus);
                     try
                     {
-                        MessageBox.Show("Status changed to " + Globals.statusFromDB);
+                        MessageBox.Show("Status changed to " + Globals.statusFromDB1);
                         this.Close();
                         _maintenanceWindow?.RefreshPanel();
                     }
@@ -164,7 +189,7 @@ namespace ShuttleZone.Maintenance_Logs
                     updateToDatabase(courtName, tempStatus);
                     try
                     {
-                        MessageBox.Show("Status changed to " + Globals.statusFromDB);
+                        MessageBox.Show("Status changed to " + Globals.statusFromDB2);
                         this.Close();
                         _maintenanceWindow?.RefreshPanel();
                     }
@@ -174,7 +199,7 @@ namespace ShuttleZone.Maintenance_Logs
                     updateToDatabase(courtName, tempStatus);
                     try
                     {
-                        MessageBox.Show("Status changed to " + Globals.statusFromDB);
+                        MessageBox.Show("Status changed to " + Globals.statusFromDB3);
                         this.Close();
                         _maintenanceWindow?.RefreshPanel();
                     }
@@ -200,7 +225,7 @@ namespace ShuttleZone.Maintenance_Logs
                     {
 
                         cmd.Parameters.AddWithValue("@status", status);
-                        cmd.Parameters.AddWithValue("@reason", textBox1.Text);
+                        cmd.Parameters.AddWithValue("@reason", comboBox1.Text + " - " + textBox1.Text);
                         cmd.Parameters.AddWithValue("@courtName", court);
                         cmd.ExecuteNonQuery();
 

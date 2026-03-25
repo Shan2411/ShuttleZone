@@ -17,7 +17,9 @@ namespace ShuttleZone.Dashboard1
         {
             InitializeComponent();
 
-
+            //int initiateClass = Globals.GetTodaysTransaction();
+            Globals.getThisMonthStats();
+            Globals.GetActiveRentals();
 
             this.DoubleBuffered = true;
 
@@ -58,7 +60,7 @@ namespace ShuttleZone.Dashboard1
             // Row 1 / Columns 1,3,5,7 with Dock = Fill
             var c1 = new Card_Dashboard("Today's Transactions") { Dock = DockStyle.Fill };
             var c3 = new Card_Dashboard("Active Rentals") { Dock = DockStyle.Fill };
-            var c5 = new Card_Dashboard("New Memberships") { Dock = DockStyle.Fill };
+            var c5 = new Card_Dashboard("Active Members") { Dock = DockStyle.Fill };
             var c7 = new Card_Dashboard("Pending Payments") { Dock = DockStyle.Fill };
 
             tableLayoutPanel2.Controls.Add(c1, 1, 1);
@@ -88,7 +90,7 @@ namespace ShuttleZone.Dashboard1
             foreach (var t in Globals.transactions)
             {
                 flowLayoutPanel2.Controls.Add(new H_Row(
-                    t.TransactionId.ToString(),
+                    t.ReceiptId,
                     t.PaymentMethod,
                     t.TotalAmount.ToString(),
                     t.TransactionTime));  // DateTime ✅

@@ -166,9 +166,9 @@
             this.lblHeaderText.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblHeaderText.BackColor = System.Drawing.Color.Transparent;
             this.lblHeaderText.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeaderText.Location = new System.Drawing.Point(53, 13);
+            this.lblHeaderText.Location = new System.Drawing.Point(53, 10);
             this.lblHeaderText.Name = "lblHeaderText";
-            this.lblHeaderText.Size = new System.Drawing.Size(174, 27);
+            this.lblHeaderText.Size = new System.Drawing.Size(223, 34);
             this.lblHeaderText.TabIndex = 1;
             this.lblHeaderText.Text = "Kiosk Management";
             // 
@@ -222,9 +222,9 @@
             this.lblLaunchKioskMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblLaunchKioskMode.BackColor = System.Drawing.Color.Transparent;
             this.lblLaunchKioskMode.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaunchKioskMode.Location = new System.Drawing.Point(3, 9);
+            this.lblLaunchKioskMode.Location = new System.Drawing.Point(3, 3);
             this.lblLaunchKioskMode.Name = "lblLaunchKioskMode";
-            this.lblLaunchKioskMode.Size = new System.Drawing.Size(145, 23);
+            this.lblLaunchKioskMode.Size = new System.Drawing.Size(182, 30);
             this.lblLaunchKioskMode.TabIndex = 1;
             this.lblLaunchKioskMode.Text = "Launch Kiosk Mode";
             // 
@@ -282,9 +282,9 @@
             this.lblKioskSettingsText.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblKioskSettingsText.BackColor = System.Drawing.Color.Transparent;
             this.lblKioskSettingsText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKioskSettingsText.Location = new System.Drawing.Point(8, 13);
+            this.lblKioskSettingsText.Location = new System.Drawing.Point(8, 10);
             this.lblKioskSettingsText.Name = "lblKioskSettingsText";
-            this.lblKioskSettingsText.Size = new System.Drawing.Size(110, 23);
+            this.lblKioskSettingsText.Size = new System.Drawing.Size(137, 30);
             this.lblKioskSettingsText.TabIndex = 0;
             this.lblKioskSettingsText.Text = "Kiosk Settings";
             // 
@@ -339,7 +339,7 @@
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(3, 39);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(154, 15);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(184, 21);
             this.guna2HtmlLabel1.TabIndex = 1;
             this.guna2HtmlLabel1.Text = "Return to home after timeout";
             // 
@@ -348,9 +348,9 @@
             this.lblAutoReturnHome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAutoReturnHome.BackColor = System.Drawing.Color.Transparent;
             this.lblAutoReturnHome.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lblAutoReturnHome.Location = new System.Drawing.Point(3, 11);
+            this.lblAutoReturnHome.Location = new System.Drawing.Point(3, 6);
             this.lblAutoReturnHome.Name = "lblAutoReturnHome";
-            this.lblAutoReturnHome.Size = new System.Drawing.Size(149, 22);
+            this.lblAutoReturnHome.Size = new System.Drawing.Size(188, 27);
             this.lblAutoReturnHome.TabIndex = 0;
             this.lblAutoReturnHome.Text = "Auto Return to Home";
             // 
@@ -438,6 +438,7 @@
             this.txtSessionTimeout.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSessionTimeout.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSessionTimeout.Location = new System.Drawing.Point(745, 26);
+            this.txtSessionTimeout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSessionTimeout.Name = "txtSessionTimeout";
             this.txtSessionTimeout.PlaceholderText = "";
             this.txtSessionTimeout.SelectedText = "";
@@ -465,9 +466,9 @@
             this.lblSessionTimeout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSessionTimeout.BackColor = System.Drawing.Color.Transparent;
             this.lblSessionTimeout.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lblSessionTimeout.Location = new System.Drawing.Point(3, 11);
+            this.lblSessionTimeout.Location = new System.Drawing.Point(3, 6);
             this.lblSessionTimeout.Name = "lblSessionTimeout";
-            this.lblSessionTimeout.Size = new System.Drawing.Size(113, 22);
+            this.lblSessionTimeout.Size = new System.Drawing.Size(142, 27);
             this.lblSessionTimeout.TabIndex = 0;
             this.lblSessionTimeout.Text = "Session Timeout";
             // 
@@ -477,7 +478,7 @@
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(3, 39);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(235, 15);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(284, 21);
             this.guna2HtmlLabel4.TabIndex = 1;
             this.guna2HtmlLabel4.Text = "Auto-return to home after inactivity (minutes)";
             // 
@@ -537,6 +538,7 @@
             this.txtPanelHeader.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPanelHeader.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPanelHeader.Location = new System.Drawing.Point(745, 26);
+            this.txtPanelHeader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPanelHeader.Name = "txtPanelHeader";
             this.txtPanelHeader.PlaceholderText = "";
             this.txtPanelHeader.SelectedText = "";
@@ -564,9 +566,9 @@
             this.lblPanelHeaderText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPanelHeaderText.BackColor = System.Drawing.Color.Transparent;
             this.lblPanelHeaderText.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lblPanelHeaderText.Location = new System.Drawing.Point(3, 11);
+            this.lblPanelHeaderText.Location = new System.Drawing.Point(3, 6);
             this.lblPanelHeaderText.Name = "lblPanelHeaderText";
-            this.lblPanelHeaderText.Size = new System.Drawing.Size(128, 22);
+            this.lblPanelHeaderText.Size = new System.Drawing.Size(159, 27);
             this.lblPanelHeaderText.TabIndex = 0;
             this.lblPanelHeaderText.Text = "Panel Header Text";
             // 
@@ -576,7 +578,7 @@
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(3, 39);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(264, 15);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(314, 21);
             this.guna2HtmlLabel2.TabIndex = 2;
             this.guna2HtmlLabel2.Text = "Customize the main header text on the kiosk panel";
             // 
@@ -642,9 +644,9 @@
             this.lblPromoCardText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPromoCardText.BackColor = System.Drawing.Color.Transparent;
             this.lblPromoCardText.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPromoCardText.Location = new System.Drawing.Point(3, 11);
+            this.lblPromoCardText.Location = new System.Drawing.Point(3, 6);
             this.lblPromoCardText.Name = "lblPromoCardText";
-            this.lblPromoCardText.Size = new System.Drawing.Size(118, 22);
+            this.lblPromoCardText.Size = new System.Drawing.Size(147, 27);
             this.lblPromoCardText.TabIndex = 0;
             this.lblPromoCardText.Text = "Promo Card Text";
             // 
@@ -654,7 +656,7 @@
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(3, 39);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(257, 15);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(306, 21);
             this.guna2HtmlLabel3.TabIndex = 2;
             this.guna2HtmlLabel3.Text = "Customize the promotional card text on the kiosk";
             // 
@@ -672,6 +674,7 @@
             this.txtPromoCard.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPromoCard.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPromoCard.Location = new System.Drawing.Point(745, 26);
+            this.txtPromoCard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPromoCard.Name = "txtPromoCard";
             this.txtPromoCard.PlaceholderText = "";
             this.txtPromoCard.SelectedText = "";

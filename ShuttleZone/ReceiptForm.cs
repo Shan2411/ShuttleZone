@@ -94,7 +94,7 @@ namespace ShuttleZone
             // ── [NEW] Record all cart items to the database ───────────────────
             //  This single line saves every item in the cart to `transactions`.
             //  Nothing else in this file was changed.
-            TransactionRecorder.SaveFromCart(receiptNo, _timeIssued, _cartItems, _paymentMethod);
+            TransactionRecorder.SaveFromCart(receiptNo, _timeIssued, _cartItems, _paymentMethod, "Frontdesk");
         }
 
         private string GenerateReceiptNumber()

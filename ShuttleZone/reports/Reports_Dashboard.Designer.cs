@@ -919,7 +919,7 @@
             this.tableLayoutPanel13.Controls.Add(this.label11, 0, 1);
             this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel14, 0, 2);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(11, 12);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 3;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.02128F));
@@ -1021,7 +1021,7 @@
             this.tableLayoutPanel8.Controls.Add(this.lblTotal, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.lblTotalIncome, 0, 2);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(12, 11);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(11, 11);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 3;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
@@ -1094,7 +1094,7 @@
             this.tableLayoutPanel10.Controls.Add(this.label9, 0, 1);
             this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel11, 0, 2);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(11, 12);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 3;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.02128F));
@@ -1196,7 +1196,7 @@
             this.tableLayoutPanel16.Controls.Add(this.label14, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 0, 2);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(11, 12);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 3;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.02128F));

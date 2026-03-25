@@ -43,9 +43,9 @@
             this.lblScanToPayText.BackColor = System.Drawing.Color.Transparent;
             this.lblScanToPayText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScanToPayText.Location = new System.Drawing.Point(24, 27);
-            this.lblScanToPayText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lblScanToPayText.Margin = new System.Windows.Forms.Padding(4);
             this.lblScanToPayText.Name = "lblScanToPayText";
-            this.lblScanToPayText.Size = new System.Drawing.Size(91, 23);
+            this.lblScanToPayText.Size = new System.Drawing.Size(113, 30);
             this.lblScanToPayText.TabIndex = 0;
             this.lblScanToPayText.Text = "Scan to Pay";
             // 
@@ -54,9 +54,9 @@
             this.lblScanYap.BackColor = System.Drawing.Color.Transparent;
             this.lblScanYap.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScanYap.Location = new System.Drawing.Point(43, 65);
-            this.lblScanYap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lblScanYap.Margin = new System.Windows.Forms.Padding(4);
             this.lblScanYap.Name = "lblScanYap";
-            this.lblScanYap.Size = new System.Drawing.Size(314, 19);
+            this.lblScanYap.Size = new System.Drawing.Size(371, 23);
             this.lblScanYap.TabIndex = 1;
             this.lblScanYap.Text = "Scan this QR code with your GCash or E-Wallet app";
             // 
@@ -65,9 +65,9 @@
             this.lblAmountToPayText.BackColor = System.Drawing.Color.Transparent;
             this.lblAmountToPayText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAmountToPayText.Location = new System.Drawing.Point(112, 13);
-            this.lblAmountToPayText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lblAmountToPayText.Margin = new System.Windows.Forms.Padding(4);
             this.lblAmountToPayText.Name = "lblAmountToPayText";
-            this.lblAmountToPayText.Size = new System.Drawing.Size(83, 17);
+            this.lblAmountToPayText.Size = new System.Drawing.Size(101, 22);
             this.lblAmountToPayText.TabIndex = 2;
             this.lblAmountToPayText.Text = "Amount to Pay";
             // 
@@ -76,9 +76,9 @@
             this.lblTotalAmount.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalAmount.Location = new System.Drawing.Point(134, 28);
-            this.lblTotalAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lblTotalAmount.Margin = new System.Windows.Forms.Padding(4);
             this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(40, 23);
+            this.lblTotalAmount.Size = new System.Drawing.Size(52, 30);
             this.lblTotalAmount.TabIndex = 3;
             this.lblTotalAmount.Text = "₱250";
             // 
@@ -97,6 +97,7 @@
             this.btnPaymentComplete.Size = new System.Drawing.Size(148, 45);
             this.btnPaymentComplete.TabIndex = 5;
             this.btnPaymentComplete.Text = "Payment Complete";
+            this.btnPaymentComplete.Click += new System.EventHandler(this.btnPaymentComplete_Click_1);
             // 
             // pnlAmountToPay
             // 
@@ -127,7 +128,7 @@
             // 
             // EcashQR
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(400, 500);
@@ -138,7 +139,7 @@
             this.Controls.Add(this.lblScanToPayText);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EcashQR";
             this.Text = "EcashQR";
             this.pnlAmountToPay.ResumeLayout(false);

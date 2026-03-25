@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -35,7 +36,9 @@
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this._refreshTimer = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.guna2ShadowPanel1.SuspendLayout();
@@ -137,6 +140,7 @@
             // guna2ShadowPanel2
             // 
             this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel2.Controls.Add(this.label2);
             this.guna2ShadowPanel2.Controls.Add(this.flowLayoutPanel2);
             this.guna2ShadowPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2ShadowPanel2.FillColor = System.Drawing.Color.White;
@@ -146,13 +150,27 @@
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(628, 415);
             this.guna2ShadowPanel2.TabIndex = 1;
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label2.Location = new System.Drawing.Point(484, 358);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 22);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "View All -->";
+            // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(15, 13);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(628, 415);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(589, 364);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // AdminDashboard
@@ -167,6 +185,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel2.ResumeLayout(false);
+            this.guna2ShadowPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -181,5 +200,7 @@
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label label2;
+        //private System.Windows.Forms.Timer _refreshTimer;
     }
 }
