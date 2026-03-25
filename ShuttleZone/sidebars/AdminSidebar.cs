@@ -29,6 +29,10 @@ namespace ShuttleZone.sidebars
                 }
             }
         }
+        public void SetUsername(string username)
+        {
+            adminUsername.Text = username;
+        }
         private void DashboardBtn_Click(object sender, EventArgs e)
         {
             HighlightButton(DashboardBtn);
@@ -44,6 +48,11 @@ namespace ShuttleZone.sidebars
         {
             HighlightButton(UsersBtn);
             UsersBtnClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void adminUsername_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

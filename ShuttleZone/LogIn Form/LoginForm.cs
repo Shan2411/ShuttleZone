@@ -83,7 +83,7 @@ namespace ShuttleZone.LogIn_Form
             {
                 HideError();
 
-                var main = new Form1();
+                var main = new Form1(username);
                 main.SetRole(role);
                 main.Show();
 
