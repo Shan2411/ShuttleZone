@@ -92,20 +92,22 @@ namespace ShuttleZone.Dashboard1
 
             Globals.transactions = Globals.GetRecentTransactions();
 
-            foreach (var t in Globals.transactions)
-            {
-                flowLayoutPanel2.Controls.Add(new H_Row(
-                    t.ReceiptId,
-                    t.PaymentMethod,
-                    t.TotalAmount.ToString(),
-                    t.TransactionTime));  // DateTime ✅
-            }
-
 
             timer1.Interval = 5000; // 5 seconds
             timer1.Tick += timer1_Tick;
             timer1.Start();
 
+            ResizeFlowPanel2Children();
+        }
+
+        // One method, defined once
+        private void ResizeFlowPanel2Children()
+        {
+            foreach (Control c in flowLayoutPanel2.Controls)
+            {
+                c.Width = flowLayoutPanel2.ClientSize.Width
+                          - flowLayoutPanel2.Padding.Horizontal;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -142,9 +144,17 @@ namespace ShuttleZone.Dashboard1
                     t.TotalAmount.ToString(),
                     t.TransactionTime));
             }
+
+            ResizeFlowPanel2Children();
+
         }
 
         private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
 
         }
