@@ -104,13 +104,14 @@ namespace ShuttleZone.Maintenance_Logs
             {
                 using (MySqlConnection connection = DBconnection.GetConnection())
                 {
-                    string query = @"SELECT COUNT(*) FROM transactions 
+                    string query = @"SELECT COUNT(DISTINCT receipt_no) 
+                             FROM transactions 
                              WHERE DATE(transaction_time) = CURDATE();";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
                         object result = cmd.ExecuteScalar();
-                        return Convert.ToInt32(result); // Safe conversion
+                        return Convert.ToInt32(result);
                     }
                 }
             }
@@ -271,7 +272,7 @@ namespace ShuttleZone.Maintenance_Logs
             {
                 string query = @"
             SELECT
-                (SELECT COUNT(*) 
+                (SELECT COUNT(DISTINCT receipt_no) 
                  FROM transactions 
                  WHERE MONTH(transaction_time) = MONTH(CURRENT_DATE()) 
                  AND YEAR(transaction_time) = YEAR(CURRENT_DATE())) AS total_transactions,

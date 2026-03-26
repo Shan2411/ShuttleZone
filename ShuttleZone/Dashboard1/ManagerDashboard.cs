@@ -16,24 +16,17 @@ namespace ShuttleZone.Dashboard1
 {
     public partial class ManagerDashboard : UserControl
     {
-
         // Win32 constants to freeze drawing
         [DllImport("user32.dll")]
         private static extern int SendMessage(IntPtr hWnd, Int32 wMsg, bool wParam, Int32 lParam);
         private const int WM_SETREDRAW = 11;
 
+        private System.Windows.Forms.Timer refreshTimer;
+
         public ManagerDashboard()
         {
-            //Get the databse status court from globals
-            Globals.statusFromDB = Globals.GetCourtStatusFromDB("Court A");
-            Globals.statusFromDB1 = Globals.GetCourtStatusFromDB("Court B");
-            Globals.statusFromDB2 = Globals.GetCourtStatusFromDB("Court C");
-            Globals.statusFromDB3 = Globals.GetCourtStatusFromDB("Court D");
-            Globals.getThisMonthStats();
-            Globals.getThisMonthRevenue(); 
-            Globals.GetActiveRentals();
-            Globals.GetRecentTransactions();
-
+            // Get the database status courts from globals
+            RefreshGlobals();
 
             // 1. Fundamental Double Buffering
             this.DoubleBuffered = true;
@@ -66,6 +59,54 @@ namespace ShuttleZone.Dashboard1
                 SendMessage(this.Handle, WM_SETREDRAW, true, 0);
                 this.Refresh();
             }
+
+            // 5. Start the refresh timer (every 30 seconds)
+            InitializeRefreshTimer();
+        }
+
+        private void RefreshGlobals()
+        {
+            Globals.statusFromDB = Globals.GetCourtStatusFromDB("Court A");
+            Globals.statusFromDB1 = Globals.GetCourtStatusFromDB("Court B");
+            Globals.statusFromDB2 = Globals.GetCourtStatusFromDB("Court C");
+            Globals.statusFromDB3 = Globals.GetCourtStatusFromDB("Court D");
+            Globals.getThisMonthStats();
+            Globals.getThisMonthRevenue();
+            Globals.GetActiveRentals();
+            Globals.GetRecentTransactions();
+        }
+
+        private void InitializeRefreshTimer()
+        {
+            refreshTimer = new System.Windows.Forms.Timer();
+            refreshTimer.Interval = 5000; // 5 seconds — adjust as needed
+            refreshTimer.Tick += RefreshTimer_Tick;
+            refreshTimer.Start();
+        }
+
+        private void RefreshTimer_Tick(object sender, EventArgs e)
+        {
+            RefreshGlobals();
+
+            SendMessage(this.Handle, WM_SETREDRAW, false, 0);
+            try
+            {
+                this.SuspendLayout();
+
+                guna2ShadowPanel1.Controls.Clear();
+                guna2ShadowPanel2.Controls.Clear();
+                LoadAnalytics();
+
+                LoadCards();
+            }
+            finally
+            {
+                // ✅ Replace the old finally block with this
+                this.ResumeLayout(true);
+                SendMessage(this.Handle, WM_SETREDRAW, true, 0);
+                this.Invalidate(true);  // invalidate all children recursively
+                this.Refresh();
+            }
         }
 
         private void LoadAnalytics()
@@ -84,11 +125,9 @@ namespace ShuttleZone.Dashboard1
             flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
 
-            // Clear existing if any
             flowLayoutPanel1.Controls.Clear();
             flowLayoutPanel2.Controls.Clear();
 
-            // Bulk Add flowLayoutPanel1
             flowLayoutPanel1.Controls.AddRange(new Control[] {
                 new Card_Dashboard("Today's Revenue"),
                 new Card_Dashboard("Average Monthly Revenue"),
@@ -96,14 +135,17 @@ namespace ShuttleZone.Dashboard1
                 new Card_Dashboard("Equipment Available")
             });
 
-            // Bulk Add flowLayoutPanel2
-            flowLayoutPanel2.Controls.AddRange(new Control[] {
+                    flowLayoutPanel2.Controls.AddRange(new Control[] {
                 new Card_Dashboard("Kiosk Transactions"),
                 new Card_Dashboard("Peak Hour Today")
             });
 
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel2.ResumeLayout(false);
+            // true = perform layout immediately after resuming
+            flowLayoutPanel1.ResumeLayout(true);
+            flowLayoutPanel2.ResumeLayout(true);
+
+            flowLayoutPanel1.PerformLayout();
+            flowLayoutPanel2.PerformLayout();
         }
 
         // Helper to unlock the protected DoubleBuffered property
@@ -114,10 +156,6 @@ namespace ShuttleZone.Dashboard1
             pi?.SetValue(c, true, null);
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) { }
     }
-
- }
+}

@@ -107,35 +107,45 @@ namespace ShuttleZone.Dashboard1
 
         public void RefreshPanel()
         {
-            // 🔥 Re-fetch latest data from DB
+            // Re-fetch latest data from DB
             Globals.getThisMonthStats();
-            Globals.GetCourtStatusFromDB("Court A");   //
-            Globals.GetCourtStatusFromDB("Court B");
-            Globals.GetCourtStatusFromDB("Court C");
-            Globals.GetCourtStatusFromDB("Court D");
+            Globals.statusFromDB = Globals.GetCourtStatusFromDB("Court A");
+            Globals.statusFromDB1 = Globals.GetCourtStatusFromDB("Court B");
+            Globals.statusFromDB2 = Globals.GetCourtStatusFromDB("Court C");
+            Globals.statusFromDB3 = Globals.GetCourtStatusFromDB("Court D");
             Globals.transactions = Globals.GetRecentTransactions();
 
-            // Refresh courts UI
+            // Refresh CourtCards
             flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.Controls.AddRange(new Control[] {
+                new CourtCard("Court A", Globals.statusFromDB),
+                new CourtCard("Court B", Globals.statusFromDB1),
+                new CourtCard("Court C", Globals.statusFromDB2),
+                new CourtCard("Court D", Globals.statusFromDB3)
+            });
 
-            flowLayoutPanel1.Controls.Add(new CourtCard("Court A", Globals.statusFromDB));
-            flowLayoutPanel1.Controls.Add(new CourtCard("Court B", Globals.statusFromDB1));
-            flowLayoutPanel1.Controls.Add(new CourtCard("Court C", Globals.statusFromDB2));
-            flowLayoutPanel1.Controls.Add(new CourtCard("Court D", Globals.statusFromDB3));
+            // ✅ Refresh Card_Dashboards in tableLayoutPanel2
+            tableLayoutPanel2.SuspendLayout();
 
-            /* Refresh recent transactions
-            flowLayoutPanel2.Controls.Clear();
-            flowLayoutPanel2.Controls.Add(new HeaderColumn());
+            // Remove only the card cells (columns 1,3,5,7 — row 1)
+            var toRemove = tableLayoutPanel2.Controls
+                .OfType<Card_Dashboard>()
+                .ToList();
 
-            foreach (var t in Globals.transactions)
+            foreach (var card in toRemove)
             {
-                flowLayoutPanel2.Controls.Add(new H_Row(
-                    t.ReceiptId,
-                    t.PaymentMethod,
-                    t.TotalAmount.ToString(),
-                    t.TransactionTime));
+                tableLayoutPanel2.Controls.Remove(card);
+                card.Dispose();
             }
-            */
+
+            // Re-add fresh instances
+            tableLayoutPanel2.Controls.Add(new Card_Dashboard("Today's Transactions") { Dock = DockStyle.Fill }, 1, 1);
+            tableLayoutPanel2.Controls.Add(new Card_Dashboard("Active Rentals") { Dock = DockStyle.Fill }, 3, 1);
+            tableLayoutPanel2.Controls.Add(new Card_Dashboard("Active Members") { Dock = DockStyle.Fill }, 5, 1);
+            tableLayoutPanel2.Controls.Add(new Card_Dashboard("Pending Payments") { Dock = DockStyle.Fill }, 7, 1);
+
+            tableLayoutPanel2.ResumeLayout(true);
+            tableLayoutPanel2.PerformLayout();
         }
 
         private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)
