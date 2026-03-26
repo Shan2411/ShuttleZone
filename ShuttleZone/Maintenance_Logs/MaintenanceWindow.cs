@@ -65,20 +65,39 @@ namespace ShuttleZone.Maintenance_Logs
             this.ResumeLayout(false);
             this.PerformLayout(); // Force final layout
 
+
+            timer1.Interval = 5000; // 3 seconds (adjust if needed)
+            timer1.Tick += Timer1_Tick;
+            timer1.Start();
         }
 
 
         public void RefreshPanel()
         {
+            flowLayoutPanel1.SuspendLayout();
+
             flowLayoutPanel1.Controls.Clear();
-            // Add new controls as needed
+
             flowLayoutPanel1.Controls.Add(new MButton("Court A", Globals.statusFromDB));
             flowLayoutPanel1.Controls.Add(new MButton("Court B", Globals.statusFromDB1));
             flowLayoutPanel1.Controls.Add(new MButton("Court C", Globals.statusFromDB2));
-            flowLayoutPanel1.Controls.Add(new MButton("Court D",  Globals.statusFromDB3));
-            flowLayoutPanel1.Refresh();
+            flowLayoutPanel1.Controls.Add(new MButton("Court D", Globals.statusFromDB3));
+
+            flowLayoutPanel1.ResumeLayout();
         }
 
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            // Get latest status from DB
+            Globals.statusFromDB = Globals.GetCourtStatusFromDB("Court A");
+            Globals.statusFromDB1 = Globals.GetCourtStatusFromDB("Court B");
+            Globals.statusFromDB2 = Globals.GetCourtStatusFromDB("Court C");
+            Globals.statusFromDB3 = Globals.GetCourtStatusFromDB("Court D");
+
+            // Refresh UI
+            RefreshPanel();
+        }
         private void MaintenanceWindow_Load(object sender, EventArgs e)
         {
 

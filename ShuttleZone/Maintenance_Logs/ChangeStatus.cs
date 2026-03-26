@@ -24,8 +24,14 @@ namespace ShuttleZone.Maintenance_Logs
         {
             InitializeComponent();
 
+            this.TopMost = true; // 🔥 keeps form always on top
+
             this.courtName = courtName;
             _maintenanceWindow = maintenanceWindow;
+
+            this.courtName = courtName;
+            _maintenanceWindow = maintenanceWindow;
+
 
             flowLayoutPanel1.Controls.Clear();
             flowLayoutPanel1.HorizontalScroll.Enabled = false;
@@ -134,7 +140,28 @@ namespace ShuttleZone.Maintenance_Logs
                     AttachClickHandlers(c);
             }
         }
+        public void UpdateCourt(string newCourtName, MaintenanceWindow maintenanceWindow)
+        {
+            this.courtName = newCourtName;
+            _maintenanceWindow = maintenanceWindow;
 
+            label1.Text = "Change " + newCourtName + " Status";
+
+            string status = Globals.GetCourtStatusFromDB(newCourtName);
+
+            foreach (C_StatusButton btn in flowLayoutPanel1.Controls)
+            {
+                if (btn.statusType.Equals(status, StringComparison.OrdinalIgnoreCase))
+                {
+                    btn.SelectButton();
+                    _selectedButton = btn;
+                }
+                else
+                {
+                    btn.DeselectButton();
+                }
+            }
+        }
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 

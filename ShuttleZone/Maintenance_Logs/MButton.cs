@@ -40,10 +40,18 @@ namespace ShuttleZone.Maintenance_Logs
 
         private void Guna2Panel1_Click(object sender, EventArgs e)
         {
-            // Get the parent form
-            var mainForm = this.FindForm();
+            // Check if ChangeStatus is already open
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is ChangeStatus existingForm)
+                {
+                    existingForm.BringToFront();
+                    existingForm.Focus();
+                    return; // don't open another one
+                }
+            }
 
-            // Recursively search for MaintenanceWindow
+            var mainForm = this.FindForm();
             var maintenanceUC = FindControlRecursive<MaintenanceWindow>(mainForm);
 
             if (maintenanceUC != null)
@@ -56,7 +64,6 @@ namespace ShuttleZone.Maintenance_Logs
                 MessageBox.Show("Maintenance panel not found!");
             }
         }
-
 
 
         private void AttachClickHandlers(Control parent) // Makes the children clickable
