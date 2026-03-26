@@ -41,7 +41,7 @@
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
+            //this.guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
             this.InventoryBtn = new Guna.UI2.WinForms.Guna2Button();
             this.FacilityBtn = new Guna.UI2.WinForms.Guna2Button();
             this.UsersBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -261,7 +261,7 @@
             this.guna2HtmlLabel8.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2Button11
-            // 
+            /*          DI GUMAGANA SAKIN TO NUNG MERGE -shan
             this.guna2Button11.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button11.BorderColor = System.Drawing.Color.Maroon;
             this.guna2Button11.BorderRadius = 5;
@@ -281,7 +281,7 @@
             this.guna2Button11.Size = new System.Drawing.Size(174, 55);
             this.guna2Button11.TabIndex = 27;
             this.guna2Button11.Text = "Log out";
-            // 
+            */ 
             // InventoryBtn
             // 
             this.InventoryBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
