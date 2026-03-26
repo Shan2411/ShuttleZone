@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
+using ShuttleZone.Maintenance_Logs;
 
 
 namespace ShuttleZone
@@ -366,6 +367,11 @@ namespace ShuttleZone
                 DateTime.Now,
                 courtHours);
             receiptForm.Show();
+        }
+               
+        private void lblCourtAAvailability_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

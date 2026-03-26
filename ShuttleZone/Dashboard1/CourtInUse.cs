@@ -18,25 +18,34 @@ namespace ShuttleZone.Dashboard1
     {
         public CourtInUse()
         {
-            // Enable double buffering BEFORE InitializeComponent
             this.DoubleBuffered = true;
-
             InitializeComponent();
 
-            // SUSPEND LAYOUT - CRITICAL for performance
             this.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
 
-            // Configure panel once
             flowLayoutPanel1.HorizontalScroll.Enabled = false;
             flowLayoutPanel1.HorizontalScroll.Visible = false;
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.WrapContents = false; // If horizontal layout
+            flowLayoutPanel1.WrapContents = false;
 
-            // Clear once
+            flowLayoutPanel1.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+            timer1.Interval = 5000; // Refresh every 5 seconds
+            timer1.Start();
+
+            RefreshData(); // Initial load
+        }
+
+        private void RefreshData()
+        {
+            this.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+
             flowLayoutPanel1.Controls.Clear();
 
-            // Add all controls at once
             var buttons = new[]
             {
                 new CourtCardInUse("Court A", Globals.statusFromDB),
@@ -45,38 +54,19 @@ namespace ShuttleZone.Dashboard1
                 new CourtCardInUse("Court D", Globals.statusFromDB3)
             };
 
+            label5.Text = Globals.activeRentals.ToString() + "/4 In Use";
+            label6.Text = Globals.GetAverageRentHours().ToString("F1") + " Avg Hours";
+
             flowLayoutPanel1.Controls.AddRange(buttons);
 
-            // RESUME LAYOUT
             flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout(); // Force final layout
+            this.PerformLayout();
+        }
 
-            //Text for how much of the court is currently used
-
-            // TOBE CONTINUED..
-            /*
-            using (MySqlConnection connection = DBconnection.GetConnection())
-            {
-                // Your query: count rows with a specific status
-                string query = "SELECT COUNT(*) FROM courts WHERE status = @status";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, connection))
-                {
-                    // Set the parameter value
-                    cmd.Parameters.AddWithValue("@status", "Operational");
-
-                    // Open connection
-                    connection.Open();
-
-                    // Execute the query and get the count
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-
-                    Console.WriteLine($"Number of courts with status 'Operational': {count}");
-                }
-            }
-            */
-
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }

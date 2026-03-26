@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using ShuttleZone.database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -91,12 +93,47 @@ namespace ShuttleZone
             lblStubNo.Text = GenerateStubNumber();
             lblStubDateIssued.Text = _timeIssued.ToString("MM/dd/yyyy");
             lblStubTimeIssued.Text = _timeIssued.ToString("hh:mm:ss tt");
+
+            SaveStubToDatabase(lblStubNo.Text);
+
         }
 
         private string GenerateStubNumber()
         {
             Random rnd = new Random();
             return $"S#{rnd.Next(1000, 9999)}";
+        }
+
+        private void SaveStubToDatabase(string stubNo)
+        {
+            try
+            {
+                using (MySqlConnection connection = DBconnection.GetConnection())
+                {
+                    string query = @"INSERT INTO kiosk_pending_payments 
+                            (stub_no, status, date_issued, time_issued, item_name, quantity, unit_price) 
+                            VALUES 
+                            (@stubNo, 'Pending', @date, @time, @itemName, @qty, @price)";
+
+                    foreach (var item in _cartItems)
+                    {
+                        using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@stubNo", stubNo);
+                            cmd.Parameters.AddWithValue("@date", _timeIssued.ToString("yyyy-MM-dd"));
+                            cmd.Parameters.AddWithValue("@time", _timeIssued.ToString("HH:mm:ss"));
+                            cmd.Parameters.AddWithValue("@itemName", item.Name);
+                            cmd.Parameters.AddWithValue("@qty", item.Qty);
+                            cmd.Parameters.AddWithValue("@price", item.Price);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving stub to database: {ex.Message}");
+            }
         }
 
         private void pnlItemRowTemplate_Paint(object sender, PaintEventArgs e)

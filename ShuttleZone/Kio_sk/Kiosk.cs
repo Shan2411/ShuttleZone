@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
+using ShuttleZone.Kio_sk;
 
 namespace ShuttleZone
 {
@@ -468,6 +469,11 @@ namespace ShuttleZone
         }
 
         private void btnKioskEcashPayment_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnKioskCashPayment_Click_1(object sender, EventArgs e)
         {
 
         }

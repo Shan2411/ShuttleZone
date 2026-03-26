@@ -259,6 +259,12 @@
       <DependentUpon>Kiosk.cs</DependentUpon>
     </Compile>
     <Compile Include="Kio_sk\KioskItemSelectedEventArgs.cs" />
+    <Compile Include="Kio_sk\Kiosk_Receipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kio_sk\Kiosk_Receipt.Designer.cs">
+      <DependentUpon>Kiosk_Receipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kio_sk\UC_CourtRental.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -451,9 +457,7 @@
     <Compile Include="UC_Kiosk.Designer.cs">
       <DependentUpon>UC_Kiosk.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_Pending.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="UC_Pending.cs" />
     <Compile Include="UC_Pending.Designer.cs">
       <DependentUpon>UC_Pending.cs</DependentUpon>
     </Compile>
@@ -573,6 +577,12 @@
     <EmbeddedResource Include="Kio_sk\Kiosk.resx">
       <DependentUpon>Kiosk.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Kio_sk\KioskStub.resx">
+      <DependentUpon>KioskStub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kio_sk\Kiosk_Receipt.resx">
+      <DependentUpon>Kiosk_Receipt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Kio_sk\UC_CourtRental.resx">
       <DependentUpon>UC_CourtRental.cs</DependentUpon>
     </EmbeddedResource>
@@ -689,6 +699,7 @@
     <EmbeddedResource Include="usermanagement\UserManagement.resx">
       <DependentUpon>UserManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="database\kiosk_table.md" />
     <None Include="database\schema.md" />
     <None Include="database\transactions_table.md" />
     <None Include="packages.config" />

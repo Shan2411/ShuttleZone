@@ -164,6 +164,7 @@
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.76271F));
             this.tableLayoutPanel4.Controls.Add(this.guna2Panel4, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(27, 453);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
@@ -196,13 +197,13 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 13F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.Controls.Add(this.openPOSbtn, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.pendingPaymentsbtn, 2, 0);
             this.tableLayoutPanel5.Controls.Add(this.addMemberbtn, 4, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(17, 62);
+            this.tableLayoutPanel5.Controls.Add(this.pendingPaymentsbtn, 2, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(177, 138);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1131, 115);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(855, 30);
             this.tableLayoutPanel5.TabIndex = 4;
             // 
             // openPOSbtn
@@ -219,7 +220,7 @@
             this.openPOSbtn.ForeColor = System.Drawing.Color.White;
             this.openPOSbtn.Location = new System.Drawing.Point(3, 3);
             this.openPOSbtn.Name = "openPOSbtn";
-            this.openPOSbtn.Size = new System.Drawing.Size(362, 109);
+            this.openPOSbtn.Size = new System.Drawing.Size(270, 24);
             this.openPOSbtn.TabIndex = 5;
             this.openPOSbtn.Text = "Open POS";
             // 
@@ -235,9 +236,9 @@
             this.pendingPaymentsbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.pendingPaymentsbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pendingPaymentsbtn.ForeColor = System.Drawing.Color.White;
-            this.pendingPaymentsbtn.Location = new System.Drawing.Point(384, 3);
+            this.pendingPaymentsbtn.Location = new System.Drawing.Point(292, 3);
             this.pendingPaymentsbtn.Name = "pendingPaymentsbtn";
-            this.pendingPaymentsbtn.Size = new System.Drawing.Size(362, 109);
+            this.pendingPaymentsbtn.Size = new System.Drawing.Size(270, 24);
             this.pendingPaymentsbtn.TabIndex = 6;
             this.pendingPaymentsbtn.Text = "Pending Payments";
             // 
@@ -253,9 +254,9 @@
             this.addMemberbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.addMemberbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addMemberbtn.ForeColor = System.Drawing.Color.White;
-            this.addMemberbtn.Location = new System.Drawing.Point(765, 3);
+            this.addMemberbtn.Location = new System.Drawing.Point(581, 3);
             this.addMemberbtn.Name = "addMemberbtn";
-            this.addMemberbtn.Size = new System.Drawing.Size(363, 109);
+            this.addMemberbtn.Size = new System.Drawing.Size(271, 24);
             this.addMemberbtn.TabIndex = 7;
             this.addMemberbtn.Text = "Add Member";
             // 

@@ -29,6 +29,11 @@ namespace ShuttleZone.Dashboard1
             Globals.statusFromDB1 = Globals.GetCourtStatusFromDB("Court B");
             Globals.statusFromDB2 = Globals.GetCourtStatusFromDB("Court C");
             Globals.statusFromDB3 = Globals.GetCourtStatusFromDB("Court D");
+            Globals.getThisMonthStats();
+            Globals.getThisMonthRevenue(); 
+            Globals.GetActiveRentals();
+            Globals.GetRecentTransactions();
+
 
             // 1. Fundamental Double Buffering
             this.DoubleBuffered = true;

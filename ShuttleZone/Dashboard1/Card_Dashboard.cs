@@ -48,12 +48,12 @@ namespace ShuttleZone.Dashboard1
 
                 case "today's revenue":
                     guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Money;
-                    label1.Text = Globals.todaysRevenue.ToString();
+                    label1.Text = "₱" + Globals.todaysRevenue.ToString("F2");
                     break;
 
                 case "average monthly revenue":
                     guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Arrow;
-                    label1.Text = Globals.avgRevenue.ToString();
+                    label1.Text = "₱" + Globals.avgRevenue.ToString("F2");
                     break;
 
                 case "total transactions":

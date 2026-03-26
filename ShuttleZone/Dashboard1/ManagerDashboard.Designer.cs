@@ -73,7 +73,7 @@
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(13, 0);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(262, 35);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(887, 8);
             this.guna2HtmlLabel1.TabIndex = 1;
             this.guna2HtmlLabel1.Text = "Welcome, Manager";
             this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.BottomLeft;
@@ -90,7 +90,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 181F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 185F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(881, 185);
             this.tableLayoutPanel3.TabIndex = 6;
             // 

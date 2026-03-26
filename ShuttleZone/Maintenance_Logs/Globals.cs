@@ -333,5 +333,31 @@ namespace ShuttleZone.Maintenance_Logs
             }
         }
 
+        //get average hours per session
+
+        public static decimal GetAverageRentHours()
+        {
+            try
+            {
+                using (MySqlConnection connection = DBconnection.GetConnection())
+                {
+                    string query = @"SELECT AVG(quantity) AS avg_hours
+                             FROM transactions
+                             WHERE income_type = 'Court';";
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        object result = cmd.ExecuteScalar();
+                        return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+                return 0;
+            }
+        }
+
+        
     }
 }
