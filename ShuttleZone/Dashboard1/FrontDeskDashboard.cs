@@ -19,7 +19,6 @@ namespace ShuttleZone.Dashboard1
 
             //int initiateClass = Globals.GetTodaysTransaction();
             Globals.getThisMonthStats();
-            Globals.GetActiveRentals();
             Globals.GetCourtStatusFromDB("Court A");   //
             Globals.GetCourtStatusFromDB("Court B");
             Globals.GetCourtStatusFromDB("Court C");
@@ -109,6 +108,7 @@ namespace ShuttleZone.Dashboard1
         public void RefreshPanel()
         {
             // 🔥 Re-fetch latest data from DB
+            Globals.getThisMonthStats();
             Globals.GetCourtStatusFromDB("Court A");   //
             Globals.GetCourtStatusFromDB("Court B");
             Globals.GetCourtStatusFromDB("Court C");

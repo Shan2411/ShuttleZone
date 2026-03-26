@@ -18,10 +18,23 @@ namespace ShuttleZone
         {
             InitializeComponent();
             LoadPendingCards();
+
+            timer1.Interval = 5000;
+            timer1.Tick += new System.EventHandler(timer1_Tick); // force wire it here
+            timer1.Start();
+        }
+        private void timer1_Tick(object sender, System.EventArgs e)
+        {
+            LoadPendingCards();
         }
 
         private void LoadPendingCards()
         {
+            // Properly dispose old cards before clearing
+            for (int i = flpPendingRoot.Controls.Count - 1; i >= 0; i--)
+            {
+                flpPendingRoot.Controls[i].Dispose();
+            }
             flpPendingRoot.Controls.Clear();
 
             var stubs = new List<string>();
@@ -29,9 +42,9 @@ namespace ShuttleZone
             using (var conn = DBconnection.GetConnection())
             {
                 string query = @"SELECT stub_no 
-                                 FROM kiosk_pending_payments 
-                                 GROUP BY stub_no 
-                                 ORDER BY MIN(id)";
+                         FROM kiosk_pending_payments 
+                         GROUP BY stub_no 
+                         ORDER BY MIN(id)";
 
                 using (var cmd = new MySqlCommand(query, conn))
                 using (var reader = cmd.ExecuteReader())
@@ -46,6 +59,8 @@ namespace ShuttleZone
                 var card = new UC_PendingCard(stub);
                 flpPendingRoot.Controls.Add(card);
             }
+
+            guna2HtmlLabel2.Text = stubs.Count.ToString();
         }
     }
 }

@@ -139,7 +139,7 @@ namespace ShuttleZone.Maintenance_Logs
                         using (MySqlDataReader reader = cmd.ExecuteReader()) {
                             if (reader.Read())
                             {
-                                int total = reader.IsDBNull(reader.GetOrdinal("total_in_use"))
+                                activeRentals = reader.IsDBNull(reader.GetOrdinal("total_in_use"))
                                             ? 0
                                             : reader.GetInt32("total_in_use");
 

@@ -33,6 +33,7 @@ namespace ShuttleZone.Dashboard1
                     break;
                 case "active rentals":
                     guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Time;
+                    Globals.GetActiveRentals();
                     label1.Text = Globals.activeRentals.ToString() + "/4";
                     break;
                 case "new memberships":
