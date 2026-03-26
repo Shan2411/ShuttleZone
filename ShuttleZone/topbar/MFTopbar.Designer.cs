@@ -126,6 +126,7 @@
             this.FrontDeskBtn.Size = new System.Drawing.Size(149, 18);
             this.FrontDeskBtn.TabIndex = 2;
             this.FrontDeskBtn.Text = "Front-Desk";
+            this.FrontDeskBtn.Visible = false;
             this.FrontDeskBtn.Click += new System.EventHandler(this.FrontDeskBtn_Click);
             // 
             // ManagerBtn
@@ -142,6 +143,7 @@
             this.ManagerBtn.Size = new System.Drawing.Size(148, 18);
             this.ManagerBtn.TabIndex = 1;
             this.ManagerBtn.Text = "Manager";
+            this.ManagerBtn.Visible = false;
             this.ManagerBtn.Click += new System.EventHandler(this.ManagerBtn_Click);
             // 
             // AdminBtn
@@ -158,6 +160,7 @@
             this.AdminBtn.Size = new System.Drawing.Size(148, 18);
             this.AdminBtn.TabIndex = 0;
             this.AdminBtn.Text = "Admin";
+            this.AdminBtn.Visible = false;
             this.AdminBtn.Click += new System.EventHandler(this.AdminBtn_Click);
             // 
             // ToggleModeBtn

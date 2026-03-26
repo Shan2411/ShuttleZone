@@ -1,4 +1,5 @@
 ﻿using ShuttleZone.Dashboard1;
+using ShuttleZone.LogIn_Form;
 using ShuttleZone.Maintenance_Logs;
 using ShuttleZone.Rent_History;
 using ShuttleZone.sidebars;
@@ -16,12 +17,11 @@ namespace ShuttleZone
     {
         // 🔥 Store all views here (REUSABLE)
         private Dictionary<Type, UserControl> _views = new Dictionary<Type, UserControl>();
-
-        public Form1()
+        private string _username;
+        public Form1(string username)
         {
             InitializeComponent();
 
-            // 🔥 Enable double buffering (fix flicker)
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer
                         | ControlStyles.AllPaintingInWmPaint
                         | ControlStyles.UserPaint, true);
@@ -32,6 +32,34 @@ namespace ShuttleZone
 
             var date = DateTime.Now;
             DateLbl.Text = date.ToString("dddd, MMMM dd, yyyy");
+        }
+
+        // Public helper to apply role-specific UI from outside (LoginForm)
+        public void SetRole(string role)
+        {
+            if (string.IsNullOrEmpty(role))
+                return;
+
+            // Normalize role string and call internal handlers
+            var r = role.Trim().ToLower();
+            switch (r)
+            {
+                case "admin":
+                    AdminBtn_Click(this, EventArgs.Empty);
+                    break;
+                case "manager":
+                    ManagerBtn_Click(this, EventArgs.Empty);
+                    break;
+                case "front desk":
+                case "frontdesk":
+                case "front_desk":
+                    FrontDeskBtn_Click(this, EventArgs.Empty);
+                    break;
+                default:
+                    // default fallback (front desk style)
+                    FrontDeskBtn_Click(this, EventArgs.Empty);
+                    break;
+            }
         }
 
         // 🔥 HARDCORE flicker fix (Windows-level)
@@ -136,6 +164,26 @@ namespace ShuttleZone
             LoadView<ManagerDashboard>();
         }
 
+        // ================= LOGOUT =================
+        public void Logout()
+        {
+            // Clear session
+            UserSession.Clear();
+
+            // Clear cached views (IMPORTANT)
+            _views.Clear();
+            DynamicContentPanel.Controls.Clear();
+            SidebarDynamicPanel.Controls.Clear();
+            DynamicTopbarPanel.Controls.Clear();
+
+            // Show login form
+            LoginForm login = new LoginForm();
+            login.Show();
+
+            // Close current form
+            this.Close();
+        }
+
         // ================= ROLE SWITCHING =================
 
         private void ManagerBtn_Click(object sender, EventArgs e)
@@ -149,6 +197,7 @@ namespace ShuttleZone
             DynamicContentPanel.Controls.Clear();
 
             ManagerSidebar managerSidebarUC = new ManagerSidebar();
+            managerSidebarUC.SetUsername(UserSession.Username);
             managerSidebarUC.Dock = DockStyle.Fill;
 
             // 🔥 Hook events
@@ -158,6 +207,15 @@ namespace ShuttleZone
             managerSidebarUC.FacilityBtnClicked += FacilityBtn_Click;
             managerSidebarUC.UsersBtnClicked += UsersBtn_Click;
             managerSidebarUC.KioskBtnClicked += KioskBtn_Click;
+            //logout
+            managerSidebarUC.LogoutClicked += (s, ev) =>
+            {
+                if (MessageBox.Show("Are you sure you want to logout?", "Logout",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Logout();
+                }
+            };
 
             SidebarDynamicPanel.Controls.Add(managerSidebarUC);
 
@@ -177,11 +235,21 @@ namespace ShuttleZone
             DynamicContentPanel.Controls.Clear();
 
             AdminSidebar adminSidebarUC = new AdminSidebar();
+            adminSidebarUC.SetUsername(UserSession.Username);
             adminSidebarUC.Dock = DockStyle.Fill;
 
             adminSidebarUC.AdminDashboardBtnClicked += AdminDashboardBtn_Click;
             adminSidebarUC.ReportsBtnClicked += ReportsBtn_Click;
             adminSidebarUC.UsersBtnClicked += UsersBtn_Click;
+            //logout
+            adminSidebarUC.LogoutClicked += (s, ev) =>
+            {
+                if (MessageBox.Show("Are you sure you want to logout?", "Logout",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Logout();
+                }
+            };
 
             SidebarDynamicPanel.Controls.Add(adminSidebarUC);
 
@@ -202,6 +270,7 @@ namespace ShuttleZone
             DynamicContentPanel.Controls.Clear();
 
             FrontDeskSidebar frontDeskSidebarUC = new FrontDeskSidebar();
+            frontDeskSidebarUC.SetUsername(UserSession.Username);
             frontDeskSidebarUC.Dock = DockStyle.Fill;
 
             frontDeskSidebarUC.FrontDeskDashboardBtnClicked += FrontDeskDashboardBtn_Click;
@@ -209,6 +278,15 @@ namespace ShuttleZone
             frontDeskSidebarUC.MembershipBtnClicked += MembershipBtn_Click;
             frontDeskSidebarUC.HistoryBtnClicked += HistoryBtn_Click;
             frontDeskSidebarUC.PendingPaymentsBtnClicked += PendingPaymentsBtn_Click;
+            //logout
+            frontDeskSidebarUC.LogoutClicked += (s, ev) =>
+            {
+                if (MessageBox.Show("Are you sure you want to logout?", "Logout",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Logout();
+                }
+            };
 
             SidebarDynamicPanel.Controls.Add(frontDeskSidebarUC);
 

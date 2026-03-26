@@ -153,10 +153,10 @@
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(7, 42);
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(7, 45);
             this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(236, 21);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(188, 18);
             this.guna2HtmlLabel6.TabIndex = 4;
             this.guna2HtmlLabel6.TabStop = false;
             this.guna2HtmlLabel6.Text = "Add new equipment to inventory";
@@ -171,7 +171,7 @@
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(7, 6);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(246, 31);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(198, 25);
             this.guna2HtmlLabel1.TabIndex = 3;
             this.guna2HtmlLabel1.TabStop = false;
             this.guna2HtmlLabel1.Text = "Add New Equipment";
@@ -207,7 +207,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(867, 442);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(867, 443);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // tableLayoutPanel11
@@ -217,7 +217,7 @@
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47F));
             this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel13, 1, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(4, 372);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(4, 373);
             this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
@@ -310,7 +310,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.54175F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(859, 325);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(859, 326);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // tableLayoutPanel9
@@ -325,7 +325,7 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(859, 58);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(859, 59);
             this.tableLayoutPanel9.TabIndex = 5;
             // 
             // txtRentalPrice
@@ -373,10 +373,10 @@
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Dubai", 9.749999F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(7, 22);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(7, 27);
             this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(7, 6, 7, 0);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(99, 29);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(79, 24);
             this.guna2HtmlLabel5.TabIndex = 3;
             this.guna2HtmlLabel5.TabStop = false;
             this.guna2HtmlLabel5.Text = "Rental Pricing";
@@ -469,10 +469,10 @@
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Dubai", 9.749999F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(462, 22);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(462, 27);
             this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(7, 6, 7, 0);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(86, 29);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(69, 24);
             this.guna2HtmlLabel4.TabIndex = 4;
             this.guna2HtmlLabel4.TabStop = false;
             this.guna2HtmlLabel4.Text = "Initial Stock";
@@ -484,10 +484,10 @@
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Dubai", 9.749999F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(7, 22);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(7, 27);
             this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(7, 6, 7, 0);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(65, 29);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(53, 24);
             this.guna2HtmlLabel3.TabIndex = 3;
             this.guna2HtmlLabel3.TabStop = false;
             this.guna2HtmlLabel3.Text = "Category";
@@ -554,10 +554,10 @@
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Dubai", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(7, 22);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(7, 27);
             this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(7, 6, 7, 0);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(123, 29);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(96, 24);
             this.guna2HtmlLabel7.TabIndex = 2;
             this.guna2HtmlLabel7.TabStop = false;
             this.guna2HtmlLabel7.Text = "Equipment Name";
@@ -600,10 +600,10 @@
             this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel9.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel9.Location = new System.Drawing.Point(49, 11);
+            this.guna2HtmlLabel9.Location = new System.Drawing.Point(49, 12);
             this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            this.guna2HtmlLabel9.Size = new System.Drawing.Size(192, 21);
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(150, 18);
             this.guna2HtmlLabel9.TabIndex = 4;
             this.guna2HtmlLabel9.TabStop = false;
             this.guna2HtmlLabel9.Text = "Equipment Information";
@@ -611,18 +611,18 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.TopPanel, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(889, 543);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(889, 544);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // guna2BorderlessForm2
@@ -662,6 +662,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

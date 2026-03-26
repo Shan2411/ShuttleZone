@@ -17,6 +17,8 @@ namespace ShuttleZone.sidebars
         public event EventHandler MembershipBtnClicked;
         public event EventHandler HistoryBtnClicked;
         public event EventHandler PendingPaymentsBtnClicked;
+        public event EventHandler LogoutClicked;
+
         public FrontDeskSidebar()
         {
             InitializeComponent();
@@ -30,6 +32,11 @@ namespace ShuttleZone.sidebars
                     btn.FillColor = btn == activeButton ? Color.Indigo : Color.Transparent;
                 }
             }
+        }
+
+        public void SetUsername(string username)
+        {
+            frontdeskUserName.Text = username;
         }
 
         private void DashboardBtn_Click(object sender, EventArgs e)
@@ -57,6 +64,16 @@ namespace ShuttleZone.sidebars
         {
             HighlightButton(PendingPaymentsBtn);
             PendingPaymentsBtnClicked?.Invoke(this, EventArgs.Empty);
-        }   
+        }
+
+        private void frontdeskUserName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            LogoutClicked?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

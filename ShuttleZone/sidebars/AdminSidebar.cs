@@ -15,6 +15,7 @@ namespace ShuttleZone.sidebars
         public event EventHandler AdminDashboardBtnClicked;
         public event EventHandler ReportsBtnClicked;
         public event EventHandler UsersBtnClicked;
+        public event EventHandler LogoutClicked;
         public AdminSidebar()
         {
             InitializeComponent();
@@ -28,6 +29,10 @@ namespace ShuttleZone.sidebars
                     btn.FillColor = btn == activeButton ? Color.Indigo : Color.Transparent;
                 }
             }
+        }
+        public void SetUsername(string username)
+        {
+            adminUsername.Text = username;
         }
         private void DashboardBtn_Click(object sender, EventArgs e)
         {
@@ -44,6 +49,16 @@ namespace ShuttleZone.sidebars
         {
             HighlightButton(UsersBtn);
             UsersBtnClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void adminUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            LogoutClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

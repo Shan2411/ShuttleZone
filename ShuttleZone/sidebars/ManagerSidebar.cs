@@ -18,6 +18,7 @@ namespace ShuttleZone.sidebars
         public event EventHandler FacilityBtnClicked;
         public event EventHandler UsersBtnClicked;
         public event EventHandler KioskBtnClicked;
+        public event EventHandler LogoutClicked;
 
         public ManagerSidebar()
         {
@@ -33,6 +34,12 @@ namespace ShuttleZone.sidebars
                 }
             }
         }
+
+        public void SetUsername(string username)
+        {
+            managerUsername.Text = username;
+        }
+
         private void DashboardBtn_Click(object sender, EventArgs e)
         {
             HighlightButton(DashboardBtn);
@@ -62,6 +69,16 @@ namespace ShuttleZone.sidebars
         {
             HighlightButton(KioskBtn);
             KioskBtnClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void managerUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            LogoutClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }
