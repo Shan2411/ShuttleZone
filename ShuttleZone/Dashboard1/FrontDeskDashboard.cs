@@ -20,6 +20,11 @@ namespace ShuttleZone.Dashboard1
             //int initiateClass = Globals.GetTodaysTransaction();
             Globals.getThisMonthStats();
             Globals.GetActiveRentals();
+            Globals.GetCourtStatusFromDB("Court A");   //
+            Globals.GetCourtStatusFromDB("Court B");
+            Globals.GetCourtStatusFromDB("Court C");
+            Globals.GetCourtStatusFromDB("Court D");
+            Globals.transactions = Globals.GetRecentTransactions();
 
             this.DoubleBuffered = true;
 
@@ -50,7 +55,7 @@ namespace ShuttleZone.Dashboard1
             var buttons = new[]
             {
                 new CourtCard("Court A", Globals.statusFromDB),
-                new CourtCard("Court B", "in use"),
+                new CourtCard("Court B", Globals.statusFromDB1),
                 new CourtCard("Court C", Globals.statusFromDB2),
                 new CourtCard("Court D", Globals.statusFromDB3)
             };
@@ -97,18 +102,46 @@ namespace ShuttleZone.Dashboard1
             }
 
 
+            timer1.Interval = 5000; // 5 seconds
+            timer1.Tick += timer1_Tick;
+            timer1.Start();
+
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            RefreshPanel();
+        }
 
         public void RefreshPanel()
         {
+            // 🔥 Re-fetch latest data from DB
+            Globals.GetCourtStatusFromDB("Court A");   //
+            Globals.GetCourtStatusFromDB("Court B");
+            Globals.GetCourtStatusFromDB("Court C");
+            Globals.GetCourtStatusFromDB("Court D");
+            Globals.transactions = Globals.GetRecentTransactions();
+
+            // Refresh courts UI
             flowLayoutPanel1.Controls.Clear();
-            // Add new controls as needed
-            flowLayoutPanel1.Controls.Add(new MButton("Court A", Globals.statusFromDB));
-            flowLayoutPanel1.Controls.Add(new MButton("Court B", Globals.statusFromDB1));
-            flowLayoutPanel1.Controls.Add(new MButton("Court C", Globals.statusFromDB2));
-            flowLayoutPanel1.Controls.Add(new MButton("Court D", Globals.statusFromDB3));
-            flowLayoutPanel1.Refresh();
+
+            flowLayoutPanel1.Controls.Add(new CourtCard("Court A", Globals.statusFromDB));
+            flowLayoutPanel1.Controls.Add(new CourtCard("Court B", Globals.statusFromDB1));
+            flowLayoutPanel1.Controls.Add(new CourtCard("Court C", Globals.statusFromDB2));
+            flowLayoutPanel1.Controls.Add(new CourtCard("Court D", Globals.statusFromDB3));
+
+            // Refresh recent transactions
+            flowLayoutPanel2.Controls.Clear();
+            flowLayoutPanel2.Controls.Add(new HeaderColumn());
+
+            foreach (var t in Globals.transactions)
+            {
+                flowLayoutPanel2.Controls.Add(new H_Row(
+                    t.ReceiptId,
+                    t.PaymentMethod,
+                    t.TotalAmount.ToString(),
+                    t.TransactionTime));
+            }
         }
 
         private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)

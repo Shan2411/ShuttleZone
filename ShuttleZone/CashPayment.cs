@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using ShuttleZone.database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -124,6 +126,41 @@ namespace ShuttleZone
                 courtHours
             );
             receiptForm.Show();
+
+            //this part changes the status to "in use" once sale of court is made
+
+            foreach (var item in _cartItems)
+            {
+                if (item.Name.StartsWith("Court"))
+                {
+                    string courtName = item.Name.Contains("-")
+                        ? item.Name.Split('-')[0].Trim()
+                        : item.Name.Trim();
+
+                    try
+                    {
+                        using (MySqlConnection conn = DBconnection.GetConnection())
+                        {
+                            string sql = @"UPDATE courts 
+                               SET status = 'In Use', 
+                                   status_reason = 'Paid via Cash'
+                               WHERE court_name = @CourtName";
+
+                            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@CourtName", courtName);
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Failed to update court status.\n\n" + ex.Message,
+                            "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
 
             this.Close();
         }

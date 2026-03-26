@@ -65,6 +65,32 @@ namespace ShuttleZone.Maintenance_Logs
             }
         }
 
+        // Get multiple court status
+        public static void getCourtStatuses()
+        {
+            using (MySqlConnection conn = DBconnection.GetConnection())
+            {
+                conn.Open();
+
+                string query = "SELECT court_id, status FROM courts";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32("court_id");
+                        string status = reader.GetString("status");
+
+                        if (id == 1) statusFromDB = status;
+                        else if (id == 2) statusFromDB1 = status;
+                        else if (id == 3) statusFromDB2 = status;
+                        else if (id == 4) statusFromDB3 = status;
+                    }
+                }
+            }
+        }
+
         // Front desk dashboard 
         // transac id payment amount time   
 
