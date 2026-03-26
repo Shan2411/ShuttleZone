@@ -80,36 +80,27 @@ namespace ShuttleZone.Dashboard1
 
             // ADD Recent payments 
 
-            flowLayoutPanel2.Controls.Add(new HeaderColumn());
+            //flowLayoutPanel2.Controls.Add(new HeaderColumn());
 
-            flowLayoutPanel2.Resize += (s, e) =>
+            /*flowLayoutPanel2.Resize += (s, e) =>
             {
                 foreach (Control c in flowLayoutPanel2.Controls)
                 {
                     c.Width = flowLayoutPanel2.ClientSize.Width - flowLayoutPanel2.Padding.Horizontal;
                 }
             };
-
+            */
             Globals.transactions = Globals.GetRecentTransactions();
 
 
             timer1.Interval = 5000; // 5 seconds
             timer1.Tick += timer1_Tick;
             timer1.Start();
-
-            ResizeFlowPanel2Children();
+                       
         }
 
         // One method, defined once
-        private void ResizeFlowPanel2Children()
-        {
-            foreach (Control c in flowLayoutPanel2.Controls)
-            {
-                c.Width = flowLayoutPanel2.ClientSize.Width
-                          - flowLayoutPanel2.Padding.Horizontal;
-            }
-        }
-
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             RefreshPanel();
@@ -132,7 +123,7 @@ namespace ShuttleZone.Dashboard1
             flowLayoutPanel1.Controls.Add(new CourtCard("Court C", Globals.statusFromDB2));
             flowLayoutPanel1.Controls.Add(new CourtCard("Court D", Globals.statusFromDB3));
 
-            // Refresh recent transactions
+            /* Refresh recent transactions
             flowLayoutPanel2.Controls.Clear();
             flowLayoutPanel2.Controls.Add(new HeaderColumn());
 
@@ -144,9 +135,7 @@ namespace ShuttleZone.Dashboard1
                     t.TotalAmount.ToString(),
                     t.TransactionTime));
             }
-
-            ResizeFlowPanel2Children();
-
+            */
         }
 
         private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)
