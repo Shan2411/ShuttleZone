@@ -457,9 +457,17 @@
     <Compile Include="UC_Kiosk.Designer.cs">
       <DependentUpon>UC_Kiosk.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_Pending.cs" />
+    <Compile Include="UC_Pending.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UC_Pending.Designer.cs">
       <DependentUpon>UC_Pending.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_PendingCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_PendingCard.Designer.cs">
+      <DependentUpon>UC_PendingCard.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_Pos.cs">
       <SubType>UserControl</SubType>
@@ -677,6 +685,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Pending.resx">
       <DependentUpon>UC_Pending.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_PendingCard.resx">
+      <DependentUpon>UC_PendingCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Pos.resx">
       <DependentUpon>UC_Pos.cs</DependentUpon>
