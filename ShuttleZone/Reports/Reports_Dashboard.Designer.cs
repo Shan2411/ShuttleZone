@@ -62,7 +62,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnPDF = new Guna.UI2.WinForms.Guna2Button();
             this.btnExcel = new Guna.UI2.WinForms.Guna2Button();
-            this.btnFilters = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDetailed_Report = new Guna.UI2.WinForms.Guna2Button();
             this.btnCSV = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2CustomGradientPanel5 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
@@ -104,7 +104,6 @@
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2PanelPieChart = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnDetailedReport = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button42 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button41 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button40 = new Guna.UI2.WinForms.Guna2Button();
@@ -162,7 +161,6 @@
             this.tableLayoutPanel21.SuspendLayout();
             this.tableLayoutPanel23.SuspendLayout();
             this.tableLayoutPanel22.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -173,7 +171,7 @@
             this.label1.Location = new System.Drawing.Point(12, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(326, 37);
+            this.label1.Size = new System.Drawing.Size(401, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Income && Sales Analytics";
             // 
@@ -184,7 +182,7 @@
             this.label2.Location = new System.Drawing.Point(2441, 1398);
             this.label2.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(496, 46);
+            this.label2.Size = new System.Drawing.Size(401, 37);
             this.label2.TabIndex = 1;
             this.label2.Text = "Income && Sales Analytics";
             // 
@@ -195,7 +193,7 @@
             this.label3.Location = new System.Drawing.Point(2449, 1406);
             this.label3.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(496, 46);
+            this.label3.Size = new System.Drawing.Size(401, 37);
             this.label3.TabIndex = 2;
             this.label3.Text = "Income && Sales Analytics";
             // 
@@ -426,7 +424,7 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.40123F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.59877F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 354F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 356F));
             this.tableLayoutPanel4.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.label7, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 2);
@@ -453,7 +451,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(259, 15);
+            this.label5.Size = new System.Drawing.Size(258, 15);
             this.label5.TabIndex = 0;
             this.label5.Text = "Filter Options";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -465,7 +463,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 15);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(259, 16);
+            this.label7.Size = new System.Drawing.Size(258, 16);
             this.label7.TabIndex = 2;
             this.label7.Text = "Period";
             this.label7.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -485,7 +483,7 @@
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(259, 21);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(258, 21);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // btnDaily
@@ -537,7 +535,7 @@
             this.btnMonthly.ForeColor = System.Drawing.Color.Black;
             this.btnMonthly.Location = new System.Drawing.Point(175, 3);
             this.btnMonthly.Name = "btnMonthly";
-            this.btnMonthly.Size = new System.Drawing.Size(81, 15);
+            this.btnMonthly.Size = new System.Drawing.Size(80, 15);
             this.btnMonthly.TabIndex = 5;
             this.btnMonthly.Text = "Monthly";
             this.btnMonthly.Click += new System.EventHandler(this.btnMonthly_Click);
@@ -547,9 +545,9 @@
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(268, 15);
+            this.label6.Location = new System.Drawing.Point(267, 15);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(300, 16);
+            this.label6.Size = new System.Drawing.Size(299, 16);
             this.label6.TabIndex = 4;
             this.label6.Text = "Court";
             this.label6.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -559,9 +557,9 @@
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(574, 15);
+            this.label8.Location = new System.Drawing.Point(572, 15);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(349, 16);
+            this.label8.Size = new System.Drawing.Size(351, 16);
             this.label8.TabIndex = 5;
             this.label8.Text = "Equipment";
             this.label8.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -584,9 +582,9 @@
             "Court B",
             "Court C",
             "Court D"});
-            this.cmbCourt.Location = new System.Drawing.Point(268, 34);
+            this.cmbCourt.Location = new System.Drawing.Point(267, 34);
             this.cmbCourt.Name = "cmbCourt";
-            this.cmbCourt.Size = new System.Drawing.Size(300, 36);
+            this.cmbCourt.Size = new System.Drawing.Size(299, 36);
             this.cmbCourt.TabIndex = 6;
             this.cmbCourt.SelectedIndexChanged += new System.EventHandler(this.cmbCourt_SelectedIndexChanged);
             // 
@@ -602,9 +600,9 @@
             this.cmbEquipment.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbEquipment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbEquipment.ItemHeight = 30;
-            this.cmbEquipment.Location = new System.Drawing.Point(574, 34);
+            this.cmbEquipment.Location = new System.Drawing.Point(572, 34);
             this.cmbEquipment.Name = "cmbEquipment";
-            this.cmbEquipment.Size = new System.Drawing.Size(349, 36);
+            this.cmbEquipment.Size = new System.Drawing.Size(351, 36);
             this.cmbEquipment.TabIndex = 7;
             this.cmbEquipment.SelectedIndexChanged += new System.EventHandler(this.cmbEquipment_SelectedIndexChanged);
             // 
@@ -665,7 +663,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.Controls.Add(this.btnPDF, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnExcel, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btnFilters, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnDetailed_Report, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnCSV, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
@@ -695,6 +693,7 @@
             this.btnPDF.Size = new System.Drawing.Size(86, 36);
             this.btnPDF.TabIndex = 18;
             this.btnPDF.Text = "    PDF";
+            this.btnPDF.Click += new System.EventHandler(this.btnPDF_Click);
             // 
             // btnExcel
             // 
@@ -716,25 +715,25 @@
             this.btnExcel.Text = "Excel";
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
-            // btnFilters
+            // btnDetailed_Report
             // 
-            this.btnFilters.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnFilters.BackColor = System.Drawing.Color.Transparent;
-            this.btnFilters.BorderRadius = 10;
-            this.btnFilters.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnFilters.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnFilters.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnFilters.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnFilters.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnFilters.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFilters.ForeColor = System.Drawing.Color.White;
-            this.btnFilters.Image = global::ShuttleZone.Properties.Resources.download__5_;
-            this.btnFilters.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnFilters.Location = new System.Drawing.Point(349, 16);
-            this.btnFilters.Name = "btnFilters";
-            this.btnFilters.Size = new System.Drawing.Size(100, 36);
-            this.btnFilters.TabIndex = 48;
-            this.btnFilters.Text = "     Filters";
+            this.btnDetailed_Report.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDetailed_Report.BackColor = System.Drawing.Color.Transparent;
+            this.btnDetailed_Report.BorderRadius = 10;
+            this.btnDetailed_Report.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDetailed_Report.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDetailed_Report.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDetailed_Report.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDetailed_Report.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnDetailed_Report.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetailed_Report.ForeColor = System.Drawing.Color.White;
+            this.btnDetailed_Report.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDetailed_Report.Location = new System.Drawing.Point(345, 16);
+            this.btnDetailed_Report.Name = "btnDetailed_Report";
+            this.btnDetailed_Report.Size = new System.Drawing.Size(109, 36);
+            this.btnDetailed_Report.TabIndex = 48;
+            this.btnDetailed_Report.Text = "Detailed Report";
+            this.btnDetailed_Report.Click += new System.EventHandler(this.btnDetailed_Report_Click);
             // 
             // btnCSV
             // 
@@ -755,7 +754,7 @@
             this.btnCSV.Size = new System.Drawing.Size(86, 36);
             this.btnCSV.TabIndex = 4;
             this.btnCSV.Text = "     CSV";
-            this.btnCSV.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.btnCSV.Click += new System.EventHandler(this.btnCSV_Click);
             // 
             // tableLayoutPanel6
             // 
@@ -798,7 +797,7 @@
             this.tableLayoutPanel18.ColumnCount = 3;
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.696203F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 94.30379F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel19, 1, 1);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(0, 0);
@@ -817,13 +816,13 @@
             this.tableLayoutPanel19.Controls.Add(this.label17, 0, 1);
             this.tableLayoutPanel19.Controls.Add(this.tableLayoutPanel20, 0, 2);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(11, 12);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 3;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.02128F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.08511F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.82979F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(142, 96);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(141, 96);
             this.tableLayoutPanel19.TabIndex = 0;
             // 
             // label17
@@ -833,7 +832,7 @@
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(3, 16);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(136, 17);
+            this.label17.Size = new System.Drawing.Size(135, 17);
             this.label17.TabIndex = 0;
             this.label17.Text = "Total Transactions";
             this.label17.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -851,7 +850,7 @@
             this.tableLayoutPanel20.RowCount = 2;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.45454F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.54545F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(136, 57);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(135, 57);
             this.tableLayoutPanel20.TabIndex = 1;
             // 
             // lblAverageTransactions
@@ -862,7 +861,7 @@
             this.lblAverageTransactions.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lblAverageTransactions.Location = new System.Drawing.Point(3, 48);
             this.lblAverageTransactions.Name = "lblAverageTransactions";
-            this.lblAverageTransactions.Size = new System.Drawing.Size(130, 9);
+            this.lblAverageTransactions.Size = new System.Drawing.Size(129, 9);
             this.lblAverageTransactions.TabIndex = 2;
             this.lblAverageTransactions.Text = "Avg: ₱678";
             this.lblAverageTransactions.Click += new System.EventHandler(this.lblAverageTransactions_Click);
@@ -874,7 +873,7 @@
             this.lblTotalTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalTransaction.Location = new System.Drawing.Point(3, 0);
             this.lblTotalTransaction.Name = "lblTotalTransaction";
-            this.lblTotalTransaction.Size = new System.Drawing.Size(130, 48);
+            this.lblTotalTransaction.Size = new System.Drawing.Size(129, 48);
             this.lblTotalTransaction.TabIndex = 1;
             this.lblTotalTransaction.Text = "₱ 500,000";
             this.lblTotalTransaction.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -900,7 +899,7 @@
             this.tableLayoutPanel12.ColumnCount = 3;
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.696203F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 94.30379F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel13, 1, 1);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 0);
@@ -925,7 +924,7 @@
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.02128F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.08511F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.82979F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(142, 96);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(140, 96);
             this.tableLayoutPanel13.TabIndex = 0;
             // 
             // label11
@@ -935,7 +934,7 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(3, 16);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(136, 17);
+            this.label11.Size = new System.Drawing.Size(134, 17);
             this.label11.TabIndex = 0;
             this.label11.Text = "Equipment Sales";
             this.label11.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -953,7 +952,7 @@
             this.tableLayoutPanel14.RowCount = 2;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.45454F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.54545F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(136, 57);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(134, 57);
             this.tableLayoutPanel14.TabIndex = 1;
             // 
             // lblEquipmentPercentage
@@ -964,7 +963,7 @@
             this.lblEquipmentPercentage.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lblEquipmentPercentage.Location = new System.Drawing.Point(3, 48);
             this.lblEquipmentPercentage.Name = "lblEquipmentPercentage";
-            this.lblEquipmentPercentage.Size = new System.Drawing.Size(130, 9);
+            this.lblEquipmentPercentage.Size = new System.Drawing.Size(128, 9);
             this.lblEquipmentPercentage.TabIndex = 2;
             this.lblEquipmentPercentage.Text = "63% of Total";
             this.lblEquipmentPercentage.Click += new System.EventHandler(this.lblEquipmentPercentage_Click);
@@ -976,7 +975,7 @@
             this.lblEquipmentSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEquipmentSales.Location = new System.Drawing.Point(3, 0);
             this.lblEquipmentSales.Name = "lblEquipmentSales";
-            this.lblEquipmentSales.Size = new System.Drawing.Size(130, 48);
+            this.lblEquipmentSales.Size = new System.Drawing.Size(128, 48);
             this.lblEquipmentSales.TabIndex = 1;
             this.lblEquipmentSales.Text = "₱ 500,000";
             this.lblEquipmentSales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1002,7 +1001,7 @@
             this.tableLayoutPanel7.ColumnCount = 3;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.696203F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 94.30379F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel8, 1, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
@@ -1027,7 +1026,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.55556F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.33333F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(142, 93);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(140, 93);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // lblTotal
@@ -1037,7 +1036,7 @@
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.Location = new System.Drawing.Point(3, 20);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(136, 14);
+            this.lblTotal.Size = new System.Drawing.Size(134, 14);
             this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "Total Income";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1049,7 +1048,7 @@
             this.lblTotalIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalIncome.Location = new System.Drawing.Point(3, 34);
             this.lblTotalIncome.Name = "lblTotalIncome";
-            this.lblTotalIncome.Size = new System.Drawing.Size(136, 59);
+            this.lblTotalIncome.Size = new System.Drawing.Size(134, 59);
             this.lblTotalIncome.TabIndex = 1;
             this.lblTotalIncome.Text = "₱ 500,000";
             this.lblTotalIncome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1075,7 +1074,7 @@
             this.tableLayoutPanel9.ColumnCount = 3;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.696203F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 94.30379F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel10, 1, 1);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
@@ -1100,7 +1099,7 @@
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.02128F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.08511F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.82979F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(142, 96);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(140, 96);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // label9
@@ -1110,7 +1109,7 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 16);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(136, 17);
+            this.label9.Size = new System.Drawing.Size(134, 17);
             this.label9.TabIndex = 0;
             this.label9.Text = "Court Sales";
             this.label9.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1128,7 +1127,7 @@
             this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.45454F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.54545F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(136, 57);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(134, 57);
             this.tableLayoutPanel11.TabIndex = 1;
             // 
             // lblCourtPercentage
@@ -1139,7 +1138,7 @@
             this.lblCourtPercentage.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lblCourtPercentage.Location = new System.Drawing.Point(3, 48);
             this.lblCourtPercentage.Name = "lblCourtPercentage";
-            this.lblCourtPercentage.Size = new System.Drawing.Size(130, 9);
+            this.lblCourtPercentage.Size = new System.Drawing.Size(128, 9);
             this.lblCourtPercentage.TabIndex = 2;
             this.lblCourtPercentage.Text = "63% of Total";
             this.lblCourtPercentage.Click += new System.EventHandler(this.lblCourtPercentage_Click);
@@ -1151,7 +1150,7 @@
             this.lblCourtSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCourtSales.Location = new System.Drawing.Point(3, 0);
             this.lblCourtSales.Name = "lblCourtSales";
-            this.lblCourtSales.Size = new System.Drawing.Size(130, 48);
+            this.lblCourtSales.Size = new System.Drawing.Size(128, 48);
             this.lblCourtSales.TabIndex = 1;
             this.lblCourtSales.Text = "₱ 500,000";
             this.lblCourtSales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1177,7 +1176,7 @@
             this.tableLayoutPanel15.ColumnCount = 3;
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.696203F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 94.30379F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel16, 1, 1);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel15.Location = new System.Drawing.Point(0, 0);
@@ -1202,7 +1201,7 @@
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.02128F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.08511F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.82979F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(142, 96);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(140, 96);
             this.tableLayoutPanel16.TabIndex = 0;
             // 
             // label14
@@ -1212,7 +1211,7 @@
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(3, 16);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(136, 17);
+            this.label14.Size = new System.Drawing.Size(134, 17);
             this.label14.TabIndex = 0;
             this.label14.Text = "Membership Sales";
             this.label14.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1230,7 +1229,7 @@
             this.tableLayoutPanel17.RowCount = 2;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.45454F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.54545F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(136, 57);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(134, 57);
             this.tableLayoutPanel17.TabIndex = 1;
             // 
             // lblMembershipPercentage
@@ -1241,7 +1240,7 @@
             this.lblMembershipPercentage.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lblMembershipPercentage.Location = new System.Drawing.Point(3, 48);
             this.lblMembershipPercentage.Name = "lblMembershipPercentage";
-            this.lblMembershipPercentage.Size = new System.Drawing.Size(130, 9);
+            this.lblMembershipPercentage.Size = new System.Drawing.Size(128, 9);
             this.lblMembershipPercentage.TabIndex = 2;
             this.lblMembershipPercentage.Text = "63% of Total";
             this.lblMembershipPercentage.Click += new System.EventHandler(this.lblMembershipPercentage_Click);
@@ -1253,7 +1252,7 @@
             this.lblMembershipSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMembershipSales.Location = new System.Drawing.Point(3, 0);
             this.lblMembershipSales.Name = "lblMembershipSales";
-            this.lblMembershipSales.Size = new System.Drawing.Size(130, 48);
+            this.lblMembershipSales.Size = new System.Drawing.Size(128, 48);
             this.lblMembershipSales.TabIndex = 1;
             this.lblMembershipSales.Text = "₱ 500,000";
             this.lblMembershipSales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1279,7 +1278,7 @@
             this.tableLayoutPanel23.ColumnCount = 3;
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.013423F));
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 97.98658F));
-            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel23.Controls.Add(this.guna2PanelLineGraph, 1, 1);
             this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel23.Location = new System.Drawing.Point(3, 3);
@@ -1301,7 +1300,7 @@
             this.guna2PanelLineGraph.ShadowDecoration.BorderRadius = 7;
             this.guna2PanelLineGraph.ShadowDecoration.Color = System.Drawing.Color.Gray;
             this.guna2PanelLineGraph.ShadowDecoration.Enabled = true;
-            this.guna2PanelLineGraph.Size = new System.Drawing.Size(424, 257);
+            this.guna2PanelLineGraph.Size = new System.Drawing.Size(422, 257);
             this.guna2PanelLineGraph.TabIndex = 2;
             this.guna2PanelLineGraph.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2PanelLineGraph_Paint);
             // 
@@ -1310,7 +1309,7 @@
             this.tableLayoutPanel22.ColumnCount = 3;
             this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.063457F));
             this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96.93655F));
-            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel22.Controls.Add(this.guna2PanelPieChart, 1, 1);
             this.tableLayoutPanel22.Controls.Add(this.guna2Panel2, 1, 2);
             this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1333,41 +1332,18 @@
             this.guna2PanelPieChart.ShadowDecoration.BorderRadius = 7;
             this.guna2PanelPieChart.ShadowDecoration.Color = System.Drawing.Color.Gray;
             this.guna2PanelPieChart.ShadowDecoration.Enabled = true;
-            this.guna2PanelPieChart.Size = new System.Drawing.Size(403, 256);
+            this.guna2PanelPieChart.Size = new System.Drawing.Size(401, 256);
             this.guna2PanelPieChart.TabIndex = 0;
             this.guna2PanelPieChart.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2PanelPieChart_Paint);
             // 
             // guna2Panel2
             // 
             this.tableLayoutPanel22.SetColumnSpan(this.guna2Panel2, 2);
-            this.guna2Panel2.Controls.Add(this.btnDetailedReport);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel2.Location = new System.Drawing.Point(15, 275);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(439, 20);
             this.guna2Panel2.TabIndex = 1;
-            // 
-            // btnDetailedReport
-            // 
-            this.btnDetailedReport.BackColor = System.Drawing.Color.Transparent;
-            this.btnDetailedReport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDetailedReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDetailedReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDetailedReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDetailedReport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDetailedReport.FillColor = System.Drawing.Color.Transparent;
-            this.btnDetailedReport.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetailedReport.ForeColor = System.Drawing.Color.Black;
-            this.btnDetailedReport.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.btnDetailedReport.HoverState.ForeColor = System.Drawing.Color.Cyan;
-            this.btnDetailedReport.Location = new System.Drawing.Point(0, 0);
-            this.btnDetailedReport.Name = "btnDetailedReport";
-            this.btnDetailedReport.PressedColor = System.Drawing.Color.Transparent;
-            this.btnDetailedReport.Size = new System.Drawing.Size(439, 20);
-            this.btnDetailedReport.TabIndex = 0;
-            this.btnDetailedReport.Text = "Detailed Report";
-            this.btnDetailedReport.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnDetailedReport.Click += new System.EventHandler(this.btnDetailedReport_Click);
             // 
             // guna2Button42
             // 
@@ -1884,7 +1860,7 @@
             // 
             // Reports_Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(32F, 63F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(25F, 51F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.Controls.Add(this.tableLayoutPanel1);
@@ -1975,7 +1951,6 @@
             this.tableLayoutPanel21.ResumeLayout(false);
             this.tableLayoutPanel23.ResumeLayout(false);
             this.tableLayoutPanel22.ResumeLayout(false);
-            this.guna2Panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2029,7 +2004,7 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button41;
         private Guna.UI2.WinForms.Guna2Button guna2Button42;
         private Guna.UI2.WinForms.Guna2Button btnExcel;
-        private Guna.UI2.WinForms.Guna2Button btnFilters;
+        private Guna.UI2.WinForms.Guna2Button btnDetailed_Report;
         private Guna.UI2.WinForms.Guna2Panel pnlFilterBar;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
@@ -2086,6 +2061,5 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2PanelLineGraph;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2PanelPieChart;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2Button btnDetailedReport;
     }
 }
