@@ -88,7 +88,10 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `full_name`, `email`, `role`, `status`, `password`) VALUES
 ('U001', 'admin', 'System Administrator', 'admin@shuttlezone.local', 'Admin', 'Active', 'Admin@123'),
 ('U002', 'manager01', 'Manager One', 'manager1@shuttlezone.local', 'Manager', 'Active', 'Manager@123'),
-('U003', 'frontdesk01', 'Front Desk One', 'frontdesk1@shuttlezone.local', 'Front Desk', 'Active', 'FrontDesk@123');
+('U003', 'frontdesk01', 'Front Desk One', 'frontdesk1@shuttlezone.local', 'Front Desk', 'Active', 'FrontDesk@123'),
+('U004', 'a', 'Quick Admin', 'a@shuttlezone.local', 'Admin', 'Active', 'a'),
+('U005', 'm', 'Quick Manager', 'm@shuttlezone.local', 'Manager', 'Active', 'm'),
+('U006', 'f', 'Quick FrontDesk', 'f@shuttlezone.local', 'Front Desk', 'Active', 'f');
 
 -- Quick check
 -- SELECT id, username, role, status FROM users;
