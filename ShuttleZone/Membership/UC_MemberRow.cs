@@ -10,24 +10,39 @@ namespace ShuttleZone.Membership
         {
             InitializeComponent();
             this.AutoSize = false;
-            // removed DockStyle.Top (not valid in FlowLayoutPanel)
+        }
+
+        // Role logic
+        public string Role { get; set; } = "frontdesk"; // default
+
+        public void ApplyRolePermissions()
+        {
+            if (Role.Trim().ToLower() == "manager")
+            {
+                MemberDelete.Visible = true;
+                MemberEdit.Enabled = true;
+            }
+            else // frontdesk
+            {
+                MemberDelete.Visible = false;   // cannot archive/delete
+                MemberEdit.Enabled = true;      // can edit, optionally limited fields in Edit form
+            }
         }
 
         public int MemberDbId { get; set; }
-
         public Guna2GradientPanel panelBG => PanelBG;
+
         public string MemberIDText { get => MemberID.Text; set => MemberID.Text = value; }
         public string MemberNameText { get => MemberName.Text; set => MemberName.Text = value; }
         public string MemberEmailText { get => MemberEmail.Text; set => MemberEmail.Text = value; }
         public string MemberPhoneText { get => MemberPhone.Text; set => MemberPhone.Text = value; }
         public string MemberTypeText { get => MemberType.Text; set => MemberType.Text = value; }
         public string MemberExpiryDateText { get => MemberExpiryDate.Text; set => MemberExpiryDate.Text = value; }
-
         public DateTime MemberJoinDate { get; set; }
+        public bool IsArchived { get; set; } = false;
 
         public event EventHandler DeleteClicked;
         public event EventHandler EditClicked;
-        public bool IsArchived { get; set; } = false;
 
         public void UpdateStatus()
         {
@@ -44,10 +59,9 @@ namespace ShuttleZone.Membership
 
             if (DateTime.TryParse(MemberExpiryDate.Text, out DateTime expiry))
             {
-                if (expiry < DateTime.Now)
-                    MemberStatus.Image = global::ShuttleZone.Properties.Resources.ExpiredStatus;
-                else
-                    MemberStatus.Image = global::ShuttleZone.Properties.Resources.ActiveStatus;
+                MemberStatus.Image = expiry < DateTime.Now
+                    ? global::ShuttleZone.Properties.Resources.ExpiredStatus
+                    : global::ShuttleZone.Properties.Resources.ActiveStatus;
             }
             else
             {
@@ -57,6 +71,9 @@ namespace ShuttleZone.Membership
 
         private void MemberDelete_Click(object sender, EventArgs e)
         {
+            if (Role.Trim().ToLower() != "manager")
+                return;
+
             var result = MessageBox.Show(
                 "Are you sure you want to archive this member?",
                 "Confirm Archive",

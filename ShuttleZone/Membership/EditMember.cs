@@ -40,19 +40,15 @@ namespace ShuttleZone.Membership
                 "12 months (Php 4,500)"
             });
 
-            // Join date picker UX
             cbJoinDate.BackColor = Color.White;
             cbJoinDate.ValueChanged += cbJoinDate_ValueChanged;
 
-            // Phone input UX
             tbMemberPhone.MaxLength = 11;
             tbMemberPhone.KeyPress += TbMemberPhone_KeyPress;
             tbMemberPhone.Leave += TbMemberPhone_Leave;
 
-            // Membership selection change
             cbMembershipType.SelectedIndexChanged += cbMembershipType_SelectedIndexChanged;
 
-            // Initialize expiry date on load
             this.Load += (s, e) => UpdateExpiryDate();
         }
 
@@ -91,25 +87,9 @@ namespace ShuttleZone.Membership
 
         #region Properties
         public string MemberIDValue { get; set; }
-
-        public string MemberNameValue
-        {
-            get => tbMemberName.Text;
-            set => tbMemberName.Text = value;
-        }
-
-        public string MemberEmailValue
-        {
-            get => tbMemberEmail.Text;
-            set => tbMemberEmail.Text = value;
-        }
-
-        public string MemberPhoneValue
-        {
-            get => tbMemberPhone.Text;
-            set => tbMemberPhone.Text = value;
-        }
-
+        public string MemberNameValue { get => tbMemberName.Text; set => tbMemberName.Text = value; }
+        public string MemberEmailValue { get => tbMemberEmail.Text; set => tbMemberEmail.Text = value; }
+        public string MemberPhoneValue { get => tbMemberPhone.Text; set => tbMemberPhone.Text = value; }
         public string MembershipTypeValue
         {
             get => cbMembershipType.SelectedItem?.ToString() ?? "";
@@ -122,7 +102,6 @@ namespace ShuttleZone.Membership
                 }
             }
         }
-
         public DateTime JoinDateValue
         {
             get => cbJoinDate.Value;
@@ -132,11 +111,35 @@ namespace ShuttleZone.Membership
                 UpdateExpiryDate();
             }
         }
+        public string ExpiryDateValue { get => ExpiryDateLbl.Text; set => ExpiryDateLbl.Text = value; }
 
-        public string ExpiryDateValue
+        // <-- Add this property for role awareness
+        private string userRole = "frontdesk";
+        public string UserRole
         {
-            get => ExpiryDateLbl.Text;
-            set => ExpiryDateLbl.Text = value;
+            get => userRole;
+            set
+            {
+                userRole = value?.Trim().ToLower() ?? "frontdesk";
+                ApplyRoleRestrictions();
+            }
+        }
+        #endregion
+
+        #region Role Restrictions
+        private void ApplyRoleRestrictions()
+        {
+            if (userRole == "frontdesk")
+            {
+                // Frontdesk cannot change membership type or join date
+                cbMembershipType.Enabled = false;
+                cbJoinDate.Enabled = false;
+            }
+            else
+            {
+                cbMembershipType.Enabled = true;
+                cbJoinDate.Enabled = true;
+            }
         }
         #endregion
 
@@ -165,14 +168,8 @@ namespace ShuttleZone.Membership
         #region Validation
         private void TbMemberPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
-            TextBox tb = sender as TextBox;
-            if (tb == null) return;
-
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                e.Handled = true;
-
-            if (tb.Text.Length >= 11 && !char.IsControl(e.KeyChar))
-                e.Handled = true;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true;
+            if (tbMemberPhone.Text.Length >= 11 && !char.IsControl(e.KeyChar)) e.Handled = true;
         }
 
         private void TbMemberPhone_Leave(object sender, EventArgs e)
