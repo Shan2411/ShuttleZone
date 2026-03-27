@@ -13,11 +13,20 @@ namespace ShuttleZone.Membership
         }
 
         // Role logic
-        public string Role { get; set; } = "frontdesk"; // default
+        private string role = "frontdesk"; // default
+        public string Role
+        {
+            get => role;
+            set
+            {
+                role = value?.Trim().ToLower() ?? "frontdesk";
+                ApplyRolePermissions(); // automatically enforce permissions
+            }
+        }
 
         public void ApplyRolePermissions()
         {
-            if (Role.Trim().ToLower() == "manager")
+            if (Role == "manager")
             {
                 MemberDelete.Visible = true;
                 MemberEdit.Enabled = true;
@@ -48,7 +57,7 @@ namespace ShuttleZone.Membership
         {
             MemberStatus.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            if (MemberDelete != null) MemberDelete.Visible = !IsArchived;
+            if (MemberDelete != null) MemberDelete.Visible = !IsArchived && Role == "manager";
             if (MemberEdit != null) MemberEdit.Visible = !IsArchived;
 
             if (IsArchived)
@@ -71,8 +80,7 @@ namespace ShuttleZone.Membership
 
         private void MemberDelete_Click(object sender, EventArgs e)
         {
-            if (Role.Trim().ToLower() != "manager")
-                return;
+            if (Role != "manager") return;
 
             var result = MessageBox.Show(
                 "Are you sure you want to archive this member?",
@@ -87,9 +95,7 @@ namespace ShuttleZone.Membership
 
         private void MemberEdit_Click(object sender, EventArgs e)
         {
-            if (IsArchived)
-                return;
-
+            if (IsArchived) return;
             EditClicked?.Invoke(this, EventArgs.Empty);
         }
     }

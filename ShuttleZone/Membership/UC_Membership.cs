@@ -124,7 +124,7 @@ namespace ShuttleZone
                     MembershipTypeValue = row.MemberTypeText,
                     ExpiryDateValue = row.MemberExpiryDateText,
                     JoinDateValue = row.MemberJoinDate,
-                    UserRole = CurrentRole // pass role to EditMember to optionally limit editable fields
+                    UserRole = CurrentRole // pass role to EditMember
                 };
 
                 if (editForm.ShowDialog() == DialogResult.OK)
@@ -151,6 +151,10 @@ namespace ShuttleZone
                         row.MemberTypeText = updatedModel.MembershipType;
                         row.MemberExpiryDateText = updatedModel.ExpiryDate?.ToString("yyyy-MM-dd") ?? "";
                         row.MemberJoinDate = updatedModel.JoinDate ?? DateTime.Now;
+
+                        // 🔥 Reapply role and update status
+                        row.Role = CurrentRole;
+                        row.ApplyRolePermissions();
                         row.UpdateStatus();
 
                         // update cached list
@@ -159,7 +163,9 @@ namespace ShuttleZone
                         UpdateMemberTotals();
                     }
                     else
+                    {
                         MessageBox.Show("Update failed");
+                    }
                 }
             }
         }
