@@ -80,9 +80,9 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel3.Controls.Add(this.lblUsername, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblRole, 4, 0);
-            this.tableLayoutPanel3.Controls.Add(this.lblStatus, 5, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblFullName, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblEmail, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lblStatus, 5, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);

@@ -208,7 +208,7 @@ namespace ShuttleZone.UserManagement
             this.Searchbox.Location = new System.Drawing.Point(11, 10);
             this.Searchbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Searchbox.Name = "Searchbox";
-            this.Searchbox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Searchbox.Padding = new System.Windows.Forms.Padding(4);
             this.Searchbox.PlaceholderText = "";
             this.Searchbox.SelectedText = "";
             this.Searchbox.Size = new System.Drawing.Size(1190, 22);
@@ -264,7 +264,7 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel3.Controls.Add(this.Email, 3, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.tableLayoutPanel3.RowCount = 1;

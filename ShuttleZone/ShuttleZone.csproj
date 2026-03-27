@@ -475,6 +475,12 @@
     <Compile Include="UC_Pos.Designer.cs">
       <DependentUpon>UC_Pos.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserManagementNew\UC_EditProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserManagementNew\UC_EditProfile.Designer.cs">
+      <DependentUpon>UC_EditProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserManagementNew\UC_EditUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -493,6 +499,12 @@
     <Compile Include="UserManagementNew\UC_UserManagement.Designer.cs">
       <DependentUpon>UC_UserManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserManagementNew\UC_UserProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserManagementNew\UC_UserProfile.Designer.cs">
+      <DependentUpon>UC_UserProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserManagementNew\UC_UserRow.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -500,19 +512,6 @@
       <DependentUpon>UC_UserRow.cs</DependentUpon>
     </Compile>
     <Compile Include="UserManagementNew\UserModel.cs" />
-    <Compile Include="usermanagement\UC_AddUserMain.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="usermanagement\UC_AddUserMain.Designer.cs">
-      <DependentUpon>UC_AddUserMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="usermanagement\UserManagement.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="usermanagement\UserManagement.Designer.cs">
-      <DependentUpon>UserManagement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="usermanagement\UserModel.cs" />
     <Compile Include="UserSession.cs" />
     <EmbeddedResource Include="CashPayment.resx">
       <DependentUpon>CashPayment.cs</DependentUpon>
@@ -693,6 +692,9 @@
     <EmbeddedResource Include="UC_Pos.resx">
       <DependentUpon>UC_Pos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserManagementNew\UC_EditProfile.resx">
+      <DependentUpon>UC_EditProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserManagementNew\UC_EditUser.resx">
       <DependentUpon>UC_EditUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -702,14 +704,11 @@
     <EmbeddedResource Include="UserManagementNew\UC_UserManagement.resx">
       <DependentUpon>UC_UserManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserManagementNew\UC_UserProfile.resx">
+      <DependentUpon>UC_UserProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserManagementNew\UC_UserRow.resx">
       <DependentUpon>UC_UserRow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="usermanagement\UC_AddUserMain.resx">
-      <DependentUpon>UC_AddUserMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="usermanagement\UserManagement.resx">
-      <DependentUpon>UserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="database\kiosk_table.md" />
     <None Include="database\schema.md" />

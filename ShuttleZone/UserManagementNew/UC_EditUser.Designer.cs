@@ -1019,17 +1019,6 @@ namespace ShuttleZone.UserManagement
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
         private Guna.UI2.WinForms.Guna2ComboBox cmbStatus;
         private System.Windows.Forms.Label label12;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
-        private Guna.UI2.WinForms.Guna2TextBox txtConfirmPassword;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
-        private Guna.UI2.WinForms.Guna2TextBox txtPassword;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
-        private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2Button btnShowPassword;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
@@ -1048,5 +1037,16 @@ namespace ShuttleZone.UserManagement
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private Guna.UI2.WinForms.Guna2TextBox txtFullName;
         private System.Windows.Forms.Label label9;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private Guna.UI2.WinForms.Guna2TextBox txtConfirmPassword;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
+        private Guna.UI2.WinForms.Guna2TextBox txtPassword;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
+        private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2Button btnShowPassword;
     }
 }
