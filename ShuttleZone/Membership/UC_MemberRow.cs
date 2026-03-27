@@ -26,6 +26,15 @@ namespace ShuttleZone.Membership
 
         public void ApplyRolePermissions()
         {
+            // Archived members cannot delete or edit
+            if (IsArchived)
+            {
+                MemberDelete.Visible = false;
+                MemberEdit.Visible = false;
+                return;
+            }
+
+            // Role-based permissions for non-archived members
             if (Role == "manager")
             {
                 MemberDelete.Visible = true;
@@ -33,8 +42,8 @@ namespace ShuttleZone.Membership
             }
             else // frontdesk
             {
-                MemberDelete.Visible = false;   // cannot archive/delete
-                MemberEdit.Enabled = true;      // can edit, optionally limited fields in Edit form
+                MemberDelete.Visible = false;
+                MemberEdit.Enabled = true; // optionally limited in edit form
             }
         }
 
@@ -57,15 +66,18 @@ namespace ShuttleZone.Membership
         {
             MemberStatus.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            if (MemberDelete != null) MemberDelete.Visible = !IsArchived && Role == "manager";
-            if (MemberEdit != null) MemberEdit.Visible = !IsArchived;
-
+            // 🔥 Archived members always hide Delete and Edit
             if (IsArchived)
             {
-                MemberStatus.Image = null;
+                MemberDelete.Visible = false;
+                MemberEdit.Visible = false;
+                MemberStatus.Image = global::ShuttleZone.Properties.Resources.archivedStatuss;
                 return;
             }
 
+            ApplyRolePermissions(); // Ensure permissions are applied based on current role
+
+            // Status icon
             if (DateTime.TryParse(MemberExpiryDate.Text, out DateTime expiry))
             {
                 MemberStatus.Image = expiry < DateTime.Now

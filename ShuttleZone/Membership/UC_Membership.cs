@@ -243,7 +243,7 @@ namespace ShuttleZone
             AddMemberBtn.Enabled = !showingArchived;
             AddMemberBtn.FillColor = showingArchived ? System.Drawing.Color.Gray : System.Drawing.Color.FromArgb(152, 16, 250);
             AddMemberBtn.ForeColor = showingArchived ? System.Drawing.Color.LightGray : System.Drawing.Color.White;
-            AddMemberBtn.Text = showingArchived ? "Archived Mode" : "Add New Member";
+            AddMemberBtn.Text = showingArchived ? "Archive Mode" : "Add New Member";
 
             LoadMembers();
         }
