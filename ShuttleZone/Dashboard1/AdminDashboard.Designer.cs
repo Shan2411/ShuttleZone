@@ -170,7 +170,7 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(15, 13);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(589, 364);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(590, 285);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // AdminDashboard

@@ -19,7 +19,7 @@ namespace ShuttleZone
             InitializeComponent();
             LoadPendingCards();
 
-            timer1.Interval = 5000;
+            timer1.Interval = 3100;
             timer1.Tick += new System.EventHandler(timer1_Tick); // force wire it here
             timer1.Start();
         }
