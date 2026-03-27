@@ -44,13 +44,14 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(14, 22);
+            this.chart1.Location = new System.Drawing.Point(-22, 31);
             this.chart1.Name = "chart1";
+            this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(715, 224);
+            this.chart1.Size = new System.Drawing.Size(821, 317);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -60,7 +61,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.chart1);
             this.Name = "PeakHours";
-            this.Size = new System.Drawing.Size(754, 270);
+            this.Size = new System.Drawing.Size(764, 406);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
