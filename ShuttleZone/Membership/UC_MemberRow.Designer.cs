@@ -42,11 +42,13 @@
             this.MemberName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.MemberID = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.MemberRestore = new Guna.UI2.WinForms.Guna2PictureBox();
             this.PanelBG.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MemberStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MemberDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MemberEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MemberRestore)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelBG
@@ -68,16 +70,18 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel3.ColumnCount = 9;
+            this.tableLayoutPanel3.ColumnCount = 10;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4F));
+            this.tableLayoutPanel3.Controls.Add(this.MemberRestore, 9, 0);
             this.tableLayoutPanel3.Controls.Add(this.MemberStatus, 5, 0);
             this.tableLayoutPanel3.Controls.Add(this.MemberDelete, 8, 0);
             this.tableLayoutPanel3.Controls.Add(this.MemberEdit, 7, 0);
@@ -102,7 +106,7 @@
             this.MemberStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MemberStatus.FillColor = System.Drawing.Color.Transparent;
             this.MemberStatus.ImageRotate = 0F;
-            this.MemberStatus.Location = new System.Drawing.Point(661, 7);
+            this.MemberStatus.Location = new System.Drawing.Point(652, 7);
             this.MemberStatus.Name = "MemberStatus";
             this.MemberStatus.Size = new System.Drawing.Size(47, 20);
             this.MemberStatus.TabIndex = 10;
@@ -115,7 +119,7 @@
             this.MemberDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MemberDelete.FillColor = System.Drawing.Color.Transparent;
             this.MemberDelete.ImageRotate = 0F;
-            this.MemberDelete.Location = new System.Drawing.Point(876, 7);
+            this.MemberDelete.Location = new System.Drawing.Point(842, 7);
             this.MemberDelete.Name = "MemberDelete";
             this.MemberDelete.Size = new System.Drawing.Size(20, 20);
             this.MemberDelete.TabIndex = 9;
@@ -129,7 +133,7 @@
             this.MemberEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MemberEdit.FillColor = System.Drawing.Color.Transparent;
             this.MemberEdit.ImageRotate = 0F;
-            this.MemberEdit.Location = new System.Drawing.Point(828, 7);
+            this.MemberEdit.Location = new System.Drawing.Point(806, 7);
             this.MemberEdit.Name = "MemberEdit";
             this.MemberEdit.Size = new System.Drawing.Size(20, 20);
             this.MemberEdit.TabIndex = 8;
@@ -142,7 +146,7 @@
             this.MemberExpiryDate.BackColor = System.Drawing.Color.Transparent;
             this.MemberExpiryDate.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberExpiryDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.MemberExpiryDate.Location = new System.Drawing.Point(735, 10);
+            this.MemberExpiryDate.Location = new System.Drawing.Point(717, 10);
             this.MemberExpiryDate.Margin = new System.Windows.Forms.Padding(10);
             this.MemberExpiryDate.Name = "MemberExpiryDate";
             this.MemberExpiryDate.Size = new System.Drawing.Size(71, 14);
@@ -221,6 +225,20 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
+            // MemberRestore
+            // 
+            this.MemberRestore.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MemberRestore.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MemberRestore.BackgroundImage")));
+            this.MemberRestore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MemberRestore.FillColor = System.Drawing.Color.Transparent;
+            this.MemberRestore.ImageRotate = 0F;
+            this.MemberRestore.Location = new System.Drawing.Point(880, 7);
+            this.MemberRestore.Name = "MemberRestore";
+            this.MemberRestore.Size = new System.Drawing.Size(20, 20);
+            this.MemberRestore.TabIndex = 11;
+            this.MemberRestore.TabStop = false;
+            this.MemberRestore.Click += new System.EventHandler(this.MemberRestore_Click);
+            // 
             // UC_MemberRow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +254,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MemberStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MemberDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MemberEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MemberRestore)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -254,5 +273,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel MemberName;
         private Guna.UI2.WinForms.Guna2HtmlLabel MemberID;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
+        private Guna.UI2.WinForms.Guna2PictureBox MemberRestore;
     }
 }

@@ -26,24 +26,28 @@ namespace ShuttleZone.Membership
 
         public void ApplyRolePermissions()
         {
-            // Archived members cannot delete or edit
+            // ARCHIVED STATE
             if (IsArchived)
             {
-                MemberDelete.Visible = false;
                 MemberEdit.Visible = false;
+                MemberDelete.Visible = false;
+
+                // Only manager can restore
+                MemberRestore.Visible = Role == "manager";
                 return;
             }
 
-            // Role-based permissions for non-archived members
+            // ACTIVE STATE
+            MemberRestore.Visible = false;
+            MemberEdit.Visible = true;
+
             if (Role == "manager")
             {
                 MemberDelete.Visible = true;
-                MemberEdit.Enabled = true;
             }
-            else // frontdesk
+            else
             {
                 MemberDelete.Visible = false;
-                MemberEdit.Enabled = true; // optionally limited in edit form
             }
         }
 
@@ -61,6 +65,7 @@ namespace ShuttleZone.Membership
 
         public event EventHandler DeleteClicked;
         public event EventHandler EditClicked;
+        public event EventHandler RestoreClicked;
 
         public void UpdateStatus()
         {
@@ -109,6 +114,20 @@ namespace ShuttleZone.Membership
         {
             if (IsArchived) return;
             EditClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void MemberRestore_Click(object sender, EventArgs e)
+        {
+            if (Role != "manager") return;
+
+            var result = MessageBox.Show(
+                "Restore this member?",
+                "Confirm Restore",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+                RestoreClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

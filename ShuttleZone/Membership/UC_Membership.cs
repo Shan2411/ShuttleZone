@@ -60,7 +60,7 @@ namespace ShuttleZone
                 // Add single event handlers
                 row.DeleteClicked += Row_DeleteClicked;
                 row.EditClicked += Row_EditClicked;
-
+                row.RestoreClicked += Row_RestoreClicked;
                 row.Width = flpMemberRowContainer.ClientSize.Width;
                 row.ApplyRolePermissions(); // make buttons respect role
 
@@ -108,6 +108,54 @@ namespace ShuttleZone
                 }
                 else
                     MessageBox.Show("Archive failed");
+            }
+        }
+
+        private void Row_RestoreClicked(object sender, EventArgs e)
+        {
+            if (sender is UC_MemberRow row)
+            {
+                if (CurrentRole != "manager") return;
+
+                bool restored = DataAccess.RestoreMember(row.MemberDbId);
+
+                if (!restored)
+                {
+                    MessageBox.Show("Restore failed");
+                    return;
+                }
+
+                // ✅ Update state
+                row.IsArchived = false;
+
+                var member = cachedMembers.FirstOrDefault(m => m.Id == row.MemberDbId);
+                if (member != null)
+                    member.IsArchived = false;
+
+                // ✅ SWITCH TO NORMAL MODE (important)
+                if (showingArchived)
+                {
+                    showingArchived = false;
+                    ArchivedBtn.Text = "Show Archived";
+                    AddMemberBtn.Enabled = true;
+                    AddMemberBtn.FillColor = System.Drawing.Color.FromArgb(152, 16, 250);
+                    AddMemberBtn.ForeColor = System.Drawing.Color.White;
+                    AddMemberBtn.Text = "Add New Member";
+                }
+
+                // ✅ RELOAD ACTIVE MEMBERS
+                LoadMembers();
+
+                // ✅ FIND THE RESTORED ROW AGAIN
+                var restoredRow = flpMemberRowContainer.Controls
+                    .OfType<UC_MemberRow>()
+                    .FirstOrDefault(r => r.MemberDbId == row.MemberDbId);
+
+                if (restoredRow != null)
+                {
+                    // 🔥 AUTO-OPEN EDIT FORM
+                    Row_EditClicked(restoredRow, EventArgs.Empty);
+                }
             }
         }
 
@@ -205,6 +253,7 @@ namespace ShuttleZone
                     SetRowData(row, model, flpMemberRowContainer.Controls.Count);
                     row.DeleteClicked += Row_DeleteClicked;
                     row.EditClicked += Row_EditClicked;
+                    row.RestoreClicked += Row_RestoreClicked;
                     row.Width = flpMemberRowContainer.ClientSize.Width;
                     row.ApplyRolePermissions();
                     flpMemberRowContainer.Controls.Add(row);
