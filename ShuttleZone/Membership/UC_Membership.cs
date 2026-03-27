@@ -1,6 +1,7 @@
 ﻿using ShuttleZone.Membership;
 using System;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace ShuttleZone
@@ -13,6 +14,10 @@ namespace ShuttleZone
         {
             this.DoubleBuffered = true; // reduce flicker
             InitializeComponent();
+
+            // hook resize so rows always match width
+            flpMemberRowContainer.Resize += FlpMemberRowContainer_Resize;
+
             LoadMembers();
         }
 
@@ -21,8 +26,9 @@ namespace ShuttleZone
             flpMemberRowContainer.SuspendLayout();
             flpMemberRowContainer.Controls.Clear();
 
-            // fetch members based on toggle
             var members = DataAccess.GetMembers(showingArchived);
+            int index = 0;
+
 
             foreach (var model in members)
             {
@@ -36,12 +42,25 @@ namespace ShuttleZone
                     MemberTypeText = model.MembershipType ?? "",
                     MemberExpiryDateText = model.ExpiryDate?.ToString("yyyy-MM-dd") ?? "",
                     MemberJoinDate = model.JoinDate ?? DateTime.Now,
-                    Width = flpMemberRowContainer.ClientSize.Width,
                     IsArchived = model.IsArchived
                 };
 
-                row.UpdateStatus();
+                // ✅ Zebra striping
+                if (index % 2 == 0)
+                {
+                    row.panelBG.FillColor = System.Drawing.Color.White;
+                    row.panelBG.FillColor2 = System.Drawing.Color.White;
+                }
+                else
+                {
+                    row.panelBG.FillColor = System.Drawing.Color.FromArgb(237, 209, 255);
+                    row.panelBG.FillColor2 = System.Drawing.Color.FromArgb(237, 209, 255);
+                }
 
+                index++;
+
+                row.Width = flpMemberRowContainer.ClientSize.Width;
+                row.UpdateStatus();
                 // ARCHIVE
                 row.DeleteClicked += (s, args) =>
                 {
@@ -95,7 +114,17 @@ namespace ShuttleZone
             }
 
             flpMemberRowContainer.ResumeLayout();
+            flpMemberRowContainer.PerformLayout(); // force layout
             ApplySearchFilter();
+            UpdateMemberTotals(); // ✅ update totals after loading
+        }
+
+        private void FlpMemberRowContainer_Resize(object sender, EventArgs e)
+        {
+            foreach (UC_MemberRow row in flpMemberRowContainer.Controls.OfType<UC_MemberRow>())
+            {
+                row.Width = flpMemberRowContainer.ClientSize.Width;
+            }
         }
 
         private void AddMemberBtn_Click(object sender, EventArgs e)
@@ -155,9 +184,41 @@ namespace ShuttleZone
                     row.MemberExpiryDateText.ToLower().Contains(search) ||
                     row.MemberJoinDate.ToString("yyyy-MM-dd").ToLower().Contains(search);
 
-                // NEW: hide archived rows in active mode
                 row.Visible = (!row.IsArchived || showingArchived) && match;
             }
+        }
+
+        private void UpdateMemberTotals()
+        {
+            var members = DataAccess.GetMembers(showingArchived);
+
+            int totalMembersC = members.Count;
+            int totalActiveC = members.Count(m => !m.IsArchived && (!m.ExpiryDate.HasValue || m.ExpiryDate.Value >= DateTime.Now));
+            int totalExpiredC = members.Count(m => m.ExpiryDate.HasValue && m.ExpiryDate.Value < DateTime.Now);
+
+            totalMembers.Text = totalMembersC.ToString();
+            totalActive.Text = totalActiveC.ToString();
+            totalExpired.Text = totalExpiredC.ToString();
+        }
+
+        private void totalMembers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalMembers_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalActive_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalExpired_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

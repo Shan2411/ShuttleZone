@@ -37,12 +37,12 @@ namespace ShuttleZone.Membership
                 "12 months (Php 4,500)"
             });
 
-            cbJoinDate.BackColor = Color.White;
-            cbJoinDate.Value = DateTime.Now;
-
             tbMemberPhone.MaxLength = 11;
             tbMemberPhone.KeyPress += TbMemberPhone_KeyPress;
             tbMemberPhone.Leave += TbMemberPhone_Leave;
+
+            // Set join date label if you have one
+            JoinDateTxt.Text = DateTime.Today.ToString("MM/dd/yyyy");
         }
 
         private void AddDragEventsToControls(Control.ControlCollection controls)
@@ -88,7 +88,7 @@ namespace ShuttleZone.Membership
             string MemberEmail = tbMemberEmail.Text;
             string MemberContactString = tbMemberPhone.Text;
             string MembershipType = cbMembershipType.SelectedItem?.ToString() ?? "";
-            DateTime JoinDate = cbJoinDate.Value;
+            DateTime JoinDate = DateTime.Today; // ✅ replaced
 
             if (string.IsNullOrWhiteSpace(MemberName) ||
                 string.IsNullOrWhiteSpace(MemberEmail) ||
@@ -107,9 +107,9 @@ namespace ShuttleZone.Membership
                 return;
             }
 
-            if (!MemberEmail.EndsWith("@gmail.com", StringComparison.OrdinalIgnoreCase))
+            if (!MemberEmail.Contains("@") || !MemberEmail.Contains("."))
             {
-                MessageBox.Show("Email must end with '@gmail.com'.",
+                MessageBox.Show("Enter a valid email address.",
                     "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -128,7 +128,7 @@ namespace ShuttleZone.Membership
 
         private void UpdateExpiryDate()
         {
-            DateTime joinDate = cbJoinDate.Value;
+            DateTime joinDate = DateTime.Today; // ✅ replaced
             string membershipType = cbMembershipType.SelectedItem?.ToString() ?? "";
 
             int months = 0;
@@ -144,24 +144,17 @@ namespace ShuttleZone.Membership
         }
 
         private void cbMembershipType_SelectedIndexChanged(object sender, EventArgs e) => UpdateExpiryDate();
-        private void cbJoinDate_ValueChanged(object sender, EventArgs e) => UpdateExpiryDate();
 
         private void TbMemberPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox tb = sender as TextBox;
-            if (tb == null) return; // safety guard
+            if (tb == null) return;
 
-            // Allow control keys (like Backspace)
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true; // block non-digit input
-            }
-
-            // Prevent typing beyond 11 digits
-            if (tb.Text.Length >= 11 && !char.IsControl(e.KeyChar))
-            {
                 e.Handled = true;
-            }
+
+            if (tb.Text.Length >= 11 && !char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
 
         private void TbMemberPhone_Leave(object sender, EventArgs e)
@@ -174,12 +167,22 @@ namespace ShuttleZone.Membership
             }
         }
 
-        // Expose values for UC_Membership
+        // Outputs
         public string MemberNameValue => tbMemberName.Text;
         public string MemberEmailValue => tbMemberEmail.Text;
         public string MemberPhoneValue => tbMemberPhone.Text;
         public string MembershipTypeValue => cbMembershipType.SelectedItem?.ToString() ?? "";
         public string ExpiryDateValue => ExpiryDateLbl.Text;
-        public DateTime JoinDateValue => cbJoinDate.Value;
+        public DateTime JoinDateValue => DateTime.Today; // ✅ replaced
+
+        private void JoinDateTxt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbMemberEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

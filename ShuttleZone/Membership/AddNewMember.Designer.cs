@@ -39,7 +39,7 @@
             this.CreateBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbJoinDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.JoinDateTxt = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.ExpiryDateLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -235,7 +235,7 @@
             this.tableLayoutPanel9.ColumnCount = 2;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47F));
-            this.tableLayoutPanel9.Controls.Add(this.cbJoinDate, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.JoinDateTxt, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.ExpiryDateLbl, 1, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 215);
@@ -246,25 +246,20 @@
             this.tableLayoutPanel9.Size = new System.Drawing.Size(645, 49);
             this.tableLayoutPanel9.TabIndex = 5;
             // 
-            // cbJoinDate
+            // JoinDateTxt
             // 
-            this.cbJoinDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbJoinDate.BackColor = System.Drawing.Color.White;
-            this.cbJoinDate.BorderRadius = 8;
-            this.cbJoinDate.Checked = true;
-            this.cbJoinDate.FillColor = System.Drawing.Color.White;
-            this.cbJoinDate.FocusedColor = System.Drawing.Color.IndianRed;
-            this.cbJoinDate.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cbJoinDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.cbJoinDate.Location = new System.Drawing.Point(3, 6);
-            this.cbJoinDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.cbJoinDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.cbJoinDate.Name = "cbJoinDate";
-            this.cbJoinDate.ShadowDecoration.Color = System.Drawing.Color.White;
-            this.cbJoinDate.Size = new System.Drawing.Size(325, 36);
-            this.cbJoinDate.TabIndex = 4;
-            this.cbJoinDate.Value = new System.DateTime(2026, 2, 10, 0, 0, 0, 0);
-            this.cbJoinDate.Click += new System.EventHandler(this.cbJoinDate_ValueChanged);
+            this.JoinDateTxt.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.JoinDateTxt.BackColor = System.Drawing.Color.Transparent;
+            this.JoinDateTxt.Font = new System.Drawing.Font("Dubai", 9.749999F, System.Drawing.FontStyle.Bold);
+            this.JoinDateTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
+            this.JoinDateTxt.Location = new System.Drawing.Point(5, 12);
+            this.JoinDateTxt.Margin = new System.Windows.Forms.Padding(5);
+            this.JoinDateTxt.Name = "JoinDateTxt";
+            this.JoinDateTxt.Size = new System.Drawing.Size(52, 24);
+            this.JoinDateTxt.TabIndex = 7;
+            this.JoinDateTxt.TabStop = false;
+            this.JoinDateTxt.Text = "JoinDate";
+            this.JoinDateTxt.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ExpiryDateLbl
             // 
@@ -476,6 +471,7 @@
             this.tbMemberEmail.SelectedText = "";
             this.tbMemberEmail.Size = new System.Drawing.Size(288, 36);
             this.tbMemberEmail.TabIndex = 1;
+            this.tbMemberEmail.TextChanged += new System.EventHandler(this.tbMemberEmail_TextChanged);
             // 
             // tbMemberName
             // 
@@ -664,22 +660,22 @@
             this.guna2HtmlLabel6.Location = new System.Drawing.Point(5, 33);
             this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(5);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(197, 18);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(169, 18);
             this.guna2HtmlLabel6.TabIndex = 4;
             this.guna2HtmlLabel6.TabStop = false;
-            this.guna2HtmlLabel6.Text = "Add a new member to the system";
+            this.guna2HtmlLabel6.Text = "Add a member to the system";
             this.guna2HtmlLabel6.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2HtmlLabel1
             // 
-            this.guna2HtmlLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(5, 5);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(5);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(197, 18);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(223, 18);
             this.guna2HtmlLabel1.TabIndex = 3;
             this.guna2HtmlLabel1.TabStop = false;
             this.guna2HtmlLabel1.Text = "Create New Member";
@@ -747,7 +743,6 @@
         private Guna.UI2.WinForms.Guna2Button CreateBtn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private Guna.UI2.WinForms.Guna2DateTimePicker cbJoinDate;
         private Guna.UI2.WinForms.Guna2HtmlLabel ExpiryDateLbl;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
@@ -774,5 +769,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel JoinDateTxt;
     }
 }

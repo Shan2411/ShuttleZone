@@ -145,7 +145,7 @@
             this.MemberExpiryDate.Location = new System.Drawing.Point(735, 10);
             this.MemberExpiryDate.Margin = new System.Windows.Forms.Padding(10);
             this.MemberExpiryDate.Name = "MemberExpiryDate";
-            this.MemberExpiryDate.Size = new System.Drawing.Size(75, 15);
+            this.MemberExpiryDate.Size = new System.Drawing.Size(71, 14);
             this.MemberExpiryDate.TabIndex = 7;
             this.MemberExpiryDate.Text = "EXPIRY DATE";
             // 
@@ -158,7 +158,7 @@
             this.MemberType.Location = new System.Drawing.Point(518, 10);
             this.MemberType.Margin = new System.Windows.Forms.Padding(10);
             this.MemberType.Name = "MemberType";
-            this.MemberType.Size = new System.Drawing.Size(30, 15);
+            this.MemberType.Size = new System.Drawing.Size(30, 14);
             this.MemberType.TabIndex = 5;
             this.MemberType.Text = "TYPE";
             // 
@@ -171,7 +171,7 @@
             this.MemberPhone.Location = new System.Drawing.Point(409, 10);
             this.MemberPhone.Margin = new System.Windows.Forms.Padding(10);
             this.MemberPhone.Name = "MemberPhone";
-            this.MemberPhone.Size = new System.Drawing.Size(39, 15);
+            this.MemberPhone.Size = new System.Drawing.Size(39, 14);
             this.MemberPhone.TabIndex = 4;
             this.MemberPhone.Text = "PHONE";
             // 
@@ -225,7 +225,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.PanelBG);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UC_MemberRow";
             this.Size = new System.Drawing.Size(911, 34);
             this.PanelBG.ResumeLayout(false);
