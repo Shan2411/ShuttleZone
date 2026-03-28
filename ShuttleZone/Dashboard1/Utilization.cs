@@ -20,12 +20,16 @@ namespace ShuttleZone.Dashboard1
         private static extern int SendMessage(IntPtr hWnd, Int32 wMsg, bool wParam, Int32 lParam);
         private const int WM_SETREDRAW = 11;
 
+        // ── Track current filter ──────────────────────────────────────────────
+        public enum DateFilter { Today, ThisMonth, ThisYear }
+        private DateFilter _currentFilter = DateFilter.ThisMonth;
+
         private static readonly Color[] CourtColors = new[]
         {
-            Color.FromArgb(94, 148, 255),   // Court A - Blue
-            Color.FromArgb(46, 204, 113),   // Court B - Green
-            Color.FromArgb(155, 89, 182),   // Court C - Purple
-            Color.FromArgb(230, 126, 34),   // Court D - Orange
+            Color.FromArgb(94, 148, 255),
+            Color.FromArgb(46, 204, 113),
+            Color.FromArgb(155, 89, 182),
+            Color.FromArgb(230, 126, 34),
         };
 
         public Utilization()
@@ -36,30 +40,76 @@ namespace ShuttleZone.Dashboard1
             LoadUtilizationData();
         }
 
+        // ── BUTTONS ───────────────────────────────────────────────────────────
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            _currentFilter = DateFilter.Today;
+            HighlightActiveButton(guna2Button1);
+            LoadUtilizationData();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            _currentFilter = DateFilter.ThisMonth;
+            HighlightActiveButton(guna2Button2);
+            LoadUtilizationData();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            _currentFilter = DateFilter.ThisYear;
+            HighlightActiveButton(guna2Button3);
+            LoadUtilizationData();
+        }
+
+        // Visually marks which button is active
+        private void HighlightActiveButton(Guna.UI2.WinForms.Guna2Button active)
+        {
+            var buttons = new[]
+            {
+                guna2Button1,
+                guna2Button2,
+                guna2Button3
+            };
+
+            foreach (var btn in buttons)
+            {
+                btn.FillColor = Color.FromArgb(230, 230, 230); // inactive
+                btn.ForeColor = Color.FromArgb(100, 100, 100);
+            }
+
+            active.FillColor = Color.FromArgb(94, 148, 255);    // active
+            active.ForeColor = Color.White;
+        }
+
+        // ── LOAD ──────────────────────────────────────────────────────────────
+
         public void LoadUtilizationData()
         {
-            var data = FetchCourtIncomeFromDB();
+            var data = FetchCourtIncomeFromDB(_currentFilter);
             if (data == null || data.Count == 0) return;
 
-            // Find the busiest court (highest total_amount this month)
             decimal maxIncome = data.Max(d => d.TotalAmount);
-
-            // Progress bar = busiest court's % share of total income
             decimal totalIncome = data.Sum(d => d.TotalAmount);
+
             int progressValue = totalIncome > 0
                 ? (int)Math.Round((maxIncome / totalIncome) * 100)
                 : 0;
 
-            // Update the circle progress bar
             guna2CircleProgressBar1.Value = Math.Min(progressValue, 100);
 
-            // Find busiest court name for the center label (if you have one)
             var busiestCourt = data.OrderByDescending(d => d.TotalAmount).First();
 
-            // Update center label if you have a label inside the progress bar
-            // label8.Text = $"{busiestCourt.CourtName}\n{progressValue}%";
+            // Update your progress bar center label here if you have one
+            // e.g. label8.Text = $"{busiestCourt.CourtName}\n{progressValue}%";
 
-            // Rebuild the flow panel labels
+            RebuildLabels(data, totalIncome, busiestCourt.CourtName);
+        }
+
+        private void RebuildLabels(List<CourtIncomeData> data,
+            decimal totalIncome, string busiestCourtName)
+        {
             SendMessage(flowLayoutPanel1.Handle, WM_SETREDRAW, false, 0);
             try
             {
@@ -73,19 +123,16 @@ namespace ShuttleZone.Dashboard1
                         ? CourtColors[i]
                         : Color.FromArgb(127, 140, 141);
 
-                    // Each court's % of total income this month
                     int sharePercent = totalIncome > 0
                         ? (int)Math.Round((court.TotalAmount / totalIncome) * 100)
                         : 0;
-
-                    bool isBusiest = court.CourtName == busiestCourt.CourtName;
 
                     AddCourtLabel(
                         court.CourtName,
                         court.TotalAmount,
                         sharePercent,
                         accent,
-                        isBusiest
+                        isBusiest: court.CourtName == busiestCourtName
                     );
                 }
             }
@@ -105,19 +152,34 @@ namespace ShuttleZone.Dashboard1
             public decimal TotalAmount { get; set; }
         }
 
-        private List<CourtIncomeData> FetchCourtIncomeFromDB()
+        private List<CourtIncomeData> FetchCourtIncomeFromDB(DateFilter filter)
         {
             var result = new List<CourtIncomeData>();
 
-            string query = @"
-                SELECT 
+            // Build the WHERE clause depending on the filter
+            string dateCondition;
+            switch (filter)
+            {
+                case DateFilter.Today:
+                    dateCondition = "AND DATE(t.transaction_date) = CURDATE()";
+                    break;
+                case DateFilter.ThisYear:
+                    dateCondition = "AND YEAR(t.transaction_date) = YEAR(CURDATE())";
+                    break;
+                default: // ThisMonth
+                    dateCondition = @"AND MONTH(t.transaction_date) = MONTH(CURDATE())
+                                      AND YEAR(t.transaction_date)  = YEAR(CURDATE())";
+                    break;
+            }
+
+            string query = $@"
+                SELECT
                     c.court_name,
                     COALESCE(SUM(t.total_amount), 0) AS total_amount
                 FROM courts c
-                LEFT JOIN transactions t 
+                LEFT JOIN transactions t
                     ON t.court_id = c.court_id
-                    AND MONTH(t.transaction_date) = MONTH(CURDATE())
-                    AND YEAR(t.transaction_date)  = YEAR(CURDATE())
+                    {dateCondition}
                 GROUP BY c.court_id, c.court_name
                 ORDER BY c.court_id";
 
@@ -155,13 +217,22 @@ namespace ShuttleZone.Dashboard1
             string goldStar = isBusiest ? " ⭐" : "";
             string amountStr = totalAmount.ToString("₱#,##0.00");
 
+            // Show the period label based on current filter
+            string periodLabel;
+            switch (_currentFilter)
+            {
+                case DateFilter.Today: periodLabel = "today"; break;
+                case DateFilter.ThisYear: periodLabel = "this year"; break;
+                default: periodLabel = "this month"; break;
+            }
+
             var label = new Guna.UI2.WinForms.Guna2HtmlLabel
             {
                 Text = $"<b style='color:{hexColor}; font-size:11pt;'>" +
                            $"{courtName}{goldStar}" +
                        $"</b><br/>" +
                        $"<span style='color:#7f8c8d; font-size:10pt;'>" +
-                           $"{amountStr} &nbsp;·&nbsp; {sharePercent}% of total" +
+                           $"{amountStr} · {sharePercent}% of {periodLabel}" +
                        $"</span>",
 
                 Font = new Font("Segoe UI", 12),
@@ -182,7 +253,7 @@ namespace ShuttleZone.Dashboard1
         }
 
         private void label8_Click(object sender, EventArgs e) { }
-
+        private void label5_Click(object sender, EventArgs e) { }
         private void guna2CircleProgressBar1_ValueChanged(object sender, EventArgs e) { }
     }
 }
