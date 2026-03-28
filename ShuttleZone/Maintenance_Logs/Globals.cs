@@ -309,6 +309,38 @@ namespace ShuttleZone.Maintenance_Logs
             }
         }
 
+        public static string peakHourTodayFormatted;
+
+        public static void GetPeakHourToday()
+        {
+            using (MySqlConnection connection = DBconnection.GetConnection())
+            {
+                string query = @"
+            SELECT HOUR(transaction_time) AS peak_hour
+            FROM transactions
+            WHERE DATE(transaction_time) = CURDATE()
+            GROUP BY HOUR(transaction_time)
+            ORDER BY COUNT(*) DESC
+            LIMIT 1;";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        int hour = Convert.ToInt32(result);
+
+                        DateTime time = DateTime.Today.AddHours(hour);
+                        peakHourTodayFormatted = time.ToString("h tt"); // e.g. "2 PM"
+                    }
+                    else
+                    {
+                        peakHourTodayFormatted = "No data";
+                    }
+                }
+            }
+        }
 
         public static int kioskTransactions() {
 

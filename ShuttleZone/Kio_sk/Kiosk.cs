@@ -477,5 +477,10 @@ namespace ShuttleZone
         {
 
         }
+
+        private void pnlBannerContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
