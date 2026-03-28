@@ -1,4 +1,4 @@
-﻿DROP TABLE IF EXISTS kiosk_pending_payments;
+﻿﻿DROP TABLE IF EXISTS kiosk_pending_payments;
 CREATE TABLE kiosk_pending_payments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     stub_no VARCHAR(20) NOT NULL,

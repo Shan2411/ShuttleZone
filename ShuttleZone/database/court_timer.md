@@ -1,4 +1,4 @@
-﻿-- Create and use the database
+﻿﻿-- Create and use the database
 CREATE DATABASE IF NOT EXISTS `shuttlezone`;
 USE `shuttlezone`;
 
