@@ -236,8 +236,32 @@ namespace ShuttleZone
             if (sender is UC_KioskMembership)
             {
                 RemoveMembershipItems();
+                AddOrUpdateCartItem(e.Name, e.Price);
+                return;
             }
 
+            if (sender is UC_CourtRental)
+            {
+                string assignedCourt = GetFirstAvailableCourt();
+
+                if (assignedCourt == null)
+                {
+                    MessageBox.Show(
+                        "Sorry, there are no courts available at the moment.\nPlease try again later.",
+                        "No Courts Available",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                    return;
+                }
+
+                // e.g. "Court A - 1 Hour Rental"
+                string cartName = $"{assignedCourt} - {e.Name}";
+                AddOrUpdateCartItem(cartName, e.Price);
+                return;
+            }
+
+            // Equipment — no court assignment needed
             AddOrUpdateCartItem(e.Name, e.Price);
         }
 
@@ -554,6 +578,28 @@ namespace ShuttleZone
             }
 
             return 0;
+        }
+
+        // Add this helper method to Kiosk.cs
+        private string GetFirstAvailableCourt()
+        {
+            Globals.getCourtStatuses(); // fresh data from DB
+
+            if (Globals.statusFromDB?.Equals("Operational", StringComparison.OrdinalIgnoreCase) == true)
+                return "Court A";
+            if (Globals.statusFromDB1?.Equals("Operational", StringComparison.OrdinalIgnoreCase) == true)
+                return "Court B";
+            if (Globals.statusFromDB2?.Equals("Operational", StringComparison.OrdinalIgnoreCase) == true)
+                return "Court C";
+            if (Globals.statusFromDB3?.Equals("Operational", StringComparison.OrdinalIgnoreCase) == true)
+                return "Court D";
+
+            return null; // none available
+        }
+
+        private void btnKioskEcashPayment_Click_1(object sender, EventArgs e)
+        {
+
         }
 
         // Empty placeholders

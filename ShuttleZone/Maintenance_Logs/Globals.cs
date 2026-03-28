@@ -68,13 +68,13 @@ namespace ShuttleZone.Maintenance_Logs
         // Get multiple court status
         public static void getCourtStatuses()
         {
-            using (MySqlConnection conn = DBconnection.GetConnection())
+            using (MySqlConnection connection = DBconnection.GetConnection())
             {
-                conn.Open();
+ 
 
                 string query = "SELECT court_id, status FROM courts";
 
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())

@@ -3,6 +3,7 @@ using ShuttleZone.database;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ShuttleZone
@@ -176,7 +177,28 @@ namespace ShuttleZone
                     MessageBox.Show($"Payment cleared and recorded for Stub #{stubNo}.",
                         "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // 5. Remove the card from the UI
+                    MessageBox.Show($"Payment cleared and recorded for Stub #{stubNo}.",
+                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // 5. Show receipt
+                    var cartItems = rows.Select(r => new CartItem
+                    {
+                        Name = r.itemName,
+                        Qty = r.qty,
+                        Price = r.unitPrice
+                    }).ToList();
+
+                    decimal grandTotal = rows.Sum(r => r.total);
+
+                    var receipt = new ReceiptForm(
+                        cartItems,
+                        grandTotal,
+                        "Cash",
+                        DateTime.Now
+                    );
+                    receipt.Show();
+
+                    // 6. Remove the card from the UI
                     this.Parent?.Controls.Remove(this);
                     this.Dispose();
                 }
