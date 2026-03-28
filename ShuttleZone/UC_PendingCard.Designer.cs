@@ -81,6 +81,7 @@
             this.btnRemove.Size = new System.Drawing.Size(103, 57);
             this.btnRemove.TabIndex = 40;
             this.btnRemove.Text = "Remove";
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnPaymentCleared
             // 
@@ -98,6 +99,7 @@
             this.btnPaymentCleared.Size = new System.Drawing.Size(279, 55);
             this.btnPaymentCleared.TabIndex = 39;
             this.btnPaymentCleared.Text = "Payment Cleared";
+            this.btnPaymentCleared.Click += new System.EventHandler(this.btnPaymentCleared_Click);
             // 
             // lblPendingTotalAmount
             // 
