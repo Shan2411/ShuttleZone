@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
 using ShuttleZone.Kio_sk;
+using MySql.Data.MySqlClient;
+using ShuttleZone.database;
 
 namespace ShuttleZone
 {
@@ -41,6 +43,7 @@ namespace ShuttleZone
             ConfigureInactivityTimer();
             ApplyAutoReturnSettings();
             Load += Kiosk_Load;
+
             btnCourtRental.Click += BtnCourtRental_Click;
             btnEquipment.Click += BtnEquipment_Click;
             btnMembership.Click += BtnMembership_Click;
@@ -63,27 +66,26 @@ namespace ShuttleZone
         }
 
         private bool IsValidMemberCode(string code)
-{
-    using (var conn = new MySql.Data.MySqlClient.MySqlConnection("server=localhost;user id=root;password=;database=shuttlezone;"))
-    {
-        conn.Open();
-
-        string query = @"
-            SELECT COUNT(*) 
-            FROM members 
-            WHERE member_code = @code 
-              AND is_archived = 0
-              AND (expiry_date IS NULL OR expiry_date >= CURDATE())";
-
-        using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn))
         {
-            cmd.Parameters.AddWithValue("@code", code);
+            using (var conn = new MySqlConnection("server=localhost;user id=root;password=;database=shuttlezone;"))
+            {
+                conn.Open();
 
-            int count = Convert.ToInt32(cmd.ExecuteScalar());
-            return count > 0;
+                string query = @"
+                    SELECT COUNT(*) 
+                    FROM members 
+                    WHERE member_code = @code 
+                      AND is_archived = 0
+                      AND (expiry_date IS NULL OR expiry_date >= CURDATE())";
+
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@code", code);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+            }
         }
-    }
-}
 
         public static void UpdateAutoReturnSettings(bool enabled, int sessionTimeoutMinutes)
         {
@@ -346,15 +348,29 @@ namespace ShuttleZone
             var lblName = panel.Controls["lblKioskItemName"] as Guna2HtmlLabel;
 
             if (lblQty == null || lblPrice == null || lblRowTotal == null || lblName == null)
-            {
                 return;
-            }
 
             int qty = int.Parse(lblQty.Text);
             qty += change;
-            if (qty < 1)
+
+            // Find stock for this item
+            int stock = 0;
+            foreach (var row in pnlDynamic.Controls.OfType<UC_Equipment>())
             {
-                qty = 1;
+                var itemRow = row.Controls.OfType<UC_EquipmentRow>()
+                                .FirstOrDefault(r => r.EquipmentNameText == lblName.Text);
+                if (itemRow != null)
+                {
+                    stock = itemRow.AvailableStock;
+                    break;
+                }
+            }
+
+            if (qty < 1) qty = 1;
+            if (qty > stock)
+            {
+                qty = stock;
+                MessageBox.Show("Cannot exceed available stock.");
             }
 
             lblQty.Text = qty.ToString();
@@ -364,9 +380,7 @@ namespace ShuttleZone
 
             var item = cartItems.FirstOrDefault(c => c.Name == lblName.Text);
             if (item != null)
-            {
                 item.Qty = qty;
-            }
 
             UpdateTotals();
         }
@@ -433,23 +447,33 @@ namespace ShuttleZone
 
         private void BtnKioskCashPayment_Click(object sender, EventArgs e)
         {
-            decimal subtotal = GetSubtotal();
-            decimal total = subtotal - GetDiscountAmount(subtotal);
+            UpdateEquipmentInventory();
+
+            // Refresh UI so UC_Equipment shows latest availability
+            if (pnlDynamic.Controls[0] is UC_Equipment equipmentPanel)
+            {
+                equipmentPanel.RefreshEquipment();
+            }
+            var subtotal = GetSubtotal();
+            var total = subtotal - GetDiscountAmount(subtotal);
 
             var stub = new Stub(
-            new List<CartItem>(cartItems),
-            subtotal,
-            total,
-            DateTime.Now,
-            appliedDiscountPercent
+                new List<CartItem>(cartItems),
+                subtotal,
+                total,
+                DateTime.Now,
+                appliedDiscountPercent
             );
             stub.ShowDialog(this);
+
+            ResetCartAfterPayment();
         }
 
         private void BtnKioskEcashPayment_Click(object sender, EventArgs e)
         {
-            decimal subtotal = GetSubtotal();
-            decimal total = subtotal - GetDiscountAmount(subtotal);
+            UpdateEquipmentInventory();
+            var subtotal = GetSubtotal();
+            var total = subtotal - GetDiscountAmount(subtotal);
 
             var ecash = new EcashQR(total);
             ecash.PaymentCompleted += (s, args) =>
@@ -466,6 +490,45 @@ namespace ShuttleZone
                 ShowReceipt(total);
             };
             ecash.ShowDialog(this);
+
+            ResetCartAfterPayment();
+        }
+
+        private void ResetCartAfterPayment()
+        {
+            foreach (var panel in flowKioskCart.Controls.OfType<Guna2Panel>().ToList())
+            {
+                flowKioskCart.Controls.Remove(panel);
+                panel.Dispose();
+            }
+
+            cartItems.Clear();
+            appliedDiscountPercent = 0m;
+            pnlKioskDiscountApplied.Visible = false;
+            txtKioskMemberCode.Text = string.Empty;
+            UpdateTotals();
+        }
+
+        private void UpdateEquipmentInventory()
+        {
+            using (var conn = new MySqlConnection("server=localhost;user id=root;password=;database=shuttlezone;"))
+            {
+                conn.Open();
+
+                foreach (var item in cartItems)
+                {
+                    if (item.Name.Contains("Court") || item.Name.Contains("Month"))
+                        continue;
+
+                    using (var cmd = new MySqlCommand(
+                        "UPDATE equipment SET Available = Available - @qty, Rented = Rented + @qty, Status = CASE WHEN Available - @qty = 0 THEN 'Out of Stock' ELSE 'Available' END WHERE Name = @name", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@qty", item.Qty);
+                        cmd.Parameters.AddWithValue("@name", item.Name);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
         }
 
         private void ShowReceipt(decimal amountReceived)
@@ -491,19 +554,9 @@ namespace ShuttleZone
             return 0;
         }
 
-        private void btnKioskEcashPayment_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnKioskCashPayment_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnKioskApply_Click_1(object sender, EventArgs e)
-        {
-
-        }
+        // Empty placeholders
+        private void btnKioskEcashPayment_Click_1(object sender, EventArgs e) { }
+        private void btnKioskCashPayment_Click_1(object sender, EventArgs e) { }
+        private void btnKioskApply_Click_1(object sender, EventArgs e) { }
     }
 }
