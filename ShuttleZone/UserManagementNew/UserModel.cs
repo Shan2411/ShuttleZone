@@ -12,6 +12,8 @@ namespace ShuttleZone.UserManagement
         public string Password { get; set; }
         public string Role { get; set; }
         public string Status { get; set; }
+        public string PhoneNumber { get; set; }
         public DateTime LastLogin { get; set; }
+        public string ProfileImagePath { get; set; }
     }
 }

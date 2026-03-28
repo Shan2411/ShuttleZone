@@ -54,8 +54,8 @@ namespace ShuttleZone.Dashboard1
                 new CourtCardInUse("Court D", Globals.statusFromDB3)
             };
 
-            label5.Text = Globals.activeRentals.ToString() + "/4 In Use";
-            label6.Text = Globals.GetAverageRentHours().ToString("F1") + " Avg Hours";
+            //label5.Text = Globals.activeRentals.ToString() + "/4 In Use";
+            //label6.Text = Globals.GetAverageRentHours().ToString("F1") + " Avg Hours";
 
             flowLayoutPanel1.Controls.AddRange(buttons);
 

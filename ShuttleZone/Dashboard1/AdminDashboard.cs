@@ -128,7 +128,7 @@ namespace ShuttleZone.Dashboard1
             flowLayoutPanel2.Controls.Clear();
 
             flowLayoutPanel2.Controls.Add(new Label { Text = "System Activity", Font = new Font("Segoe UI", 13, FontStyle.Bold), AutoSize = true, Margin = new Padding(10, 6, 0, 15) });
-            flowLayoutPanel2.Controls.Add(new Label { Text = "Peak Hours:", Font = new Font("Segoe UI", 11, FontStyle.Regular), AutoSize = true, Margin = new Padding(0, 0, 0, 5) });
+            flowLayoutPanel2.Controls.Add(new Label { Text = "    Peak Hours Today:", Font = new Font("Segoe UI", 11, FontStyle.Regular), AutoSize = true, Margin = new Padding(0, 0, 0, 5) });
             flowLayoutPanel2.Controls.Add(new PeakHours { Margin = new Padding(0, 5, 0, 10) });
 
             flowLayoutPanel1.ResumeLayout(false);

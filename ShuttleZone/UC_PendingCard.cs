@@ -1,5 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using ShuttleZone.database;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -89,6 +91,139 @@ namespace ShuttleZone
             }
 
             lblPendingTotalAmount.Text = $"₱{grandTotal:N2}";
+        }
+
+        private void btnPaymentCleared_Click(object sender, System.EventArgs e)
+        {
+            string stubNo = lblPendingStubNo.Text;
+
+            DialogResult confirm = MessageBox.Show(
+                $"Confirm payment cleared for Stub #{stubNo}?",
+                "Confirm Payment",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirm != DialogResult.Yes) return;
+
+            try
+            {
+                using (var conn = DBconnection.GetConnection())
+                {
+                    // 1. Fetch all pending rows for this stub
+                    string selectQuery = @"
+                SELECT item_name, quantity, unit_price, total_amount, date_issued, time_issued 
+                FROM kiosk_pending_payments 
+                WHERE stub_no = @stub";
+
+                    var rows = new List<(string itemName, int qty, decimal unitPrice, decimal total, string date, string time)>();
+
+                    using (var cmd = new MySqlCommand(selectQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@stub", stubNo);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                rows.Add((
+                                    reader["item_name"].ToString(),
+                                    int.Parse(reader["quantity"].ToString()),
+                                    decimal.Parse(reader["unit_price"].ToString()),
+                                    decimal.Parse(reader["total_amount"].ToString()),
+                                    reader["date_issued"].ToString(),
+                                    reader["time_issued"].ToString()
+                                ));
+                            }
+                        }
+                    }
+
+                    // 2. Generate a receipt number
+                    string receiptNo = "KIOSK-" + DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + stubNo;
+
+                    // 3. Insert each row into transactions
+                    string insertQuery = @"
+                INSERT INTO transactions 
+                    (receipt_no, transaction_date, transaction_time, income_type, 
+                     item_name, quantity, unit_price, total_amount, payment_method, 
+                     created_at, transaction_source)
+                VALUES 
+                    (@receipt_no, @transaction_date, @transaction_time, 'Sales',
+                     @item_name, @quantity, @unit_price, @total_amount, 'Cash',
+                     NOW(), 'Kiosk')";
+
+                    foreach (var row in rows)
+                    {
+                        using (var cmd = new MySqlCommand(insertQuery, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@receipt_no", receiptNo);
+                            cmd.Parameters.AddWithValue("@transaction_date", row.date);
+                            cmd.Parameters.AddWithValue("@transaction_time", row.time);
+                            cmd.Parameters.AddWithValue("@item_name", row.itemName);
+                            cmd.Parameters.AddWithValue("@quantity", row.qty);
+                            cmd.Parameters.AddWithValue("@unit_price", row.unitPrice);
+                            cmd.Parameters.AddWithValue("@total_amount", row.total);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    // 4. Delete all rows with this stub from kiosk_pending_payments
+                    string deleteQuery = "DELETE FROM kiosk_pending_payments WHERE stub_no = @stub";
+                    using (var cmd = new MySqlCommand(deleteQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@stub", stubNo);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show($"Payment cleared and recorded for Stub #{stubNo}.",
+                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // 5. Remove the card from the UI
+                    this.Parent?.Controls.Remove(this);
+                    this.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error processing payment: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRemove_Click(object sender, System.EventArgs e)
+        {
+            string stubNo = lblPendingStubNo.Text;
+
+            DialogResult confirm = MessageBox.Show(
+                $"Are you sure you want to remove Stub #{stubNo}?",
+                "Confirm Remove",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (confirm != DialogResult.Yes) return;
+
+            try
+            {
+                using (var conn = DBconnection.GetConnection())
+                {
+                    string deleteQuery = "DELETE FROM kiosk_pending_payments WHERE stub_no = @stub";
+                    using (var cmd = new MySqlCommand(deleteQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@stub", stubNo);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show($"Stub #{stubNo} has been removed.",
+                    "Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Remove the card from the UI
+                this.Parent?.Controls.Remove(this);
+                this.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error removing stub: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

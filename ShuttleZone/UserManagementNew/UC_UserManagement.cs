@@ -9,6 +9,9 @@ namespace ShuttleZone.UserManagement
     {
         private readonly List<UserModel> _users = new List<UserModel>();
 
+        // ✅ Prevent duplicate profile openings
+        private bool isProfileOpen = false;
+
         public UC_UserManagement()
         {
             InitializeComponent();
@@ -24,7 +27,6 @@ namespace ShuttleZone.UserManagement
 
             flpMemberRowContainer.SizeChanged += FlpMemberRowContainer_SizeChanged;
 
-            // Populate ComboBox with column names
             guna2ComboBox1.Items.AddRange(new string[]
             {
                 "All",
@@ -56,7 +58,8 @@ namespace ShuttleZone.UserManagement
                 FullName = "System Administrator",
                 Email = "admin@shuttlezone.local",
                 Role = "Admin",
-                Status = "Active"
+                Status = "Active",
+                Password = "admin"
             });
 
             _users.Add(new UserModel
@@ -66,19 +69,13 @@ namespace ShuttleZone.UserManagement
                 FullName = "Branch Manager",
                 Email = "manager@shuttlezone.local",
                 Role = "Manager",
-                Status = "Active"
+                Status = "Active",
+                Password = "manager"
             });
         }
 
-        private void Searchbox_TextChanged(object sender, EventArgs e)
-        {
-            ApplySearch();
-        }
-
-        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ApplySearch();
-        }
+        private void Searchbox_TextChanged(object sender, EventArgs e) => ApplySearch();
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e) => ApplySearch();
 
         private void ApplySearch()
         {
@@ -93,36 +90,25 @@ namespace ShuttleZone.UserManagement
                 switch (column)
                 {
                     case "Username":
-                        return u.Username.ToLower().Contains(query);
-
+                        return (u.Username ?? "").ToLower().Contains(query);
                     case "Full Name":
-                        return u.FullName.ToLower().Contains(query);
-
+                        return (u.FullName ?? "").ToLower().Contains(query);
                     case "Email":
-                        return u.Email.ToLower().Contains(query);
-
+                        return (u.Email ?? "").ToLower().Contains(query);
                     case "Role":
-                        return u.Role.ToLower().Contains(query);
-
+                        return (u.Role ?? "").ToLower().Contains(query);
                     case "Status":
-                        return u.Status.ToLower().Contains(query);
-
-                    default: // All
-                        return u.Username.ToLower().Contains(query)
-                            || u.FullName.ToLower().Contains(query)
-                            || u.Email.ToLower().Contains(query)
-                            || u.Role.ToLower().Contains(query)
-                            || u.Status.ToLower().Contains(query);
+                        return (u.Status ?? "").ToLower().Contains(query);
+                    default:
+                        return (u.Username ?? "").ToLower().Contains(query)
+                            || (u.FullName ?? "").ToLower().Contains(query)
+                            || (u.Email ?? "").ToLower().Contains(query)
+                            || (u.Role ?? "").ToLower().Contains(query)
+                            || (u.Status ?? "").ToLower().Contains(query);
                 }
-
             }).ToList();
 
             RenderUsers(filtered);
-        }
-
-        private void btnAddUser_Click_2(object sender, EventArgs e)
-        {
-           
         }
 
         private void RenderUsers(List<UserModel> users)
@@ -135,36 +121,89 @@ namespace ShuttleZone.UserManagement
                 var row = new UC_UserRow
                 {
                     User = user,
-                    Margin = new Padding(0)
+                    Margin = new Padding(0),
+                    Width = flpMemberRowContainer.ClientSize.Width
                 };
 
-                row.Width = flpMemberRowContainer.ClientSize.Width;
                 row.UpdateDisplay();
 
+                // ✅ EDIT CLICK
                 row.EditClicked += (s, e) =>
                 {
-                    var editControl = new UC_EditUser();
-                    editControl.LoadUser(user);
+                    if (isProfileOpen) return; // 🚫 prevent duplicate open
 
-                    Form modal = new Form
+                    isProfileOpen = true;
+                    row.Enabled = false; // optional safety
+
+                    var profile = new ShuttleZone.UserManagementNew.UC_UserProfile();
+                    profile.SetUser(user);
+
+                    Form profileModal = new Form
                     {
                         FormBorderStyle = FormBorderStyle.None,
                         StartPosition = FormStartPosition.CenterParent,
-                        ClientSize = editControl.Size
+                        ClientSize = profile.Size
                     };
 
-                    editControl.Dock = DockStyle.Fill;
-                    modal.Controls.Add(editControl);
+                    profile.Dock = DockStyle.Fill;
+                    profileModal.Controls.Add(profile);
 
-                    editControl.UserUpdated += (sender2, updatedUser) =>
+                    // ✅ Reset state when closed
+                    profileModal.FormClosed += (s2, e2) =>
                     {
-                        RenderUsers(_users);
-                        modal.Close();
+                        isProfileOpen = false;
+                        row.Enabled = true;
                     };
 
-                    modal.ShowDialog();
+                    // ✅ OPEN EDIT
+                    profile.EditProfileClicked += (s2, e2) =>
+                    {
+                        profileModal.Close();
+
+                        var edit = new ShuttleZone.UserManagementNew.UC_EditProfileMain(user);
+
+                        Form editModal = new Form
+                        {
+                            FormBorderStyle = FormBorderStyle.None,
+                            StartPosition = FormStartPosition.CenterParent,
+                            ClientSize = edit.Size
+                        };
+
+                        edit.Dock = DockStyle.Fill;
+                        editModal.Controls.Add(edit);
+
+                        // ✅ CHANGE PASSWORD
+                        edit.ChangePasswordClicked += (s3, e3) =>
+                        {
+                            var change = new ShuttleZone.UserManagementNew.UC_ChangePassword();
+                            change.SetUser(user);
+
+                            Form changeModal = new Form
+                            {
+                                FormBorderStyle = FormBorderStyle.None,
+                                StartPosition = FormStartPosition.CenterParent,
+                                ClientSize = change.Size
+                            };
+
+                            change.Dock = DockStyle.Fill;
+                            changeModal.Controls.Add(change);
+
+                            changeModal.ShowDialog();
+                        };
+
+                        // ✅ Refresh AFTER edit closes
+                        edit.FormClosed += (s4, e4) =>
+                        {
+                            RenderUsers(_users);
+                        };
+
+                        editModal.ShowDialog();
+                    };
+
+                    profileModal.ShowDialog();
                 };
 
+                // ✅ DELETE
                 row.DeleteClicked += (s, e) =>
                 {
                     var confirm = MessageBox.Show(
@@ -192,11 +231,6 @@ namespace ShuttleZone.UserManagement
                 ctrl.Width = flpMemberRowContainer.ClientSize.Width;
         }
 
-        private void flpMemberRowContainer_Paint(object sender, PaintEventArgs e)
-        {
-            // optional
-        }
-
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             var addControl = new UC_NewAddUser
@@ -217,16 +251,16 @@ namespace ShuttleZone.UserManagement
             addControl.UserCreated += (s, newUser) =>
             {
                 newUser.ID = (_users.Count + 1).ToString();
-
                 _users.Add(newUser);
-
                 RenderUsers(_users);
-
                 modal.Close();
             };
 
             modal.ShowDialog();
-
         }
+
+        private void flpMemberRowContainer_Paint(object sender, PaintEventArgs e) { }
+        private void ArchivedLbl_Click(object sender, EventArgs e) { }
+        private void ArchivedBtn_Click(object sender, EventArgs e) { }
     }
 }
