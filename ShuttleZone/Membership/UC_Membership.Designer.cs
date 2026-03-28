@@ -34,6 +34,8 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.ArchivedLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.AddMemberBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.ArchivedBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -47,6 +49,7 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.flpMemberRowContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.SearchbarBGPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.Searchbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
@@ -61,9 +64,6 @@
             this.totalMembers = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.AddMemberBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.ArchivedBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.Searchbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -125,7 +125,7 @@
             this.ArchivedLbl.BackColor = System.Drawing.Color.Transparent;
             this.ArchivedLbl.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
             this.ArchivedLbl.Location = new System.Drawing.Point(468, 16);
-            this.ArchivedLbl.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.ArchivedLbl.Margin = new System.Windows.Forms.Padding(10);
             this.ArchivedLbl.Name = "ArchivedLbl";
             this.ArchivedLbl.Size = new System.Drawing.Size(86, 25);
             this.ArchivedLbl.TabIndex = 31;
@@ -138,11 +138,59 @@
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(10, 16);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(249, 25);
             this.guna2HtmlLabel1.TabIndex = 0;
             this.guna2HtmlLabel1.Text = "Membership Management";
+            // 
+            // AddMemberBtn
+            // 
+            this.AddMemberBtn.BackColor = System.Drawing.Color.Transparent;
+            this.AddMemberBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
+            this.AddMemberBtn.BorderRadius = 8;
+            this.AddMemberBtn.BorderThickness = 1;
+            this.AddMemberBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.AddMemberBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.AddMemberBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.AddMemberBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.AddMemberBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddMemberBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
+            this.AddMemberBtn.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
+            this.AddMemberBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddMemberBtn.ForeColor = System.Drawing.Color.White;
+            this.AddMemberBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddMemberBtn.Image")));
+            this.AddMemberBtn.Location = new System.Drawing.Point(795, 20);
+            this.AddMemberBtn.Margin = new System.Windows.Forms.Padding(5, 20, 20, 20);
+            this.AddMemberBtn.Name = "AddMemberBtn";
+            this.AddMemberBtn.Size = new System.Drawing.Size(117, 18);
+            this.AddMemberBtn.TabIndex = 29;
+            this.AddMemberBtn.Text = "Add Member";
+            this.AddMemberBtn.Click += new System.EventHandler(this.AddMemberBtn_Click);
+            // 
+            // ArchivedBtn
+            // 
+            this.ArchivedBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ArchivedBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(213)))), ((int)(((byte)(220)))));
+            this.ArchivedBtn.BorderRadius = 8;
+            this.ArchivedBtn.BorderThickness = 1;
+            this.ArchivedBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ArchivedBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ArchivedBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ArchivedBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ArchivedBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ArchivedBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(114)))), ((int)(((byte)(130)))));
+            this.ArchivedBtn.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(114)))), ((int)(((byte)(130)))));
+            this.ArchivedBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ArchivedBtn.ForeColor = System.Drawing.Color.White;
+            this.ArchivedBtn.Image = ((System.Drawing.Image)(resources.GetObject("ArchivedBtn.Image")));
+            this.ArchivedBtn.Location = new System.Drawing.Point(671, 20);
+            this.ArchivedBtn.Margin = new System.Windows.Forms.Padding(20, 20, 5, 20);
+            this.ArchivedBtn.Name = "ArchivedBtn";
+            this.ArchivedBtn.Size = new System.Drawing.Size(114, 18);
+            this.ArchivedBtn.TabIndex = 30;
+            this.ArchivedBtn.Text = "Show Archived";
+            this.ArchivedBtn.Click += new System.EventHandler(this.ArchivedBtn_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -213,7 +261,7 @@
             this.guna2HtmlLabel9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel9.ForeColor = System.Drawing.Color.White;
             this.guna2HtmlLabel9.Location = new System.Drawing.Point(829, 10);
-            this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             this.guna2HtmlLabel9.Size = new System.Drawing.Size(73, 8);
             this.guna2HtmlLabel9.TabIndex = 8;
@@ -227,7 +275,7 @@
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.White;
             this.guna2HtmlLabel8.Location = new System.Drawing.Point(738, 10);
-            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             this.guna2HtmlLabel8.Size = new System.Drawing.Size(71, 8);
             this.guna2HtmlLabel8.TabIndex = 7;
@@ -240,7 +288,7 @@
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.White;
             this.guna2HtmlLabel7.Location = new System.Drawing.Point(675, 10);
-            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             this.guna2HtmlLabel7.Size = new System.Drawing.Size(43, 8);
             this.guna2HtmlLabel7.TabIndex = 6;
@@ -253,7 +301,7 @@
             this.guna2HtmlLabel6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.White;
             this.guna2HtmlLabel6.Location = new System.Drawing.Point(520, 10);
-            this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             this.guna2HtmlLabel6.Size = new System.Drawing.Size(135, 8);
             this.guna2HtmlLabel6.TabIndex = 5;
@@ -266,7 +314,7 @@
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.White;
             this.guna2HtmlLabel5.Location = new System.Drawing.Point(411, 10);
-            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             this.guna2HtmlLabel5.Size = new System.Drawing.Size(89, 8);
             this.guna2HtmlLabel5.TabIndex = 4;
@@ -279,7 +327,7 @@
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.White;
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(256, 10);
-            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(135, 8);
             this.guna2HtmlLabel4.TabIndex = 3;
@@ -292,7 +340,7 @@
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.White;
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(101, 10);
-            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(135, 8);
             this.guna2HtmlLabel3.TabIndex = 2;
@@ -305,7 +353,7 @@
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.White;
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(10, 10);
-            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(71, 8);
             this.guna2HtmlLabel2.TabIndex = 1;
@@ -337,10 +385,35 @@
             this.SearchbarBGPanel.Location = new System.Drawing.Point(10, 149);
             this.SearchbarBGPanel.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.SearchbarBGPanel.Name = "SearchbarBGPanel";
-            this.SearchbarBGPanel.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.SearchbarBGPanel.Padding = new System.Windows.Forms.Padding(8);
             this.SearchbarBGPanel.ShadowDecoration.Depth = 60;
             this.SearchbarBGPanel.Size = new System.Drawing.Size(912, 23);
             this.SearchbarBGPanel.TabIndex = 1;
+            // 
+            // Searchbox
+            // 
+            this.Searchbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
+            this.Searchbox.BorderRadius = 8;
+            this.Searchbox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Searchbox.DefaultText = "";
+            this.Searchbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Searchbox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.Searchbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Searchbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Searchbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Searchbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Searchbox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Searchbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Searchbox.IconLeft = ((System.Drawing.Image)(resources.GetObject("Searchbox.IconLeft")));
+            this.Searchbox.Location = new System.Drawing.Point(8, 8);
+            this.Searchbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Searchbox.Name = "Searchbox";
+            this.Searchbox.Padding = new System.Windows.Forms.Padding(3);
+            this.Searchbox.PlaceholderText = "Search in members";
+            this.Searchbox.SelectedText = "";
+            this.Searchbox.Size = new System.Drawing.Size(896, 7);
+            this.Searchbox.TabIndex = 6;
+            this.Searchbox.TextChanged += new System.EventHandler(this.Searchbox_TextChanged);
             // 
             // tableLayoutPanel5
             // 
@@ -395,7 +468,7 @@
             this.guna2HtmlLabel12.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2HtmlLabel12.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel12.Location = new System.Drawing.Point(8, 8);
-            this.guna2HtmlLabel12.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.guna2HtmlLabel12.Margin = new System.Windows.Forms.Padding(8);
             this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             this.guna2HtmlLabel12.Size = new System.Drawing.Size(75, 14);
             this.guna2HtmlLabel12.TabIndex = 5;
@@ -449,7 +522,7 @@
             this.guna2HtmlLabel10.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2HtmlLabel10.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel10.Location = new System.Drawing.Point(8, 8);
-            this.guna2HtmlLabel10.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.guna2HtmlLabel10.Margin = new System.Windows.Forms.Padding(8);
             this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
             this.guna2HtmlLabel10.Size = new System.Drawing.Size(62, 14);
             this.guna2HtmlLabel10.TabIndex = 5;
@@ -516,7 +589,7 @@
             this.guna2HtmlLabel11.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2HtmlLabel11.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel11.Location = new System.Drawing.Point(8, 8);
-            this.guna2HtmlLabel11.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.guna2HtmlLabel11.Margin = new System.Windows.Forms.Padding(8);
             this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             this.guna2HtmlLabel11.Size = new System.Drawing.Size(52, 14);
             this.guna2HtmlLabel11.TabIndex = 2;
@@ -529,84 +602,11 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
-            // AddMemberBtn
-            // 
-            this.AddMemberBtn.BackColor = System.Drawing.Color.Transparent;
-            this.AddMemberBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
-            this.AddMemberBtn.BorderRadius = 8;
-            this.AddMemberBtn.BorderThickness = 1;
-            this.AddMemberBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.AddMemberBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.AddMemberBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.AddMemberBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.AddMemberBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddMemberBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
-            this.AddMemberBtn.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
-            this.AddMemberBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddMemberBtn.ForeColor = System.Drawing.Color.White;
-            this.AddMemberBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddMemberBtn.Image")));
-            this.AddMemberBtn.Location = new System.Drawing.Point(795, 20);
-            this.AddMemberBtn.Margin = new System.Windows.Forms.Padding(5, 20, 20, 20);
-            this.AddMemberBtn.Name = "AddMemberBtn";
-            this.AddMemberBtn.Size = new System.Drawing.Size(117, 18);
-            this.AddMemberBtn.TabIndex = 29;
-            this.AddMemberBtn.Text = "Add Member";
-            this.AddMemberBtn.Click += new System.EventHandler(this.AddMemberBtn_Click);
-            // 
-            // ArchivedBtn
-            // 
-            this.ArchivedBtn.BackColor = System.Drawing.Color.Transparent;
-            this.ArchivedBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(213)))), ((int)(((byte)(220)))));
-            this.ArchivedBtn.BorderRadius = 8;
-            this.ArchivedBtn.BorderThickness = 1;
-            this.ArchivedBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ArchivedBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ArchivedBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ArchivedBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ArchivedBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ArchivedBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(114)))), ((int)(((byte)(130)))));
-            this.ArchivedBtn.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(114)))), ((int)(((byte)(130)))));
-            this.ArchivedBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ArchivedBtn.ForeColor = System.Drawing.Color.White;
-            this.ArchivedBtn.Image = ((System.Drawing.Image)(resources.GetObject("ArchivedBtn.Image")));
-            this.ArchivedBtn.Location = new System.Drawing.Point(671, 20);
-            this.ArchivedBtn.Margin = new System.Windows.Forms.Padding(20, 20, 5, 20);
-            this.ArchivedBtn.Name = "ArchivedBtn";
-            this.ArchivedBtn.Size = new System.Drawing.Size(114, 18);
-            this.ArchivedBtn.TabIndex = 30;
-            this.ArchivedBtn.Text = "Show Archived";
-            this.ArchivedBtn.Click += new System.EventHandler(this.ArchivedBtn_Click);
-            // 
-            // Searchbox
-            // 
-            this.Searchbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
-            this.Searchbox.BorderRadius = 8;
-            this.Searchbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Searchbox.DefaultText = "";
-            this.Searchbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Searchbox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.Searchbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Searchbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Searchbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Searchbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Searchbox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Searchbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Searchbox.IconLeft = ((System.Drawing.Image)(resources.GetObject("Searchbox.IconLeft")));
-            this.Searchbox.Location = new System.Drawing.Point(8, 8);
-            this.Searchbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Searchbox.Name = "Searchbox";
-            this.Searchbox.Padding = new System.Windows.Forms.Padding(3);
-            this.Searchbox.PlaceholderText = "Search in members";
-            this.Searchbox.SelectedText = "";
-            this.Searchbox.Size = new System.Drawing.Size(896, 7);
-            this.Searchbox.TabIndex = 6;
-            this.Searchbox.TextChanged += new System.EventHandler(this.Searchbox_TextChanged);
-            // 
             // UC_Membership
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(246)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UC_Membership";
             this.Size = new System.Drawing.Size(932, 587);
