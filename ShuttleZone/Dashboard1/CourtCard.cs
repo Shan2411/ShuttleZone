@@ -249,15 +249,58 @@ namespace ShuttleZone.Dashboard1
         private string _lastStatus = "";
         public void countDownStarter(string statusForColor)
         {
-            if (_lastStatus == statusForColor)
-                return; // 🚀 STOP re-rendering
+            bool statusChanged = _lastStatus != statusForColor;
 
+            // Always check if timer needs starting for "in use", regardless of _lastStatus
+            if (statusForColor.ToLower() == "in use")
+            {
+                // Start timer if not already running — this must ALWAYS be checked
+                if (_countdownTimer == null || !_countdownTimer.Enabled)
+                {
+                    guna2HtmlLabel1.Visible = true;
+                    guna2VProgressBar1.Visible = true;
+                    guna2VProgressBar1.Maximum = 100;
+
+                    var timerData = GetActiveTimerFromDB();
+                    if (timerData.HasValue)
+                    {
+                        _totalDuration = timerData.Value.total;
+                        StartCountdown(timerData.Value.remaining);
+                    }
+                    else
+                    {
+                        StartCountdown(TimeSpan.FromHours(1));
+                    }
+                }
+
+                // Only redraw UI colors/labels if status actually changed
+                if (!statusChanged) return;
+
+                _lastStatus = statusForColor;
+                guna2HtmlLabel2.Text = "Time Remaining:";
+                guna2HtmlLabel2.AutoSize = false;
+                guna2HtmlLabel2.Visible = true;
+
+                guna2Button2.Text = "In Use";
+                guna2Button2.FillColor = Color.FromArgb(40, 90, 175);
+                guna2Button2.BorderColor = Color.FromArgb(20, 55, 130);
+                guna2Panel1.FillColor = Color.FromArgb(100, 160, 255);
+                guna2Panel1.BorderColor = Color.FromArgb(40, 90, 175);
+
+                guna2CirclePictureBox2.Visible = true;
+                guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.inuse;
+                return;
+            }
+
+            // For all other statuses — skip if unchanged
+            if (!statusChanged) return;
             _lastStatus = statusForColor;
+
             switch (statusForColor.ToLower())
             {
                 case "operational":
                     guna2HtmlLabel2.Text = "Ready For Booking";
-                    guna2HtmlLabel1.Text = "";
+                    guna2HtmlLabel1.Visible = false;
                     guna2Button2.Text = "Operational";
 
                     guna2Button2.FillColor = Color.FromArgb(75, 120, 60);
@@ -270,43 +313,8 @@ namespace ShuttleZone.Dashboard1
                     guna2VProgressBar1.Visible = false;
                     break;
 
-                case "in use":
-                    guna2HtmlLabel2.Text = "Time Remaining:";
-                    guna2HtmlLabel2.AutoSize = false;
-                    guna2VProgressBar1.Visible = true;
-                    guna2VProgressBar1.Maximum = 100;
-
-                    if (_countdownTimer == null || !_countdownTimer.Enabled)
-                    {
-                        var timerData = GetActiveTimerFromDB();
-                        if (timerData.HasValue)
-                        {
-                            _totalDuration = timerData.Value.total;
-                            StartCountdown(timerData.Value.remaining);
-                        }
-                        else
-                        {
-                            StartCountdown(TimeSpan.FromHours(1));
-                        }
-                    }
-
-                    guna2Button2.Text = "In Use";
-                    guna2Button2.FillColor = Color.FromArgb(40, 90, 175);
-                    guna2Button2.BorderColor = Color.FromArgb(20, 55, 130);
-                    guna2Panel1.FillColor = Color.FromArgb(100, 160, 255);
-                    guna2Panel1.BorderColor = Color.FromArgb(40, 90, 175);
-
-                    guna2CirclePictureBox2.Visible = true;
-                    guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.inuse;
-
-                    // Fetch and show reason for "In Use" (e.g. "Paid via Cash")
-                    //string inUseReason = GetStatusReasonFromDB();
-                    guna2HtmlLabel2.Text = "Time Remaining:";
-                    guna2HtmlLabel2.Visible = true;
-                    break;
-
                 case "under maintenance":
-                    guna2HtmlLabel1.Text = "";
+                    guna2HtmlLabel1.Visible = false;
                     guna2Button2.Text = "Maintenance";
 
                     guna2Button2.FillColor = Color.FromArgb(175, 130, 20);
@@ -326,7 +334,7 @@ namespace ShuttleZone.Dashboard1
 
                 case "out of service":
                     StopCountdown();
-                    guna2HtmlLabel1.Text = "";
+                    guna2HtmlLabel1.Visible = false;
                     guna2Button2.Text = "Out of Service";
 
                     guna2Button2.FillColor = Color.FromArgb(175, 50, 50);

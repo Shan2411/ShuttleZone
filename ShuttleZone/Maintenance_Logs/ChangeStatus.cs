@@ -255,7 +255,7 @@ namespace ShuttleZone.Maintenance_Logs
                     {
 
                         cmd.Parameters.AddWithValue("@status", status);
-                        cmd.Parameters.AddWithValue("@reason", comboBox1.Text + " - " + textBox1.Text);
+                        cmd.Parameters.AddWithValue("@reason", comboBox1.Text + "\n\n- " + textBox1.Text);
                         cmd.Parameters.AddWithValue("@courtName", court);
                         cmd.ExecuteNonQuery();
 
