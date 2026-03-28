@@ -39,14 +39,15 @@ namespace ShuttleZone.UserManagement
             this.lblUsername = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblID = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblRole = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lblStatus = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblFullName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblEmail = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblStatus)).BeginInit();
+            this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -82,13 +83,14 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel3.Controls.Add(this.lblRole, 4, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblFullName, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblEmail, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.lblStatus, 5, 0);
+            this.tableLayoutPanel3.Controls.Add(this.guna2Panel2, 5, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1217, 42);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
@@ -104,6 +106,7 @@ namespace ShuttleZone.UserManagement
             this.btnDelete.Size = new System.Drawing.Size(27, 22);
             this.btnDelete.TabIndex = 9;
             this.btnDelete.TabStop = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
             // btnEdit
             // 
@@ -117,6 +120,7 @@ namespace ShuttleZone.UserManagement
             this.btnEdit.Size = new System.Drawing.Size(27, 22);
             this.btnEdit.TabIndex = 8;
             this.btnEdit.TabStop = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // lblUsername
             // 
@@ -160,19 +164,6 @@ namespace ShuttleZone.UserManagement
             this.lblRole.TabIndex = 5;
             this.lblRole.Text = "ROLE";
             // 
-            // lblStatus
-            // 
-            this.lblStatus.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lblStatus.BackgroundImage")));
-            this.lblStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.lblStatus.FillColor = System.Drawing.Color.Transparent;
-            this.lblStatus.ImageRotate = 0F;
-            this.lblStatus.Location = new System.Drawing.Point(980, 8);
-            this.lblStatus.Margin = new System.Windows.Forms.Padding(10, 8, 10, 8);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(63, 25);
-            this.lblStatus.TabIndex = 10;
-            this.lblStatus.TabStop = false;
-            // 
             // lblFullName
             // 
             this.lblFullName.AutoSize = false;
@@ -201,6 +192,35 @@ namespace ShuttleZone.UserManagement
             this.lblEmail.TabIndex = 3;
             this.lblEmail.Text = "EMAIL";
             // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.Controls.Add(this.guna2ComboBox1);
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel2.Location = new System.Drawing.Point(970, 0);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Padding = new System.Windows.Forms.Padding(5, 0, 5, 11);
+            this.guna2Panel2.Size = new System.Drawing.Size(109, 42);
+            this.guna2Panel2.TabIndex = 10;
+            // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.BorderRadius = 12;
+            this.guna2ComboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.Black;
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.Location = new System.Drawing.Point(5, 0);
+            this.guna2ComboBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.Size = new System.Drawing.Size(99, 36);
+            this.guna2ComboBox1.TabIndex = 11;
+            // 
             // UC_UserRow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -214,7 +234,7 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblStatus)).EndInit();
+            this.guna2Panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -224,7 +244,7 @@ namespace ShuttleZone.UserManagement
             throw new NotImplementedException();
         }
 
-        private void btnEdit_Click_2(object sender, EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
             EditClicked?.Invoke(this, EventArgs.Empty);
         }
@@ -233,6 +253,11 @@ namespace ShuttleZone.UserManagement
         {
             DeleteClicked?.Invoke(this, EventArgs.Empty);
         }
+
+        /*private void btnDelete_Click_1(object sender, EventArgs e)
+        {
+            DeleteClicked?.Invoke(this, EventArgs.Empty);
+        }*/
 
         #endregion
 
@@ -243,8 +268,9 @@ namespace ShuttleZone.UserManagement
         private Guna.UI2.WinForms.Guna2HtmlLabel lblUsername;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblID;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblRole;
-        private Guna.UI2.WinForms.Guna2PictureBox lblStatus;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblFullName;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblEmail;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
     }
 }

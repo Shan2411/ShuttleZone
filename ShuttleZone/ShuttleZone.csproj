@@ -475,11 +475,29 @@
     <Compile Include="UC_Pos.Designer.cs">
       <DependentUpon>UC_Pos.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserManagementNew\UC_Archive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserManagementNew\UC_Archive.Designer.cs">
+      <DependentUpon>UC_Archive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagementNew\UC_ChangePassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserManagementNew\UC_ChangePassword.Designer.cs">
+      <DependentUpon>UC_ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserManagementNew\UC_EditProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserManagementNew\UC_EditProfile.Designer.cs">
       <DependentUpon>UC_EditProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagementNew\UC_EditProfileMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserManagementNew\UC_EditProfileMain.Designer.cs">
+      <DependentUpon>UC_EditProfileMain.cs</DependentUpon>
     </Compile>
     <Compile Include="UserManagementNew\UC_EditUser.cs">
       <SubType>UserControl</SubType>
@@ -692,8 +710,17 @@
     <EmbeddedResource Include="UC_Pos.resx">
       <DependentUpon>UC_Pos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserManagementNew\UC_Archive.resx">
+      <DependentUpon>UC_Archive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagementNew\UC_ChangePassword.resx">
+      <DependentUpon>UC_ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserManagementNew\UC_EditProfile.resx">
       <DependentUpon>UC_EditProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagementNew\UC_EditProfileMain.resx">
+      <DependentUpon>UC_EditProfileMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManagementNew\UC_EditUser.resx">
       <DependentUpon>UC_EditUser.cs</DependentUpon>
