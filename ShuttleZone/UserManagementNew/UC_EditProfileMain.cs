@@ -51,17 +51,13 @@ namespace ShuttleZone.UserManagementNew
                 guna2TextBox1.KeyPress += Phone_KeyPress;
                 guna2TextBox1.TextChanged += Phone_TextChanged;
             }
-
-
         }
 
+        // ================= PHONE INPUT =================
         private void Phone_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Allow only digits and control keys (backspace)
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
                 e.Handled = true;
-            }
         }
 
         private void Phone_TextChanged(object sender, EventArgs e)
@@ -73,6 +69,7 @@ namespace ShuttleZone.UserManagementNew
             }
         }
 
+        // ================= LOAD USER =================
         private void LoadUserData()
         {
             if (currentUser == null) return;
@@ -81,36 +78,46 @@ namespace ShuttleZone.UserManagementNew
             UserNameTextBox.Text = currentUser.Username ?? "";
             EmailTextBox.Text = currentUser.Email ?? "";
 
-            // ✅ SAME LOGIC: show "No phone" if empty
-            guna2TextBox1.Text = string.IsNullOrWhiteSpace(currentUser.PhoneNumber)
-                ? "No phone"
-                : currentUser.PhoneNumber;
+            // ✅ FIX: placeholder instead of actual text
+            if (string.IsNullOrWhiteSpace(currentUser.PhoneNumber))
+            {
+                guna2TextBox1.Text = "";
+                guna2TextBox1.PlaceholderText = "No phone";
+            }
+            else
+            {
+                guna2TextBox1.Text = currentUser.PhoneNumber;
+                guna2TextBox1.PlaceholderText = "";
+            }
 
-            lblRole.Text = (currentUser.Role ?? "");
-
-            //"Role: " +
+            lblRole.Text = currentUser.Role ?? "";
 
             if (!string.IsNullOrEmpty(currentUser.ProfileImagePath) &&
                 File.Exists(currentUser.ProfileImagePath))
             {
                 guna2CirclePictureBox1.ImageLocation = currentUser.ProfileImagePath;
             }
+            else
+            {
+                guna2CirclePictureBox1.Image = null;
+            }
         }
 
+        // ================= SAVE =================
         private void ConfirmEdit_Click(object sender, EventArgs e)
         {
             if (currentUser == null) return;
 
             if (!ValidateFields()) return;
 
-            // ✅ Update user (same style as AddUser)
             currentUser.FullName = FullNameTextBox.Text.Trim();
             currentUser.Username = UserNameTextBox.Text.Trim();
             currentUser.Email = EmailTextBox.Text.Trim();
 
-            // ✅ Save phone properly
-            currentUser.PhoneNumber =
-                guna2TextBox1.Text == "No phone" ? "" : guna2TextBox1.Text.Trim();
+            // ✅ Save properly
+            currentUser.PhoneNumber = string.IsNullOrWhiteSpace(guna2TextBox1.Text)
+                ? ""
+                : guna2TextBox1.Text.Trim();
 
             MessageBox.Show("Profile updated successfully!", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -119,9 +126,9 @@ namespace ShuttleZone.UserManagementNew
             this.FindForm()?.Close();
         }
 
+        // ================= VALIDATION =================
         private bool ValidateFields()
         {
-            // ✅ SAME AS ADD USER
             if (string.IsNullOrWhiteSpace(UserNameTextBox.Text) ||
                 string.IsNullOrWhiteSpace(FullNameTextBox.Text) ||
                 string.IsNullOrWhiteSpace(EmailTextBox.Text))
@@ -138,9 +145,8 @@ namespace ShuttleZone.UserManagementNew
                 return false;
             }
 
-            // Optional phone validation (only if user typed real number)
+            // ✅ Only validate if user typed something
             if (!string.IsNullOrWhiteSpace(guna2TextBox1.Text) &&
-                guna2TextBox1.Text != "No phone" &&
                 guna2TextBox1.Text.Length != 11)
             {
                 MessageBox.Show("Phone must be 11 digits.");
@@ -150,45 +156,18 @@ namespace ShuttleZone.UserManagementNew
             return true;
         }
 
+        // ================= RESET =================
         private void ResetButton_Click(object sender, EventArgs e)
         {
             if (currentUser == null) return;
 
-            // 🔹 Reset text fields
-            FullNameTextBox.Text = currentUser.FullName ?? "";
-            UserNameTextBox.Text = currentUser.Username ?? "";
-            EmailTextBox.Text = currentUser.Email ?? "";
+            LoadUserData(); // ✅ reuse instead of duplicating logic
 
-            // 🔹 Reset phone
-            guna2TextBox1.Text = string.IsNullOrWhiteSpace(currentUser.PhoneNumber)
-                ? "No phone"
-                : currentUser.PhoneNumber;
-
-            // 🔹 Reset role label
-            lblRole.Text = currentUser.Role ?? "";
-
-            // 🔹 Reset image
-            if (!string.IsNullOrEmpty(currentUser.ProfileImagePath) &&
-                File.Exists(currentUser.ProfileImagePath))
-            {
-                guna2CirclePictureBox1.ImageLocation = currentUser.ProfileImagePath;
-            }
-            else
-            {
-                guna2CirclePictureBox1.Image = null;
-            }
-
-            // 🔹 Reset button state (important)
             if (ConfirmEdit != null)
                 ConfirmEdit.Enabled = true;
-
-            // 🔹 Reset cursor positions (UX polish)
-            FullNameTextBox.SelectionStart = FullNameTextBox.Text.Length;
-            UserNameTextBox.SelectionStart = UserNameTextBox.Text.Length;
-            EmailTextBox.SelectionStart = EmailTextBox.Text.Length;
-            guna2TextBox1.SelectionStart = guna2TextBox1.Text.Length;
         }
 
+        // ================= IMAGE =================
         private void SelectImage_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
@@ -213,6 +192,7 @@ namespace ShuttleZone.UserManagementNew
             }
         }
 
+        // ================= UI EVENTS =================
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
             if (ConfirmEdit != null)
@@ -230,5 +210,12 @@ namespace ShuttleZone.UserManagementNew
         {
             // optional
         }
+
+        // ✅ KEPT (DO NOT REMOVE - DESIGNER SAFE)
+        private void ConfirmEdit_Click_1(object sender, EventArgs e) { }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e) { }
+
+        private void ConfirmEdit_Click_2(object sender, EventArgs e) { }
     }
 }
