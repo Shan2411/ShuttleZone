@@ -70,7 +70,7 @@ namespace ShuttleZone.Maintenance_Logs
                 }
             }
 
-            // Set ComboBox state based on initial selected status
+            // Set ComboBox state based on initial selected status 
             if (_selectedButton != null &&
                 _selectedButton.statusType.Equals("Operational", StringComparison.OrdinalIgnoreCase))
             {
@@ -80,6 +80,8 @@ namespace ShuttleZone.Maintenance_Logs
             {
                 comboBox1.Enabled = true;
             }
+
+           
 
 
             // Make the form draggable
@@ -185,7 +187,8 @@ namespace ShuttleZone.Maintenance_Logs
                     return;
                 }
             }
-            
+
+
             switch (courtName)
             {
                 case "Court A":
@@ -252,7 +255,7 @@ namespace ShuttleZone.Maintenance_Logs
                     {
 
                         cmd.Parameters.AddWithValue("@status", status);
-                        cmd.Parameters.AddWithValue("@reason", comboBox1.Text + " - " + textBox1.Text);
+                        cmd.Parameters.AddWithValue("@reason", comboBox1.Text + "\n\n- " + textBox1.Text);
                         cmd.Parameters.AddWithValue("@courtName", court);
                         cmd.ExecuteNonQuery();
 

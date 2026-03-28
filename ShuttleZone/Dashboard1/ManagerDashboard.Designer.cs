@@ -57,12 +57,12 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.373865F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.12631F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.41895F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.30737F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.773517F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.368865F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.07172F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.29116F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.38746F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.880791F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(926, 541);
             this.tableLayoutPanel1.TabIndex = 3;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
@@ -75,7 +75,7 @@
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(13, 0);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(887, 8);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(262, 35);
             this.guna2HtmlLabel1.TabIndex = 1;
             this.guna2HtmlLabel1.Text = "Welcome, Manager";
             this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.BottomLeft;
@@ -88,12 +88,12 @@
             this.tableLayoutPanel3.Controls.Add(this.guna2ShadowPanel1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.guna2ShadowPanel2, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(16, 31);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(16, 26);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 185F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(881, 185);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(881, 249);
             this.tableLayoutPanel3.TabIndex = 6;
             // 
             // guna2ShadowPanel1
@@ -105,7 +105,7 @@
             this.guna2ShadowPanel1.Location = new System.Drawing.Point(3, 3);
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(349, 179);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(349, 243);
             this.guna2ShadowPanel1.TabIndex = 0;
             // 
             // guna2ShadowPanel2
@@ -116,16 +116,16 @@
             this.guna2ShadowPanel2.Location = new System.Drawing.Point(358, 3);
             this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
             this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel2.Size = new System.Drawing.Size(520, 179);
+            this.guna2ShadowPanel2.Size = new System.Drawing.Size(520, 243);
             this.guna2ShadowPanel2.TabIndex = 1;
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.Controls.Add(this.flowLayoutPanel1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel1.Location = new System.Drawing.Point(16, 232);
+            this.guna2Panel1.Location = new System.Drawing.Point(16, 290);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(881, 139);
+            this.guna2Panel1.Size = new System.Drawing.Size(881, 112);
             this.guna2Panel1.TabIndex = 7;
             // 
             // flowLayoutPanel1
@@ -134,16 +134,16 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(881, 139);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(881, 112);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(16, 377);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(16, 408);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(881, 133);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(881, 107);
             this.flowLayoutPanel2.TabIndex = 8;
             // 
             // ManagerDashboard
