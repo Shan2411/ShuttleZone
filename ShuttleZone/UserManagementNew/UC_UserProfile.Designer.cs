@@ -33,7 +33,6 @@
             this.BottomtableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.ConfirmEdit = new Guna.UI2.WinForms.Guna2Button();
-            this.CancelButton = new Guna.UI2.WinForms.Guna2Button();
             this.PanelHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.HeadertableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.CloseButton = new Guna.UI2.WinForms.Guna2Button();
@@ -164,7 +163,6 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.12374F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.87626F));
             this.tableLayoutPanel2.Controls.Add(this.ConfirmEdit, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.CancelButton, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(287, 13);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -191,25 +189,6 @@
             this.ConfirmEdit.Text = "Edit Profile";
             this.ConfirmEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // CancelButton
-            // 
-            this.CancelButton.BorderRadius = 8;
-            this.CancelButton.BorderThickness = 1;
-            this.CancelButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.CancelButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.CancelButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.CancelButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.CancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CancelButton.FillColor = System.Drawing.Color.White;
-            this.CancelButton.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelButton.ForeColor = System.Drawing.Color.Black;
-            this.CancelButton.Location = new System.Drawing.Point(3, 3);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(79, 28);
-            this.CancelButton.TabIndex = 1;
-            this.CancelButton.Text = "Clear";
-            // 
             // PanelHeader
             // 
             this.PanelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(58)))), ((int)(((byte)(237)))));
@@ -224,8 +203,8 @@
             // HeadertableLayoutPanel
             // 
             this.HeadertableLayoutPanel.ColumnCount = 2;
-            this.HeadertableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.73789F));
-            this.HeadertableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.262108F));
+            this.HeadertableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.71429F));
+            this.HeadertableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.HeadertableLayoutPanel.Controls.Add(this.CloseButton, 1, 0);
             this.HeadertableLayoutPanel.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.HeadertableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -247,10 +226,10 @@
             this.CloseButton.FillColor = System.Drawing.Color.Transparent;
             this.CloseButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CloseButton.ForeColor = System.Drawing.Color.White;
-            this.CloseButton.Location = new System.Drawing.Point(508, 8);
+            this.CloseButton.Location = new System.Drawing.Point(476, 8);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(6);
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(34, 44);
+            this.CloseButton.Size = new System.Drawing.Size(66, 44);
             this.CloseButton.TabIndex = 3;
             this.CloseButton.Text = "✕";
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
@@ -268,7 +247,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(500, 56);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(468, 56);
             this.tableLayoutPanel6.TabIndex = 4;
             // 
             // tableLayoutPanel7
@@ -278,13 +257,13 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.Controls.Add(this.Profile, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(55, 0);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(51, 0);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(445, 56);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(417, 56);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // Profile
@@ -311,11 +290,12 @@
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(58)))), ((int)(((byte)(237)))));
             this.guna2Panel4.ShadowDecoration.Enabled = true;
-            this.guna2Panel4.Size = new System.Drawing.Size(41, 42);
+            this.guna2Panel4.Size = new System.Drawing.Size(37, 42);
             this.guna2Panel4.TabIndex = 1;
             // 
             // BodytableLayoutPanel
             // 
+            this.BodytableLayoutPanel.BackColor = System.Drawing.Color.White;
             this.BodytableLayoutPanel.ColumnCount = 1;
             this.BodytableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.BodytableLayoutPanel.Controls.Add(this.guna2Panel3, 0, 0);
@@ -418,7 +398,6 @@
             // guna2ComboBox1
             // 
             this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -428,8 +407,9 @@
             this.guna2ComboBox1.ItemHeight = 30;
             this.guna2ComboBox1.Location = new System.Drawing.Point(0, 0);
             this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(368, 36);
+            this.guna2ComboBox1.Size = new System.Drawing.Size(188, 36);
             this.guna2ComboBox1.TabIndex = 11;
+                                //this.guna2ComboBox1.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
             // 
             // guna2Panel18
             // 
@@ -802,7 +782,6 @@
         private System.Windows.Forms.TableLayoutPanel BottomtableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2Button ConfirmEdit;
-        private Guna.UI2.WinForms.Guna2Button CancelButton;
         private Guna.UI2.WinForms.Guna2Panel PanelHeader;
         private System.Windows.Forms.TableLayoutPanel HeadertableLayoutPanel;
         private Guna.UI2.WinForms.Guna2Button CloseButton;

@@ -142,6 +142,7 @@
             this.CloseButton.Size = new System.Drawing.Size(44, 44);
             this.CloseButton.TabIndex = 3;
             this.CloseButton.Text = "✕";
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // tableLayoutPanel6
             // 
@@ -323,6 +324,7 @@
             this.txtConfirmPassword.Size = new System.Drawing.Size(637, 49);
             this.txtConfirmPassword.TabIndex = 5;
             this.txtConfirmPassword.UseSystemPasswordChar = true;
+            this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtConfirmPassword_TextChanged);
             // 
             // guna2Panel6
             // 
@@ -376,6 +378,7 @@
             this.txtNewPassword.Size = new System.Drawing.Size(637, 48);
             this.txtNewPassword.TabIndex = 5;
             this.txtNewPassword.UseSystemPasswordChar = true;
+            this.txtNewPassword.TextChanged += new System.EventHandler(this.txtNewPassword_TextChanged);
             // 
             // guna2Panel9
             // 
@@ -547,6 +550,7 @@
             this.ConfirmEdit.Size = new System.Drawing.Size(145, 32);
             this.ConfirmEdit.TabIndex = 2;
             this.ConfirmEdit.Text = "Confirm ";
+            this.ConfirmEdit.Click += new System.EventHandler(this.ConfirmEdit_Click);
             // 
             // CancelButton
             // 
@@ -566,6 +570,7 @@
             this.CancelButton.Size = new System.Drawing.Size(76, 32);
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Clear";
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // UC_ChangePassword
             // 

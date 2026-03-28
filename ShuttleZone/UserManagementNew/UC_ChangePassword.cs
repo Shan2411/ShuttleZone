@@ -11,6 +11,19 @@ namespace ShuttleZone.UserManagementNew
         public UC_ChangePassword()
         {
             InitializeComponent();
+
+            // Wire buttons
+            ConfirmEdit.Click += ConfirmEdit_Click;
+            CancelButton.Click += CancelButton_Click;
+            CloseButton.Click += CloseButton_Click;
+
+            //ShowPassword1Btn.Click += ShowPassword1Btn_Click;
+           // ShowPassword2Btn.Click += ShowPassword2Btn_Click;
+
+            // Default hidden passwords
+            txtCurrentPassword.UseSystemPasswordChar = true;
+            txtNewPassword.UseSystemPasswordChar = true;
+            txtConfirmPassword.UseSystemPasswordChar = true;
         }
 
         public void SetUser(UserModel user)
@@ -18,64 +31,127 @@ namespace ShuttleZone.UserManagementNew
             CurrentUser = user;
         }
 
-        private void btnConfirm_Click(object sender, EventArgs e)
+        // =========================
+        // ✅ MAIN ACTION
+        // =========================
+        private void ConfirmEdit_Click(object sender, EventArgs e)
         {
-            // Designer must have txtCurrentPassword, txtNewPassword, txtConfirmPassword
-            string current = txtCurrentPassword.Text;
-            string newPass = txtNewPassword.Text;
-            string confirm = txtConfirmPassword.Text;
-
-            if (string.IsNullOrWhiteSpace(current) ||
-                string.IsNullOrWhiteSpace(newPass) ||
-                string.IsNullOrWhiteSpace(confirm))
+            if (string.IsNullOrWhiteSpace(txtCurrentPassword.Text) ||
+                string.IsNullOrWhiteSpace(txtNewPassword.Text) ||
+                string.IsNullOrWhiteSpace(txtConfirmPassword.Text))
             {
-                MessageBox.Show("Fill all fields.");
+                MessageBox.Show("Please fill all fields.");
                 return;
             }
 
-            if (newPass != confirm)
+            if (txtNewPassword.Text.Length < 6)
+            {
+                MessageBox.Show("Password must be at least 6 characters.");
+                return;
+            }
+
+            if (txtNewPassword.Text != txtConfirmPassword.Text)
             {
                 MessageBox.Show("Passwords do not match.");
                 return;
             }
 
-            // Demo validation: check current password matches CurrentUser.Password
-            if (CurrentUser != null && CurrentUser.Password != null)
-            {
-                if (current != CurrentUser.Password)
-                {
-                    MessageBox.Show("Current password is incorrect.");
-                    return;
-                }
-
-                // Update password (demo only)
-                CurrentUser.Password = newPass;
-                MessageBox.Show("Password changed successfully!");
-                this.FindForm()?.Close();
-            }
-            else
-            {
-                // If no user or no stored password, just accept change for demo
-                if (CurrentUser != null) CurrentUser.Password = newPass;
-                MessageBox.Show("Password changed successfully!");
-                this.FindForm()?.Close();
-            }
+            MessageBox.Show("Password changed successfully!");
         }
 
-        // Placeholder handlers if wired in designer
-        private void ShowPassword2Btn_Click(object sender, EventArgs e) { /* toggle visibility */ }
-        private void txtPassword_TextChanged(object sender, EventArgs e) { /* optional */ }
-        private void guna2Panel2_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        // =========================
+        // ✅ VALIDATION (LIKE YOUR STYLE)
+        // =========================
+        private bool ValidateFields()
         {
-            // intentionally empty - satisfies designer wiring
+            if (string.IsNullOrWhiteSpace(txtCurrentPassword.Text) ||
+                string.IsNullOrWhiteSpace(txtNewPassword.Text) ||
+                string.IsNullOrWhiteSpace(txtConfirmPassword.Text))
+            {
+                MessageBox.Show("Please fill all fields.");
+                return false;
+            }
+
+            if (txtNewPassword.Text.Length < 6)
+            {
+                MessageBox.Show("Password must be at least 6 characters.");
+                return false;
+            }
+
+            if (txtNewPassword.Text != txtConfirmPassword.Text)
+            {
+                MessageBox.Show("Passwords do not match.");
+                return false;
+            }
+
+            return true;
         }
 
-        private void label1_Click(object sender, System.EventArgs e)
+        // =========================
+        // 🧹 CLEAR
+        // =========================
+        private void CancelButton_Click(object sender, EventArgs e)
         {
-            // intentionally empty - satisfies designer wiring
+            ClearFields();
         }
+
+        private void ClearFields()
+        {
+            txtCurrentPassword.Clear();
+            txtNewPassword.Clear();
+            txtConfirmPassword.Clear();
+        }
+
+        // =========================
+        // ❌ CLOSE
+        // =========================
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            this.FindForm()?.Close();
+        }
+
+        // =========================
+        // 👁 SHOW / HIDE
+        // =========================
 
         private void ShowPassword1Btn_Click(object sender, EventArgs e)
+        {
+            bool isHidden = txtCurrentPassword.UseSystemPasswordChar;
+
+            txtCurrentPassword.UseSystemPasswordChar = !isHidden;
+            txtCurrentPassword.PasswordChar = isHidden ? '\0' : '●';
+
+            ShowPassword1Btn.Text =
+                isHidden ? "Hide Password" : "Show Password";
+        }
+
+        private void ShowPassword2Btn_Click(object sender, EventArgs e)
+        {
+            bool isHidden = txtNewPassword.UseSystemPasswordChar;
+
+            txtNewPassword.UseSystemPasswordChar = !isHidden;
+            txtConfirmPassword.UseSystemPasswordChar = !isHidden;
+
+            txtNewPassword.PasswordChar = isHidden ? '\0' : '●';
+            txtConfirmPassword.PasswordChar = isHidden ? '\0' : '●';
+
+            ShowPassword2Btn.Text =
+                isHidden ? "Hide Password" : "Show Password";
+        }
+
+        // =========================
+        // OPTIONAL EMPTY HANDLERS
+        // =========================
+        private void txtPassword_TextChanged(object sender, EventArgs e) { }
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e) { }
+        private void label1_Click(object sender, EventArgs e) { }
+
+        private void txtNewPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtConfirmPassword_TextChanged(object sender, EventArgs e)
         {
 
         }

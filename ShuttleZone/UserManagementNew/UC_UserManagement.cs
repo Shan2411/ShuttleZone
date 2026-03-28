@@ -9,6 +9,9 @@ namespace ShuttleZone.UserManagement
     {
         private readonly List<UserModel> _users = new List<UserModel>();
 
+        // ✅ Prevent duplicate profile openings
+        private bool isProfileOpen = false;
+
         public UC_UserManagement()
         {
             InitializeComponent();
@@ -56,7 +59,7 @@ namespace ShuttleZone.UserManagement
                 Email = "admin@shuttlezone.local",
                 Role = "Admin",
                 Status = "Active",
-                Password = "admin" // demo only
+                Password = "admin"
             });
 
             _users.Add(new UserModel
@@ -67,12 +70,11 @@ namespace ShuttleZone.UserManagement
                 Email = "manager@shuttlezone.local",
                 Role = "Manager",
                 Status = "Active",
-                Password = "manager" // demo only
+                Password = "manager"
             });
         }
 
         private void Searchbox_TextChanged(object sender, EventArgs e) => ApplySearch();
-
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e) => ApplySearch();
 
         private void ApplySearch()
@@ -125,13 +127,17 @@ namespace ShuttleZone.UserManagement
 
                 row.UpdateDisplay();
 
-                // When Edit clicked, open profile modal
+                // ✅ EDIT CLICK
                 row.EditClicked += (s, e) =>
                 {
+                    if (isProfileOpen) return; // 🚫 prevent duplicate open
+
+                    isProfileOpen = true;
+                    row.Enabled = false; // optional safety
+
                     var profile = new ShuttleZone.UserManagementNew.UC_UserProfile();
                     profile.SetUser(user);
 
-                    // Parent modal form
                     Form profileModal = new Form
                     {
                         FormBorderStyle = FormBorderStyle.None,
@@ -142,9 +148,18 @@ namespace ShuttleZone.UserManagement
                     profile.Dock = DockStyle.Fill;
                     profileModal.Controls.Add(profile);
 
-                    // When profile requests edit, open edit modal
+                    // ✅ Reset state when closed
+                    profileModal.FormClosed += (s2, e2) =>
+                    {
+                        isProfileOpen = false;
+                        row.Enabled = true;
+                    };
+
+                    // ✅ OPEN EDIT
                     profile.EditProfileClicked += (s2, e2) =>
                     {
+                        profileModal.Close();
+
                         var edit = new ShuttleZone.UserManagementNew.UC_EditProfileMain(user);
 
                         Form editModal = new Form
@@ -157,7 +172,7 @@ namespace ShuttleZone.UserManagement
                         edit.Dock = DockStyle.Fill;
                         editModal.Controls.Add(edit);
 
-                        // When edit requests change password, open change password modal
+                        // ✅ CHANGE PASSWORD
                         edit.ChangePasswordClicked += (s3, e3) =>
                         {
                             var change = new ShuttleZone.UserManagementNew.UC_ChangePassword();
@@ -176,13 +191,9 @@ namespace ShuttleZone.UserManagement
                             changeModal.ShowDialog();
                         };
 
-                        // When edit closes, re-render users (in case of updates)
+                        // ✅ Refresh AFTER edit closes
                         edit.FormClosed += (s4, e4) =>
                         {
-                            // Refresh profile UI
-                            profile.SetUser(user);
-
-                            // Refresh list UI
                             RenderUsers(_users);
                         };
 
@@ -192,6 +203,7 @@ namespace ShuttleZone.UserManagement
                     profileModal.ShowDialog();
                 };
 
+                // ✅ DELETE
                 row.DeleteClicked += (s, e) =>
                 {
                     var confirm = MessageBox.Show(
@@ -247,20 +259,8 @@ namespace ShuttleZone.UserManagement
             modal.ShowDialog();
         }
 
-        private void flpMemberRowContainer_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
-        {
-            // intentionally empty - satisfies designer wiring
-        }
-
-        private void ArchivedLbl_Click(object sender, EventArgs e)
-        {
-            // intentionally empty - satisfies designer wiring
-        }
-
-        private void ArchivedBtn_Click(object sender, EventArgs e)
-        {
-            // intentionally empty - satisfies designer wiring
-        }
-
+        private void flpMemberRowContainer_Paint(object sender, PaintEventArgs e) { }
+        private void ArchivedLbl_Click(object sender, EventArgs e) { }
+        private void ArchivedBtn_Click(object sender, EventArgs e) { }
     }
 }

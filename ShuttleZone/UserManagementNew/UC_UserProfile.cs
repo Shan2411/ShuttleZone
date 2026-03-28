@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using User = ShuttleZone.UserManagement.UserModel;
 
@@ -10,17 +11,22 @@ namespace ShuttleZone.UserManagementNew
 
         private User currentUser;
 
-        // Parameterless constructor for designer and for UC_UserManagement to instantiate
         public UC_UserProfile()
         {
             InitializeComponent();
+            guna2ComboBox1.Items.AddRange(new object[]
+    {
+        "Active",
+        "Inactive"
+    });
+
+            guna2ComboBox1.SelectedIndex = 0; // 
         }
 
-        // Optional convenience constructor
-        public UC_UserProfile(User user) : this()
-        {
-            SetUser(user);
-        }
+        //public UC_UserProfile(User user) : this()
+        //{
+         //   SetUser(user);
+       // }
 
         public void SetUser(User user)
         {
@@ -32,32 +38,64 @@ namespace ShuttleZone.UserManagementNew
         {
             if (currentUser == null) return;
 
-            // Designer must have these controls
-            lblFullName.Text = currentUser.FullName ?? "";
-            lblUsername.Text = currentUser.Username ?? "";
-            lblEmail.Text = currentUser.Email ?? "";
-            lblPhone.Text = currentUser.PhoneNumber ?? "";
-            lblRole.Text = currentUser.Role ?? "";
+            // ✅ Show fallback text if empty
+            lblFullName.Text = string.IsNullOrWhiteSpace(currentUser.FullName)
+                ? "No Name"
+                : currentUser.FullName;
 
-            if (!string.IsNullOrEmpty(currentUser.ProfileImagePath) && guna2CirclePictureBox1 != null)
+            lblUsername.Text = string.IsNullOrWhiteSpace(currentUser.Username)
+                ? "No Username"
+                : currentUser.Username;
+
+            lblEmail.Text = string.IsNullOrWhiteSpace(currentUser.Email)
+                ? "No Email"
+                : currentUser.Email;
+
+            lblPhone.Text = string.IsNullOrWhiteSpace(currentUser.PhoneNumber)
+                ? "No Phone Number"
+                : currentUser.PhoneNumber;
+
+            lblRole.Text = string.IsNullOrWhiteSpace(currentUser.Role)
+                ? "No Role"
+                : currentUser.Role;
+
+            // ✅ Safe image loading
+            if (!string.IsNullOrEmpty(currentUser.ProfileImagePath) &&
+                File.Exists(currentUser.ProfileImagePath))
             {
-                guna2CirclePictureBox1.ImageLocation = currentUser.ProfileImagePath;
+                try
+                {
+                    guna2CirclePictureBox1.ImageLocation = currentUser.ProfileImagePath;
+                }
+                catch
+                {
+                    guna2CirclePictureBox1.Image = null;
+                }
             }
         }
 
-        // Raise event so parent can open edit modal
+        // ✅ Edit button (make sure Designer is linked to this)
         private void btnEdit_Click(object sender, EventArgs e)
         {
             EditProfileClicked?.Invoke(this, EventArgs.Empty);
         }
+
         private void label3_Click(object sender, EventArgs e)
         {
             // intentionally empty
         }
 
+        // ✅ FIXED CLOSE BUTTON
         private void CloseButton_Click(object sender, EventArgs e)
         {
-
+            this.FindForm()?.Close();
         }
+
+        /*private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           guna2ComboBox1.Items.Clear();
+            guna2ComboBox1.Items.Add("Active");
+            guna2ComboBox1.Items.Add("Inactive");
+        }*/
     }
 }

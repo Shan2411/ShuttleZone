@@ -59,9 +59,9 @@ namespace ShuttleZone.UserManagement
             this.guna2Panel1.Controls.Add(this.tableLayoutPanel3);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 5);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1217, 42);
+            this.guna2Panel1.Size = new System.Drawing.Size(1217, 45);
             this.guna2Panel1.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -91,7 +91,7 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1217, 42);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1217, 45);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
             // btnDelete
@@ -106,7 +106,6 @@ namespace ShuttleZone.UserManagement
             this.btnDelete.Size = new System.Drawing.Size(27, 22);
             this.btnDelete.TabIndex = 9;
             this.btnDelete.TabStop = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
             // btnEdit
             // 
@@ -120,7 +119,6 @@ namespace ShuttleZone.UserManagement
             this.btnEdit.Size = new System.Drawing.Size(27, 22);
             this.btnEdit.TabIndex = 8;
             this.btnEdit.TabStop = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // lblUsername
             // 
@@ -132,7 +130,7 @@ namespace ShuttleZone.UserManagement
             this.lblUsername.Location = new System.Drawing.Point(73, 12);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(168, 18);
+            this.lblUsername.Size = new System.Drawing.Size(168, 21);
             this.lblUsername.TabIndex = 2;
             this.lblUsername.Text = "USERNAME";
             // 
@@ -146,7 +144,7 @@ namespace ShuttleZone.UserManagement
             this.lblID.Location = new System.Drawing.Point(13, 12);
             this.lblID.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(34, 18);
+            this.lblID.Size = new System.Drawing.Size(34, 21);
             this.lblID.TabIndex = 1;
             this.lblID.Text = "ID";
             // 
@@ -160,7 +158,7 @@ namespace ShuttleZone.UserManagement
             this.lblRole.Location = new System.Drawing.Point(777, 12);
             this.lblRole.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(180, 18);
+            this.lblRole.Size = new System.Drawing.Size(180, 21);
             this.lblRole.TabIndex = 5;
             this.lblRole.Text = "ROLE";
             // 
@@ -174,7 +172,7 @@ namespace ShuttleZone.UserManagement
             this.lblFullName.Location = new System.Drawing.Point(267, 12);
             this.lblFullName.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(205, 18);
+            this.lblFullName.Size = new System.Drawing.Size(205, 21);
             this.lblFullName.TabIndex = 4;
             this.lblFullName.Text = "FULLNAME";
             // 
@@ -188,7 +186,7 @@ namespace ShuttleZone.UserManagement
             this.lblEmail.Location = new System.Drawing.Point(498, 12);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(253, 18);
+            this.lblEmail.Size = new System.Drawing.Size(253, 21);
             this.lblEmail.TabIndex = 3;
             this.lblEmail.Text = "EMAIL";
             // 
@@ -199,8 +197,8 @@ namespace ShuttleZone.UserManagement
             this.guna2Panel2.Location = new System.Drawing.Point(970, 0);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Padding = new System.Windows.Forms.Padding(5, 0, 5, 11);
-            this.guna2Panel2.Size = new System.Drawing.Size(109, 42);
+            this.guna2Panel2.Padding = new System.Windows.Forms.Padding(5, 0, 5, 5);
+            this.guna2Panel2.Size = new System.Drawing.Size(109, 45);
             this.guna2Panel2.TabIndex = 10;
             // 
             // guna2ComboBox1
@@ -229,7 +227,8 @@ namespace ShuttleZone.UserManagement
             this.Controls.Add(this.guna2Panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "UC_UserRow";
-            this.Size = new System.Drawing.Size(1217, 42);
+            this.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.Size = new System.Drawing.Size(1217, 55);
             this.guna2Panel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
