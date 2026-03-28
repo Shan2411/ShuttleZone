@@ -355,14 +355,16 @@ namespace ShuttleZone
 
             // Find stock for this item
             int stock = 0;
-            foreach (var row in pnlDynamic.Controls.OfType<UC_Equipment>())
+            var equipmentControl = pnlDynamic.Controls.OfType<UC_Equipment>().FirstOrDefault();
+            if (equipmentControl != null)
             {
-                var itemRow = row.Controls.OfType<UC_EquipmentRow>()
-                                .FirstOrDefault(r => r.EquipmentNameText == lblName.Text);
-                if (itemRow != null)
+                foreach (var itemRow in equipmentControl.tlpEquipmentRoot.Controls.OfType<UC_EquipmentRow>())
                 {
-                    stock = itemRow.AvailableStock;
-                    break;
+                    if (itemRow.EquipmentNameText == lblName.Text)
+                    {
+                        stock = itemRow.AvailableStock;
+                        break;
+                    }
                 }
             }
 

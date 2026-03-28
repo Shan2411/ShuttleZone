@@ -70,6 +70,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2GradientPanel pnlKioskEquipment;
-        private System.Windows.Forms.FlowLayoutPanel tlpEquipmentRoot;
+        public System.Windows.Forms.FlowLayoutPanel tlpEquipmentRoot;
     }
 }
