@@ -49,7 +49,7 @@
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.txtStock = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtCategory = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cbCategory = new Guna.UI2.WinForms.Guna2ComboBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -92,7 +92,7 @@
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Margin = new System.Windows.Forms.Padding(0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(889, 81);
+            this.TopPanel.Size = new System.Drawing.Size(889, 82);
             this.TopPanel.TabIndex = 4;
             // 
             // tableLayoutPanel10
@@ -112,9 +112,8 @@
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(889, 81);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(889, 82);
             this.tableLayoutPanel10.TabIndex = 0;
-            this.tableLayoutPanel10.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel10_Paint);
             // 
             // CloseBtn
             // 
@@ -144,7 +143,7 @@
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(311, 69);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(311, 70);
             this.tableLayoutPanel12.TabIndex = 0;
             // 
             // guna2HtmlLabel6
@@ -153,7 +152,7 @@
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(7, 45);
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(7, 46);
             this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             this.guna2HtmlLabel6.Size = new System.Drawing.Size(188, 18);
@@ -199,7 +198,7 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel14, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(11, 91);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(11, 92);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(4);
@@ -207,7 +206,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(867, 443);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(867, 445);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // tableLayoutPanel11
@@ -217,12 +216,12 @@
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47F));
             this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel13, 1, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(4, 373);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(4, 374);
             this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(859, 66);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(859, 67);
             this.tableLayoutPanel11.TabIndex = 2;
             // 
             // tableLayoutPanel13
@@ -238,7 +237,7 @@
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(404, 66);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(404, 67);
             this.tableLayoutPanel13.TabIndex = 2;
             // 
             // CancelBtn
@@ -259,7 +258,7 @@
             this.CancelBtn.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.PressedColor = System.Drawing.Color.Beige;
-            this.CancelBtn.Size = new System.Drawing.Size(188, 42);
+            this.CancelBtn.Size = new System.Drawing.Size(188, 43);
             this.CancelBtn.TabIndex = 5;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.Click += new System.EventHandler(this.btnCancel_Click);
@@ -282,7 +281,7 @@
             this.CreateBtn.Location = new System.Drawing.Point(227, 12);
             this.CreateBtn.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.CreateBtn.Name = "CreateBtn";
-            this.CreateBtn.Size = new System.Drawing.Size(164, 42);
+            this.CreateBtn.Size = new System.Drawing.Size(164, 43);
             this.CreateBtn.TabIndex = 6;
             this.CreateBtn.Text = "Add Equipment";
             this.CreateBtn.Click += new System.EventHandler(this.btnAdd_Click);
@@ -310,7 +309,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.54175F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(859, 326);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(859, 327);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // tableLayoutPanel9
@@ -325,7 +324,7 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(859, 59);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(859, 60);
             this.tableLayoutPanel9.TabIndex = 5;
             // 
             // txtRentalPrice
@@ -388,7 +387,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47F));
             this.tableLayoutPanel7.Controls.Add(this.txtStock, 1, 0);
-            this.tableLayoutPanel7.Controls.Add(this.txtCategory, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.cbCategory, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 159);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
@@ -423,29 +422,22 @@
             this.txtStock.Size = new System.Drawing.Size(396, 44);
             this.txtStock.TabIndex = 3;
             // 
-            // txtCategory
+            // cbCategory
             // 
-            this.txtCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(213)))), ((int)(((byte)(220)))));
-            this.txtCategory.BorderRadius = 8;
-            this.txtCategory.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCategory.DefaultText = "";
-            this.txtCategory.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtCategory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtCategory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCategory.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCategory.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
-            this.txtCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCategory.Font = new System.Drawing.Font("Dubai", 9.749999F, System.Drawing.FontStyle.Bold);
-            this.txtCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.txtCategory.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCategory.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtCategory.IconLeft")));
-            this.txtCategory.Location = new System.Drawing.Point(4, 5);
-            this.txtCategory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtCategory.Name = "txtCategory";
-            this.txtCategory.PlaceholderText = "";
-            this.txtCategory.SelectedText = "";
-            this.txtCategory.Size = new System.Drawing.Size(433, 44);
-            this.txtCategory.TabIndex = 2;
+            this.cbCategory.BackColor = System.Drawing.Color.Transparent;
+            this.cbCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategory.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbCategory.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbCategory.ItemHeight = 30;
+            this.cbCategory.Location = new System.Drawing.Point(4, 5);
+            this.cbCategory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(447, 36);
+            this.cbCategory.TabIndex = 4;
             // 
             // tableLayoutPanel6
             // 
@@ -622,7 +614,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(889, 544);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(889, 547);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // guna2BorderlessForm2
@@ -695,7 +687,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private Guna.UI2.WinForms.Guna2TextBox txtCategory;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
@@ -710,5 +701,6 @@
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm2;
         private Guna.UI2.WinForms.Guna2TextBox txtRentalPrice;
         private Guna.UI2.WinForms.Guna2TextBox txtStock;
+        private Guna.UI2.WinForms.Guna2ComboBox cbCategory;
     }
 }

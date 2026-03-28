@@ -34,6 +34,8 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.ArchivedLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.AddMemberBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.ArchivedBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -47,6 +49,7 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.flpMemberRowContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.SearchbarBGPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.Searchbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
@@ -61,9 +64,6 @@
             this.totalMembers = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.AddMemberBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.ArchivedBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.Searchbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -96,7 +96,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1243, 722);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(932, 587);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -116,7 +116,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1243, 72);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(932, 58);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // ArchivedLbl
@@ -124,10 +124,10 @@
             this.ArchivedLbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ArchivedLbl.BackColor = System.Drawing.Color.Transparent;
             this.ArchivedLbl.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
-            this.ArchivedLbl.Location = new System.Drawing.Point(629, 20);
-            this.ArchivedLbl.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.ArchivedLbl.Location = new System.Drawing.Point(468, 16);
+            this.ArchivedLbl.Margin = new System.Windows.Forms.Padding(10);
             this.ArchivedLbl.Name = "ArchivedLbl";
-            this.ArchivedLbl.Size = new System.Drawing.Size(107, 31);
+            this.ArchivedLbl.Size = new System.Drawing.Size(86, 25);
             this.ArchivedLbl.TabIndex = 31;
             this.ArchivedLbl.Text = "Archived";
             this.ArchivedLbl.Visible = false;
@@ -137,12 +137,60 @@
             this.guna2HtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(13, 20);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(10, 16);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(311, 31);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(249, 25);
             this.guna2HtmlLabel1.TabIndex = 0;
             this.guna2HtmlLabel1.Text = "Membership Management";
+            // 
+            // AddMemberBtn
+            // 
+            this.AddMemberBtn.BackColor = System.Drawing.Color.Transparent;
+            this.AddMemberBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
+            this.AddMemberBtn.BorderRadius = 8;
+            this.AddMemberBtn.BorderThickness = 1;
+            this.AddMemberBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.AddMemberBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.AddMemberBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.AddMemberBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.AddMemberBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddMemberBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
+            this.AddMemberBtn.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
+            this.AddMemberBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddMemberBtn.ForeColor = System.Drawing.Color.White;
+            this.AddMemberBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddMemberBtn.Image")));
+            this.AddMemberBtn.Location = new System.Drawing.Point(795, 20);
+            this.AddMemberBtn.Margin = new System.Windows.Forms.Padding(5, 20, 20, 20);
+            this.AddMemberBtn.Name = "AddMemberBtn";
+            this.AddMemberBtn.Size = new System.Drawing.Size(117, 18);
+            this.AddMemberBtn.TabIndex = 29;
+            this.AddMemberBtn.Text = "Add Member";
+            this.AddMemberBtn.Click += new System.EventHandler(this.AddMemberBtn_Click);
+            // 
+            // ArchivedBtn
+            // 
+            this.ArchivedBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ArchivedBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(213)))), ((int)(((byte)(220)))));
+            this.ArchivedBtn.BorderRadius = 8;
+            this.ArchivedBtn.BorderThickness = 1;
+            this.ArchivedBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ArchivedBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ArchivedBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ArchivedBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ArchivedBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ArchivedBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(114)))), ((int)(((byte)(130)))));
+            this.ArchivedBtn.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(114)))), ((int)(((byte)(130)))));
+            this.ArchivedBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ArchivedBtn.ForeColor = System.Drawing.Color.White;
+            this.ArchivedBtn.Image = ((System.Drawing.Image)(resources.GetObject("ArchivedBtn.Image")));
+            this.ArchivedBtn.Location = new System.Drawing.Point(671, 20);
+            this.ArchivedBtn.Margin = new System.Windows.Forms.Padding(20, 20, 5, 20);
+            this.ArchivedBtn.Name = "ArchivedBtn";
+            this.ArchivedBtn.Size = new System.Drawing.Size(114, 18);
+            this.ArchivedBtn.TabIndex = 30;
+            this.ArchivedBtn.Text = "Show Archived";
+            this.ArchivedBtn.Click += new System.EventHandler(this.ArchivedBtn_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -151,13 +199,13 @@
             this.tableLayoutPanel4.Controls.Add(this.guna2CustomGradientPanel1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.flpMemberRowContainer, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(13, 220);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(13, 4, 13, 4);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(10, 178);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1217, 498);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(912, 406);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // guna2CustomGradientPanel1
@@ -175,7 +223,7 @@
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1217, 34);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(912, 28);
             this.guna2CustomGradientPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -200,115 +248,114 @@
             this.tableLayoutPanel3.Controls.Add(this.guna2HtmlLabel2, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1217, 34);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(912, 28);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // guna2HtmlLabel9
             // 
-            this.guna2HtmlLabel9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel9.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel9.Location = new System.Drawing.Point(1119, 12);
-            this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.guna2HtmlLabel9.Location = new System.Drawing.Point(829, 10);
+            this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            this.guna2HtmlLabel9.Size = new System.Drawing.Size(70, 19);
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(73, 8);
             this.guna2HtmlLabel9.TabIndex = 8;
             this.guna2HtmlLabel9.Text = "ACTIONS";
             this.guna2HtmlLabel9.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2HtmlLabel8
             // 
-            this.guna2HtmlLabel8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(983, 12);
-            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(738, 10);
+            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(99, 19);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(71, 8);
             this.guna2HtmlLabel8.TabIndex = 7;
             this.guna2HtmlLabel8.Text = "EXPIRY DATE";
             // 
             // guna2HtmlLabel7
             // 
-            this.guna2HtmlLabel7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(898, 12);
-            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(675, 10);
+            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(59, 19);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(43, 8);
             this.guna2HtmlLabel7.TabIndex = 6;
             this.guna2HtmlLabel7.Text = "STATUS";
             // 
             // guna2HtmlLabel6
             // 
-            this.guna2HtmlLabel6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(692, 12);
-            this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(520, 10);
+            this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(39, 19);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(135, 8);
             this.guna2HtmlLabel6.TabIndex = 5;
             this.guna2HtmlLabel6.Text = "TYPE";
             // 
             // guna2HtmlLabel5
             // 
-            this.guna2HtmlLabel5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(546, 12);
-            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(411, 10);
+            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(54, 19);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(89, 8);
             this.guna2HtmlLabel5.TabIndex = 4;
             this.guna2HtmlLabel5.Text = "PHONE";
             // 
             // guna2HtmlLabel4
             // 
-            this.guna2HtmlLabel4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(340, 12);
-            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(256, 10);
+            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(49, 19);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(135, 8);
             this.guna2HtmlLabel4.TabIndex = 3;
             this.guna2HtmlLabel4.Text = "EMAIL";
             // 
             // guna2HtmlLabel3
             // 
-            this.guna2HtmlLabel3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(134, 12);
-            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(101, 10);
+            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(45, 19);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(135, 8);
             this.guna2HtmlLabel3.TabIndex = 2;
             this.guna2HtmlLabel3.Text = "NAME";
             // 
             // guna2HtmlLabel2
             // 
-            this.guna2HtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(13, 12);
-            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(10, 10);
+            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(20, 19);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(71, 8);
             this.guna2HtmlLabel2.TabIndex = 1;
             this.guna2HtmlLabel2.Text = "ID";
             // 
@@ -318,10 +365,10 @@
             this.flpMemberRowContainer.BackColor = System.Drawing.Color.Transparent;
             this.flpMemberRowContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpMemberRowContainer.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.flpMemberRowContainer.Location = new System.Drawing.Point(0, 34);
+            this.flpMemberRowContainer.Location = new System.Drawing.Point(0, 28);
             this.flpMemberRowContainer.Margin = new System.Windows.Forms.Padding(0);
             this.flpMemberRowContainer.Name = "flpMemberRowContainer";
-            this.flpMemberRowContainer.Size = new System.Drawing.Size(1217, 464);
+            this.flpMemberRowContainer.Size = new System.Drawing.Size(912, 378);
             this.flpMemberRowContainer.TabIndex = 1;
             // 
             // SearchbarBGPanel
@@ -335,257 +382,13 @@
             this.SearchbarBGPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SearchbarBGPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.SearchbarBGPanel.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
-            this.SearchbarBGPanel.Location = new System.Drawing.Point(13, 184);
-            this.SearchbarBGPanel.Margin = new System.Windows.Forms.Padding(13, 4, 13, 4);
+            this.SearchbarBGPanel.Location = new System.Drawing.Point(10, 149);
+            this.SearchbarBGPanel.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.SearchbarBGPanel.Name = "SearchbarBGPanel";
-            this.SearchbarBGPanel.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
+            this.SearchbarBGPanel.Padding = new System.Windows.Forms.Padding(8);
             this.SearchbarBGPanel.ShadowDecoration.Depth = 60;
-            this.SearchbarBGPanel.Size = new System.Drawing.Size(1217, 28);
+            this.SearchbarBGPanel.Size = new System.Drawing.Size(912, 23);
             this.SearchbarBGPanel.TabIndex = 1;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.Controls.Add(this.guna2Panel3, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.guna2Panel2, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.guna2Panel1, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(13, 76);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(13, 4, 13, 4);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1217, 100);
-            this.tableLayoutPanel5.TabIndex = 3;
-            // 
-            // guna2Panel3
-            // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.White;
-            this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198)))));
-            this.guna2Panel3.BorderRadius = 8;
-            this.guna2Panel3.BorderThickness = 1;
-            this.guna2Panel3.Controls.Add(this.tableLayoutPanel8);
-            this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel3.Location = new System.Drawing.Point(814, 4);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(399, 92);
-            this.guna2Panel3.TabIndex = 2;
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel8.ColumnCount = 1;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Controls.Add(this.guna2HtmlLabel12, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.totalExpired, 0, 1);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 2;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(399, 92);
-            this.tableLayoutPanel8.TabIndex = 1;
-            // 
-            // guna2HtmlLabel12
-            // 
-            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2HtmlLabel12.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
-            this.guna2HtmlLabel12.Location = new System.Drawing.Point(11, 10);
-            this.guna2HtmlLabel12.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
-            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
-            this.guna2HtmlLabel12.Size = new System.Drawing.Size(94, 31);
-            this.guna2HtmlLabel12.TabIndex = 5;
-            this.guna2HtmlLabel12.Text = "Expired";
-            // 
-            // totalExpired
-            // 
-            this.totalExpired.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.totalExpired.BackColor = System.Drawing.Color.Transparent;
-            this.totalExpired.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalExpired.ForeColor = System.Drawing.Color.Firebrick;
-            this.totalExpired.Location = new System.Drawing.Point(169, 42);
-            this.totalExpired.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.totalExpired.Name = "totalExpired";
-            this.totalExpired.Size = new System.Drawing.Size(60, 44);
-            this.totalExpired.TabIndex = 4;
-            this.totalExpired.Text = "100";
-            this.totalExpired.Click += new System.EventHandler(this.totalExpired_Click);
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.White;
-            this.guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198)))));
-            this.guna2Panel2.BorderRadius = 8;
-            this.guna2Panel2.BorderThickness = 1;
-            this.guna2Panel2.Controls.Add(this.tableLayoutPanel7);
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel2.Location = new System.Drawing.Point(409, 4);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(397, 92);
-            this.guna2Panel2.TabIndex = 1;
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel7.ColumnCount = 1;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Controls.Add(this.guna2HtmlLabel10, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.totalActive, 0, 1);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 2;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(397, 92);
-            this.tableLayoutPanel7.TabIndex = 1;
-            // 
-            // guna2HtmlLabel10
-            // 
-            this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2HtmlLabel10.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
-            this.guna2HtmlLabel10.Location = new System.Drawing.Point(11, 10);
-            this.guna2HtmlLabel10.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
-            this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
-            this.guna2HtmlLabel10.Size = new System.Drawing.Size(77, 31);
-            this.guna2HtmlLabel10.TabIndex = 5;
-            this.guna2HtmlLabel10.Text = "Active";
-            // 
-            // totalActive
-            // 
-            this.totalActive.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.totalActive.BackColor = System.Drawing.Color.Transparent;
-            this.totalActive.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalActive.ForeColor = System.Drawing.Color.MediumSeaGreen;
-            this.totalActive.Location = new System.Drawing.Point(168, 42);
-            this.totalActive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.totalActive.Name = "totalActive";
-            this.totalActive.Size = new System.Drawing.Size(60, 44);
-            this.totalActive.TabIndex = 4;
-            this.totalActive.Text = "100";
-            this.totalActive.Click += new System.EventHandler(this.totalActive_Click);
-            // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.White;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198)))));
-            this.guna2Panel1.BorderRadius = 8;
-            this.guna2Panel1.BorderThickness = 1;
-            this.guna2Panel1.Controls.Add(this.tableLayoutPanel6);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel1.Location = new System.Drawing.Point(4, 4);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(397, 92);
-            this.guna2Panel1.TabIndex = 0;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Controls.Add(this.totalMembers, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.guna2HtmlLabel11, 0, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 2;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(397, 92);
-            this.tableLayoutPanel6.TabIndex = 0;
-            // 
-            // totalMembers
-            // 
-            this.totalMembers.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.totalMembers.BackColor = System.Drawing.Color.Transparent;
-            this.totalMembers.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalMembers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(114)))), ((int)(((byte)(130)))));
-            this.totalMembers.Location = new System.Drawing.Point(168, 42);
-            this.totalMembers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.totalMembers.Name = "totalMembers";
-            this.totalMembers.Size = new System.Drawing.Size(60, 44);
-            this.totalMembers.TabIndex = 3;
-            this.totalMembers.Text = "100";
-            this.totalMembers.Click += new System.EventHandler(this.totalMembers_Click_1);
-            // 
-            // guna2HtmlLabel11
-            // 
-            this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel11.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2HtmlLabel11.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
-            this.guna2HtmlLabel11.Location = new System.Drawing.Point(11, 10);
-            this.guna2HtmlLabel11.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
-            this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
-            this.guna2HtmlLabel11.Size = new System.Drawing.Size(64, 31);
-            this.guna2HtmlLabel11.TabIndex = 2;
-            this.guna2HtmlLabel11.Text = "Total";
-            // 
-            // guna2BorderlessForm1
-            // 
-            this.guna2BorderlessForm1.BorderRadius = 8;
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
-            // AddMemberBtn
-            // 
-            this.AddMemberBtn.BackColor = System.Drawing.Color.Transparent;
-            this.AddMemberBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
-            this.AddMemberBtn.BorderRadius = 8;
-            this.AddMemberBtn.BorderThickness = 1;
-            this.AddMemberBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.AddMemberBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.AddMemberBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.AddMemberBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.AddMemberBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddMemberBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
-            this.AddMemberBtn.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(16)))), ((int)(((byte)(250)))));
-            this.AddMemberBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddMemberBtn.ForeColor = System.Drawing.Color.White;
-            this.AddMemberBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddMemberBtn.Image")));
-            this.AddMemberBtn.Location = new System.Drawing.Point(1062, 25);
-            this.AddMemberBtn.Margin = new System.Windows.Forms.Padding(7, 25, 27, 25);
-            this.AddMemberBtn.Name = "AddMemberBtn";
-            this.AddMemberBtn.Size = new System.Drawing.Size(154, 22);
-            this.AddMemberBtn.TabIndex = 29;
-            this.AddMemberBtn.Text = "Add Member";
-            this.AddMemberBtn.Click += new System.EventHandler(this.AddMemberBtn_Click);
-            // 
-            // ArchivedBtn
-            // 
-            this.ArchivedBtn.BackColor = System.Drawing.Color.Transparent;
-            this.ArchivedBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(213)))), ((int)(((byte)(220)))));
-            this.ArchivedBtn.BorderRadius = 8;
-            this.ArchivedBtn.BorderThickness = 1;
-            this.ArchivedBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ArchivedBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ArchivedBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ArchivedBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ArchivedBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ArchivedBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(114)))), ((int)(((byte)(130)))));
-            this.ArchivedBtn.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(114)))), ((int)(((byte)(130)))));
-            this.ArchivedBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ArchivedBtn.ForeColor = System.Drawing.Color.White;
-            this.ArchivedBtn.Image = ((System.Drawing.Image)(resources.GetObject("ArchivedBtn.Image")));
-            this.ArchivedBtn.Location = new System.Drawing.Point(896, 25);
-            this.ArchivedBtn.Margin = new System.Windows.Forms.Padding(27, 25, 7, 25);
-            this.ArchivedBtn.Name = "ArchivedBtn";
-            this.ArchivedBtn.Size = new System.Drawing.Size(152, 22);
-            this.ArchivedBtn.TabIndex = 30;
-            this.ArchivedBtn.Text = "Show Archived";
-            this.ArchivedBtn.Click += new System.EventHandler(this.ArchivedBtn_Click);
             // 
             // Searchbox
             // 
@@ -602,25 +405,211 @@
             this.Searchbox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Searchbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Searchbox.IconLeft = ((System.Drawing.Image)(resources.GetObject("Searchbox.IconLeft")));
-            this.Searchbox.Location = new System.Drawing.Point(11, 10);
-            this.Searchbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Searchbox.Location = new System.Drawing.Point(8, 8);
+            this.Searchbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Searchbox.Name = "Searchbox";
-            this.Searchbox.Padding = new System.Windows.Forms.Padding(4);
+            this.Searchbox.Padding = new System.Windows.Forms.Padding(3);
             this.Searchbox.PlaceholderText = "Search in members";
             this.Searchbox.SelectedText = "";
-            this.Searchbox.Size = new System.Drawing.Size(1195, 8);
+            this.Searchbox.Size = new System.Drawing.Size(896, 7);
             this.Searchbox.TabIndex = 6;
             this.Searchbox.TextChanged += new System.EventHandler(this.Searchbox_TextChanged);
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.Controls.Add(this.guna2Panel3, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.guna2Panel2, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.guna2Panel1, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(10, 61);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(912, 82);
+            this.tableLayoutPanel5.TabIndex = 3;
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.BackColor = System.Drawing.Color.White;
+            this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198)))));
+            this.guna2Panel3.BorderRadius = 8;
+            this.guna2Panel3.BorderThickness = 1;
+            this.guna2Panel3.Controls.Add(this.tableLayoutPanel8);
+            this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel3.Location = new System.Drawing.Point(611, 3);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.Size = new System.Drawing.Size(298, 76);
+            this.guna2Panel3.TabIndex = 2;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel8.ColumnCount = 1;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.Controls.Add(this.guna2HtmlLabel12, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.totalExpired, 0, 1);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 2;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(298, 76);
+            this.tableLayoutPanel8.TabIndex = 1;
+            // 
+            // guna2HtmlLabel12
+            // 
+            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel12.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2HtmlLabel12.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
+            this.guna2HtmlLabel12.Location = new System.Drawing.Point(8, 8);
+            this.guna2HtmlLabel12.Margin = new System.Windows.Forms.Padding(8);
+            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
+            this.guna2HtmlLabel12.Size = new System.Drawing.Size(75, 14);
+            this.guna2HtmlLabel12.TabIndex = 5;
+            this.guna2HtmlLabel12.Text = "Expired";
+            // 
+            // totalExpired
+            // 
+            this.totalExpired.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.totalExpired.BackColor = System.Drawing.Color.Transparent;
+            this.totalExpired.Font = new System.Drawing.Font("Rockwell Extra Bold", 20.25F, System.Drawing.FontStyle.Bold);
+            this.totalExpired.ForeColor = System.Drawing.Color.Firebrick;
+            this.totalExpired.Location = new System.Drawing.Point(119, 36);
+            this.totalExpired.Name = "totalExpired";
+            this.totalExpired.Size = new System.Drawing.Size(60, 34);
+            this.totalExpired.TabIndex = 4;
+            this.totalExpired.Text = "100";
+            this.totalExpired.Click += new System.EventHandler(this.totalExpired_Click);
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BackColor = System.Drawing.Color.White;
+            this.guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198)))));
+            this.guna2Panel2.BorderRadius = 8;
+            this.guna2Panel2.BorderThickness = 1;
+            this.guna2Panel2.Controls.Add(this.tableLayoutPanel7);
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel2.Location = new System.Drawing.Point(307, 3);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(298, 76);
+            this.guna2Panel2.TabIndex = 1;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel7.ColumnCount = 1;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Controls.Add(this.guna2HtmlLabel10, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.totalActive, 0, 1);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(298, 76);
+            this.tableLayoutPanel7.TabIndex = 1;
+            // 
+            // guna2HtmlLabel10
+            // 
+            this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2HtmlLabel10.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
+            this.guna2HtmlLabel10.Location = new System.Drawing.Point(8, 8);
+            this.guna2HtmlLabel10.Margin = new System.Windows.Forms.Padding(8);
+            this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
+            this.guna2HtmlLabel10.Size = new System.Drawing.Size(62, 14);
+            this.guna2HtmlLabel10.TabIndex = 5;
+            this.guna2HtmlLabel10.Text = "Active";
+            // 
+            // totalActive
+            // 
+            this.totalActive.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.totalActive.BackColor = System.Drawing.Color.Transparent;
+            this.totalActive.Font = new System.Drawing.Font("Rockwell Extra Bold", 20.25F, System.Drawing.FontStyle.Bold);
+            this.totalActive.ForeColor = System.Drawing.Color.MediumSeaGreen;
+            this.totalActive.Location = new System.Drawing.Point(119, 36);
+            this.totalActive.Name = "totalActive";
+            this.totalActive.Size = new System.Drawing.Size(60, 34);
+            this.totalActive.TabIndex = 4;
+            this.totalActive.Text = "100";
+            this.totalActive.Click += new System.EventHandler(this.totalActive_Click);
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198)))));
+            this.guna2Panel1.BorderRadius = 8;
+            this.guna2Panel1.BorderThickness = 1;
+            this.guna2Panel1.Controls.Add(this.tableLayoutPanel6);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel1.Location = new System.Drawing.Point(3, 3);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(298, 76);
+            this.guna2Panel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.totalMembers, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.guna2HtmlLabel11, 0, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(298, 76);
+            this.tableLayoutPanel6.TabIndex = 0;
+            // 
+            // totalMembers
+            // 
+            this.totalMembers.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.totalMembers.BackColor = System.Drawing.Color.Transparent;
+            this.totalMembers.Font = new System.Drawing.Font("Rockwell Extra Bold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalMembers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(114)))), ((int)(((byte)(130)))));
+            this.totalMembers.Location = new System.Drawing.Point(119, 36);
+            this.totalMembers.Name = "totalMembers";
+            this.totalMembers.Size = new System.Drawing.Size(60, 34);
+            this.totalMembers.TabIndex = 3;
+            this.totalMembers.Text = "100";
+            this.totalMembers.Click += new System.EventHandler(this.totalMembers_Click_1);
+            // 
+            // guna2HtmlLabel11
+            // 
+            this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2HtmlLabel11.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
+            this.guna2HtmlLabel11.Location = new System.Drawing.Point(8, 8);
+            this.guna2HtmlLabel11.Margin = new System.Windows.Forms.Padding(8);
+            this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
+            this.guna2HtmlLabel11.Size = new System.Drawing.Size(52, 14);
+            this.guna2HtmlLabel11.TabIndex = 2;
+            this.guna2HtmlLabel11.Text = "Total";
+            // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.BorderRadius = 8;
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
             // UC_Membership
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(246)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UC_Membership";
-            this.Size = new System.Drawing.Size(1243, 722);
+            this.Size = new System.Drawing.Size(932, 587);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

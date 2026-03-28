@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Globalization;
+using MySql.Data.MySqlClient;
+using ShuttleZone.database;
+using ShuttleZone.Kio_sk;
 
 namespace ShuttleZone
 {
@@ -18,34 +13,72 @@ namespace ShuttleZone
         public UC_Equipment()
         {
             InitializeComponent();
-            RegisterEquipmentPanel(pnlKioskEquip1, lblKioskEquip1, lblKioskEquip1Price, lblEquip1Availability);
-            RegisterEquipmentPanel(pnlKioskEquip2, lblKioskEquip2, lblKioskEquip2Price, lblKioskEquip2Availability);
-            RegisterEquipmentPanel(pnlKioskEquip3, lblKioskEquip3, lblKioskEquip3Price, lblKioskEquip3Availability);
-            RegisterEquipmentPanel(pnlKioskEquip4, lblKioskEquip4, lblKioskEquip4Price, lblKioskEquip4Availability);
+            SetupFlowLayoutPanel();
+            LoadEquipmentFromDatabase();
         }
 
-        private void RegisterEquipmentPanel(Guna.UI2.WinForms.Guna2Panel panel, Guna.UI2.WinForms.Guna2HtmlLabel nameLabel, Guna.UI2.WinForms.Guna2HtmlLabel priceLabel, Guna.UI2.WinForms.Guna2HtmlLabel availabilityLabel)
+        public void RefreshEquipment()
         {
-            EventHandler handler = (s, e) =>
-            {
-                ItemSelected?.Invoke(this, new KioskItemSelectedEventArgs(nameLabel.Text, ParsePrice(priceLabel.Text)));
-            };
-
-            panel.Click += handler;
-            nameLabel.Click += handler;
-            priceLabel.Click += handler;
-            availabilityLabel.Click += handler;
+            LoadEquipmentFromDatabase();
         }
 
-        private decimal ParsePrice(string value)
+        private void SetupFlowLayoutPanel()
         {
-            decimal price;
-            if (decimal.TryParse(value.Replace("₱", "").Trim(), NumberStyles.Any, CultureInfo.InvariantCulture, out price))
+            tlpEquipmentRoot.FlowDirection = FlowDirection.TopDown;
+            tlpEquipmentRoot.WrapContents = false;
+            tlpEquipmentRoot.AutoScroll = true;
+            tlpEquipmentRoot.Padding = new Padding(10);
+        }
+
+        private void LoadEquipmentFromDatabase()
+        {
+            tlpEquipmentRoot.Controls.Clear();
+
+            try
             {
-                return price;
+                using (var conn = DBconnection.GetConnection())
+                {
+                    using (var cmd = new MySqlCommand(
+                        "SELECT * FROM equipment WHERE Category IN ('Rackets', 'Shuttlecocks', 'Grip Tape', 'Towel') AND Available > 0", conn))
+                    {
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string name = reader["Name"].ToString();
+                                decimal price = Convert.ToDecimal(reader["Price"]);
+                                int available = Convert.ToInt32(reader["Available"]);
+                                string category = reader["Category"].ToString();
+
+                                // Skip items with 0 stock
+                                if (available <= 0) continue;
+
+                                UC_EquipmentRow row = new UC_EquipmentRow
+                                {
+                                    EquipmentNameText = name,
+                                    PriceText = $"₱{price:0.00}",
+                                    CategoryText = category,
+                                    AvailableStock = available,
+                                    StockText = $"Stock: {available}"
+                                };
+
+                                row.InitializeRowEvents();
+
+                                row.RowClicked += (s, e) =>
+                                {
+                                    ItemSelected?.Invoke(this, new KioskItemSelectedEventArgs(name, price));
+                                };
+
+                                tlpEquipmentRoot.Controls.Add(row);
+                            }
+                        }
+                    }
+                }
             }
-
-            return 0;
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading equipment: " + ex.Message);
+            }
         }
     }
 }

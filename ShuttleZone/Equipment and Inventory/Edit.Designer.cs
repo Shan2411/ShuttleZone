@@ -55,11 +55,11 @@
             this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.TopPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.CloseBtn = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.CloseBtn = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
@@ -75,9 +75,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.TopPanel.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             this.tableLayoutPanel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -548,20 +548,6 @@
             this.tableLayoutPanel10.Size = new System.Drawing.Size(873, 75);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
-            // CloseBtn
-            // 
-            this.CloseBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CloseBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseBtn.BackgroundImage")));
-            this.CloseBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CloseBtn.FillColor = System.Drawing.Color.Transparent;
-            this.CloseBtn.ImageRotate = 0F;
-            this.CloseBtn.Location = new System.Drawing.Point(808, 19);
-            this.CloseBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.Size = new System.Drawing.Size(40, 37);
-            this.CloseBtn.TabIndex = 3;
-            this.CloseBtn.TabStop = false;
-            // 
             // tableLayoutPanel12
             // 
             this.tableLayoutPanel12.ColumnCount = 1;
@@ -622,6 +608,20 @@
             this.guna2PictureBox1.TabIndex = 1;
             this.guna2PictureBox1.TabStop = false;
             // 
+            // CloseBtn
+            // 
+            this.CloseBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CloseBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseBtn.BackgroundImage")));
+            this.CloseBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CloseBtn.FillColor = System.Drawing.Color.Transparent;
+            this.CloseBtn.ImageRotate = 0F;
+            this.CloseBtn.Location = new System.Drawing.Point(808, 19);
+            this.CloseBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(40, 37);
+            this.CloseBtn.TabIndex = 3;
+            this.CloseBtn.TabStop = false;
+            // 
             // Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -651,10 +651,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.TopPanel.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

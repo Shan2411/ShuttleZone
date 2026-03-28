@@ -75,6 +75,22 @@ namespace ShuttleZone
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Load role-specific dashboard by default
+            switch (UserSession.Role?.ToLower())
+            {
+                case "admin":
+                    AdminDashboardBtn_Click(this, EventArgs.Empty);
+                    break;
+                case "manager":
+                    ManagerDashboardBtn_Click(this, EventArgs.Empty);
+                    break;
+                case "frontdesk":
+                case "front desk":
+                case "front_desk":
+                default:
+                    FrontDeskDashboardBtn_Click(this, EventArgs.Empty);
+                    break;
+            }
         }
 
         // 🔥 GENERIC VIEW LOADER (CORE SYSTEM)
