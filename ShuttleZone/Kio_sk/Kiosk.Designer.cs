@@ -92,17 +92,16 @@
             // tlpRoot
             // 
             this.tlpRoot.ColumnCount = 2;
-            this.tlpRoot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tlpRoot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tlpRoot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpRoot.Controls.Add(this.tlpSidebar, 0, 0);
             this.tlpRoot.Controls.Add(this.pnlMainContent, 1, 0);
             this.tlpRoot.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpRoot.Location = new System.Drawing.Point(0, 0);
-            this.tlpRoot.Margin = new System.Windows.Forms.Padding(4);
             this.tlpRoot.Name = "tlpRoot";
             this.tlpRoot.RowCount = 1;
             this.tlpRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpRoot.Size = new System.Drawing.Size(619, 922);
+            this.tlpRoot.Size = new System.Drawing.Size(464, 748);
             this.tlpRoot.TabIndex = 0;
             // 
             // tlpSidebar
@@ -113,17 +112,16 @@
             this.tlpSidebar.Controls.Add(this.btnEquipment, 0, 2);
             this.tlpSidebar.Controls.Add(this.btnMembership, 0, 3);
             this.tlpSidebar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSidebar.Location = new System.Drawing.Point(4, 4);
-            this.tlpSidebar.Margin = new System.Windows.Forms.Padding(4);
+            this.tlpSidebar.Location = new System.Drawing.Point(3, 3);
             this.tlpSidebar.Name = "tlpSidebar";
             this.tlpSidebar.RowCount = 5;
-            this.tlpSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tlpSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
-            this.tlpSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
-            this.tlpSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this.tlpSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tlpSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tlpSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tlpSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tlpSidebar.Size = new System.Drawing.Size(92, 914);
+            this.tlpSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpSidebar.Size = new System.Drawing.Size(69, 742);
             this.tlpSidebar.TabIndex = 0;
             // 
             // btnCourtRental
@@ -186,10 +184,9 @@
             // 
             this.pnlMainContent.Controls.Add(this.tlpMainContent);
             this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMainContent.Location = new System.Drawing.Point(104, 4);
-            this.pnlMainContent.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlMainContent.Location = new System.Drawing.Point(78, 3);
             this.pnlMainContent.Name = "pnlMainContent";
-            this.pnlMainContent.Size = new System.Drawing.Size(511, 914);
+            this.pnlMainContent.Size = new System.Drawing.Size(383, 742);
             this.pnlMainContent.TabIndex = 1;
             // 
             // tlpMainContent
@@ -210,22 +207,21 @@
             this.tlpMainContent.Controls.Add(this.pnlBannerContainer, 0, 1);
             this.tlpMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMainContent.Location = new System.Drawing.Point(0, 0);
-            this.tlpMainContent.Margin = new System.Windows.Forms.Padding(4);
             this.tlpMainContent.Name = "tlpMainContent";
             this.tlpMainContent.RowCount = 12;
-            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
             this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tlpMainContent.Size = new System.Drawing.Size(511, 914);
+            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tlpMainContent.Size = new System.Drawing.Size(383, 742);
             this.tlpMainContent.TabIndex = 1;
             // 
             // pnlPromo
@@ -235,10 +231,9 @@
             this.pnlPromo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPromo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.pnlPromo.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.pnlPromo.Location = new System.Drawing.Point(4, 410);
-            this.pnlPromo.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlPromo.Location = new System.Drawing.Point(3, 331);
             this.pnlPromo.Name = "pnlPromo";
-            this.pnlPromo.Size = new System.Drawing.Size(503, 62);
+            this.pnlPromo.Size = new System.Drawing.Size(377, 50);
             this.pnlPromo.TabIndex = 0;
             // 
             // lblPromoText
@@ -246,10 +241,9 @@
             this.lblPromoText.BackColor = System.Drawing.Color.Transparent;
             this.lblPromoText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPromoText.ForeColor = System.Drawing.Color.White;
-            this.lblPromoText.Location = new System.Drawing.Point(24, 23);
-            this.lblPromoText.Margin = new System.Windows.Forms.Padding(4);
+            this.lblPromoText.Location = new System.Drawing.Point(18, 19);
             this.lblPromoText.Name = "lblPromoText";
-            this.lblPromoText.Size = new System.Drawing.Size(341, 22);
+            this.lblPromoText.Size = new System.Drawing.Size(268, 17);
             this.lblPromoText.TabIndex = 0;
             this.lblPromoText.Text = "Avail Membership and get Discounts up to 20%!";
             // 
@@ -258,10 +252,9 @@
             this.lblKioskTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblKioskTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblKioskTitle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKioskTitle.Location = new System.Drawing.Point(4, 99);
-            this.lblKioskTitle.Margin = new System.Windows.Forms.Padding(4);
+            this.lblKioskTitle.Location = new System.Drawing.Point(3, 79);
             this.lblKioskTitle.Name = "lblKioskTitle";
-            this.lblKioskTitle.Size = new System.Drawing.Size(98, 23);
+            this.lblKioskTitle.Size = new System.Drawing.Size(80, 19);
             this.lblKioskTitle.TabIndex = 1;
             this.lblKioskTitle.Text = "Court Rental";
             // 
@@ -269,10 +262,9 @@
             // 
             this.pnlDynamic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDynamic.FillColor = System.Drawing.Color.Transparent;
-            this.pnlDynamic.Location = new System.Drawing.Point(4, 130);
-            this.pnlDynamic.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlDynamic.Location = new System.Drawing.Point(3, 104);
             this.pnlDynamic.Name = "pnlDynamic";
-            this.pnlDynamic.Size = new System.Drawing.Size(503, 272);
+            this.pnlDynamic.Size = new System.Drawing.Size(377, 221);
             this.pnlDynamic.TabIndex = 2;
             // 
             // flowKioskCart
@@ -281,10 +273,9 @@
             this.flowKioskCart.Controls.Add(this.pnlKioskCartItem);
             this.flowKioskCart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowKioskCart.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowKioskCart.Location = new System.Drawing.Point(4, 517);
-            this.flowKioskCart.Margin = new System.Windows.Forms.Padding(4);
+            this.flowKioskCart.Location = new System.Drawing.Point(3, 417);
             this.flowKioskCart.Name = "flowKioskCart";
-            this.flowKioskCart.Size = new System.Drawing.Size(503, 202);
+            this.flowKioskCart.Size = new System.Drawing.Size(377, 164);
             this.flowKioskCart.TabIndex = 1;
             this.flowKioskCart.WrapContents = false;
             // 
@@ -300,13 +291,13 @@
             this.pnlKioskCartItem.Controls.Add(this.lblKioskPrice);
             this.pnlKioskCartItem.Controls.Add(this.lblKioskItemName);
             this.pnlKioskCartItem.FillColor = System.Drawing.Color.White;
-            this.pnlKioskCartItem.Location = new System.Drawing.Point(7, 6);
-            this.pnlKioskCartItem.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.pnlKioskCartItem.Location = new System.Drawing.Point(5, 5);
+            this.pnlKioskCartItem.Margin = new System.Windows.Forms.Padding(5);
             this.pnlKioskCartItem.Name = "pnlKioskCartItem";
             this.pnlKioskCartItem.ShadowDecoration.BorderRadius = 10;
             this.pnlKioskCartItem.ShadowDecoration.Color = System.Drawing.Color.DimGray;
             this.pnlKioskCartItem.ShadowDecoration.Enabled = true;
-            this.pnlKioskCartItem.Size = new System.Drawing.Size(484, 62);
+            this.pnlKioskCartItem.Size = new System.Drawing.Size(363, 50);
             this.pnlKioskCartItem.TabIndex = 0;
             this.pnlKioskCartItem.Visible = false;
             // 
@@ -320,10 +311,9 @@
             this.btnKioskRemove.FillColor = System.Drawing.Color.IndianRed;
             this.btnKioskRemove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKioskRemove.ForeColor = System.Drawing.Color.White;
-            this.btnKioskRemove.Location = new System.Drawing.Point(411, 15);
-            this.btnKioskRemove.Margin = new System.Windows.Forms.Padding(4);
+            this.btnKioskRemove.Location = new System.Drawing.Point(308, 12);
             this.btnKioskRemove.Name = "btnKioskRemove";
-            this.btnKioskRemove.Size = new System.Drawing.Size(37, 34);
+            this.btnKioskRemove.Size = new System.Drawing.Size(28, 28);
             this.btnKioskRemove.TabIndex = 6;
             this.btnKioskRemove.Text = "X";
             // 
@@ -331,10 +321,9 @@
             // 
             this.lblKioskQty.BackColor = System.Drawing.Color.Transparent;
             this.lblKioskQty.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKioskQty.Location = new System.Drawing.Point(313, 23);
-            this.lblKioskQty.Margin = new System.Windows.Forms.Padding(4);
+            this.lblKioskQty.Location = new System.Drawing.Point(235, 19);
             this.lblKioskQty.Name = "lblKioskQty";
-            this.lblKioskQty.Size = new System.Drawing.Size(19, 21);
+            this.lblKioskQty.Size = new System.Drawing.Size(15, 15);
             this.lblKioskQty.TabIndex = 5;
             this.lblKioskQty.Text = "10";
             this.lblKioskQty.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -348,10 +337,9 @@
             this.btnKioskPlus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnKioskPlus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKioskPlus.ForeColor = System.Drawing.Color.White;
-            this.btnKioskPlus.Location = new System.Drawing.Point(343, 15);
-            this.btnKioskPlus.Margin = new System.Windows.Forms.Padding(4);
+            this.btnKioskPlus.Location = new System.Drawing.Point(257, 12);
             this.btnKioskPlus.Name = "btnKioskPlus";
-            this.btnKioskPlus.Size = new System.Drawing.Size(37, 34);
+            this.btnKioskPlus.Size = new System.Drawing.Size(28, 28);
             this.btnKioskPlus.TabIndex = 4;
             this.btnKioskPlus.Text = "+";
             // 
@@ -364,10 +352,9 @@
             this.btnKioskMinus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnKioskMinus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKioskMinus.ForeColor = System.Drawing.Color.White;
-            this.btnKioskMinus.Location = new System.Drawing.Point(269, 15);
-            this.btnKioskMinus.Margin = new System.Windows.Forms.Padding(4);
+            this.btnKioskMinus.Location = new System.Drawing.Point(202, 12);
             this.btnKioskMinus.Name = "btnKioskMinus";
-            this.btnKioskMinus.Size = new System.Drawing.Size(37, 34);
+            this.btnKioskMinus.Size = new System.Drawing.Size(28, 28);
             this.btnKioskMinus.TabIndex = 3;
             this.btnKioskMinus.Text = "-";
             // 
@@ -375,10 +362,9 @@
             // 
             this.lblKioskRowTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblKioskRowTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKioskRowTotal.Location = new System.Drawing.Point(205, 21);
-            this.lblKioskRowTotal.Margin = new System.Windows.Forms.Padding(4);
+            this.lblKioskRowTotal.Location = new System.Drawing.Point(154, 17);
             this.lblKioskRowTotal.Name = "lblKioskRowTotal";
-            this.lblKioskRowTotal.Size = new System.Drawing.Size(44, 22);
+            this.lblKioskRowTotal.Size = new System.Drawing.Size(34, 17);
             this.lblKioskRowTotal.TabIndex = 2;
             this.lblKioskRowTotal.Text = "₱0000";
             // 
@@ -386,10 +372,9 @@
             // 
             this.lblKioskPrice.BackColor = System.Drawing.Color.Transparent;
             this.lblKioskPrice.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKioskPrice.Location = new System.Drawing.Point(43, 31);
-            this.lblKioskPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.lblKioskPrice.Location = new System.Drawing.Point(32, 25);
             this.lblKioskPrice.Name = "lblKioskPrice";
-            this.lblKioskPrice.Size = new System.Drawing.Size(43, 21);
+            this.lblKioskPrice.Size = new System.Drawing.Size(33, 15);
             this.lblKioskPrice.TabIndex = 1;
             this.lblKioskPrice.Text = "₱0000";
             // 
@@ -397,10 +382,9 @@
             // 
             this.lblKioskItemName.BackColor = System.Drawing.Color.Transparent;
             this.lblKioskItemName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKioskItemName.Location = new System.Drawing.Point(43, 14);
-            this.lblKioskItemName.Margin = new System.Windows.Forms.Padding(4);
+            this.lblKioskItemName.Location = new System.Drawing.Point(32, 11);
             this.lblKioskItemName.Name = "lblKioskItemName";
-            this.lblKioskItemName.Size = new System.Drawing.Size(82, 22);
+            this.lblKioskItemName.Size = new System.Drawing.Size(66, 17);
             this.lblKioskItemName.TabIndex = 0;
             this.lblKioskItemName.Text = "Item Name";
             // 
@@ -412,22 +396,20 @@
             this.tableLayoutPanel1.Controls.Add(this.lblKioskCart, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pnlKioskDiscountApplied, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 480);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 387);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(503, 29);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(377, 24);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
             // lblKioskCart
             // 
             this.lblKioskCart.BackColor = System.Drawing.Color.Transparent;
             this.lblKioskCart.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKioskCart.Location = new System.Drawing.Point(4, 4);
-            this.lblKioskCart.Margin = new System.Windows.Forms.Padding(4);
+            this.lblKioskCart.Location = new System.Drawing.Point(3, 3);
             this.lblKioskCart.Name = "lblKioskCart";
-            this.lblKioskCart.Size = new System.Drawing.Size(34, 21);
+            this.lblKioskCart.Size = new System.Drawing.Size(28, 19);
             this.lblKioskCart.TabIndex = 0;
             this.lblKioskCart.Text = "Cart";
             // 
@@ -436,10 +418,9 @@
             this.pnlKioskDiscountApplied.Controls.Add(this.btnKioskRemoveDiscount);
             this.pnlKioskDiscountApplied.Controls.Add(this.lblKioskDiscountApplied);
             this.pnlKioskDiscountApplied.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlKioskDiscountApplied.Location = new System.Drawing.Point(192, 4);
-            this.pnlKioskDiscountApplied.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlKioskDiscountApplied.Location = new System.Drawing.Point(144, 3);
             this.pnlKioskDiscountApplied.Name = "pnlKioskDiscountApplied";
-            this.pnlKioskDiscountApplied.Size = new System.Drawing.Size(307, 21);
+            this.pnlKioskDiscountApplied.Size = new System.Drawing.Size(230, 18);
             this.pnlKioskDiscountApplied.TabIndex = 1;
             this.pnlKioskDiscountApplied.Visible = false;
             // 
@@ -453,10 +434,9 @@
             this.btnKioskRemoveDiscount.FillColor = System.Drawing.Color.Transparent;
             this.btnKioskRemoveDiscount.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKioskRemoveDiscount.ForeColor = System.Drawing.Color.Lime;
-            this.btnKioskRemoveDiscount.Location = new System.Drawing.Point(252, -1);
-            this.btnKioskRemoveDiscount.Margin = new System.Windows.Forms.Padding(4);
+            this.btnKioskRemoveDiscount.Location = new System.Drawing.Point(189, -1);
             this.btnKioskRemoveDiscount.Name = "btnKioskRemoveDiscount";
-            this.btnKioskRemoveDiscount.Size = new System.Drawing.Size(48, 23);
+            this.btnKioskRemoveDiscount.Size = new System.Drawing.Size(36, 19);
             this.btnKioskRemoveDiscount.TabIndex = 1;
             this.btnKioskRemoveDiscount.Text = "X";
             // 
@@ -465,10 +445,9 @@
             this.lblKioskDiscountApplied.BackColor = System.Drawing.Color.Transparent;
             this.lblKioskDiscountApplied.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKioskDiscountApplied.ForeColor = System.Drawing.Color.Lime;
-            this.lblKioskDiscountApplied.Location = new System.Drawing.Point(4, 1);
-            this.lblKioskDiscountApplied.Margin = new System.Windows.Forms.Padding(4);
+            this.lblKioskDiscountApplied.Location = new System.Drawing.Point(3, 1);
             this.lblKioskDiscountApplied.Name = "lblKioskDiscountApplied";
-            this.lblKioskDiscountApplied.Size = new System.Drawing.Size(115, 21);
+            this.lblKioskDiscountApplied.Size = new System.Drawing.Size(98, 15);
             this.lblKioskDiscountApplied.TabIndex = 0;
             this.lblKioskDiscountApplied.Text = "Discount Applied !";
             // 
@@ -482,10 +461,9 @@
             this.btnCloseKiosk.FillColor = System.Drawing.Color.Transparent;
             this.btnCloseKiosk.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCloseKiosk.ForeColor = System.Drawing.Color.White;
-            this.btnCloseKiosk.Location = new System.Drawing.Point(466, 4);
-            this.btnCloseKiosk.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCloseKiosk.Location = new System.Drawing.Point(349, 3);
             this.btnCloseKiosk.Name = "btnCloseKiosk";
-            this.btnCloseKiosk.Size = new System.Drawing.Size(41, 17);
+            this.btnCloseKiosk.Size = new System.Drawing.Size(31, 14);
             this.btnCloseKiosk.TabIndex = 8;
             // 
             // tlpKioskPaymentMethod
@@ -496,13 +474,12 @@
             this.tlpKioskPaymentMethod.Controls.Add(this.btnKioskCashPayment, 0, 0);
             this.tlpKioskPaymentMethod.Controls.Add(this.btnKioskEcashPayment, 1, 0);
             this.tlpKioskPaymentMethod.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpKioskPaymentMethod.Location = new System.Drawing.Point(4, 869);
-            this.tlpKioskPaymentMethod.Margin = new System.Windows.Forms.Padding(4);
+            this.tlpKioskPaymentMethod.Location = new System.Drawing.Point(3, 702);
             this.tlpKioskPaymentMethod.Name = "tlpKioskPaymentMethod";
             this.tlpKioskPaymentMethod.RowCount = 1;
             this.tlpKioskPaymentMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpKioskPaymentMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpKioskPaymentMethod.Size = new System.Drawing.Size(503, 41);
+            this.tlpKioskPaymentMethod.Size = new System.Drawing.Size(377, 37);
             this.tlpKioskPaymentMethod.TabIndex = 6;
             // 
             // btnKioskCashPayment
@@ -515,10 +492,9 @@
             this.btnKioskCashPayment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnKioskCashPayment.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKioskCashPayment.ForeColor = System.Drawing.Color.White;
-            this.btnKioskCashPayment.Location = new System.Drawing.Point(4, 4);
-            this.btnKioskCashPayment.Margin = new System.Windows.Forms.Padding(4);
+            this.btnKioskCashPayment.Location = new System.Drawing.Point(3, 3);
             this.btnKioskCashPayment.Name = "btnKioskCashPayment";
-            this.btnKioskCashPayment.Size = new System.Drawing.Size(243, 33);
+            this.btnKioskCashPayment.Size = new System.Drawing.Size(182, 31);
             this.btnKioskCashPayment.TabIndex = 0;
             this.btnKioskCashPayment.Text = "Cash";
             this.btnKioskCashPayment.Click += new System.EventHandler(this.btnKioskCashPayment_Click_1);
@@ -533,10 +509,9 @@
             this.btnKioskEcashPayment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnKioskEcashPayment.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKioskEcashPayment.ForeColor = System.Drawing.Color.White;
-            this.btnKioskEcashPayment.Location = new System.Drawing.Point(255, 4);
-            this.btnKioskEcashPayment.Margin = new System.Windows.Forms.Padding(4);
+            this.btnKioskEcashPayment.Location = new System.Drawing.Point(191, 3);
             this.btnKioskEcashPayment.Name = "btnKioskEcashPayment";
-            this.btnKioskEcashPayment.Size = new System.Drawing.Size(244, 33);
+            this.btnKioskEcashPayment.Size = new System.Drawing.Size(183, 31);
             this.btnKioskEcashPayment.TabIndex = 1;
             this.btnKioskEcashPayment.Text = "E-Cash";
             this.btnKioskEcashPayment.Click += new System.EventHandler(this.btnKioskEcashPayment_Click_1);
@@ -549,12 +524,11 @@
             this.tlpKioskMemberCode.Controls.Add(this.btnKioskApply, 1, 0);
             this.tlpKioskMemberCode.Controls.Add(this.txtKioskMemberCode, 0, 0);
             this.tlpKioskMemberCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpKioskMemberCode.Location = new System.Drawing.Point(4, 820);
-            this.tlpKioskMemberCode.Margin = new System.Windows.Forms.Padding(4);
+            this.tlpKioskMemberCode.Location = new System.Drawing.Point(3, 662);
             this.tlpKioskMemberCode.Name = "tlpKioskMemberCode";
             this.tlpKioskMemberCode.RowCount = 1;
             this.tlpKioskMemberCode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpKioskMemberCode.Size = new System.Drawing.Size(503, 41);
+            this.tlpKioskMemberCode.Size = new System.Drawing.Size(377, 34);
             this.tlpKioskMemberCode.TabIndex = 5;
             // 
             // btnKioskApply
@@ -567,17 +541,17 @@
             this.btnKioskApply.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnKioskApply.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKioskApply.ForeColor = System.Drawing.Color.White;
-            this.btnKioskApply.Location = new System.Drawing.Point(356, 4);
-            this.btnKioskApply.Margin = new System.Windows.Forms.Padding(4);
+            this.btnKioskApply.Location = new System.Drawing.Point(266, 3);
             this.btnKioskApply.Name = "btnKioskApply";
-            this.btnKioskApply.Size = new System.Drawing.Size(143, 33);
+            this.btnKioskApply.Size = new System.Drawing.Size(108, 28);
             this.btnKioskApply.TabIndex = 0;
             this.btnKioskApply.Text = "Apply";
+            this.btnKioskApply.Click += new System.EventHandler(this.btnKioskApply_Click_1);
             // 
             // txtKioskMemberCode
             // 
             this.txtKioskMemberCode.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtKioskMemberCode.DefaultText = "Enter Member Code";
+            this.txtKioskMemberCode.DefaultText = "";
             this.txtKioskMemberCode.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtKioskMemberCode.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtKioskMemberCode.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -586,12 +560,12 @@
             this.txtKioskMemberCode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtKioskMemberCode.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtKioskMemberCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtKioskMemberCode.Location = new System.Drawing.Point(4, 5);
-            this.txtKioskMemberCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtKioskMemberCode.Location = new System.Drawing.Point(3, 4);
+            this.txtKioskMemberCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtKioskMemberCode.Name = "txtKioskMemberCode";
-            this.txtKioskMemberCode.PlaceholderText = "";
+            this.txtKioskMemberCode.PlaceholderText = "Enter Member Code";
             this.txtKioskMemberCode.SelectedText = "";
-            this.txtKioskMemberCode.Size = new System.Drawing.Size(344, 31);
+            this.txtKioskMemberCode.Size = new System.Drawing.Size(257, 26);
             this.txtKioskMemberCode.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -602,23 +576,21 @@
             this.tableLayoutPanel3.Controls.Add(this.lblKioskTotalText, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblKioskTotal, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 789);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 637);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(503, 23);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(377, 19);
             this.tableLayoutPanel3.TabIndex = 10;
             // 
             // lblKioskTotalText
             // 
             this.lblKioskTotalText.BackColor = System.Drawing.Color.Transparent;
             this.lblKioskTotalText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKioskTotalText.Location = new System.Drawing.Point(4, 4);
-            this.lblKioskTotalText.Margin = new System.Windows.Forms.Padding(4);
+            this.lblKioskTotalText.Location = new System.Drawing.Point(3, 3);
             this.lblKioskTotalText.Name = "lblKioskTotalText";
-            this.lblKioskTotalText.Size = new System.Drawing.Size(40, 15);
+            this.lblKioskTotalText.Size = new System.Drawing.Size(33, 17);
             this.lblKioskTotalText.TabIndex = 0;
             this.lblKioskTotalText.Text = "Total:";
             // 
@@ -627,10 +599,9 @@
             this.lblKioskTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblKioskTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblKioskTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKioskTotal.Location = new System.Drawing.Point(462, 4);
-            this.lblKioskTotal.Margin = new System.Windows.Forms.Padding(4);
+            this.lblKioskTotal.Location = new System.Drawing.Point(344, 3);
             this.lblKioskTotal.Name = "lblKioskTotal";
-            this.lblKioskTotal.Size = new System.Drawing.Size(37, 15);
+            this.lblKioskTotal.Size = new System.Drawing.Size(30, 17);
             this.lblKioskTotal.TabIndex = 1;
             this.lblKioskTotal.Text = "Total";
             // 
@@ -642,23 +613,21 @@
             this.tableLayoutPanel2.Controls.Add(this.lblKioskMemberDiscount, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblKioskDiscount, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 758);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 612);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(503, 23);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(377, 19);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
             // lblKioskMemberDiscount
             // 
             this.lblKioskMemberDiscount.BackColor = System.Drawing.Color.Transparent;
             this.lblKioskMemberDiscount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKioskMemberDiscount.Location = new System.Drawing.Point(4, 4);
-            this.lblKioskMemberDiscount.Margin = new System.Windows.Forms.Padding(4);
+            this.lblKioskMemberDiscount.Location = new System.Drawing.Point(3, 3);
             this.lblKioskMemberDiscount.Name = "lblKioskMemberDiscount";
-            this.lblKioskMemberDiscount.Size = new System.Drawing.Size(124, 15);
+            this.lblKioskMemberDiscount.Size = new System.Drawing.Size(101, 17);
             this.lblKioskMemberDiscount.TabIndex = 0;
             this.lblKioskMemberDiscount.Text = "Member Discount:";
             // 
@@ -667,10 +636,9 @@
             this.lblKioskDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblKioskDiscount.BackColor = System.Drawing.Color.Transparent;
             this.lblKioskDiscount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKioskDiscount.Location = new System.Drawing.Point(438, 4);
-            this.lblKioskDiscount.Margin = new System.Windows.Forms.Padding(4);
+            this.lblKioskDiscount.Location = new System.Drawing.Point(324, 3);
             this.lblKioskDiscount.Name = "lblKioskDiscount";
-            this.lblKioskDiscount.Size = new System.Drawing.Size(61, 15);
+            this.lblKioskDiscount.Size = new System.Drawing.Size(50, 17);
             this.lblKioskDiscount.TabIndex = 1;
             this.lblKioskDiscount.Text = "Discount";
             // 
@@ -682,23 +650,21 @@
             this.tableLayoutPanel4.Controls.Add(this.lblKioskSubtotalText, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.lblKioskSubtotal, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(4, 727);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 587);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(503, 23);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(377, 19);
             this.tableLayoutPanel4.TabIndex = 11;
             // 
             // lblKioskSubtotalText
             // 
             this.lblKioskSubtotalText.BackColor = System.Drawing.Color.Transparent;
             this.lblKioskSubtotalText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKioskSubtotalText.Location = new System.Drawing.Point(4, 4);
-            this.lblKioskSubtotalText.Margin = new System.Windows.Forms.Padding(4);
+            this.lblKioskSubtotalText.Location = new System.Drawing.Point(3, 3);
             this.lblKioskSubtotalText.Name = "lblKioskSubtotalText";
-            this.lblKioskSubtotalText.Size = new System.Drawing.Size(62, 15);
+            this.lblKioskSubtotalText.Size = new System.Drawing.Size(50, 17);
             this.lblKioskSubtotalText.TabIndex = 0;
             this.lblKioskSubtotalText.Text = "Subtotal:";
             // 
@@ -707,10 +673,9 @@
             this.lblKioskSubtotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblKioskSubtotal.BackColor = System.Drawing.Color.Transparent;
             this.lblKioskSubtotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKioskSubtotal.Location = new System.Drawing.Point(440, 4);
-            this.lblKioskSubtotal.Margin = new System.Windows.Forms.Padding(4);
+            this.lblKioskSubtotal.Location = new System.Drawing.Point(327, 3);
             this.lblKioskSubtotal.Name = "lblKioskSubtotal";
-            this.lblKioskSubtotal.Size = new System.Drawing.Size(59, 15);
+            this.lblKioskSubtotal.Size = new System.Drawing.Size(47, 17);
             this.lblKioskSubtotal.TabIndex = 1;
             this.lblKioskSubtotal.Text = "Subtotal";
             // 
@@ -721,10 +686,9 @@
             this.pnlBannerContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBannerContainer.FillColor = System.Drawing.Color.Green;
             this.pnlBannerContainer.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.pnlBannerContainer.Location = new System.Drawing.Point(4, 29);
-            this.pnlBannerContainer.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlBannerContainer.Location = new System.Drawing.Point(3, 23);
             this.pnlBannerContainer.Name = "pnlBannerContainer";
-            this.pnlBannerContainer.Size = new System.Drawing.Size(503, 62);
+            this.pnlBannerContainer.Size = new System.Drawing.Size(377, 50);
             this.pnlBannerContainer.TabIndex = 12;
             this.pnlBannerContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBannerContainer_Paint);
             // 
@@ -733,23 +697,74 @@
             this.lblBannerHeaderText.BackColor = System.Drawing.Color.Transparent;
             this.lblBannerHeaderText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBannerHeaderText.ForeColor = System.Drawing.Color.White;
-            this.lblBannerHeaderText.Location = new System.Drawing.Point(24, 20);
-            this.lblBannerHeaderText.Margin = new System.Windows.Forms.Padding(4);
+            this.lblBannerHeaderText.Location = new System.Drawing.Point(18, 16);
             this.lblBannerHeaderText.Name = "lblBannerHeaderText";
-            this.lblBannerHeaderText.Size = new System.Drawing.Size(157, 23);
+            this.lblBannerHeaderText.Size = new System.Drawing.Size(129, 19);
             this.lblBannerHeaderText.TabIndex = 0;
             this.lblBannerHeaderText.Text = "Book a Court Today!";
             // 
+            // btnCourtRental
+            // 
+            this.btnCourtRental.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCourtRental.AutoRoundedCorners = true;
+            this.btnCourtRental.BorderRadius = 26;
+            this.btnCourtRental.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCourtRental.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCourtRental.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCourtRental.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCourtRental.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(35)))), ((int)(((byte)(191)))));
+            this.btnCourtRental.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnCourtRental.ForeColor = System.Drawing.Color.White;
+            this.btnCourtRental.Image = ((System.Drawing.Image)(resources.GetObject("btnCourtRental.Image")));
+            this.btnCourtRental.ImageSize = new System.Drawing.Size(63, 54);
+            this.btnCourtRental.Location = new System.Drawing.Point(3, 23);
+            this.btnCourtRental.Name = "btnCourtRental";
+            this.btnCourtRental.Size = new System.Drawing.Size(63, 54);
+            this.btnCourtRental.TabIndex = 0;
+            // 
+            // btnEquipment
+            // 
+            this.btnEquipment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEquipment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEquipment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEquipment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEquipment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEquipment.FillColor = System.Drawing.Color.Transparent;
+            this.btnEquipment.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnEquipment.ForeColor = System.Drawing.Color.White;
+            this.btnEquipment.Image = ((System.Drawing.Image)(resources.GetObject("btnEquipment.Image")));
+            this.btnEquipment.ImageSize = new System.Drawing.Size(63, 54);
+            this.btnEquipment.Location = new System.Drawing.Point(3, 83);
+            this.btnEquipment.Name = "btnEquipment";
+            this.btnEquipment.Size = new System.Drawing.Size(63, 54);
+            this.btnEquipment.TabIndex = 1;
+            // 
+            // btnMembership
+            // 
+            this.btnMembership.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMembership.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMembership.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMembership.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMembership.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMembership.FillColor = System.Drawing.Color.Transparent;
+            this.btnMembership.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMembership.ForeColor = System.Drawing.Color.White;
+            this.btnMembership.Image = ((System.Drawing.Image)(resources.GetObject("btnMembership.Image")));
+            this.btnMembership.ImageSize = new System.Drawing.Size(63, 54);
+            this.btnMembership.Location = new System.Drawing.Point(3, 143);
+            this.btnMembership.Name = "btnMembership";
+            this.btnMembership.Size = new System.Drawing.Size(63, 54);
+            this.btnMembership.TabIndex = 2;
+            // 
             // Kiosk
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(619, 922);
+            this.ClientSize = new System.Drawing.Size(464, 748);
             this.ControlBox = false;
             this.Controls.Add(this.tlpRoot);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Kiosk";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kiosk";

@@ -95,6 +95,18 @@ namespace ShuttleZone.Membership
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+        public static bool RestoreMember(int id)
+        {
+            using (var conn = new MySqlConnection(ConnStr))
+            using (var cmd = conn.CreateCommand())
+            {
+                cmd.CommandText = "UPDATE members SET is_archived = 0 WHERE id=@id;";
+                cmd.Parameters.AddWithValue("@id", id);
+
+                conn.Open();
+                return cmd.ExecuteNonQuery() > 0;
+            }
+        }
 
         public static bool ArchiveMember(int id)
         {

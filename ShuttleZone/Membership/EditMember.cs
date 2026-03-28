@@ -6,13 +6,25 @@ namespace ShuttleZone.Membership
 {
     public partial class EditMember : Form
     {
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
+
         public EditMember()
         {
             InitializeComponent();
 
+            // Borderless, white background
             this.FormBorderStyle = FormBorderStyle.None;
             this.BackColor = Color.White;
 
+            // Drag functionality
+            this.MouseDown += Form_MouseDown;
+            this.MouseMove += Form_MouseMove;
+            this.MouseUp += Form_MouseUp;
+            AddDragEventsToControls(this.Controls);
+
+            // Membership options
             cbMembershipType.Items.AddRange(new object[] {
                 "1 month (Php 500)",
                 "2 months (Php 955)",
@@ -29,17 +41,51 @@ namespace ShuttleZone.Membership
             });
 
             cbJoinDate.BackColor = Color.White;
+            cbJoinDate.ValueChanged += cbJoinDate_ValueChanged;
 
             tbMemberPhone.MaxLength = 11;
             tbMemberPhone.KeyPress += TbMemberPhone_KeyPress;
             tbMemberPhone.Leave += TbMemberPhone_Leave;
 
             cbMembershipType.SelectedIndexChanged += cbMembershipType_SelectedIndexChanged;
-            cbJoinDate.ValueChanged += cbJoinDate_ValueChanged;
 
             this.Load += (s, e) => UpdateExpiryDate();
         }
 
+        #region Dragging
+        private void AddDragEventsToControls(Control.ControlCollection controls)
+        {
+            foreach (Control control in controls)
+            {
+                control.MouseDown += Form_MouseDown;
+                control.MouseMove += Form_MouseMove;
+                control.MouseUp += Form_MouseUp;
+
+                if (control.HasChildren)
+                    AddDragEventsToControls(control.Controls);
+            }
+        }
+
+        private void Form_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
+
+        private void Form_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(diff));
+            }
+        }
+
+        private void Form_MouseUp(object sender, MouseEventArgs e) => dragging = false;
+        #endregion
+
+        #region Properties
         public string MemberIDValue { get; set; }
         public string MemberNameValue { get => tbMemberName.Text; set => tbMemberName.Text = value; }
         public string MemberEmailValue { get => tbMemberEmail.Text; set => tbMemberEmail.Text = value; }
@@ -61,12 +107,43 @@ namespace ShuttleZone.Membership
             get => cbJoinDate.Value;
             set
             {
-                cbJoinDate.Value = value; // ✅ use original join date
+                cbJoinDate.Value = value;
                 UpdateExpiryDate();
             }
         }
         public string ExpiryDateValue { get => ExpiryDateLbl.Text; set => ExpiryDateLbl.Text = value; }
 
+        // <-- Add this property for role awareness
+        private string userRole = "frontdesk";
+        public string UserRole
+        {
+            get => userRole;
+            set
+            {
+                userRole = value?.Trim().ToLower() ?? "frontdesk";
+                ApplyRoleRestrictions();
+            }
+        }
+        #endregion
+
+        #region Role Restrictions
+        private void ApplyRoleRestrictions()
+        {
+            if (userRole == "frontdesk")
+            {
+                // Frontdesk cannot change membership type or join date
+                cbMembershipType.Enabled = false;
+                cbJoinDate.Enabled = false;
+            }
+            else
+            {
+                cbMembershipType.Enabled = true;
+                cbJoinDate.Enabled = true;
+            }
+        }
+        #endregion
+
+        #region Expiry Calculation
         private void UpdateExpiryDate()
         {
             DateTime joinDate = cbJoinDate.Value;
@@ -86,29 +163,49 @@ namespace ShuttleZone.Membership
 
         private void cbMembershipType_SelectedIndexChanged(object sender, EventArgs e) => UpdateExpiryDate();
         private void cbJoinDate_ValueChanged(object sender, EventArgs e) => UpdateExpiryDate();
+        #endregion
 
+        #region Validation
+        private void TbMemberPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true;
+            if (tbMemberPhone.Text.Length >= 11 && !char.IsControl(e.KeyChar)) e.Handled = true;
+        }
+
+        private void TbMemberPhone_Leave(object sender, EventArgs e)
+        {
+            if (!(tbMemberPhone.Text.StartsWith("09") && tbMemberPhone.Text.Length == 11))
+            {
+                MessageBox.Show("Contact number must be 11 digits and start with '09'.",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tbMemberPhone.Focus();
+            }
+        }
+        #endregion
+
+        #region Buttons
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbMemberName.Text) ||
-                string.IsNullOrWhiteSpace(tbMemberEmail.Text) ||
-                string.IsNullOrWhiteSpace(tbMemberPhone.Text) ||
-                string.IsNullOrWhiteSpace(cbMembershipType.Text))
+            if (string.IsNullOrWhiteSpace(MemberNameValue) ||
+                string.IsNullOrWhiteSpace(MemberEmailValue) ||
+                string.IsNullOrWhiteSpace(MemberPhoneValue) ||
+                string.IsNullOrWhiteSpace(MembershipTypeValue))
             {
                 MessageBox.Show("Please fill in all fields.", "Validation Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!(tbMemberPhone.Text.Length == 11 && tbMemberPhone.Text.StartsWith("09")))
+            if (!(MemberPhoneValue.Length == 11 && MemberPhoneValue.StartsWith("09")))
             {
                 MessageBox.Show("Contact number must be 11 digits and start with '09'.",
                     "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!tbMemberEmail.Text.EndsWith("@gmail.com", StringComparison.OrdinalIgnoreCase))
+            if (!MemberEmailValue.Contains("@") || !MemberEmailValue.Contains("."))
             {
-                MessageBox.Show("Email must end with '@gmail.com'.",
+                MessageBox.Show("Enter a valid email address.",
                     "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -130,32 +227,6 @@ namespace ShuttleZone.Membership
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-
-        private void TbMemberPhone_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            TextBox tb = sender as TextBox;
-            if (tb == null) return;
-
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                e.Handled = true;
-
-            if (tb.Text.Length >= 11 && !char.IsControl(e.KeyChar))
-                e.Handled = true;
-        }
-
-        private void TbMemberPhone_Leave(object sender, EventArgs e)
-        {
-            if (!(tbMemberPhone.Text.StartsWith("09") && tbMemberPhone.Text.Length == 11))
-            {
-                MessageBox.Show("Contact number must be 11 digits and start with '09'.",
-                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tbMemberPhone.Focus();
-            }
-        }
-
-        private void tableLayoutPanel10_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        #endregion
     }
 }

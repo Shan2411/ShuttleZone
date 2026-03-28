@@ -13,14 +13,13 @@ namespace ShuttleZone.Equipment_and_Inventory
             InitializeComponent();
         }
 
-        // Constructor to load selected item
         public Edit(EquipmentItem item)
         {
             InitializeComponent();
             LoadExistingData(item);
         }
 
-        // Load data into textboxes
+        // Load the item data into the form
         public void LoadExistingData(EquipmentItem item)
         {
             if (item == null) return;
@@ -28,14 +27,17 @@ namespace ShuttleZone.Equipment_and_Inventory
             currentItem = item;
 
             txtEquipmentName.Text = item.Name;
+
+            // Keep category as read-only textbox
             txtCategory.Text = item.Category;
+            txtCategory.ReadOnly = true;
+
             txtStock.Text = item.Total.ToString();
             txtRentalPrice.Text = item.Price.ToString();
         }
 
         private void CreateBtn_Click(object sender, EventArgs e)
         {
-            // Validate input
             if (string.IsNullOrWhiteSpace(txtEquipmentName.Text) ||
                 string.IsNullOrWhiteSpace(txtStock.Text) ||
                 string.IsNullOrWhiteSpace(txtRentalPrice.Text))
@@ -71,14 +73,14 @@ namespace ShuttleZone.Equipment_and_Inventory
 
             // Update currentItem object
             currentItem.Name = txtEquipmentName.Text;
-            currentItem.Category = txtCategory.Text;
+            currentItem.Category = txtCategory.Text; // still read-only
             currentItem.Total = stock;
             currentItem.Available = available;
             currentItem.Rented = rented;
             currentItem.Price = price;
             currentItem.Status = status;
 
-            // Update SQL database
+            // Update database
             UpdateEquipmentInDatabase(currentItem);
 
             this.DialogResult = DialogResult.OK;
@@ -96,7 +98,6 @@ namespace ShuttleZone.Equipment_and_Inventory
             this.Close();
         }
 
-        // Function to update database
         private void UpdateEquipmentInDatabase(EquipmentItem item)
         {
             try

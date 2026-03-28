@@ -64,7 +64,7 @@
             this.SidebarBackground.Location = new System.Drawing.Point(0, 0);
             this.SidebarBackground.Margin = new System.Windows.Forms.Padding(0);
             this.SidebarBackground.Name = "SidebarBackground";
-            this.SidebarBackground.Size = new System.Drawing.Size(208, 759);
+            this.SidebarBackground.Size = new System.Drawing.Size(156, 617);
             this.SidebarBackground.TabIndex = 4;
             // 
             // SidebarTableLayout
@@ -83,7 +83,7 @@
             this.SidebarTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.SidebarTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
             this.SidebarTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.SidebarTableLayout.Size = new System.Drawing.Size(208, 759);
+            this.SidebarTableLayout.Size = new System.Drawing.Size(156, 617);
             this.SidebarTableLayout.TabIndex = 3;
             // 
             // tableLayoutPanel4
@@ -94,14 +94,14 @@
             this.tableLayoutPanel4.Controls.Add(this.LogoutBtn, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.guna2Panel1, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 606);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 493);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(208, 153);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(156, 124);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
             // LogoutBtn
@@ -119,10 +119,10 @@
             this.LogoutBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogoutBtn.ForeColor = System.Drawing.Color.White;
             this.LogoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("LogoutBtn.Image")));
-            this.LogoutBtn.Location = new System.Drawing.Point(13, 68);
-            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(13, 6, 13, 12);
+            this.LogoutBtn.Location = new System.Drawing.Point(10, 67);
+            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(10, 5, 10, 10);
             this.LogoutBtn.Name = "LogoutBtn";
-            this.LogoutBtn.Size = new System.Drawing.Size(130, 44);
+            this.LogoutBtn.Size = new System.Drawing.Size(136, 47);
             this.LogoutBtn.TabIndex = 27;
             this.LogoutBtn.Text = "Log out";
             this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
@@ -132,10 +132,10 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(65)))), ((int)(((byte)(83)))));
             this.guna2Panel1.Controls.Add(this.tableLayoutPanel9);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel1.Location = new System.Drawing.Point(13, 12);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(13, 12, 13, 6);
+            this.guna2Panel1.Location = new System.Drawing.Point(10, 10);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 5);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(182, 58);
+            this.guna2Panel1.Size = new System.Drawing.Size(136, 47);
             this.guna2Panel1.TabIndex = 28;
             // 
             // tableLayoutPanel9
@@ -147,38 +147,38 @@
             this.tableLayoutPanel9.Controls.Add(this.frontdeskUserName, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(182, 58);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(136, 47);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // guna2HtmlLabel1
             // 
-            this.guna2HtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(11, 33);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(11, 4, 4, 4);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(8, 26);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(80, 21);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(125, 18);
             this.guna2HtmlLabel1.TabIndex = 2;
             this.guna2HtmlLabel1.Text = "Front-Desk";
             this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frontdeskUserName
             // 
-            this.frontdeskUserName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.frontdeskUserName.BackColor = System.Drawing.Color.Transparent;
+            this.frontdeskUserName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.frontdeskUserName.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.frontdeskUserName.ForeColor = System.Drawing.Color.White;
-            this.frontdeskUserName.Location = new System.Drawing.Point(8, 3);
-            this.frontdeskUserName.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
+            this.frontdeskUserName.Location = new System.Drawing.Point(6, 2);
+            this.frontdeskUserName.Margin = new System.Windows.Forms.Padding(6, 2, 2, 2);
             this.frontdeskUserName.Name = "frontdeskUserName";
-            this.frontdeskUserName.Size = new System.Drawing.Size(67, 17);
+            this.frontdeskUserName.Size = new System.Drawing.Size(128, 19);
             this.frontdeskUserName.TabIndex = 1;
             this.frontdeskUserName.Text = "Username";
             this.frontdeskUserName.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -188,16 +188,16 @@
             // 
             this.SidebarLinksGroup.BackColor = System.Drawing.Color.Transparent;
             this.SidebarLinksGroup.ColumnCount = 1;
-            this.SidebarLinksGroup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 236F));
-            this.SidebarLinksGroup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
+            this.SidebarLinksGroup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
+            this.SidebarLinksGroup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
             this.SidebarLinksGroup.Controls.Add(this.PendingPaymentsBtn, 0, 3);
             this.SidebarLinksGroup.Controls.Add(this.POSBtn, 0, 1);
             this.SidebarLinksGroup.Controls.Add(this.DashboardBtn, 0, 0);
             this.SidebarLinksGroup.Controls.Add(this.MembershipBtn, 0, 2);
             this.SidebarLinksGroup.Controls.Add(this.HistoryBtn, 0, 4);
             this.SidebarLinksGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SidebarLinksGroup.Location = new System.Drawing.Point(0, 125);
-            this.SidebarLinksGroup.Margin = new System.Windows.Forms.Padding(0, 12, 0, 185);
+            this.SidebarLinksGroup.Location = new System.Drawing.Point(0, 102);
+            this.SidebarLinksGroup.Margin = new System.Windows.Forms.Padding(0, 10, 0, 150);
             this.SidebarLinksGroup.Name = "SidebarLinksGroup";
             this.SidebarLinksGroup.RowCount = 9;
             this.SidebarLinksGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
@@ -209,7 +209,7 @@
             this.SidebarLinksGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.SidebarLinksGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.SidebarLinksGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.SidebarLinksGroup.Size = new System.Drawing.Size(208, 296);
+            this.SidebarLinksGroup.Size = new System.Drawing.Size(156, 241);
             this.SidebarLinksGroup.TabIndex = 2;
             // 
             // PendingPaymentsBtn
@@ -245,10 +245,10 @@
             this.POSBtn.ForeColor = System.Drawing.Color.White;
             this.POSBtn.Image = ((System.Drawing.Image)(resources.GetObject("POSBtn.Image")));
             this.POSBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.POSBtn.Location = new System.Drawing.Point(0, 32);
+            this.POSBtn.Location = new System.Drawing.Point(0, 26);
             this.POSBtn.Margin = new System.Windows.Forms.Padding(0);
             this.POSBtn.Name = "POSBtn";
-            this.POSBtn.Size = new System.Drawing.Size(236, 32);
+            this.POSBtn.Size = new System.Drawing.Size(177, 26);
             this.POSBtn.TabIndex = 20;
             this.POSBtn.Text = "POS";
             this.POSBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -269,7 +269,7 @@
             this.DashboardBtn.Location = new System.Drawing.Point(0, 0);
             this.DashboardBtn.Margin = new System.Windows.Forms.Padding(0);
             this.DashboardBtn.Name = "DashboardBtn";
-            this.DashboardBtn.Size = new System.Drawing.Size(236, 32);
+            this.DashboardBtn.Size = new System.Drawing.Size(177, 26);
             this.DashboardBtn.TabIndex = 18;
             this.DashboardBtn.Text = "Dashboard";
             this.DashboardBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -287,10 +287,10 @@
             this.MembershipBtn.ForeColor = System.Drawing.Color.White;
             this.MembershipBtn.Image = ((System.Drawing.Image)(resources.GetObject("MembershipBtn.Image")));
             this.MembershipBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.MembershipBtn.Location = new System.Drawing.Point(0, 64);
+            this.MembershipBtn.Location = new System.Drawing.Point(0, 52);
             this.MembershipBtn.Margin = new System.Windows.Forms.Padding(0);
             this.MembershipBtn.Name = "MembershipBtn";
-            this.MembershipBtn.Size = new System.Drawing.Size(236, 32);
+            this.MembershipBtn.Size = new System.Drawing.Size(177, 26);
             this.MembershipBtn.TabIndex = 22;
             this.MembershipBtn.Text = "Membership";
             this.MembershipBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -308,10 +308,10 @@
             this.HistoryBtn.ForeColor = System.Drawing.Color.White;
             this.HistoryBtn.Image = ((System.Drawing.Image)(resources.GetObject("HistoryBtn.Image")));
             this.HistoryBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.HistoryBtn.Location = new System.Drawing.Point(0, 128);
+            this.HistoryBtn.Location = new System.Drawing.Point(0, 104);
             this.HistoryBtn.Margin = new System.Windows.Forms.Padding(0);
             this.HistoryBtn.Name = "HistoryBtn";
-            this.HistoryBtn.Size = new System.Drawing.Size(236, 32);
+            this.HistoryBtn.Size = new System.Drawing.Size(177, 26);
             this.HistoryBtn.TabIndex = 21;
             this.HistoryBtn.Text = "History";
             this.HistoryBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -336,14 +336,14 @@
             // 
             // guna2HtmlLabel7
             // 
-            this.guna2HtmlLabel7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(13, 58);
-            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(13, 12, 0, 37);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(10, 56);
+            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(10, 10, 0, 30);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(113, 1);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(146, 6);
             this.guna2HtmlLabel7.TabIndex = 1;
             this.guna2HtmlLabel7.Text = "Facility Management";
             this.guna2HtmlLabel7.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -354,22 +354,21 @@
             this.guna2HtmlLabel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(13, 25);
-            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(13, 25, 0, 0);
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(10, 20);
+            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(10, 20, 0, 0);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(143, 21);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(146, 26);
             this.guna2HtmlLabel8.TabIndex = 0;
             this.guna2HtmlLabel8.Text = "Shuttle Zone";
             this.guna2HtmlLabel8.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FrontDeskSidebar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.SidebarBackground);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrontDeskSidebar";
-            this.Size = new System.Drawing.Size(208, 759);
+            this.Size = new System.Drawing.Size(156, 617);
             this.SidebarBackground.ResumeLayout(false);
             this.SidebarTableLayout.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);

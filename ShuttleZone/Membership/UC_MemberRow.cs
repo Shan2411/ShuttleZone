@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Windows.Forms;
 
 namespace ShuttleZone.Membership
@@ -9,11 +10,49 @@ namespace ShuttleZone.Membership
         {
             InitializeComponent();
             this.AutoSize = false;
-            this.Dock = DockStyle.Top;
         }
 
-        // DB id to associate this row with backend
+        // Role logic
+        private string role = "frontdesk"; // default
+        public string Role
+        {
+            get => role;
+            set
+            {
+                role = value?.Trim().ToLower() ?? "frontdesk";
+                ApplyRolePermissions(); // automatically enforce permissions
+            }
+        }
+
+        public void ApplyRolePermissions()
+        {
+            // ARCHIVED STATE
+            if (IsArchived)
+            {
+                MemberEdit.Visible = false;
+                MemberDelete.Visible = false;
+
+                // Only manager can restore
+                MemberRestore.Visible = Role == "manager";
+                return;
+            }
+
+            // ACTIVE STATE
+            MemberRestore.Visible = false;
+            MemberEdit.Visible = true;
+
+            if (Role == "manager")
+            {
+                MemberDelete.Visible = true;
+            }
+            else
+            {
+                MemberDelete.Visible = false;
+            }
+        }
+
         public int MemberDbId { get; set; }
+        public Guna2GradientPanel panelBG => PanelBG;
 
         public string MemberIDText { get => MemberID.Text; set => MemberID.Text = value; }
         public string MemberNameText { get => MemberName.Text; set => MemberName.Text = value; }
@@ -21,37 +60,34 @@ namespace ShuttleZone.Membership
         public string MemberPhoneText { get => MemberPhone.Text; set => MemberPhone.Text = value; }
         public string MemberTypeText { get => MemberType.Text; set => MemberType.Text = value; }
         public string MemberExpiryDateText { get => MemberExpiryDate.Text; set => MemberExpiryDate.Text = value; }
-
-        // ✅ Store the join date
         public DateTime MemberJoinDate { get; set; }
+        public bool IsArchived { get; set; } = false;
 
         public event EventHandler DeleteClicked;
         public event EventHandler EditClicked;
-        public bool IsArchived { get; set; } = false;
+        public event EventHandler RestoreClicked;
 
         public void UpdateStatus()
         {
-            // Always set SizeMode so icons render consistently
             MemberStatus.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            // Hide edit/delete when the row represents an archived member
-            // (button control names assumed present in designer: MemberDelete, MemberEdit)
-            if (MemberDelete != null) MemberDelete.Visible = !IsArchived;
-            if (MemberEdit != null) MemberEdit.Visible = !IsArchived;
-
-            // Show appropriate status icon when not archived; if archived, clear or set an archived icon if available
+            // 🔥 Archived members always hide Delete and Edit
             if (IsArchived)
             {
-                MemberStatus.Image = null;
+                MemberDelete.Visible = false;
+                MemberEdit.Visible = false;
+                MemberStatus.Image = global::ShuttleZone.Properties.Resources.archivedStatuss;
                 return;
             }
 
+            ApplyRolePermissions(); // Ensure permissions are applied based on current role
+
+            // Status icon
             if (DateTime.TryParse(MemberExpiryDate.Text, out DateTime expiry))
             {
-                if (expiry < DateTime.Now)
-                    MemberStatus.Image = global::ShuttleZone.Properties.Resources.ExpiredStatus;
-                else
-                    MemberStatus.Image = global::ShuttleZone.Properties.Resources.ActiveStatus;
+                MemberStatus.Image = expiry < DateTime.Now
+                    ? global::ShuttleZone.Properties.Resources.ExpiredStatus
+                    : global::ShuttleZone.Properties.Resources.ActiveStatus;
             }
             else
             {
@@ -61,7 +97,8 @@ namespace ShuttleZone.Membership
 
         private void MemberDelete_Click(object sender, EventArgs e)
         {
-            // Confirm archive action with the user before raising the event
+            if (Role != "manager") return;
+
             var result = MessageBox.Show(
                 "Are you sure you want to archive this member?",
                 "Confirm Archive",
@@ -75,12 +112,22 @@ namespace ShuttleZone.Membership
 
         private void MemberEdit_Click(object sender, EventArgs e)
         {
-            // Edit should not be reachable if IsArchived is true because the button will be hidden,
-            // but protect defensively.
-            if (IsArchived)
-                return;
-
+            if (IsArchived) return;
             EditClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void MemberRestore_Click(object sender, EventArgs e)
+        {
+            if (Role != "manager") return;
+
+            var result = MessageBox.Show(
+                "Restore this member?",
+                "Confirm Restore",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+                RestoreClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

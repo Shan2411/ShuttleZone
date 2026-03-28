@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using ShuttleZone.Reports;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -350,6 +351,21 @@ namespace ShuttleZone.reports
                 .GetProperty("DoubleBuffered",
                     System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
                 ?.SetValue(ctrl, true, null);
+        }
+
+        private void tableLayoutPanel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnBackReport_Click(object sender, EventArgs e)
+        {
+            Reports_Dashboard dashboard = new Reports_Dashboard();
+            dashboard.Dock = DockStyle.Fill;
+
+            Control parentPanel = this.Parent;
+            parentPanel.Controls.Clear();
+            parentPanel.Controls.Add(dashboard);
         }
     }
 }

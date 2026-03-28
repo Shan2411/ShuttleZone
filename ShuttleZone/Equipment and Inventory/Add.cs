@@ -7,41 +7,43 @@ namespace ShuttleZone.Equipment_and_Inventory
     {
         public EquipmentItem NewEquipment { get; private set; }
 
-        private string equipmentId; // ✅ store ID
-        private bool isEditMode = false; // ✅ track edit mode
+        private string equipmentId; // store ID
+        private bool isEditMode = false; // track edit mode
 
-        // ✅ DEFAULT constructor (still needed)
         public Add()
         {
             InitializeComponent();
+            SetupCategoryComboBox();
         }
 
-        // ✅ FIX 1: Constructor with ID (solves CS1729)
         public Add(string id)
         {
             InitializeComponent();
             equipmentId = id;
+            SetupCategoryComboBox();
         }
 
-        // ✅ FIX 2: LoadExistingData method (solves CS1061)
+        // Populate cbCategory with fixed options
+        private void SetupCategoryComboBox()
+        {
+            cbCategory.Items.Clear();
+            cbCategory.Items.AddRange(new string[] { "Rackets", "Shuttlecocks", "Grip Tape", "Towel" });
+            cbCategory.DropDownStyle = ComboBoxStyle.DropDownList; // user cannot type custom value
+            cbCategory.SelectedIndex = 0; // default to first item
+        }
+
         public void LoadExistingData(EquipmentItem item)
         {
             if (item == null) return;
 
             isEditMode = true;
             equipmentId = item.Id;
-
-            // 🔥 STORE ORIGINAL DATA (IMPORTANT)
             NewEquipment = item;
 
             txtEquipmentName.Text = item.Name;
-            txtCategory.Text = item.Category;
+            cbCategory.SelectedItem = item.Category; // use ComboBox instead of txtCategory
             txtStock.Text = item.Total.ToString();
             txtRentalPrice.Text = item.Price.ToString();
-        }
-
-        private void tableLayoutPanel10_Paint(object sender, PaintEventArgs e)
-        {
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -64,12 +66,9 @@ namespace ShuttleZone.Equipment_and_Inventory
             int rented = 0;
             int available = stock;
 
-            // 🔥 PRESERVE VALUES IF EDITING
             if (isEditMode && NewEquipment != null)
             {
                 rented = NewEquipment.Rented;
-
-                // Adjust available based on new stock
                 available = stock - rented;
 
                 if (available < 0)
@@ -79,7 +78,6 @@ namespace ShuttleZone.Equipment_and_Inventory
                 }
             }
 
-            // 🔥 AUTO STATUS LOGIC
             string status;
             if (available == 0)
                 status = "Out of Stock";
@@ -92,7 +90,7 @@ namespace ShuttleZone.Equipment_and_Inventory
             {
                 Id = equipmentId,
                 Name = txtEquipmentName.Text,
-                Category = txtCategory.Text,
+                Category = cbCategory.SelectedItem.ToString(), // get value from ComboBox
                 Total = stock,
                 Available = available,
                 Rented = rented,
