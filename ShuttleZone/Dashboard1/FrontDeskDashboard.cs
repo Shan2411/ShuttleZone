@@ -92,14 +92,15 @@ namespace ShuttleZone.Dashboard1
             Globals.transactions = Globals.GetRecentTransactions();
 
 
-            timer1.Interval = 5000; // 5 seconds
+            timer1.Interval = 3000; // 5 seconds
             timer1.Tick += timer1_Tick;
             timer1.Start();
+
                        
         }
 
         // One method, defined once
-        
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             RefreshPanel();
@@ -115,19 +116,35 @@ namespace ShuttleZone.Dashboard1
             Globals.statusFromDB3 = Globals.GetCourtStatusFromDB("Court D");
             Globals.transactions = Globals.GetRecentTransactions();
 
-            // Refresh CourtCards
-            flowLayoutPanel1.Controls.Clear();
-            flowLayoutPanel1.Controls.AddRange(new Control[] {
-                new CourtCard("Court A", Globals.statusFromDB),
-                new CourtCard("Court B", Globals.statusFromDB1),
-                new CourtCard("Court C", Globals.statusFromDB2),
-                new CourtCard("Court D", Globals.statusFromDB3)
-            });
+            foreach (Control ctrl in flowLayoutPanel1.Controls)
+            {
+                if (ctrl is CourtCard card)
+                {
+                    string latestStatus = Globals.GetCourtStatusFromDB(card.CourtName);
 
-            // ✅ Refresh Card_Dashboards in tableLayoutPanel2
+                    if (latestStatus?.ToLower() == "in use")
+                    {
+                        // ✅ Timer is still running — don't recreate, just ensure timer is ticking
+                        if (card.CurrentStatus?.ToLower() != "in use")
+                        {
+                            // Status just changed TO "in use" — start the countdown
+                            card.CurrentStatus = latestStatus;
+                            card.countDownStarter(latestStatus);
+                        }
+                        // else: already "in use" with running timer — leave it alone
+                    }
+                    else
+                    {
+                        // ✅ Not "in use" — always redraw so DB changes reflect on card
+                        card.CurrentStatus = latestStatus;
+                        card.countDownStarter(latestStatus);
+                    }
+                }
+            }
+
+            // ✅ Refresh Card_Dashboards
             tableLayoutPanel2.SuspendLayout();
 
-            // Remove only the card cells (columns 1,3,5,7 — row 1)
             var toRemove = tableLayoutPanel2.Controls
                 .OfType<Card_Dashboard>()
                 .ToList();
@@ -138,7 +155,6 @@ namespace ShuttleZone.Dashboard1
                 card.Dispose();
             }
 
-            // Re-add fresh instances
             tableLayoutPanel2.Controls.Add(new Card_Dashboard("Today's Transactions") { Dock = DockStyle.Fill }, 1, 1);
             tableLayoutPanel2.Controls.Add(new Card_Dashboard("Active Rentals") { Dock = DockStyle.Fill }, 3, 1);
             tableLayoutPanel2.Controls.Add(new Card_Dashboard("Active Members") { Dock = DockStyle.Fill }, 5, 1);

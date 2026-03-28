@@ -14,10 +14,11 @@ namespace ShuttleZone.Maintenance_Logs
     public partial class MButton : UserControl
     {
         public string courtName; 
+        public string status;
         public MButton(string courtName = "", string status = "")
         {
             InitializeComponent();
-
+            this.status = status;
             this.courtName = courtName;
 
             //click
@@ -56,8 +57,14 @@ namespace ShuttleZone.Maintenance_Logs
 
             if (maintenanceUC != null)
             {
-                ChangeStatus changeStatusForm = new ChangeStatus(courtName, maintenanceUC);
-                changeStatusForm.Show();
+                // if its in use cant change status
+                if (status != "In Use" && status != "in use")
+                {
+                    ChangeStatus changeStatusForm = new ChangeStatus(courtName, maintenanceUC);
+                    changeStatusForm.Show();
+                }
+                else { MessageBox.Show("Cannot change the status of court while its still in use"); }
+
             }
             else
             {

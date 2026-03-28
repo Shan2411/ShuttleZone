@@ -201,6 +201,7 @@
             this.guna2HtmlLabel3.TabIndex = 16;
             this.guna2HtmlLabel3.Text = "Started 1:00pm";
             this.guna2HtmlLabel3.TextAlignment = System.Drawing.ContentAlignment.BottomLeft;
+            this.guna2HtmlLabel3.Visible = false;
             // 
             // guna2VProgressBar1
             // 
@@ -234,14 +235,13 @@
             this.guna2HtmlLabel2.AutoSize = false;
             this.guna2HtmlLabel2.AutoSizeHeightOnly = true;
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2HtmlLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(14, 3);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(330, 23);
             this.guna2HtmlLabel2.TabIndex = 16;
             this.guna2HtmlLabel2.Text = "qqqqqqqqqqq";
-            this.guna2HtmlLabel2.TextAlignment = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // tableLayoutPanel6
             // 
