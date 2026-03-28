@@ -1,13 +1,13 @@
+using MySql.Data.MySqlClient;
+using ShuttleZone.Maintenance_Logs;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace ShuttleZone
 {
     public static class TransactionRecorder
     {
-        // Uses central DatabaseConfig — change IP there, applies everywhere
         private static string ConnStr => DatabaseConfig.ConnStr;
 
         public static void SaveFromCart(
@@ -26,7 +26,7 @@ namespace ShuttleZone
                     foreach (CartItem item in cartItems)
                     {
                         string incomeType = DetermineIncomeType(item.Name);
-                        int?   courtId    = GetCourtId(item.Name, conn);
+                        int? courtId = GetCourtId(item.Name, conn);
 
                         string sql = @"
                             INSERT INTO transactions
@@ -40,18 +40,25 @@ namespace ShuttleZone
 
                         using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                         {
-                            cmd.Parameters.AddWithValue("@ReceiptNo",  receiptNo);
-                            cmd.Parameters.AddWithValue("@Date",       date.ToString("yyyy-MM-dd"));
-                            cmd.Parameters.AddWithValue("@Time",       date.ToString("HH:mm:ss"));
+                            cmd.Parameters.AddWithValue("@ReceiptNo", receiptNo);
+                            cmd.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
+                            cmd.Parameters.AddWithValue("@Time", date.ToString("HH:mm:ss"));
                             cmd.Parameters.AddWithValue("@IncomeType", incomeType);
-                            cmd.Parameters.AddWithValue("@ItemName",   item.Name);
-                            cmd.Parameters.AddWithValue("@Qty",        item.Qty);
-                            cmd.Parameters.AddWithValue("@UnitPrice",  item.Price);
-                            cmd.Parameters.AddWithValue("@Total",      item.Price * item.Qty);
-                            cmd.Parameters.AddWithValue("@Payment",    paymentMethod);
-                            cmd.Parameters.AddWithValue("@CourtId",    (object)courtId ?? DBNull.Value);
-                            cmd.Parameters.AddWithValue("@Source", transactionSource); // NEW
+                            cmd.Parameters.AddWithValue("@ItemName", item.Name);
+                            cmd.Parameters.AddWithValue("@Qty", item.Qty);
+                            cmd.Parameters.AddWithValue("@UnitPrice", item.Price);
+                            cmd.Parameters.AddWithValue("@Total", item.Price * item.Qty);
+                            cmd.Parameters.AddWithValue("@Payment", paymentMethod);
+                            cmd.Parameters.AddWithValue("@CourtId", (object)courtId ?? DBNull.Value);
+                            cmd.Parameters.AddWithValue("@Source", transactionSource);
                             cmd.ExecuteNonQuery();
+
+                            // ✅ If this is a court item, start its timer right after insert
+                            if (courtId.HasValue)
+                            {
+                                long transactionId = cmd.LastInsertedId;
+                                Globals.StartCourtTimer((int)transactionId, courtId.Value, item.Qty);
+                            }
                         }
                     }
                 }
@@ -71,15 +78,15 @@ namespace ShuttleZone
             if (itemName == null) return "Other";
             string lower = itemName.ToLower();
 
-            if (lower.Contains("court"))      return "Court";
-            if (lower.Contains("racket")   ||
-                lower.Contains("shuttle")  ||
-                lower.Contains("shoes")    ||
-                lower.Contains("equipment")||
+            if (lower.Contains("court")) return "Court";
+            if (lower.Contains("racket") ||
+                lower.Contains("shuttle") ||
+                lower.Contains("shoes") ||
+                lower.Contains("equipment") ||
                 lower.Contains("accessor")) return "Equipment";
-            if (lower.Contains("membership")||
-                lower.Contains("member")   ||
-                lower.Contains("plan")     ||
+            if (lower.Contains("membership") ||
+                lower.Contains("member") ||
+                lower.Contains("plan") ||
                 lower.Contains("subscription")) return "Membership";
 
             return "Other";

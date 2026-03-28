@@ -68,13 +68,13 @@ namespace ShuttleZone.Maintenance_Logs
         // Get multiple court status
         public static void getCourtStatuses()
         {
-            using (MySqlConnection conn = DBconnection.GetConnection())
+            using (MySqlConnection connection = DBconnection.GetConnection())
             {
-                conn.Open();
+ 
 
                 string query = "SELECT court_id, status FROM courts";
 
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -309,6 +309,38 @@ namespace ShuttleZone.Maintenance_Logs
             }
         }
 
+        public static string peakHourTodayFormatted;
+
+        public static void GetPeakHourToday()
+        {
+            using (MySqlConnection connection = DBconnection.GetConnection())
+            {
+                string query = @"
+            SELECT HOUR(transaction_time) AS peak_hour
+            FROM transactions
+            WHERE DATE(transaction_time) = CURDATE()
+            GROUP BY HOUR(transaction_time)
+            ORDER BY COUNT(*) DESC
+            LIMIT 1;";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        int hour = Convert.ToInt32(result);
+
+                        DateTime time = DateTime.Today.AddHours(hour);
+                        peakHourTodayFormatted = time.ToString("h tt"); // e.g. "2 PM"
+                    }
+                    else
+                    {
+                        peakHourTodayFormatted = "No data";
+                    }
+                }
+            }
+        }
 
         public static int kioskTransactions() {
 
@@ -359,6 +391,82 @@ namespace ShuttleZone.Maintenance_Logs
             }
         }
 
-        
+        // COURT TIMERS
+        public static void StartCourtTimer(int transactionId, int courtId, int quantity)
+        {
+            int durationMinutes = quantity * 60;
+
+            using (var conn = DBconnection.GetConnection())
+            {
+                // Insert timer
+                string insertQuery = @"
+            INSERT INTO court_timers 
+                (court_id, transaction_id, start_time, duration_minutes, end_time, time_remaining_minutes, status)
+            VALUES 
+                (@court_id, @transaction_id, NOW(), @duration, 
+                 DATE_ADD(NOW(), INTERVAL @duration MINUTE), 
+                 @duration, 'active')";
+
+                using (var cmd = new MySqlCommand(insertQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@court_id", courtId);
+                    cmd.Parameters.AddWithValue("@transaction_id", transactionId);
+                    cmd.Parameters.AddWithValue("@duration", durationMinutes);
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Sync courts.status to 'In Use'
+                string updateCourtQuery = "UPDATE courts SET status = 'In Use' WHERE court_id = @court_id";
+                using (var cmd = new MySqlCommand(updateCourtQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@court_id", courtId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public static void UpdateAllCourtTimers()
+        {
+            string query = @"
+        UPDATE court_timers ct
+        JOIN courts c ON ct.court_id = c.court_id
+        SET 
+            ct.time_remaining_minutes = GREATEST(0, TIMESTAMPDIFF(MINUTE, NOW(), ct.end_time)),
+            ct.status = CASE 
+                            WHEN NOW() >= ct.end_time THEN 'expired' 
+                            ELSE 'active' 
+                         END,
+            c.status = CASE 
+                            WHEN NOW() >= ct.end_time THEN 'Available' 
+                            ELSE 'In Use' 
+                        END
+        WHERE ct.status = 'active'";
+
+            using (var conn = DBconnection.GetConnection())
+            using (var cmd = new MySqlCommand(query, conn))
+            {
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public static int GetTimeRemainingMinutes(string courtId)
+        {
+            string query = @"
+        SELECT 
+            GREATEST(0, TIMESTAMPDIFF(MINUTE, NOW(), end_time)) AS time_remaining
+        FROM court_timers
+        WHERE court_id = @court_id AND status = 'active'
+        ORDER BY end_time DESC
+        LIMIT 1";
+
+            using (var conn = DBconnection.GetConnection())
+            using (var cmd = new MySqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@court_id", courtId);
+                var result = cmd.ExecuteScalar();
+                return result != null ? Convert.ToInt32(result) : 0;
+            }
+        }
+
+
     }
 }
