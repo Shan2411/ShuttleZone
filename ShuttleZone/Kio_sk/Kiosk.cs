@@ -13,6 +13,7 @@ using Guna.UI2.WinForms;
 using ShuttleZone.Kio_sk;
 using MySql.Data.MySqlClient;
 using ShuttleZone.database;
+using ShuttleZone.Maintenance_Logs;
 
 namespace ShuttleZone
 {
@@ -595,11 +596,6 @@ namespace ShuttleZone
                 return "Court D";
 
             return null; // none available
-        }
-
-        private void btnKioskEcashPayment_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         // Empty placeholders
