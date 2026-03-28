@@ -560,5 +560,9 @@ namespace ShuttleZone
         private void btnKioskEcashPayment_Click_1(object sender, EventArgs e) { }
         private void btnKioskCashPayment_Click_1(object sender, EventArgs e) { }
         private void btnKioskApply_Click_1(object sender, EventArgs e) { }
+
+        private void pnlBannerContainer_Paint(object sender, PaintEventArgs e)
+        {
+        }
     }
 }
