@@ -32,9 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_MemberRow));
             this.PanelBG = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.MemberStatus = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.MemberDelete = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.MemberEdit = new Guna.UI2.WinForms.Guna2PictureBox();
             this.MemberExpiryDate = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.MemberType = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.MemberPhone = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -43,12 +40,15 @@
             this.MemberID = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.MemberRestore = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.MemberStatus = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.MemberDelete = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.MemberEdit = new Guna.UI2.WinForms.Guna2PictureBox();
             this.PanelBG.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MemberRestore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MemberStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MemberDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MemberEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MemberRestore)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelBG
@@ -71,16 +71,16 @@
             // 
             this.tableLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel3.ColumnCount = 10;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.00124F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.00211F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.00211F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.00149F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.80038F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.200198F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.00124F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.330413F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.330413F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.330413F));
             this.tableLayoutPanel3.Controls.Add(this.MemberRestore, 9, 0);
             this.tableLayoutPanel3.Controls.Add(this.MemberStatus, 5, 0);
             this.tableLayoutPanel3.Controls.Add(this.MemberDelete, 8, 0);
@@ -99,57 +99,16 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(911, 34);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
-            // MemberStatus
-            // 
-            this.MemberStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.MemberStatus.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MemberStatus.BackgroundImage")));
-            this.MemberStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MemberStatus.FillColor = System.Drawing.Color.Transparent;
-            this.MemberStatus.ImageRotate = 0F;
-            this.MemberStatus.Location = new System.Drawing.Point(652, 7);
-            this.MemberStatus.Name = "MemberStatus";
-            this.MemberStatus.Size = new System.Drawing.Size(47, 20);
-            this.MemberStatus.TabIndex = 10;
-            this.MemberStatus.TabStop = false;
-            // 
-            // MemberDelete
-            // 
-            this.MemberDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.MemberDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MemberDelete.BackgroundImage")));
-            this.MemberDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MemberDelete.FillColor = System.Drawing.Color.Transparent;
-            this.MemberDelete.ImageRotate = 0F;
-            this.MemberDelete.Location = new System.Drawing.Point(842, 7);
-            this.MemberDelete.Name = "MemberDelete";
-            this.MemberDelete.Size = new System.Drawing.Size(20, 20);
-            this.MemberDelete.TabIndex = 9;
-            this.MemberDelete.TabStop = false;
-            this.MemberDelete.Click += new System.EventHandler(this.MemberDelete_Click);
-            // 
-            // MemberEdit
-            // 
-            this.MemberEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.MemberEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MemberEdit.BackgroundImage")));
-            this.MemberEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MemberEdit.FillColor = System.Drawing.Color.Transparent;
-            this.MemberEdit.ImageRotate = 0F;
-            this.MemberEdit.Location = new System.Drawing.Point(806, 7);
-            this.MemberEdit.Name = "MemberEdit";
-            this.MemberEdit.Size = new System.Drawing.Size(20, 20);
-            this.MemberEdit.TabIndex = 8;
-            this.MemberEdit.TabStop = false;
-            this.MemberEdit.Click += new System.EventHandler(this.MemberEdit_Click);
-            // 
             // MemberExpiryDate
             // 
             this.MemberExpiryDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.MemberExpiryDate.BackColor = System.Drawing.Color.Transparent;
             this.MemberExpiryDate.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberExpiryDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
-            this.MemberExpiryDate.Location = new System.Drawing.Point(717, 10);
+            this.MemberExpiryDate.Location = new System.Drawing.Point(735, 10);
             this.MemberExpiryDate.Margin = new System.Windows.Forms.Padding(10);
             this.MemberExpiryDate.Name = "MemberExpiryDate";
-            this.MemberExpiryDate.Size = new System.Drawing.Size(71, 14);
+            this.MemberExpiryDate.Size = new System.Drawing.Size(75, 15);
             this.MemberExpiryDate.TabIndex = 7;
             this.MemberExpiryDate.Text = "EXPIRY DATE";
             // 
@@ -162,7 +121,7 @@
             this.MemberType.Location = new System.Drawing.Point(518, 10);
             this.MemberType.Margin = new System.Windows.Forms.Padding(10);
             this.MemberType.Name = "MemberType";
-            this.MemberType.Size = new System.Drawing.Size(30, 14);
+            this.MemberType.Size = new System.Drawing.Size(30, 15);
             this.MemberType.TabIndex = 5;
             this.MemberType.Text = "TYPE";
             // 
@@ -175,7 +134,7 @@
             this.MemberPhone.Location = new System.Drawing.Point(409, 10);
             this.MemberPhone.Margin = new System.Windows.Forms.Padding(10);
             this.MemberPhone.Name = "MemberPhone";
-            this.MemberPhone.Size = new System.Drawing.Size(39, 14);
+            this.MemberPhone.Size = new System.Drawing.Size(39, 15);
             this.MemberPhone.TabIndex = 4;
             this.MemberPhone.Text = "PHONE";
             // 
@@ -188,7 +147,7 @@
             this.MemberEmail.Location = new System.Drawing.Point(255, 10);
             this.MemberEmail.Margin = new System.Windows.Forms.Padding(10);
             this.MemberEmail.Name = "MemberEmail";
-            this.MemberEmail.Size = new System.Drawing.Size(38, 14);
+            this.MemberEmail.Size = new System.Drawing.Size(38, 15);
             this.MemberEmail.TabIndex = 3;
             this.MemberEmail.Text = "EMAIL";
             // 
@@ -201,7 +160,7 @@
             this.MemberName.Location = new System.Drawing.Point(101, 10);
             this.MemberName.Margin = new System.Windows.Forms.Padding(10);
             this.MemberName.Name = "MemberName";
-            this.MemberName.Size = new System.Drawing.Size(34, 14);
+            this.MemberName.Size = new System.Drawing.Size(34, 15);
             this.MemberName.TabIndex = 2;
             this.MemberName.Text = "NAME";
             // 
@@ -214,7 +173,7 @@
             this.MemberID.Location = new System.Drawing.Point(10, 10);
             this.MemberID.Margin = new System.Windows.Forms.Padding(10);
             this.MemberID.Name = "MemberID";
-            this.MemberID.Size = new System.Drawing.Size(16, 14);
+            this.MemberID.Size = new System.Drawing.Size(16, 15);
             this.MemberID.TabIndex = 1;
             this.MemberID.Text = "ID";
             // 
@@ -232,12 +191,53 @@
             this.MemberRestore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MemberRestore.FillColor = System.Drawing.Color.Transparent;
             this.MemberRestore.ImageRotate = 0F;
-            this.MemberRestore.Location = new System.Drawing.Point(880, 7);
+            this.MemberRestore.Location = new System.Drawing.Point(883, 7);
             this.MemberRestore.Name = "MemberRestore";
             this.MemberRestore.Size = new System.Drawing.Size(20, 20);
             this.MemberRestore.TabIndex = 11;
             this.MemberRestore.TabStop = false;
             this.MemberRestore.Click += new System.EventHandler(this.MemberRestore_Click);
+            // 
+            // MemberStatus
+            // 
+            this.MemberStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MemberStatus.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MemberStatus.BackgroundImage")));
+            this.MemberStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MemberStatus.FillColor = System.Drawing.Color.Transparent;
+            this.MemberStatus.ImageRotate = 0F;
+            this.MemberStatus.Location = new System.Drawing.Point(664, 7);
+            this.MemberStatus.Name = "MemberStatus";
+            this.MemberStatus.Size = new System.Drawing.Size(47, 20);
+            this.MemberStatus.TabIndex = 10;
+            this.MemberStatus.TabStop = false;
+            // 
+            // MemberDelete
+            // 
+            this.MemberDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MemberDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MemberDelete.BackgroundImage")));
+            this.MemberDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MemberDelete.FillColor = System.Drawing.Color.Transparent;
+            this.MemberDelete.ImageRotate = 0F;
+            this.MemberDelete.Location = new System.Drawing.Point(851, 7);
+            this.MemberDelete.Name = "MemberDelete";
+            this.MemberDelete.Size = new System.Drawing.Size(20, 20);
+            this.MemberDelete.TabIndex = 9;
+            this.MemberDelete.TabStop = false;
+            this.MemberDelete.Click += new System.EventHandler(this.MemberDelete_Click);
+            // 
+            // MemberEdit
+            // 
+            this.MemberEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MemberEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MemberEdit.BackgroundImage")));
+            this.MemberEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MemberEdit.FillColor = System.Drawing.Color.Transparent;
+            this.MemberEdit.ImageRotate = 0F;
+            this.MemberEdit.Location = new System.Drawing.Point(821, 7);
+            this.MemberEdit.Name = "MemberEdit";
+            this.MemberEdit.Size = new System.Drawing.Size(20, 20);
+            this.MemberEdit.TabIndex = 8;
+            this.MemberEdit.TabStop = false;
+            this.MemberEdit.Click += new System.EventHandler(this.MemberEdit_Click);
             // 
             // UC_MemberRow
             // 
@@ -251,10 +251,10 @@
             this.PanelBG.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MemberRestore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MemberStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MemberDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MemberEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MemberRestore)).EndInit();
             this.ResumeLayout(false);
 
         }

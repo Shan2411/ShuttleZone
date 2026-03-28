@@ -156,28 +156,28 @@
             // 
             // guna2HtmlLabel1
             // 
-            this.guna2HtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(8, 26);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(39, 18);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(125, 18);
             this.guna2HtmlLabel1.TabIndex = 2;
             this.guna2HtmlLabel1.Text = "Admin";
             this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // adminUsername
             // 
-            this.adminUsername.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.adminUsername.BackColor = System.Drawing.Color.Transparent;
+            this.adminUsername.Dock = System.Windows.Forms.DockStyle.Fill;
             this.adminUsername.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminUsername.ForeColor = System.Drawing.Color.White;
             this.adminUsername.Location = new System.Drawing.Point(8, 3);
             this.adminUsername.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
             this.adminUsername.Name = "adminUsername";
-            this.adminUsername.Size = new System.Drawing.Size(67, 17);
+            this.adminUsername.Size = new System.Drawing.Size(125, 17);
             this.adminUsername.TabIndex = 1;
             this.adminUsername.Text = "Username";
             this.adminUsername.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
