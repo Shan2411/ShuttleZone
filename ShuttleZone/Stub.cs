@@ -2,12 +2,8 @@
 using ShuttleZone.database;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ShuttleZone
@@ -19,13 +15,16 @@ namespace ShuttleZone
         private readonly decimal _total;
         private readonly DateTime _timeIssued;
 
+        // ✅ NEW
+        private readonly decimal _discountPercent;
+
         public Stub()
         {
             InitializeComponent();
             WireCloseButton();
         }
 
-        public Stub(List<CartItem> cartItems, decimal subtotal, decimal total, DateTime timeIssued)
+        public Stub(List<CartItem> cartItems, decimal subtotal, decimal total, DateTime timeIssued, decimal discountPercent)
         {
             InitializeComponent();
             WireCloseButton();
@@ -33,6 +32,7 @@ namespace ShuttleZone
             _subtotal = subtotal;
             _total = total;
             _timeIssued = timeIssued;
+            _discountPercent = discountPercent; // ✅ NEW
             GenerateStub();
         }
 
@@ -51,6 +51,9 @@ namespace ShuttleZone
 
             foreach (var item in _cartItems)
             {
+                // ✅ APPLY DISCOUNT HERE
+                decimal discountedPrice = item.Price * (1 - _discountPercent);
+
                 Panel row = new Panel
                 {
                     Size = pnlStubItemRowTemplate.Size,
@@ -68,7 +71,7 @@ namespace ShuttleZone
 
                 Label lblQty = new Label
                 {
-                    Text = $"₱{item.Price:0.00} x {item.Qty}",
+                    Text = $"₱{discountedPrice:0.00} x {item.Qty}", // ✅ FIXED
                     Location = pnlStubItemRowTemplate.Controls["lblStubItemQty"].Location,
                     Size = pnlStubItemRowTemplate.Controls["lblStubItemQty"].Size,
                     Font = pnlStubItemRowTemplate.Controls["lblStubItemQty"].Font
@@ -77,7 +80,7 @@ namespace ShuttleZone
 
                 Label lblPrice = new Label
                 {
-                    Text = (item.Price * item.Qty).ToString("₱0.00"),
+                    Text = (discountedPrice * item.Qty).ToString("₱0.00"), // ✅ FIXED
                     Location = pnlStubItemRowTemplate.Controls["lblStubItemPrice"].Location,
                     Size = pnlStubItemRowTemplate.Controls["lblStubItemPrice"].Size,
                     Font = pnlStubItemRowTemplate.Controls["lblStubItemPrice"].Font
@@ -95,7 +98,6 @@ namespace ShuttleZone
             lblStubTimeIssued.Text = _timeIssued.ToString("hh:mm:ss tt");
 
             SaveStubToDatabase(lblStubNo.Text);
-
         }
 
         private string GenerateStubNumber()
@@ -117,6 +119,9 @@ namespace ShuttleZone
 
                     foreach (var item in _cartItems)
                     {
+                        // ✅ APPLY DISCOUNT HERE TOO
+                        decimal discountedPrice = item.Price * (1 - _discountPercent);
+
                         using (MySqlCommand cmd = new MySqlCommand(query, connection))
                         {
                             cmd.Parameters.AddWithValue("@stubNo", stubNo);
@@ -124,7 +129,8 @@ namespace ShuttleZone
                             cmd.Parameters.AddWithValue("@time", _timeIssued.ToString("HH:mm:ss"));
                             cmd.Parameters.AddWithValue("@itemName", item.Name);
                             cmd.Parameters.AddWithValue("@qty", item.Qty);
-                            cmd.Parameters.AddWithValue("@price", item.Price);
+                            cmd.Parameters.AddWithValue("@price", discountedPrice); // ✅ FIXED
+
                             cmd.ExecuteNonQuery();
                         }
                     }
@@ -136,14 +142,7 @@ namespace ShuttleZone
             }
         }
 
-        private void pnlItemRowTemplate_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void flowItemsContainer_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        private void pnlItemRowTemplate_Paint(object sender, PaintEventArgs e) { }
+        private void flowItemsContainer_Paint(object sender, PaintEventArgs e) { }
     }
 }

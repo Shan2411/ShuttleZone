@@ -33,12 +33,6 @@ namespace ShuttleZone
         public static string PromoText { get; private set; } = "Avail Membership and get Discounts up to 20%!";
         public static bool AutoReturnHomeEnabled { get; private set; }
         public static int SessionTimeoutMinutes { get; private set; } = 1;
-        private static readonly HashSet<string> ValidMemberCodes = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
-        {
-            "M#0001",
-            "M#0002",
-            "M#0003"
-        };
 
         public Kiosk()
         {
@@ -67,6 +61,29 @@ namespace ShuttleZone
                 kiosk.ApplyHeaderAndPromoTexts();
             }
         }
+
+        private bool IsValidMemberCode(string code)
+{
+    using (var conn = new MySql.Data.MySqlClient.MySqlConnection("server=localhost;user id=root;password=;database=shuttlezone;"))
+    {
+        conn.Open();
+
+        string query = @"
+            SELECT COUNT(*) 
+            FROM members 
+            WHERE member_code = @code 
+              AND is_archived = 0
+              AND (expiry_date IS NULL OR expiry_date >= CURDATE())";
+
+        using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn))
+        {
+            cmd.Parameters.AddWithValue("@code", code);
+
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            return count > 0;
+        }
+    }
+}
 
         public static void UpdateAutoReturnSettings(bool enabled, int sessionTimeoutMinutes)
         {
@@ -372,9 +389,9 @@ namespace ShuttleZone
                 return;
             }
 
-            if (!ValidMemberCodes.Contains(code))
+            if (!IsValidMemberCode(code))
             {
-                MessageBox.Show("Invalid member code.");
+                MessageBox.Show("Invalid or expired member code.");
                 return;
             }
 
@@ -419,7 +436,13 @@ namespace ShuttleZone
             decimal subtotal = GetSubtotal();
             decimal total = subtotal - GetDiscountAmount(subtotal);
 
-            var stub = new Stub(new List<CartItem>(cartItems), subtotal, total, DateTime.Now);
+            var stub = new Stub(
+            new List<CartItem>(cartItems),
+            subtotal,
+            total,
+            DateTime.Now,
+            appliedDiscountPercent
+            );
             stub.ShowDialog(this);
         }
 
@@ -474,6 +497,11 @@ namespace ShuttleZone
         }
 
         private void btnKioskCashPayment_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnKioskApply_Click_1(object sender, EventArgs e)
         {
 
         }
