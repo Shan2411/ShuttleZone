@@ -289,6 +289,11 @@ namespace ShuttleZone.Dashboard1
 
                 guna2CirclePictureBox2.Visible = true;
                 guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.inuse;
+
+                guna2CirclePictureBox1.Visible = false;
+
+                guna2Button1.Visible = true;
+
                 return;
             }
 
@@ -311,6 +316,9 @@ namespace ShuttleZone.Dashboard1
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Operational;
                     guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.available;
                     guna2VProgressBar1.Visible = false;
+
+                    guna2Button1.Visible = false;
+
                     break;
 
                 case "under maintenance":
@@ -330,6 +338,8 @@ namespace ShuttleZone.Dashboard1
                     guna2HtmlLabel2.Text = !string.IsNullOrEmpty(maintReason)
                         ? $"Reason: {maintReason}"
                         : "Reason: N/A";
+
+                    guna2Button1.Visible = false;
                     break;
 
                 case "out of service":
@@ -350,6 +360,8 @@ namespace ShuttleZone.Dashboard1
                     guna2HtmlLabel2.Text = !string.IsNullOrEmpty(oosReason)
                         ? $"Reason: {oosReason}"
                         : "Reason: N/A";
+
+                    guna2Button1.Visible = false;
                     break;
 
                 default:
@@ -365,5 +377,45 @@ namespace ShuttleZone.Dashboard1
         private void guna2VProgressBar1_ValueChanged(object sender, EventArgs e) { }
         private void guna2Panel1_Paint(object sender, PaintEventArgs e) { }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) { }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. Update end_time in DB to 10 seconds from now
+                string query = @"
+            UPDATE court_timers
+            SET 
+                end_time = DATE_ADD(NOW(), INTERVAL 5 SECOND),
+                time_remaining_minutes = 0,
+                status = 'active'
+            WHERE court_id = (SELECT court_id FROM courts WHERE court_name = @court_name LIMIT 1)
+              AND status = 'active'";
+
+                using (var conn = DBconnection.GetConnection())
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@court_name", _courtName);
+                    cmd.ExecuteNonQuery();
+                }
+
+                // 2. Stop current countdown and restart with 10 seconds
+                StopCountdown();
+                _lastStatus = ""; // force countDownStarter to redraw
+                _totalDuration = TimeSpan.FromSeconds(5);
+                _remainingTime = TimeSpan.FromSeconds(5);
+
+                UpdateCountdownLabel();
+                UpdateProgressBar();
+
+                EnsureTimer();
+                _countdownTimer.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to set timer to 10 seconds.\n\n" + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

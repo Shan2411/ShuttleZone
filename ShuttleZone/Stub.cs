@@ -24,7 +24,7 @@ namespace ShuttleZone
             WireCloseButton();
         }
 
-        public Stub(List<CartItem> cartItems, decimal subtotal, decimal total, DateTime timeIssued, decimal discountPercent)
+        public Stub(List<CartItem> cartItems, decimal subtotal, decimal total, DateTime timeIssued, decimal discountPercent, bool saveToDB = false)
         {
             InitializeComponent();
             WireCloseButton();
@@ -33,7 +33,64 @@ namespace ShuttleZone
             _total = total;
             _timeIssued = timeIssued;
             _discountPercent = discountPercent;
-            GenerateStub();
+            GenerateStub(saveToDB);
+        }
+
+        public void GenerateStub(bool saveToDB)
+        {
+            flowStubItemsContainer.Controls.Clear();
+
+            foreach (var item in _cartItems)
+            {
+                decimal discountedPrice = item.Price * (1 - _discountPercent);
+
+                Panel row = new Panel
+                {
+                    Size = pnlStubItemRowTemplate.Size,
+                    BackColor = pnlStubItemRowTemplate.BackColor
+                };
+
+                Label lblName = new Label
+                {
+                    Text = item.Name,
+                    Location = pnlStubItemRowTemplate.Controls["lblStubItemName"].Location,
+                    Size = pnlStubItemRowTemplate.Controls["lblStubItemName"].Size,
+                    Font = pnlStubItemRowTemplate.Controls["lblStubItemName"].Font
+                };
+                row.Controls.Add(lblName);
+
+                Label lblQty = new Label
+                {
+                    Text = $"₱{discountedPrice:0.00} x {item.Qty}",
+                    Location = pnlStubItemRowTemplate.Controls["lblStubItemQty"].Location,
+                    Size = pnlStubItemRowTemplate.Controls["lblStubItemQty"].Size,
+                    Font = pnlStubItemRowTemplate.Controls["lblStubItemQty"].Font
+                };
+                row.Controls.Add(lblQty);
+
+                Label lblPrice = new Label
+                {
+                    Text = (discountedPrice * item.Qty).ToString("₱0.00"),
+                    Location = pnlStubItemRowTemplate.Controls["lblStubItemPrice"].Location,
+                    Size = pnlStubItemRowTemplate.Controls["lblStubItemPrice"].Size,
+                    Font = pnlStubItemRowTemplate.Controls["lblStubItemPrice"].Font
+                };
+                row.Controls.Add(lblPrice);
+
+                flowStubItemsContainer.Controls.Add(row);
+            }
+
+            lblStubSubtotal.Text = _subtotal.ToString("₱0.00");
+            lblStubTotalAmount.Text = _total.ToString("₱0.00");
+
+            lblStubNo.Text = GenerateStubNumber();
+            lblStubDateIssued.Text = _timeIssued.ToString("MM/dd/yyyy");
+            lblStubTimeIssued.Text = _timeIssued.ToString("hh:mm:ss tt");
+
+            if (saveToDB)
+            {
+                SaveStubToDatabase(lblStubNo.Text);
+            }
         }
 
         private void WireCloseButton()
