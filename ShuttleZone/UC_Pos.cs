@@ -29,7 +29,7 @@ namespace ShuttleZone
         private readonly Dictionary<string, int> equipmentStockByName = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
         private List<CartItem> CartItems = new List<CartItem>();
-
+        public event EventHandler PaymentCompleted;
 
         public UC_Pos()
         {
@@ -591,20 +591,30 @@ namespace ShuttleZone
 
         private void btnCashPayment_Click(object sender, EventArgs e)
         {
-
-            // Get total from POS label
             decimal total = decimal.Parse(lblTotal.Text.Replace("₱", "").Trim());
 
-            // Open CashPayment and pass total
+            // Save transaction to history
+            SaveTransactionToHistory("Cash", "Frontdesk");
+
+            // Trigger event to notify RentHistory
+            PaymentCompleted?.Invoke(this, EventArgs.Empty);
+
+            // Open cash payment dialog
             CashPayment cp = new CashPayment(total, CartItems);
             cp.ShowDialog();
-
         }
 
         private void BtnEcashPayment_Click(object sender, EventArgs e)
         {
             decimal total = decimal.Parse(lblTotal.Text.Replace("₱", "").Trim());
 
+            // Save transaction to history
+            SaveTransactionToHistory("E-Cash");
+
+            // Trigger event to notify RentHistory
+            PaymentCompleted?.Invoke(this, EventArgs.Empty);
+
+            // Open e-cash dialog
             var ecash = new EcashQR(total);
             ecash.PaymentCompleted += (s, args) => ShowReceipt(total);
             ecash.ShowDialog();
@@ -625,6 +635,61 @@ namespace ShuttleZone
         private void lblCourtAAvailability_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void SaveTransactionToHistory(string paymentMethod, string transactionSource = "Frontdesk")
+        {
+            if (CartItems.Count == 0)
+            {
+                MessageBox.Show("Cart is empty. Cannot process transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                using (var conn = DBconnection.GetConnection())
+                {
+                    // 1. Generate unique receipt number
+                    string receiptNo = "FD-" + DateTime.Now.ToString("yyyyMMddHHmmss");
+
+                    // 2. Insert each cart item
+                    string insertQuery = @"
+                INSERT INTO transactions 
+                    (receipt_no, transaction_date, transaction_time, income_type, 
+                     item_name, quantity, unit_price, total_amount, payment_method, 
+                     created_at, transaction_source)
+                VALUES 
+                    (@receipt_no, CURDATE(), CURTIME(), 'Sales',
+                     @item_name, @quantity, @unit_price, @total_amount, @payment_method,
+                     NOW(), @transaction_source)";
+
+                    foreach (var item in CartItems)
+                    {
+                        using (var cmd = new MySqlCommand(insertQuery, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@receipt_no", receiptNo);
+                            cmd.Parameters.AddWithValue("@item_name", item.Name);
+                            cmd.Parameters.AddWithValue("@quantity", item.Qty);
+                            cmd.Parameters.AddWithValue("@unit_price", item.Price);
+                            cmd.Parameters.AddWithValue("@total_amount", item.Price * item.Qty);
+                            cmd.Parameters.AddWithValue("@payment_method", paymentMethod);
+                            cmd.Parameters.AddWithValue("@transaction_source", transactionSource);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    // Clear cart
+                    CartItems.Clear();
+                    flowCart.Controls.Clear();
+                    UpdateCartTotals();
+
+                    //MessageBox.Show("Transaction saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to save transaction: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LabelChangeAndDBLoad() {
