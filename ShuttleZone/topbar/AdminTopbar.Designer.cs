@@ -57,16 +57,16 @@
             this.Topbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.Topbar.Controls.Add(this.ExitBtn, 0, 0);
             this.Topbar.Controls.Add(this.DevTestMode, 1, 0);
-            this.Topbar.Controls.Add(this.DateLbl, 2, 0);
             this.Topbar.Controls.Add(this.SettingsBtn, 5, 0);
             this.Topbar.Controls.Add(this.ToggleModeBtn, 4, 0);
+            this.Topbar.Controls.Add(this.DateLbl, 2, 0);
             this.Topbar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Topbar.Location = new System.Drawing.Point(0, 0);
             this.Topbar.Margin = new System.Windows.Forms.Padding(0);
             this.Topbar.Name = "Topbar";
             this.Topbar.RowCount = 1;
             this.Topbar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.Topbar.Size = new System.Drawing.Size(939, 30);
+            this.Topbar.Size = new System.Drawing.Size(1252, 37);
             this.Topbar.TabIndex = 1;
             // 
             // ExitBtn
@@ -76,10 +76,10 @@
             this.ExitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ExitBtn.FillColor = System.Drawing.Color.Transparent;
             this.ExitBtn.ImageRotate = 0F;
-            this.ExitBtn.Location = new System.Drawing.Point(15, 7);
-            this.ExitBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ExitBtn.Location = new System.Drawing.Point(21, 8);
+            this.ExitBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ExitBtn.Name = "ExitBtn";
-            this.ExitBtn.Size = new System.Drawing.Size(15, 16);
+            this.ExitBtn.Size = new System.Drawing.Size(20, 20);
             this.ExitBtn.TabIndex = 0;
             this.ExitBtn.TabStop = false;
             this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
@@ -94,11 +94,12 @@
             this.DevTestMode.Controls.Add(this.ManagerBtn, 1, 0);
             this.DevTestMode.Controls.Add(this.AdminBtn, 0, 0);
             this.DevTestMode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DevTestMode.Location = new System.Drawing.Point(49, 3);
+            this.DevTestMode.Location = new System.Drawing.Point(66, 4);
+            this.DevTestMode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DevTestMode.Name = "DevTestMode";
             this.DevTestMode.RowCount = 1;
             this.DevTestMode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.DevTestMode.Size = new System.Drawing.Size(463, 24);
+            this.DevTestMode.Size = new System.Drawing.Size(618, 29);
             this.DevTestMode.TabIndex = 6;
             // 
             // FrontDeskBtn
@@ -110,9 +111,10 @@
             this.FrontDeskBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FrontDeskBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FrontDeskBtn.ForeColor = System.Drawing.Color.White;
-            this.FrontDeskBtn.Location = new System.Drawing.Point(311, 3);
+            this.FrontDeskBtn.Location = new System.Drawing.Point(414, 4);
+            this.FrontDeskBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FrontDeskBtn.Name = "FrontDeskBtn";
-            this.FrontDeskBtn.Size = new System.Drawing.Size(149, 18);
+            this.FrontDeskBtn.Size = new System.Drawing.Size(200, 21);
             this.FrontDeskBtn.TabIndex = 2;
             this.FrontDeskBtn.Text = "Front-Desk";
             this.FrontDeskBtn.Visible = false;
@@ -127,9 +129,10 @@
             this.ManagerBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ManagerBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ManagerBtn.ForeColor = System.Drawing.Color.White;
-            this.ManagerBtn.Location = new System.Drawing.Point(157, 3);
+            this.ManagerBtn.Location = new System.Drawing.Point(209, 4);
+            this.ManagerBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ManagerBtn.Name = "ManagerBtn";
-            this.ManagerBtn.Size = new System.Drawing.Size(148, 18);
+            this.ManagerBtn.Size = new System.Drawing.Size(197, 21);
             this.ManagerBtn.TabIndex = 1;
             this.ManagerBtn.Text = "Manager";
             this.ManagerBtn.Visible = false;
@@ -144,9 +147,10 @@
             this.AdminBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdminBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.AdminBtn.ForeColor = System.Drawing.Color.White;
-            this.AdminBtn.Location = new System.Drawing.Point(3, 3);
+            this.AdminBtn.Location = new System.Drawing.Point(4, 4);
+            this.AdminBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AdminBtn.Name = "AdminBtn";
-            this.AdminBtn.Size = new System.Drawing.Size(148, 18);
+            this.AdminBtn.Size = new System.Drawing.Size(197, 21);
             this.AdminBtn.TabIndex = 0;
             this.AdminBtn.Text = "Admin";
             this.AdminBtn.Visible = false;
@@ -158,10 +162,10 @@
             this.DateLbl.BackColor = System.Drawing.Color.Transparent;
             this.DateLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateLbl.ForeColor = System.Drawing.Color.Black;
-            this.DateLbl.Location = new System.Drawing.Point(693, 6);
-            this.DateLbl.Margin = new System.Windows.Forms.Padding(11, 4, 4, 4);
+            this.DateLbl.Location = new System.Drawing.Point(936, 8);
+            this.DateLbl.Margin = new System.Windows.Forms.Padding(15, 5, 5, 5);
             this.DateLbl.Name = "DateLbl";
-            this.DateLbl.Size = new System.Drawing.Size(137, 18);
+            this.DateLbl.Size = new System.Drawing.Size(172, 21);
             this.DateLbl.TabIndex = 5;
             this.DateLbl.Text = "Thursday, Jan 22, 2026";
             this.DateLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -173,10 +177,10 @@
             this.SettingsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SettingsBtn.FillColor = System.Drawing.Color.Transparent;
             this.SettingsBtn.ImageRotate = 0F;
-            this.SettingsBtn.Location = new System.Drawing.Point(906, 7);
-            this.SettingsBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.SettingsBtn.Location = new System.Drawing.Point(1209, 8);
+            this.SettingsBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SettingsBtn.Name = "SettingsBtn";
-            this.SettingsBtn.Size = new System.Drawing.Size(15, 16);
+            this.SettingsBtn.Size = new System.Drawing.Size(20, 20);
             this.SettingsBtn.TabIndex = 7;
             this.SettingsBtn.TabStop = false;
             this.SettingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
@@ -188,21 +192,22 @@
             this.ToggleModeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ToggleModeBtn.FillColor = System.Drawing.Color.Transparent;
             this.ToggleModeBtn.ImageRotate = 0F;
-            this.ToggleModeBtn.Location = new System.Drawing.Point(858, 7);
-            this.ToggleModeBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ToggleModeBtn.Location = new System.Drawing.Point(1146, 8);
+            this.ToggleModeBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ToggleModeBtn.Name = "ToggleModeBtn";
-            this.ToggleModeBtn.Size = new System.Drawing.Size(15, 16);
+            this.ToggleModeBtn.Size = new System.Drawing.Size(20, 20);
             this.ToggleModeBtn.TabIndex = 3;
             this.ToggleModeBtn.TabStop = false;
             // 
             // AdminTopbar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.Topbar);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AdminTopbar";
-            this.Size = new System.Drawing.Size(939, 30);
+            this.Size = new System.Drawing.Size(1252, 37);
             this.Topbar.ResumeLayout(false);
             this.Topbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ExitBtn)).EndInit();

@@ -72,5 +72,10 @@ namespace ShuttleZone.UserManagement
                 repo.UpdateUserStatus(User.ID, selectedStatus);
             }
         }
+
+        private void guna2ComboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

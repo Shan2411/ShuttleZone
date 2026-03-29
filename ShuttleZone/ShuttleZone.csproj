@@ -538,6 +538,12 @@
     <Compile Include="UserManagementNew\UC_NewAddUser.Designer.cs">
       <DependentUpon>UC_NewAddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserManagementNew\UC_ProfileView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserManagementNew\UC_ProfileView.Designer.cs">
+      <DependentUpon>UC_ProfileView.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserManagementNew\UC_UserManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -758,6 +764,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserManagementNew\UC_NewAddUser.resx">
       <DependentUpon>UC_NewAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagementNew\UC_ProfileView.resx">
+      <DependentUpon>UC_ProfileView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManagementNew\UC_UserManagement.resx">
       <DependentUpon>UC_UserManagement.cs</DependentUpon>

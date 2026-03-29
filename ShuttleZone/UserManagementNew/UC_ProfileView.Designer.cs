@@ -1,9 +1,7 @@
 ﻿namespace ShuttleZone.UserManagementNew
 {
-    partial class UC_UserProfile
+    partial class UC_ProfileView
     {
-
-
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -34,7 +32,6 @@
             this.BottomPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.BottomtableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.ConfirmEdit = new Guna.UI2.WinForms.Guna2Button();
             this.PanelHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.HeadertableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.CloseButton = new Guna.UI2.WinForms.Guna2Button();
@@ -82,7 +79,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.BottomtableLayoutPanel.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.PanelHeader.SuspendLayout();
             this.HeadertableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -128,7 +124,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(550, 690);
-            this.tableLayoutPanel1.TabIndex = 4;
+            this.tableLayoutPanel1.TabIndex = 5;
             // 
             // BottomPanel
             // 
@@ -164,7 +160,6 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.12374F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.87626F));
-            this.tableLayoutPanel2.Controls.Add(this.ConfirmEdit, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(287, 13);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -172,24 +167,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(250, 34);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // ConfirmEdit
-            // 
-            this.ConfirmEdit.BorderRadius = 8;
-            this.ConfirmEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ConfirmEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ConfirmEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ConfirmEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ConfirmEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ConfirmEdit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(58)))), ((int)(((byte)(237)))));
-            this.ConfirmEdit.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmEdit.ForeColor = System.Drawing.Color.White;
-            this.ConfirmEdit.Location = new System.Drawing.Point(95, 3);
-            this.ConfirmEdit.Name = "ConfirmEdit";
-            this.ConfirmEdit.Size = new System.Drawing.Size(152, 28);
-            this.ConfirmEdit.TabIndex = 2;
-            this.ConfirmEdit.Text = "Edit Profile";
-            this.ConfirmEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // PanelHeader
             // 
@@ -312,7 +289,6 @@
             this.BodytableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 556F));
             this.BodytableLayoutPanel.Size = new System.Drawing.Size(544, 556);
             this.BodytableLayoutPanel.TabIndex = 3;
-            this.BodytableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BodytableLayoutPanel_Paint);
             // 
             // guna2Panel3
             // 
@@ -401,8 +377,6 @@
             // guna2ComboBox1
             // 
             this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 12;
-            this.guna2ComboBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -412,7 +386,7 @@
             this.guna2ComboBox1.ItemHeight = 30;
             this.guna2ComboBox1.Location = new System.Drawing.Point(0, 0);
             this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(213, 36);
+            this.guna2ComboBox1.Size = new System.Drawing.Size(188, 36);
             this.guna2ComboBox1.TabIndex = 11;
             // 
             // guna2Panel18
@@ -614,6 +588,7 @@
             this.lblFullName.Size = new System.Drawing.Size(104, 28);
             this.lblFullName.TabIndex = 2;
             this.lblFullName.Text = "Full Name:";
+            this.lblFullName.Click += new System.EventHandler(this.lblFullName_Click);
             // 
             // guna2Panel8
             // 
@@ -634,7 +609,6 @@
             this.label3.Size = new System.Drawing.Size(104, 28);
             this.label3.TabIndex = 3;
             this.label3.Text = "Full Name:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // guna2Panel7
             // 
@@ -711,7 +685,6 @@
             this.guna2Panel20.Padding = new System.Windows.Forms.Padding(130, 20, 130, 20);
             this.guna2Panel20.Size = new System.Drawing.Size(498, 193);
             this.guna2Panel20.TabIndex = 0;
-            this.guna2Panel20.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel20_Paint);
             // 
             // guna2CirclePictureBox1
             // 
@@ -725,17 +698,16 @@
             this.guna2CirclePictureBox1.TabIndex = 4;
             this.guna2CirclePictureBox1.TabStop = false;
             // 
-            // UC_UserProfile
+            // UC_ProfileView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "UC_UserProfile";
+            this.Name = "UC_ProfileView";
             this.Size = new System.Drawing.Size(550, 690);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.BottomPanel.ResumeLayout(false);
             this.BottomtableLayoutPanel.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.PanelHeader.ResumeLayout(false);
             this.HeadertableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -786,7 +758,6 @@
         private Guna.UI2.WinForms.Guna2Panel BottomPanel;
         private System.Windows.Forms.TableLayoutPanel BottomtableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private Guna.UI2.WinForms.Guna2Button ConfirmEdit;
         private Guna.UI2.WinForms.Guna2Panel PanelHeader;
         private System.Windows.Forms.TableLayoutPanel HeadertableLayoutPanel;
         private Guna.UI2.WinForms.Guna2Button CloseButton;
@@ -800,24 +771,29 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel19;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel18;
         private System.Windows.Forms.Label Status;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel17;
-        private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel16;
         private System.Windows.Forms.Label lblRole;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel16;
+        private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel15;
+        private System.Windows.Forms.Label lblPhone;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel14;
         private System.Windows.Forms.Label lblPhoneNumber;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel13;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel12;
         private System.Windows.Forms.Label lblEmail;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel12;
+        private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel11;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
         private System.Windows.Forms.Label lblUsername;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
+        private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
         private System.Windows.Forms.Label lblFullName;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
@@ -826,10 +802,5 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel20;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
-        private System.Windows.Forms.Label lblPhone;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
     }
 }
