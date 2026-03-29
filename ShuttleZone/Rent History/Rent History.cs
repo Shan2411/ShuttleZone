@@ -2,6 +2,8 @@
 using ShuttleZone.database;
 using System;
 using System.Data;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace ShuttleZone.Rent_History
@@ -125,7 +127,60 @@ namespace ShuttleZone.Rent_History
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Export not implemented yet.");
+            if (dgvTable.Rows.Count == 0)
+            {
+                MessageBox.Show("No data to export.", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "CSV file (*.csv)|*.csv";
+                sfd.FileName = "RentHistory_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".csv";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        StringBuilder sb = new StringBuilder();
+
+                        // Headers (exclude View)
+                        var headers = dgvTable.Columns
+                            .Cast<DataGridViewColumn>()
+                            .Where(c => c.Visible && c.Name != "colView")
+                            .Select(c => c.HeaderText);
+                        sb.AppendLine(string.Join(",", headers));
+
+                        // Rows
+                        foreach (DataGridViewRow row in dgvTable.Rows)
+                        {
+                            if (row.IsNewRow) continue;
+
+                            var cells = row.Cells
+                                .Cast<DataGridViewCell>()
+                                .Where(c => c.OwningColumn.Visible && c.OwningColumn.Name != "colView")
+                                .Select(c =>
+                                {
+                                    // Fix date format for Excel
+                                    if (c.OwningColumn.Name == "colDate" && DateTime.TryParse(c.Value?.ToString(), out DateTime dt))
+                                        return dt.ToString("yyyy-MM-dd");
+
+                                    return "\"" + c.Value?.ToString().Replace("\"", "\"\"") + "\"";
+                                });
+
+                            sb.AppendLine(string.Join(",", cells));
+                        }
+
+                        System.IO.File.WriteAllText(sfd.FileName, sb.ToString(), Encoding.UTF8);
+
+                        MessageBox.Show("Export successful!", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error exporting data: " + ex.Message, "Export", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         private void UpdateSummary()
@@ -189,6 +244,6 @@ namespace ShuttleZone.Rent_History
         private void LatestTransaction_Click(object sender, EventArgs e) { }
         private void CashTotal_Click(object sender, EventArgs e) { }
         private void ECashTotal_Click(object sender, EventArgs e) { }
-        private void TransactionID_Click(object sender, EventArgs e) { }
+        
     }
 }
