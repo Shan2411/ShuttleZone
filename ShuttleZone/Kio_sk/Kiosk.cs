@@ -497,30 +497,22 @@ namespace ShuttleZone
                 equipmentPanel.RefreshEquipment();
             }
 
-            var subtotal = GetSubtotal();
-            var total = subtotal - GetDiscountAmount(subtotal);
+            decimal subtotal = GetSubtotal();
+            decimal total = subtotal - GetDiscountAmount(subtotal);
 
-            // Generate stub but DON'T auto-save in constructor
+            // ✅ Only generate the stub, do NOT open any PendingCard form
             var stub = new Stub(
-                new List<CartItem>(cartItems),
+                new List<CartItem>(cartItems), // clone current cart
                 subtotal,
                 total,
                 DateTime.Now,
                 appliedDiscountPercent,
-                saveToDB: false
-            );
-            stub.ShowDialog(this);
-
-            // Only now save the transaction once
-            string stubNo = stub.lblStubNo.Text; // Access stub number
-            TransactionRecorder.SaveFromCart(
-                stubNo,
-                DateTime.Now,
-                cartItems,
-                "Cash",
-                "Kiosk"
+                saveToDB: true // save stub to pending payments table
             );
 
+            stub.ShowDialog(this); // only show the stub
+
+            // Now reset the cart; the actual transaction is created when payment is cleared
             ResetCartAfterPayment();
         }
 
