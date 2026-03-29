@@ -43,6 +43,12 @@ namespace ShuttleZone.Rent_History
                 dgvTable.Columns.Remove("colCustomer");
 
             LoadData();
+
+            if (dgvTable.Columns.Contains("colView"))
+            {
+                colView.Text = "View";
+                colView.UseColumnTextForButtonValue = true;
+            }
         }
 
         public void LoadData()
