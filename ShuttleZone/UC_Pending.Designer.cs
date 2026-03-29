@@ -128,6 +128,7 @@
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(226, 70);
+            this.guna2Panel1.ShadowDecoration.Enabled = true;
             this.guna2Panel1.TabIndex = 1;
             // 
             // guna2HtmlLabel2
@@ -144,18 +145,23 @@
             // 
             // flpPendingRoot
             // 
+            this.flpPendingRoot.AutoScroll = true;
+            this.flpPendingRoot.BackColor = System.Drawing.Color.Transparent;
             this.flpPendingRoot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpPendingRoot.FlowDirection = System.Windows.Forms.FlowDirection.LeftToRight;
             this.flpPendingRoot.Location = new System.Drawing.Point(4, 90);
             this.flpPendingRoot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flpPendingRoot.Name = "flpPendingRoot";
-            this.flpPendingRoot.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.flpPendingRoot.Padding = new System.Windows.Forms.Padding(20, 16, 20, 16);
             this.flpPendingRoot.Size = new System.Drawing.Size(1235, 628);
             this.flpPendingRoot.TabIndex = 1;
+            this.flpPendingRoot.WrapContents = true;
             // 
             // UC_Pending
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.tlpRootPending);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UC_Pending";
