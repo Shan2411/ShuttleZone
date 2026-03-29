@@ -28,6 +28,7 @@ namespace ShuttleZone.Maintenance_Logs
 
             // load court prices from db
             Globals.LoadSettingsFromDB();
+            //RefreshTextBoxes();
 
             // Enable double buffering BEFORE InitializeComponent
             this.DoubleBuffered = true;
@@ -100,7 +101,7 @@ namespace ShuttleZone.Maintenance_Logs
             Globals.statusFromDB2 = Globals.GetCourtStatusFromDB("Court C");
             Globals.statusFromDB3 = Globals.GetCourtStatusFromDB("Court D");
 
-            RefreshTextBoxes();
+            //RefreshTextBoxes();
 
             // Refresh UI
             RefreshPanel();
@@ -112,7 +113,7 @@ namespace ShuttleZone.Maintenance_Logs
         private void RefreshTextBoxes()
         {
             // load court prices from db
-            Globals.LoadSettingsFromDB();
+            //Globals.LoadSettingsFromDB();
             textBox1.Text = Globals.courtPrice;
             //textBox2.Text = Globals.vat;
             textBox3.Text = Globals.membershipPrice1Month;
@@ -179,24 +180,25 @@ namespace ShuttleZone.Maintenance_Logs
                     string query = @"
                 UPDATE courts 
                 SET price_per_hour = @price,
-                    VAT_rate = @vat,
                     member_discount = @discount";
 
                     using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@price", courtPrice);
-                        //cmd.Parameters.AddWithValue("@vat", vat);
                         cmd.Parameters.AddWithValue("@discount", memberDiscount);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         // Also update Globals to keep in sync
                         Globals.courtPrice = textBox1.Text;
-                        //Globals.vat = textBox2.Text;
                         Globals.mambershipDiscount = textBox6.Text;
 
-                        MessageBox.Show($"Changes saved! ({rowsAffected} courts updated)",
-                            "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(
+                             "Pricing updated successfully.",
+                             "Done",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Information
+                         );
                     }
                 }
             }
