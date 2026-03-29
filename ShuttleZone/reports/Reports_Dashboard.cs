@@ -512,7 +512,7 @@ namespace ShuttleZone.Reports
                 if (sfd.ShowDialog() != DialogResult.OK) return;
 
                 List<string[]> rows = GetExportRows();
-                  ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+                 // ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
                 using (ExcelPackage pkg = new ExcelPackage())
                 {
                     ExcelWorksheet ws = pkg.Workbook.Worksheets.Add("Income Report");
