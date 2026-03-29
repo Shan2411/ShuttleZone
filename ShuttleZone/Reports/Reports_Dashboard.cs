@@ -66,7 +66,7 @@ namespace ShuttleZone.Reports
 
             cmbEquipment.Items.Clear();
             cmbEquipment.Items.AddRange(new object[] {
-                "All Equipments", "Badminton Rackets", "Shuttlecocks", "Grip Tape", "Towel"
+                "All Equipments", "Rackets", "Shuttlecocks", "Grip Tape", "Towel", "Badminton Net", "Scoreboard"
             });
             cmbEquipment.SelectedIndex = 0;
 
@@ -512,7 +512,7 @@ namespace ShuttleZone.Reports
                 if (sfd.ShowDialog() != DialogResult.OK) return;
 
                 List<string[]> rows = GetExportRows();
-                  ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+                 // ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
                 using (ExcelPackage pkg = new ExcelPackage())
                 {
                     ExcelWorksheet ws = pkg.Workbook.Worksheets.Add("Income Report");
