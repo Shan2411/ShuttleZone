@@ -12,7 +12,7 @@ namespace ShuttleZone.LogIn_Form
         Color placeholderColor = Color.FromArgb(180, 180, 180);
         Color textColor = Color.FromArgb(50, 50, 50);
 
-        // ✅ FLAG TO PREVENT AUTO-HIDE DURING CODE CHANGES
+        private bool isPasswordVisible = false;
         private bool isProgrammaticChange = false;
 
         public LoginForm()
@@ -22,6 +22,7 @@ namespace ShuttleZone.LogIn_Form
             this.ControlBox = false;
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
+            toggleVisibilityBtn.Image = global::ShuttleZone.Properties.Resources.Visible;
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -29,21 +30,10 @@ namespace ShuttleZone.LogIn_Form
             SetupTextBoxWithIcon(txtUsername, "Enter your username", "👤");
             SetupTextBoxWithIcon(txtPassword, "Enter your password", "🔒");
 
+            // 🔥 SET DEFAULT ICON HERE (IMPORTANT)
+            toggleVisibilityBtn.Image = global::ShuttleZone.Properties.Resources.Visible;
+
             HideError();
-        }
-
-        // ✅ CENTRALIZED ERROR CONTROL
-        private void ShowError(string message)
-        {
-            lblError.Text = message;
-            lblError.Visible = true;
-            pnlError.Visible = true;
-        }
-
-        private void HideError()
-        {
-            lblError.Visible = false;
-            pnlError.Visible = false;
         }
 
         private void SetupTextBoxWithIcon(Guna2TextBox txt, string placeholder, string icon)
@@ -62,6 +52,24 @@ namespace ShuttleZone.LogIn_Form
                 txt.PasswordChar = '●';
             }
         }
+
+        private void toggleVisibilityBtn_Click(object sender, EventArgs e)
+        {
+            isPasswordVisible = !isPasswordVisible;
+
+            if (isPasswordVisible)
+            {
+                txtPassword.PasswordChar = '\0';
+                toggleVisibilityBtn.Image = global::ShuttleZone.Properties.Resources.Invisible;
+            }
+            else
+            {
+                txtPassword.PasswordChar = '●';
+                toggleVisibilityBtn.Image = global::ShuttleZone.Properties.Resources.Visible;
+            }
+        }
+
+        // ================= LOGIN =================
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -96,7 +104,6 @@ namespace ShuttleZone.LogIn_Form
             {
                 ShowError("❌ Error: Incorrect Username or Password.");
 
-                // ✅ PREVENT TEXTCHANGED FROM HIDING ERROR
                 isProgrammaticChange = true;
                 txtPassword.Clear();
                 isProgrammaticChange = false;
@@ -148,10 +155,19 @@ namespace ShuttleZone.LogIn_Form
             }
         }
 
-        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        // ================= ERROR =================
+
+        private void ShowError(string message)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-                btnLogin_Click(sender, e);
+            lblError.Text = message;
+            lblError.Visible = true;
+            pnlError.Visible = true;
+        }
+
+        private void HideError()
+        {
+            lblError.Visible = false;
+            pnlError.Visible = false;
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
@@ -166,26 +182,10 @@ namespace ShuttleZone.LogIn_Form
                 HideError();
         }
 
-        private void ApplyShadowToPanel(Panel panel)
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            int shadowSize = 6;
-
-            for (int i = shadowSize; i >= 1; i--)
-            {
-                Panel shadowLayer = new Panel();
-                shadowLayer.BackColor = Color.FromArgb(18 - (i * 2), 0, 0, 0);
-                shadowLayer.Size = new Size(panel.Width + (i * 2), panel.Height + (i * 2));
-                shadowLayer.Location = new Point(
-                    panel.Left - i + 5,
-                    panel.Top - i + 5
-                );
-                shadowLayer.BorderStyle = BorderStyle.None;
-
-                this.Controls.Add(shadowLayer);
-                shadowLayer.SendToBack();
-            }
-
-            panel.BringToFront();
+            if (e.KeyChar == (char)Keys.Enter)
+                btnLogin_Click(sender, e);
         }
 
         private void ExitBtn_Click(object sender, EventArgs e)

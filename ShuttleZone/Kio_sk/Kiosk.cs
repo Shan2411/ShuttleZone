@@ -378,26 +378,18 @@ namespace ShuttleZone
             int qty = int.Parse(lblQty.Text);
             qty += change;
 
-            // Find stock for this item
-            int stock = 0;
-            var equipmentControl = pnlDynamic.Controls.OfType<UC_Equipment>().FirstOrDefault();
-            if (equipmentControl != null)
-            {
-                foreach (var itemRow in equipmentControl.tlpEquipmentRoot.Controls.OfType<UC_EquipmentRow>())
-                {
-                    if (itemRow.EquipmentNameText == lblName.Text)
-                    {
-                        stock = itemRow.AvailableStock;
-                        break;
-                    }
-                }
-            }
-
             if (qty < 1) qty = 1;
-            if (qty > stock)
+
+            int stock;
+            bool hasStockLimit = TryGetEquipmentStock(lblName.Text, out stock);
+            if (change > 0 && hasStockLimit && qty > stock)
             {
                 qty = stock;
                 MessageBox.Show("Cannot exceed available stock.");
+                if (qty < 1)
+                {
+                    qty = 1;
+                }
             }
 
             lblQty.Text = qty.ToString();
@@ -410,6 +402,27 @@ namespace ShuttleZone
                 item.Qty = qty;
 
             UpdateTotals();
+        }
+
+        private bool TryGetEquipmentStock(string itemName, out int stock)
+        {
+            stock = 0;
+            var equipmentControl = pnlDynamic.Controls.OfType<UC_Equipment>().FirstOrDefault();
+            if (equipmentControl == null)
+            {
+                return false;
+            }
+
+            foreach (var itemRow in equipmentControl.tlpEquipmentRoot.Controls.OfType<UC_EquipmentRow>())
+            {
+                if (itemRow.EquipmentNameText == itemName)
+                {
+                    stock = itemRow.AvailableStock;
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private void RemoveCartItem(Guna2Panel panel, string itemName)
@@ -581,21 +594,36 @@ namespace ShuttleZone
             return 0;
         }
 
-        // Add this helper method to Kiosk.cs
         private string GetFirstAvailableCourt()
         {
-            Globals.getCourtStatuses(); // fresh data from DB
+            try
+            {
+                using (var conn = DBconnection.GetConnection())
+                using (var cmd = new MySqlCommand("SELECT court_name, status FROM courts ORDER BY court_name", conn))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var courtName = reader["court_name"].ToString();
+                        var status = reader["status"].ToString();
 
-            if (Globals.statusFromDB?.Equals("Operational", StringComparison.OrdinalIgnoreCase) == true)
-                return "Court A";
-            if (Globals.statusFromDB1?.Equals("Operational", StringComparison.OrdinalIgnoreCase) == true)
-                return "Court B";
-            if (Globals.statusFromDB2?.Equals("Operational", StringComparison.OrdinalIgnoreCase) == true)
-                return "Court C";
-            if (Globals.statusFromDB3?.Equals("Operational", StringComparison.OrdinalIgnoreCase) == true)
-                return "Court D";
+                        if (status.Equals("Out of Service", StringComparison.OrdinalIgnoreCase) ||
+                            status.Equals("Under Maintenance", StringComparison.OrdinalIgnoreCase) ||
+                            status.Equals("In Use", StringComparison.OrdinalIgnoreCase))
+                        {
+                            continue;
+                        }
 
-            return null; // none available
+                        return courtName;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
+
+            return null;
         }
 
         // Empty placeholders

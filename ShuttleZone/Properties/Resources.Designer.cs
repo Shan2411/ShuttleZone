@@ -303,6 +303,16 @@ namespace ShuttleZone.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Invisible {
+            get {
+                object obj = ResourceManager.GetObject("Invisible", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Maintenance {
             get {
                 object obj = ResourceManager.GetObject("Maintenance", resourceCulture);
@@ -376,6 +386,16 @@ namespace ShuttleZone.Properties {
         internal static System.Drawing.Bitmap unavailable {
             get {
                 object obj = ResourceManager.GetObject("unavailable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Visible {
+            get {
+                object obj = ResourceManager.GetObject("Visible", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

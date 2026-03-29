@@ -39,7 +39,7 @@ INSERT INTO `courts` (
 ('1', 'Court A', 'Under Maintenance', 35.00, 15.00, 15.00),
 
 -- Court B: 
-('2', 'Court B', 'Out Of Service', 25.00, 15.00, 10.00),
+('2', 'Court B', 'Out of Service', 25.00, 15.00, 10.00),
 
 -- Court C: 
 ('3', 'Court C', 'Operational', 15.00, 15.00, 5.00),
@@ -66,6 +66,21 @@ CREATE TABLE IF NOT EXISTS members (
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 🔥 REMOVE EXISTING MEMBERS (prevents duplicates if script is rerun)
+DELETE FROM `members`;
+
+-- ✅ Premade members (based on your pricing/duration system)
+INSERT INTO `members`
+(`member_code`, `name`, `email`, `phone`, `membership_type`, `expiry_date`, `join_date`, `is_archived`)
+VALUES
+('M001', 'Juan Dela Cruz', 'juan@gmail.com', '09171234567', '1 month (Php 500)', '2025-04-29', '2025-03-29', 0),
+('M002', 'Maria Santos', 'maria@gmail.com', '09181234567', '3 months (Php 1,410)', '2026-06-29', '2026-03-29', 0),
+('M003', 'Carlos Reyes', 'carlos@gmail.com', '09191234567', '6 months (Php 2,775)', '2026-09-29', '2026-03-29', 0),
+('M004', 'Angela Cruz', 'angela@gmail.com', '09201234567', '12 months (Php 4,500)', '2027-03-29', '2026-03-29', 0),
+('M005', 'Mark Aquino', 'mark@gmail.com', '09211234567', '2 months (Php 955)', '2026-05-29', '2026-03-29', 0),
+('M006', 'Liza Mendoza', 'liza@gmail.com', '09221234567', '4 months (Php 1,865)', '2026-07-29', '2026-03-29', 0),
+('M007', 'Kevin Tan', 'kevin@gmail.com', '09231234567', '9 months (Php 4,140)', '2026-12-29', '2026-03-29', 0);
 
 -- Simple users table (replace the previous Users/Roles section)
 -- USERS   Uses a string id like 'U001' to avoid GENERATED columns/triggers and keep everything simple.
@@ -112,13 +127,15 @@ CREATE TABLE IF NOT EXISTS `equipment` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+DELETE FROM `equipment`;
+
 -- Example seed data (a few rows)
 INSERT INTO `equipment` (`Id`, `Name`, `Category`, `Total`, `Available`, `Rented`, `Price`, `Status`) VALUES
-('EQ001', 'Yonex Racket', 'Rackets', 10, 8, 2, 150.00, 'Available'),
-('EQ002', 'Shuttlecock', 'Shuttlecocks', 50, 50, 0, 25.00, 'Available'),
-('EQ003', 'Badminton Net', 'Nets', 5, 5, 0, 300.00, 'Available'),
-('EQ004', 'Grip Tape', 'Accessories', 40, 40, 0, 5.50, 'Available'),
-('EQ005', 'Scoreboard', 'Equipment', 2, 1, 1, 1200.00, 'In Use');
+('EQ001', 'Yonex', 'Rackets', 10, 8, 2, 150.00, 'Available'),
+('EQ002', 'RSL', 'Shuttlecocks', 50, 50, 0, 25.00, 'Available'),
+('EQ003', 'Li-Ning', 'Rackets', 5, 5, 0, 300.00, 'Available'),
+('EQ004', 'Kawasaki', 'Grip Tape', 40, 40, 0, 5.50, 'Available'),
+('EQ005', 'Yonex', 'Towel', 2, 1, 1, 1200.00, 'Available');
 
 -- Optional: basic index on Category and Status to speed searches
 CREATE INDEX IF NOT EXISTS `idx_equipment_category` ON `equipment`(`Category`);
