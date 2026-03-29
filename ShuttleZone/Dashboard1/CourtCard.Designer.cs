@@ -39,12 +39,12 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2VProgressBar1 = new Guna.UI2.WinForms.Guna2VProgressBar();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2VProgressBar1 = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -100,9 +100,9 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.guna2VProgressBar1, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.guna2VProgressBar1, 0, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 19);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -144,7 +144,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(341, 35);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(341, 34);
             this.tableLayoutPanel3.TabIndex = 15;
             // 
             // label1
@@ -166,7 +166,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(186, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(150, 29);
+            this.panel1.Size = new System.Drawing.Size(150, 28);
             this.panel1.TabIndex = 5;
             // 
             // guna2CirclePictureBox1
@@ -180,7 +180,7 @@
             this.guna2CirclePictureBox1.Location = new System.Drawing.Point(108, 0);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(42, 29);
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(42, 28);
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox1.TabIndex = 7;
             this.guna2CirclePictureBox1.TabStop = false;
@@ -200,7 +200,7 @@
             this.guna2Button1.Location = new System.Drawing.Point(0, 0);
             this.guna2Button1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(150, 29);
+            this.guna2Button1.Size = new System.Drawing.Size(150, 28);
             this.guna2Button1.TabIndex = 0;
             this.guna2Button1.Text = "cancel booking";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
@@ -212,11 +212,11 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 97.06745F));
             this.tableLayoutPanel4.Controls.Add(this.guna2HtmlLabel3, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 44);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 43);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(341, 59);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(341, 60);
             this.tableLayoutPanel4.TabIndex = 16;
             // 
             // guna2HtmlLabel3
@@ -227,7 +227,7 @@
             this.guna2HtmlLabel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(12, 3);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(12, 4);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(326, 53);
@@ -235,20 +235,6 @@
             this.guna2HtmlLabel3.Text = "Started 1:00pm";
             this.guna2HtmlLabel3.TextAlignment = System.Drawing.ContentAlignment.BottomLeft;
             this.guna2HtmlLabel3.Visible = false;
-            // 
-            // guna2VProgressBar1
-            // 
-            this.guna2VProgressBar1.BorderRadius = 10;
-            this.guna2VProgressBar1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(219)))), ((int)(((byte)(236)))));
-            this.guna2VProgressBar1.Location = new System.Drawing.Point(3, 215);
-            this.guna2VProgressBar1.Name = "guna2VProgressBar1";
-            this.guna2VProgressBar1.ProgressColor = System.Drawing.Color.SeaGreen;
-            this.guna2VProgressBar1.ProgressColor2 = System.Drawing.Color.SeaGreen;
-            this.guna2VProgressBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.guna2VProgressBar1.Size = new System.Drawing.Size(216, 17);
-            this.guna2VProgressBar1.TabIndex = 11;
-            this.guna2VProgressBar1.Text = "guna2VProgressBar1";
-            this.guna2VProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
             // tableLayoutPanel5
             // 
@@ -323,6 +309,18 @@
             this.guna2Button2.TabIndex = 8;
             this.guna2Button2.Text = "available";
             // 
+            // guna2VProgressBar1
+            // 
+            this.guna2VProgressBar1.BorderRadius = 9;
+            this.guna2VProgressBar1.Location = new System.Drawing.Point(3, 215);
+            this.guna2VProgressBar1.Name = "guna2VProgressBar1";
+            this.guna2VProgressBar1.ProgressColor = System.Drawing.Color.DarkSlateBlue;
+            this.guna2VProgressBar1.ProgressColor2 = System.Drawing.Color.DarkSlateBlue;
+            this.guna2VProgressBar1.Size = new System.Drawing.Size(218, 17);
+            this.guna2VProgressBar1.TabIndex = 16;
+            this.guna2VProgressBar1.Text = "guna2ProgressBar1";
+            this.guna2VProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
             // CourtCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -352,7 +350,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Guna.UI2.WinForms.Guna2VProgressBar guna2VProgressBar1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -365,5 +362,6 @@
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2ProgressBar guna2VProgressBar1;
     }
 }
