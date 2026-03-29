@@ -92,10 +92,11 @@ namespace ShuttleZone.UserManagementNew
 
             lblRole.Text = currentUser.Role ?? "";
 
-            if (!string.IsNullOrEmpty(currentUser.ProfileImagePath) &&
-                File.Exists(currentUser.ProfileImagePath))
+            string fullPath = Path.Combine(Application.StartupPath, currentUser.ProfileImagePath);
+
+            if (!string.IsNullOrEmpty(currentUser.ProfileImagePath) && File.Exists(fullPath))
             {
-                guna2CirclePictureBox1.ImageLocation = currentUser.ProfileImagePath;
+                guna2CirclePictureBox1.ImageLocation = fullPath;
             }
             else
             {
@@ -118,6 +119,14 @@ namespace ShuttleZone.UserManagementNew
             currentUser.PhoneNumber = string.IsNullOrWhiteSpace(guna2TextBox1.Text)
                 ? ""
                 : guna2TextBox1.Text.Trim();
+
+            // ❌ OLD
+            // MessageBox.Show("Profile updated successfully!", "Success",
+            //     MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // ✅ NEW
+            var repo = new ShuttleZone.UserManagement.UserRepository();
+            repo.UpdateUser(currentUser);
 
             MessageBox.Show("Profile updated successfully!", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -168,7 +177,52 @@ namespace ShuttleZone.UserManagementNew
         }
 
         // ================= IMAGE =================
+
         private void SelectImage_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Title = "Select Profile Image";
+                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        if (currentUser == null) return;
+
+                        // ✅ Create folder
+                        string folder = Path.Combine(Application.StartupPath, "ProfileImages");
+
+                        if (!Directory.Exists(folder))
+                            Directory.CreateDirectory(folder);
+
+                        // ✅ Get file extension
+                        string ext = Path.GetExtension(ofd.FileName);
+
+                        // ✅ Create filename based on user ID
+                        string newFileName = currentUser.ID + ext;
+
+                        // ✅ Full destination path
+                        string newPath = Path.Combine(folder, newFileName);
+
+                        // ✅ Copy file into app folder
+                        File.Copy(ofd.FileName, newPath, true);
+
+                        // ✅ Save RELATIVE path to DB
+                        currentUser.ProfileImagePath = "ProfileImages/" + newFileName;
+
+                        // ✅ Display image
+                        guna2CirclePictureBox1.ImageLocation = newPath;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Failed to load image: " + ex.Message);
+                    }
+                }
+            }
+        }
+        /*private void SelectImage_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -182,7 +236,7 @@ namespace ShuttleZone.UserManagementNew
                         guna2CirclePictureBox1.ImageLocation = ofd.FileName;
 
                         if (currentUser != null)
-                            currentUser.ProfileImagePath = ofd.FileName;
+                            currentUser.ProfileImagePath = "ProfileImages/" + newFileName;
                     }
                     catch
                     {
@@ -190,7 +244,7 @@ namespace ShuttleZone.UserManagementNew
                     }
                 }
             }
-        }
+        }*/
 
         // ================= UI EVENTS =================
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)

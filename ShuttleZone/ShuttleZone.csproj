@@ -557,6 +557,7 @@
       <DependentUpon>UC_UserRow.cs</DependentUpon>
     </Compile>
     <Compile Include="UserManagementNew\UserModel.cs" />
+    <Compile Include="UserManagementNew\UserRepository.cs" />
     <Compile Include="UserSession.cs" />
     <EmbeddedResource Include="CashPayment.resx">
       <DependentUpon>CashPayment.cs</DependentUpon>
@@ -767,6 +768,7 @@
     <EmbeddedResource Include="UserManagementNew\UC_UserRow.resx">
       <DependentUpon>UC_UserRow.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="database\Zild.md" />
     <None Include="database\court_timer.md" />
     <None Include="database\kiosk_table.md" />
     <None Include="database\schema.md" />

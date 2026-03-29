@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_AlertMain));
             this.BackPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
@@ -37,21 +38,39 @@
             this.label2 = new System.Windows.Forms.Label();
             this.LowStocksThresholdsTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.EquipmentOutofStockButton = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             this.EquipmentLowStockButton = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.CourtAvailabilityChangeButton = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.CourtOvertimeAlertButton = new Guna.UI2.WinForms.Guna2Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.EventNotificationslbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
+            this.NotificationSettingslbl = new System.Windows.Forms.Label();
+            this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             this.EnableSystemNotificationsButton = new Guna.UI2.WinForms.Guna2Button();
             this.Linelbl = new System.Windows.Forms.Label();
-            this.NotificationSettingslbl = new System.Windows.Forms.Label();
             this.BackPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.guna2Panel8.SuspendLayout();
+            this.guna2Panel7.SuspendLayout();
+            this.guna2Panel6.SuspendLayout();
+            this.guna2Panel5.SuspendLayout();
+            this.guna2Panel4.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.guna2Panel9.SuspendLayout();
+            this.guna2Panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // BackPanel
@@ -177,85 +196,171 @@
             // 
             // guna2Panel2
             // 
-            this.guna2Panel2.Controls.Add(this.EquipmentOutofStockButton);
-            this.guna2Panel2.Controls.Add(this.EquipmentLowStockButton);
-            this.guna2Panel2.Controls.Add(this.CourtAvailabilityChangeButton);
-            this.guna2Panel2.Controls.Add(this.CourtOvertimeAlertButton);
+            this.guna2Panel2.Controls.Add(this.tableLayoutPanel2);
             this.guna2Panel2.Controls.Add(this.label1);
-            this.guna2Panel2.Controls.Add(this.EventNotificationslbl);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel2.Location = new System.Drawing.Point(3, 103);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(1163, 214);
             this.guna2Panel2.TabIndex = 1;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.guna2Panel8, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.guna2Panel7, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.guna2Panel6, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.guna2Panel5, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.guna2Panel4, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 5;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1163, 198);
+            this.tableLayoutPanel2.TabIndex = 22;
+            // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.Controls.Add(this.EquipmentOutofStockButton);
+            this.guna2Panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel8.Location = new System.Drawing.Point(3, 159);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.Size = new System.Drawing.Size(1157, 36);
+            this.guna2Panel8.TabIndex = 4;
+            // 
             // EquipmentOutofStockButton
             // 
-            this.EquipmentOutofStockButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.EquipmentOutofStockButton.BorderRadius = 8;
+            this.EquipmentOutofStockButton.BorderThickness = 1;
             this.EquipmentOutofStockButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.EquipmentOutofStockButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.EquipmentOutofStockButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.EquipmentOutofStockButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.EquipmentOutofStockButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.EquipmentOutofStockButton.FillColor = System.Drawing.Color.White;
             this.EquipmentOutofStockButton.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EquipmentOutofStockButton.ForeColor = System.Drawing.Color.Black;
-            this.EquipmentOutofStockButton.Location = new System.Drawing.Point(43, 151);
+            this.EquipmentOutofStockButton.Location = new System.Drawing.Point(0, 0);
             this.EquipmentOutofStockButton.Name = "EquipmentOutofStockButton";
-            this.EquipmentOutofStockButton.Size = new System.Drawing.Size(204, 29);
+            this.EquipmentOutofStockButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.EquipmentOutofStockButton.Size = new System.Drawing.Size(284, 36);
             this.EquipmentOutofStockButton.TabIndex = 21;
             this.EquipmentOutofStockButton.Text = "Equipment Out of Stock";
             this.EquipmentOutofStockButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
+            // guna2Panel7
+            // 
+            this.guna2Panel7.Controls.Add(this.EquipmentLowStockButton);
+            this.guna2Panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel7.Location = new System.Drawing.Point(3, 120);
+            this.guna2Panel7.Name = "guna2Panel7";
+            this.guna2Panel7.Size = new System.Drawing.Size(1157, 33);
+            this.guna2Panel7.TabIndex = 3;
+            // 
             // EquipmentLowStockButton
             // 
-            this.EquipmentLowStockButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.EquipmentLowStockButton.BorderRadius = 8;
+            this.EquipmentLowStockButton.BorderThickness = 1;
             this.EquipmentLowStockButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.EquipmentLowStockButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.EquipmentLowStockButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.EquipmentLowStockButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.EquipmentLowStockButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.EquipmentLowStockButton.FillColor = System.Drawing.Color.White;
             this.EquipmentLowStockButton.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EquipmentLowStockButton.ForeColor = System.Drawing.Color.Black;
-            this.EquipmentLowStockButton.Location = new System.Drawing.Point(43, 116);
+            this.EquipmentLowStockButton.Location = new System.Drawing.Point(0, 0);
             this.EquipmentLowStockButton.Name = "EquipmentLowStockButton";
-            this.EquipmentLowStockButton.Size = new System.Drawing.Size(204, 29);
+            this.EquipmentLowStockButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.EquipmentLowStockButton.Size = new System.Drawing.Size(284, 33);
             this.EquipmentLowStockButton.TabIndex = 20;
             this.EquipmentLowStockButton.Text = "Equipment Low Stock";
             this.EquipmentLowStockButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
+            // guna2Panel6
+            // 
+            this.guna2Panel6.Controls.Add(this.CourtAvailabilityChangeButton);
+            this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel6.Location = new System.Drawing.Point(3, 81);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.Size = new System.Drawing.Size(1157, 33);
+            this.guna2Panel6.TabIndex = 2;
+            // 
             // CourtAvailabilityChangeButton
             // 
-            this.CourtAvailabilityChangeButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.CourtAvailabilityChangeButton.BorderRadius = 8;
+            this.CourtAvailabilityChangeButton.BorderThickness = 1;
             this.CourtAvailabilityChangeButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.CourtAvailabilityChangeButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.CourtAvailabilityChangeButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.CourtAvailabilityChangeButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.CourtAvailabilityChangeButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.CourtAvailabilityChangeButton.FillColor = System.Drawing.Color.White;
             this.CourtAvailabilityChangeButton.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CourtAvailabilityChangeButton.ForeColor = System.Drawing.Color.Black;
-            this.CourtAvailabilityChangeButton.Location = new System.Drawing.Point(43, 81);
+            this.CourtAvailabilityChangeButton.Location = new System.Drawing.Point(0, 0);
             this.CourtAvailabilityChangeButton.Name = "CourtAvailabilityChangeButton";
-            this.CourtAvailabilityChangeButton.Size = new System.Drawing.Size(204, 29);
+            this.CourtAvailabilityChangeButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.CourtAvailabilityChangeButton.Size = new System.Drawing.Size(284, 33);
             this.CourtAvailabilityChangeButton.TabIndex = 19;
             this.CourtAvailabilityChangeButton.Text = "Court Availability Change";
             this.CourtAvailabilityChangeButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.Controls.Add(this.CourtOvertimeAlertButton);
+            this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel5.Location = new System.Drawing.Point(3, 42);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.Size = new System.Drawing.Size(1157, 33);
+            this.guna2Panel5.TabIndex = 1;
+            // 
             // CourtOvertimeAlertButton
             // 
-            this.CourtOvertimeAlertButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.CourtOvertimeAlertButton.BorderRadius = 8;
+            this.CourtOvertimeAlertButton.BorderThickness = 1;
             this.CourtOvertimeAlertButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.CourtOvertimeAlertButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.CourtOvertimeAlertButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.CourtOvertimeAlertButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.CourtOvertimeAlertButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.CourtOvertimeAlertButton.FillColor = System.Drawing.Color.White;
             this.CourtOvertimeAlertButton.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CourtOvertimeAlertButton.ForeColor = System.Drawing.Color.Black;
-            this.CourtOvertimeAlertButton.Location = new System.Drawing.Point(43, 46);
+            this.CourtOvertimeAlertButton.Location = new System.Drawing.Point(0, 0);
             this.CourtOvertimeAlertButton.Name = "CourtOvertimeAlertButton";
-            this.CourtOvertimeAlertButton.Size = new System.Drawing.Size(204, 29);
+            this.CourtOvertimeAlertButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.CourtOvertimeAlertButton.Size = new System.Drawing.Size(284, 33);
             this.CourtOvertimeAlertButton.TabIndex = 18;
             this.CourtOvertimeAlertButton.Text = "Court Overtime Alert";
             this.CourtOvertimeAlertButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // guna2Panel4
+            // 
+            this.guna2Panel4.Controls.Add(this.EventNotificationslbl);
+            this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel4.Location = new System.Drawing.Point(3, 3);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.guna2Panel4.Size = new System.Drawing.Size(1157, 33);
+            this.guna2Panel4.TabIndex = 0;
+            // 
+            // EventNotificationslbl
+            // 
+            this.EventNotificationslbl.AutoSize = true;
+            this.EventNotificationslbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EventNotificationslbl.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EventNotificationslbl.Location = new System.Drawing.Point(10, 0);
+            this.EventNotificationslbl.Name = "EventNotificationslbl";
+            this.EventNotificationslbl.Size = new System.Drawing.Size(175, 25);
+            this.EventNotificationslbl.TabIndex = 16;
+            this.EventNotificationslbl.Text = "Event Notifications";
             // 
             // label1
             // 
@@ -263,50 +368,87 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label1.Location = new System.Drawing.Point(0, 198);
+            this.label1.Location = new System.Drawing.Point(0, 166);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1135, 16);
+            this.label1.Size = new System.Drawing.Size(2447, 16);
             this.label1.TabIndex = 17;
-            this.label1.Text = "_________________________________________________________________________________" +
-    "____________________________________________________________";
-            // 
-            // EventNotificationslbl
-            // 
-            this.EventNotificationslbl.AutoSize = true;
-            this.EventNotificationslbl.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EventNotificationslbl.Location = new System.Drawing.Point(13, 18);
-            this.EventNotificationslbl.Name = "EventNotificationslbl";
-            this.EventNotificationslbl.Size = new System.Drawing.Size(175, 25);
-            this.EventNotificationslbl.TabIndex = 16;
-            this.EventNotificationslbl.Text = "Event Notifications";
+            this.label1.Text = resources.GetString("label1.Text");
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Controls.Add(this.EnableSystemNotificationsButton);
+            this.guna2Panel1.Controls.Add(this.tableLayoutPanel3);
             this.guna2Panel1.Controls.Add(this.Linelbl);
-            this.guna2Panel1.Controls.Add(this.NotificationSettingslbl);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(3, 3);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1163, 94);
             this.guna2Panel1.TabIndex = 0;
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.guna2Panel9, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.guna2Panel10, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1163, 94);
+            this.tableLayoutPanel3.TabIndex = 13;
+            // 
+            // guna2Panel9
+            // 
+            this.guna2Panel9.Controls.Add(this.NotificationSettingslbl);
+            this.guna2Panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel9.Location = new System.Drawing.Point(3, 3);
+            this.guna2Panel9.Name = "guna2Panel9";
+            this.guna2Panel9.Size = new System.Drawing.Size(1157, 41);
+            this.guna2Panel9.TabIndex = 0;
+            // 
+            // NotificationSettingslbl
+            // 
+            this.NotificationSettingslbl.AutoSize = true;
+            this.NotificationSettingslbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NotificationSettingslbl.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NotificationSettingslbl.Location = new System.Drawing.Point(0, 0);
+            this.NotificationSettingslbl.Name = "NotificationSettingslbl";
+            this.NotificationSettingslbl.Size = new System.Drawing.Size(188, 25);
+            this.NotificationSettingslbl.TabIndex = 11;
+            this.NotificationSettingslbl.Text = "Notification Settings";
+            this.NotificationSettingslbl.Click += new System.EventHandler(this.NotificationSettingslbl_Click);
+            // 
+            // guna2Panel10
+            // 
+            this.guna2Panel10.Controls.Add(this.EnableSystemNotificationsButton);
+            this.guna2Panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel10.Location = new System.Drawing.Point(3, 50);
+            this.guna2Panel10.Name = "guna2Panel10";
+            this.guna2Panel10.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.guna2Panel10.Size = new System.Drawing.Size(1157, 41);
+            this.guna2Panel10.TabIndex = 1;
+            // 
             // EnableSystemNotificationsButton
             // 
-            this.EnableSystemNotificationsButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.EnableSystemNotificationsButton.BorderRadius = 8;
+            this.EnableSystemNotificationsButton.BorderThickness = 1;
             this.EnableSystemNotificationsButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.EnableSystemNotificationsButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.EnableSystemNotificationsButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.EnableSystemNotificationsButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.EnableSystemNotificationsButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.EnableSystemNotificationsButton.FillColor = System.Drawing.Color.White;
             this.EnableSystemNotificationsButton.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EnableSystemNotificationsButton.ForeColor = System.Drawing.Color.Black;
-            this.EnableSystemNotificationsButton.Location = new System.Drawing.Point(54, 37);
+            this.EnableSystemNotificationsButton.Location = new System.Drawing.Point(10, 10);
             this.EnableSystemNotificationsButton.Name = "EnableSystemNotificationsButton";
-            this.EnableSystemNotificationsButton.Size = new System.Drawing.Size(307, 29);
+            this.EnableSystemNotificationsButton.Size = new System.Drawing.Size(274, 31);
             this.EnableSystemNotificationsButton.TabIndex = 13;
             this.EnableSystemNotificationsButton.Text = "Enable System Notifications";
             this.EnableSystemNotificationsButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.EnableSystemNotificationsButton.Click += new System.EventHandler(this.EnableSystemNotificationsButton_Click_1);
             // 
             // Linelbl
             // 
@@ -315,21 +457,9 @@
             this.Linelbl.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.Linelbl.Location = new System.Drawing.Point(15, 69);
             this.Linelbl.Name = "Linelbl";
-            this.Linelbl.Size = new System.Drawing.Size(1135, 16);
+            this.Linelbl.Size = new System.Drawing.Size(2703, 16);
             this.Linelbl.TabIndex = 12;
-            this.Linelbl.Text = "_________________________________________________________________________________" +
-    "____________________________________________________________";
-            // 
-            // NotificationSettingslbl
-            // 
-            this.NotificationSettingslbl.AutoSize = true;
-            this.NotificationSettingslbl.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NotificationSettingslbl.Location = new System.Drawing.Point(13, 9);
-            this.NotificationSettingslbl.Name = "NotificationSettingslbl";
-            this.NotificationSettingslbl.Size = new System.Drawing.Size(188, 25);
-            this.NotificationSettingslbl.TabIndex = 11;
-            this.NotificationSettingslbl.Text = "Notification Settings";
-            this.NotificationSettingslbl.Click += new System.EventHandler(this.NotificationSettingslbl_Click);
+            this.Linelbl.Text = resources.GetString("Linelbl.Text");
             // 
             // UC_AlertMain
             // 
@@ -344,8 +474,19 @@
             this.guna2Panel3.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.guna2Panel8.ResumeLayout(false);
+            this.guna2Panel7.ResumeLayout(false);
+            this.guna2Panel6.ResumeLayout(false);
+            this.guna2Panel5.ResumeLayout(false);
+            this.guna2Panel4.ResumeLayout(false);
+            this.guna2Panel4.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.guna2Panel9.ResumeLayout(false);
+            this.guna2Panel9.PerformLayout();
+            this.guna2Panel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -371,5 +512,14 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox LowStocksThresholdsTextBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
     }
 }

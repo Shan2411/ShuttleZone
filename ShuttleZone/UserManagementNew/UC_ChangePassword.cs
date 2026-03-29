@@ -56,6 +56,22 @@ namespace ShuttleZone.UserManagementNew
                 return;
             }
 
+            // ❌ OLD
+            // MessageBox.Show("Password changed successfully!");
+
+            // ✅ NEW
+            var repo = new ShuttleZone.UserManagement.UserRepository();
+
+            if (CurrentUser.Password != txtCurrentPassword.Text)
+            {
+                MessageBox.Show("Current password is incorrect.");
+                return;
+            }
+
+            repo.ChangePassword(CurrentUser.ID, txtNewPassword.Text);
+
+            CurrentUser.Password = txtNewPassword.Text;
+
             MessageBox.Show("Password changed successfully!");
         }
 
