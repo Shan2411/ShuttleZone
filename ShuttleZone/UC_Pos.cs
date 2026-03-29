@@ -26,6 +26,7 @@ namespace ShuttleZone
         }
 
         private decimal appliedDiscountPercent = 0;
+        private readonly Dictionary<string, int> equipmentStockByName = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
         private List<CartItem> CartItems = new List<CartItem>();
 
@@ -33,6 +34,16 @@ namespace ShuttleZone
         public UC_Pos()
         {
             InitializeComponent();
+        }
+
+        private static string BuildEquipmentKey(string name, string category)
+        {
+            return string.Format("{0} ({1})", name, category);
+        }
+
+        private static string BuildEquipmentKey(PosEquipmentDisplay item)
+        {
+            return BuildEquipmentKey(item.Name, item.Category);
         }
 
         private void UC_Pos_Load(object sender, EventArgs e)
@@ -54,6 +65,7 @@ namespace ShuttleZone
         private void LoadEquipmentFromInventory()
         {
             var items = new List<PosEquipmentDisplay>();
+            equipmentStockByName.Clear();
 
             try
             {
@@ -63,13 +75,16 @@ namespace ShuttleZone
                 {
                     while (reader.Read())
                     {
-                        items.Add(new PosEquipmentDisplay
+                        var equipment = new PosEquipmentDisplay
                         {
                             Name = reader["Name"].ToString(),
                             Category = reader["Category"].ToString(),
                             Available = Convert.ToInt32(reader["Available"]),
                             Price = Convert.ToDecimal(reader["Price"])
-                        });
+                        };
+
+                        items.Add(equipment);
+                        equipmentStockByName[BuildEquipmentKey(equipment)] = equipment.Available;
                     }
                 }
             }
@@ -98,6 +113,35 @@ namespace ShuttleZone
             }
 
             tlpEquipment.ResumeLayout();
+            RefreshEquipmentStockLabels();
+        }
+
+        private int GetCartQtyForEquipment(string equipmentName)
+        {
+            var item = CartItems.FirstOrDefault(c => c.Name.Equals(equipmentName, StringComparison.OrdinalIgnoreCase));
+            return item != null ? item.Qty : 0;
+        }
+
+        private void RefreshEquipmentStockLabels()
+        {
+            foreach (var panel in tlpEquipment.Controls.OfType<Guna2Panel>())
+            {
+                var equipment = panel.Tag as PosEquipmentDisplay;
+                if (equipment == null)
+                {
+                    continue;
+                }
+
+                var stockLabel = panel.Controls["lblStock"] as Label;
+                if (stockLabel == null)
+                {
+                    continue;
+                }
+
+                int inCartQty = GetCartQtyForEquipment(BuildEquipmentKey(equipment));
+                int currentStock = Math.Max(0, equipment.Available - inCartQty);
+                stockLabel.Text = $"Stock: {currentStock}";
+            }
         }
 
         private Guna2Panel CreateEquipmentPanel(PosEquipmentDisplay item)
@@ -126,6 +170,7 @@ namespace ShuttleZone
                 newCtrl.Name = c.Name;
                 newCtrl.BackColor = c.BackColor;
                 newCtrl.ForeColor = c.ForeColor;
+                newCtrl.AutoSize = c.AutoSize;
                 newCtrl.Anchor = c.Anchor;
                 newCtrl.Dock = c.Dock;
                 newCtrl.Margin = c.Margin;
@@ -210,6 +255,7 @@ namespace ShuttleZone
                 flowCart.Controls.Remove(clone);
                 clone.Dispose();
 
+                RefreshEquipmentStockLabels();
                 UpdateCartTotals();
             };
 
@@ -225,22 +271,39 @@ namespace ShuttleZone
             var lblRowTotal = panel.Controls["lblRowTotal"] as Label;
             var lblName = panel.Controls["lblItemName"] as Label;
 
-            int qty = int.Parse(lblQty.Text);
-            qty += change;
-            if (qty < 1) qty = 1;
+            if (lblQty == null || lblPrice == null || lblRowTotal == null || lblName == null)
+            {
+                return;
+            }
 
-            lblQty.Text = qty.ToString();
+            int qty = int.Parse(lblQty.Text);
+            int updatedQty = qty + change;
+            if (updatedQty < 1) updatedQty = 1;
+
+            int availableStock;
+            if (change > 0 && equipmentStockByName.TryGetValue(lblName.Text, out availableStock) && updatedQty > availableStock)
+            {
+                MessageBox.Show(
+                    $"Only {availableStock} stock available for {lblName.Text}.",
+                    "Insufficient Stock",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                updatedQty = availableStock;
+            }
+
+            lblQty.Text = updatedQty.ToString();
 
             decimal price = decimal.Parse(lblPrice.Text.Replace("₱", ""));
-            lblRowTotal.Text = $"₱{qty * price}";
+            lblRowTotal.Text = $"₱{updatedQty * price}";
 
             // 👉 SYNC WITH DATA MODEL
             var item = CartItems.FirstOrDefault(c => c.Name == lblName.Text);
             if (item != null)
             {
-                item.Qty = qty;
+                item.Qty = updatedQty;
             }
 
+            RefreshEquipmentStockLabels();
             UpdateCartTotals();  // 👉 recalc subtotal
         }
 
@@ -296,7 +359,7 @@ namespace ShuttleZone
 
             if (item != null)
             {
-                string itemName = item.Name;
+                string itemName = BuildEquipmentKey(item);
 
                 // ❌ Block duplicate equipment
                 if (EquipmentAlreadyInCart(itemName))
@@ -311,6 +374,7 @@ namespace ShuttleZone
                 }
 
                 flowCart.Controls.Add(CloneCartItemPanel(itemName, item.Price));
+                RefreshEquipmentStockLabels();
                 UpdateCartTotals(); // 👉 after add
             }
         }

@@ -989,7 +989,7 @@
             // 
             this.lblRowTotal.AutoSize = true;
             this.lblRowTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRowTotal.Location = new System.Drawing.Point(84, 19);
+            this.lblRowTotal.Location = new System.Drawing.Point(82, 25);
             this.lblRowTotal.Name = "lblRowTotal";
             this.lblRowTotal.Size = new System.Drawing.Size(38, 15);
             this.lblRowTotal.TabIndex = 15;
