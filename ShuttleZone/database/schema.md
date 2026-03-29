@@ -143,5 +143,22 @@ CREATE INDEX IF NOT EXISTS `idx_equipment_status` ON `equipment`(`Status`);
 
 
 
+
 -- Creates Membership Prices table to store and update the pricing for membership
 
+CREATE TABLE membership_prices (
+    id              INT(11)         NOT NULL AUTO_INCREMENT,
+    plan_name       VARCHAR(50)     NOT NULL,
+    duration_months INT(11)         NOT NULL,
+    price           DECIMAL(8,2)    NOT NULL,
+    discount_percent DECIMAL(5,2)   NOT NULL DEFAULT 0.00,
+    created_at      DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at      DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+-- Insert your two plans
+INSERT INTO membership_prices (plan_name, duration_months, price, discount_percent)
+VALUES 
+    ('1 Month Membership',  1,  500.00, 10.00),
+    ('12 Months Membership', 12, 4500.00, 10.00);

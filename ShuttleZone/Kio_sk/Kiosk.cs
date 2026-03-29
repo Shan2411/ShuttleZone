@@ -187,6 +187,9 @@ namespace ShuttleZone
             ShowDynamicPanel(new UC_CourtRental());
             lblKioskTitle.Text = "Court Rental";
             UpdateTotals();
+
+            Globals.LoadSettingsFromDB(); //need ko -shan
+
         }
 
         private void BtnCourtRental_Click(object sender, EventArgs e)
