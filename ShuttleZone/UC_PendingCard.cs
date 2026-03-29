@@ -60,7 +60,11 @@ namespace ShuttleZone
                             var row = new Guna.UI2.WinForms.Guna2Panel
                             {
                                 Size = pnlPendingItemRowTemplate.Size,
-                                Margin = pnlPendingItemRowTemplate.Margin
+                                Margin = new Padding(3, 3, 3, 6),
+                                FillColor = pnlPendingItemRowTemplate.FillColor,
+                                BorderColor = pnlPendingItemRowTemplate.BorderColor,
+                                BorderRadius = pnlPendingItemRowTemplate.BorderRadius,
+                                BorderThickness = pnlPendingItemRowTemplate.BorderThickness
                             };
 
                             var lblName = new Label
@@ -68,6 +72,7 @@ namespace ShuttleZone
                                 Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold),
                                 AutoSize = true,
                                 Location = new Point(17, 5),
+                                ForeColor = Color.FromArgb(64, 64, 64),
                                 Text = itemName
                             };
 
@@ -76,6 +81,7 @@ namespace ShuttleZone
                                 Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold),
                                 AutoSize = true,
                                 Location = new Point(329, 5),
+                                ForeColor = Color.FromArgb(0, 110, 0),
                                 Text = $"₱{total:N2}"
                             };
 
@@ -85,6 +91,7 @@ namespace ShuttleZone
                                 AutoSize = true,
                                 Location = new Point(17, 23),
                                 BackColor = Color.Transparent,
+                                ForeColor = Color.DimGray,
                                 Text = $"₱{unitPrice:N2} x {qty}"
                             };
 
