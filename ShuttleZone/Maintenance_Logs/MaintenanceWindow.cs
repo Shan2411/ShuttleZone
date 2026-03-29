@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShuttleZone.database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 
 namespace ShuttleZone.Maintenance_Logs
@@ -95,6 +97,9 @@ namespace ShuttleZone.Maintenance_Logs
             Globals.statusFromDB2 = Globals.GetCourtStatusFromDB("Court C");
             Globals.statusFromDB3 = Globals.GetCourtStatusFromDB("Court D");
 
+            // load court prices from db
+            Globals.LoadSettingsFromDB();
+
             // Refresh UI
             RefreshPanel();
         }
@@ -140,13 +145,56 @@ namespace ShuttleZone.Maintenance_Logs
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Changes Saved!");
-            Globals.courtPrice = textBox1.Text;
-            Globals.vat = textBox2.Text;
+            // Validate inputs first
+            if (!decimal.TryParse(textBox1.Text, out decimal courtPrice) ||
+                !decimal.TryParse(textBox2.Text, out decimal vat) ||
+                !decimal.TryParse(textBox6.Text, out decimal memberDiscount))
+            {
+                MessageBox.Show("Please enter valid numbers for Court Price, VAT, and Discount.",
+                    "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Membership prices stay in Globals (no matching column in courts table)
             Globals.membershipPrice1Month = textBox3.Text;
             Globals.membershipPrice1Year = textBox4.Text;
-            Globals.mambershipDiscount = textBox6.Text;
-    }
+
+            try
+            {
+                using (MySqlConnection conn = DBconnection.GetConnection())
+                {
+                   
+                    // Update all courts with the same price, VAT, and discount
+                    string query = @"
+                UPDATE courts 
+                SET price_per_hour = @price,
+                    VAT_rate = @vat,
+                    member_discount = @discount";
+
+                    using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@price", courtPrice);
+                        cmd.Parameters.AddWithValue("@vat", vat);
+                        cmd.Parameters.AddWithValue("@discount", memberDiscount);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        // Also update Globals to keep in sync
+                        Globals.courtPrice = textBox1.Text;
+                        Globals.vat = textBox2.Text;
+                        Globals.mambershipDiscount = textBox6.Text;
+
+                        MessageBox.Show($"Changes saved! ({rowsAffected} courts updated)",
+                            "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to save changes:\n{ex.Message}",
+                    "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {

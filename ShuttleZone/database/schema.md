@@ -36,13 +36,13 @@ INSERT INTO `courts` (
     `member_discount`
 ) VALUES 
 -- Court A:
-('1', 'Court A', 'Under Maintenance', 35.00, 15.00, 15.00),
+('1', 'Court A', 'Under Maintenance', 250.00, 15.00, 15.00),
 
 -- Court B: 
 ('2', 'Court B', 'Out of Service', 25.00, 15.00, 10.00),
 
 -- Court C: 
-('3', 'Court C', 'Operational', 15.00, 15.00, 5.00),
+('3', 'Court C', 'Operational', 250.00, 15.00, 5.00),
 
 -- Court D: 
 ('1024', 'Court D', 'Under Maintenance', 20.00, 15.00, 10.00);

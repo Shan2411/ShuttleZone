@@ -592,6 +592,16 @@ namespace ShuttleZone
         {
 
         }
+
+        private void LabelChangeAndDBLoad() {
+
+            // load court prices from db
+            Globals.LoadSettingsFromDB();
+            
+
+
+        }
+
     }
 }
 
