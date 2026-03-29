@@ -123,12 +123,12 @@ namespace ShuttleZone.LogIn_Form
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT `role`, `full_name`, `status`
-                        FROM `users`
-                        WHERE `username` = @username
-                          AND `password` = @password
-                        LIMIT 1;
-                    ";
+                SELECT `id`, `role`, `full_name`, `status` -- 🔧 CHANGED (added id)
+                FROM `users`
+                WHERE `username` = @username
+                  AND `password` = @password
+                LIMIT 1;
+            ";
 
                     cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@password", password);
@@ -144,6 +144,9 @@ namespace ShuttleZone.LogIn_Form
 
                         role = reader["role"] as string;
                         fullName = reader["full_name"] as string;
+
+                        UserSession.UserId = reader["id"].ToString(); // ✅ ADDED
+
                         return true;
                     }
                 }
@@ -154,7 +157,6 @@ namespace ShuttleZone.LogIn_Form
                 return false;
             }
         }
-
         // ================= ERROR =================
 
         private void ShowError(string message)

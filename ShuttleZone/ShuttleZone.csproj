@@ -409,12 +409,14 @@
       <DependentUpon>Stub.cs</DependentUpon>
     </Compile>
     <Compile Include="systemsettings\ISaveable.cs" />
+    <Compile Include="systemsettings\SettingsModel.cs" />
     <Compile Include="systemsettings\SystemPreferences.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="systemsettings\SystemPreferences.Designer.cs">
       <DependentUpon>SystemPreferences.cs</DependentUpon>
     </Compile>
+    <Compile Include="systemsettings\SystemSettings.cs" />
     <Compile Include="systemsettings\UC_AlertMain.cs">
       <SubType>UserControl</SubType>
     </Compile>

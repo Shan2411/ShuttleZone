@@ -6,7 +6,8 @@
     using ShuttleZone.SystemSettings;
     using ShuttleZone.topbar;
     using ShuttleZone.UserManagement;
-    using System;
+using ShuttleZone.UserManagementNew;
+using System;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
@@ -93,8 +94,68 @@
                 }
             }
 
-            // 🔥 GENERIC VIEW LOADER (CORE SYSTEM)
-            private void LoadView<T>() where T : UserControl, new()
+        // ✅ ADDED METHOD
+        private void OpenProfile(object sender, EventArgs e)
+        {
+            var repo = new UserRepository();
+            var user = repo.GetUserById(UserSession.UserId);
+
+            if (user == null) return;
+
+            var profile = new ShuttleZone.UserManagementNew.UC_UserProfile();
+            profile.SetUser(user);
+
+            Form modal = new Form
+            {
+                FormBorderStyle = FormBorderStyle.None,
+                StartPosition = FormStartPosition.CenterParent,
+                ClientSize = profile.Size
+            };
+
+            profile.Dock = DockStyle.Fill;
+            modal.Controls.Add(profile);
+
+            profile.EditProfileClicked += (s, ev) =>
+            {
+                modal.Close();
+
+                var edit = new ShuttleZone.UserManagementNew.UC_EditProfileMain(user);
+
+                Form editModal = new Form
+                {
+                    FormBorderStyle = FormBorderStyle.None,
+                    StartPosition = FormStartPosition.CenterParent,
+                    ClientSize = edit.Size
+                };
+
+                edit.Dock = DockStyle.Fill;
+                editModal.Controls.Add(edit);
+
+                edit.ChangePasswordClicked += (s2, ev2) =>
+                {
+                    var change = new ShuttleZone.UserManagementNew.UC_ChangePassword();
+                    change.SetUser(user);
+
+                    Form changeModal = new Form
+                    {
+                        FormBorderStyle = FormBorderStyle.None,
+                        StartPosition = FormStartPosition.CenterParent,
+                        ClientSize = change.Size
+                    };
+
+                    change.Dock = DockStyle.Fill;
+                    changeModal.Controls.Add(change);
+                    changeModal.ShowDialog();
+                };
+
+                editModal.ShowDialog();
+            };
+
+            modal.ShowDialog();
+        }
+
+        // 🔥 GENERIC VIEW LOADER (CORE SYSTEM)
+        private void LoadView<T>() where T : UserControl, new()
             {
                 DynamicContentPanel.SuspendLayout();
 
@@ -278,8 +339,11 @@
                 managerSidebarUC.SetUsername(UserSession.Username);
                 managerSidebarUC.Dock = DockStyle.Fill;
 
-                // 🔥 Hook events
-                managerSidebarUC.ManagerDashboardBtnClicked += ManagerDashboardBtn_Click;
+            mfTopbarUC.ProfileClicked += OpenProfile; // ✅ ADDED
+
+
+            // 🔥 Hook events
+            managerSidebarUC.ManagerDashboardBtnClicked += ManagerDashboardBtn_Click;
                 managerSidebarUC.MembershipBtnClicked += MembershipBtn_Click;
                 managerSidebarUC.InventoryBtnClicked += InventoryBtn_Click;
                 managerSidebarUC.FacilityBtnClicked += FacilityBtn_Click;
@@ -316,7 +380,16 @@
                 adminSidebarUC.SetUsername(UserSession.Username);
                 adminSidebarUC.Dock = DockStyle.Fill;
 
-                adminSidebarUC.AdminDashboardBtnClicked += AdminDashboardBtn_Click;
+            adminTopbarUC.ProfileClicked += OpenProfile;
+
+            //admintopbarUC.ProfileClicked += OpenProfile;
+
+            //adminTopbarUC.ProfileClicked += (s, ev) =>
+           // {
+    //LoadView<UC_UserProfile>(); // or your profile form
+//};
+
+            adminSidebarUC.AdminDashboardBtnClicked += AdminDashboardBtn_Click;
                 adminSidebarUC.ReportsBtnClicked += ReportsBtn_Click;
                 adminSidebarUC.UsersBtnClicked += UsersBtn_Click;
                 //logout
@@ -351,7 +424,9 @@
                 frontDeskSidebarUC.SetUsername(UserSession.Username);
                 frontDeskSidebarUC.Dock = DockStyle.Fill;
 
-                frontDeskSidebarUC.FrontDeskDashboardBtnClicked += FrontDeskDashboardBtn_Click;
+            mfTopbarUC.ProfileClicked += OpenProfile; // ✅ ADDED
+
+            frontDeskSidebarUC.FrontDeskDashboardBtnClicked += FrontDeskDashboardBtn_Click;
                 frontDeskSidebarUC.POSBtnClicked += POSBtn_Click;
                 frontDeskSidebarUC.MembershipBtnClicked += MembershipBtn_Click;
                 frontDeskSidebarUC.HistoryBtnClicked += HistoryBtn_Click;

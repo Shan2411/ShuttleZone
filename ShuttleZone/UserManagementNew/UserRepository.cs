@@ -172,5 +172,39 @@ namespace ShuttleZone.UserManagement
                 }
             }
         }
+
+        // ✅ ADDED METHOD
+        public UserModel GetUserById(string id)
+        {
+            using (var conn = DBconnection.GetConnection())
+            {
+                string query = "SELECT * FROM users WHERE id = @id LIMIT 1";
+
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new UserModel
+                            {
+                                ID = reader["id"].ToString(),
+                                Username = reader["username"].ToString(),
+                                FullName = reader["full_name"].ToString(),
+                                Email = reader["email"].ToString(),
+                                PhoneNumber = reader["phone"]?.ToString(),
+                                Role = reader["role"].ToString(),
+                                Status = reader["status"].ToString(),
+                                Password = reader["password"].ToString(),
+                                ProfileImagePath = reader["profile_image"]?.ToString()
+                            };
+                        }
+                    }
+                }
+            }
+            return null;
+        }
     }
 }
