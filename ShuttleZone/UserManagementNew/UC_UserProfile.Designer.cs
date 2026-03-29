@@ -34,6 +34,7 @@
             this.BottomPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.BottomtableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.SaveButton = new Guna.UI2.WinForms.Guna2Button();
             this.ConfirmEdit = new Guna.UI2.WinForms.Guna2Button();
             this.PanelHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.HeadertableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -79,7 +80,6 @@
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel20 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.SaveButton = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.BottomtableLayoutPanel.SuspendLayout();
@@ -148,8 +148,8 @@
             // 
             this.BottomtableLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BottomtableLayoutPanel.ColumnCount = 2;
-            this.BottomtableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.82482F));
-            this.BottomtableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.17518F));
+            this.BottomtableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.73585F));
+            this.BottomtableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.26415F));
             this.BottomtableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.BottomtableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BottomtableLayoutPanel.Location = new System.Drawing.Point(0, 0);
@@ -168,12 +168,32 @@
             this.tableLayoutPanel2.Controls.Add(this.SaveButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.ConfirmEdit, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(287, 13);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(266, 13);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(250, 34);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(271, 34);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.BorderRadius = 8;
+            this.SaveButton.BorderThickness = 1;
+            this.SaveButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SaveButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SaveButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SaveButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SaveButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SaveButton.FillColor = System.Drawing.Color.White;
+            this.SaveButton.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveButton.ForeColor = System.Drawing.Color.Black;
+            this.SaveButton.Location = new System.Drawing.Point(3, 3);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(87, 28);
+            this.SaveButton.TabIndex = 3;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // ConfirmEdit
             // 
@@ -186,9 +206,9 @@
             this.ConfirmEdit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(58)))), ((int)(((byte)(237)))));
             this.ConfirmEdit.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConfirmEdit.ForeColor = System.Drawing.Color.White;
-            this.ConfirmEdit.Location = new System.Drawing.Point(95, 3);
+            this.ConfirmEdit.Location = new System.Drawing.Point(103, 3);
             this.ConfirmEdit.Name = "ConfirmEdit";
-            this.ConfirmEdit.Size = new System.Drawing.Size(152, 28);
+            this.ConfirmEdit.Size = new System.Drawing.Size(165, 28);
             this.ConfirmEdit.TabIndex = 2;
             this.ConfirmEdit.Text = "Edit Profile";
             this.ConfirmEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -726,25 +746,6 @@
             this.guna2CirclePictureBox1.Size = new System.Drawing.Size(238, 153);
             this.guna2CirclePictureBox1.TabIndex = 4;
             this.guna2CirclePictureBox1.TabStop = false;
-            // 
-            // SaveButton
-            // 
-            this.SaveButton.BorderRadius = 8;
-            this.SaveButton.BorderThickness = 1;
-            this.SaveButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.SaveButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.SaveButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.SaveButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.SaveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SaveButton.FillColor = System.Drawing.Color.White;
-            this.SaveButton.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButton.ForeColor = System.Drawing.Color.Black;
-            this.SaveButton.Location = new System.Drawing.Point(3, 3);
-            this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(79, 28);
-            this.SaveButton.TabIndex = 3;
-            this.SaveButton.Text = "Save";
             // 
             // UC_UserProfile
             // 

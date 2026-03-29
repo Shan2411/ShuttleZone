@@ -164,3 +164,40 @@ CREATE TABLE court_timers (
 -- FINALIZE
 -- =========================
 SET foreign_key_checks = 1;
+
+
+
+
+CREATE TABLE transactions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    receipt_no VARCHAR(50),
+    date_issued DATETIME,
+    payment_method VARCHAR(50),
+    total DECIMAL(10,2),
+    source VARCHAR(50)
+);
+
+
+CREATE TABLE transaction_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    receipt_no VARCHAR(50),
+    item_name VARCHAR(100),
+    qty INT,
+    price DECIMAL(10,2)
+);
+
+
+CREATE TABLE facility_info (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    business_name VARCHAR(255),
+    phone VARCHAR(50),
+    address TEXT,
+    email VARCHAR(255),
+    opening_time VARCHAR(50),
+    closing_time VARCHAR(50)
+);
+
+INSERT INTO facility_info 
+(id, business_name, phone, address, email, opening_time, closing_time)
+VALUES 
+(1, 'Shuttle Zone', '09123456789', 'Your Address Here', 'example@email.com', '08:00 AM', '10:00 PM');

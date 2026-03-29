@@ -36,18 +36,11 @@ namespace ShuttleZone.UserManagement
             lblEmail.Text = User.Email ?? "";
             lblRole.Text = User.Role ?? "";
 
-            // ✅ THIS is where label reads DB value
             SetStatusLabel(User.Status);
 
+            // Restore button only shows in archive mode (handled by UC_UserManagement)
             btnRestore.Visible = User.Status == "Inactive";
             btnDelete.Visible = true;
-
-            if (Role != "admin")
-            {
-                btnDelete.Visible = false;
-                btnRestore.Visible = false;
-                btnEdit.Enabled = false;
-            }
         }
 
         // ✅ HANDLE STATUS DISPLAY + STYLE

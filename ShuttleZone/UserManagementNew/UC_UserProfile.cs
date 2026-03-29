@@ -134,5 +134,36 @@ namespace ShuttleZone.UserManagementNew
         {
 
         }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            if (currentUser == null)
+            {
+                MessageBox.Show("No user loaded.");
+                return;
+            }
+
+            try
+            {
+                // ✅ Get latest values from UI (if editable)
+                currentUser.Status = guna2ComboBox1.SelectedItem?.ToString();
+
+                // 👉 If you have textboxes for editing, include them like this:
+                // currentUser.FullName = txtFullName.Text;
+                // currentUser.Email = txtEmail.Text;
+                // currentUser.PhoneNumber = txtPhone.Text;
+
+                var repo = new ShuttleZone.UserManagement.UserRepository();
+
+                // ✅ Save ALL user data (make sure this method exists)
+                repo.UpdateUser(currentUser);
+
+                MessageBox.Show("User updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving user: " + ex.Message);
+            }
+        }
     }
 }

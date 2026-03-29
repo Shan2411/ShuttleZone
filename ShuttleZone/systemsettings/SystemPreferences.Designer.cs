@@ -39,11 +39,6 @@
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.Linelbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            this.CourtOvertimeAlertButton = new Guna.UI2.WinForms.Guna2Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.BusinessNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -61,7 +56,6 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
-            this.guna2Panel5.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.Guna2Panel8.SuspendLayout();
             this.guna2Panel9.SuspendLayout();
@@ -96,7 +90,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel7, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel6, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.guna2Panel5, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.Guna2Panel8, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel2, 0, 0);
@@ -222,80 +215,6 @@
             this.label2.Size = new System.Drawing.Size(161, 25);
             this.label2.TabIndex = 14;
             this.label2.Text = "Regional Settings";
-            // 
-            // guna2Panel5
-            // 
-            this.guna2Panel5.Controls.Add(this.CourtOvertimeAlertButton);
-            this.guna2Panel5.Controls.Add(this.label6);
-            this.guna2Panel5.Controls.Add(this.BusinessNameTextBox);
-            this.guna2Panel5.Controls.Add(this.label5);
-            this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel5.Location = new System.Drawing.Point(3, 191);
-            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.guna2Panel5.Size = new System.Drawing.Size(1147, 147);
-            this.guna2Panel5.TabIndex = 3;
-            // 
-            // CourtOvertimeAlertButton
-            // 
-            this.CourtOvertimeAlertButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.CourtOvertimeAlertButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.CourtOvertimeAlertButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.CourtOvertimeAlertButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.CourtOvertimeAlertButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.CourtOvertimeAlertButton.FillColor = System.Drawing.Color.White;
-            this.CourtOvertimeAlertButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CourtOvertimeAlertButton.ForeColor = System.Drawing.Color.Black;
-            this.CourtOvertimeAlertButton.Location = new System.Drawing.Point(93, 97);
-            this.CourtOvertimeAlertButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CourtOvertimeAlertButton.Name = "CourtOvertimeAlertButton";
-            this.CourtOvertimeAlertButton.Size = new System.Drawing.Size(291, 38);
-            this.CourtOvertimeAlertButton.TabIndex = 19;
-            this.CourtOvertimeAlertButton.Text = "Enable Auto-Logout";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(11, 75);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(154, 15);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Auto-Logout after inactivity";
-            // 
-            // BusinessNameTextBox
-            // 
-            this.BusinessNameTextBox.BorderColor = System.Drawing.Color.Silver;
-            this.BusinessNameTextBox.BorderRadius = 8;
-            this.BusinessNameTextBox.BorderThickness = 2;
-            this.BusinessNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.BusinessNameTextBox.DefaultText = "";
-            this.BusinessNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.BusinessNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.BusinessNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.BusinessNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.BusinessNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.BusinessNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BusinessNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.BusinessNameTextBox.Location = new System.Drawing.Point(11, 30);
-            this.BusinessNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.BusinessNameTextBox.Name = "BusinessNameTextBox";
-            this.BusinessNameTextBox.PlaceholderText = "";
-            this.BusinessNameTextBox.SelectedText = "";
-            this.BusinessNameTextBox.Size = new System.Drawing.Size(445, 42);
-            this.BusinessNameTextBox.TabIndex = 14;
-            this.BusinessNameTextBox.TextChanged += new System.EventHandler(this.BusinessNameTextBox_TextChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(11, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 15);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Session Timeout (minutes)";
             // 
             // guna2Panel4
             // 
@@ -438,8 +357,6 @@
             this.guna2Panel1.PerformLayout();
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
-            this.guna2Panel5.ResumeLayout(false);
-            this.guna2Panel5.PerformLayout();
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
             this.Guna2Panel8.ResumeLayout(false);
@@ -458,7 +375,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2Panel Guna2Panel8;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
@@ -475,9 +391,5 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label DarkModelabel;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2TextBox BusinessNameTextBox;
-        private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2Button CourtOvertimeAlertButton;
     }
 }

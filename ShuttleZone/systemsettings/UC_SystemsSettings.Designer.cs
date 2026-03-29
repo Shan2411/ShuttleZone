@@ -32,6 +32,7 @@
             this.pnlContent = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.uC_FacilityInfo1 = new ShuttleZone.SystemSettings.UC_FacilityInfo();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -42,19 +43,18 @@
             this.SystemPreferenceButton = new Guna.UI2.WinForms.Guna2Button();
             this.AlertsButton = new Guna.UI2.WinForms.Guna2Button();
             this.FacilityInfoButton = new Guna.UI2.WinForms.Guna2Button();
-            this.uC_FacilityInfo1 = new ShuttleZone.SystemSettings.UC_FacilityInfo();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlContent.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
-            this.guna2Panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.pnlContent, 0, 2);
@@ -74,15 +74,15 @@
             // pnlContent
             // 
             this.pnlContent.AutoSize = true;
-            this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.pnlContent.BackColor = System.Drawing.Color.Transparent;
             this.pnlContent.BorderRadius = 9;
             this.pnlContent.Controls.Add(this.tableLayoutPanel5);
             this.pnlContent.Controls.Add(this.uC_FacilityInfo1);
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContent.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.pnlContent.FillColor = System.Drawing.Color.Transparent;
             this.pnlContent.Location = new System.Drawing.Point(3, 113);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Padding = new System.Windows.Forms.Padding(20);
+            this.pnlContent.Padding = new System.Windows.Forms.Padding(20, 0, 20, 20);
             this.pnlContent.Size = new System.Drawing.Size(1246, 606);
             this.pnlContent.TabIndex = 0;
             this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
@@ -90,22 +90,24 @@
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.AutoSize = true;
+            this.tableLayoutPanel5.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel5.ColumnCount = 3;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 98F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(20, 20);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(20, 0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1206, 566);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1206, 586);
             this.tableLayoutPanel5.TabIndex = 1;
             this.tableLayoutPanel5.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel5_Paint);
             // 
             // tableLayoutPanel6
             // 
+            this.tableLayoutPanel6.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel6.ColumnCount = 1;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -118,8 +120,21 @@
             this.tableLayoutPanel6.TabIndex = 0;
             this.tableLayoutPanel6.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel6_Paint);
             // 
+            // uC_FacilityInfo1
+            // 
+            this.uC_FacilityInfo1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uC_FacilityInfo1.AutoScroll = true;
+            this.uC_FacilityInfo1.Location = new System.Drawing.Point(20, 0);
+            this.uC_FacilityInfo1.Name = "uC_FacilityInfo1";
+            this.uC_FacilityInfo1.Padding = new System.Windows.Forms.Padding(8);
+            this.uC_FacilityInfo1.Size = new System.Drawing.Size(1190, 402);
+            this.uC_FacilityInfo1.TabIndex = 0;
+            this.uC_FacilityInfo1.Load += new System.EventHandler(this.uC_FacilityInfo1_Load);
+            // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
@@ -148,8 +163,9 @@
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            this.lblTitle.ForeColor = System.Drawing.Color.Black;
             this.lblTitle.Location = new System.Drawing.Point(5, 4);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(20);
             this.lblTitle.Name = "lblTitle";
@@ -160,7 +176,6 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Controls.Add(this.btnSaveChanges);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(875, 3);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -170,9 +185,9 @@
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
-            this.btnSaveChanges.BorderRadius = 5;
+            this.btnSaveChanges.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveChanges.BackColor = System.Drawing.Color.Transparent;
+            this.btnSaveChanges.BorderRadius = 8;
             this.btnSaveChanges.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSaveChanges.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSaveChanges.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -180,21 +195,22 @@
             this.btnSaveChanges.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(58)))), ((int)(((byte)(237)))));
             this.btnSaveChanges.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveChanges.ForeColor = System.Drawing.Color.White;
-            this.btnSaveChanges.Location = new System.Drawing.Point(192, 7);
+            this.btnSaveChanges.Location = new System.Drawing.Point(1034, 7);
             this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(7);
             this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Size = new System.Drawing.Size(175, 35);
+            this.btnSaveChanges.Size = new System.Drawing.Size(175, 30);
             this.btnSaveChanges.TabIndex = 3;
             this.btnSaveChanges.Text = "💾 Save Changes";
             this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.tableLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnSaveChanges, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 63);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -245,6 +261,7 @@
             this.SystemPreferenceButton.Size = new System.Drawing.Size(205, 32);
             this.SystemPreferenceButton.TabIndex = 2;
             this.SystemPreferenceButton.Text = "🛡System Preference";
+            this.SystemPreferenceButton.Visible = false;
             this.SystemPreferenceButton.Click += new System.EventHandler(this.SystemPreferenceButton_Click);
             // 
             // AlertsButton
@@ -269,10 +286,13 @@
             this.AlertsButton.Size = new System.Drawing.Size(111, 32);
             this.AlertsButton.TabIndex = 1;
             this.AlertsButton.Text = "⚠Alerts";
+            this.AlertsButton.Visible = false;
             this.AlertsButton.Click += new System.EventHandler(this.AlertsButton_Click);
             // 
             // FacilityInfoButton
             // 
+            this.FacilityInfoButton.BorderRadius = 10;
+            this.FacilityInfoButton.BorderThickness = 1;
             this.FacilityInfoButton.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.FacilityInfoButton.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.FacilityInfoButton.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(92)))), ((int)(((byte)(246)))));
@@ -287,7 +307,7 @@
             this.FacilityInfoButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FacilityInfoButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.FacilityInfoButton.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FacilityInfoButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(114)))), ((int)(((byte)(128)))));
+            this.FacilityInfoButton.ForeColor = System.Drawing.Color.Black;
             this.FacilityInfoButton.Location = new System.Drawing.Point(3, 3);
             this.FacilityInfoButton.Name = "FacilityInfoButton";
             this.FacilityInfoButton.Size = new System.Drawing.Size(134, 32);
@@ -295,25 +315,13 @@
             this.FacilityInfoButton.Text = "🏢Facility Info";
             this.FacilityInfoButton.Click += new System.EventHandler(this.FacilityInfoButton_Click);
             // 
-            // uC_FacilityInfo1
-            // 
-            this.uC_FacilityInfo1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uC_FacilityInfo1.AutoScroll = true;
-            this.uC_FacilityInfo1.Location = new System.Drawing.Point(20, 20);
-            this.uC_FacilityInfo1.Name = "uC_FacilityInfo1";
-            this.uC_FacilityInfo1.Padding = new System.Windows.Forms.Padding(8);
-            this.uC_FacilityInfo1.Size = new System.Drawing.Size(1190, 402);
-            this.uC_FacilityInfo1.TabIndex = 0;
-            this.uC_FacilityInfo1.Load += new System.EventHandler(this.uC_FacilityInfo1_Load);
-            // 
-            // UC_SystemSettings
+            // UC_SystemsSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.BackColor = System.Drawing.Color.LightGray;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "UC_SystemSettings";
+            this.Name = "UC_SystemsSettings";
             this.Size = new System.Drawing.Size(1252, 722);
             this.Load += new System.EventHandler(this.SystemSettings_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -324,7 +332,6 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
-            this.guna2Panel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);

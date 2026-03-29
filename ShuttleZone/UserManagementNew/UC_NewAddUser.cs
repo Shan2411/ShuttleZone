@@ -15,6 +15,23 @@ namespace ShuttleZone.UserManagement
         public string LoggedInRole { get; internal set; }
         public FormStartPosition StartPosition { get; internal set; }
 
+        public List<string> AllowedRoles { get; set; } = new List<string>();
+
+        public void RefreshRoles()
+        {
+            cmbRole.Items.Clear();
+            foreach (var role in AllowedRoles)
+                cmbRole.Items.Add(role);
+
+            if (cmbRole.Items.Count > 0)
+                cmbRole.SelectedIndex = 0;
+        }
+
+        private void LoadRoles()
+        {
+            // Leave empty — RefreshRoles() handles it now
+        }
+
         public UC_NewAddUser()
         {
             InitializeComponent();
@@ -28,7 +45,7 @@ namespace ShuttleZone.UserManagement
             LoadRoles(); // ✅ ADD THIS HERE
         }
 
-        private void LoadRoles()
+       /* private void LoadRoles()
         {
             cmbRole.Items.Clear();
             cmbRole.Items.Add("Admin");
@@ -36,7 +53,7 @@ namespace ShuttleZone.UserManagement
             cmbRole.Items.Add("FrontDesk");
 
             cmbRole.SelectedIndex = -1;
-        }
+        }*/
 
         private void CreateButton_Click(object sender, EventArgs e)
         {

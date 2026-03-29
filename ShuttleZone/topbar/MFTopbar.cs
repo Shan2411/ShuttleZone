@@ -74,6 +74,11 @@ namespace ShuttleZone.topbar
             FrontDeskBtnClicked?.Invoke(this, EventArgs.Empty);
         }
 
+        private void DateLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
         // ❌ REMOVE THIS
         // private void ProfileBtn_Click_1(object sender, EventArgs e) { }
     }

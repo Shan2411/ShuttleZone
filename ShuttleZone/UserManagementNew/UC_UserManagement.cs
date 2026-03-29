@@ -9,13 +9,11 @@ namespace ShuttleZone.UserManagement
     public partial class UC_UserManagement : UserControl
     {
         private readonly List<UserModel> _users = new List<UserModel>();
-
         private UserRepository repo = new UserRepository();
-
         private bool isProfileOpen = false;
-
-        // 🔥 ARCHIVE MODE FLAG (LIKE MEMBERSHIP)
         private bool showingArchived = false;
+
+        private string CurrentRole => UserSession.Role?.ToLower().Trim();
 
         public UC_UserManagement()
         {
@@ -29,17 +27,11 @@ namespace ShuttleZone.UserManagement
             flpMemberRowContainer.FlowDirection = FlowDirection.TopDown;
             flpMemberRowContainer.WrapContents = false;
             flpMemberRowContainer.AutoScroll = true;
-
             flpMemberRowContainer.SizeChanged += FlpMemberRowContainer_SizeChanged;
 
             guna2ComboBox1.Items.AddRange(new string[]
             {
-                "All",
-                "Username",
-                "Full Name",
-                "Email",
-                "Role",
-                "Status"
+                "All", "Username", "Full Name", "Email", "Role", "Status"
             });
 
             guna2ComboBox1.SelectedIndex = 0;
@@ -48,22 +40,69 @@ namespace ShuttleZone.UserManagement
 
         private void UC_UserManagement_Load(object sender, EventArgs e)
         {
+            ApplyRoleRestrictions();
             LoadUsersFromDatabase();
         }
 
-        // 🔥 LOAD USERS BASED ON MODE
+        private void ApplyRoleRestrictions()
+        {
+            bool isManager = CurrentRole == "manager";
+            bool isFrontDesk = CurrentRole == "front desk"
+                             || CurrentRole == "frontdesk"
+                             || CurrentRole == "front_desk";
+
+            // Front Desk: cannot add or archive
+            if (isFrontDesk)
+            {
+                btnAddUser.Visible = false;
+                ArchivedBtn.Visible = false;
+            }
+
+            // Manager: cannot archive
+            if (isManager)
+            {
+                ArchivedBtn.Visible = false;
+            }
+        }
+
         private void LoadUsersFromDatabase()
         {
             _users.Clear();
 
             var allUsers = repo.GetAllUsers();
 
-            if (showingArchived)
-                _users.AddRange(allUsers.Where(u => u.Status == "Inactive"));
-            else
-                _users.AddRange(allUsers.Where(u => u.Status != "Inactive"));
+            IEnumerable<UserModel> filtered = showingArchived
+                ? allUsers.Where(u => u.Status == "Inactive")
+                : allUsers.Where(u => u.Status != "Inactive");
 
+            // 🔥 Role visibility filter
+            filtered = FilterByRoleVisibility(filtered);
+
+            _users.AddRange(filtered);
             RenderUsers(_users);
+        }
+
+        private IEnumerable<UserModel> FilterByRoleVisibility(IEnumerable<UserModel> users)
+        {
+            switch (CurrentRole)
+            {
+                case "admin":
+                    // Admin sees Admin + Manager
+                    return users.Where(u =>
+                        u.Role?.ToLower() == "admin" ||
+                        u.Role?.ToLower() == "manager");
+
+                case "manager":
+                    // Manager sees Front Desk only
+                    return users.Where(u =>
+                        u.Role?.ToLower() == "front desk" ||
+                        u.Role?.ToLower() == "frontdesk" ||
+                        u.Role?.ToLower() == "front_desk");
+
+                default:
+                    // Front Desk sees nobody
+                    return Enumerable.Empty<UserModel>();
+            }
         }
 
         private void Searchbox_TextChanged(object sender, EventArgs e) => ApplySearch();
@@ -74,23 +113,17 @@ namespace ShuttleZone.UserManagement
             string query = Searchbox.Text.Trim().ToLower();
             string column = guna2ComboBox1.SelectedItem?.ToString();
 
-            var filtered = _users.Where(u =>
+            var result = _users.Where(u =>
             {
-                if (string.IsNullOrEmpty(query))
-                    return true;
+                if (string.IsNullOrEmpty(query)) return true;
 
                 switch (column)
                 {
-                    case "Username":
-                        return (u.Username ?? "").ToLower().Contains(query);
-                    case "Full Name":
-                        return (u.FullName ?? "").ToLower().Contains(query);
-                    case "Email":
-                        return (u.Email ?? "").ToLower().Contains(query);
-                    case "Role":
-                        return (u.Role ?? "").ToLower().Contains(query);
-                    case "Status":
-                        return (u.Status ?? "").ToLower().Contains(query);
+                    case "Username": return (u.Username ?? "").ToLower().Contains(query);
+                    case "Full Name": return (u.FullName ?? "").ToLower().Contains(query);
+                    case "Email": return (u.Email ?? "").ToLower().Contains(query);
+                    case "Role": return (u.Role ?? "").ToLower().Contains(query);
+                    case "Status": return (u.Status ?? "").ToLower().Contains(query);
                     default:
                         return (u.Username ?? "").ToLower().Contains(query)
                             || (u.FullName ?? "").ToLower().Contains(query)
@@ -100,7 +133,7 @@ namespace ShuttleZone.UserManagement
                 }
             }).ToList();
 
-            RenderUsers(filtered);
+            RenderUsers(result);
         }
 
         private void RenderUsers(List<UserModel> users)
@@ -121,14 +154,12 @@ namespace ShuttleZone.UserManagement
 
                 if (showingArchived)
                 {
-                    // 🔥 ARCHIVE MODE
-
+                    // Archive mode: edit blocked, delete = permanent, restore available
                     row.EditClicked += (s, e) =>
                     {
                         MessageBox.Show("Cannot edit archived user.");
                     };
 
-                    // 🔥 PERMANENT DELETE
                     row.DeleteClicked += (s, e) =>
                     {
                         var confirm = MessageBox.Show(
@@ -144,7 +175,6 @@ namespace ShuttleZone.UserManagement
                         }
                     };
 
-                    // 🔥 RESTORE
                     row.RestoreClicked += (s, e) =>
                     {
                         var confirm = MessageBox.Show(
@@ -156,19 +186,15 @@ namespace ShuttleZone.UserManagement
                         if (confirm == DialogResult.Yes)
                         {
                             repo.RestoreUser(user.ID);
-
-                            // EXIT ARCHIVE MODE (LIKE MEMBERSHIP)
                             showingArchived = false;
                             ArchivedBtn.Text = "Show Archived";
-
                             LoadUsersFromDatabase();
                         }
                     };
                 }
                 else
                 {
-                    // 🔥 NORMAL MODE
-
+                    // 🔥 NORMAL MODE: Edit opens read-only UC_ProfileView
                     row.EditClicked += (s, e) =>
                     {
                         if (isProfileOpen) return;
@@ -176,18 +202,19 @@ namespace ShuttleZone.UserManagement
                         isProfileOpen = true;
                         row.Enabled = false;
 
-                        var profile = new ShuttleZone.UserManagementNew.UC_UserProfile();
-                        profile.SetUser(user);
+                        // 🔥 Open read-only profile view
+                        var profileView = new UC_ProfileView();
+                        profileView.SetUser(user);
 
                         Form profileModal = new Form
                         {
                             FormBorderStyle = FormBorderStyle.None,
                             StartPosition = FormStartPosition.CenterParent,
-                            ClientSize = profile.Size
+                            ClientSize = profileView.Size
                         };
 
-                        profile.Dock = DockStyle.Fill;
-                        profileModal.Controls.Add(profile);
+                        profileView.Dock = DockStyle.Fill;
+                        profileModal.Controls.Add(profileView);
 
                         profileModal.FormClosed += (s2, e2) =>
                         {
@@ -195,52 +222,10 @@ namespace ShuttleZone.UserManagement
                             row.Enabled = true;
                         };
 
-                        profile.EditProfileClicked += (s2, e2) =>
-                        {
-                            profileModal.Close();
-
-                            var edit = new UC_EditProfileMain(user);
-
-                            Form editModal = new Form
-                            {
-                                FormBorderStyle = FormBorderStyle.None,
-                                StartPosition = FormStartPosition.CenterParent,
-                                ClientSize = edit.Size
-                            };
-
-                            edit.Dock = DockStyle.Fill;
-                            editModal.Controls.Add(edit);
-
-                            edit.ChangePasswordClicked += (s3, e3) =>
-                            {
-                                var change = new ShuttleZone.UserManagementNew.UC_ChangePassword();
-                                change.SetUser(user);
-
-                                Form changeModal = new Form
-                                {
-                                    FormBorderStyle = FormBorderStyle.None,
-                                    StartPosition = FormStartPosition.CenterParent,
-                                    ClientSize = change.Size
-                                };
-
-                                change.Dock = DockStyle.Fill;
-                                changeModal.Controls.Add(change);
-
-                                changeModal.ShowDialog();
-                            };
-
-                            edit.FormClosed += (s4, e4) =>
-                            {
-                                LoadUsersFromDatabase();
-                            };
-
-                            editModal.ShowDialog();
-                        };
-
                         profileModal.ShowDialog();
                     };
 
-                    // 🔥 DELETE = ARCHIVE
+                    // Delete = Archive
                     row.DeleteClicked += (s, e) =>
                     {
                         var confirm = MessageBox.Show(
@@ -269,12 +254,31 @@ namespace ShuttleZone.UserManagement
                 ctrl.Width = flpMemberRowContainer.ClientSize.Width;
         }
 
+        // 🔥 ADD USER WITH ROLE RESTRICTION
         private void btnAddUser_Click(object sender, EventArgs e)
         {
+            List<string> allowedRoles;
+
+            switch (CurrentRole)
+            {
+                case "admin":
+                    allowedRoles = new List<string> { "Manager" };
+                    break;
+                case "manager":
+                    allowedRoles = new List<string> { "Front Desk" };
+                    break;
+                default:
+                    MessageBox.Show("You don't have permission to create accounts.");
+                    return;
+            }
+
             var addControl = new UC_NewAddUser
             {
-                ExistingUsernames = _users.Select(u => u.Username).ToList()
+                ExistingUsernames = _users.Select(u => u.Username).ToList(),
+                AllowedRoles = allowedRoles
             };
+
+            addControl.RefreshRoles();
 
             Form modal = new Form
             {
@@ -295,7 +299,6 @@ namespace ShuttleZone.UserManagement
             modal.ShowDialog();
         }
 
-        // 🔥 ARCHIVE BUTTON (LIKE MEMBERSHIP)
         private void ArchivedBtn_Click(object sender, EventArgs e)
         {
             showingArchived = !showingArchived;
@@ -306,7 +309,6 @@ namespace ShuttleZone.UserManagement
             btnAddUser.FillColor = showingArchived
                 ? System.Drawing.Color.Gray
                 : System.Drawing.Color.FromArgb(152, 16, 250);
-
             btnAddUser.ForeColor = showingArchived
                 ? System.Drawing.Color.LightGray
                 : System.Drawing.Color.White;
