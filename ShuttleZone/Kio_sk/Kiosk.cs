@@ -584,18 +584,42 @@ namespace ShuttleZone
         // Add this helper method to Kiosk.cs
         private string GetFirstAvailableCourt()
         {
-            Globals.getCourtStatuses(); // fresh data from DB
+            try
+            {
+                using (var conn = DBconnection.GetConnection())
+                using (var cmd = new MySqlCommand("SELECT court_name, status FROM courts ORDER BY court_name", conn))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var courtName = reader["court_name"].ToString();
+                        var status = reader["status"].ToString();
 
-            if (Globals.statusFromDB?.Equals("Operational", StringComparison.OrdinalIgnoreCase) == true)
-                return "Court A";
-            if (Globals.statusFromDB1?.Equals("Operational", StringComparison.OrdinalIgnoreCase) == true)
-                return "Court B";
-            if (Globals.statusFromDB2?.Equals("Operational", StringComparison.OrdinalIgnoreCase) == true)
-                return "Court C";
-            if (Globals.statusFromDB3?.Equals("Operational", StringComparison.OrdinalIgnoreCase) == true)
-                return "Court D";
+                        if (IsCourtAvailableForCheckout(status))
+                        {
+                            return courtName;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
 
-            return null; // none available
+            return null;
+        }
+
+        private static bool IsCourtAvailableForCheckout(string status)
+        {
+            if (string.IsNullOrWhiteSpace(status))
+            {
+                return false;
+            }
+
+            return !status.Equals("Out of Service", StringComparison.OrdinalIgnoreCase)
+                && !status.Equals("Under Maintenance", StringComparison.OrdinalIgnoreCase)
+                && !status.Equals("In Use", StringComparison.OrdinalIgnoreCase);
         }
 
         // Empty placeholders
