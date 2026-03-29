@@ -127,7 +127,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.45003F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.012028F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.45003F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -199,11 +199,11 @@
             this.tableLayoutPanel5.Controls.Add(this.openPOSbtn, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.addMemberbtn, 4, 0);
             this.tableLayoutPanel5.Controls.Add(this.pendingPaymentsbtn, 2, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(177, 138);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(177, 147);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(855, 30);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(844, 21);
             this.tableLayoutPanel5.TabIndex = 4;
             // 
             // openPOSbtn
@@ -220,7 +220,7 @@
             this.openPOSbtn.ForeColor = System.Drawing.Color.White;
             this.openPOSbtn.Location = new System.Drawing.Point(3, 3);
             this.openPOSbtn.Name = "openPOSbtn";
-            this.openPOSbtn.Size = new System.Drawing.Size(270, 24);
+            this.openPOSbtn.Size = new System.Drawing.Size(266, 15);
             this.openPOSbtn.TabIndex = 5;
             this.openPOSbtn.Text = "Open POS";
             this.openPOSbtn.Click += new System.EventHandler(this.openPOSbtn_Click_1);
@@ -237,9 +237,9 @@
             this.addMemberbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.addMemberbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addMemberbtn.ForeColor = System.Drawing.Color.White;
-            this.addMemberbtn.Location = new System.Drawing.Point(581, 3);
+            this.addMemberbtn.Location = new System.Drawing.Point(573, 3);
             this.addMemberbtn.Name = "addMemberbtn";
-            this.addMemberbtn.Size = new System.Drawing.Size(271, 24);
+            this.addMemberbtn.Size = new System.Drawing.Size(268, 15);
             this.addMemberbtn.TabIndex = 7;
             this.addMemberbtn.Text = "Add Member";
             this.addMemberbtn.Click += new System.EventHandler(this.addMemberbtn_Click);
@@ -256,9 +256,9 @@
             this.pendingPaymentsbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.pendingPaymentsbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pendingPaymentsbtn.ForeColor = System.Drawing.Color.White;
-            this.pendingPaymentsbtn.Location = new System.Drawing.Point(292, 3);
+            this.pendingPaymentsbtn.Location = new System.Drawing.Point(288, 3);
             this.pendingPaymentsbtn.Name = "pendingPaymentsbtn";
-            this.pendingPaymentsbtn.Size = new System.Drawing.Size(270, 24);
+            this.pendingPaymentsbtn.Size = new System.Drawing.Size(266, 15);
             this.pendingPaymentsbtn.TabIndex = 6;
             this.pendingPaymentsbtn.Text = "Pending Payments";
             this.pendingPaymentsbtn.Click += new System.EventHandler(this.pendingPaymentsbtn_Click);

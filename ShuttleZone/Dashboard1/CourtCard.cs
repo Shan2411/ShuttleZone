@@ -289,6 +289,8 @@ namespace ShuttleZone.Dashboard1
 
                 guna2CirclePictureBox2.Visible = true;
                 guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.inuse;
+
+                guna2CirclePictureBox1.Visible = false;
                 return;
             }
 
@@ -311,6 +313,9 @@ namespace ShuttleZone.Dashboard1
                     guna2CirclePictureBox1.Image = global::ShuttleZone.Properties.Resources.Operational;
                     guna2CirclePictureBox2.Image = global::ShuttleZone.Properties.Resources.available;
                     guna2VProgressBar1.Visible = false;
+
+                    guna2Button1.Visible = false;
+
                     break;
 
                 case "under maintenance":
@@ -330,6 +335,8 @@ namespace ShuttleZone.Dashboard1
                     guna2HtmlLabel2.Text = !string.IsNullOrEmpty(maintReason)
                         ? $"Reason: {maintReason}"
                         : "Reason: N/A";
+
+                    guna2Button1.Visible = false;
                     break;
 
                 case "out of service":
@@ -350,6 +357,8 @@ namespace ShuttleZone.Dashboard1
                     guna2HtmlLabel2.Text = !string.IsNullOrEmpty(oosReason)
                         ? $"Reason: {oosReason}"
                         : "Reason: N/A";
+
+                    guna2Button1.Visible = false;
                     break;
 
                 default:
