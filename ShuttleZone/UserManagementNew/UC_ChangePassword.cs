@@ -13,13 +13,7 @@ namespace ShuttleZone.UserManagementNew
         {
             InitializeComponent();
 
-            // Wire buttons
-            ConfirmEdit.Click += ConfirmEdit_Click;
-            CancelButton.Click += CancelButton_Click;
-            CloseButton.Click += CloseButton_Click;
-
-            //ShowPassword1Btn.Click += ShowPassword1Btn_Click;
-           // ShowPassword2Btn.Click += ShowPassword2Btn_Click;
+            // ❌ REMOVED duplicate event wiring (already in Designer)
 
             // Default hidden passwords
             txtCurrentPassword.UseSystemPasswordChar = true;
@@ -52,62 +46,28 @@ namespace ShuttleZone.UserManagementNew
                 return;
             }
 
-            // ✅ CORRECT VALIDATION
-            if (dbUser.Password != txtCurrentPassword.Text)
+            // 🔐 VERIFY HASHED PASSWORD
+            if (!PasswordHelper.VerifyPassword(
+                    txtCurrentPassword.Text,
+                    dbUser.Password))
             {
                 MessageBox.Show("Current password is incorrect.");
                 return;
             }
 
-            // ✅ UPDATE PASSWORD
-            repo.ChangePassword(CurrentUser.ID, txtNewPassword.Text);
+            // 🔐 HASH NEW PASSWORD
+            string hashedNewPassword =
+                PasswordHelper.HashPassword(txtNewPassword.Text);
 
-            CurrentUser.Password = txtNewPassword.Text;
+            // ✅ UPDATE PASSWORD
+            repo.ChangePassword(CurrentUser.ID, hashedNewPassword);
+
+            CurrentUser.Password = hashedNewPassword;
 
             MessageBox.Show("Password changed successfully!");
 
             this.FindForm()?.Close(); // optional close
         }
-        /* private void ConfirmEdit_Click(object sender, EventArgs e)
-         {
-             if (string.IsNullOrWhiteSpace(txtCurrentPassword.Text) ||
-                 string.IsNullOrWhiteSpace(txtNewPassword.Text) ||
-                 string.IsNullOrWhiteSpace(txtConfirmPassword.Text))
-             {
-                 MessageBox.Show("Please fill all fields.");
-                 return;
-             }
-
-             if (txtNewPassword.Text.Length < 6)
-             {
-                 MessageBox.Show("Password must be at least 6 characters.");
-                 return;
-             }
-
-             if (txtNewPassword.Text != txtConfirmPassword.Text)
-             {
-                 MessageBox.Show("Passwords do not match.");
-                 return;
-             }
-
-             // ❌ OLD
-             // MessageBox.Show("Password changed successfully!");
-
-             // ✅ NEW
-             var repo = new ShuttleZone.UserManagement.UserRepository();
-
-             if (CurrentUser.Password != txtCurrentPassword.Text)
-             {
-                 MessageBox.Show("Current password is incorrect.");
-                 return;
-             }
-
-             repo.ChangePassword(CurrentUser.ID, txtNewPassword.Text);
-
-             CurrentUser.Password = txtNewPassword.Text;
-
-             MessageBox.Show("Password changed successfully!");
-         }*/
 
         // =========================
         // ✅ VALIDATION (LIKE YOUR STYLE)

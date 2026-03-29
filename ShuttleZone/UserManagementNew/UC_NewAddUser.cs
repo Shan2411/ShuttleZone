@@ -73,7 +73,7 @@ namespace ShuttleZone.UserManagement
                 Email = txtEmail.Text,
                 //Phone = txtPhone.Text,
                 PhoneNumber = txtPhone.Text,
-                Password = txtPassword.Text,
+                Password = PasswordHelper.HashPassword(txtPassword.Text),
                 Role = cmbRole.Text,
                 Status = cmbStatus.Text
             };

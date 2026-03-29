@@ -108,6 +108,7 @@ namespace ShuttleZone.UserManagement
             this.Statuslbl.Size = new System.Drawing.Size(83, 21);
             this.Statuslbl.TabIndex = 13;
             this.Statuslbl.Text = "STATUS";
+            this.Statuslbl.Click += new System.EventHandler(this.Statuslbl_Click);
             // 
             // btnRestore
             // 
@@ -140,12 +141,13 @@ namespace ShuttleZone.UserManagement
             // 
             this.btnEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEdit.BackgroundImage")));
             this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEdit.FillColor = System.Drawing.Color.Transparent;
             this.btnEdit.ImageRotate = 0F;
             this.btnEdit.Location = new System.Drawing.Point(1089, 10);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(10);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(24, 22);
+            this.btnEdit.Size = new System.Drawing.Size(24, 25);
             this.btnEdit.TabIndex = 8;
             this.btnEdit.TabStop = false;
             // 
@@ -263,7 +265,6 @@ namespace ShuttleZone.UserManagement
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private Guna.UI2.WinForms.Guna2PictureBox btnDelete;
-        private Guna.UI2.WinForms.Guna2PictureBox btnEdit;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblUsername;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblID;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblRole;
@@ -271,5 +272,6 @@ namespace ShuttleZone.UserManagement
         private Guna.UI2.WinForms.Guna2HtmlLabel lblEmail;
         private Guna.UI2.WinForms.Guna2PictureBox btnRestore;
         private Guna.UI2.WinForms.Guna2HtmlLabel Statuslbl;
+        private Guna.UI2.WinForms.Guna2PictureBox btnEdit;
     }
 }

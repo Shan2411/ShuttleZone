@@ -16,6 +16,7 @@ namespace ShuttleZone.UserManagementNew
         public UC_EditProfileMain()
         {
             InitializeComponent();
+            guna2CirclePictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             WireEvents();
         }
 
@@ -92,15 +93,24 @@ namespace ShuttleZone.UserManagementNew
 
             lblRole.Text = currentUser.Role ?? "";
 
-            string fullPath = Path.Combine(Application.StartupPath, currentUser.ProfileImagePath);
+            string path = currentUser.ProfileImagePath;
 
-            if (!string.IsNullOrEmpty(currentUser.ProfileImagePath) && File.Exists(fullPath))
+            if (!string.IsNullOrWhiteSpace(path))
             {
-                guna2CirclePictureBox1.ImageLocation = fullPath;
+                string fullPath = Path.Combine(Application.StartupPath, path);
+
+                if (File.Exists(fullPath))
+                {
+                    guna2CirclePictureBox1.ImageLocation = fullPath;
+                }
+                else
+                {
+                    guna2CirclePictureBox1.Image = Properties.Resources.DefaultAvatar;
+                }
             }
             else
             {
-                guna2CirclePictureBox1.Image = null;
+                guna2CirclePictureBox1.Image = Properties.Resources.DefaultAvatar;
             }
         }
 

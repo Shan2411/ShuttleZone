@@ -86,11 +86,14 @@ namespace ShuttleZone.UserManagement
         {
             switch (CurrentRole)
             {
+
                 case "admin":
+                    return users; // Admin sees ALL users
+                /*case "admin":
                     // Admin sees Admin + Manager
                     return users.Where(u =>
                         u.Role?.ToLower() == "admin" ||
-                        u.Role?.ToLower() == "manager");
+                        u.Role?.ToLower() == "manager");*/
 
                 case "manager":
                     // Manager sees Front Desk only
@@ -262,7 +265,7 @@ namespace ShuttleZone.UserManagement
             switch (CurrentRole)
             {
                 case "admin":
-                    allowedRoles = new List<string> { "Manager" };
+                    allowedRoles = new List<string> { "Admin", "Manager", "Front Desk" };
                     break;
                 case "manager":
                     allowedRoles = new List<string> { "Front Desk" };

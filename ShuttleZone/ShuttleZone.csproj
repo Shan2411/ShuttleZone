@@ -337,6 +337,7 @@
       <DependentUpon>EditMember.cs</DependentUpon>
     </Compile>
     <Compile Include="Membership\MemberModel.cs" />
+    <Compile Include="PasswordHelper.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

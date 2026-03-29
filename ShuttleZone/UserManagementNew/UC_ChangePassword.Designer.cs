@@ -507,8 +507,8 @@
             // 
             this.BottomtableLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BottomtableLayoutPanel.ColumnCount = 2;
-            this.BottomtableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.82336F));
-            this.BottomtableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.17664F));
+            this.BottomtableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.52174F));
+            this.BottomtableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.47826F));
             this.BottomtableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.BottomtableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BottomtableLayoutPanel.Location = new System.Drawing.Point(0, 0);
@@ -522,16 +522,16 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.12374F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.87626F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.45985F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.54015F));
             this.tableLayoutPanel2.Controls.Add(this.ConfirmEdit, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.CancelButton, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(411, 13);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(377, 13);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(240, 38);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(274, 38);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // ConfirmEdit
@@ -545,9 +545,9 @@
             this.ConfirmEdit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(58)))), ((int)(((byte)(237)))));
             this.ConfirmEdit.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConfirmEdit.ForeColor = System.Drawing.Color.White;
-            this.ConfirmEdit.Location = new System.Drawing.Point(92, 3);
+            this.ConfirmEdit.Location = new System.Drawing.Point(143, 3);
             this.ConfirmEdit.Name = "ConfirmEdit";
-            this.ConfirmEdit.Size = new System.Drawing.Size(145, 32);
+            this.ConfirmEdit.Size = new System.Drawing.Size(128, 32);
             this.ConfirmEdit.TabIndex = 2;
             this.ConfirmEdit.Text = "Confirm ";
             this.ConfirmEdit.Click += new System.EventHandler(this.ConfirmEdit_Click);
@@ -567,7 +567,7 @@
             this.CancelButton.Location = new System.Drawing.Point(3, 3);
             this.CancelButton.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(76, 32);
+            this.CancelButton.Size = new System.Drawing.Size(127, 32);
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Clear";
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);

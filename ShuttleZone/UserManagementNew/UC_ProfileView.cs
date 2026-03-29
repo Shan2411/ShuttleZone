@@ -17,6 +17,7 @@ namespace ShuttleZone.UserManagementNew
         public UC_ProfileView()
         {
             InitializeComponent();
+            guna2CirclePictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         private UserModel currentUser;
@@ -34,20 +35,37 @@ namespace ShuttleZone.UserManagementNew
             lblFullName.Text = currentUser.FullName ?? "No Name";
             lblUsername.Text = currentUser.Username ?? "No Username";
             lblEmail.Text = currentUser.Email ?? "No Email";
-            lblPhone.Text = currentUser.PhoneNumber ?? "No Phone";
+
+            lblPhone.Text = string.IsNullOrWhiteSpace(currentUser.PhoneNumber)
+                ? "No Number"
+                : currentUser.PhoneNumber;
+
             lblRole.Text = currentUser.Role ?? "No Role";
 
-            //guna2ComboBox1.SelectedItem = currentUser.Status;
-            //
-            // Disable editing
-            //guna2ComboBox1.Enabled = false;
+            // ✅ SIMPLE STATUS (NO DESIGN)
+            Statuslbl.Text = string.IsNullOrWhiteSpace(currentUser.Status)
+                ? "Inactive"
+                : currentUser.Status;
 
-            // Load image
-            if (!string.IsNullOrEmpty(currentUser.ProfileImagePath))
+            // IMAGE
+            string path = currentUser.ProfileImagePath;
+
+            if (!string.IsNullOrWhiteSpace(path))
             {
-                string fullPath = Path.Combine(Application.StartupPath, currentUser.ProfileImagePath);
+                string fullPath = Path.Combine(Application.StartupPath, path);
+
                 if (File.Exists(fullPath))
+                {
                     guna2CirclePictureBox1.ImageLocation = fullPath;
+                }
+                else
+                {
+                    guna2CirclePictureBox1.Image = Properties.Resources.DefaultAvatar;
+                }
+            }
+            else
+            {
+                guna2CirclePictureBox1.Image = Properties.Resources.DefaultAvatar;
             }
         }
         /*private void CloseButton_Click(object sender, EventArgs e)
@@ -64,5 +82,12 @@ namespace ShuttleZone.UserManagementNew
         {
             this.FindForm()?.Close();
         }
+
+        private void Statuslbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

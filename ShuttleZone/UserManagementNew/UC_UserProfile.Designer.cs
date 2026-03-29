@@ -48,8 +48,6 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2Panel19 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel18 = new Guna.UI2.WinForms.Guna2Panel();
             this.Status = new System.Windows.Forms.Label();
             this.guna2Panel17 = new Guna.UI2.WinForms.Guna2Panel();
@@ -80,6 +78,8 @@
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel20 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2Panel19 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.BottomtableLayoutPanel.SuspendLayout();
@@ -93,7 +93,6 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            this.guna2Panel19.SuspendLayout();
             this.guna2Panel18.SuspendLayout();
             this.guna2Panel17.SuspendLayout();
             this.guna2Panel16.SuspendLayout();
@@ -111,6 +110,7 @@
             this.guna2Panel6.SuspendLayout();
             this.guna2Panel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            this.guna2Panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -410,32 +410,6 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(510, 311);
             this.tableLayoutPanel5.TabIndex = 3;
-            // 
-            // guna2Panel19
-            // 
-            this.guna2Panel19.Controls.Add(this.guna2ComboBox1);
-            this.guna2Panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel19.Location = new System.Drawing.Point(147, 267);
-            this.guna2Panel19.Name = "guna2Panel19";
-            this.guna2Panel19.Size = new System.Drawing.Size(360, 41);
-            this.guna2Panel19.TabIndex = 13;
-            // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 12;
-            this.guna2ComboBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(213, 36);
-            this.guna2ComboBox1.TabIndex = 11;
             // 
             // guna2Panel18
             // 
@@ -747,6 +721,35 @@
             this.guna2CirclePictureBox1.TabIndex = 4;
             this.guna2CirclePictureBox1.TabStop = false;
             // 
+            // guna2Panel19
+            // 
+            this.guna2Panel19.Controls.Add(this.guna2ComboBox1);
+            this.guna2Panel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel19.Location = new System.Drawing.Point(144, 264);
+            this.guna2Panel19.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2Panel19.Name = "guna2Panel19";
+            this.guna2Panel19.Padding = new System.Windows.Forms.Padding(5, 3, 0, 15);
+            this.guna2Panel19.Size = new System.Drawing.Size(366, 47);
+            this.guna2Panel19.TabIndex = 13;
+            // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.BorderRadius = 12;
+            this.guna2ComboBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.Black;
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.Location = new System.Drawing.Point(5, 3);
+            this.guna2ComboBox1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.Size = new System.Drawing.Size(200, 36);
+            this.guna2ComboBox1.TabIndex = 11;
+            // 
             // UC_UserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -768,7 +771,6 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.guna2Panel5.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
-            this.guna2Panel19.ResumeLayout(false);
             this.guna2Panel18.ResumeLayout(false);
             this.guna2Panel18.PerformLayout();
             this.guna2Panel17.ResumeLayout(false);
@@ -798,6 +800,7 @@
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel20.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            this.guna2Panel19.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -821,7 +824,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel19;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel18;
         private System.Windows.Forms.Label Status;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel17;
@@ -848,11 +850,12 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel20;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Button SaveButton;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel19;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
     }
 }

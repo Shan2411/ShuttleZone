@@ -44,6 +44,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.Statuslbl = new System.Windows.Forms.Label();
             this.guna2Panel18 = new Guna.UI2.WinForms.Guna2Panel();
             this.Status = new System.Windows.Forms.Label();
             this.guna2Panel17 = new Guna.UI2.WinForms.Guna2Panel();
@@ -334,6 +335,7 @@
             this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.43137F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.56863F));
+            this.tableLayoutPanel5.Controls.Add(this.Statuslbl, 1, 6);
             this.tableLayoutPanel5.Controls.Add(this.guna2Panel18, 0, 6);
             this.tableLayoutPanel5.Controls.Add(this.guna2Panel17, 1, 5);
             this.tableLayoutPanel5.Controls.Add(this.guna2Panel16, 0, 5);
@@ -360,6 +362,19 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(510, 311);
             this.tableLayoutPanel5.TabIndex = 3;
+            // 
+            // Statuslbl
+            // 
+            this.Statuslbl.AutoSize = true;
+            this.Statuslbl.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Statuslbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Statuslbl.Location = new System.Drawing.Point(147, 267);
+            this.Statuslbl.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
+            this.Statuslbl.Name = "Statuslbl";
+            this.Statuslbl.Size = new System.Drawing.Size(65, 44);
+            this.Statuslbl.TabIndex = 13;
+            this.Statuslbl.Text = "Status";
+            this.Statuslbl.Click += new System.EventHandler(this.Statuslbl_Click);
             // 
             // guna2Panel18
             // 
@@ -690,6 +705,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.guna2Panel5.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.guna2Panel18.ResumeLayout(false);
             this.guna2Panel18.PerformLayout();
             this.guna2Panel17.ResumeLayout(false);
@@ -771,5 +787,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel20;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private System.Windows.Forms.Label Statuslbl;
     }
 }

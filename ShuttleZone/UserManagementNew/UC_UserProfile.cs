@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using User = ShuttleZone.UserManagement.UserModel;
@@ -16,6 +17,7 @@ namespace ShuttleZone.UserManagementNew
         public UC_UserProfile()
         {
             InitializeComponent();
+            guna2CirclePictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
 
             guna2ComboBox1.Items.AddRange(new object[]
             {
@@ -27,18 +29,17 @@ namespace ShuttleZone.UserManagementNew
 
             guna2ComboBox1.SelectedIndexChanged += (s, e) =>
             {
-                if (isLoading) return; // ✅ IMPORTANT FIX
-
+                if (isLoading) return;
                 if (currentUser == null) return;
 
                 string status = guna2ComboBox1.SelectedItem?.ToString();
 
                 if (!string.IsNullOrEmpty(status))
                 {
-                    currentUser.Status = status;
+                    SetStatusComboStyle(status);
 
-                    var repo = new ShuttleZone.UserManagement.UserRepository();
-                    repo.UpdateUserStatus(currentUser.ID, status);
+                    // ✅ ONLY update UI, NOT database
+                    currentUser.Status = status;
                 }
             };
         }
@@ -50,6 +51,22 @@ namespace ShuttleZone.UserManagementNew
             isLoading = true;     // ✅ prevent event firing
             LoadProfile();
             isLoading = false;    // ✅ re-enable after load
+        }
+
+        private void SetStatusComboStyle(string status)
+        {
+            if (status == "Active")
+            {
+                guna2ComboBox1.FillColor = Color.FromArgb(198, 239, 206);
+                guna2ComboBox1.ForeColor = Color.FromArgb(0, 97, 0);
+                guna2ComboBox1.BorderColor = Color.FromArgb(0, 97, 0);
+            }
+            else
+            {
+                guna2ComboBox1.FillColor = Color.FromArgb(255, 199, 206);
+                guna2ComboBox1.ForeColor = Color.FromArgb(156, 0, 6);
+                guna2ComboBox1.BorderColor = Color.FromArgb(156, 0, 6);
+            }
         }
 
         private void LoadProfile()
@@ -80,6 +97,7 @@ namespace ShuttleZone.UserManagementNew
             if (!string.IsNullOrEmpty(currentUser.Status))
             {
                 guna2ComboBox1.SelectedItem = currentUser.Status;
+                SetStatusComboStyle(currentUser.Status);
             }
 
             // ✅ IMAGE LOADING (unchanged)
@@ -94,17 +112,17 @@ namespace ShuttleZone.UserManagementNew
                     }
                     catch
                     {
-                        guna2CirclePictureBox1.Image = null;
+                        guna2CirclePictureBox1.Image = Properties.Resources.DefaultAvatar;
                     }
                 }
                 else
                 {
-                    guna2CirclePictureBox1.Image = null;
+                    guna2CirclePictureBox1.Image = Properties.Resources.DefaultAvatar;
                 }
             }
             else
             {
-                guna2CirclePictureBox1.Image = null;
+                guna2CirclePictureBox1.Image = Properties.Resources.DefaultAvatar;
             }
         }
 
