@@ -164,7 +164,6 @@ namespace ShuttleZone.Maintenance_Logs
                     "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             if (!decimal.TryParse(textBox3.Text, out decimal price1Month) ||
                 !decimal.TryParse(textBox4.Text, out decimal price1Year))
             {
@@ -175,47 +174,50 @@ namespace ShuttleZone.Maintenance_Logs
 
             try
             {
-                // Update courts table
-                string courtQuery = @"
-            UPDATE courts 
-            SET price_per_hour  = @price,
-                member_discount = @discount";
-
-                using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(courtQuery))
+                using (MySqlConnection conn = DBconnection.GetConnection())
                 {
-                    cmd.Parameters.AddWithValue("@price", courtPrice);
-                    cmd.Parameters.AddWithValue("@discount", memberDiscount);
-                    cmd.ExecuteNonQuery();
-                }
+                    // Update courts table
+                    string courtQuery = @"
+                UPDATE courts 
+                SET price_per_hour  = @price,
+                    member_discount = @discount";
 
-                // Update membership_prices - 1 Month
-                string membership1Query = @"
-            UPDATE membership_prices 
-            SET price            = @price,
-                discount_percent = @discount
-            WHERE plan_name      = @plan";
+                    using (var cmd = new MySqlCommand(courtQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@price", courtPrice);
+                        cmd.Parameters.AddWithValue("@discount", memberDiscount);
+                        cmd.ExecuteNonQuery();
+                    }
 
-                using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(membership1Query))
-                {
-                    cmd.Parameters.AddWithValue("@price", price1Month);
-                    cmd.Parameters.AddWithValue("@discount", memberDiscount);
-                    cmd.Parameters.AddWithValue("@plan", "1 Month Membership");
-                    cmd.ExecuteNonQuery();
-                }
+                    // Update membership_prices - 1 Month
+                    string membership1Query = @"
+                UPDATE membership_prices 
+                SET price            = @price,
+                    discount_percent = @discount
+                WHERE plan_name      = @plan";
 
-                // Update membership_prices - 12 Months
-                string membership12Query = @"
-            UPDATE membership_prices 
-            SET price            = @price,
-                discount_percent = @discount
-            WHERE plan_name      = @plan";
+                    using (var cmd = new MySqlCommand(membership1Query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@price", price1Month);
+                        cmd.Parameters.AddWithValue("@discount", memberDiscount);
+                        cmd.Parameters.AddWithValue("@plan", "1 Month Membership");
+                        cmd.ExecuteNonQuery();
+                    }
 
-                using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(membership12Query))
-                {
-                    cmd.Parameters.AddWithValue("@price", price1Year);
-                    cmd.Parameters.AddWithValue("@discount", memberDiscount);
-                    cmd.Parameters.AddWithValue("@plan", "12 Months Membership");
-                    cmd.ExecuteNonQuery();
+                    // Update membership_prices - 12 Months
+                    string membership12Query = @"
+                UPDATE membership_prices 
+                SET price            = @price,
+                    discount_percent = @discount
+                WHERE plan_name      = @plan";
+
+                    using (var cmd = new MySqlCommand(membership12Query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@price", price1Year);
+                        cmd.Parameters.AddWithValue("@discount", memberDiscount);
+                        cmd.Parameters.AddWithValue("@plan", "12 Months Membership");
+                        cmd.ExecuteNonQuery();
+                    }
                 }
 
                 // Sync Globals
