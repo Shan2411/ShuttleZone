@@ -492,22 +492,34 @@ namespace ShuttleZone
         {
             UpdateEquipmentInventory();
 
-            // Refresh UI so UC_Equipment shows latest availability
             if (pnlDynamic.Controls[0] is UC_Equipment equipmentPanel)
             {
                 equipmentPanel.RefreshEquipment();
             }
+
             var subtotal = GetSubtotal();
             var total = subtotal - GetDiscountAmount(subtotal);
 
+            // Generate stub but DON'T auto-save in constructor
             var stub = new Stub(
                 new List<CartItem>(cartItems),
                 subtotal,
                 total,
                 DateTime.Now,
-                appliedDiscountPercent
+                appliedDiscountPercent,
+                saveToDB: false
             );
             stub.ShowDialog(this);
+
+            // Only now save the transaction once
+            string stubNo = stub.lblStubNo.Text; // Access stub number
+            TransactionRecorder.SaveFromCart(
+                stubNo,
+                DateTime.Now,
+                cartItems,
+                "Cash",
+                "Kiosk"
+            );
 
             ResetCartAfterPayment();
         }
@@ -521,20 +533,26 @@ namespace ShuttleZone
             var ecash = new EcashQR(total);
             ecash.PaymentCompleted += (s, args) =>
             {
-                string receiptNo = $"RCP-{DateTime.Now:yyyyMMdd-HHmmss}";
+                // Generate a single receipt number
+                string receiptNo = $"KIOSK-{DateTime.Now:yyyyMMddHHmmssfff}";
 
-                TransactionRecorder.SaveFromCart(
-                    receiptNo,
+                // Open the receipt form and let it save the transaction
+                var receiptForm = new ReceiptForm(
+                    new List<CartItem>(cartItems), // clone current cart
+                    total,
+                    "E-Cash",
                     DateTime.Now,
-                    cartItems,
-                    "E-Cash", "Kiosk"
+                    courtRentalHours: cartItems.FirstOrDefault(c => c.Name.Contains("Court"))?.Qty ?? 0,
+                    receiptNo: receiptNo,
+                    shouldSave: true // only save here
                 );
+                receiptForm.ShowDialog(this);
 
-                ShowReceipt(total);
+                // Now safely reset the cart AFTER saving
+                ResetCartAfterPayment();
             };
-            ecash.ShowDialog(this);
 
-            ResetCartAfterPayment();
+            ecash.ShowDialog(this); // wait until payment completed
         }
 
         private void ResetCartAfterPayment()

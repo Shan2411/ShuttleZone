@@ -127,7 +127,7 @@
             this.lblStubTimeText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStubTimeText.Location = new System.Drawing.Point(41, 216);
             this.lblStubTimeText.Name = "lblStubTimeText";
-            this.lblStubTimeText.Size = new System.Drawing.Size(72, 15);
+            this.lblStubTimeText.Size = new System.Drawing.Size(73, 15);
             this.lblStubTimeText.TabIndex = 37;
             this.lblStubTimeText.Text = "Time Issued:";
             // 
@@ -390,7 +390,6 @@
         private System.Windows.Forms.Label lblStubSZInfo;
         private System.Windows.Forms.Label lblStubSZ;
         private System.Windows.Forms.Label lblStubNoText;
-        private System.Windows.Forms.Label lblStubNo;
         private Guna.UI2.WinForms.Guna2Separator sepStub1;
         private System.Windows.Forms.Label lblStubTimeIssued;
         private System.Windows.Forms.Label lblStubTimeText;
@@ -415,5 +414,6 @@
         private System.Windows.Forms.Label lblStubInstructions;
         private System.Windows.Forms.Label lblInstructionsText;
         private Guna.UI2.WinForms.Guna2Button btnStubClose;
+        public System.Windows.Forms.Label lblStubNo;
     }
 }
