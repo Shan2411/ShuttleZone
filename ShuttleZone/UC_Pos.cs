@@ -62,6 +62,61 @@ namespace ShuttleZone
 
         }
 
+        private bool CanCheckoutCourt(string courtName, out string warningMessage)
+        {
+            warningMessage = null;
+
+            try
+            {
+                using (var conn = DBconnection.GetConnection())
+                using (var cmd = new MySqlCommand("SELECT status FROM courts WHERE court_name = @courtName LIMIT 1", conn))
+                {
+                    cmd.Parameters.AddWithValue("@courtName", courtName);
+                    var result = cmd.ExecuteScalar();
+
+                    if (result == null || result == DBNull.Value)
+                    {
+                        warningMessage = string.Format("{0} status is unavailable. Please try again later.", courtName);
+                        return false;
+                    }
+
+                    var status = result.ToString();
+                    if (status.Equals("Out of Service", StringComparison.OrdinalIgnoreCase) ||
+                        status.Equals("Under Maintenance", StringComparison.OrdinalIgnoreCase) ||
+                        status.Equals("In Use", StringComparison.OrdinalIgnoreCase))
+                    {
+                        warningMessage = string.Format("{0} cannot be checked out because it is currently '{1}'.", courtName, status);
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                warningMessage = "Unable to check court status: " + ex.Message;
+                return false;
+            }
+
+            return true;
+        }
+
+        private void TryAddCourtRental(string courtName)
+        {
+            string warningMessage;
+            if (!CanCheckoutCourt(courtName, out warningMessage))
+            {
+                MessageBox.Show(
+                    warningMessage,
+                    "Court Not Available",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            RemoveExistingCourt();
+            flowCart.Controls.Add(CloneCartItemPanel(courtName, 250));
+            UpdateCartTotals();
+        }
+
         private void LoadEquipmentFromInventory()
         {
             var items = new List<PosEquipmentDisplay>();
@@ -477,30 +532,22 @@ namespace ShuttleZone
 
         private void btnCourtA_Click(object sender, EventArgs e)
         {
-            RemoveExistingCourt();
-            flowCart.Controls.Add(CloneCartItemPanel("Court A", 250));
-            UpdateCartTotals();
+            TryAddCourtRental("Court A");
         }
 
         private void btnCourtB_Click(object sender, EventArgs e)
         {
-            RemoveExistingCourt();
-            flowCart.Controls.Add(CloneCartItemPanel("Court B", 250));
-            UpdateCartTotals();
+            TryAddCourtRental("Court B");
         }
 
         private void btnCourtC_Click(object sender, EventArgs e)
         {
-            RemoveExistingCourt();
-            flowCart.Controls.Add(CloneCartItemPanel("Court C", 250));
-            UpdateCartTotals();
+            TryAddCourtRental("Court C");
         }
 
         private void btnCourtD_Click(object sender, EventArgs e)
         {
-            RemoveExistingCourt();
-            flowCart.Controls.Add(CloneCartItemPanel("Court D", 250));
-            UpdateCartTotals();
+            TryAddCourtRental("Court D");
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
