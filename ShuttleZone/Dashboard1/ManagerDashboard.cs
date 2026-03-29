@@ -16,51 +16,44 @@ namespace ShuttleZone.Dashboard1
 {
     public partial class ManagerDashboard : UserControl
     {
-        // Win32 constants to freeze drawing
         [DllImport("user32.dll")]
         private static extern int SendMessage(IntPtr hWnd, Int32 wMsg, bool wParam, Int32 lParam);
         private const int WM_SETREDRAW = 11;
 
         private System.Windows.Forms.Timer refreshTimer;
 
+        // ✅ Store references so controls are created once and reused
+        private Utilization _utilizationUC;
+        private CourtInUse _courtInUseUC;
+
         public ManagerDashboard()
         {
-            // Get the database status courts from globals
             RefreshGlobals();
 
-            // 1. Fundamental Double Buffering
             this.DoubleBuffered = true;
 
             InitializeComponent();
 
-            // 2. Enable deep double buffering on problematic containers
             EnableDoubleBuffer(flowLayoutPanel1);
             EnableDoubleBuffer(flowLayoutPanel2);
             EnableDoubleBuffer(guna2ShadowPanel1);
             EnableDoubleBuffer(guna2ShadowPanel2);
 
-            // 3. Freeze the control visually while we build the UI
+            // Freeze only during initial build
             SendMessage(this.Handle, WM_SETREDRAW, false, 0);
-
             try
             {
                 this.SuspendLayout();
-
-                // Load Heavy Guna Panels
                 LoadAnalytics();
-
-                // Load Dashboard Cards
                 LoadCards();
             }
             finally
             {
-                // 4. Unfreeze and force a single clean paint
                 this.ResumeLayout(true);
                 SendMessage(this.Handle, WM_SETREDRAW, true, 0);
                 this.Refresh();
             }
 
-            // 5. Start the refresh timer (every 30 seconds)
             InitializeRefreshTimer();
         }
 
@@ -79,76 +72,73 @@ namespace ShuttleZone.Dashboard1
         private void InitializeRefreshTimer()
         {
             refreshTimer = new System.Windows.Forms.Timer();
-            refreshTimer.Interval = 5000; // 5 seconds — adjust as needed
+            refreshTimer.Interval = 5000;
             refreshTimer.Tick += RefreshTimer_Tick;
             refreshTimer.Start();
         }
 
         private void RefreshTimer_Tick(object sender, EventArgs e)
         {
+            // ✅ Only refresh data — never recreate controls
             RefreshGlobals();
 
-            SendMessage(this.Handle, WM_SETREDRAW, false, 0);
-            try
-            {
-                this.SuspendLayout();
+            // Tell Utilization to reload its data from DB
+            _utilizationUC?.LoadUtilizationData();
 
-                guna2ShadowPanel1.Controls.Clear();
-                guna2ShadowPanel2.Controls.Clear();
-                LoadAnalytics();
+            // Refresh each Card_Dashboard in both panels
+            foreach (Control ctrl in flowLayoutPanel1.Controls)
+                if (ctrl is Card_Dashboard card) card.RefreshData();
 
-                LoadCards();
-            }
-            finally
-            {
-                // ✅ Replace the old finally block with this
-                this.ResumeLayout(true);
-                SendMessage(this.Handle, WM_SETREDRAW, true, 0);
-                this.Invalidate(true);  // invalidate all children recursively
-                this.Refresh();
-            }
+            foreach (Control ctrl in flowLayoutPanel2.Controls)
+                if (ctrl is Card_Dashboard card) card.RefreshData();
         }
 
         private void LoadAnalytics()
         {
-            // Utilization
-            Utilization utilizationUC = new Utilization { Dock = DockStyle.Fill };
-            guna2ShadowPanel1.Controls.Add(utilizationUC);
+            // ✅ Only create once — reuse on subsequent calls
+            if (_utilizationUC == null)
+            {
+                _utilizationUC = new Utilization { Dock = DockStyle.Fill };
+                guna2ShadowPanel1.Controls.Add(_utilizationUC);
+            }
 
-            // Court In Use
-            CourtInUse courtInUseUC = new CourtInUse { Dock = DockStyle.Fill };
-            guna2ShadowPanel2.Controls.Add(courtInUseUC);
+            if (_courtInUseUC == null)
+            {
+                _courtInUseUC = new CourtInUse { Dock = DockStyle.Fill };
+                guna2ShadowPanel2.Controls.Add(_courtInUseUC);
+            }
         }
 
         private void LoadCards()
         {
-            flowLayoutPanel1.SuspendLayout();
-            flowLayoutPanel2.SuspendLayout();
+            // ✅ Only create cards if panel is empty — never clear and recreate
+            if (flowLayoutPanel1.Controls.Count == 0)
+            {
+                flowLayoutPanel1.SuspendLayout();
+                flowLayoutPanel1.Controls.AddRange(new Control[]
+                {
+                    new Card_Dashboard("Today's Transactions"),
+                    new Card_Dashboard("Today's Revenue"),
+                    new Card_Dashboard("Average Monthly Revenue"),
+                    new Card_Dashboard("Active Members")
+                });
+                flowLayoutPanel1.ResumeLayout(true);
+                flowLayoutPanel1.PerformLayout();
+            }
 
-            flowLayoutPanel1.Controls.Clear();
-            flowLayoutPanel2.Controls.Clear();
-
-            flowLayoutPanel1.Controls.AddRange(new Control[] {
-                new Card_Dashboard("Today's Transactions"),
-                new Card_Dashboard("Today's Revenue"),
-                new Card_Dashboard("Average Monthly Revenue"),
-                new Card_Dashboard("Active Members")
-            });
-
-                    flowLayoutPanel2.Controls.AddRange(new Control[] {
-                new Card_Dashboard("Kiosk Transactions"),
-                new Card_Dashboard("Peak Hour Today")
-            });
-
-            // true = perform layout immediately after resuming
-            flowLayoutPanel1.ResumeLayout(true);
-            flowLayoutPanel2.ResumeLayout(true);
-
-            flowLayoutPanel1.PerformLayout();
-            flowLayoutPanel2.PerformLayout();
+            if (flowLayoutPanel2.Controls.Count == 0)
+            {
+                flowLayoutPanel2.SuspendLayout();
+                flowLayoutPanel2.Controls.AddRange(new Control[]
+                {
+                    new Card_Dashboard("Kiosk Transactions"),
+                    new Card_Dashboard("Peak Hour Today")
+                });
+                flowLayoutPanel2.ResumeLayout(true);
+                flowLayoutPanel2.PerformLayout();
+            }
         }
 
-        // Helper to unlock the protected DoubleBuffered property
         private static void EnableDoubleBuffer(Control c)
         {
             PropertyInfo pi = typeof(Control).GetProperty("DoubleBuffered",
