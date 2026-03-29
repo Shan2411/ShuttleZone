@@ -29,7 +29,7 @@ namespace ShuttleZone
         private readonly Dictionary<string, int> equipmentStockByName = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
         private List<CartItem> CartItems = new List<CartItem>();
-
+        public event EventHandler PaymentCompleted;
 
         public UC_Pos()
         {
@@ -48,6 +48,11 @@ namespace ShuttleZone
 
         private void UC_Pos_Load(object sender, EventArgs e)
         {
+            // FlowPanel setup for full-width cart items
+            flowCart.AutoScroll = true;
+            flowCart.WrapContents = false;           // stack items vertically
+            flowCart.FlowDirection = FlowDirection.TopDown;
+
             LoadEquipmentFromInventory();
 
             // Membership panels
@@ -268,16 +273,18 @@ namespace ShuttleZone
                 Price = price
             });
 
-
             var clone = new Guna2Panel
             {
-                Size = pnlCartItem.Size,
+                AutoSize = true,
                 BorderRadius = pnlCartItem.BorderRadius,
                 FillColor = pnlCartItem.FillColor,
-                Margin = pnlCartItem.Margin,
+                Margin = new Padding(0, 0, 0, 5),
                 ShadowDecoration = { Enabled = true },
                 Visible = true
             };
+
+            // Set width to fill the FlowLayoutPanel
+            clone.Width = flowCart.ClientSize.Width - flowCart.Padding.Horizontal;
 
             foreach (Control c in pnlCartItem.Controls)
             {
@@ -295,7 +302,7 @@ namespace ShuttleZone
             clone.Controls["lblPrice"].Text = $"₱{price}";
             clone.Controls["lblRowTotal"].Text = $"₱{price}";
 
-            // 👉 Wire buttons
+            // Wire buttons
             var btnPlus = clone.Controls["btnPlus"] as Guna2Button;
             var btnMinus = clone.Controls["btnMinus"] as Guna2Button;
             var btnRemove = clone.Controls["btnRemove"] as Guna2Button;
@@ -304,19 +311,18 @@ namespace ShuttleZone
             btnMinus.Click += (s, e) => UpdateQty(clone, -1);
             btnRemove.Click += (s, e) =>
             {
-                string itemToRemove = clone.Controls["lblItemName"].Text;
-
-                // ✅ Remove from data model
                 CartItems.RemoveAll(c => c.Name == itemName);
-
-                // ✅ Remove from UI
                 flowCart.Controls.Remove(clone);
                 clone.Dispose();
-
                 RefreshEquipmentStockLabels();
                 UpdateCartTotals();
             };
 
+            // Optional: adjust width dynamically if FlowLayoutPanel resizes
+            flowCart.SizeChanged += (s, e) =>
+            {
+                clone.Width = flowCart.ClientSize.Width - flowCart.Padding.Horizontal;
+            };
 
             return clone;
         }
@@ -589,25 +595,61 @@ namespace ShuttleZone
 
         }
 
+        // =================== CASH PAYMENT ===================
         private void btnCashPayment_Click(object sender, EventArgs e)
         {
-
-            // Get total from POS label
             decimal total = decimal.Parse(lblTotal.Text.Replace("₱", "").Trim());
 
-            // Open CashPayment and pass total
-            CashPayment cp = new CashPayment(total, CartItems);
-            cp.ShowDialog();
+            // 1️⃣ Take a snapshot of the cart BEFORE clearing it
+            var cartSnapshot = new List<CartItem>(CartItems);
 
+            // 2️⃣ Save transaction to DB (this will clear CartItems)
+            SaveTransactionToHistory("Cash", "Frontdesk");
+
+            // 3️⃣ Notify RentHistory
+            PaymentCompleted?.Invoke(this, EventArgs.Empty);
+
+            // 4️⃣ Open cash payment dialog, pass the snapshot for receipt
+            CashPayment cp = new CashPayment(total, cartSnapshot);
+            cp.ShowDialog();
         }
 
+
+        // =================== E-CASH PAYMENT ===================
         private void BtnEcashPayment_Click(object sender, EventArgs e)
         {
             decimal total = decimal.Parse(lblTotal.Text.Replace("₱", "").Trim());
 
+            // Take snapshot BEFORE clearing
+            var cartSnapshot = new List<CartItem>(CartItems);
+
+            // Save transaction
+            SaveTransactionToHistory("E-Cash");
+
+            // Trigger RentHistory update
+            PaymentCompleted?.Invoke(this, EventArgs.Empty);
+
+            // Open e-cash dialog, pass the snapshot to ShowReceipt
             var ecash = new EcashQR(total);
-            ecash.PaymentCompleted += (s, args) => ShowReceipt(total);
+            ecash.PaymentCompleted += (s, args) => ShowReceipt(total, cartSnapshot);
             ecash.ShowDialog();
+        }
+
+
+        // =================== SHOW RECEIPT ===================
+        private void ShowReceipt(decimal amountReceived, List<CartItem> cartSnapshot)
+        {
+            int courtHours = cartSnapshot.FirstOrDefault(c => c.Name.StartsWith("Court"))?.Qty ?? 0;
+
+            var receiptForm = new ReceiptForm(
+                cartSnapshot,
+                amountReceived,
+                "E-Cash",
+                DateTime.Now,
+                courtHours
+            );
+
+            receiptForm.Show();
         }
 
         private void ShowReceipt(decimal amountReceived)
@@ -625,6 +667,61 @@ namespace ShuttleZone
         private void lblCourtAAvailability_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void SaveTransactionToHistory(string paymentMethod, string transactionSource = "Frontdesk")
+        {
+            if (CartItems.Count == 0)
+            {
+                MessageBox.Show("Cart is empty. Cannot process transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                using (var conn = DBconnection.GetConnection())
+                {
+                    // 1. Generate unique receipt number
+                    string receiptNo = "FD-" + DateTime.Now.ToString("yyyyMMddHHmmss");
+
+                    // 2. Insert each cart item
+                    string insertQuery = @"
+                INSERT INTO transactions 
+                    (receipt_no, transaction_date, transaction_time, income_type, 
+                     item_name, quantity, unit_price, total_amount, payment_method, 
+                     created_at, transaction_source)
+                VALUES 
+                    (@receipt_no, CURDATE(), CURTIME(), 'Sales',
+                     @item_name, @quantity, @unit_price, @total_amount, @payment_method,
+                     NOW(), @transaction_source)";
+
+                    foreach (var item in CartItems)
+                    {
+                        using (var cmd = new MySqlCommand(insertQuery, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@receipt_no", receiptNo);
+                            cmd.Parameters.AddWithValue("@item_name", item.Name);
+                            cmd.Parameters.AddWithValue("@quantity", item.Qty);
+                            cmd.Parameters.AddWithValue("@unit_price", item.Price);
+                            cmd.Parameters.AddWithValue("@total_amount", item.Price * item.Qty);
+                            cmd.Parameters.AddWithValue("@payment_method", paymentMethod);
+                            cmd.Parameters.AddWithValue("@transaction_source", transactionSource);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    // Clear cart
+                    CartItems.Clear();
+                    flowCart.Controls.Clear();
+                    UpdateCartTotals();
+
+                    //MessageBox.Show("Transaction saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to save transaction: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LabelChangeAndDBLoad() {

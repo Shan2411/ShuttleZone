@@ -129,12 +129,31 @@
                 }
             }
 
-            private void POSBtn_Click(object sender, EventArgs e)
-            {
-                LoadView<UC_Pos>();
-            }
+        private void POSBtn_Click(object sender, EventArgs e)
+        {
+            LoadView<UC_Pos>();
 
-            private void InventoryBtn_Click(object sender, EventArgs e)
+            if (_views[typeof(UC_Pos)] is UC_Pos ucPos)
+            {
+                // Ensure RentHistory exists in _views, but do NOT load it
+                if (!_views.ContainsKey(typeof(RentHistory)))
+                {
+                    _views[typeof(RentHistory)] = new RentHistory();
+                    _views[typeof(RentHistory)].Dock = DockStyle.Fill;
+                }
+
+                var rentHistoryUC = (RentHistory)_views[typeof(RentHistory)];
+
+                // Hook the PaymentCompleted event
+                ucPos.PaymentCompleted -= (s, ev) => { rentHistoryUC.RefreshDataGrid(); }; // prevent double-hook
+                ucPos.PaymentCompleted += (s, ev) =>
+                {
+                    rentHistoryUC.RefreshDataGrid();
+                };
+            }
+        }
+
+        private void InventoryBtn_Click(object sender, EventArgs e)
             {
                 LoadView<Equipment_and_Inventory.Equipment>();
             }

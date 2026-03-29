@@ -157,50 +157,77 @@ namespace ShuttleZone.Maintenance_Logs
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            // Validate inputs first
             if (!decimal.TryParse(textBox1.Text, out decimal courtPrice) ||
-                //!decimal.TryParse(textBox2.Text, out decimal vat) ||
                 !decimal.TryParse(textBox6.Text, out decimal memberDiscount))
             {
-                MessageBox.Show("Please enter valid numbers for Court Price, VAT, and Discount.",
-                    "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter valid numbers for Court Price and Discount.",
+                    "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            // Membership prices stay in Globals (no matching column in courts table)
-            Globals.membershipPrice1Month = textBox3.Text;
-            Globals.membershipPrice1Year = textBox4.Text;
+            if (!decimal.TryParse(textBox3.Text, out decimal price1Month) ||
+                !decimal.TryParse(textBox4.Text, out decimal price1Year))
+            {
+                MessageBox.Show("Please enter valid numbers for Membership Prices.",
+                    "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             try
             {
                 using (MySqlConnection conn = DBconnection.GetConnection())
                 {
-                   
-                    // Update all courts with the same price, VAT, and discount
-                    string query = @"
+                    // Update courts table
+                    string courtQuery = @"
                 UPDATE courts 
-                SET price_per_hour = @price,
+                SET price_per_hour  = @price,
                     member_discount = @discount";
 
-                    using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn))
+                    using (var cmd = new MySqlCommand(courtQuery, conn))
                     {
                         cmd.Parameters.AddWithValue("@price", courtPrice);
                         cmd.Parameters.AddWithValue("@discount", memberDiscount);
+                        cmd.ExecuteNonQuery();
+                    }
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
+                    // Update membership_prices - 1 Month
+                    string membership1Query = @"
+                UPDATE membership_prices 
+                SET price            = @price,
+                    discount_percent = @discount
+                WHERE plan_name      = @plan";
 
-                        // Also update Globals to keep in sync
-                        Globals.courtPrice = textBox1.Text;
-                        Globals.mambershipDiscount = textBox6.Text;
+                    using (var cmd = new MySqlCommand(membership1Query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@price", price1Month);
+                        cmd.Parameters.AddWithValue("@discount", memberDiscount);
+                        cmd.Parameters.AddWithValue("@plan", "1 Month Membership");
+                        cmd.ExecuteNonQuery();
+                    }
 
-                        MessageBox.Show(
-                             "Pricing updated successfully.",
-                             "Done",
-                             MessageBoxButtons.OK,
-                             MessageBoxIcon.Information
-                         );
+                    // Update membership_prices - 12 Months
+                    string membership12Query = @"
+                UPDATE membership_prices 
+                SET price            = @price,
+                    discount_percent = @discount
+                WHERE plan_name      = @plan";
+
+                    using (var cmd = new MySqlCommand(membership12Query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@price", price1Year);
+                        cmd.Parameters.AddWithValue("@discount", memberDiscount);
+                        cmd.Parameters.AddWithValue("@plan", "12 Months Membership");
+                        cmd.ExecuteNonQuery();
                     }
                 }
+
+                // Sync Globals
+                Globals.courtPrice = textBox1.Text;
+                Globals.membershipPrice1Month = textBox3.Text;
+                Globals.membershipPrice1Year = textBox4.Text;
+                Globals.mambershipDiscount = textBox6.Text;
+
+                MessageBox.Show("Changes saved successfully!",
+                    "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
