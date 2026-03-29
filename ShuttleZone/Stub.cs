@@ -33,13 +33,17 @@ namespace ShuttleZone
             _total = total;
             _timeIssued = timeIssued;
             _discountPercent = discountPercent;
-            GenerateStub(saveToDB);
+
+            GenerateStub(saveToDB); // only save if explicitly requested
         }
 
         public void GenerateStub(bool saveToDB)
         {
             flowStubItemsContainer.Controls.Clear();
 
+            // 🔹 Generate the stub number only once per cart
+            string stubNo = GenerateStubNumber();
+
             foreach (var item in _cartItems)
             {
                 decimal discountedPrice = item.Price * (1 - _discountPercent);
@@ -83,84 +87,15 @@ namespace ShuttleZone
             lblStubSubtotal.Text = _subtotal.ToString("₱0.00");
             lblStubTotalAmount.Text = _total.ToString("₱0.00");
 
-            lblStubNo.Text = GenerateStubNumber();
+            // 🔹 Use the same stubNo for UI and DB
+            lblStubNo.Text = GenerateStubNumber(); // Display the generated stub number on the UI
             lblStubDateIssued.Text = _timeIssued.ToString("MM/dd/yyyy");
             lblStubTimeIssued.Text = _timeIssued.ToString("hh:mm:ss tt");
 
             if (saveToDB)
             {
-                SaveStubToDatabase(lblStubNo.Text);
+                SaveStubToDatabase(stubNo);
             }
-        }
-
-        private void WireCloseButton()
-        {
-            var button = Controls.Find("btnStubClose", true).FirstOrDefault();
-            if (button != null)
-            {
-                button.Click += (s, e) => Close();
-            }
-        }
-
-        private void GenerateStub()
-        {
-            flowStubItemsContainer.Controls.Clear();
-
-            foreach (var item in _cartItems)
-            {
-                // Apply discount
-                decimal discountedPrice = item.Price * (1 - _discountPercent);
-
-                Panel row = new Panel
-                {
-                    Size = pnlStubItemRowTemplate.Size,
-                    BackColor = pnlStubItemRowTemplate.BackColor
-                };
-
-                Label lblName = new Label
-                {
-                    Text = item.Name,
-                    Location = pnlStubItemRowTemplate.Controls["lblStubItemName"].Location,
-                    Size = pnlStubItemRowTemplate.Controls["lblStubItemName"].Size,
-                    Font = pnlStubItemRowTemplate.Controls["lblStubItemName"].Font
-                };
-                row.Controls.Add(lblName);
-
-                Label lblQty = new Label
-                {
-                    Text = $"₱{discountedPrice:0.00} x {item.Qty}",
-                    Location = pnlStubItemRowTemplate.Controls["lblStubItemQty"].Location,
-                    Size = pnlStubItemRowTemplate.Controls["lblStubItemQty"].Size,
-                    Font = pnlStubItemRowTemplate.Controls["lblStubItemQty"].Font
-                };
-                row.Controls.Add(lblQty);
-
-                Label lblPrice = new Label
-                {
-                    Text = (discountedPrice * item.Qty).ToString("₱0.00"),
-                    Location = pnlStubItemRowTemplate.Controls["lblStubItemPrice"].Location,
-                    Size = pnlStubItemRowTemplate.Controls["lblStubItemPrice"].Size,
-                    Font = pnlStubItemRowTemplate.Controls["lblStubItemPrice"].Font
-                };
-                row.Controls.Add(lblPrice);
-
-                flowStubItemsContainer.Controls.Add(row);
-            }
-
-            lblStubSubtotal.Text = _subtotal.ToString("₱0.00");
-            lblStubTotalAmount.Text = _total.ToString("₱0.00");
-
-            lblStubNo.Text = GenerateStubNumber();
-            lblStubDateIssued.Text = _timeIssued.ToString("MM/dd/yyyy");
-            lblStubTimeIssued.Text = _timeIssued.ToString("hh:mm:ss tt");
-
-            SaveStubToDatabase(lblStubNo.Text);
-        }
-
-        private string GenerateStubNumber()
-        {
-            Random rnd = new Random();
-            return $"S#{rnd.Next(1000, 9999)}";
         }
 
         private void SaveStubToDatabase(string stubNo)
@@ -170,9 +105,9 @@ namespace ShuttleZone
                 using (MySqlConnection connection = DBconnection.GetConnection())
                 {
                     string query = @"INSERT INTO kiosk_pending_payments 
-                            (stub_no, status, date_issued, time_issued, item_name, quantity, unit_price) 
-                            VALUES 
-                            (@stubNo, 'Pending', @date, @time, @itemName, @qty, @price)";
+                    (stub_no, status, date_issued, time_issued, item_name, quantity, unit_price) 
+                    VALUES 
+                    (@stubNo, 'Pending', @date, @time, @itemName, @qty, @price)";
 
                     foreach (var item in _cartItems)
                     {
@@ -187,7 +122,7 @@ namespace ShuttleZone
                             cmd.Parameters.AddWithValue("@qty", item.Qty);
                             cmd.Parameters.AddWithValue("@price", discountedPrice);
 
-                            cmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery(); // now all items share the same stubNo
                         }
                     }
                 }
@@ -198,6 +133,22 @@ namespace ShuttleZone
             }
         }
 
+        // 🔹 Single stub number generation per cart
+        private string GenerateStubNumber()
+        {
+            Random rnd = new Random();
+            return $"S#{rnd.Next(1000, 9999)}";
+        }
+
+        private void WireCloseButton()
+        {
+            var button = Controls.Find("btnStubClose", true).FirstOrDefault();
+            if (button != null)
+            {
+                button.Click += (s, e) => Close();
+            }
+        }
+        
         // 🔹 EMPTY/PLACEHOLDER FUNCTIONS 🔹
         private void pnlItemRowTemplate_Paint(object sender, PaintEventArgs e) { }
         private void flowItemsContainer_Paint(object sender, PaintEventArgs e) { }
