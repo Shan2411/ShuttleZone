@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using ShuttleZone.database;
+using ShuttleZone.Rent_History;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,21 +10,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace ShuttleZone
 {
     public partial class UC_Pending : UserControl
     {
+        private RentHistory rentHistoryControl;
+
+        // 🔹 Default constructor (keeps old structure intact)
         public UC_Pending()
         {
             InitializeComponent();
             LoadPendingCards();
 
             timer1.Interval = 3100;
-            timer1.Tick += new System.EventHandler(timer1_Tick); // force wire it here
+            timer1.Tick += new System.EventHandler(timer1_Tick);
             timer1.Start();
         }
-        private void timer1_Tick(object sender, System.EventArgs e)
+
+        // 🔹 New constructor with RentHistory support
+        public UC_Pending(RentHistory rentHistory)
+        {
+            InitializeComponent();
+            rentHistoryControl = rentHistory;
+
+            LoadPendingCards();
+
+            timer1.Interval = 3100;
+            timer1.Tick += new System.EventHandler(timer1_Tick);
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
         {
             LoadPendingCards();
         }
@@ -41,10 +60,10 @@ namespace ShuttleZone
 
             using (var conn = DBconnection.GetConnection())
             {
-                string query = @"SELECT stub_no 
-                         FROM kiosk_pending_payments 
-                         GROUP BY stub_no 
-                         ORDER BY MIN(id)";
+                string query = @"SELECT stub_no  
+                                 FROM kiosk_pending_payments  
+                                 GROUP BY stub_no  
+                                 ORDER BY MIN(id)";
 
                 using (var cmd = new MySqlCommand(query, conn))
                 using (var reader = cmd.ExecuteReader())
@@ -57,6 +76,16 @@ namespace ShuttleZone
             foreach (string stub in stubs)
             {
                 var card = new UC_PendingCard(stub);
+
+                // 🔹 Hook event to refresh RentHistory when payment cleared
+                if (rentHistoryControl != null)
+                {
+                    card.PaymentCleared += (s, e) =>
+                    {
+                        rentHistoryControl.RefreshDataGrid();
+                    };
+                }
+
                 flpPendingRoot.Controls.Add(card);
             }
 
