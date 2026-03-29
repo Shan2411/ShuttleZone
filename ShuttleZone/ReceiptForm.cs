@@ -3,27 +3,39 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using ShuttleZone.database;
 
 namespace ShuttleZone
 {
     public partial class ReceiptForm : Form
     {
-        private List<CartItem> _cartItems;
-        private decimal _amountReceived;
-        private string _paymentMethod;
-        private DateTime _timeIssued;
-        private int _courtRentalHours = 0;
+        private readonly List<CartItem> _cartItems;
+        private readonly decimal _amountReceived;
+        private readonly string _paymentMethod;
+        private readonly DateTime _timeIssued;
+        private readonly int _courtRentalHours;
+        private readonly string _receiptNo;
+        private readonly bool _shouldSave; // NEW: decide whether to save to DB
 
-        public ReceiptForm(List<CartItem> cartItems, decimal amountReceived,
-            string paymentMethod, DateTime timeIssued, int courtRentalHours = 0)
+        public ReceiptForm(
+            List<CartItem> cartItems,
+            decimal amountReceived,
+            string paymentMethod,
+            DateTime timeIssued,
+            int courtRentalHours = 0,
+            string receiptNo = null,
+            bool shouldSave = true) // default true
         {
             InitializeComponent();
             TopMost = true;
+
             _cartItems = cartItems;
             _amountReceived = amountReceived;
             _paymentMethod = paymentMethod;
             _timeIssued = timeIssued;
             _courtRentalHours = courtRentalHours;
+            _receiptNo = receiptNo;
+            _shouldSave = shouldSave;
 
             GenerateReceipt();
         }
@@ -81,7 +93,7 @@ namespace ShuttleZone
             lblChange.Text = change >= 0 ? change.ToString("₱0.00") : "₱0.00";
 
             // 4. Receipt number and timestamps
-            string receiptNo = GenerateReceiptNumber();
+            string receiptNo = _receiptNo ?? GenerateReceiptNumber();
             lblReceiptNo.Text = receiptNo;
             lblDateIssued.Text = _timeIssued.ToString("MM/dd/yyyy");
             lblTimeIssued.Text = _timeIssued.ToString("hh:mm:ss tt");
@@ -91,21 +103,31 @@ namespace ShuttleZone
                 ? _timeIssued.AddHours(_courtRentalHours).ToString("hh:mm:ss tt")
                 : "-";
 
-            // ── [NEW] Record all cart items to the database ───────────────────
-            //  This single line saves every item in the cart to `transactions`.
-            //  Nothing else in this file was changed.
-            TransactionRecorder.SaveFromCart(receiptNo, _timeIssued, _cartItems, _paymentMethod, "Frontdesk"); 
+            // 6. Conditionally save to database
+            if (_shouldSave)
+            {
+                TransactionRecorder.SaveFromCart(
+                    receiptNo,
+                    _timeIssued,
+                    _cartItems,
+                    _paymentMethod,
+                    "Kiosk"
+                );
+            }
         }
 
         private string GenerateReceiptNumber()
         {
-            Random rnd = new Random();
-            return rnd.Next(100000, 999999).ToString();
+            return "KIOSK-" + DateTime.Now.ToString("yyyyMMddHHmmssfff");
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        // ── EMPTY PLACEHOLDER EVENTS ──
+        private void pnlItemRowTemplate_Paint(object sender, PaintEventArgs e) { }
+        private void flowItemsContainer_Paint(object sender, PaintEventArgs e) { }
     }
 }
