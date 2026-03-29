@@ -237,7 +237,7 @@
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(209, 23);
             this.guna2Button3.TabIndex = 4;
-            this.guna2Button3.Text = "This Year";
+            this.guna2Button3.Text = "All Time";
             this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // Utilization

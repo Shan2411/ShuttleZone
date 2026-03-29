@@ -21,7 +21,7 @@ namespace ShuttleZone.Dashboard1
         private const int WM_SETREDRAW = 11;
 
         // ── Track current filter ──────────────────────────────────────────────
-        public enum DateFilter { Today, ThisMonth, ThisYear }
+        public enum DateFilter { Today, ThisMonth, AllTime }
         private DateFilter _currentFilter = DateFilter.ThisMonth;
 
         private static readonly Color[] CourtColors = new[]
@@ -55,10 +55,9 @@ namespace ShuttleZone.Dashboard1
             HighlightActiveButton(guna2Button2);
             LoadUtilizationData();
         }
-
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            _currentFilter = DateFilter.ThisYear;
+            _currentFilter = DateFilter.AllTime;
             HighlightActiveButton(guna2Button3);
             LoadUtilizationData();
         }
@@ -164,8 +163,8 @@ namespace ShuttleZone.Dashboard1
                 case DateFilter.Today:
                     dateCondition = "AND DATE(t.transaction_date) = CURDATE()";
                     break;
-                case DateFilter.ThisYear:
-                    dateCondition = "AND YEAR(t.transaction_date) = YEAR(CURDATE())";
+                case DateFilter.AllTime:
+                    dateCondition = ""; // no date filter — fetch everything
                     break;
                 default: // ThisMonth
                     dateCondition = @"AND MONTH(t.transaction_date) = MONTH(CURDATE())
@@ -223,7 +222,8 @@ namespace ShuttleZone.Dashboard1
             switch (_currentFilter)
             {
                 case DateFilter.Today: periodLabel = "today"; break;
-                case DateFilter.ThisYear: periodLabel = "this year"; break;
+                //case DateFilter.ThisYear: periodLabel = "this year"; break;
+                case DateFilter.AllTime: periodLabel = "all time"; break;
                 default: periodLabel = "this month"; break;
             }
 
