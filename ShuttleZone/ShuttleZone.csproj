@@ -538,6 +538,12 @@
     <Compile Include="UserManagementNew\UC_NewAddUser.Designer.cs">
       <DependentUpon>UC_NewAddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserManagementNew\UC_ProfileView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserManagementNew\UC_ProfileView.Designer.cs">
+      <DependentUpon>UC_ProfileView.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserManagementNew\UC_UserManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -557,6 +563,7 @@
       <DependentUpon>UC_UserRow.cs</DependentUpon>
     </Compile>
     <Compile Include="UserManagementNew\UserModel.cs" />
+    <Compile Include="UserManagementNew\UserRepository.cs" />
     <Compile Include="UserSession.cs" />
     <EmbeddedResource Include="CashPayment.resx">
       <DependentUpon>CashPayment.cs</DependentUpon>
@@ -758,6 +765,9 @@
     <EmbeddedResource Include="UserManagementNew\UC_NewAddUser.resx">
       <DependentUpon>UC_NewAddUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserManagementNew\UC_ProfileView.resx">
+      <DependentUpon>UC_ProfileView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserManagementNew\UC_UserManagement.resx">
       <DependentUpon>UC_UserManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -767,6 +777,7 @@
     <EmbeddedResource Include="UserManagementNew\UC_UserRow.resx">
       <DependentUpon>UC_UserRow.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="database\Zild.md" />
     <None Include="database\court_timer.md" />
     <None Include="database\kiosk_table.md" />
     <None Include="database\schema.md" />

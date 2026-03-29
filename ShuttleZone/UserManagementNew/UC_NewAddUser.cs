@@ -60,6 +60,17 @@ namespace ShuttleZone.UserManagement
                 Status = cmbStatus.Text
             };
 
+            // ❌ OLD
+            // UserCreated?.Invoke(this, user);
+
+            // ✅ NEW (SAVE TO DB)
+            var repo = new UserRepository();
+
+            user.ID = "U" + DateTime.Now.Ticks.ToString().Substring(10);
+
+            repo.AddUser(user);
+
+            // keep UI event
             UserCreated?.Invoke(this, user);
 
             MessageBox.Show("User created successfully!");

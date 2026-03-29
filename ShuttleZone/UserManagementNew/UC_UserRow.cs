@@ -7,18 +7,26 @@ namespace ShuttleZone.UserManagement
     {
         public UserModel User { get; set; }
 
+        // ✅ FIX 1: ADD THIS
+        public string Role { get; set; } = "admin";
+
+        // ✅ EVENTS
         public event EventHandler EditClicked;
         public event EventHandler DeleteClicked;
+
+        // ✅ FIX 2: ADD THIS
+        public event EventHandler RestoreClicked;
 
         public UC_UserRow()
         {
             InitializeComponent();
 
-            // Wire local buttons to events
+            // ✅ BUTTON EVENTS
             btnEdit.Click += (s, e) => EditClicked?.Invoke(this, EventArgs.Empty);
             btnDelete.Click += (s, e) => DeleteClicked?.Invoke(this, EventArgs.Empty);
+            btnRestore.Click += (s, e) => RestoreClicked?.Invoke(this, EventArgs.Empty);
 
-            // Populate status combo box (designer must have guna2ComboBox1)
+            // ✅ STATUS DROPDOWN
             guna2ComboBox1.Items.Add("Active");
             guna2ComboBox1.Items.Add("Inactive");
             guna2ComboBox1.SelectedIndexChanged += guna2ComboBox1_SelectedIndexChanged;
@@ -35,8 +43,18 @@ namespace ShuttleZone.UserManagement
             lblRole.Text = User.Role ?? "";
 
             if (!string.IsNullOrEmpty(User.Status))
-            {
                 guna2ComboBox1.SelectedItem = User.Status;
+
+            // ✅ UI LOGIC
+            // 🔥 DEFAULT VISIBILITY (can be overridden outside)
+            btnRestore.Visible = User.Status == "Inactive";
+            btnDelete.Visible = true;
+
+            if (Role != "admin")
+            {
+                btnDelete.Visible = false;
+                btnRestore.Visible = false;
+                btnEdit.Enabled = false;
             }
         }
 
@@ -45,10 +63,19 @@ namespace ShuttleZone.UserManagement
             if (User == null) return;
 
             string selectedStatus = guna2ComboBox1.SelectedItem?.ToString();
+
             if (!string.IsNullOrEmpty(selectedStatus))
             {
                 User.Status = selectedStatus;
+
+                var repo = new UserRepository();
+                repo.UpdateUserStatus(User.ID, selectedStatus);
             }
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -9,8 +9,12 @@ namespace ShuttleZone.UserManagement
     {
         private readonly List<UserModel> _users = new List<UserModel>();
 
-        // ✅ Prevent duplicate profile openings
+        private UserRepository repo = new UserRepository();
+
         private bool isProfileOpen = false;
+
+        // 🔥 ARCHIVE MODE FLAG (LIKE MEMBERSHIP)
+        private bool showingArchived = false;
 
         public UC_UserManagement()
         {
@@ -43,35 +47,22 @@ namespace ShuttleZone.UserManagement
 
         private void UC_UserManagement_Load(object sender, EventArgs e)
         {
-            SeedUsers();
-            RenderUsers(_users);
+            LoadUsersFromDatabase();
         }
 
-        private void SeedUsers()
+        // 🔥 LOAD USERS BASED ON MODE
+        private void LoadUsersFromDatabase()
         {
-            if (_users.Count > 0) return;
+            _users.Clear();
 
-            _users.Add(new UserModel
-            {
-                ID = "1",
-                Username = "admin",
-                FullName = "System Administrator",
-                Email = "admin@shuttlezone.local",
-                Role = "Admin",
-                Status = "Active",
-                Password = "admin"
-            });
+            var allUsers = repo.GetAllUsers();
 
-            _users.Add(new UserModel
-            {
-                ID = "2",
-                Username = "manager",
-                FullName = "Branch Manager",
-                Email = "manager@shuttlezone.local",
-                Role = "Manager",
-                Status = "Active",
-                Password = "manager"
-            });
+            if (showingArchived)
+                _users.AddRange(allUsers.Where(u => u.Status == "Inactive"));
+            else
+                _users.AddRange(allUsers.Where(u => u.Status != "Inactive"));
+
+            RenderUsers(_users);
         }
 
         private void Searchbox_TextChanged(object sender, EventArgs e) => ApplySearch();
@@ -127,97 +118,143 @@ namespace ShuttleZone.UserManagement
 
                 row.UpdateDisplay();
 
-                // ✅ EDIT CLICK
-                row.EditClicked += (s, e) =>
+                if (showingArchived)
                 {
-                    if (isProfileOpen) return; // 🚫 prevent duplicate open
+                    // 🔥 ARCHIVE MODE
 
-                    isProfileOpen = true;
-                    row.Enabled = false; // optional safety
-
-                    var profile = new ShuttleZone.UserManagementNew.UC_UserProfile();
-                    profile.SetUser(user);
-
-                    Form profileModal = new Form
+                    row.EditClicked += (s, e) =>
                     {
-                        FormBorderStyle = FormBorderStyle.None,
-                        StartPosition = FormStartPosition.CenterParent,
-                        ClientSize = profile.Size
+                        MessageBox.Show("Cannot edit archived user.");
                     };
 
-                    profile.Dock = DockStyle.Fill;
-                    profileModal.Controls.Add(profile);
-
-                    // ✅ Reset state when closed
-                    profileModal.FormClosed += (s2, e2) =>
+                    // 🔥 PERMANENT DELETE
+                    row.DeleteClicked += (s, e) =>
                     {
-                        isProfileOpen = false;
-                        row.Enabled = true;
+                        var confirm = MessageBox.Show(
+                            $"Permanently delete {user.Username}?",
+                            "Confirm Delete",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+
+                        if (confirm == DialogResult.Yes)
+                        {
+                            repo.DeleteUserPermanently(user.ID);
+                            LoadUsersFromDatabase();
+                        }
                     };
 
-                    // ✅ OPEN EDIT
-                    profile.EditProfileClicked += (s2, e2) =>
+                    // 🔥 RESTORE
+                    row.RestoreClicked += (s, e) =>
                     {
-                        profileModal.Close();
+                        var confirm = MessageBox.Show(
+                            $"Restore {user.Username}?",
+                            "Confirm",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
 
-                        var edit = new ShuttleZone.UserManagementNew.UC_EditProfileMain(user);
+                        if (confirm == DialogResult.Yes)
+                        {
+                            repo.RestoreUser(user.ID);
 
-                        Form editModal = new Form
+                            // EXIT ARCHIVE MODE (LIKE MEMBERSHIP)
+                            showingArchived = false;
+                            ArchivedBtn.Text = "Show Archived";
+
+                            LoadUsersFromDatabase();
+                        }
+                    };
+                }
+                else
+                {
+                    // 🔥 NORMAL MODE
+
+                    row.EditClicked += (s, e) =>
+                    {
+                        if (isProfileOpen) return;
+
+                        isProfileOpen = true;
+                        row.Enabled = false;
+
+                        var profile = new ShuttleZone.UserManagementNew.UC_UserProfile();
+                        profile.SetUser(user);
+
+                        Form profileModal = new Form
                         {
                             FormBorderStyle = FormBorderStyle.None,
                             StartPosition = FormStartPosition.CenterParent,
-                            ClientSize = edit.Size
+                            ClientSize = profile.Size
                         };
 
-                        edit.Dock = DockStyle.Fill;
-                        editModal.Controls.Add(edit);
+                        profile.Dock = DockStyle.Fill;
+                        profileModal.Controls.Add(profile);
 
-                        // ✅ CHANGE PASSWORD
-                        edit.ChangePasswordClicked += (s3, e3) =>
+                        profileModal.FormClosed += (s2, e2) =>
                         {
-                            var change = new ShuttleZone.UserManagementNew.UC_ChangePassword();
-                            change.SetUser(user);
+                            isProfileOpen = false;
+                            row.Enabled = true;
+                        };
 
-                            Form changeModal = new Form
+                        profile.EditProfileClicked += (s2, e2) =>
+                        {
+                            profileModal.Close();
+
+                            var edit = new ShuttleZone.UserManagementNew.UC_EditProfileMain(user);
+
+                            Form editModal = new Form
                             {
                                 FormBorderStyle = FormBorderStyle.None,
                                 StartPosition = FormStartPosition.CenterParent,
-                                ClientSize = change.Size
+                                ClientSize = edit.Size
                             };
 
-                            change.Dock = DockStyle.Fill;
-                            changeModal.Controls.Add(change);
+                            edit.Dock = DockStyle.Fill;
+                            editModal.Controls.Add(edit);
 
-                            changeModal.ShowDialog();
+                            edit.ChangePasswordClicked += (s3, e3) =>
+                            {
+                                var change = new ShuttleZone.UserManagementNew.UC_ChangePassword();
+                                change.SetUser(user);
+
+                                Form changeModal = new Form
+                                {
+                                    FormBorderStyle = FormBorderStyle.None,
+                                    StartPosition = FormStartPosition.CenterParent,
+                                    ClientSize = change.Size
+                                };
+
+                                change.Dock = DockStyle.Fill;
+                                changeModal.Controls.Add(change);
+
+                                changeModal.ShowDialog();
+                            };
+
+                            edit.FormClosed += (s4, e4) =>
+                            {
+                                LoadUsersFromDatabase();
+                            };
+
+                            editModal.ShowDialog();
                         };
 
-                        // ✅ Refresh AFTER edit closes
-                        edit.FormClosed += (s4, e4) =>
-                        {
-                            RenderUsers(_users);
-                        };
-
-                        editModal.ShowDialog();
+                        profileModal.ShowDialog();
                     };
 
-                    profileModal.ShowDialog();
-                };
-
-                // ✅ DELETE
-                row.DeleteClicked += (s, e) =>
-                {
-                    var confirm = MessageBox.Show(
-                        $"Delete {user.Username}?",
-                        "Confirm",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning);
-
-                    if (confirm == DialogResult.Yes)
+                    // 🔥 DELETE = ARCHIVE
+                    row.DeleteClicked += (s, e) =>
                     {
-                        _users.Remove(user);
-                        RenderUsers(_users);
-                    }
-                };
+                        var confirm = MessageBox.Show(
+                            $"Archive {user.Username}?",
+                            "Confirm",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+
+                        if (confirm == DialogResult.Yes)
+                        {
+                            repo.DeleteUser(user.ID);
+                            LoadUsersFromDatabase();
+                        }
+                    };
+                }
 
                 flpMemberRowContainer.Controls.Add(row);
             }
@@ -250,17 +287,33 @@ namespace ShuttleZone.UserManagement
 
             addControl.UserCreated += (s, newUser) =>
             {
-                newUser.ID = (_users.Count + 1).ToString();
-                _users.Add(newUser);
-                RenderUsers(_users);
+                LoadUsersFromDatabase();
                 modal.Close();
             };
 
             modal.ShowDialog();
         }
 
+        // 🔥 ARCHIVE BUTTON (LIKE MEMBERSHIP)
+        private void ArchivedBtn_Click(object sender, EventArgs e)
+        {
+            showingArchived = !showingArchived;
+
+            ArchivedBtn.Text = showingArchived ? "Hide Archived" : "Show Archived";
+
+            btnAddUser.Enabled = !showingArchived;
+            btnAddUser.FillColor = showingArchived
+                ? System.Drawing.Color.Gray
+                : System.Drawing.Color.FromArgb(152, 16, 250);
+
+            btnAddUser.ForeColor = showingArchived
+                ? System.Drawing.Color.LightGray
+                : System.Drawing.Color.White;
+
+            LoadUsersFromDatabase();
+        }
+
         private void flpMemberRowContainer_Paint(object sender, PaintEventArgs e) { }
         private void ArchivedLbl_Click(object sender, EventArgs e) { }
-        private void ArchivedBtn_Click(object sender, EventArgs e) { }
     }
 }
