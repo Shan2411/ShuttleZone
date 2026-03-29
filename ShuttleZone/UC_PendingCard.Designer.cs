@@ -48,7 +48,9 @@
             // 
             // pnlPendingPayment
             // 
-            this.pnlPendingPayment.BorderRadius = 10;
+            this.pnlPendingPayment.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlPendingPayment.BorderRadius = 14;
+            this.pnlPendingPayment.BorderThickness = 1;
             this.pnlPendingPayment.Controls.Add(this.btnRemove);
             this.pnlPendingPayment.Controls.Add(this.btnPaymentCleared);
             this.pnlPendingPayment.Controls.Add(this.lblPendingTotalAmount);
@@ -61,6 +63,7 @@
             this.pnlPendingPayment.FillColor = System.Drawing.Color.White;
             this.pnlPendingPayment.Location = new System.Drawing.Point(0, 0);
             this.pnlPendingPayment.Name = "pnlPendingPayment";
+            this.pnlPendingPayment.ShadowDecoration.Enabled = true;
             this.pnlPendingPayment.Size = new System.Drawing.Size(334, 336);
             this.pnlPendingPayment.TabIndex = 1;
             // 
@@ -91,6 +94,7 @@
             this.btnPaymentCleared.FillColor = System.Drawing.Color.Green;
             this.btnPaymentCleared.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPaymentCleared.ForeColor = System.Drawing.Color.White;
+            this.btnPaymentCleared.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(0)))));
             this.btnPaymentCleared.Location = new System.Drawing.Point(20, 275);
             this.btnPaymentCleared.Name = "btnPaymentCleared";
             this.btnPaymentCleared.Size = new System.Drawing.Size(209, 45);
@@ -131,15 +135,22 @@
             // 
             // flowPendingItemsContainer
             // 
+            this.flowPendingItemsContainer.AutoScroll = true;
             this.flowPendingItemsContainer.Controls.Add(this.pnlPendingItemRowTemplate);
+            this.flowPendingItemsContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowPendingItemsContainer.Location = new System.Drawing.Point(12, 70);
             this.flowPendingItemsContainer.Name = "flowPendingItemsContainer";
+            this.flowPendingItemsContainer.Padding = new System.Windows.Forms.Padding(4);
             this.flowPendingItemsContainer.Size = new System.Drawing.Size(310, 166);
             this.flowPendingItemsContainer.TabIndex = 35;
+            this.flowPendingItemsContainer.WrapContents = false;
             // 
             // pnlPendingItemRowTemplate
             // 
             this.pnlPendingItemRowTemplate.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlPendingItemRowTemplate.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlPendingItemRowTemplate.BorderRadius = 8;
+            this.pnlPendingItemRowTemplate.BorderThickness = 1;
             this.pnlPendingItemRowTemplate.Controls.Add(this.lblItemQty);
             this.pnlPendingItemRowTemplate.Controls.Add(this.lblItemPrice);
             this.pnlPendingItemRowTemplate.Controls.Add(this.lblItemName);

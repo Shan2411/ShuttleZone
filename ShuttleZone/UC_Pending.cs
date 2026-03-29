@@ -89,7 +89,7 @@ namespace ShuttleZone
                 flpPendingRoot.Controls.Add(card);
             }
 
-            guna2HtmlLabel2.Text = stubs.Count.ToString();
+            guna2HtmlLabel2.Text = string.Format("{0} Pending", stubs.Count);
         }
     }
 }
