@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShuttleZone.UserManagementNew;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -198,7 +199,7 @@ namespace ShuttleZone.UserManagement
                         {
                             profileModal.Close();
 
-                            var edit = new ShuttleZone.UserManagementNew.UC_EditProfileMain(user);
+                            var edit = new UC_EditProfileMain(user);
 
                             Form editModal = new Form
                             {

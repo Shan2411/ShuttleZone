@@ -1,6 +1,7 @@
-﻿using System;
+﻿using ShuttleZone.UserManagement;
+using System;
+using System.Linq;
 using System.Windows.Forms;
-using ShuttleZone.UserManagement;
 
 namespace ShuttleZone.UserManagementNew
 {
@@ -34,46 +35,79 @@ namespace ShuttleZone.UserManagementNew
         // =========================
         // ✅ MAIN ACTION
         // =========================
+
         private void ConfirmEdit_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCurrentPassword.Text) ||
-                string.IsNullOrWhiteSpace(txtNewPassword.Text) ||
-                string.IsNullOrWhiteSpace(txtConfirmPassword.Text))
-            {
-                MessageBox.Show("Please fill all fields.");
-                return;
-            }
+            if (!ValidateFields()) return;
 
-            if (txtNewPassword.Text.Length < 6)
-            {
-                MessageBox.Show("Password must be at least 6 characters.");
-                return;
-            }
-
-            if (txtNewPassword.Text != txtConfirmPassword.Text)
-            {
-                MessageBox.Show("Passwords do not match.");
-                return;
-            }
-
-            // ❌ OLD
-            // MessageBox.Show("Password changed successfully!");
-
-            // ✅ NEW
             var repo = new ShuttleZone.UserManagement.UserRepository();
 
-            if (CurrentUser.Password != txtCurrentPassword.Text)
+            // 🔥 GET FRESH USER FROM DB
+            var dbUser = repo.GetAllUsers()
+                             .FirstOrDefault(u => u.ID == CurrentUser.ID);
+
+            if (dbUser == null)
+            {
+                MessageBox.Show("User not found.");
+                return;
+            }
+
+            // ✅ CORRECT VALIDATION
+            if (dbUser.Password != txtCurrentPassword.Text)
             {
                 MessageBox.Show("Current password is incorrect.");
                 return;
             }
 
+            // ✅ UPDATE PASSWORD
             repo.ChangePassword(CurrentUser.ID, txtNewPassword.Text);
 
             CurrentUser.Password = txtNewPassword.Text;
 
             MessageBox.Show("Password changed successfully!");
+
+            this.FindForm()?.Close(); // optional close
         }
+        /* private void ConfirmEdit_Click(object sender, EventArgs e)
+         {
+             if (string.IsNullOrWhiteSpace(txtCurrentPassword.Text) ||
+                 string.IsNullOrWhiteSpace(txtNewPassword.Text) ||
+                 string.IsNullOrWhiteSpace(txtConfirmPassword.Text))
+             {
+                 MessageBox.Show("Please fill all fields.");
+                 return;
+             }
+
+             if (txtNewPassword.Text.Length < 6)
+             {
+                 MessageBox.Show("Password must be at least 6 characters.");
+                 return;
+             }
+
+             if (txtNewPassword.Text != txtConfirmPassword.Text)
+             {
+                 MessageBox.Show("Passwords do not match.");
+                 return;
+             }
+
+             // ❌ OLD
+             // MessageBox.Show("Password changed successfully!");
+
+             // ✅ NEW
+             var repo = new ShuttleZone.UserManagement.UserRepository();
+
+             if (CurrentUser.Password != txtCurrentPassword.Text)
+             {
+                 MessageBox.Show("Current password is incorrect.");
+                 return;
+             }
+
+             repo.ChangePassword(CurrentUser.ID, txtNewPassword.Text);
+
+             CurrentUser.Password = txtNewPassword.Text;
+
+             MessageBox.Show("Password changed successfully!");
+         }*/
 
         // =========================
         // ✅ VALIDATION (LIKE YOUR STYLE)

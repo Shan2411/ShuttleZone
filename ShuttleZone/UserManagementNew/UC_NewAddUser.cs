@@ -54,7 +54,8 @@ namespace ShuttleZone.UserManagement
                 Username = txtUsername.Text,
                 FullName = txtFullName.Text,
                 Email = txtEmail.Text,
-                Phone = txtPhone.Text,
+                //Phone = txtPhone.Text,
+                PhoneNumber = txtPhone.Text,
                 Password = txtPassword.Text,
                 Role = cmbRole.Text,
                 Status = cmbStatus.Text

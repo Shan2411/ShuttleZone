@@ -26,6 +26,7 @@ namespace ShuttleZone.UserManagement
                             Username = reader["username"].ToString(),
                             FullName = reader["full_name"].ToString(),
                             Email = reader["email"].ToString(),
+                            PhoneNumber = reader["phone"]?.ToString(), // ✅ FIX
                             Role = reader["role"].ToString(),
                             Status = reader["status"].ToString(),
                             Password = reader["password"].ToString(),
@@ -44,8 +45,8 @@ namespace ShuttleZone.UserManagement
             using (var conn = DBconnection.GetConnection())
             {
                 string query = @"INSERT INTO users 
-                (id, username, full_name, email, role, status, password, profile_image)
-                VALUES (@id, @username, @fullName, @email, @role, @status, @password, @image)";
+        (id, username, full_name, email, phone, role, status, password, profile_image)
+        VALUES (@id, @username, @fullName, @email, @phone, @role, @status, @password, @image)";
 
                 using (var cmd = new MySqlCommand(query, conn))
                 {
@@ -53,6 +54,7 @@ namespace ShuttleZone.UserManagement
                     cmd.Parameters.AddWithValue("@username", user.Username);
                     cmd.Parameters.AddWithValue("@fullName", user.FullName);
                     cmd.Parameters.AddWithValue("@email", user.Email);
+                    cmd.Parameters.AddWithValue("@phone", user.PhoneNumber ?? ""); // ✅ FIX
                     cmd.Parameters.AddWithValue("@role", user.Role);
                     cmd.Parameters.AddWithValue("@status", user.Status ?? "Active");
                     cmd.Parameters.AddWithValue("@password", user.Password);
@@ -115,13 +117,14 @@ namespace ShuttleZone.UserManagement
             using (var conn = DBconnection.GetConnection())
             {
                 string query = @"UPDATE users 
-                                 SET username=@username,
-                                     full_name=@fullName,
-                                     email=@email,
-                                     role=@role,
-                                     status=@status,
-                                     profile_image=@image
-                                 WHERE id=@id";
+                         SET username=@username,
+                             full_name=@fullName,
+                             email=@email,
+                             phone=@phone,
+                             role=@role,
+                             status=@status,
+                             profile_image=@image
+                         WHERE id=@id";
 
                 using (var cmd = new MySqlCommand(query, conn))
                 {
@@ -129,6 +132,7 @@ namespace ShuttleZone.UserManagement
                     cmd.Parameters.AddWithValue("@username", user.Username);
                     cmd.Parameters.AddWithValue("@fullName", user.FullName);
                     cmd.Parameters.AddWithValue("@email", user.Email);
+                    cmd.Parameters.AddWithValue("@phone", user.PhoneNumber ?? ""); // ✅ FIX
                     cmd.Parameters.AddWithValue("@role", user.Role);
                     cmd.Parameters.AddWithValue("@status", user.Status);
                     cmd.Parameters.AddWithValue("@image", user.ProfileImagePath ?? "");

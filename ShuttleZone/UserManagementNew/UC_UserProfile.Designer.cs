@@ -79,6 +79,7 @@
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel20 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.SaveButton = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.BottomtableLayoutPanel.SuspendLayout();
@@ -164,6 +165,7 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.12374F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.87626F));
+            this.tableLayoutPanel2.Controls.Add(this.SaveButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.ConfirmEdit, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(287, 13);
@@ -725,6 +727,25 @@
             this.guna2CirclePictureBox1.TabIndex = 4;
             this.guna2CirclePictureBox1.TabStop = false;
             // 
+            // SaveButton
+            // 
+            this.SaveButton.BorderRadius = 8;
+            this.SaveButton.BorderThickness = 1;
+            this.SaveButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SaveButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SaveButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SaveButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SaveButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SaveButton.FillColor = System.Drawing.Color.White;
+            this.SaveButton.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveButton.ForeColor = System.Drawing.Color.Black;
+            this.SaveButton.Location = new System.Drawing.Point(3, 3);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(79, 28);
+            this.SaveButton.TabIndex = 3;
+            this.SaveButton.Text = "Save";
+            // 
             // UC_UserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -831,5 +852,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2Button SaveButton;
     }
 }

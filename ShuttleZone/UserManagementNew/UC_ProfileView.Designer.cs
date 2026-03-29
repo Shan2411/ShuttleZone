@@ -44,8 +44,6 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2Panel19 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel18 = new Guna.UI2.WinForms.Guna2Panel();
             this.Status = new System.Windows.Forms.Label();
             this.guna2Panel17 = new Guna.UI2.WinForms.Guna2Panel();
@@ -88,7 +86,6 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            this.guna2Panel19.SuspendLayout();
             this.guna2Panel18.SuspendLayout();
             this.guna2Panel17.SuspendLayout();
             this.guna2Panel16.SuspendLayout();
@@ -337,7 +334,6 @@
             this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.43137F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.56863F));
-            this.tableLayoutPanel5.Controls.Add(this.guna2Panel19, 1, 6);
             this.tableLayoutPanel5.Controls.Add(this.guna2Panel18, 0, 6);
             this.tableLayoutPanel5.Controls.Add(this.guna2Panel17, 1, 5);
             this.tableLayoutPanel5.Controls.Add(this.guna2Panel16, 0, 5);
@@ -364,30 +360,6 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(510, 311);
             this.tableLayoutPanel5.TabIndex = 3;
-            // 
-            // guna2Panel19
-            // 
-            this.guna2Panel19.Controls.Add(this.guna2ComboBox1);
-            this.guna2Panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel19.Location = new System.Drawing.Point(147, 267);
-            this.guna2Panel19.Name = "guna2Panel19";
-            this.guna2Panel19.Size = new System.Drawing.Size(360, 41);
-            this.guna2Panel19.TabIndex = 13;
-            // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(188, 36);
-            this.guna2ComboBox1.TabIndex = 11;
             // 
             // guna2Panel18
             // 
@@ -718,7 +690,6 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.guna2Panel5.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
-            this.guna2Panel19.ResumeLayout(false);
             this.guna2Panel18.ResumeLayout(false);
             this.guna2Panel18.PerformLayout();
             this.guna2Panel17.ResumeLayout(false);
@@ -770,8 +741,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel19;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel18;
         private System.Windows.Forms.Label Status;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel17;

@@ -34,19 +34,17 @@ namespace ShuttleZone.UserManagement
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_UserRow));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.Statuslbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnRestore = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btnDelete = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btnEdit = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblUsername = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblID = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblRole = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblFullName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblEmail = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnRestore = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnDelete = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnEdit = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
@@ -79,6 +77,7 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.669633F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.669633F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.669633F));
+            this.tableLayoutPanel3.Controls.Add(this.Statuslbl, 5, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnRestore, 8, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnDelete, 7, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnEdit, 6, 0);
@@ -87,7 +86,6 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel3.Controls.Add(this.lblRole, 4, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblFullName, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblEmail, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.guna2Panel2, 5, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -96,6 +94,60 @@ namespace ShuttleZone.UserManagement
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1217, 45);
             this.tableLayoutPanel3.TabIndex = 4;
+            // 
+            // Statuslbl
+            // 
+            this.Statuslbl.AutoSize = false;
+            this.Statuslbl.BackColor = System.Drawing.Color.Transparent;
+            this.Statuslbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Statuslbl.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Statuslbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
+            this.Statuslbl.Location = new System.Drawing.Point(983, 12);
+            this.Statuslbl.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.Statuslbl.Name = "Statuslbl";
+            this.Statuslbl.Size = new System.Drawing.Size(83, 21);
+            this.Statuslbl.TabIndex = 13;
+            this.Statuslbl.Text = "STATUS";
+            // 
+            // btnRestore
+            // 
+            this.btnRestore.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRestore.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRestore.BackgroundImage")));
+            this.btnRestore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRestore.FillColor = System.Drawing.Color.Transparent;
+            this.btnRestore.ImageRotate = 0F;
+            this.btnRestore.Location = new System.Drawing.Point(1178, 10);
+            this.btnRestore.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Size = new System.Drawing.Size(27, 25);
+            this.btnRestore.TabIndex = 12;
+            this.btnRestore.TabStop = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.BackgroundImage")));
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDelete.FillColor = System.Drawing.Color.Transparent;
+            this.btnDelete.ImageRotate = 0F;
+            this.btnDelete.Location = new System.Drawing.Point(1133, 10);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(10);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(24, 22);
+            this.btnDelete.TabIndex = 9;
+            this.btnDelete.TabStop = false;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEdit.BackgroundImage")));
+            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEdit.FillColor = System.Drawing.Color.Transparent;
+            this.btnEdit.ImageRotate = 0F;
+            this.btnEdit.Location = new System.Drawing.Point(1089, 10);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(10);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(24, 22);
+            this.btnEdit.TabIndex = 8;
+            this.btnEdit.TabStop = false;
             // 
             // lblUsername
             // 
@@ -167,76 +219,6 @@ namespace ShuttleZone.UserManagement
             this.lblEmail.TabIndex = 3;
             this.lblEmail.Text = "EMAIL";
             // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.Controls.Add(this.guna2ComboBox1);
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel2.Location = new System.Drawing.Point(970, 0);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Padding = new System.Windows.Forms.Padding(5, 0, 5, 5);
-            this.guna2Panel2.Size = new System.Drawing.Size(109, 45);
-            this.guna2Panel2.TabIndex = 10;
-            // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 12;
-            this.guna2ComboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(5, 0);
-            this.guna2ComboBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(99, 36);
-            this.guna2ComboBox1.TabIndex = 11;
-            this.guna2ComboBox1.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged_1);
-            // 
-            // btnRestore
-            // 
-            this.btnRestore.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRestore.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRestore.BackgroundImage")));
-            this.btnRestore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRestore.FillColor = System.Drawing.Color.Transparent;
-            this.btnRestore.ImageRotate = 0F;
-            this.btnRestore.Location = new System.Drawing.Point(1178, 10);
-            this.btnRestore.Margin = new System.Windows.Forms.Padding(4);
-            this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(27, 25);
-            this.btnRestore.TabIndex = 12;
-            this.btnRestore.TabStop = false;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.BackgroundImage")));
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDelete.FillColor = System.Drawing.Color.Transparent;
-            this.btnDelete.ImageRotate = 0F;
-            this.btnDelete.Location = new System.Drawing.Point(1133, 10);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(10);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(24, 22);
-            this.btnDelete.TabIndex = 9;
-            this.btnDelete.TabStop = false;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEdit.BackgroundImage")));
-            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEdit.FillColor = System.Drawing.Color.Transparent;
-            this.btnEdit.ImageRotate = 0F;
-            this.btnEdit.Location = new System.Drawing.Point(1089, 10);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(10);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(24, 22);
-            this.btnEdit.TabIndex = 8;
-            this.btnEdit.TabStop = false;
-            // 
             // UC_UserRow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -249,7 +231,6 @@ namespace ShuttleZone.UserManagement
             this.Size = new System.Drawing.Size(1217, 55);
             this.guna2Panel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnRestore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
@@ -288,8 +269,7 @@ namespace ShuttleZone.UserManagement
         private Guna.UI2.WinForms.Guna2HtmlLabel lblRole;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblFullName;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblEmail;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2PictureBox btnRestore;
+        private Guna.UI2.WinForms.Guna2HtmlLabel Statuslbl;
     }
 }

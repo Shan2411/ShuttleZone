@@ -37,10 +37,10 @@ namespace ShuttleZone.UserManagementNew
             lblPhone.Text = currentUser.PhoneNumber ?? "No Phone";
             lblRole.Text = currentUser.Role ?? "No Role";
 
-            guna2ComboBox1.SelectedItem = currentUser.Status;
-
+            //guna2ComboBox1.SelectedItem = currentUser.Status;
+            //
             // Disable editing
-            guna2ComboBox1.Enabled = false;
+            //guna2ComboBox1.Enabled = false;
 
             // Load image
             if (!string.IsNullOrEmpty(currentUser.ProfileImagePath))

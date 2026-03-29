@@ -51,6 +51,7 @@
             this.FullName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Email = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.flpMemberRowContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.PanelTitle.SuspendLayout();
@@ -125,6 +126,7 @@
             // 
             // PanelTitle
             // 
+            this.PanelTitle.Controls.Add(this.guna2ComboBox2);
             this.PanelTitle.Controls.Add(this.Title);
             this.PanelTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelTitle.Location = new System.Drawing.Point(3, 2);
@@ -422,6 +424,24 @@
             this.flpMemberRowContainer.TabIndex = 1;
             this.flpMemberRowContainer.WrapContents = false;
             // 
+            // guna2ComboBox2
+            // 
+            this.guna2ComboBox2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox2.BorderRadius = 12;
+            this.guna2ComboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox2.ForeColor = System.Drawing.Color.Black;
+            this.guna2ComboBox2.ItemHeight = 30;
+            this.guna2ComboBox2.Location = new System.Drawing.Point(5, 5);
+            this.guna2ComboBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2ComboBox2.Name = "guna2ComboBox2";
+            this.guna2ComboBox2.Size = new System.Drawing.Size(484, 36);
+            this.guna2ComboBox2.TabIndex = 13;
+            // 
             // UC_Archive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -467,5 +487,6 @@
         private System.Windows.Forms.FlowLayoutPanel flpMemberRowContainer;
         private Guna.UI2.WinForms.Guna2HtmlLabel ArchivedLbl;
         private Guna.UI2.WinForms.Guna2Button ArchivedBtn;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox2;
     }
 }
