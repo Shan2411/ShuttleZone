@@ -70,17 +70,17 @@ CREATE TABLE IF NOT EXISTS members (
 -- 🔥 REMOVE EXISTING MEMBERS (prevents duplicates if script is rerun)
 DELETE FROM `members`;
 
--- ✅ Premade members (based on your pricing/duration system)
+-- ✅ Premade members with only 1 month or 12 months membership
 INSERT INTO `members`
 (`member_code`, `name`, `email`, `phone`, `membership_type`, `expiry_date`, `join_date`, `is_archived`)
 VALUES
 ('M001', 'Juan Dela Cruz', 'juan@gmail.com', '09171234567', '1 month (Php 500)', '2025-04-29', '2025-03-29', 0),
-('M002', 'Maria Santos', 'maria@gmail.com', '09181234567', '3 months (Php 1,410)', '2026-06-29', '2026-03-29', 0),
-('M003', 'Carlos Reyes', 'carlos@gmail.com', '09191234567', '6 months (Php 2,775)', '2026-09-29', '2026-03-29', 0),
+('M002', 'Maria Santos', 'maria@gmail.com', '09181234567', '12 months (Php 4,500)', '2026-03-29', '2026-03-29', 0),
+('M003', 'Carlos Reyes', 'carlos@gmail.com', '09191234567', '12 months (Php 4,500)', '2026-03-29', '2026-03-29', 0),
 ('M004', 'Angela Cruz', 'angela@gmail.com', '09201234567', '12 months (Php 4,500)', '2027-03-29', '2026-03-29', 0),
-('M005', 'Mark Aquino', 'mark@gmail.com', '09211234567', '2 months (Php 955)', '2026-05-29', '2026-03-29', 0),
-('M006', 'Liza Mendoza', 'liza@gmail.com', '09221234567', '4 months (Php 1,865)', '2026-07-29', '2026-03-29', 0),
-('M007', 'Kevin Tan', 'kevin@gmail.com', '09231234567', '9 months (Php 4,140)', '2026-12-29', '2026-03-29', 0);
+('M005', 'Mark Aquino', 'mark@gmail.com', '09211234567', '1 month (Php 500)', '2026-04-29', '2026-03-29', 0),
+('M006', 'Liza Mendoza', 'liza@gmail.com', '09221234567', '12 months (Php 4,500)', '2027-03-29', '2026-03-29', 0),
+('M007', 'Kevin Tan', 'kevin@gmail.com', '09231234567', '12 months (Php 4,500)', '2027-03-29', '2026-03-29', 0);
 
 -- Simple users table (replace the previous Users/Roles section)
 -- USERS   Uses a string id like 'U001' to avoid GENERATED columns/triggers and keep everything simple.

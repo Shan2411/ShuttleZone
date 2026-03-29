@@ -595,35 +595,61 @@ namespace ShuttleZone
 
         }
 
+        // =================== CASH PAYMENT ===================
         private void btnCashPayment_Click(object sender, EventArgs e)
         {
             decimal total = decimal.Parse(lblTotal.Text.Replace("₱", "").Trim());
 
-            // Save transaction to history
+            // 1️⃣ Take a snapshot of the cart BEFORE clearing it
+            var cartSnapshot = new List<CartItem>(CartItems);
+
+            // 2️⃣ Save transaction to DB (this will clear CartItems)
             SaveTransactionToHistory("Cash", "Frontdesk");
 
-            // Trigger event to notify RentHistory
+            // 3️⃣ Notify RentHistory
             PaymentCompleted?.Invoke(this, EventArgs.Empty);
 
-            // Open cash payment dialog
-            CashPayment cp = new CashPayment(total, CartItems);
+            // 4️⃣ Open cash payment dialog, pass the snapshot for receipt
+            CashPayment cp = new CashPayment(total, cartSnapshot);
             cp.ShowDialog();
         }
 
+
+        // =================== E-CASH PAYMENT ===================
         private void BtnEcashPayment_Click(object sender, EventArgs e)
         {
             decimal total = decimal.Parse(lblTotal.Text.Replace("₱", "").Trim());
 
-            // Save transaction to history
+            // Take snapshot BEFORE clearing
+            var cartSnapshot = new List<CartItem>(CartItems);
+
+            // Save transaction
             SaveTransactionToHistory("E-Cash");
 
-            // Trigger event to notify RentHistory
+            // Trigger RentHistory update
             PaymentCompleted?.Invoke(this, EventArgs.Empty);
 
-            // Open e-cash dialog
+            // Open e-cash dialog, pass the snapshot to ShowReceipt
             var ecash = new EcashQR(total);
-            ecash.PaymentCompleted += (s, args) => ShowReceipt(total);
+            ecash.PaymentCompleted += (s, args) => ShowReceipt(total, cartSnapshot);
             ecash.ShowDialog();
+        }
+
+
+        // =================== SHOW RECEIPT ===================
+        private void ShowReceipt(decimal amountReceived, List<CartItem> cartSnapshot)
+        {
+            int courtHours = cartSnapshot.FirstOrDefault(c => c.Name.StartsWith("Court"))?.Qty ?? 0;
+
+            var receiptForm = new ReceiptForm(
+                cartSnapshot,
+                amountReceived,
+                "E-Cash",
+                DateTime.Now,
+                courtHours
+            );
+
+            receiptForm.Show();
         }
 
         private void ShowReceipt(decimal amountReceived)
