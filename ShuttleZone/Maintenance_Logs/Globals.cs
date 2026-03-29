@@ -468,5 +468,45 @@ namespace ShuttleZone.Maintenance_Logs
         }
 
 
+        // gets the price of the courts, vat, and discount from the database to use in the maintenance logs form
+
+        public static void LoadSettingsFromDB()
+        {
+            try
+            {
+                using (MySqlConnection conn = DBconnection.GetConnection())
+                {
+                    // Grab price_per_hour, VAT_rate, member_discount from the first court
+                    // (since all courts share the same values in your setup)
+                    string query = @"
+                SELECT price_per_hour, VAT_rate, member_discount 
+                FROM courts 
+                LIMIT 1";
+
+                    using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn))
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            courtPrice = reader["price_per_hour"].ToString();
+                            vat = reader["VAT_rate"].ToString();
+                            mambershipDiscount = reader["member_discount"].ToString();
+                        }
+                    }
+
+                    // Membership prices — query your memberships table here if you have one
+                    // For now, these stay as defaults unless you add a memberships table
+                    // membershipPrice1Month = ...
+                    // membershipPrice1Year  = ...
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to load settings from database:\n{ex.Message}",
+                    "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
     }
 }

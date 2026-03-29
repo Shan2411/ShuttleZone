@@ -60,6 +60,7 @@ namespace ShuttleZone
 
             btnEcashPayment.Click += BtnEcashPayment_Click;
 
+            LabelChangeAndDBLoad();
         }
 
         private bool CanCheckoutCourt(string courtName, out string warningMessage)
@@ -112,8 +113,10 @@ namespace ShuttleZone
                 return;
             }
 
+            decimal price = decimal.TryParse(Globals.courtPrice, out decimal p) ? p : 250;
+
             RemoveExistingCourt();
-            flowCart.Controls.Add(CloneCartItemPanel(courtName, 250));
+            flowCart.Controls.Add(CloneCartItemPanel(courtName, price));
             UpdateCartTotals();
         }
 
@@ -440,9 +443,13 @@ namespace ShuttleZone
             var panel = sender as Guna2Panel;
             string itemName = panel.Tag.ToString();
 
-            RemoveExistingMembership();   // 👈 single-select logic
+            RemoveExistingMembership();
 
-            decimal price = itemName == "1 Month Membership" ? 500 : 4500;
+            decimal price = 0;
+            if (itemName == "1 Month Membership")
+                decimal.TryParse(Globals.membershipPrice1Month, out price);
+            else
+                decimal.TryParse(Globals.membershipPrice1Year, out price);
 
             flowCart.Controls.Add(CloneCartItemPanel(itemName, price));
             UpdateCartTotals();
@@ -499,23 +506,50 @@ namespace ShuttleZone
                 return;
             }
 
-            // 🎯 Your Member Codes
-            if (code == "M#0001") appliedDiscountPercent = 10;
-            else if (code == "M#0002") appliedDiscountPercent = 15;
-            else if (code == "M#0003") appliedDiscountPercent = 20;
-            else
+            // Validate code against DB — single discount % for all valid members
+            bool isValid = ValidateMemberCode(code);
+
+            if (!isValid)
             {
                 MessageBox.Show("Invalid member code.");
                 return;
             }
 
-            // ✅ SUCCESS
+            // Pull discount % from Globals (loaded from DB)
+            decimal.TryParse(Globals.mambershipDiscount, out appliedDiscountPercent);
+
             ApplyDiscount();
 
             lblDiscountApplied.Text = $"Member Code {code} Applied ({appliedDiscountPercent}% OFF)";
             pnlDiscountApplied.Visible = true;
 
             txtMemberCode.Text = "";
+        }
+
+        private bool ValidateMemberCode(string code)
+        {
+            try
+            {
+                using (MySqlConnection conn = DBconnection.GetConnection())
+                {
+
+
+                    string query = "SELECT COUNT(*) FROM members WHERE member_code = @code";
+
+                    using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@code", code);
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+                        return count > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to validate member code:\n{ex.Message}",
+                    "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
         private void btnRemoveDiscount_Click(object sender, EventArgs e)
@@ -592,6 +626,23 @@ namespace ShuttleZone
         {
 
         }
+
+        private void LabelChangeAndDBLoad() {
+
+            // load court prices from db
+            Globals.LoadSettingsFromDB();
+            
+            //update labels
+            lblCourtAPrice.Text = $"₱{Globals.courtPrice}/hour";
+            lblCourtBPrice.Text = $"₱{Globals.courtPrice}/hour";
+            lblCourtCPrice.Text = $"₱{Globals.courtPrice}/hour";
+            lblCourtDPrice.Text = $"₱{Globals.courtPrice}/hour";
+
+            lblMembership2Price.Text = $"₱{Globals.membershipPrice1Year}";
+            lblMembership1Price.Text = $"₱{Globals.membershipPrice1Month}";
+
+        }
+
     }
 }
 

@@ -161,6 +161,7 @@
             this.label2.Size = new System.Drawing.Size(102, 22);
             this.label2.TabIndex = 4;
             this.label2.Text = "View All -->";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // flowLayoutPanel2
             // 

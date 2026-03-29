@@ -45,21 +45,21 @@ namespace ShuttleZone.Dashboard1
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             _currentFilter = DateFilter.Today;
-            HighlightActiveButton(guna2Button1);
+            //HighlightActiveButton(guna2Button1);
             LoadUtilizationData();
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             _currentFilter = DateFilter.ThisMonth;
-            HighlightActiveButton(guna2Button2);
+            //HighlightActiveButton(guna2Button2);
             LoadUtilizationData();
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             _currentFilter = DateFilter.ThisYear;
-            HighlightActiveButton(guna2Button3);
+            //HighlightActiveButton(guna2Button3);
             LoadUtilizationData();
         }
 

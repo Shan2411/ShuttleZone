@@ -187,15 +187,36 @@
 
             // ================= DASHBOARDS =================
 
-            private void AdminDashboardBtn_Click(object sender, EventArgs e)
+        private void AdminDashboardBtn_Click(object sender, EventArgs e)
+        {
+            LoadView<AdminDashboard>();
+
+            LoadView<AdminDashboard>();
+
+            if (_views[typeof(AdminDashboard)] is AdminDashboard dashboard)
             {
-                LoadView<AdminDashboard>();
+                dashboard.QuickActionReportsClicked -= ReportsBtn_Click;
+                dashboard.QuickActionReportsClicked += ReportsBtn_Click;
             }
 
-            private void FrontDeskDashboardBtn_Click(object sender, EventArgs e)
+        }
+
+        private void FrontDeskDashboardBtn_Click(object sender, EventArgs e)
+        {
+            LoadView<FrontDeskDashboard>();
+
+
+            // Hook quick action events after the view is loaded
+            if (_views[typeof(FrontDeskDashboard)] is FrontDeskDashboard dashboard)
             {
-                LoadView<FrontDeskDashboard>();
+                dashboard.QuickActionPOSClicked -= POSBtn_Click; // prevent double-hooking
+                dashboard.QuickActionPendingClicked -= PendingPaymentsBtn_Click;
+
+                dashboard.QuickActionPOSClicked += POSBtn_Click;
+                dashboard.QuickActionPendingClicked += PendingPaymentsBtn_Click;
             }
+
+        }
 
             private void ManagerDashboardBtn_Click(object sender, EventArgs e)
             {

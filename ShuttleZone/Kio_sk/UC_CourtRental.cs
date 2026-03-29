@@ -1,13 +1,14 @@
-﻿using System;
+﻿using ShuttleZone.Maintenance_Logs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Globalization;
 
 namespace ShuttleZone
 {
@@ -17,8 +18,15 @@ namespace ShuttleZone
 
         public UC_CourtRental()
         {
+
+            Globals.LoadSettingsFromDB();
+
             InitializeComponent();
             btnKioskStartRental.Click += BtnKioskStartRental_Click;
+
+            // Pull court price from Globals into the label
+            if (decimal.TryParse(Globals.courtPrice, out decimal price))
+                lblKioskCourtPrice.Text = $"₱{price}";
         }
 
         private void BtnKioskStartRental_Click(object sender, EventArgs e)

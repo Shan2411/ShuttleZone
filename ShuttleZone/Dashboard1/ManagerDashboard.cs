@@ -129,10 +129,10 @@ namespace ShuttleZone.Dashboard1
             flowLayoutPanel2.Controls.Clear();
 
             flowLayoutPanel1.Controls.AddRange(new Control[] {
+                new Card_Dashboard("Today's Transactions"),
                 new Card_Dashboard("Today's Revenue"),
                 new Card_Dashboard("Average Monthly Revenue"),
-                new Card_Dashboard("Active Members"),
-                new Card_Dashboard("Equipment Available")
+                new Card_Dashboard("Active Members")
             });
 
                     flowLayoutPanel2.Controls.AddRange(new Control[] {

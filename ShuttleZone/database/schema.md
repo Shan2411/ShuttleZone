@@ -36,13 +36,13 @@ INSERT INTO `courts` (
     `member_discount`
 ) VALUES 
 -- Court A:
-('1', 'Court A', 'Under Maintenance', 35.00, 15.00, 15.00),
+('1', 'Court A', 'Under Maintenance', 250.00, 15.00, 15.00),
 
 -- Court B: 
 ('2', 'Court B', 'Out of Service', 25.00, 15.00, 10.00),
 
 -- Court C: 
-('3', 'Court C', 'Operational', 15.00, 15.00, 5.00),
+('3', 'Court C', 'Operational', 250.00, 15.00, 5.00),
 
 -- Court D: 
 ('1024', 'Court D', 'Under Maintenance', 20.00, 15.00, 10.00);
@@ -140,3 +140,25 @@ INSERT INTO `equipment` (`Id`, `Name`, `Category`, `Total`, `Available`, `Rented
 -- Optional: basic index on Category and Status to speed searches
 CREATE INDEX IF NOT EXISTS `idx_equipment_category` ON `equipment`(`Category`);
 CREATE INDEX IF NOT EXISTS `idx_equipment_status` ON `equipment`(`Status`);
+
+
+
+
+-- Creates Membership Prices table to store and update the pricing for membership
+
+CREATE TABLE membership_prices (
+    id              INT(11)         NOT NULL AUTO_INCREMENT,
+    plan_name       VARCHAR(50)     NOT NULL,
+    duration_months INT(11)         NOT NULL,
+    price           DECIMAL(8,2)    NOT NULL,
+    discount_percent DECIMAL(5,2)   NOT NULL DEFAULT 0.00,
+    created_at      DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at      DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+-- Insert your two plans
+INSERT INTO membership_prices (plan_name, duration_months, price, discount_percent)
+VALUES 
+    ('1 Month Membership',  1,  500.00, 10.00),
+    ('12 Months Membership', 12, 4500.00, 10.00);
