@@ -881,5 +881,14 @@
   <ItemGroup>
     <None Include="Resources\inuse.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Peso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Transaction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Kiosk.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

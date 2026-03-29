@@ -133,6 +133,16 @@ namespace ShuttleZone.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dashboard_Kiosk {
+            get {
+                object obj = ResourceManager.GetObject("Dashboard_Kiosk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dashboard_Money {
             get {
                 object obj = ResourceManager.GetObject("Dashboard_Money", resourceCulture);
@@ -153,6 +163,16 @@ namespace ShuttleZone.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dashboard_Peso {
+            get {
+                object obj = ResourceManager.GetObject("Dashboard_Peso", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dashboard_Receipt {
             get {
                 object obj = ResourceManager.GetObject("Dashboard_Receipt", resourceCulture);
@@ -166,6 +186,16 @@ namespace ShuttleZone.Properties {
         internal static System.Drawing.Bitmap Dashboard_Time {
             get {
                 object obj = ResourceManager.GetObject("Dashboard_Time", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dashboard_Transaction {
+            get {
+                object obj = ResourceManager.GetObject("Dashboard_Transaction", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
