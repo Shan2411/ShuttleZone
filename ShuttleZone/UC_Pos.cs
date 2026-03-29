@@ -8,13 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
+using MySql.Data.MySqlClient;
 using ShuttleZone.Maintenance_Logs;
+using ShuttleZone.database;
 
 
 namespace ShuttleZone
 {
     public partial class UC_Pos : UserControl
     {
+        private sealed class PosEquipmentDisplay
+        {
+            public string Name { get; set; }
+            public string Category { get; set; }
+            public int Available { get; set; }
+            public decimal Price { get; set; }
+        }
+
         private decimal appliedDiscountPercent = 0;
 
         private List<CartItem> CartItems = new List<CartItem>();
@@ -27,15 +37,7 @@ namespace ShuttleZone
 
         private void UC_Pos_Load(object sender, EventArgs e)
         {
-            pnlEquipment1.Click += Equipment_Click;
-            pnlEquipment2.Click += Equipment_Click;
-            pnlEquipment3.Click += Equipment_Click;
-            pnlEquipment4.Click += Equipment_Click;
-
-            pnlEquipment1.Tag = "Racket";
-            pnlEquipment2.Tag = "Shuttlecock Pack";
-            pnlEquipment3.Tag = "Grip Tape";
-            pnlEquipment4.Tag = "Towel";
+            LoadEquipmentFromInventory();
 
             // Membership panels
             pnlMembership1.Click += Membership_Click;
@@ -47,6 +49,111 @@ namespace ShuttleZone
 
             btnEcashPayment.Click += BtnEcashPayment_Click;
 
+        }
+
+        private void LoadEquipmentFromInventory()
+        {
+            var items = new List<PosEquipmentDisplay>();
+
+            try
+            {
+                using (var conn = DBconnection.GetConnection())
+                using (var cmd = new MySqlCommand("SELECT Name, Category, Available, Price FROM equipment WHERE Available > 0 ORDER BY Name", conn))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        items.Add(new PosEquipmentDisplay
+                        {
+                            Name = reader["Name"].ToString(),
+                            Category = reader["Category"].ToString(),
+                            Available = Convert.ToInt32(reader["Available"]),
+                            Price = Convert.ToDecimal(reader["Price"])
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading equipment: " + ex.Message);
+                return;
+            }
+
+            tlpEquipment.SuspendLayout();
+            tlpEquipment.AutoScroll = true;
+            tlpEquipment.Controls.Clear();
+            tlpEquipment.ColumnCount = 1;
+            tlpEquipment.ColumnStyles.Clear();
+            tlpEquipment.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpEquipment.RowStyles.Clear();
+            tlpEquipment.RowCount = items.Count;
+
+            int row = 0;
+            foreach (var item in items)
+            {
+                var panel = CreateEquipmentPanel(item);
+                tlpEquipment.RowStyles.Add(new RowStyle(SizeType.Absolute, 62F));
+                tlpEquipment.Controls.Add(panel, 0, row);
+                row++;
+            }
+
+            tlpEquipment.ResumeLayout();
+        }
+
+        private Guna2Panel CreateEquipmentPanel(PosEquipmentDisplay item)
+        {
+            var panel = new Guna2Panel
+            {
+                BorderColor = pnlEquipmentRow.BorderColor,
+                BorderRadius = pnlEquipmentRow.BorderRadius,
+                BorderThickness = pnlEquipmentRow.BorderThickness,
+                Cursor = Cursors.Hand,
+                CustomBorderColor = pnlEquipmentRow.CustomBorderColor,
+                Dock = DockStyle.Fill,
+                FillColor = pnlEquipmentRow.FillColor,
+                Margin = pnlEquipmentRow.Margin,
+                Padding = pnlEquipmentRow.Padding,
+                Tag = item
+            };
+
+            foreach (Control c in pnlEquipmentRow.Controls)
+            {
+                Control newCtrl = (Control)Activator.CreateInstance(c.GetType());
+                newCtrl.Size = c.Size;
+                newCtrl.Location = c.Location;
+                newCtrl.Font = c.Font;
+                newCtrl.Text = c.Text;
+                newCtrl.Name = c.Name;
+                newCtrl.BackColor = c.BackColor;
+                newCtrl.ForeColor = c.ForeColor;
+                newCtrl.Anchor = c.Anchor;
+                newCtrl.Dock = c.Dock;
+                newCtrl.Margin = c.Margin;
+                newCtrl.Padding = c.Padding;
+
+                if (newCtrl.Name == "lblEquipment")
+                {
+                    newCtrl.Text = item.Name;
+                }
+                else if (newCtrl.Name == "lblCategory")
+                {
+                    newCtrl.Text = item.Category;
+                }
+                else if (newCtrl.Name == "lblEquipment1Price")
+                {
+                    newCtrl.Text = $"₱{item.Price:0.##}";
+                }
+                else if (newCtrl.Name == "lblStock")
+                {
+                    newCtrl.Text = $"Stock: {item.Available}";
+                }
+
+                newCtrl.Click += Equipment_Click;
+                panel.Controls.Add(newCtrl);
+            }
+
+            panel.Click += Equipment_Click;
+            return panel;
         }
 
         private Guna2Panel CloneCartItemPanel(string itemName, decimal price)
@@ -180,9 +287,16 @@ namespace ShuttleZone
         private void Equipment_Click(object sender, EventArgs e)
         {
             var panel = sender as Guna2Panel;
-            if (panel != null && panel.Tag != null)
+            if (panel == null && sender is Control control)
             {
-                string itemName = panel.Tag.ToString();
+                panel = control.Parent as Guna2Panel;
+            }
+
+            var item = panel != null ? panel.Tag as PosEquipmentDisplay : null;
+
+            if (item != null)
+            {
+                string itemName = item.Name;
 
                 // ❌ Block duplicate equipment
                 if (EquipmentAlreadyInCart(itemName))
@@ -196,13 +310,7 @@ namespace ShuttleZone
                     return;
                 }
 
-                decimal price = 0;
-                if (itemName == "Racket") price = 50;
-                else if (itemName == "Shuttlecock Pack") price = 80;
-                else if (itemName == "Grip Tape") price = 30;
-                else if (itemName == "Towel") price = 20;
-
-                flowCart.Controls.Add(CloneCartItemPanel(itemName, price));
+                flowCart.Controls.Add(CloneCartItemPanel(itemName, item.Price));
                 UpdateCartTotals(); // 👉 after add
             }
         }
