@@ -66,7 +66,7 @@ namespace ShuttleZone.Reports
 
             cmbEquipment.Items.Clear();
             cmbEquipment.Items.AddRange(new object[] {
-                "All Equipments", "Badminton Rackets", "Shuttlecocks", "Grip Tape", "Towel"
+                "All Equipments", "Rackets", "Shuttlecocks", "Grip Tape", "Towel", "Badminton Net", "Scoreboard"
             });
             cmbEquipment.SelectedIndex = 0;
 
