@@ -60,9 +60,8 @@
             this.pnlPendingPayment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPendingPayment.FillColor = System.Drawing.Color.White;
             this.pnlPendingPayment.Location = new System.Drawing.Point(0, 0);
-            this.pnlPendingPayment.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPendingPayment.Name = "pnlPendingPayment";
-            this.pnlPendingPayment.Size = new System.Drawing.Size(446, 413);
+            this.pnlPendingPayment.Size = new System.Drawing.Size(334, 336);
             this.pnlPendingPayment.TabIndex = 1;
             // 
             // btnRemove
@@ -75,10 +74,9 @@
             this.btnRemove.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(316, 337);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRemove.Location = new System.Drawing.Point(237, 274);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(103, 57);
+            this.btnRemove.Size = new System.Drawing.Size(77, 46);
             this.btnRemove.TabIndex = 40;
             this.btnRemove.Text = "Remove";
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
@@ -93,10 +91,9 @@
             this.btnPaymentCleared.FillColor = System.Drawing.Color.Green;
             this.btnPaymentCleared.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPaymentCleared.ForeColor = System.Drawing.Color.White;
-            this.btnPaymentCleared.Location = new System.Drawing.Point(27, 338);
-            this.btnPaymentCleared.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPaymentCleared.Location = new System.Drawing.Point(20, 275);
             this.btnPaymentCleared.Name = "btnPaymentCleared";
-            this.btnPaymentCleared.Size = new System.Drawing.Size(279, 55);
+            this.btnPaymentCleared.Size = new System.Drawing.Size(209, 45);
             this.btnPaymentCleared.TabIndex = 39;
             this.btnPaymentCleared.Text = "Payment Cleared";
             this.btnPaymentCleared.Click += new System.EventHandler(this.btnPaymentCleared_Click);
@@ -106,10 +103,9 @@
             this.lblPendingTotalAmount.AutoSize = true;
             this.lblPendingTotalAmount.BackColor = System.Drawing.Color.Transparent;
             this.lblPendingTotalAmount.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendingTotalAmount.Location = new System.Drawing.Point(340, 299);
-            this.lblPendingTotalAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPendingTotalAmount.Location = new System.Drawing.Point(255, 243);
             this.lblPendingTotalAmount.Name = "lblPendingTotalAmount";
-            this.lblPendingTotalAmount.Size = new System.Drawing.Size(57, 25);
+            this.lblPendingTotalAmount.Size = new System.Drawing.Size(46, 20);
             this.lblPendingTotalAmount.TabIndex = 38;
             this.lblPendingTotalAmount.Text = "₱250";
             // 
@@ -118,41 +114,38 @@
             this.lblPendingTotalText.AutoSize = true;
             this.lblPendingTotalText.BackColor = System.Drawing.Color.Transparent;
             this.lblPendingTotalText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendingTotalText.Location = new System.Drawing.Point(44, 299);
-            this.lblPendingTotalText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPendingTotalText.Location = new System.Drawing.Point(33, 243);
             this.lblPendingTotalText.Name = "lblPendingTotalText";
-            this.lblPendingTotalText.Size = new System.Drawing.Size(60, 25);
+            this.lblPendingTotalText.Size = new System.Drawing.Size(48, 20);
             this.lblPendingTotalText.TabIndex = 37;
             this.lblPendingTotalText.Text = "Total:";
             // 
             // lblPendingDate
             // 
             this.lblPendingDate.BackColor = System.Drawing.Color.Transparent;
-            this.lblPendingDate.Location = new System.Drawing.Point(239, 53);
-            this.lblPendingDate.Margin = new System.Windows.Forms.Padding(4);
+            this.lblPendingDate.Location = new System.Drawing.Point(179, 43);
             this.lblPendingDate.Name = "lblPendingDate";
-            this.lblPendingDate.Size = new System.Drawing.Size(67, 18);
+            this.lblPendingDate.Size = new System.Drawing.Size(57, 15);
             this.lblPendingDate.TabIndex = 36;
             this.lblPendingDate.Text = "03-23-2026";
             // 
             // flowPendingItemsContainer
             // 
             this.flowPendingItemsContainer.Controls.Add(this.pnlPendingItemRowTemplate);
-            this.flowPendingItemsContainer.Location = new System.Drawing.Point(16, 86);
-            this.flowPendingItemsContainer.Margin = new System.Windows.Forms.Padding(4);
+            this.flowPendingItemsContainer.Location = new System.Drawing.Point(12, 70);
             this.flowPendingItemsContainer.Name = "flowPendingItemsContainer";
-            this.flowPendingItemsContainer.Size = new System.Drawing.Size(413, 204);
+            this.flowPendingItemsContainer.Size = new System.Drawing.Size(310, 166);
             this.flowPendingItemsContainer.TabIndex = 35;
             // 
             // pnlPendingItemRowTemplate
             // 
+            this.pnlPendingItemRowTemplate.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlPendingItemRowTemplate.Controls.Add(this.lblItemQty);
             this.pnlPendingItemRowTemplate.Controls.Add(this.lblItemPrice);
             this.pnlPendingItemRowTemplate.Controls.Add(this.lblItemName);
-            this.pnlPendingItemRowTemplate.Location = new System.Drawing.Point(4, 4);
-            this.pnlPendingItemRowTemplate.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlPendingItemRowTemplate.Location = new System.Drawing.Point(3, 3);
             this.pnlPendingItemRowTemplate.Name = "pnlPendingItemRowTemplate";
-            this.pnlPendingItemRowTemplate.Size = new System.Drawing.Size(405, 46);
+            this.pnlPendingItemRowTemplate.Size = new System.Drawing.Size(304, 37);
             this.pnlPendingItemRowTemplate.TabIndex = 14;
             // 
             // lblItemQty
@@ -162,10 +155,9 @@
             this.lblItemQty.AutoSize = true;
             this.lblItemQty.BackColor = System.Drawing.Color.Transparent;
             this.lblItemQty.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemQty.Location = new System.Drawing.Point(17, 23);
-            this.lblItemQty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblItemQty.Location = new System.Drawing.Point(13, 19);
             this.lblItemQty.Name = "lblItemQty";
-            this.lblItemQty.Size = new System.Drawing.Size(96, 19);
+            this.lblItemQty.Size = new System.Drawing.Size(76, 13);
             this.lblItemQty.TabIndex = 13;
             this.lblItemQty.Text = "₱250 x 1 hour";
             // 
@@ -175,10 +167,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblItemPrice.AutoSize = true;
             this.lblItemPrice.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemPrice.Location = new System.Drawing.Point(329, 5);
-            this.lblItemPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblItemPrice.Location = new System.Drawing.Point(247, 4);
             this.lblItemPrice.Name = "lblItemPrice";
-            this.lblItemPrice.Size = new System.Drawing.Size(42, 20);
+            this.lblItemPrice.Size = new System.Drawing.Size(35, 15);
             this.lblItemPrice.TabIndex = 12;
             this.lblItemPrice.Text = "₱250";
             // 
@@ -188,20 +179,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblItemName.AutoSize = true;
             this.lblItemName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemName.Location = new System.Drawing.Point(17, 5);
-            this.lblItemName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblItemName.Location = new System.Drawing.Point(13, 4);
             this.lblItemName.Name = "lblItemName";
-            this.lblItemName.Size = new System.Drawing.Size(61, 20);
+            this.lblItemName.Size = new System.Drawing.Size(47, 15);
             this.lblItemName.TabIndex = 11;
             this.lblItemName.Text = "Court A";
             // 
             // lblPendingTime
             // 
             this.lblPendingTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblPendingTime.Location = new System.Drawing.Point(75, 54);
-            this.lblPendingTime.Margin = new System.Windows.Forms.Padding(4);
+            this.lblPendingTime.Location = new System.Drawing.Point(56, 44);
             this.lblPendingTime.Name = "lblPendingTime";
-            this.lblPendingTime.Size = new System.Drawing.Size(57, 18);
+            this.lblPendingTime.Size = new System.Drawing.Size(49, 15);
             this.lblPendingTime.TabIndex = 1;
             this.lblPendingTime.Text = "08:00 PM";
             // 
@@ -209,20 +198,20 @@
             // 
             this.lblPendingStubNo.BackColor = System.Drawing.Color.Transparent;
             this.lblPendingStubNo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendingStubNo.Location = new System.Drawing.Point(169, 18);
-            this.lblPendingStubNo.Margin = new System.Windows.Forms.Padding(4);
+            this.lblPendingStubNo.Location = new System.Drawing.Point(127, 15);
             this.lblPendingStubNo.Name = "lblPendingStubNo";
-            this.lblPendingStubNo.Size = new System.Drawing.Size(95, 27);
+            this.lblPendingStubNo.Size = new System.Drawing.Size(77, 22);
             this.lblPendingStubNo.TabIndex = 0;
             this.lblPendingStubNo.Text = "STUB0001";
             // 
             // UC_PendingCard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlPendingPayment);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UC_PendingCard";
-            this.Size = new System.Drawing.Size(446, 413);
+            this.Size = new System.Drawing.Size(334, 336);
             this.pnlPendingPayment.ResumeLayout(false);
             this.pnlPendingPayment.PerformLayout();
             this.flowPendingItemsContainer.ResumeLayout(false);
