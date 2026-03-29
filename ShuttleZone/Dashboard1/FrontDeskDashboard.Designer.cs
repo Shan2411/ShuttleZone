@@ -127,7 +127,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.45003F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.012028F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.45003F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -199,7 +199,7 @@
             this.tableLayoutPanel5.Controls.Add(this.openPOSbtn, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.addMemberbtn, 4, 0);
             this.tableLayoutPanel5.Controls.Add(this.pendingPaymentsbtn, 2, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(177, 147);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(177, 95);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -211,11 +211,13 @@
             this.openPOSbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.openPOSbtn.BorderRadius = 4;
+            this.openPOSbtn.BorderRadius = 12;
+            this.openPOSbtn.BorderThickness = 1;
             this.openPOSbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.openPOSbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.openPOSbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.openPOSbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.openPOSbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(95)))), ((int)(((byte)(165)))));
             this.openPOSbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.openPOSbtn.ForeColor = System.Drawing.Color.White;
             this.openPOSbtn.Location = new System.Drawing.Point(3, 3);
@@ -230,11 +232,13 @@
             this.addMemberbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.addMemberbtn.BorderRadius = 4;
+            this.addMemberbtn.BorderRadius = 12;
+            this.addMemberbtn.BorderThickness = 1;
             this.addMemberbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.addMemberbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.addMemberbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.addMemberbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addMemberbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(110)))), ((int)(((byte)(86)))));
             this.addMemberbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addMemberbtn.ForeColor = System.Drawing.Color.White;
             this.addMemberbtn.Location = new System.Drawing.Point(573, 3);
@@ -249,11 +253,13 @@
             this.pendingPaymentsbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pendingPaymentsbtn.BorderRadius = 4;
+            this.pendingPaymentsbtn.BorderRadius = 12;
+            this.pendingPaymentsbtn.BorderThickness = 1;
             this.pendingPaymentsbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.pendingPaymentsbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.pendingPaymentsbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.pendingPaymentsbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.pendingPaymentsbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(52)))), ((int)(((byte)(137)))));
             this.pendingPaymentsbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pendingPaymentsbtn.ForeColor = System.Drawing.Color.White;
             this.pendingPaymentsbtn.Location = new System.Drawing.Point(288, 3);
