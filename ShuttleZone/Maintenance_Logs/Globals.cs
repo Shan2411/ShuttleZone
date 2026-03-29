@@ -476,28 +476,46 @@ namespace ShuttleZone.Maintenance_Logs
             {
                 using (MySqlConnection conn = DBconnection.GetConnection())
                 {
-                    // Grab price_per_hour, VAT_rate, member_discount from the first court
-                    // (since all courts share the same values in your setup)
-                    string query = @"
-                SELECT price_per_hour, VAT_rate, member_discount 
+                    // Load court price and discount
+                    string courtQuery = @"
+                SELECT price_per_hour, member_discount 
                 FROM courts 
                 LIMIT 1";
 
-                    using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn))
+                    using (var cmd = new MySqlCommand(courtQuery, conn))
                     using (var reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
                             courtPrice = reader["price_per_hour"].ToString();
-                            vat = reader["VAT_rate"].ToString();
                             mambershipDiscount = reader["member_discount"].ToString();
                         }
                     }
 
-                    // Membership prices — query your memberships table here if you have one
-                    // For now, these stay as defaults unless you add a memberships table
-                    // membershipPrice1Month = ...
-                    // membershipPrice1Year  = ...
+                    // Load membership prices
+                    string membershipQuery = @"
+                SELECT plan_name, price, discount_percent 
+                FROM membership_prices";
+
+                    using (var cmd = new MySqlCommand(membershipQuery, conn))
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string plan = reader["plan_name"].ToString();
+
+                            if (plan == "1 Month Membership")
+                            {
+                                membershipPrice1Month = reader["price"].ToString();
+                                mambershipDiscount = reader["discount_percent"].ToString();
+                            }
+                            else if (plan == "12 Months Membership")
+                            {
+                                membershipPrice1Year = reader["price"].ToString();
+                                mambershipDiscount = reader["discount_percent"].ToString();
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -506,7 +524,6 @@ namespace ShuttleZone.Maintenance_Logs
                     "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
     }
 }
