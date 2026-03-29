@@ -723,7 +723,7 @@
             // txtMemberCode
             // 
             this.txtMemberCode.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMemberCode.DefaultText = "Enter member code";
+            this.txtMemberCode.DefaultText = "";
             this.txtMemberCode.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtMemberCode.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtMemberCode.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -735,7 +735,7 @@
             this.txtMemberCode.Location = new System.Drawing.Point(3, 4);
             this.txtMemberCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMemberCode.Name = "txtMemberCode";
-            this.txtMemberCode.PlaceholderText = "";
+            this.txtMemberCode.PlaceholderText = "Enter member code";
             this.txtMemberCode.SelectedText = "";
             this.txtMemberCode.Size = new System.Drawing.Size(181, 29);
             this.txtMemberCode.TabIndex = 5;
@@ -831,7 +831,7 @@
             this.lblTotalText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalText.Location = new System.Drawing.Point(3, 9);
             this.lblTotalText.Name = "lblTotalText";
-            this.lblTotalText.Size = new System.Drawing.Size(35, 15);
+            this.lblTotalText.Size = new System.Drawing.Size(36, 15);
             this.lblTotalText.TabIndex = 3;
             this.lblTotalText.Text = "Total:";
             // 
@@ -840,9 +840,9 @@
             this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(233, 9);
+            this.lblTotal.Location = new System.Drawing.Point(232, 9);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(32, 15);
+            this.lblTotal.Size = new System.Drawing.Size(33, 15);
             this.lblTotal.TabIndex = 8;
             this.lblTotal.Text = "Total";
             // 

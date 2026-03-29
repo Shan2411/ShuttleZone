@@ -48,6 +48,11 @@ namespace ShuttleZone
 
         private void UC_Pos_Load(object sender, EventArgs e)
         {
+            // FlowPanel setup for full-width cart items
+            flowCart.AutoScroll = true;
+            flowCart.WrapContents = false;           // stack items vertically
+            flowCart.FlowDirection = FlowDirection.TopDown;
+
             LoadEquipmentFromInventory();
 
             // Membership panels
@@ -268,16 +273,18 @@ namespace ShuttleZone
                 Price = price
             });
 
-
             var clone = new Guna2Panel
             {
-                Size = pnlCartItem.Size,
+                AutoSize = true,
                 BorderRadius = pnlCartItem.BorderRadius,
                 FillColor = pnlCartItem.FillColor,
-                Margin = pnlCartItem.Margin,
+                Margin = new Padding(0, 0, 0, 5),
                 ShadowDecoration = { Enabled = true },
                 Visible = true
             };
+
+            // Set width to fill the FlowLayoutPanel
+            clone.Width = flowCart.ClientSize.Width - flowCart.Padding.Horizontal;
 
             foreach (Control c in pnlCartItem.Controls)
             {
@@ -295,7 +302,7 @@ namespace ShuttleZone
             clone.Controls["lblPrice"].Text = $"₱{price}";
             clone.Controls["lblRowTotal"].Text = $"₱{price}";
 
-            // 👉 Wire buttons
+            // Wire buttons
             var btnPlus = clone.Controls["btnPlus"] as Guna2Button;
             var btnMinus = clone.Controls["btnMinus"] as Guna2Button;
             var btnRemove = clone.Controls["btnRemove"] as Guna2Button;
@@ -304,19 +311,18 @@ namespace ShuttleZone
             btnMinus.Click += (s, e) => UpdateQty(clone, -1);
             btnRemove.Click += (s, e) =>
             {
-                string itemToRemove = clone.Controls["lblItemName"].Text;
-
-                // ✅ Remove from data model
                 CartItems.RemoveAll(c => c.Name == itemName);
-
-                // ✅ Remove from UI
                 flowCart.Controls.Remove(clone);
                 clone.Dispose();
-
                 RefreshEquipmentStockLabels();
                 UpdateCartTotals();
             };
 
+            // Optional: adjust width dynamically if FlowLayoutPanel resizes
+            flowCart.SizeChanged += (s, e) =>
+            {
+                clone.Width = flowCart.ClientSize.Width - flowCart.Padding.Horizontal;
+            };
 
             return clone;
         }
