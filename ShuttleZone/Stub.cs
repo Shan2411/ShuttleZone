@@ -15,7 +15,7 @@ namespace ShuttleZone
         private readonly decimal _total;
         private readonly DateTime _timeIssued;
 
-        // ✅ NEW
+        // ✅ Discount percent
         private readonly decimal _discountPercent;
 
         public Stub()
@@ -32,7 +32,7 @@ namespace ShuttleZone
             _subtotal = subtotal;
             _total = total;
             _timeIssued = timeIssued;
-            _discountPercent = discountPercent; // ✅ NEW
+            _discountPercent = discountPercent;
             GenerateStub();
         }
 
@@ -51,7 +51,7 @@ namespace ShuttleZone
 
             foreach (var item in _cartItems)
             {
-                // ✅ APPLY DISCOUNT HERE
+                // Apply discount
                 decimal discountedPrice = item.Price * (1 - _discountPercent);
 
                 Panel row = new Panel
@@ -71,7 +71,7 @@ namespace ShuttleZone
 
                 Label lblQty = new Label
                 {
-                    Text = $"₱{discountedPrice:0.00} x {item.Qty}", // ✅ FIXED
+                    Text = $"₱{discountedPrice:0.00} x {item.Qty}",
                     Location = pnlStubItemRowTemplate.Controls["lblStubItemQty"].Location,
                     Size = pnlStubItemRowTemplate.Controls["lblStubItemQty"].Size,
                     Font = pnlStubItemRowTemplate.Controls["lblStubItemQty"].Font
@@ -80,7 +80,7 @@ namespace ShuttleZone
 
                 Label lblPrice = new Label
                 {
-                    Text = (discountedPrice * item.Qty).ToString("₱0.00"), // ✅ FIXED
+                    Text = (discountedPrice * item.Qty).ToString("₱0.00"),
                     Location = pnlStubItemRowTemplate.Controls["lblStubItemPrice"].Location,
                     Size = pnlStubItemRowTemplate.Controls["lblStubItemPrice"].Size,
                     Font = pnlStubItemRowTemplate.Controls["lblStubItemPrice"].Font
@@ -119,7 +119,6 @@ namespace ShuttleZone
 
                     foreach (var item in _cartItems)
                     {
-                        // ✅ APPLY DISCOUNT HERE TOO
                         decimal discountedPrice = item.Price * (1 - _discountPercent);
 
                         using (MySqlCommand cmd = new MySqlCommand(query, connection))
@@ -129,7 +128,7 @@ namespace ShuttleZone
                             cmd.Parameters.AddWithValue("@time", _timeIssued.ToString("HH:mm:ss"));
                             cmd.Parameters.AddWithValue("@itemName", item.Name);
                             cmd.Parameters.AddWithValue("@qty", item.Qty);
-                            cmd.Parameters.AddWithValue("@price", discountedPrice); // ✅ FIXED
+                            cmd.Parameters.AddWithValue("@price", discountedPrice);
 
                             cmd.ExecuteNonQuery();
                         }
@@ -142,6 +141,7 @@ namespace ShuttleZone
             }
         }
 
+        // 🔹 EMPTY/PLACEHOLDER FUNCTIONS 🔹
         private void pnlItemRowTemplate_Paint(object sender, PaintEventArgs e) { }
         private void flowItemsContainer_Paint(object sender, PaintEventArgs e) { }
     }
