@@ -5,7 +5,7 @@ using ShuttleZone.database;
 
 namespace ShuttleZone.SystemSettings
 {
-    public partial class UC_FacilityInfo : UserControl
+    public partial class UC_FacilityInfo : UserControl, ISaveable
     {
         public UC_FacilityInfo()
         {
@@ -18,13 +18,13 @@ namespace ShuttleZone.SystemSettings
             using (var conn = DBconnection.GetConnection())
             {
                 string query = @"UPDATE facility_info SET
-                    business_name = @name,
-                    phone = @phone,
-                    address = @address,
-                    email = @email,
-                    opening_time = @open,
-                    closing_time = @close
-                    WHERE id = 1";
+            business_name = @name,
+            phone = @phone,
+            address = @address,
+            email = @email,
+            opening_time = @open,
+            closing_time = @close
+            WHERE id = 1";
 
                 using (var cmd = new MySqlCommand(query, conn))
                 {
@@ -38,6 +38,9 @@ namespace ShuttleZone.SystemSettings
                     cmd.ExecuteNonQuery();
                 }
             }
+
+            // 🔥 Reload cache so receipt picks up new values immediately
+            FacilityInfoCache.Reload();
         }
 
         private void LoadFacilityInfo()

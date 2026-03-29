@@ -57,7 +57,8 @@ namespace ShuttleZone.UserManagement
                     cmd.Parameters.AddWithValue("@phone", user.PhoneNumber ?? ""); // ✅ FIX
                     cmd.Parameters.AddWithValue("@role", user.Role);
                     cmd.Parameters.AddWithValue("@status", user.Status ?? "Active");
-                    cmd.Parameters.AddWithValue("@password", user.Password);
+                    cmd.Parameters.AddWithValue("@password", PasswordHelper.HashPassword(user.Password));
+                    //cmd.Parameters.AddWithValue("@password", user.Password);
                     cmd.Parameters.AddWithValue("@image", user.ProfileImagePath ?? "");
 
                     cmd.ExecuteNonQuery();
@@ -152,7 +153,7 @@ namespace ShuttleZone.UserManagement
                 using (var cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
-                    cmd.Parameters.AddWithValue("@pass", newPassword);
+                    cmd.Parameters.AddWithValue("@pass", PasswordHelper.HashPassword(newPassword));
                     cmd.ExecuteNonQuery();
                 }
             }

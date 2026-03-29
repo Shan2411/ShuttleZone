@@ -409,6 +409,7 @@
     <Compile Include="Stub.Designer.cs">
       <DependentUpon>Stub.cs</DependentUpon>
     </Compile>
+    <Compile Include="systemsettings\FacilityInfoCache.cs" />
     <Compile Include="systemsettings\ISaveable.cs" />
     <Compile Include="systemsettings\SettingsModel.cs" />
     <Compile Include="systemsettings\SystemPreferences.cs">

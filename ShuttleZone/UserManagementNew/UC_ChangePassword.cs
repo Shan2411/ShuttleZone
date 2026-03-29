@@ -56,13 +56,9 @@ namespace ShuttleZone.UserManagementNew
             }
 
             // 🔐 HASH NEW PASSWORD
-            string hashedNewPassword =
-                PasswordHelper.HashPassword(txtNewPassword.Text);
+            repo.ChangePassword(CurrentUser.ID, txtNewPassword.Text);
 
-            // ✅ UPDATE PASSWORD
-            repo.ChangePassword(CurrentUser.ID, hashedNewPassword);
-
-            CurrentUser.Password = hashedNewPassword;
+            CurrentUser.Password = txtNewPassword.Text;
 
             MessageBox.Show("Password changed successfully!");
 

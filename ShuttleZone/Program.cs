@@ -18,7 +18,10 @@ namespace ShuttleZone
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+
+            FacilityInfoCache.Load(); // 🔥 Load facility info once at startup
+
+            Application.Run(new ShuttleZone.LogIn_Form.LoginForm());
         }
     }
 }
