@@ -30,6 +30,12 @@ namespace ShuttleZone.Dashboard1
         // Card references
         private Card_Dashboard _c1, _c3, _c5, _c7;
 
+        public event EventHandler QuickActionReportsClicked;
+        private void label2_Click(object sender, EventArgs e)
+        {
+            QuickActionReportsClicked?.Invoke(this, EventArgs.Empty);
+        }
+
         public AdminDashboard()
         {
             InitializeComponent();

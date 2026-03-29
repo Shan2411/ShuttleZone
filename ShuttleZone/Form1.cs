@@ -124,6 +124,15 @@ namespace ShuttleZone
         private void AdminDashboardBtn_Click(object sender, EventArgs e)
         {
             LoadView<AdminDashboard>();
+
+            LoadView<AdminDashboard>();
+
+            if (_views[typeof(AdminDashboard)] is AdminDashboard dashboard)
+            {
+                dashboard.QuickActionReportsClicked -= ReportsBtn_Click;
+                dashboard.QuickActionReportsClicked += ReportsBtn_Click;
+            }
+
         }
 
         private void FrontDeskDashboardBtn_Click(object sender, EventArgs e)
