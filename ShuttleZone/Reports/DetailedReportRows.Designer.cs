@@ -57,7 +57,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(895, 29);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1082, 29);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lblTransaction
@@ -65,9 +65,9 @@
             this.lblTransaction.AutoSize = true;
             this.lblTransaction.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTransaction.Location = new System.Drawing.Point(719, 0);
+            this.lblTransaction.Location = new System.Drawing.Point(867, 0);
             this.lblTransaction.Name = "lblTransaction";
-            this.lblTransaction.Size = new System.Drawing.Size(173, 29);
+            this.lblTransaction.Size = new System.Drawing.Size(212, 29);
             this.lblTransaction.TabIndex = 4;
             this.lblTransaction.Text = "TRANSACTION";
             this.lblTransaction.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -79,9 +79,9 @@
             this.lblTotalIncome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTotalIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalIncome.ForeColor = System.Drawing.Color.BlueViolet;
-            this.lblTotalIncome.Location = new System.Drawing.Point(540, 0);
+            this.lblTotalIncome.Location = new System.Drawing.Point(651, 0);
             this.lblTotalIncome.Name = "lblTotalIncome";
-            this.lblTotalIncome.Size = new System.Drawing.Size(173, 29);
+            this.lblTotalIncome.Size = new System.Drawing.Size(210, 29);
             this.lblTotalIncome.TabIndex = 3;
             this.lblTotalIncome.Text = "TOTAL INCOME";
             this.lblTotalIncome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -92,9 +92,9 @@
             this.lblEquipmentIncome.AutoSize = true;
             this.lblEquipmentIncome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblEquipmentIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEquipmentIncome.Location = new System.Drawing.Point(361, 0);
+            this.lblEquipmentIncome.Location = new System.Drawing.Point(435, 0);
             this.lblEquipmentIncome.Name = "lblEquipmentIncome";
-            this.lblEquipmentIncome.Size = new System.Drawing.Size(173, 29);
+            this.lblEquipmentIncome.Size = new System.Drawing.Size(210, 29);
             this.lblEquipmentIncome.TabIndex = 2;
             this.lblEquipmentIncome.Text = "EQUIPMENT INCOME";
             this.lblEquipmentIncome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -105,9 +105,9 @@
             this.lblCourtIncome.AutoSize = true;
             this.lblCourtIncome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCourtIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCourtIncome.Location = new System.Drawing.Point(182, 0);
+            this.lblCourtIncome.Location = new System.Drawing.Point(219, 0);
             this.lblCourtIncome.Name = "lblCourtIncome";
-            this.lblCourtIncome.Size = new System.Drawing.Size(173, 29);
+            this.lblCourtIncome.Size = new System.Drawing.Size(210, 29);
             this.lblCourtIncome.TabIndex = 1;
             this.lblCourtIncome.Text = "COURT INCOME";
             this.lblCourtIncome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -120,7 +120,7 @@
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.Location = new System.Drawing.Point(3, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(173, 29);
+            this.lblDate.Size = new System.Drawing.Size(210, 29);
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "DATE";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -133,7 +133,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "DetailedReportRows";
-            this.Size = new System.Drawing.Size(895, 29);
+            this.Size = new System.Drawing.Size(1082, 29);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

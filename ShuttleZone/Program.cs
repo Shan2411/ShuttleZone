@@ -16,6 +16,8 @@ namespace ShuttleZone
         [STAThread]
         static void Main()
         {
+            OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());

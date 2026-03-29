@@ -234,6 +234,7 @@ namespace ShuttleZone.reports
                 row.SetAlternateColor(i % 2 == 0);
                 row.SetData(data.Date, data.CourtIncome, data.EquipIncome,
                             data.TotalIncome, data.Transactions);
+                row.Width = flpDetailedReportRow.ClientSize.Width;
 
                 flpDetailedReportRow.Controls.Add(row);
 
@@ -246,6 +247,11 @@ namespace ShuttleZone.reports
                 };
                 flpDetailedReportRow.Controls.Add(sep);
             }
+            flpDetailedReportRow.Resize += (s, e) =>
+            {
+                foreach (Control ctrl in flpDetailedReportRow.Controls)
+                    ctrl.Width = flpDetailedReportRow.ClientSize.Width;
+            };
 
             if (reportData.Count == 0)
             {
