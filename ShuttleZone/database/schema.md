@@ -140,3 +140,8 @@ INSERT INTO `equipment` (`Id`, `Name`, `Category`, `Total`, `Available`, `Rented
 -- Optional: basic index on Category and Status to speed searches
 CREATE INDEX IF NOT EXISTS `idx_equipment_category` ON `equipment`(`Category`);
 CREATE INDEX IF NOT EXISTS `idx_equipment_status` ON `equipment`(`Status`);
+
+
+
+-- Creates Membership Prices table to store and update the pricing for membership
+

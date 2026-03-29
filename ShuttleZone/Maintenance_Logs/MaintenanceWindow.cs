@@ -26,6 +26,9 @@ namespace ShuttleZone.Maintenance_Logs
             Globals.statusFromDB2 = Globals.GetCourtStatusFromDB("Court C");
             Globals.statusFromDB3 = Globals.GetCourtStatusFromDB("Court D");
 
+            // load court prices from db
+            Globals.LoadSettingsFromDB();
+
             // Enable double buffering BEFORE InitializeComponent
             this.DoubleBuffered = true;
 
@@ -57,7 +60,7 @@ namespace ShuttleZone.Maintenance_Logs
 
             // Set textboxes
             textBox1.Text = Globals.courtPrice;
-            textBox2.Text = Globals.vat;
+            //textBox2.Text = Globals.vat;
             textBox3.Text = Globals.membershipPrice1Month;
             textBox4.Text = Globals.membershipPrice1Year;
             textBox6.Text = Globals.mambershipDiscount;
@@ -97,8 +100,7 @@ namespace ShuttleZone.Maintenance_Logs
             Globals.statusFromDB2 = Globals.GetCourtStatusFromDB("Court C");
             Globals.statusFromDB3 = Globals.GetCourtStatusFromDB("Court D");
 
-            // load court prices from db
-            Globals.LoadSettingsFromDB();
+            RefreshTextBoxes();
 
             // Refresh UI
             RefreshPanel();
@@ -107,7 +109,16 @@ namespace ShuttleZone.Maintenance_Logs
         {
 
         }
-
+        private void RefreshTextBoxes()
+        {
+            // load court prices from db
+            Globals.LoadSettingsFromDB();
+            textBox1.Text = Globals.courtPrice;
+            //textBox2.Text = Globals.vat;
+            textBox3.Text = Globals.membershipPrice1Month;
+            textBox4.Text = Globals.membershipPrice1Year;
+            textBox6.Text = Globals.mambershipDiscount;
+        }
         private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
         {
 
@@ -147,7 +158,7 @@ namespace ShuttleZone.Maintenance_Logs
         {
             // Validate inputs first
             if (!decimal.TryParse(textBox1.Text, out decimal courtPrice) ||
-                !decimal.TryParse(textBox2.Text, out decimal vat) ||
+                //!decimal.TryParse(textBox2.Text, out decimal vat) ||
                 !decimal.TryParse(textBox6.Text, out decimal memberDiscount))
             {
                 MessageBox.Show("Please enter valid numbers for Court Price, VAT, and Discount.",
@@ -174,14 +185,14 @@ namespace ShuttleZone.Maintenance_Logs
                     using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@price", courtPrice);
-                        cmd.Parameters.AddWithValue("@vat", vat);
+                        //cmd.Parameters.AddWithValue("@vat", vat);
                         cmd.Parameters.AddWithValue("@discount", memberDiscount);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         // Also update Globals to keep in sync
                         Globals.courtPrice = textBox1.Text;
-                        Globals.vat = textBox2.Text;
+                        //Globals.vat = textBox2.Text;
                         Globals.mambershipDiscount = textBox6.Text;
 
                         MessageBox.Show($"Changes saved! ({rowsAffected} courts updated)",
