@@ -137,10 +137,33 @@ namespace ShuttleZone
                         }
                     }
 
-                    // 2. Generate a receipt number
+                    // 2. Check if any row is a court booking and validate its status
+                    foreach (var row in rows)
+                    {
+                        string courtName = ExtractCourtName(row.itemName);
+                        if (courtName == null) continue; // not a court item, skip
+
+                        string courtStatus = GetCourtStatusFromDB(courtName, conn);
+                        if (courtStatus == null) continue; // court not found, skip
+
+                        if (!courtStatus.Equals("Operational", StringComparison.OrdinalIgnoreCase))
+                        {
+                            MessageBox.Show(
+                                $"Cannot proceed with payment.\n\n" +
+                                $"{courtName} is currently '{courtStatus}'.\n" +
+                                $"Please wait until the court is available before clearing this stub.",
+                                "Court Unavailable",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning
+                            );
+                            return; // block payment
+                        }
+                    }
+
+                    // 3. Generate a receipt number
                     string receiptNo = "KIOSK-" + DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + stubNo;
 
-                    // 3. Insert each row into transactions
+                    // 4. Insert each row into transactions
                     string insertQuery = @"
                 INSERT INTO transactions 
                     (receipt_no, transaction_date, transaction_time, income_type, 
@@ -166,7 +189,7 @@ namespace ShuttleZone
                         }
                     }
 
-                    // 4. Delete all rows with this stub from kiosk_pending_payments
+                    // 5. Delete from kiosk_pending_payments
                     string deleteQuery = "DELETE FROM kiosk_pending_payments WHERE stub_no = @stub";
                     using (var cmd = new MySqlCommand(deleteQuery, conn))
                     {
@@ -177,10 +200,7 @@ namespace ShuttleZone
                     MessageBox.Show($"Payment cleared and recorded for Stub #{stubNo}.",
                         "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    MessageBox.Show($"Payment cleared and recorded for Stub #{stubNo}.",
-                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // 5. Show receipt
+                    // 6. Show receipt
                     var cartItems = rows.Select(r => new CartItem
                     {
                         Name = r.itemName,
@@ -190,15 +210,10 @@ namespace ShuttleZone
 
                     decimal grandTotal = rows.Sum(r => r.total);
 
-                    var receipt = new ReceiptForm(
-                        cartItems,
-                        grandTotal,
-                        "Cash",
-                        DateTime.Now
-                    );
+                    var receipt = new ReceiptForm(cartItems, grandTotal, "Cash", DateTime.Now);
                     receipt.Show();
 
-                    // 6. Remove the card from the UI
+                    // 7. Remove card from UI
                     this.Parent?.Controls.Remove(this);
                     this.Dispose();
                 }
@@ -208,6 +223,45 @@ namespace ShuttleZone
                 MessageBox.Show("Error processing payment: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // ── HELPERS ───────────────────────────────────────────────────────────────
+
+        /// <summary>
+        /// Extracts "Court A", "Court B" etc. from item names like "Court A - 1 Hour Rental".
+        /// Returns null if the item is not a court booking.
+        /// </summary>
+        private string ExtractCourtName(string itemName)
+        {
+            if (string.IsNullOrEmpty(itemName)) return null;
+
+            // Matches "Court A", "Court B", "Court C", "Court D" at the start of the string
+            foreach (var name in new[] { "Court A", "Court B", "Court C", "Court D" })
+            {
+                if (itemName.StartsWith(name, StringComparison.OrdinalIgnoreCase))
+                    return name;
+            }
+
+            return null; // not a court item
+        }
+
+        /// <summary>
+        /// Fetches the current status of a court from the DB.
+        /// Reuses the existing open connection to avoid "connection already open" errors.
+        /// </summary>
+        private string GetCourtStatusFromDB(string courtName, MySqlConnection conn)
+        {
+            string query = "SELECT status FROM courts WHERE court_name = @court_name LIMIT 1";
+            try
+            {
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@court_name", courtName);
+                    var result = cmd.ExecuteScalar();
+                    return result?.ToString();
+                }
+            }
+            catch { return null; }
         }
 
         private void btnRemove_Click(object sender, System.EventArgs e)

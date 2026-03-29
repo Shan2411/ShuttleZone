@@ -31,9 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kiosk));
             this.tlpRoot = new System.Windows.Forms.TableLayoutPanel();
             this.tlpSidebar = new System.Windows.Forms.TableLayoutPanel();
-            this.btnCourtRental = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEquipment = new Guna.UI2.WinForms.Guna2Button();
-            this.btnMembership = new Guna.UI2.WinForms.Guna2Button();
             this.pnlMainContent = new Guna.UI2.WinForms.Guna2Panel();
             this.tlpMainContent = new System.Windows.Forms.TableLayoutPanel();
             this.pnlPromo = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -72,6 +69,9 @@
             this.lblKioskSubtotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pnlBannerContainer = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.lblBannerHeaderText = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnCourtRental = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEquipment = new Guna.UI2.WinForms.Guna2Button();
+            this.btnMembership = new Guna.UI2.WinForms.Guna2Button();
             this.tlpRoot.SuspendLayout();
             this.tlpSidebar.SuspendLayout();
             this.pnlMainContent.SuspendLayout();
@@ -125,62 +125,6 @@
             this.tlpSidebar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tlpSidebar.Size = new System.Drawing.Size(92, 914);
             this.tlpSidebar.TabIndex = 0;
-            // 
-            // btnCourtRental
-            // 
-            this.btnCourtRental.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCourtRental.AutoRoundedCorners = true;
-            this.btnCourtRental.BorderRadius = 32;
-            this.btnCourtRental.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCourtRental.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCourtRental.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCourtRental.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCourtRental.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(35)))), ((int)(((byte)(191)))));
-            this.btnCourtRental.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnCourtRental.ForeColor = System.Drawing.Color.White;
-            this.btnCourtRental.Image = ((System.Drawing.Image)(resources.GetObject("btnCourtRental.Image")));
-            this.btnCourtRental.ImageSize = new System.Drawing.Size(63, 54);
-            this.btnCourtRental.Location = new System.Drawing.Point(4, 29);
-            this.btnCourtRental.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCourtRental.Name = "btnCourtRental";
-            this.btnCourtRental.Size = new System.Drawing.Size(84, 66);
-            this.btnCourtRental.TabIndex = 0;
-            // 
-            // btnEquipment
-            // 
-            this.btnEquipment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEquipment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEquipment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEquipment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEquipment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEquipment.FillColor = System.Drawing.Color.Transparent;
-            this.btnEquipment.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnEquipment.ForeColor = System.Drawing.Color.White;
-            this.btnEquipment.Image = ((System.Drawing.Image)(resources.GetObject("btnEquipment.Image")));
-            this.btnEquipment.ImageSize = new System.Drawing.Size(63, 54);
-            this.btnEquipment.Location = new System.Drawing.Point(4, 103);
-            this.btnEquipment.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEquipment.Name = "btnEquipment";
-            this.btnEquipment.Size = new System.Drawing.Size(84, 66);
-            this.btnEquipment.TabIndex = 1;
-            // 
-            // btnMembership
-            // 
-            this.btnMembership.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMembership.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMembership.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMembership.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMembership.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnMembership.FillColor = System.Drawing.Color.Transparent;
-            this.btnMembership.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMembership.ForeColor = System.Drawing.Color.White;
-            this.btnMembership.Image = ((System.Drawing.Image)(resources.GetObject("btnMembership.Image")));
-            this.btnMembership.ImageSize = new System.Drawing.Size(63, 54);
-            this.btnMembership.Location = new System.Drawing.Point(4, 177);
-            this.btnMembership.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMembership.Name = "btnMembership";
-            this.btnMembership.Size = new System.Drawing.Size(84, 66);
-            this.btnMembership.TabIndex = 2;
             // 
             // pnlMainContent
             // 
@@ -427,7 +371,7 @@
             this.lblKioskCart.Location = new System.Drawing.Point(4, 4);
             this.lblKioskCart.Margin = new System.Windows.Forms.Padding(4);
             this.lblKioskCart.Name = "lblKioskCart";
-            this.lblKioskCart.Size = new System.Drawing.Size(34, 21);
+            this.lblKioskCart.Size = new System.Drawing.Size(34, 23);
             this.lblKioskCart.TabIndex = 0;
             this.lblKioskCart.Text = "Cart";
             // 
@@ -618,7 +562,7 @@
             this.lblKioskTotalText.Location = new System.Drawing.Point(4, 4);
             this.lblKioskTotalText.Margin = new System.Windows.Forms.Padding(4);
             this.lblKioskTotalText.Name = "lblKioskTotalText";
-            this.lblKioskTotalText.Size = new System.Drawing.Size(40, 15);
+            this.lblKioskTotalText.Size = new System.Drawing.Size(40, 22);
             this.lblKioskTotalText.TabIndex = 0;
             this.lblKioskTotalText.Text = "Total:";
             // 
@@ -630,7 +574,7 @@
             this.lblKioskTotal.Location = new System.Drawing.Point(462, 4);
             this.lblKioskTotal.Margin = new System.Windows.Forms.Padding(4);
             this.lblKioskTotal.Name = "lblKioskTotal";
-            this.lblKioskTotal.Size = new System.Drawing.Size(37, 15);
+            this.lblKioskTotal.Size = new System.Drawing.Size(37, 22);
             this.lblKioskTotal.TabIndex = 1;
             this.lblKioskTotal.Text = "Total";
             // 
@@ -658,7 +602,7 @@
             this.lblKioskMemberDiscount.Location = new System.Drawing.Point(4, 4);
             this.lblKioskMemberDiscount.Margin = new System.Windows.Forms.Padding(4);
             this.lblKioskMemberDiscount.Name = "lblKioskMemberDiscount";
-            this.lblKioskMemberDiscount.Size = new System.Drawing.Size(124, 15);
+            this.lblKioskMemberDiscount.Size = new System.Drawing.Size(124, 22);
             this.lblKioskMemberDiscount.TabIndex = 0;
             this.lblKioskMemberDiscount.Text = "Member Discount:";
             // 
@@ -670,7 +614,7 @@
             this.lblKioskDiscount.Location = new System.Drawing.Point(438, 4);
             this.lblKioskDiscount.Margin = new System.Windows.Forms.Padding(4);
             this.lblKioskDiscount.Name = "lblKioskDiscount";
-            this.lblKioskDiscount.Size = new System.Drawing.Size(61, 15);
+            this.lblKioskDiscount.Size = new System.Drawing.Size(61, 22);
             this.lblKioskDiscount.TabIndex = 1;
             this.lblKioskDiscount.Text = "Discount";
             // 
@@ -698,7 +642,7 @@
             this.lblKioskSubtotalText.Location = new System.Drawing.Point(4, 4);
             this.lblKioskSubtotalText.Margin = new System.Windows.Forms.Padding(4);
             this.lblKioskSubtotalText.Name = "lblKioskSubtotalText";
-            this.lblKioskSubtotalText.Size = new System.Drawing.Size(62, 15);
+            this.lblKioskSubtotalText.Size = new System.Drawing.Size(62, 22);
             this.lblKioskSubtotalText.TabIndex = 0;
             this.lblKioskSubtotalText.Text = "Subtotal:";
             // 
@@ -710,7 +654,7 @@
             this.lblKioskSubtotal.Location = new System.Drawing.Point(440, 4);
             this.lblKioskSubtotal.Margin = new System.Windows.Forms.Padding(4);
             this.lblKioskSubtotal.Name = "lblKioskSubtotal";
-            this.lblKioskSubtotal.Size = new System.Drawing.Size(59, 15);
+            this.lblKioskSubtotal.Size = new System.Drawing.Size(59, 22);
             this.lblKioskSubtotal.TabIndex = 1;
             this.lblKioskSubtotal.Text = "Subtotal";
             // 
@@ -739,6 +683,62 @@
             this.lblBannerHeaderText.Size = new System.Drawing.Size(157, 23);
             this.lblBannerHeaderText.TabIndex = 0;
             this.lblBannerHeaderText.Text = "Book a Court Today!";
+            // 
+            // btnCourtRental
+            // 
+            this.btnCourtRental.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCourtRental.AutoRoundedCorners = true;
+            this.btnCourtRental.BorderRadius = 32;
+            this.btnCourtRental.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCourtRental.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCourtRental.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCourtRental.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCourtRental.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(35)))), ((int)(((byte)(191)))));
+            this.btnCourtRental.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnCourtRental.ForeColor = System.Drawing.Color.White;
+            this.btnCourtRental.Image = ((System.Drawing.Image)(resources.GetObject("btnCourtRental.Image")));
+            this.btnCourtRental.ImageSize = new System.Drawing.Size(63, 54);
+            this.btnCourtRental.Location = new System.Drawing.Point(4, 29);
+            this.btnCourtRental.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCourtRental.Name = "btnCourtRental";
+            this.btnCourtRental.Size = new System.Drawing.Size(84, 66);
+            this.btnCourtRental.TabIndex = 0;
+            // 
+            // btnEquipment
+            // 
+            this.btnEquipment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEquipment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEquipment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEquipment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEquipment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEquipment.FillColor = System.Drawing.Color.Transparent;
+            this.btnEquipment.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnEquipment.ForeColor = System.Drawing.Color.White;
+            this.btnEquipment.Image = ((System.Drawing.Image)(resources.GetObject("btnEquipment.Image")));
+            this.btnEquipment.ImageSize = new System.Drawing.Size(63, 54);
+            this.btnEquipment.Location = new System.Drawing.Point(4, 103);
+            this.btnEquipment.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEquipment.Name = "btnEquipment";
+            this.btnEquipment.Size = new System.Drawing.Size(84, 66);
+            this.btnEquipment.TabIndex = 1;
+            // 
+            // btnMembership
+            // 
+            this.btnMembership.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMembership.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMembership.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMembership.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMembership.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMembership.FillColor = System.Drawing.Color.Transparent;
+            this.btnMembership.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMembership.ForeColor = System.Drawing.Color.White;
+            this.btnMembership.Image = ((System.Drawing.Image)(resources.GetObject("btnMembership.Image")));
+            this.btnMembership.ImageSize = new System.Drawing.Size(63, 54);
+            this.btnMembership.Location = new System.Drawing.Point(4, 177);
+            this.btnMembership.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMembership.Name = "btnMembership";
+            this.btnMembership.Size = new System.Drawing.Size(84, 66);
+            this.btnMembership.TabIndex = 2;
             // 
             // Kiosk
             // 

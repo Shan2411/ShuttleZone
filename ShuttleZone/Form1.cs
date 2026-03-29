@@ -129,6 +129,18 @@ namespace ShuttleZone
         private void FrontDeskDashboardBtn_Click(object sender, EventArgs e)
         {
             LoadView<FrontDeskDashboard>();
+
+
+            // Hook quick action events after the view is loaded
+            if (_views[typeof(FrontDeskDashboard)] is FrontDeskDashboard dashboard)
+            {
+                dashboard.QuickActionPOSClicked -= POSBtn_Click; // prevent double-hooking
+                dashboard.QuickActionPendingClicked -= PendingPaymentsBtn_Click;
+
+                dashboard.QuickActionPOSClicked += POSBtn_Click;
+                dashboard.QuickActionPendingClicked += PendingPaymentsBtn_Click;
+            }
+
         }
 
         private void ManagerDashboardBtn_Click(object sender, EventArgs e)

@@ -28,7 +28,7 @@ namespace ShuttleZone.Dashboard1
             switch (categorySwitchCase.ToLower()) // label1 texts should come from db 
             {
                 case "today's transactions":
-                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Money;
+                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Transaction;
                     label1.Text = Globals.GetTodaysTransaction().ToString(); 
                     break;
                 case "active rentals":
@@ -48,7 +48,7 @@ namespace ShuttleZone.Dashboard1
                 //admin cases
 
                 case "today's revenue":
-                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Money;
+                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Peso;
                     label1.Text = "₱" + Globals.todaysRevenue.ToString("F2");
                     break;
 
@@ -58,7 +58,7 @@ namespace ShuttleZone.Dashboard1
                     break;
 
                 case "total transactions":
-                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Receipt;
+                    guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Transaction;
                     label1.Text = Globals.totalTransactions.ToString();
                     break;
 
@@ -70,7 +70,7 @@ namespace ShuttleZone.Dashboard1
                 // manager cases
 
                 case "kiosk transactions":
-                      guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Money;
+                      guna2PictureBox1.Image = global::ShuttleZone.Properties.Resources.Dashboard_Kiosk;
                       label1.Text = Globals.kioskTransactions().ToString();
                     break;
 

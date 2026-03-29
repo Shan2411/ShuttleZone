@@ -37,13 +37,13 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.openPOSbtn = new Guna.UI2.WinForms.Guna2Button();
-            this.pendingPaymentsbtn = new Guna.UI2.WinForms.Guna2Button();
             this.addMemberbtn = new Guna.UI2.WinForms.Guna2Button();
+            this.pendingPaymentsbtn = new Guna.UI2.WinForms.Guna2Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -127,7 +127,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.45003F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.012028F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.45003F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -223,24 +223,7 @@
             this.openPOSbtn.Size = new System.Drawing.Size(270, 24);
             this.openPOSbtn.TabIndex = 5;
             this.openPOSbtn.Text = "Open POS";
-            // 
-            // pendingPaymentsbtn
-            // 
-            this.pendingPaymentsbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pendingPaymentsbtn.BorderRadius = 4;
-            this.pendingPaymentsbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.pendingPaymentsbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.pendingPaymentsbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.pendingPaymentsbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.pendingPaymentsbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pendingPaymentsbtn.ForeColor = System.Drawing.Color.White;
-            this.pendingPaymentsbtn.Location = new System.Drawing.Point(292, 3);
-            this.pendingPaymentsbtn.Name = "pendingPaymentsbtn";
-            this.pendingPaymentsbtn.Size = new System.Drawing.Size(270, 24);
-            this.pendingPaymentsbtn.TabIndex = 6;
-            this.pendingPaymentsbtn.Text = "Pending Payments";
+            this.openPOSbtn.Click += new System.EventHandler(this.openPOSbtn_Click_1);
             // 
             // addMemberbtn
             // 
@@ -259,6 +242,26 @@
             this.addMemberbtn.Size = new System.Drawing.Size(271, 24);
             this.addMemberbtn.TabIndex = 7;
             this.addMemberbtn.Text = "Add Member";
+            this.addMemberbtn.Click += new System.EventHandler(this.addMemberbtn_Click);
+            // 
+            // pendingPaymentsbtn
+            // 
+            this.pendingPaymentsbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pendingPaymentsbtn.BorderRadius = 4;
+            this.pendingPaymentsbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.pendingPaymentsbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.pendingPaymentsbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.pendingPaymentsbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.pendingPaymentsbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pendingPaymentsbtn.ForeColor = System.Drawing.Color.White;
+            this.pendingPaymentsbtn.Location = new System.Drawing.Point(292, 3);
+            this.pendingPaymentsbtn.Name = "pendingPaymentsbtn";
+            this.pendingPaymentsbtn.Size = new System.Drawing.Size(270, 24);
+            this.pendingPaymentsbtn.TabIndex = 6;
+            this.pendingPaymentsbtn.Text = "Pending Payments";
+            this.pendingPaymentsbtn.Click += new System.EventHandler(this.pendingPaymentsbtn_Click);
             // 
             // label3
             // 

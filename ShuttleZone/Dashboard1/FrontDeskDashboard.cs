@@ -1,4 +1,5 @@
 ﻿using ShuttleZone.Maintenance_Logs;
+using ShuttleZone.Membership;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ShuttleZone.Membership;
 
 namespace ShuttleZone.Dashboard1
 {
@@ -173,5 +175,45 @@ namespace ShuttleZone.Dashboard1
         {
 
         }
+
+        private void addMemberbtn_Click(object sender, EventArgs e)
+        {
+            var form = new AddNewMember();
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                var model = new MemberModel
+                {
+                    Name = form.MemberNameValue,
+                    Email = form.MemberEmailValue,
+                    Phone = form.MemberPhoneValue,
+                    MembershipType = form.MembershipTypeValue,
+                    ExpiryDate = DateTime.TryParse(form.ExpiryDateValue, out DateTime exp) ? exp : (DateTime?)null,
+                    JoinDate = form.JoinDateValue
+                };
+
+                int newId = DataAccess.AddMember(model);
+                /*
+                if (newId > 0)
+                    UC_Membership.LoadMembers();
+                else
+                    MessageBox.Show("Failed to add member");*/
+            }
+        }
+
+
+        public event EventHandler QuickActionPOSClicked;
+        public event EventHandler QuickActionPendingClicked;
+
+        private void pendingPaymentsbtn_Click(object sender, EventArgs e)
+        {
+            QuickActionPendingClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void openPOSbtn_Click_1(object sender, EventArgs e)
+        {
+            QuickActionPOSClicked?.Invoke(this, EventArgs.Empty);
+        }
+
     }
 }
