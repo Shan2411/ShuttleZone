@@ -525,26 +525,69 @@ namespace ShuttleZone
             var ecash = new EcashQR(total);
             ecash.PaymentCompleted += (s, args) =>
             {
-                // Generate a single receipt number
+                // Generate receipt number
                 string receiptNo = $"KIOSK-{DateTime.Now:yyyyMMddHHmmssfff}";
 
-                // Open the receipt form and let it save the transaction
+                // 🔥 Save to transactions DB before showing receipt
+                SaveKioskTransactionToHistory("E-Cash", receiptNo);
+
+                // Open receipt form WITHOUT saving (already saved above)
                 var receiptForm = new ReceiptForm(
-                    new List<CartItem>(cartItems), // clone current cart
+                    new List<CartItem>(cartItems),
                     total,
                     "E-Cash",
                     DateTime.Now,
                     courtRentalHours: cartItems.FirstOrDefault(c => c.Name.Contains("Court"))?.Qty ?? 0,
                     receiptNo: receiptNo,
-                    shouldSave: true // only save here
+                    shouldSave: false // 🔥 prevent double saving
                 );
                 receiptForm.ShowDialog(this);
 
-                // Now safely reset the cart AFTER saving
+                // Reset cart AFTER saving and showing receipt
                 ResetCartAfterPayment();
             };
 
-            ecash.ShowDialog(this); // wait until payment completed
+            ecash.ShowDialog(this);
+        }
+
+        private void SaveKioskTransactionToHistory(string paymentMethod, string receiptNo)
+        {
+            if (cartItems.Count == 0)
+                return;
+
+            try
+            {
+                using (var conn = DBconnection.GetConnection())
+                {
+                    string insertQuery = @"
+                INSERT INTO transactions 
+                    (receipt_no, transaction_date, transaction_time, income_type, 
+                     item_name, quantity, unit_price, total_amount, payment_method, 
+                     created_at, transaction_source)
+                VALUES 
+                    (@receipt_no, CURDATE(), CURTIME(), 'Sales',
+                     @item_name, @quantity, @unit_price, @total_amount, @payment_method,
+                     NOW(), 'Kiosk')";
+
+                    foreach (var item in cartItems)
+                    {
+                        using (var cmd = new MySqlCommand(insertQuery, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@receipt_no", receiptNo);
+                            cmd.Parameters.AddWithValue("@item_name", item.Name);
+                            cmd.Parameters.AddWithValue("@quantity", item.Qty);
+                            cmd.Parameters.AddWithValue("@unit_price", item.Price);
+                            cmd.Parameters.AddWithValue("@total_amount", item.Price * item.Qty);
+                            cmd.Parameters.AddWithValue("@payment_method", paymentMethod);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to save transaction: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ResetCartAfterPayment()

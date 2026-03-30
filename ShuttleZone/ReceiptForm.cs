@@ -103,6 +103,7 @@ namespace ShuttleZone
                 ? _timeIssued.AddHours(_courtRentalHours).ToString("hh:mm:ss tt")
                 : "-";
 
+            /*
             // 6. Conditionally save to database
             if (_shouldSave)
             {
@@ -113,12 +114,14 @@ namespace ShuttleZone
                     _paymentMethod,
                     "Kiosk"
                 );
-            }
+            }*/
+
+
         }
 
         private string GenerateReceiptNumber()
         {
-            return "KIOSK-" + DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            return "Receipt-" + DateTime.Now.ToString("yyyyMMddHHmmssfff");
         }
 
         private void btnClose_Click(object sender, EventArgs e)

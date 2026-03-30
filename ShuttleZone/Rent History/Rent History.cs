@@ -60,17 +60,17 @@ namespace ShuttleZone.Rent_History
             using (var conn = DBconnection.GetConnection())
             {
                 string query = @"
-            SELECT 
-                receipt_no AS colId,
-                IFNULL(DATE_FORMAT(transaction_date, '%b %d, %Y'), '') AS colDate,
-                LOWER(IFNULL(TIME_FORMAT(transaction_time, '%l:%i%p'), '')) AS colTime,
-                CONCAT('₱', FORMAT(SUM(total_amount),2)) AS colTotal,
-                payment_method AS colPayment,
-                transaction_source AS colStatus
-            FROM transactions
-            WHERE transaction_source IN ('Kiosk', 'Frontdesk')
-            GROUP BY receipt_no, transaction_date, transaction_time, payment_method, transaction_source
-            ORDER BY transaction_date DESC, transaction_time DESC";
+    SELECT 
+        receipt_no AS colId,
+        IFNULL(DATE_FORMAT(transaction_date, '%b %d, %Y'), '') AS colDate,
+        LOWER(IFNULL(TIME_FORMAT(transaction_time, '%l:%i%p'), '')) AS colTime,
+        CONCAT('₱', FORMAT(SUM(total_amount),2)) AS colTotal,
+        payment_method AS colPayment,
+        transaction_source AS colStatus
+    FROM transactions
+    WHERE transaction_source IN ('Kiosk', 'Frontdesk')
+    GROUP BY receipt_no, transaction_date, transaction_time, payment_method, transaction_source
+    ORDER BY transaction_date DESC, transaction_time DESC";
 
                 using (var cmd = new MySqlCommand(query, conn))
                 using (var adapter = new MySqlDataAdapter(cmd))
@@ -79,6 +79,8 @@ namespace ShuttleZone.Rent_History
                 }
             }
 
+            // 🔥 Reset source first to prevent duplicate columns
+            dgvTable.DataSource = null;
             dgvTable.DataSource = dt.Rows.Count > 0 ? dt : null;
 
             UpdateSummary();
