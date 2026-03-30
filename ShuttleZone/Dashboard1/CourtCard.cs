@@ -37,7 +37,11 @@ namespace ShuttleZone.Dashboard1
         {
             EnsureTimer();
 
-            _totalDuration = duration;
+            // Only set _totalDuration here for fallback/fresh starts
+            // When loading from DB, _totalDuration is set before calling this
+            if (_totalDuration == TimeSpan.Zero)
+                _totalDuration = duration;
+
             _remainingTime = duration;
 
             UpdateCountdownLabel();
@@ -264,12 +268,29 @@ namespace ShuttleZone.Dashboard1
                     var timerData = GetActiveTimerFromDB();
                     if (timerData.HasValue)
                     {
+                        // ✅ Total duration = full booked time (e.g. 60 mins)
+                        // Remaining = how much is left (e.g. 30 mins)
+                        // Progress bar will correctly show 50% instead of 100%
                         _totalDuration = timerData.Value.total;
-                        StartCountdown(timerData.Value.remaining);
+                        _remainingTime = timerData.Value.remaining;
+
+                        UpdateCountdownLabel();
+                        UpdateProgressBar();
+
+                        EnsureTimer();
+                        _countdownTimer.Start();
                     }
                     else
                     {
-                        StartCountdown(TimeSpan.FromHours(1));
+                        // Fallback — no DB record found
+                        _totalDuration = TimeSpan.FromHours(1);
+                        _remainingTime = TimeSpan.FromHours(1);
+
+                        UpdateCountdownLabel();
+                        UpdateProgressBar();
+
+                        EnsureTimer();
+                        _countdownTimer.Start();
                     }
                 }
 

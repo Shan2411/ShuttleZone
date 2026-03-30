@@ -21,7 +21,7 @@ namespace ShuttleZone.Dashboard1
         private const int WM_SETREDRAW = 11;
 
         // ── Track current filter ──────────────────────────────────────────────
-        public enum DateFilter { Today, ThisMonth, ThisYear }
+        public enum DateFilter { Today, ThisMonth, AllTime }
         private DateFilter _currentFilter = DateFilter.ThisMonth;
 
         private static readonly Color[] CourtColors = new[]
@@ -37,29 +37,28 @@ namespace ShuttleZone.Dashboard1
             InitializeComponent();
             this.DoubleBuffered = true;
             EnableDoubleBuffer(flowLayoutPanel1);
+            HighlightActiveButton(guna2Button2); // default = This Month
             LoadUtilizationData();
         }
-
         // ── BUTTONS ───────────────────────────────────────────────────────────
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             _currentFilter = DateFilter.Today;
-            //HighlightActiveButton(guna2Button1);
+            HighlightActiveButton(guna2Button1);
             LoadUtilizationData();
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             _currentFilter = DateFilter.ThisMonth;
-            //HighlightActiveButton(guna2Button2);
+            HighlightActiveButton(guna2Button2);
             LoadUtilizationData();
         }
-
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            _currentFilter = DateFilter.ThisYear;
-            //HighlightActiveButton(guna2Button3);
+            _currentFilter = DateFilter.AllTime;
+            HighlightActiveButton(guna2Button3);
             LoadUtilizationData();
         }
 
@@ -88,9 +87,11 @@ namespace ShuttleZone.Dashboard1
         public void LoadUtilizationData()
         {
             var data = FetchCourtIncomeFromDB(_currentFilter);
-            if (data == null || data.Count == 0) return;
 
-            decimal maxIncome = data.Max(d => d.TotalAmount);
+            // ✅ Don't bail out even if all courts have ₱0 — still rebuild labels
+            if (data == null) return;
+
+            decimal maxIncome = data.Count > 0 ? data.Max(d => d.TotalAmount) : 0;
             decimal totalIncome = data.Sum(d => d.TotalAmount);
 
             int progressValue = totalIncome > 0
@@ -99,12 +100,11 @@ namespace ShuttleZone.Dashboard1
 
             guna2CircleProgressBar1.Value = Math.Min(progressValue, 100);
 
-            var busiestCourt = data.OrderByDescending(d => d.TotalAmount).First();
+            string busiestCourtName = totalIncome > 0
+                ? data.OrderByDescending(d => d.TotalAmount).First().CourtName
+                : string.Empty;
 
-            // Update your progress bar center label here if you have one
-            // e.g. label8.Text = $"{busiestCourt.CourtName}\n{progressValue}%";
-
-            RebuildLabels(data, totalIncome, busiestCourt.CourtName);
+            RebuildLabels(data, totalIncome, busiestCourtName);
         }
 
         private void RebuildLabels(List<CourtIncomeData> data,
@@ -163,8 +163,8 @@ namespace ShuttleZone.Dashboard1
                 case DateFilter.Today:
                     dateCondition = "AND DATE(t.transaction_date) = CURDATE()";
                     break;
-                case DateFilter.ThisYear:
-                    dateCondition = "AND YEAR(t.transaction_date) = YEAR(CURDATE())";
+                case DateFilter.AllTime:
+                    dateCondition = ""; // no date filter — fetch everything
                     break;
                 default: // ThisMonth
                     dateCondition = @"AND MONTH(t.transaction_date) = MONTH(CURDATE())
@@ -222,7 +222,8 @@ namespace ShuttleZone.Dashboard1
             switch (_currentFilter)
             {
                 case DateFilter.Today: periodLabel = "today"; break;
-                case DateFilter.ThisYear: periodLabel = "this year"; break;
+                //case DateFilter.ThisYear: periodLabel = "this year"; break;
+                case DateFilter.AllTime: periodLabel = "all time"; break;
                 default: periodLabel = "this month"; break;
             }
 

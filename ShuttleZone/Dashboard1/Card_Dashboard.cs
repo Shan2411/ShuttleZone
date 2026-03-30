@@ -86,7 +86,10 @@ namespace ShuttleZone.Dashboard1
             }
 
         }
-
+        public void RefreshData()
+        {
+            loadPictures(label2.Text);
+        }
     }
 
 }
