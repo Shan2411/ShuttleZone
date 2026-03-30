@@ -15,7 +15,7 @@ namespace ShuttleZone
         private readonly DateTime _timeIssued;
         private readonly int _courtRentalHours;
         private readonly string _receiptNo;
-        private readonly bool _shouldSave;
+        private readonly bool _shouldSave; // NEW: decide whether to save to DB
 
         public ReceiptForm(
             List<CartItem> cartItems,
@@ -24,7 +24,7 @@ namespace ShuttleZone
             DateTime timeIssued,
             int courtRentalHours = 0,
             string receiptNo = null,
-            bool shouldSave = true)
+            bool shouldSave = true) // default true
         {
             InitializeComponent();
             TopMost = true;
@@ -42,28 +42,18 @@ namespace ShuttleZone
 
         private void GenerateReceipt()
         {
-            // =============================================
-            // 🔥 FACILITY INFO — pulled from FacilityInfoCache
-            // which was loaded from the DB at app startup (Program.cs)
-            // and reloaded every time admin saves in UC_FacilityInfo
-            // =============================================
-            lblSZ.Text = FacilityInfoCache.BusinessName;
-            lblSZInfo.Text = $"Badminton Facility\r\n\r\n{FacilityInfoCache.Address}\r\nTel: {FacilityInfoCache.Phone}";
-
-            // 1. Clear existing item rows before rebuilding
+            // 1. Clear existing items
             flowItemsContainer.Controls.Clear();
 
-            // 2. Dynamically generate one row per cart item
+            // 2. Generate rows dynamically
             foreach (var item in _cartItems)
             {
-                // Clone the template panel's size and background
                 Panel row = new Panel
                 {
                     Size = pnlItemRowTemplate.Size,
                     BackColor = pnlItemRowTemplate.BackColor
                 };
 
-                // Item name label — copies position/size/font from template
                 Label lblName = new Label
                 {
                     Text = item.Name,
@@ -73,7 +63,6 @@ namespace ShuttleZone
                 };
                 row.Controls.Add(lblName);
 
-                // Quantity label
                 Label lblQty = new Label
                 {
                     Text = item.Qty.ToString(),
@@ -83,7 +72,6 @@ namespace ShuttleZone
                 };
                 row.Controls.Add(lblQty);
 
-                // Price label — shows price × quantity
                 Label lblPrice = new Label
                 {
                     Text = (item.Price * item.Qty).ToString("₱0.00"),
@@ -96,7 +84,7 @@ namespace ShuttleZone
                 flowItemsContainer.Controls.Add(row);
             }
 
-            // 3. Compute and display totals
+            // 3. Compute totals
             decimal totalAmount = _cartItems.Sum(x => x.Price * x.Qty);
             lblTotalAmount.Text = totalAmount.ToString("₱0.00");
             lblPaymentMethod.Text = _paymentMethod;
@@ -104,19 +92,19 @@ namespace ShuttleZone
             decimal change = _amountReceived - totalAmount;
             lblChange.Text = change >= 0 ? change.ToString("₱0.00") : "₱0.00";
 
-            // 4. Receipt number — use provided one or generate new
+            // 4. Receipt number and timestamps
             string receiptNo = _receiptNo ?? GenerateReceiptNumber();
             lblReceiptNo.Text = receiptNo;
             lblDateIssued.Text = _timeIssued.ToString("MM/dd/yyyy");
             lblTimeIssued.Text = _timeIssued.ToString("hh:mm:ss tt");
 
-            // 5. Court rental due time — only show if hours > 0
+            // 5. Court rental due time
             lblDueTime.Text = _courtRentalHours > 0
                 ? _timeIssued.AddHours(_courtRentalHours).ToString("hh:mm:ss tt")
                 : "-";
 
-            // 6. Save to DB only if shouldSave is true
-            // (false when reopening old receipts from history)
+            /*
+            // 6. Conditionally save to database
             if (_shouldSave)
             {
                 TransactionRecorder.SaveFromCart(
@@ -126,12 +114,14 @@ namespace ShuttleZone
                     _paymentMethod,
                     "Kiosk"
                 );
-            }
+            }*/
+
+
         }
 
         private string GenerateReceiptNumber()
         {
-            return "KIOSK-" + DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            return "Receipt-" + DateTime.Now.ToString("yyyyMMddHHmmssfff");
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -139,6 +129,7 @@ namespace ShuttleZone
             this.Close();
         }
 
+        // ── EMPTY PLACEHOLDER EVENTS ──
         private void pnlItemRowTemplate_Paint(object sender, PaintEventArgs e) { }
         private void flowItemsContainer_Paint(object sender, PaintEventArgs e) { }
     }
