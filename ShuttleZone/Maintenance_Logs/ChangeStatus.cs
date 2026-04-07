@@ -164,6 +164,10 @@ namespace ShuttleZone.Maintenance_Logs
                 }
             }
         }
+
+
+
+
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -188,6 +192,7 @@ namespace ShuttleZone.Maintenance_Logs
                 }
             }
 
+            string statusArduino = "";
 
             switch (courtName)
             {
@@ -202,6 +207,29 @@ namespace ShuttleZone.Maintenance_Logs
                         MessageBox.Show("Status changed to " + Globals.statusFromDB);
                         this.Close();
                         _maintenanceWindow?.RefreshPanel();
+
+                        
+                        statusArduino = ""; // default value
+
+                        switch (tempStatus)
+                        {
+                            case "Operational":
+                                statusArduino = "AVAILABLE";
+                                break;
+                            case "Under Maintenance":
+                                statusArduino = "MAINTENANCE";
+                                break;
+                            case "Out of Service":
+                                statusArduino = "OUTOFSERVICE";
+                                break;
+                            default:
+                                statusArduino = "UNKNOWN";
+                                break;
+
+                        }
+
+                        Globals.SendCourtCommand(1, statusArduino, 0);
+
                     }
                     catch (Exception error) { MessageBox.Show(error.Message); }
                     break;
@@ -212,6 +240,29 @@ namespace ShuttleZone.Maintenance_Logs
                         MessageBox.Show("Status changed to " + Globals.statusFromDB1);
                         this.Close();
                         _maintenanceWindow?.RefreshPanel();
+
+
+                        statusArduino = ""; // default value
+
+                        switch (tempStatus)
+                        {
+                            case "Operational":
+                                statusArduino = "AVAILABLE";
+                                break;
+                            case "Under Maintenance":
+                                statusArduino = "MAINTENANCE";
+                                break;
+                            case "Out of Service":
+                                statusArduino = "OUTOFSERVICE";
+                                break;
+                            default:
+                                statusArduino = "UNKNOWN";
+                                break;
+
+                        }
+
+                        Globals.SendCourtCommand(2, statusArduino, 0);
+
                     }
                     catch (Exception error) { MessageBox.Show(error.Message); }
                     break;
@@ -222,6 +273,29 @@ namespace ShuttleZone.Maintenance_Logs
                         MessageBox.Show("Status changed to " + Globals.statusFromDB2);
                         this.Close();
                         _maintenanceWindow?.RefreshPanel();
+
+
+                        statusArduino = ""; // default value
+
+                        switch (tempStatus)
+                        {
+                            case "Operational":
+                                statusArduino = "AVAILABLE";
+                                break;
+                            case "Under Maintenance":
+                                statusArduino = "MAINTENANCE";
+                                break;
+                            case "Out of Service":
+                                statusArduino = "OUTOFSERVICE";
+                                break;
+                            default:
+                                statusArduino = "UNKNOWN";
+                                break;
+
+                        }
+
+                        Globals.SendCourtCommand(3, statusArduino, 0);
+
                     }
                     catch (Exception error) { MessageBox.Show(error.Message); }
                     break;
@@ -232,6 +306,7 @@ namespace ShuttleZone.Maintenance_Logs
                         MessageBox.Show("Status changed to " + Globals.statusFromDB3);
                         this.Close();
                         _maintenanceWindow?.RefreshPanel();
+
                     }
                     catch (Exception error) { MessageBox.Show(error.Message); }
                     break;

@@ -8,10 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Forms;
+using System.IO.Ports;
+using System.Collections.Generic;
+using System.Windows;
 
 
 namespace ShuttleZone.Maintenance_Logs
 {
+
     public static class Globals
     {
         public static string CurrentCourtStatus;
@@ -27,6 +31,65 @@ namespace ShuttleZone.Maintenance_Logs
         public static string membershipPrice1Month = "600";
         public static string membershipPrice1Year = "4500";
         public static string mambershipDiscount = "20";
+
+        public static Dictionary<int, SerialPort> ports = new Dictionary<int, SerialPort>();
+
+        // IMPORTANT
+
+        public static void SendCourtCommand(int courtNumber, string status, int minutes = 0)
+        {
+            string command;
+
+            switch (status)
+            {
+                case "INUSE":
+                    command = "START";
+                    break;
+                case "AVAILABLE":
+                    command = "AVAILABLE";
+                    break;
+                case "MAINTENANCE":
+                    command = "MAINTENANCE";
+                    break;
+                case "OUTOFSERVICE":
+                    command = "OUTOFSERVICE";
+                    break;
+                case "CANCEL":
+                    command = "STOP";
+                    break;
+                default:
+                    MessageBox.Show($"Unknown status: {status}");
+                    return;
+            }
+
+            if (!ports.ContainsKey(courtNumber)) return;
+
+            var port = ports[courtNumber];
+
+            try
+            {
+                if (!port.IsOpen) port.Open();
+
+                string message;
+
+                // ─────────────────────────────
+                // START WITH MINUTES (NEW LOGIC)
+                if (command == "START" && minutes > 0)
+                {
+                    message = $"COURT{courtNumber}:{command}:{minutes}";
+                }
+                else
+                {
+                    message = $"COURT{courtNumber}:{command}";
+                }
+
+                port.WriteLine(message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Court {courtNumber} send error: " + ex.Message);
+            }
+        }
 
         //dashbord
         public static string GetCourtStatusFromDB(string court)
@@ -394,7 +457,7 @@ namespace ShuttleZone.Maintenance_Logs
         // COURT TIMERS
         public static void StartCourtTimer(int transactionId, int courtId, int quantity)
         {
-            int durationMinutes = quantity * 60;
+            int durationMinutes = quantity * 1;
 
             using (var conn = DBconnection.GetConnection())
             {
@@ -422,6 +485,11 @@ namespace ShuttleZone.Maintenance_Logs
                     cmd.Parameters.AddWithValue("@court_id", courtId);
                     cmd.ExecuteNonQuery();
                 }
+
+                //sync to arduino
+
+                SendCourtCommand(courtId, "INUSE", durationMinutes);
+
             }
         }
         public static void UpdateAllCourtTimers()

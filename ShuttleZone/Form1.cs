@@ -10,6 +10,7 @@
     using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
+    using System.IO.Ports;
 
     namespace ShuttleZone
     {
@@ -22,7 +23,16 @@
             {
                 InitializeComponent();
 
-                this.SetStyle(ControlStyles.OptimizedDoubleBuffer
+            Globals.ports[1] = new SerialPort("COM5", 9600);
+            //Globals.ports[2] = new SerialPort("COM4", 9600);
+            Globals.ports[3] = new SerialPort("COM3", 9600);
+
+            Globals.ports[1].Open();
+            //Globals.ports[2].Open();
+            Globals.ports[3].Open();
+
+
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer
                             | ControlStyles.AllPaintingInWmPaint
                             | ControlStyles.UserPaint, true);
 

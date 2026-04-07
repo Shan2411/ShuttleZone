@@ -401,17 +401,27 @@ namespace ShuttleZone.Dashboard1
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            var result = MessageBox.Show(
+                "Are you sure you want to set the timer to 5 seconds?",
+                "Confirm Action",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result != DialogResult.Yes)
+                return;
+
             try
             {
-                // 1. Update end_time in DB to 10 seconds from now
+                // 1. Update end_time in DB to 5 seconds from now
                 string query = @"
-            UPDATE court_timers
-            SET 
-                end_time = DATE_ADD(NOW(), INTERVAL 5 SECOND),
-                time_remaining_minutes = 0,
-                status = 'active'
-            WHERE court_id = (SELECT court_id FROM courts WHERE court_name = @court_name LIMIT 1)
-              AND status = 'active'";
+        UPDATE court_timers
+        SET 
+            end_time = DATE_ADD(NOW(), INTERVAL 5 SECOND),
+            time_remaining_minutes = 0,
+            status = 'active'
+        WHERE court_id = (SELECT court_id FROM courts WHERE court_name = @court_name LIMIT 1)
+          AND status = 'active'";
 
                 using (var conn = DBconnection.GetConnection())
                 using (var cmd = new MySqlCommand(query, conn))
@@ -420,9 +430,36 @@ namespace ShuttleZone.Dashboard1
                     cmd.ExecuteNonQuery();
                 }
 
-                // 2. Stop current countdown and restart with 10 seconds
+                int courtID = 0;
+
+                string query2 = @"
+                SELECT court_id 
+                FROM courts 
+                WHERE court_name = @court_name 
+                LIMIT 1";
+
+                using (var conn = DBconnection.GetConnection())
+                {
+
+                    using (var cmd = new MySqlCommand(query2, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@court_name", _courtName);
+
+                        object result2 = cmd.ExecuteScalar();
+
+                        if (result2 != null && result2 != DBNull.Value)
+                        {
+                            courtID = Convert.ToInt32(result2);
+                        }
+                    }
+                }
+
+
+                Globals.SendCourtCommand(courtID, "CANCEL");
+
+                // 2. Restart countdown with 5 seconds
                 StopCountdown();
-                _lastStatus = ""; // force countDownStarter to redraw
+                _lastStatus = "";
                 _totalDuration = TimeSpan.FromSeconds(5);
                 _remainingTime = TimeSpan.FromSeconds(5);
 
@@ -434,8 +471,12 @@ namespace ShuttleZone.Dashboard1
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to set timer to 10 seconds.\n\n" + ex.Message,
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Failed to set timer to 5 seconds.\n\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
     }

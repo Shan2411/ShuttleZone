@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using ShuttleZone.Maintenance_Logs;
 
 namespace ShuttleZone
 {
@@ -88,13 +89,16 @@ namespace ShuttleZone
 
             // 5. Court rental due time
             lblDueTime.Text = _courtRentalHours > 0
-                ? _timeIssued.AddHours(_courtRentalHours).ToString("hh:mm:ss tt")
-                : "-";
+            ? _timeIssued.AddMinutes(_courtRentalHours)
+                .ToString("hh:mm:ss tt")
+            : "-";
 
             // ── [NEW] Record all cart items to the database ───────────────────
             //  This single line saves every item in the cart to `transactions`.
             //  Nothing else in this file was changed.
-            TransactionRecorder.SaveFromCart(receiptNo, _timeIssued, _cartItems, _paymentMethod, "Frontdesk"); 
+            TransactionRecorder.SaveFromCart(receiptNo, _timeIssued, _cartItems, _paymentMethod, "Frontdesk");
+
+            //Globals.SendCourtCommand(1, "INUSE");
         }
 
         private string GenerateReceiptNumber()
