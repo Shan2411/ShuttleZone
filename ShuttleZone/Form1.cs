@@ -9,8 +9,9 @@
     using System;
     using System.Collections.Generic;
     using System.Drawing;
-    using System.Windows.Forms;
     using System.IO.Ports;
+using System.Threading;
+    using System.Windows.Forms;
 
     namespace ShuttleZone
     {
@@ -18,19 +19,15 @@
         {
             // 🔥 Store all views here (REUSABLE)
             private Dictionary<Type, UserControl> _views = new Dictionary<Type, UserControl>();
+
+            //Dictionary<string, SerialPort> ports = new Dictionary<string, SerialPort>();
+
             private string _username;
             public Form1(string username)
             {
                 InitializeComponent();
 
-            Globals.ports[1] = new SerialPort("COM5", 9600);
-            //Globals.ports[2] = new SerialPort("COM4", 9600);
-            Globals.ports[3] = new SerialPort("COM3", 9600);
-
-            Globals.ports[1].Open();
-            //Globals.ports[2].Open();
-            Globals.ports[3].Open();
-
+            DetectArduinos();
 
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer
                             | ControlStyles.AllPaintingInWmPaint
@@ -44,8 +41,41 @@
                 DateLbl.Text = date.ToString("dddd, MMMM dd, yyyy");
             }
 
-            // Public helper to apply role-specific UI from outside (LoginForm)
-            public void SetRole(string role)
+        void DetectArduinos()
+        {
+            Globals.ports.Clear();
+            foreach (string portName in SerialPort.GetPortNames())
+            {
+                try
+                {
+                    SerialPort sp = new SerialPort(portName, 9600);
+                    sp.ReadTimeout = 1500;
+
+                    sp.Open();
+
+                    Thread.Sleep(1500);
+
+                    string id = sp.ReadExisting();
+
+                    if (id.Contains("COURT1"))
+                        Globals.ports["COURT1"] = sp;
+                    else if (id.Contains("COURT2"))
+                        Globals.ports["COURT2"] = sp;
+                    else if (id.Contains("COURT3"))
+                        Globals.ports["COURT3"] = sp;
+                    else
+                        sp.Close();
+                }
+                catch
+                {
+                    // ignore errors
+                }
+            }
+        }
+
+
+        // Public helper to apply role-specific UI from outside (LoginForm)
+        public void SetRole(string role)
             {
                 if (string.IsNullOrEmpty(role))
                     return;

@@ -32,12 +32,14 @@ namespace ShuttleZone.Maintenance_Logs
         public static string membershipPrice1Year = "4500";
         public static string mambershipDiscount = "20";
 
-        public static Dictionary<int, SerialPort> ports = new Dictionary<int, SerialPort>();
+        public static Dictionary<string, SerialPort> ports = new Dictionary<string, SerialPort>();
 
         // IMPORTANT
 
         public static void SendCourtCommand(int courtNumber, string status, int minutes = 0)
         {
+            string courtId = $"COURT{courtNumber}";
+
             string command;
 
             switch (status)
@@ -62,32 +64,36 @@ namespace ShuttleZone.Maintenance_Logs
                     return;
             }
 
-            if (!ports.ContainsKey(courtNumber)) return;
+            // ✅ FIX: use Globals.ports (single source of truth)
+            if (!Globals.ports.ContainsKey(courtId))
+            {
+                MessageBox.Show($"Court not found: {courtId}\nAvailable: {string.Join(",", Globals.ports.Keys)}");
+                return;
+            }
 
-            var port = ports[courtNumber];
+            var port = Globals.ports[courtId];
 
             try
             {
-                if (!port.IsOpen) port.Open();
+                if (!port.IsOpen)
+                    port.Open();
 
                 string message;
 
-                // ─────────────────────────────
-                // START WITH MINUTES (NEW LOGIC)
                 if (command == "START" && minutes > 0)
                 {
-                    message = $"COURT{courtNumber}:{command}:{minutes}";
+                    message = $"{courtId}:{command}:{minutes}";
                 }
                 else
                 {
-                    message = $"COURT{courtNumber}:{command}";
+                    message = $"{courtId}:{command}";
                 }
 
                 port.WriteLine(message);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Court {courtNumber} send error: " + ex.Message);
+                MessageBox.Show($"{courtId} send error: " + ex.Message);
             }
         }
 
